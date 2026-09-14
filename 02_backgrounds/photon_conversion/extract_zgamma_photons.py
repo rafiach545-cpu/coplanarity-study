@@ -65,6 +65,7 @@ def build_dataframe(hepmc_path, max_events=None):
     rows = []
     n_no_photon = 0
     n_met_fail = 0
+    n_pt_gamma_fail = 0
     for i, ev in enumerate(events):
         if ev["weight"] is None or ev["weight"] <= 0:
             continue
@@ -73,6 +74,18 @@ def build_dataframe(hepmc_path, max_events=None):
             continue
         # hardest photon by pT
         px, py, pz, E = max(ev["photons"], key=lambda p: np.hypot(p[0], p[1]))
+        pT_gamma = np.hypot(px, py)
+        if pT_gamma < 0.5:
+            # Paper (Sec III D) states pT_gamma > 0.5 GeV as an explicit cut.
+            # The run_card's generation-level `ptgmin=0.5` is only a PROXY for
+            # this, exactly like `misset` was a proxy for the true post-shower
+            # MET cut below -- unlike MET, hadronization does not measurably
+            # pull the LEADING photon's pT down (no secondary-photon analog of
+            # the secondary-neutrino effect), so this proxy is expected to
+            # hold essentially exactly; verified here rather than assumed, per
+            # the same rigor already applied to the MET cut.
+            n_pt_gamma_fail += 1
+            continue
         met = np.hypot(ev["nu_px"], ev["nu_py"])
         if met < 200.0:
             # The generation-level `misset` cut only sees the 2 primary
@@ -87,10 +100,12 @@ def build_dataframe(hepmc_path, max_events=None):
         rows.append({
             "event": i, "weight": ev["weight"],
             "px": px, "py": py, "pz": pz, "E": E,
-            "pT_gamma": np.hypot(px, py), "met": met,
+            "pT_gamma": pT_gamma, "met": met,
         })
     df = pd.DataFrame(rows)
     print(f"Events with no final-state photon found: {n_no_photon}")
+    print(f"Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut "
+          f"(expected ~0, confirms the cut holds post-shower): {n_pt_gamma_fail}")
     print(f"Events with MET < 200 GeV despite generation-level misset cut "
           f"(should be ~0, confirms the cut is exact): {n_met_fail}")
     return df
