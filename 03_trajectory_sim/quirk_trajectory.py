@@ -93,11 +93,20 @@ def string_force(v, n_hat, Lambda2):
     floating point, matching the paper's stated numerical treatment for
     near-threshold configurations (Sec. II, "close to threshold quirks").
     """
+    n_hat_norm = np.linalg.norm(n_hat)
+    if not np.isfinite(n_hat_norm) or abs(n_hat_norm - 1.0) > 1e-6:
+        raise ValueError(f"string_force: n_hat must be unit-length, got |n_hat|={n_hat_norm}")
+
     v_par_scalar = np.dot(v, n_hat)
     v_par_vec = v_par_scalar * n_hat
     v_perp_vec = v - v_par_vec
 
     v_perp2 = np.dot(v_perp_vec, v_perp_vec)
+    # v_perp2 must be < 1 for a physical (sub-luminal) velocity; the 1e-12
+    # floor only guards against floating-point overshoot exactly at v->c, not
+    # a genuinely unphysical input (those are rejected earlier, at the
+    # integrator entry point, by _validate_integration_inputs / the per-step
+    # NaN/inf check in integrate_trajectory).
     sqrt_term = np.sqrt(max(1.0 - v_perp2, 1e-12))
 
     # term1 = sqrt(1-v_perp^2)/v_par * v_par_vec.  v_par_vec = v_par_scalar *
@@ -138,12 +147,26 @@ def equations_of_motion(t, y, mass, charge1, charge2, Lambda2, B_vec):
     sep = state.x1 - state.x2  # points from quirk 2 to quirk 1
     dist = np.linalg.norm(sep)
     if dist < 1e-9:
-        # Degenerate case (e.g. t=0, both quirks produced at the same point):
-        # use each quirk's own velocity direction as its "outward" (away-
-        # from-partner) direction, since that is the direction separation is
-        # about to develop in for that quirk.
-        v1_norm = np.linalg.norm(v1)
-        n_hat_1 = v1 / v1_norm if v1_norm > 1e-12 else np.array([1.0, 0.0, 0.0])
+        # Degenerate case (e.g. t=0, both quirks produced at the same point --
+        # this is the ACTUAL initial condition for every event: x1_0=x2_0 in
+        # simulate_quirk_hits). The separation direction is undefined at
+        # dist=0, but its first-order time development is not: for small t,
+        # sep(t) = x1(t)-x2(t) ~ (v1-v2)*t, so the emerging "outward" direction
+        # for quirk 1 is v_rel = v1-v2, NOT quirk 1's own lab-frame velocity
+        # v1. Using v1 alone is only correct in the special case v2=0 or a
+        # symmetric back-to-back CM-frame setup; for a boosted, asymmetric
+        # pair (every real MadGraph event) it silently biases the very first
+        # RK4 step's string-force direction toward v1's direction instead of
+        # the true relative-velocity direction.
+        v_rel = v1 - v2
+        v_rel_norm = np.linalg.norm(v_rel)
+        if v_rel_norm > 1e-12:
+            n_hat_1 = v_rel / v_rel_norm
+        else:
+            # Both separation AND relative velocity are numerically zero
+            # (e.g. two identical particles at rest relative to each other) --
+            # direction is genuinely undefined; deterministic fallback.
+            n_hat_1 = np.array([1.0, 0.0, 0.0])
         n_hat_2 = -n_hat_1
     else:
         n_hat_1 = sep / dist   # points away from quirk 2, i.e. outward for quirk 1
@@ -171,6 +194,36 @@ def rk4_step(f, t, y, dt, *args):
     return y + (dt / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4)
 
 
+def _validate_integration_inputs(x1_0, p1_0, x2_0, p2_0, mass, Lambda_GeV,
+                                  t_max_gev_inv, dt_gev_inv):
+    """
+    Cheap, physically-motivated guards. These reject configurations that are
+    already invalid before a single RK4 step is taken, rather than letting
+    them silently propagate into a NaN/garbage trajectory that is only
+    noticed (or not) much further downstream.
+    """
+    for name, vec in (("x1_0", x1_0), ("p1_0", p1_0), ("x2_0", x2_0), ("p2_0", p2_0)):
+        arr = np.asarray(vec, dtype=float)
+        if arr.shape != (3,) or not np.all(np.isfinite(arr)):
+            raise ValueError(f"{name} must be a finite 3-vector, got {vec}")
+
+    if not (mass > 0):
+        raise ValueError(f"mass must be > 0, got {mass}")
+    if not (Lambda_GeV >= 0):
+        raise ValueError(f"Lambda_GeV must be >= 0, got {Lambda_GeV}")
+    if not (dt_gev_inv > 0):
+        raise ValueError(f"dt_gev_inv must be > 0, got {dt_gev_inv}")
+    if not (t_max_gev_inv > 0):
+        raise ValueError(f"t_max_gev_inv must be > 0, got {t_max_gev_inv}")
+
+    for name, p in (("p1_0", p1_0), ("p2_0", p2_0)):
+        v, E = velocity_from_momentum(np.asarray(p, dtype=float), mass)
+        speed = np.linalg.norm(v)
+        if not (speed < 1.0):
+            raise ValueError(f"{name} implies |v| = {speed} >= 1 (speed of light); "
+                              "check units (GeV) and mass.")
+
+
 def integrate_trajectory(x1_0, p1_0, x2_0, p2_0, mass, charge1, charge2,
                           Lambda_GeV, B_tesla, t_max_gev_inv, dt_gev_inv,
                           e_charge_natural=0.30282212):
@@ -190,13 +243,22 @@ def integrate_trajectory(x1_0, p1_0, x2_0, p2_0, mass, charge1, charge2,
     # electron cyclotron frequency omega=eB/m (see docs/DEVIATIONS_LOG.md --
     # an earlier version of this constant was wrong by a factor of ~1e4,
     # caught only by this cross-check, not by the B=0 Eq.4 validation).
+    _validate_integration_inputs(x1_0, p1_0, x2_0, p2_0, mass, Lambda_GeV,
+                                  t_max_gev_inv, dt_gev_inv)
+
     TESLA_TO_GEV2 = 1.9535e-16
     B_vec = np.array([0.0, 0.0, B_tesla * TESLA_TO_GEV2])
 
     Lambda2 = Lambda_GeV ** 2
 
     y = np.concatenate([x1_0, p1_0, x2_0, p2_0])
-    n_steps = int(t_max_gev_inv / dt_gev_inv)
+
+    # ceil (not int/truncation): int(t_max/dt) always rounds DOWN, so the
+    # trajectory would stop up to one dt short of the requested t_max. Use
+    # ceil to guarantee at least t_max is covered, then shrink ONLY the final
+    # step so the last sample lands exactly on t_max rather than overshooting
+    # it by up to one dt.
+    n_steps = int(np.ceil(t_max_gev_inv / dt_gev_inv))
 
     ts = np.zeros(n_steps + 1)
     xs1 = np.zeros((n_steps + 1, 3))
@@ -209,10 +271,16 @@ def integrate_trajectory(x1_0, p1_0, x2_0, p2_0, mass, charge1, charge2,
 
     t = 0.0
     for i in range(1, n_steps + 1):
-        y = rk4_step(equations_of_motion, t, y, dt_gev_inv,
+        step = dt_gev_inv if i < n_steps else (t_max_gev_inv - t)
+        y = rk4_step(equations_of_motion, t, y, step,
                      mass, charge1 * e_charge_natural, charge2 * e_charge_natural,
                      Lambda2, B_vec)
-        t += dt_gev_inv
+        t += step
+        if not np.all(np.isfinite(y)):
+            raise RuntimeError(
+                f"integrate_trajectory: non-finite state at step {i}/{n_steps} "
+                f"(t={t:.3e} GeV^-1, dt={step:.3e} GeV^-1) -- integration "
+                "diverged. Check mass/Lambda/charge/B inputs and dt resolution.")
         state = QuirkPairState.from_vector(y)
         ts[i] = t
         xs1[i], ps1[i] = state.x1, state.p1
@@ -225,28 +293,76 @@ def integrate_trajectory(x1_0, p1_0, x2_0, p2_0, mass, charge1, charge2,
     }
 
 
-def angular_momentum_and_separation(traj, mass):
+def angular_momentum_and_separation(traj, mass, L_ref_normal=None):
     """
-    Per-timestep internal angular momentum L (about the CM) and separation d,
-    in the CM frame's spatial sense but computed directly from lab-frame
-    positions/momenta for simplicity (matches Fig. 2 style diagnostic).
+    Per-timestep diagnostic quantities, computed directly from LAB-FRAME
+    positions/momenta about the spatial midpoint xcm=(x1+x2)/2 -- this is
+    NOT a proper equal-CM-time, Lorentz-boosted CM-frame calculation (that
+    would require picking a common CM-time slice and boosting positions into
+    the CM frame, which this function does not do). It is disclosed here as
+    a "Fig. 2-style diagnostic," not claimed to be an exact reproduction.
 
-    Returns (r_cm_array_in_cm, L_array_in_hbar_units, d_array_in_cm).
+    IMPORTANT -- factor-of-2 / notation warning: the paper uses "d" with two
+    DIFFERENT meanings in different places:
+      - Eq. 1 and Eq. 4 ("d_cm"): the distance from the CM to ONE quirk
+        (validated exactly against Eq. 4 in validate_against_eq4.py).
+      - Eq. 5-7: "2d" is used explicitly for the FULL quirk-to-quirk
+        separation, i.e. their "d" alone = one-quirk-from-CM distance again,
+        matching Eq. 1/4's d_cm.
+      - Fig. 2's caption ("the relative distance between the quirks d") reads
+        most naturally as the FULL endpoint-to-endpoint separation.
+    This function's `separation_full` field is the FULL |x1-x2| separation
+    (matching Fig. 2's apparent meaning), which is 2x the Eq. 5-7 "d". Do
+    not plug `separation_full` directly into an Eq. 5-9 formula expecting
+    their "d" -- divide by 2 first (or use `separation_from_midpoint`, which
+    is the individual-quirk-to-midpoint distance matching Eq. 5-7's "d").
+
+    Returns a dict (all length-n arrays):
+      r_cm_from_origin_cm       -- |xcm|, midpoint distance from lab origin (cm)
+      separation_full_cm        -- |x1-x2|, FULL endpoint-to-endpoint separation (cm)
+                                    (this is what Fig. 2's "d" most plausibly means)
+      separation_from_midpoint_cm -- |x1-x2|/2, distance of EACH endpoint from
+                                    the midpoint (this is Eq. 5-7's "d", i.e.
+                                    separation_full_cm / 2)
+      L_vector                  -- (n,3) internal angular momentum vector,
+                                    natural units (hbar=1), about the midpoint
+      L_norm                    -- |L_vector| per timestep
+      L_signed_on_ref           -- L_vector . L_ref_normal (signed scalar);
+                                    L_ref_normal defaults to L_vector[0]'s
+                                    direction once |L| first clears a small
+                                    noise floor, else +z.
     """
     x1, p1, x2, p2 = traj["x1"], traj["p1"], traj["x2"], traj["p2"]
     n = len(x1)
 
-    L = np.zeros(n)
-    d = np.zeros(n)
-    r_cm = np.zeros(n)
+    xcm = 0.5 * (x1 + x2)
+    rel_x = x1 - x2
+    rel_p = 0.5 * (p1 - p2)
+    Lvec = np.cross(rel_x, rel_p)
+    Lnorm = np.linalg.norm(Lvec, axis=1)
 
-    for i in range(n):
-        xcm = 0.5 * (x1[i] + x2[i])
-        rel_x = x1[i] - x2[i]
-        rel_p = 0.5 * (p1[i] - p2[i])
-        Lvec = np.cross(rel_x, rel_p)
-        L[i] = np.linalg.norm(Lvec)  # in natural units (dimensionless, hbar=1)
-        d[i] = np.linalg.norm(rel_x)
-        r_cm[i] = np.linalg.norm(xcm)
+    r_cm_from_origin = np.linalg.norm(xcm, axis=1)
+    separation_full = np.linalg.norm(rel_x, axis=1)
 
-    return gev_to_cm(r_cm), L, gev_to_cm(d)
+    if L_ref_normal is None:
+        noise_floor = 1e-6 * Lnorm.max() if Lnorm.max() > 0 else np.inf
+        first_valid = np.argmax(Lnorm > noise_floor) if np.any(Lnorm > noise_floor) else None
+        if first_valid is not None and Lnorm[first_valid] > 0:
+            L_ref_normal = Lvec[first_valid] / Lnorm[first_valid]
+        else:
+            L_ref_normal = np.array([0.0, 0.0, 1.0])
+    else:
+        L_ref_normal = np.asarray(L_ref_normal, dtype=float)
+        L_ref_normal = L_ref_normal / np.linalg.norm(L_ref_normal)
+
+    L_signed_on_ref = Lvec @ L_ref_normal
+
+    return {
+        "r_cm_from_origin_cm": gev_to_cm(r_cm_from_origin),
+        "separation_full_cm": gev_to_cm(separation_full),
+        "separation_from_midpoint_cm": gev_to_cm(separation_full / 2.0),
+        "L_vector": Lvec,
+        "L_norm": Lnorm,
+        "L_signed_on_ref": L_signed_on_ref,
+        "L_ref_normal": L_ref_normal,
+    }
