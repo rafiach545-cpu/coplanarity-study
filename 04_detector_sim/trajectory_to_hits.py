@@ -388,6 +388,15 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
     # for cutflow/"before vs after merging" reporting.
     traj["n_hits_premerge"] = len(raw_hits)
     traj["n_hits_postmerge"] = len(merged_hits)
+    # TRUTH-level crossing timing, from the pre-merge raw hits -- needed for
+    # the paper's Sec IV, post-Eq.12 "25 ns timing cut" (part of the
+    # fiducial-efficiency definition). Deliberately NOT read from
+    # merged_hits: merge_neighboring_pixel_hits's merged entries inherit
+    # t_ns from an arbitrary cluster member (the "seed"), not a genuine
+    # max/representative time across the cluster, so post-merge timing is
+    # not a faithful truth-crossing-time proxy.
+    traj["max_hit_t_ns_premerge"] = (max(h["t_ns"] for h in raw_hits)
+                                       if raw_hits else float("nan"))
     return merged_hits, traj
 
 
