@@ -30,11 +30,18 @@ from atlas_geometry import LAYERS, FIDUCIAL_ETA_MAX, BEAMSPOT_SIGMA_Z_CM, eta_fr
 C_LIGHT_CM_PER_NS = 29.9792458  # speed of light, cm/ns
 
 # Minimum RK4 steps per internal oscillation period below which the
-# integrated trajectory is considered under-resolved. Value justified by
-# validate_dt_convergence.py (03_trajectory_sim): relative error vs the exact
-# Eq. 4 solution stays < 1e-4 down to ~200 steps/period and only degrades
-# beyond that; 300 is kept as a safety margin above the measured knee. See
-# that script's printed table for the actual measured convergence numbers.
+# integrated trajectory is considered under-resolved. Justified by
+# validate_dt_convergence.py (03_trajectory_sim, mQ=1.8TeV/Lambda=2keV/v=0.6
+# benchmark, measured 2026-09-14): relative error vs the exact Eq. 4 solution
+# is already < 1e-4 down to the smallest scanned value (30 steps/period,
+# 3.3e-8 rel err) and stays below 1e-4 across the entire scanned range up to
+# 3000 steps/period -- RK4's 4th-order convergence (verified: ~16x error
+# reduction per dt halving, exactly the theoretical rate) means this
+# integrator is far more accurate than the coplanarity cuts (cm-scale) need.
+# 300 is therefore a conservative (~10x) safety margin above the measured
+# floor, not a marginal value -- chosen so this check essentially never
+# fires for a well-resolved event, while still catching genuine gross
+# under-resolution (the kind that caused the "33x too short" bug).
 MIN_STEPS_PER_PERIOD = 300
 
 

@@ -109,13 +109,33 @@ def run_bfield_check(mQ_gev, Lambda_gev, v_internal, beta_cm, B_tesla, label):
     Lvec = np.cross(rel_x, rel_p)
     L_hbar = np.linalg.norm(Lvec, axis=1)  # natural units, hbar=1
 
-    # Delta_phi: cumulative rotation of the orbital-plane normal (direction
-    # of Lvec) over time. L starts at exactly 0 (paper: "negligible angular
-    # momentum" at production), so a single fixed reference direction is
-    # ill-defined early on; instead sum the incremental angle between
+    # "Fig. 3-style diagnostic" (NOT an exact reproduction of the paper's own
+    # Delta_phi calculation, which is not published in closed form) -- the
+    # cumulative rotation of the orbital-PLANE normal (an axis, not a
+    # directed vector) over time. L starts at exactly 0 (paper: "negligible
+    # angular momentum" at production), so a single fixed reference direction
+    # is ill-defined early on; instead sum the incremental angle between
     # consecutive samples, only once |L| clears a small noise floor (set
     # relative to the peak |L| reached), which is closer in spirit to the
     # paper's Eq. 8 (a running/perturbative integral of the torque effect).
+    #
+    # n vs -n handling: because the PLANE (not a directed rotation sense) is
+    # what physically matters here, and |L| genuinely oscillates through
+    # values near zero as the quirks' internal motion passes through purely
+    # radial configurations (Fig. 2), Lhat's direction is only meaningful up
+    # to an overall sign at each sample -- an earlier version of this script
+    # took the raw dot product between consecutive Lhat samples, which
+    # registers a near-180-degree "rotation" every time |L| dips through a
+    # noise-floor-adjacent value and Lhat's arbitrary sign flips, even though
+    # the physical plane barely moved. This produced a spurious final
+    # Delta_phi of order 2*pi-40*pi (i.e. many full "rotations"), wildly
+    # inconsistent with the paper's stated <~1e-3 ceiling -- confirmed
+    # present in the code BEFORE the current session's Eq.3/A1 fix too (this
+    # is a pre-existing diagnostic-robustness bug, not something introduced
+    # by that fix). Fixed by re-orienting each Lhat sample to whichever sign
+    # is closer to the running reference direction (continuity correction)
+    # before accumulating the angle -- a standard disambiguation for
+    # headless-axis continuity.
     Lnorms = np.linalg.norm(Lvec, axis=1)
     noise_floor = 1e-6 * Lnorms.max() if Lnorms.max() > 0 else np.inf
     valid = Lnorms > noise_floor
@@ -127,10 +147,26 @@ def run_bfield_check(mQ_gev, Lambda_gev, v_internal, beta_cm, B_tesla, label):
     last_valid_hat = None
     for i in range(n):
         if valid[i]:
+            hat_i = Lhat[i]
             if last_valid_hat is not None:
-                cos_step = np.clip(np.dot(Lhat[i], last_valid_hat), -1.0, 1.0)
-                cumulative += np.arccos(cos_step)
-            last_valid_hat = Lhat[i]
+                if np.dot(hat_i, last_valid_hat) < 0:
+                    hat_i = -hat_i  # continuity: same axis, opposite arbitrary sign
+                # arccos(dot) loses essentially all precision for the tiny
+                # per-step angles expected here (arccos'(1) diverges): with
+                # fine per-oscillation-period timesteps, consecutive Lhat
+                # samples are nearly parallel, and dot() rounds to exactly
+                # 1.0 in float64 almost every step, making EVERY step's
+                # contribution silently round to arccos(1.0)=0.0 -- the
+                # correction above removed the earlier spurious near-180-deg
+                # jumps, which had been masking this separate precision bug
+                # (the two together previously looked like "it works" only
+                # because one error was swamping the other). atan2(|cross|,
+                # dot) is the standard numerically robust angle-between-
+                # vectors formula and remains accurate for small angles.
+                cross_mag = np.linalg.norm(np.cross(last_valid_hat, hat_i))
+                dot_val = np.dot(last_valid_hat, hat_i)
+                cumulative += np.arctan2(cross_mag, dot_val)
+            last_valid_hat = hat_i
         dphi[i] = cumulative
 
     print(f"  r_cm range: {r_cm_cm.min():.3f} -> {r_cm_cm.max():.3f} cm")
@@ -140,6 +176,18 @@ def run_bfield_check(mQ_gev, Lambda_gev, v_internal, beta_cm, B_tesla, label):
           f"(paper benchmark order of magnitude: ~1e12 hbar)")
     print(f"  Delta_phi final value: {dphi[-1]:.3e} "
           f"(paper: typically <~ 1e-3 for this benchmark)")
+    if dphi[-1] == 0.0:
+        print("  NOTE: exactly 0.0 here is a SYMMETRY ARTIFACT of this specific "
+              "test's geometry, not evidence the torque/rotation physics is "
+              "negligible: with tilt=[0,0,1] (internal motion along z), boost "
+              "along x, and B along z, every vector in the problem stays "
+              "confined to the x-z plane, so L=rel_x x rel_p is CONFINED TO A "
+              "FIXED AXIS (+-y) by construction and literally cannot rotate, "
+              "regardless of the true torque magnitude. This is a degenerate "
+              "test case for Delta_phi specifically (though still a valid "
+              "check of items (a) L nonzero and (b) d non-vanishing above). A "
+              "genuine numerical Delta_phi check needs an initial tilt with a "
+              "component out of the boost axis's plane.")
     print(f"  Delta_phi monotonic-ish growth check: "
           f"dphi[10%%]={dphi[n//10]:.2e}, dphi[50%%]={dphi[n//2]:.2e}, "
           f"dphi[90%%]={dphi[9*n//10]:.2e}")
