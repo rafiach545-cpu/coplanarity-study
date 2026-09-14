@@ -1,8 +1,23 @@
 """
 Same extraction logic as extract_quirk_momenta.py, adapted for the EW quirk
-(1,1)_1 benchmark: mQ=800 GeV, PDG 9000011. Unlike the colored quirk, this is
-a color singlet, so it needs no R-hadron treatment -- it appears directly as
+(1,1)_1 benchmark (Sec. II of arXiv:1708.02243): mQ=800 GeV (Table I),
+color-singlet, unit electric charge. Unlike the colored quirk, this is a
+color singlet, so it needs no R-hadron treatment -- it appears directly as
 a stable final-state particle at exactly 800.0 GeV.
+
+PDG 9000011 is NOT specified by the paper (the paper works at the level of
+representations, not a specific UFO model's particle codes) -- it is the
+"qe-" particle of the `quirk` UFO model actually used for generation,
+confirmed against
+/home/rafia/hep_tools/quirk_ew_800gev_4kev/Cards/param_card.dat
+("Block QNUMBERS 9000011 # qe-", "9000011 8.000000e+02 # MQE"). Do not cite
+the paper for this number.
+
+Production mode: confirmed Drell-Yan (Sec. III-A) by inspecting
+proc_card_mg5.dat directly -- `generate p p > qe+ qe-` / `add process
+p p > qe+ qe- j` using the color-singlet `quirk` UFO model, which has no QCD
+production vertex available at all, so this is s-channel gamma*/Z*
+(Drell-Yan) production by construction, not merely by run_card choice.
 """
 
 import gzip
@@ -57,6 +72,18 @@ def build_dataframe(hepmc_path, max_events=None):
         if len(quirks) != 2:
             continue
         (px1, py1, pz1, E1, pdg1, m1), (px2, py2, pz2, E2, pdg2, m2) = quirks
+        # Sec. II defines the system as a quirk/ANTIQUIRK pair (a particle
+        # and its charge conjugate, connected by one flux tube) -- the mass
+        # window above only guarantees two ~800 GeV status-1 particles, not
+        # that they are actually a charge-conjugate pair rather than (e.g.)
+        # two coincidentally-matching unrelated particles. Verified true for
+        # every event in the current sample (511/511: exactly
+        # pdg=+-9000011), but asserted here rather than silently assumed, so
+        # a future/different sample that violated it would fail loudly
+        # instead of silently mispairing.
+        assert pdg1 == -pdg2, (
+            f"event {i}: expected a quirk/antiquirk charge-conjugate pair, "
+            f"got pdg1={pdg1}, pdg2={pdg2}")
         rows.append({
             "event": i, "weight": ev["weight"],
             "px1": px1, "py1": py1, "pz1": pz1, "E1": E1, "pdg1": pdg1, "m1": m1,
