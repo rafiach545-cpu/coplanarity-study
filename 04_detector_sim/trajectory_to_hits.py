@@ -238,11 +238,35 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
         #
         # Fix: when max_layer_r_cm is given, t_max must cover the ACTUAL
         # geometric requirement (CM flight time to well past the outer
-        # layer), never just a fixed number of oscillation periods. To keep
-        # runtime bounded for events needing many periods, dt is relaxed
-        # (coarsened) rather than the number of steps growing without
-        # bound -- capped at MAX_STEPS total steps.
-        MAX_STEPS = 120000
+        # layer), never just a fixed number of oscillation periods.
+        #
+        # Coarsening strategy (revised 2026-09-15, after the MAX_STEPS=120000
+        # total-step cap was found to fail 77/89 = 86.5% of real EW-quirk
+        # trigger-passing events below MIN_STEPS_PER_PERIOD): a total-step
+        # CEILING is the wrong mechanism -- it caps something with no direct
+        # physical meaning (how many steps fit in an arbitrary budget)
+        # instead of the thing that is actually validated
+        # (validate_dt_convergence.py: steps/period, not total steps). When
+        # coarsening is needed, dt is now set to hit
+        # TARGET_STEPS_PER_PERIOD_WHEN_COARSENING directly -- by
+        # construction this can never fall below the validated floor,
+        # because it explicitly targets it rather than whatever falls out of
+        # an unrelated total-step cap. TARGET is set equal to
+        # MIN_STEPS_PER_PERIOD itself (300) since validate_dt_convergence.py
+        # already found rel err < 1e-4 down to 30 steps/period for the
+        # generic benchmark checked there -- 300 already carries a ~10x
+        # margin above that measured knee, so no further multiplier is
+        # added on top (that would only inflate runtime for no accuracy
+        # benefit at this resolution).
+        #
+        # ABSOLUTE_MAX_STEPS remains ONLY as a defensive ceiling against a
+        # genuinely pathological input (e.g. a corrupt/absurd momentum),
+        # not as the normal operating mechanism -- set well above the
+        # largest requirement actually measured across the real EW sample
+        # (worst case ~2.2e6 steps at the 300-steps/period floor, per
+        # diagnose_step_budget.py) so it does not engage for any real event.
+        TARGET_STEPS_PER_PERIOD_WHEN_COARSENING = MIN_STEPS_PER_PERIOD
+        ABSOLUTE_MAX_STEPS = 20_000_000
         dt_original = period_est / steps_per_period
         dt = dt_original
         t_max = n_periods_to_integrate * period_est
@@ -266,8 +290,8 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
             n_steps_needed = t_max / dt
 
             requested_steps_per_period = steps_per_period
-            if n_steps_needed > MAX_STEPS:
-                dt = t_max / MAX_STEPS  # coarsen dt to stay within budget
+            if n_steps_needed > (t_max / (period_est / TARGET_STEPS_PER_PERIOD_WHEN_COARSENING)):
+                dt = period_est / TARGET_STEPS_PER_PERIOD_WHEN_COARSENING
 
             effective_steps_per_period = period_est / dt
             dt_was_coarsened = dt != dt_original
@@ -278,20 +302,20 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
                 "steps_per_period_effective": effective_steps_per_period,
                 "dt_was_coarsened": dt_was_coarsened,
             }
-            if effective_steps_per_period < MIN_STEPS_PER_PERIOD:
+            n_steps_final = t_max / dt
+            if effective_steps_per_period < MIN_STEPS_PER_PERIOD or n_steps_final > ABSOLUTE_MAX_STEPS:
                 raise RuntimeError(
-                    "simulate_quirk_hits: dt coarsening to fit within "
-                    f"MAX_STEPS={MAX_STEPS} would leave only "
-                    f"{effective_steps_per_period:.1f} steps/period, below "
-                    f"MIN_STEPS_PER_PERIOD={MIN_STEPS_PER_PERIOD} (the "
-                    "resolution floor set by validate_dt_convergence.py). "
-                    "Silently continuing here was exactly the root cause of "
-                    "a previously found bug (DEVIATIONS_LOG.md item 3b) -- "
-                    "raise steps_per_period, raise MAX_STEPS, or use a "
-                    "chunked/adaptive integration strategy instead of "
-                    "coarsening dt further for this event "
-                    f"(period_est={period_est:.3e}, t_max={t_max:.3e} GeV^-1, "
-                    f"mass={mass_gev} GeV, Lambda={Lambda_gev} GeV).")
+                    "simulate_quirk_hits: cannot reach MIN_STEPS_PER_PERIOD="
+                    f"{MIN_STEPS_PER_PERIOD} within ABSOLUTE_MAX_STEPS="
+                    f"{ABSOLUTE_MAX_STEPS} total steps (would need "
+                    f"{n_steps_final:.3e} steps for "
+                    f"{effective_steps_per_period:.1f} steps/period). This is "
+                    "the defensive ceiling for a genuinely pathological "
+                    "input, not the normal operating path -- check "
+                    f"mass={mass_gev} GeV, Lambda={Lambda_gev} GeV, and the "
+                    "supplied momenta for a real error before raising "
+                    "ABSOLUTE_MAX_STEPS further "
+                    f"(period_est={period_est:.3e}, t_max={t_max:.3e} GeV^-1).")
     else:
         # No confining string (e.g. converted e+/e- pair): there is no
         # oscillation period to base dt on -- the period formula would
