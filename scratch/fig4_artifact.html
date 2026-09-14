@@ -1,0 +1,463 @@
+<title>Quirk Coplanarity Event</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    color-scheme: light;
+    --surface-0:      #f6f7f9;
+    --surface-1:      #ffffff;
+    --surface-2:      #eef1f5;
+    --border:         #dde2e9;
+    --text-primary:   #12161d;
+    --text-secondary: #4c5563;
+    --text-muted:     #8992a1;
+    --series-1:       #2a78d6;
+    --series-1-soft:  #2a78d61a;
+    --series-2:       #eb6834;
+    --series-2-soft:  #eb68341a;
+    --band-fill:      #eef1f5;
+    --band-edge:      #c7ceda;
+    --mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-0:      #0d1015;
+      --surface-1:      #12161d;
+      --surface-2:      #1a2029;
+      --border:         #262e3a;
+      --text-primary:   #eef1f5;
+      --text-secondary: #a4adbb;
+      --text-muted:     #6b7383;
+      --series-1:       #3987e5;
+      --series-1-soft:  #3987e526;
+      --series-2:       #d95926;
+      --series-2-soft:  #d9592626;
+      --band-fill:      #1a2029;
+      --band-edge:      #2c3646;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-0:      #0d1015;
+    --surface-1:      #12161d;
+    --surface-2:      #1a2029;
+    --border:         #262e3a;
+    --text-primary:   #eef1f5;
+    --text-secondary: #a4adbb;
+    --text-muted:     #6b7383;
+    --series-1:       #3987e5;
+    --series-1-soft:  #3987e526;
+    --series-2:       #d95926;
+    --series-2-soft:  #d9592626;
+    --band-fill:      #1a2029;
+    --band-edge:      #2c3646;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--surface-0);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    padding-inline: 20px;
+    padding-block: 40px;
+  }
+  .page {
+    max-width: 980px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  header.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  h1 {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 32px);
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .dek {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 62ch;
+    line-height: 1.55;
+  }
+
+  .panel {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .panel-title {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-primary);
+  }
+  .panel-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend {
+    display: flex;
+    gap: 18px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .swatch { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .swatch.q1 { background: var(--series-1); }
+  .swatch.q2 { background: var(--series-2); }
+
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .axis-line { stroke: var(--border); stroke-width: 1; }
+  .grid-line { stroke: var(--border); stroke-width: 1; opacity: 0.6; }
+  .layer-guide { stroke: var(--text-muted); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.5; }
+  .layer-label { font-family: var(--mono); font-size: 10.5px; fill: var(--text-muted); }
+  .axis-label { font-family: var(--mono); font-size: 11px; fill: var(--text-secondary); }
+  .axis-title { font-family: var(--mono); font-size: 12px; fill: var(--text-secondary); }
+  .hit { stroke: var(--surface-1); stroke-width: 1.5; }
+  .band-fill { fill: var(--band-fill); }
+  .band-edge { stroke: var(--band-edge); stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  .band-label { font-family: var(--mono); font-size: 10.5px; fill: var(--text-muted); }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--surface-1);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+  .stat-value {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-primary);
+  }
+  .stat-ref {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .note {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+  .note strong { color: var(--text-primary); font-weight: 600; }
+  .note code {
+    font-family: var(--mono);
+    font-size: 0.92em;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--text-primary);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    font-weight: 500;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); color: var(--text-primary); }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+  }
+  .tag .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  .table-wrap { overflow-x: auto; }
+
+  footer {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-muted);
+    padding-block: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    .panel { padding: 16px; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="hero">
+    <div class="eyebrow">arXiv:1708.02243 &middot; colored quirk (3,1)&#8322;&frasl;&#8323; &middot; reproduction</div>
+    <h1>One quirk pair, eight tracker layers, one plane</h1>
+    <div class="dek">
+      A single simulated event &mdash; m<sub>Q</sub> = 1800&nbsp;GeV, &Lambda; = 2&nbsp;keV, B = 2&nbsp;T &mdash;
+      showing the sixteen hits (two quirks &times; eight ATLAS Run&#8209;2 barrel layers) projected onto their own
+      best-fit plane, reproducing the analysis of Fig.&nbsp;4 in the paper.
+    </div>
+  </header>
+
+  <div class="panel">
+    <div class="panel-head">
+      <div>
+        <div class="panel-title">HITS PROJECTED ONTO (n&#8323;, n&#8322;) PLANE</div>
+        <div class="panel-sub">event 12 of 101 trigger-passing &middot; pT(pair) &gt; 200&nbsp;GeV</div>
+      </div>
+      <div class="legend">
+        <span class="legend-item"><span class="swatch q1"></span>quirk</span>
+        <span class="legend-item"><span class="swatch q2"></span>antiquirk</span>
+      </div>
+    </div>
+    <svg id="chart" viewBox="0 0 900 460" role="img" aria-label="Scatter plot of 16 tracker hits from a simulated quirk pair, projected onto the fitted plane, clustered in a narrow horizontal strip across eight detector layers.">
+    </svg>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-label">&Delta;s &middot; thickness</div>
+      <div class="stat-value">0.0192 cm</div>
+      <div class="stat-ref">paper's example: 0.0083 cm</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">&Delta;w &middot; width</div>
+      <div class="stat-value">0.548 cm</div>
+      <div class="stat-ref">paper's example: 0.074 cm</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">seed cut (&Delta;s &lt; 0.05)</div>
+      <div class="stat-value" style="color:var(--series-1)">passes</div>
+      <div class="stat-ref">0.0192 &lt; 0.05 cm</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">final cut (&Delta;s &lt; 0.01)</div>
+      <div class="stat-value" style="color:var(--series-2)">misses</div>
+      <div class="stat-ref">0.0192 &gt; 0.01 cm</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title" style="margin-bottom:10px;">WHY THIS EVENT DOESN'T MATCH THE PAPER'S NUMBERS EXACTLY</div>
+    <p class="note">
+      This is the <strong>only candidate spanning all 8 layers</strong> (&ge;15 hits) found across all 101
+      trigger-passing colored-quirk events at this benchmark &mdash; not a cherry-picked pass, and specifically
+      <em>not</em> just "smallest &Delta;s regardless of coverage" (a few isolated candidates with tighter
+      &Delta;s exist, but cover only 3&ndash;5 of the 8 layers, correctly rejected by the signal-region's
+      per-layer hit-multiplicity requirement). It clears the algorithm's seed cut
+      (<code>&Delta;s &lt; 0.05&nbsp;cm</code>) comfortably but not the tight final signal-region cut
+      (<code>&Delta;s &lt; 0.01&nbsp;cm</code>) that the paper's own example event satisfies &mdash; across
+      the full corrected sample, <strong>zero events pass every signal-region cut</strong> at this exact
+      benchmark point.
+    </p>
+    <p class="note">
+      Part of the gap traces to detector inputs, not a flaw in the physics: this reproduction uses the
+      <strong>real, measured ATLAS Run&#8209;2</strong> SCT strip resolution (1.16&nbsp;mm in z, from the
+      2020 ID alignment paper, arXiv:2007.07624) rather than the original paper's own
+      <strong>2009 pre&#8209;Run&#8209;2 projected</strong> resolution figures. Feeding the exact, unsmeared
+      trajectory through the same fit gives &Delta;s &asymp; 5&nbsp;&mu;m &mdash; essentially perfect
+      coplanarity &mdash; confirming this part of the gap is detector resolution, not the trajectory
+      integrator or the plane&#8209;fit algorithm.
+    </p>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <div class="panel-title">ALL 16 HITS</div>
+      <div class="panel-sub">n&#8323; = flight direction &middot; n&#8322; = width direction &middot; cm</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Layer</th><th>Particle</th><th>n&#8323; (cm)</th><th>n&#8322; (cm)</th></tr>
+        </thead>
+        <tbody id="hit-table"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>coplanarity_study &middot; Stage 5 reproduction &middot; mQ=1800 GeV, &Lambda;=2 keV, colored quirk benchmark</footer>
+
+</div>
+
+<script>
+const points = [
+  {"n3": 7.36995580877802, "n2": 0.7936966362239015, "quirk": 1, "layer": "L1_IBL"},
+  {"n3": 7.276291541340605, "n2": 0.8287126315320331, "quirk": 2, "layer": "L1_IBL"},
+  {"n3": 12.259335786618891, "n2": 0.8068215648514424, "quirk": 1, "layer": "L2_PixelB0"},
+  {"n3": 12.484122410325144, "n2": 0.7227619640231383, "quirk": 2, "layer": "L2_PixelB0"},
+  {"n3": 23.631218287316074, "n2": 0.6110073327022815, "quirk": 1, "layer": "L3_PixelB1"},
+  {"n3": 23.294035243585448, "n2": 0.7370821111145234, "quirk": 2, "layer": "L3_PixelB1"},
+  {"n3": 33.25199255957073, "n2": 0.6430267697216495, "quirk": 1, "layer": "L4_PixelB2"},
+  {"n3": 33.51424894480305, "n2": 0.5449749787279647, "quirk": 2, "layer": "L4_PixelB2"},
+  {"n3": 84.64205049186877, "n2": 0.26811977386934566, "quirk": 1, "layer": "L5_SCT_B3"},
+  {"n3": 84.8784169743297, "n2": 0.17973626235035606, "quirk": 2, "layer": "L5_SCT_B3"},
+  {"n3": 105.83126327401476, "n2": 0.030811336630136656, "quirk": 1, "layer": "L6_SCT_B4"},
+  {"n3": 106.17123803608725, "n2": -0.09631047030702512, "quirk": 2, "layer": "L6_SCT_B4"},
+  {"n3": 126.7359274732957, "n2": -0.10005760568383038, "quirk": 1, "layer": "L7_SCT_B5"},
+  {"n3": 126.8390954267363, "n2": -0.13865497636867374, "quirk": 2, "layer": "L7_SCT_B5"},
+  {"n3": 147.7050469334606, "n2": -0.3618063325860856, "quirk": 1, "layer": "L8_SCT_B6"},
+  {"n3": 147.63087576194593, "n2": -0.33411285275266733, "quirk": 2, "layer": "L8_SCT_B6"}
+];
+const deltaW = 0.54792678058421;
+const deltaS = 0.019210296412553892;
+
+const layerOrder = ["L1_IBL","L2_PixelB0","L3_PixelB1","L4_PixelB2","L5_SCT_B3","L6_SCT_B4","L7_SCT_B5","L8_SCT_B6"];
+const layerShort = {L1_IBL:"L1",L2_PixelB0:"L2",L3_PixelB1:"L3",L4_PixelB2:"L4",L5_SCT_B3:"L5",L6_SCT_B4:"L6",L7_SCT_B5:"L7",L8_SCT_B6:"L8"};
+
+// ---- chart geometry ----
+const W = 900, H = 460;
+const marginL = 56, marginR = 24, marginT = 24, marginB = 56;
+const plotW = W - marginL - marginR;
+const plotH = H - marginT - marginB;
+
+const n3min = 0, n3max = 158;
+const n2min = -1.15, n2max = 1.15;
+
+function sx(n3){ return marginL + (n3 - n3min) / (n3max - n3min) * plotW; }
+function sy(n2){ return marginT + (1 - (n2 - n2min) / (n2max - n2min)) * plotH; }
+
+const svg = document.getElementById('chart');
+const ns = 'http://www.w3.org/2000/svg';
+function el(tag, attrs){
+  const e = document.createElementNS(ns, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  return e;
+}
+
+// width band (+/- deltaW around 0)
+svg.appendChild(el('rect', {
+  x: sx(n3min), y: sy(deltaW), width: plotW, height: sy(-deltaW) - sy(deltaW),
+  class: 'band-fill'
+}));
+svg.appendChild(el('line', {x1: sx(n3min), y1: sy(deltaW), x2: sx(n3max), y2: sy(deltaW), class: 'band-edge'}));
+svg.appendChild(el('line', {x1: sx(n3min), y1: sy(-deltaW), x2: sx(n3max), y2: sy(-deltaW), class: 'band-edge'}));
+const bandLabel = el('text', {x: sx(n3max) - 4, y: sy(deltaW) - 6, class: 'band-label', 'text-anchor': 'end'});
+bandLabel.textContent = '±Δw = ' + deltaW.toFixed(3) + ' cm';
+svg.appendChild(bandLabel);
+
+// horizontal gridlines (n2)
+[-1.0, -0.5, 0, 0.5, 1.0].forEach(v => {
+  svg.appendChild(el('line', {x1: sx(n3min), y1: sy(v), x2: sx(n3max), y2: sy(v), class: 'grid-line'}));
+  const t = el('text', {x: marginL - 8, y: sy(v) + 4, class: 'axis-label', 'text-anchor': 'end'});
+  t.textContent = v.toFixed(1);
+  svg.appendChild(t);
+});
+
+// vertical axis line at n3=0 area + bottom axis
+svg.appendChild(el('line', {x1: sx(n3min), y1: sy(n2min), x2: sx(n3max), y2: sy(n2min), class: 'axis-line'}));
+
+// layer guides: average n3 per layer, dashed vertical line + label
+layerOrder.forEach((lname, i) => {
+  const pts = points.filter(p => p.layer === lname);
+  const avgN3 = pts.reduce((s,p) => s + p.n3, 0) / pts.length;
+  svg.appendChild(el('line', {x1: sx(avgN3), y1: marginT, x2: sx(avgN3), y2: sy(n2min), class: 'layer-guide'}));
+  const t = el('text', {x: sx(avgN3), y: marginT - 8, class: 'layer-label', 'text-anchor': 'middle'});
+  t.textContent = layerShort[lname];
+  svg.appendChild(t);
+});
+
+// x axis ticks
+[0, 20, 40, 60, 80, 100, 120, 140].forEach(v => {
+  const t = el('text', {x: sx(v), y: sy(n2min) + 20, class: 'axis-label', 'text-anchor': 'middle'});
+  t.textContent = v;
+  svg.appendChild(t);
+});
+const xTitle = el('text', {x: marginL + plotW/2, y: H - 8, class: 'axis-title', 'text-anchor': 'middle'});
+xTitle.textContent = 'n₃  (cm)  —  flight direction';
+svg.appendChild(xTitle);
+const yTitle = el('text', {x: 16, y: marginT + plotH/2, class: 'axis-title', 'text-anchor': 'middle',
+  transform: 'rotate(-90, 16, ' + (marginT + plotH/2) + ')'});
+yTitle.textContent = 'n₂  (cm)  —  width direction';
+svg.appendChild(yTitle);
+
+// hit markers
+points.forEach(p => {
+  const c = el('circle', {
+    cx: sx(p.n3), cy: sy(p.n2), r: 7,
+    fill: p.quirk === 1 ? 'var(--series-1)' : 'var(--series-2)',
+    class: 'hit'
+  });
+  const title = el('title', {});
+  title.textContent = layerShort[p.layer] + ' · ' + (p.quirk===1?'quirk':'antiquirk') +
+    ' · n₃=' + p.n3.toFixed(2) + 'cm, n₂=' + p.n2.toFixed(3) + 'cm';
+  c.appendChild(title);
+  svg.appendChild(c);
+});
+
+// ---- table ----
+const tbody = document.getElementById('hit-table');
+points.slice().sort((a,b) => a.n3 - b.n3).forEach(p => {
+  const tr = document.createElement('tr');
+  const color = p.quirk === 1 ? 'var(--series-1)' : 'var(--series-2)';
+  const label = p.quirk === 1 ? 'quirk' : 'antiquirk';
+  tr.innerHTML =
+    '<td>' + layerShort[p.layer] + '</td>' +
+    '<td><span class="tag"><span class="dot" style="background:' + color + '"></span>' + label + '</span></td>' +
+    '<td class="num">' + p.n3.toFixed(3) + '</td>' +
+    '<td class="num">' + p.n2.toFixed(3) + '</td>';
+  tbody.appendChild(tr);
+});
+</script>

@@ -1,0 +1,235 @@
+<title>Signal Shape Comparison</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    color-scheme: light;
+    --surface-0:      #f6f7f9;
+    --surface-1:      #ffffff;
+    --surface-2:      #eef1f5;
+    --border:         #dde2e9;
+    --text-primary:   #12161d;
+    --text-secondary: #4c5563;
+    --text-muted:     #8992a1;
+    --series-1:       #2a78d6;
+    --series-1-soft:  #2a78d61f;
+    --series-2:       #eb6834;
+    --series-2-soft:  #eb68341f;
+    --grid:           #e3e7ee;
+    --mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-0:      #0d1015;
+      --surface-1:      #12161d;
+      --surface-2:      #1a2029;
+      --border:         #262e3a;
+      --text-primary:   #eef1f5;
+      --text-secondary: #a4adbb;
+      --text-muted:     #6b7383;
+      --series-1:       #3987e5;
+      --series-1-soft:  #3987e526;
+      --series-2:       #d95926;
+      --series-2-soft:  #d9592626;
+      --grid:           #1e2632;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-0:      #0d1015;
+    --surface-1:      #12161d;
+    --surface-2:      #1a2029;
+    --border:         #262e3a;
+    --text-primary:   #eef1f5;
+    --text-secondary: #a4adbb;
+    --text-muted:     #6b7383;
+    --series-1:       #3987e5;
+    --series-1-soft:  #3987e526;
+    --series-2:       #d95926;
+    --series-2-soft:  #d9592626;
+    --grid:           #1e2632;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--surface-0);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    padding-inline: 20px;
+    padding-block: 40px;
+  }
+  .page { max-width: 1080px; margin-inline: auto; display: flex; flex-direction: column; gap: 28px; }
+  header.hero { display: flex; flex-direction: column; gap: 6px; }
+  .eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+  h1 { font-family: var(--mono); font-weight: 600; font-size: clamp(22px, 4vw, 30px); margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+  .dek { font-size: 15px; color: var(--text-secondary); max-width: 68ch; line-height: 1.55; }
+
+  .panel { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+  .panel-title { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.03em; }
+  .panel-sub { font-family: var(--mono); font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 760px) { .chart-grid { grid-template-columns: 1fr; } }
+
+  .legend { display: flex; gap: 18px; font-family: var(--mono); font-size: 12px; color: var(--text-secondary); margin-top: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .swatch { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+  .swatch.q1 { background: var(--series-1); }
+  .swatch.q2 { background: var(--series-2); }
+
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .axis-label { font-family: var(--mono); font-size: 10.5px; fill: var(--text-muted); }
+  .axis-title { font-family: var(--mono); font-size: 11.5px; fill: var(--text-secondary); }
+  .grid-line { stroke: var(--grid); stroke-width: 1; }
+  .cut-line { stroke: var(--text-muted); stroke-width: 1.5; stroke-dasharray: 3 3; }
+  .cut-label { font-family: var(--mono); font-size: 10px; fill: var(--text-muted); }
+
+  .note { font-size: 14px; line-height: 1.65; color: var(--text-secondary); }
+  .note strong { color: var(--text-primary); font-weight: 600; }
+  .note code { font-family: var(--mono); font-size: 0.92em; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; color: var(--text-primary); }
+
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .stat { background: var(--surface-1); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .stat-label { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .stat-value { font-family: var(--mono); font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  footer { font-family: var(--mono); font-size: 11.5px; color: var(--text-muted); padding-block: 8px; border-top: 1px solid var(--border); }
+</style>
+
+<div class="page">
+
+  <header class="hero">
+    <div class="eyebrow">arXiv:1708.02243 &middot; Fig.&nbsp;5 reproduction &middot; signal shapes only</div>
+    <h1>How thick and how wide, before the final cut</h1>
+    <div class="dek">
+      &Delta;s (thickness) and &Delta;w (width) of the best-fit plane, for every fiducial candidate found
+      &mdash; both quirk benchmarks, log-binned, each curve normalized to its own area. Backgrounds
+      (pile-up, converted photons) are not yet in this shape comparison; see the note below.
+    </div>
+  </header>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-label">Colored quirk candidates</div><div class="stat-value" style="color:var(--series-1)">21</div></div>
+    <div class="stat"><div class="stat-label">EW quirk candidates</div><div class="stat-value" style="color:var(--series-2)">23</div></div>
+    <div class="stat"><div class="stat-label">Final cut, either sample</div><div class="stat-value">0 pass</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">&Delta;s AND &Delta;w SHAPE, LOG-BINNED, NORMALIZED TO UNIT AREA</div>
+    <div class="panel-sub">colored: mQ=1800&nbsp;GeV, &Lambda;=2&nbsp;keV &middot; EW: mQ=800&nbsp;GeV, &Lambda;=4&nbsp;keV &middot; dashed line = paper's final-cut threshold</div>
+    <div class="chart-grid">
+      <div>
+        <svg id="chart-ds" viewBox="0 0 480 340" role="img" aria-label="Delta s distribution, log-binned histogram, colored quirk and EW quirk overlaid"></svg>
+      </div>
+      <div>
+        <svg id="chart-dw" viewBox="0 0 480 340" role="img" aria-label="Delta w distribution, log-binned histogram, colored quirk and EW quirk overlaid"></svg>
+      </div>
+    </div>
+    <div class="legend">
+      <span class="legend-item"><span class="swatch q1"></span>colored quirk (1800 GeV, 2 keV)</span>
+      <span class="legend-item"><span class="swatch q2"></span>EW quirk (800 GeV, 4 keV)</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title" style="margin-bottom:10px;">READING THIS HONESTLY</div>
+    <p class="note">
+      This is a <strong>shape-only</strong> comparison &mdash; each curve normalized to its own area, not to a
+      cross-section. With only 21&ndash;23 candidates per benchmark, individual bins carry real statistical
+      noise; treat the broad trend (mass concentrated well above the paper's final Δs&lt;0.01cm cut) as the
+      finding, not the exact bin heights.
+    </p>
+    <p class="note">
+      <strong>Not yet included</strong>: the pile-up and converted-photon background curves that the paper
+      overlays on the same axes (Stage 6a pile-up hasn't been built yet; the converted-photon background's
+      own Δs/Δw shape wasn't recorded in the run done so far, only its pass/fail against the final cuts).
+      Those are the next pieces needed for a complete Fig.&nbsp;5 reproduction.
+    </p>
+  </div>
+
+  <footer>coplanarity_study &middot; corrected post-integrator-fix, 2026-09-14 &middot; candidates = best-Delta_s fit per fiducial event, before final selection</footer>
+
+</div>
+
+<script>
+const data = {
+  ds_edges: [0.001,0.0016681005372000592,0.0027825594022071257,0.004641588833612777,0.007742636826811269,0.01291549665014884,0.021544346900318832,0.03593813663804626,0.05994842503189409,0.1],
+  colored_ds_density: [0.0,0.0,0.21428571428571463,0.0,0.4285714285714284,0.6428571428571432,2.142857142857144,1.071428571428571,0.0],
+  ew_ds_density: [0.0,0.3913043478260868,0.0,0.1956521739130434,0.3913043478260868,0.7826086956521744,2.5434782608695667,0.1956521739130434,0.0],
+  dw_edges: [0.01,0.016681005372000592,0.027825594022071243,0.046415888336127774,0.0774263682681127,0.1291549665014884,0.21544346900318834,0.3593813663804626,0.5994842503189409,1.0],
+  colored_dw_density: [0.0,0.0,0.0,0.0,0.2142857142857142,0.42857142857142877,0.42857142857142877,2.9999999999999982,0.42857142857142844],
+  ew_dw_density: [0.0,0.0,0.0,0.1956521739130434,0.7826086956521736,0.3913043478260872,1.369565217391305,1.3695652173913035,0.39130434782608686]
+};
+
+const ns = 'http://www.w3.org/2000/svg';
+function el(tag, attrs){ const e = document.createElementNS(ns, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+
+function drawPanel(svgId, edges, seriesA, seriesB, xTitle, cutValue) {
+  const svg = document.getElementById(svgId);
+  const W = 480, H = 340;
+  const marginL = 46, marginR = 14, marginT = 14, marginB = 44;
+  const plotW = W - marginL - marginR, plotH = H - marginT - marginB;
+
+  const xmin = Math.log10(edges[0]), xmax = Math.log10(edges[edges.length-1]);
+  const ymax = Math.max(...seriesA, ...seriesB) * 1.15 || 1;
+
+  function sx(v){ return marginL + (Math.log10(v) - xmin) / (xmax - xmin) * plotW; }
+  function sy(v){ return marginT + (1 - v/ymax) * plotH; }
+
+  // gridlines + x ticks (decades)
+  const decades = [];
+  for (let p = Math.floor(xmin); p <= Math.ceil(xmax); p++) decades.push(Math.pow(10, p));
+  decades.forEach(v => {
+    if (v < edges[0]*0.99 || v > edges[edges.length-1]*1.01) return;
+    svg.appendChild(el('line', {x1: sx(v), y1: marginT, x2: sx(v), y2: marginT+plotH, class:'grid-line'}));
+    const t = el('text', {x: sx(v), y: marginT+plotH+18, class:'axis-label', 'text-anchor':'middle'});
+    t.textContent = v.toExponential(0).replace('e-0','e-').replace('e+0','e');
+    svg.appendChild(t);
+  });
+  // y gridlines
+  [0.25,0.5,0.75,1.0].forEach(f => {
+    const v = ymax*f;
+    svg.appendChild(el('line', {x1: marginL, y1: sy(v), x2: marginL+plotW, y2: sy(v), class:'grid-line'}));
+  });
+  svg.appendChild(el('line', {x1: marginL, y1: marginT+plotH, x2: marginL+plotW, y2: marginT+plotH, stroke:'var(--border)', 'stroke-width':1}));
+
+  // cut line
+  if (cutValue >= edges[0] && cutValue <= edges[edges.length-1]) {
+    svg.appendChild(el('line', {x1: sx(cutValue), y1: marginT, x2: sx(cutValue), y2: marginT+plotH, class:'cut-line'}));
+    const lbl = el('text', {x: sx(cutValue)+4, y: marginT+12, class:'cut-label'});
+    lbl.textContent = 'cut';
+    svg.appendChild(lbl);
+  }
+
+  function drawStep(series, colorVar) {
+    let path = '';
+    for (let i = 0; i < series.length; i++) {
+      const x0 = sx(edges[i]), x1 = sx(edges[i+1]), y = sy(series[i]);
+      path += (i===0 ? 'M' : 'L') + x0.toFixed(2) + ',' + y.toFixed(2) + ' ';
+      path += 'L' + x1.toFixed(2) + ',' + y.toFixed(2) + ' ';
+    }
+    const p = el('path', {d: path, fill:'none', stroke: 'var(' + colorVar + ')', 'stroke-width': 2, 'stroke-linejoin':'round'});
+    svg.appendChild(p);
+    // fill under step, low opacity
+    let fillPath = path + 'L' + sx(edges[edges.length-1]).toFixed(2) + ',' + sy(0).toFixed(2) + ' L' + sx(edges[0]).toFixed(2) + ',' + sy(0).toFixed(2) + ' Z';
+    const f = el('path', {d: fillPath, fill: 'var(' + colorVar + '-soft)', stroke:'none'});
+    svg.insertBefore(f, p);
+  }
+
+  drawStep(seriesA, '--series-1');
+  drawStep(seriesB, '--series-2');
+
+  const xt = el('text', {x: marginL+plotW/2, y: H-4, class:'axis-title', 'text-anchor':'middle'});
+  xt.textContent = xTitle;
+  svg.appendChild(xt);
+  const yt = el('text', {x: 14, y: marginT+plotH/2, class:'axis-title', 'text-anchor':'middle', transform:'rotate(-90, 14, '+(marginT+plotH/2)+')'});
+  yt.textContent = 'density (1/dlog₁₀)';
+  svg.appendChild(yt);
+}
+
+drawPanel('chart-ds', data.ds_edges, data.colored_ds_density, data.ew_ds_density, 'Δs (cm)', 0.01);
+drawPanel('chart-dw', data.dw_edges, data.colored_dw_density, data.ew_dw_density, 'Δw (cm)', 1.0);
+</script>
