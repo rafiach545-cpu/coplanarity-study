@@ -26,6 +26,16 @@ import pandas as pd
 
 QUIRK_MASS_GEV = 800.0
 MASS_TOLERANCE_GEV = 5.0
+# PDG 9000011 is NOT paper-specified (see module docstring) -- it is this
+# specific UFO model's "qe-" code. Mass window + opposite-PDG-sign alone
+# (an earlier version of this file) are, in principle, not sufficient to
+# guarantee the matched pair is actually this quirk: a mass window can
+# always coincidentally admit some other charge-conjugate heavy pair in a
+# differently-generated or dirtier sample. Requiring the exact PDG closes
+# that gap. Verified empirically against the real file that this is
+# currently a no-op (every status==1 particle in [795,805] GeV is exactly
+# +-9000011, 511 each) -- kept as an explicit, not incidental, guarantee.
+QUIRK_PDG = 9000011
 
 
 def extract_events(hepmc_path, max_events=None):
@@ -55,7 +65,8 @@ def extract_events(hepmc_path, max_events=None):
                 px, py, pz, E, m = (float(parts[3]), float(parts[4]),
                                      float(parts[5]), float(parts[6]), float(parts[7]))
                 status = int(parts[8])
-                if status == 1 and abs(m - QUIRK_MASS_GEV) < MASS_TOLERANCE_GEV:
+                if (status == 1 and abs(pdg) == QUIRK_PDG and
+                        abs(m - QUIRK_MASS_GEV) < MASS_TOLERANCE_GEV):
                     current_particles.append((px, py, pz, E, pdg, m))
         if current_particles or current_weight is not None:
             events.append({"weight": current_weight, "quirks": current_particles})
