@@ -23,6 +23,14 @@ Conversion procedure (paper Sec III D + user's professor's guidance):
     are ordinary charged leptons, not a quirk pair) -- propagated with
     Lambda=0 (pure Lorentz-force curvature only) through the same 2T field
     and 8-layer detector.
+
+v2 (2026-09-15, Stage 2 audit): hits are now measured relative to the TRUE
+vertex (here, the conversion point) before the plane fit, via
+coplanarity_fit.vertex_relative_hits -- matching the fix already applied to
+the signal pipeline (commit af0fca7). An earlier version fed raw global
+coordinates into the fit here while the signal scripts already didn't,
+which was an unintended inconsistency between how signal and background
+were reconstructed.
 """
 
 import numpy as np
@@ -31,7 +39,7 @@ import sys
 sys.path.insert(0, "/home/rafia/coplanarity_study/04_detector_sim")
 sys.path.insert(0, "/home/rafia/coplanarity_study/05_coplanarity_analysis")
 from trajectory_to_hits import simulate_quirk_hits
-from coplanarity_fit import seeding_and_iterative_fit, apply_signal_region_cuts
+from coplanarity_fit import seeding_and_iterative_fit, apply_signal_region_cuts, vertex_relative_hits
 from atlas_geometry import BEAMPIPE_RADIUS_CM, BEAMSPOT_SIGMA_Z_CM
 
 ELECTRON_MASS_GEV = 0.000511
@@ -96,9 +104,21 @@ def analyze_one_event(row, rng, max_layer_r_cm=60.0):
     )
 
     n_hits = len(hits)
+    # VERTEX-RELATIVE CORRECTION (Sec III C: plane fit assumes the primary
+    # vertex is at the origin) -- for this background, the relevant vertex
+    # IS the conversion point (traj["vertex_cm"] == conv_point for the
+    # x0_override_cm path in simulate_quirk_hits), not the hard-scatter
+    # primary vertex. An earlier version of this script fed raw global hit
+    # coordinates into the fit here while the signal pipeline (analyze_ew_
+    # quirk.py, analyze_colored_quirk.py) already applied this correction --
+    # that inconsistency is fixed here so signal and background are
+    # reconstructed by the IDENTICAL algorithm, as Sec III D's own
+    # description requires ("passed through the same detector simulation").
+    vertex_cm = traj["vertex_cm"]
     hits_by_layer = {k: [] for k in range(1, 9)}
     for h in hits:
-        hits_by_layer[LAYER_NAME_TO_IDX[h["layer"]]].append((h["x"], h["y"], h["z"]))
+        hx, hy, hz = vertex_relative_hits([(h["x"], h["y"], h["z"])], vertex_cm)[0]
+        hits_by_layer[LAYER_NAME_TO_IDX[h["layer"]]].append((hx, hy, hz))
 
     candidates = seeding_and_iterative_fit(hits_by_layer)
     winner = apply_signal_region_cuts(candidates)
@@ -132,8 +152,12 @@ if __name__ == "__main__":
             print(f"{i}/{n_test} done, {time.time()-t0:.0f}s elapsed", flush=True)
 
     rdf = pd.DataFrame(results)
-    rdf.to_csv("/home/rafia/coplanarity_study/02_backgrounds/photon_conversion/"
-               "conversion_scan_results.csv", index=False)
+    # New versioned filename -- this run includes the vertex-relative fit
+    # correction; the old conversion_scan_results.csv (pre-fix, 1500-event
+    # test) is left untouched, not overwritten.
+    out_csv = ("/home/rafia/coplanarity_study/02_backgrounds/photon_conversion/"
+               "conversion_scan_results_v2_VERTEX_FIXED.csv")
+    rdf.to_csv(out_csv, index=False)
     print()
     print(rdf["status"].value_counts())
     ok = rdf[rdf["status"] == "ok"]
@@ -169,3 +193,5 @@ if __name__ == "__main__":
         print(f"  (paper's own converted-photon background, after its full "
               f"analysis chain, is likewise consistent with ~0 -- see "
               f"Sec IV: 'we suspect they can easily be removed')")
+
+    print(f"\nSaved full per-event results to: {out_csv}")

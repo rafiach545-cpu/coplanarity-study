@@ -3,12 +3,32 @@ Parse the showered Z(->nunu)+gamma+jet HepMC2 output and extract, per event:
   - the hardest final-state photon's 4-momentum
   - the true MET (vector sum of final-state neutrino pT)
 
-Since neutrinos are neutral and colorless, they are completely untouched by
-Pythia8's parton shower -- their momenta are fixed already at the
-matrix-element (LHE) level. The generation-level `misset > 200 GeV` cut in
-the run_card is therefore EXACT, not an approximation, and the MET computed
-here post-shower should reproduce that cut in every event (verified below
-as a sanity check, not assumed).
+Generation config verified directly (Stage 2 audit, 2026-09-15): run_card.dat
+gives ebeam1=ebeam2=6500 GeV (sqrt(s)=13 TeV); proc_card_mg5.dat's
+`generate p p > z a j, z > vl vl~` with `vl = ve vm vt` sums over all THREE
+neutrino flavors at generation, matching NEUTRINO_PDGS={12,14,16} below.
+
+"Hardest final-state photon" is a PRACTICAL PROXY for "the photon from the Z
+decay," not a verified match -- this script does not trace HepMC mother/
+daughter ancestry to confirm the selected photon actually descends from the
+hard-process vertex (as opposed to e.g. a hard FSR photon radiated
+elsewhere). For this LO Z+gamma+jet sample the hardest photon is generally
+expected to be the hard-process one, but that expectation is NOT verified
+here and should not be read as confirmed ancestry.
+
+MET: neutrinos are neutral and colorless, so they are untouched by Pythia8's
+parton shower -- their momenta are fixed at the matrix-element (LHE) level.
+HOWEVER the generation-level `misset > 200 GeV` cut in the run_card is NOT
+exact for the POST-SHOWER MET computed here: Pythia8's hadronization adds
+secondary neutrinos from semileptonic hadron decays inside the jet, which
+the generation-level cut (evaluated on only the primary Z-decay neutrinos)
+does not see. Depending on their direction relative to the primary
+neutrinos, these secondary neutrinos can shift the vector-sum MET in either
+direction -- they do not "necessarily" lower it, and post-shower MET
+failures are NOT expected to be ~0. Measured directly (2026-09-14): 861/10000
+events (8.6%) have true post-shower MET < 200 GeV despite passing the
+generation-level cut. The exact post-shower cut is applied below rather than
+trusting the generation-level proxy.
 """
 
 import gzip
@@ -91,10 +111,14 @@ def build_dataframe(hepmc_path, max_events=None):
             # The generation-level `misset` cut only sees the 2 primary
             # Z->nunu neutrinos; Pythia8's hadronization adds further soft
             # neutrinos from semileptonic hadron decays inside the jet,
-            # which a real calorimeter-based MET trigger would also see.
-            # This full post-shower MET is the physically correct quantity
-            # to cut on -- apply the genuine >200 GeV requirement here,
-            # exactly, rather than trusting the generation-level proxy.
+            # which a real calorimeter-based MET trigger would also see and
+            # which can shift the vector-sum MET in either direction (not
+            # necessarily downward). This full post-shower MET is the
+            # physically correct quantity to cut on -- apply the genuine
+            # >200 GeV requirement here, exactly, rather than trusting the
+            # generation-level proxy. Measured: this removes 861/10000
+            # (8.6%) events that passed the generation-level cut -- a real,
+            # non-negligible effect, not an edge case.
             n_met_fail += 1
             continue
         rows.append({
@@ -107,7 +131,8 @@ def build_dataframe(hepmc_path, max_events=None):
     print(f"Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut "
           f"(expected ~0, confirms the cut holds post-shower): {n_pt_gamma_fail}")
     print(f"Events with MET < 200 GeV despite generation-level misset cut "
-          f"(should be ~0, confirms the cut is exact): {n_met_fail}")
+          f"(a real, non-negligible effect from secondary neutrinos, NOT "
+          f"expected to be ~0 -- measured 861/10000 historically): {n_met_fail}")
     return df
 
 
