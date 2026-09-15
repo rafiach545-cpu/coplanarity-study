@@ -3,6 +3,23 @@ Run the EW quirk (mQ=800 GeV, Lambda=4 keV) sample through EXACTLY the same
 detector-response (trajectory_to_hits.py) and coplanarity (coplanarity_fit.py)
 pipeline used for the colored quirk. No cuts or reconstruction logic changed.
 
+v3 (2026-09-15): hits fed into the coplanarity fit are now vertex-relative
+(coplanarity_fit.vertex_relative_hits, using trajectory_to_hits' exposed
+traj["vertex_cm"]) -- see fit_plane's docstring and Sec III C ("assume the
+primary vertex is identified correctly, and is located at the origin").
+This is the ONLY change to the coplanarity/reconstruction logic; detector
+response, eta, the 45mm beamspot draw, and all cut thresholds are
+unchanged. Per-candidate layer-count diagnostics were also added
+(non-invasive: they record existing seeding_and_iterative_fit output,
+`cand["layers"]`, without changing any cut).
+
+The v2 output (ew_quirk_800gev_4kev_cutflow_v2_CHARGE_TIMING_FIXED.csv,
+epsilon_reco=0.0000) is a CONFOUNDED BASELINE, not a final physics result --
+every one of its events used a nonzero true vertex z0 (45mm beamspot) that
+was never subtracted before the plane fit, which is documented to inflate
+Delta_s/Delta_w. That file is preserved untouched for comparison; this v3
+run is the vertex-corrected measurement.
+
 Cross-section (0.0002337 pb, matched, from MadGraph/Pythia8 -- THIS run's own
 result, NOT a value the paper quotes) is reported separately and NEVER
 folded into any efficiency number here.
@@ -34,9 +51,11 @@ import pandas as pd
 import sys, time
 sys.path.insert(0, "/home/rafia/coplanarity_study/04_detector_sim")
 sys.path.insert(0, "/home/rafia/coplanarity_study/05_coplanarity_analysis")
+from collections import Counter
 from trajectory_to_hits import simulate_quirk_hits
 from coplanarity_fit import (seeding_and_iterative_fit, apply_signal_region_cuts,
-                              select_reconstructed_plane, check_hit_multiplicity, fit_plane)
+                              select_reconstructed_plane, check_hit_multiplicity, fit_plane,
+                              vertex_relative_hits)
 
 MQ_GEV = 800.0
 LAMBDA_GEV = 4e-6  # 4000 eV, paper's EW benchmark for Fig. 5
@@ -87,19 +106,45 @@ def analyze_one(row, rng):
         "passes_signal_region": False, "ds": np.nan, "dw": np.nan,
         "best_candidate_passes_hit_multiplicity": None,
         "n_layers_hit": len(set(h["layer"] for h in hits)),
+        # Per-candidate layer-count diagnostics (non-invasive: recorded from
+        # data seeding_and_iterative_fit already computes, `cand["layers"]`
+        # -- no cut or algorithm behavior changed). Lets us see exactly
+        # which layers the iterative growth kept vs dropped for the
+        # selected candidate, instead of only the pass/fail multiplicity
+        # verdict.
+        "best_candidate_n_layers_with_hit": None,
+        "best_candidate_n_layers_with_2plus": None,
+        "best_candidate_layer_hit_counts": None,
     }
 
     if not truth_fiducial:
         return result  # matches paper's fid/reco factorization: reco only
                         # evaluated conditional on fiducial passing
 
+    # VERTEX-RELATIVE CORRECTION (Sec III C: "We will assume that the
+    # primary vertex is identified correctly, and is located at the
+    # origin"). fit_plane's tensor has no mean-subtraction, so it fits a
+    # plane THROUGH THE ORIGIN -- that origin must be the true vertex, not
+    # the fixed lab-frame origin the detector-response/eta code above
+    # correctly keeps using (barrel acceptance is a lab-frame/hardware
+    # concept, unchanged). Only the coordinates fed into the plane fit are
+    # shifted; nothing about hit generation, quantization, smearing, eta,
+    # or the 45mm beamspot draw itself changes.
+    vertex_cm = traj["vertex_cm"]
     hits_by_layer = {k: [] for k in range(1, 9)}
     for h in hits:
-        hits_by_layer[LAYER_NAME_TO_IDX[h["layer"]]].append((h["x"], h["y"], h["z"]))
+        hx, hy, hz = vertex_relative_hits([(h["x"], h["y"], h["z"])], vertex_cm)[0]
+        hits_by_layer[LAYER_NAME_TO_IDX[h["layer"]]].append((hx, hy, hz))
 
     candidates = seeding_and_iterative_fit(hits_by_layer)
     result["n_candidates"] = len(candidates)
     result["seed_found"] = len(candidates) > 0
+
+    def record_layer_diagnostics(cand):
+        counts = Counter(cand["layers"])
+        result["best_candidate_n_layers_with_hit"] = sum(1 for l in range(1, 9) if counts.get(l, 0) >= 1)
+        result["best_candidate_n_layers_with_2plus"] = sum(1 for l in range(1, 9) if counts.get(l, 0) >= 2)
+        result["best_candidate_layer_hit_counts"] = str({l: counts.get(l, 0) for l in range(1, 9)})
 
     winner = apply_signal_region_cuts(candidates)
     if winner is not None:
@@ -107,6 +152,7 @@ def analyze_one(row, rng):
         result["ds"] = winner["fit"]["delta_s"]
         result["dw"] = winner["fit"]["delta_w"]
         result["best_candidate_passes_hit_multiplicity"] = True
+        record_layer_diagnostics(winner)
     else:
         # Sec III C's own reconstructed plane (Delta_w<1cm, smallest Delta_s)
         # even when it fails the Sec IV cuts, for the distribution plots
@@ -127,6 +173,7 @@ def analyze_one(row, rng):
             result["ds"] = best["fit"]["delta_s"]
             result["dw"] = best["fit"]["delta_w"]
             result["best_candidate_passes_hit_multiplicity"] = check_hit_multiplicity(best["layers"])
+            record_layer_diagnostics(best)
 
     return result
 
@@ -160,12 +207,12 @@ if __name__ == "__main__":
             print(f"{i}/{n_trigger} done, {time.time()-t0:.0f}s elapsed", flush=True)
 
     rdf = pd.DataFrame(results)
-    # New versioned filename -- this run includes the charge-sign fix and
-    # the 25ns timing cut, both of which change results relative to the
-    # previously saved ew_quirk_800gev_4kev_cutflow.csv; that file is left
-    # untouched rather than overwritten.
+    # New versioned filename -- this run adds the vertex-relative
+    # coplanarity correction (v3) on top of the charge-sign + timing fixes
+    # already in v2. The v2 file (confounded baseline, epsilon_reco=0.0000)
+    # is left untouched, never overwritten.
     out_csv = ("/home/rafia/coplanarity_study/05_coplanarity_analysis/"
-               "ew_quirk_800gev_4kev_cutflow_v2_CHARGE_TIMING_FIXED.csv")
+               "ew_quirk_800gev_4kev_cutflow_v3_VERTEX_FIXED.csv")
     rdf.to_csv(out_csv, index=False)
 
     n_geom_fid = int(rdf["geometric_fiducial"].sum())

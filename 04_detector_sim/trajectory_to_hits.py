@@ -166,6 +166,7 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
         x0_natural_vec = np.array(x0_override_cm) / 1.973269804e-14
         x1_0 = x0_natural_vec.copy()
         x2_0 = x0_natural_vec.copy()
+        vertex_cm = np.array(x0_override_cm, dtype=float)
     else:
         if not smear_primary_vertex:
             z0_cm = 0.0
@@ -174,6 +175,7 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
         z0_natural = z0_cm / 1.973269804e-14
         x1_0 = np.array([0.0, 0.0, z0_natural])
         x2_0 = np.array([0.0, 0.0, z0_natural])
+        vertex_cm = np.array([0.0, 0.0, z0_cm])
 
     p1 = np.array(p1_gev[:3])
     p2 = np.array(p2_gev[:3])
@@ -350,6 +352,16 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
         t_max_gev_inv=t_max, dt_gev_inv=dt,
     )
     traj["dt_diagnostics"] = dt_diagnostics
+    # True primary-vertex position (cm), exposed so callers of the
+    # coplanarity fit can measure hits relative to it (paper Sec III C:
+    # "We will assume that the primary vertex is identified correctly, and
+    # is located at the origin" -- the FIT's coordinate origin must be the
+    # true vertex, not the fixed lab-frame origin used for detector
+    # response/eta above, which stays unchanged here). This does NOT alter
+    # any detector-response, eta, or trajectory-integration behavior above
+    # -- it only exposes the already-known vertex position for downstream
+    # use.
+    traj["vertex_cm"] = vertex_cm
 
     x1_cm = traj["x1"] * 1.973269804e-14
     x2_cm = traj["x2"] * 1.973269804e-14

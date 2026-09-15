@@ -12,6 +12,33 @@ build the tensor T_ij = (1/(N-1)) sum_a x_a_i x_a_j (Eq. 11), eigen-decompose:
 import numpy as np
 
 
+def vertex_relative_hits(hits_xyz, vertex_cm):
+    """
+    Shift hit positions so they are measured relative to the TRUE primary
+    vertex, per Sec III C: "We will assume that the primary vertex is
+    identified correctly, and is located at the origin." fit_plane's own
+    tensor T_ij = sum(x_i x_j)/(N-1) has no mean-subtraction step -- it
+    finds the best-fit plane THROUGH THE ORIGIN, so its correctness depends
+    on the origin actually being the vertex the true trajectory plane
+    passes through, not the fixed lab-frame/detector origin.
+
+    This is a pure coordinate shift, applied ONCE, at the boundary between
+    detector-response hits (which correctly stay in the lab/global frame
+    for eta, pixel quantization, and SCT smearing -- those depend on actual
+    physical detector position, not the vertex) and the coplanarity fit
+    itself. fit_plane() and seeding_and_iterative_fit() are UNCHANGED.
+
+    hits_xyz: (N,3) array-like of hit positions (cm), lab frame.
+    vertex_cm: (3,) true primary-vertex position (cm), e.g. (0,0,z0) for the
+      45mm-beamspot-smeared hard-scatter vertex, or the photon-conversion
+      point for that background.
+    Returns an (N,3) numpy array, vertex-subtracted.
+    """
+    x = np.asarray(hits_xyz, dtype=float)
+    v = np.asarray(vertex_cm, dtype=float)
+    return x - v
+
+
 def fit_plane(hits_xyz):
     """
     hits_xyz: (N,3) array of hit positions (cm), N >= 2.
