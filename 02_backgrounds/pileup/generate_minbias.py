@@ -53,27 +53,78 @@ def make_pythia(seed, ecm_gev=13000.0):
     return pythia, actual_version
 
 
-def generate_events(n_events, seed, ecm_gev=13000.0):
+COLUMNS = ["event", "pdgid", "status", "charge", "px", "py", "pz", "E", "m"]
+
+
+def generate_events_streaming(n_events, seed, out_path, ecm_gev=13000.0,
+                               chunk_events=2000):
+    """
+    Streams output to `out_path` in chunks of `chunk_events` events, instead
+    of accumulating all rows in memory: the naive all-in-memory version
+    OOM-killed at 125,000 events (13.5M+ particle dicts on a 7.6GB-RAM
+    machine, confirmed via dmesg: RSS reached 7.4GB before SIGKILL). Peak
+    memory here is bounded by one chunk's rows, independent of n_events.
+
+    Returns (n_ok, n_particles_total, actual_version, mult_per_event dict,
+    any_nan, any_inf, unique_event_ids_count) -- same summary statistics the
+    old all-in-memory version printed, computed incrementally instead.
+    """
     pythia, actual_version = make_pythia(seed, ecm_gev)
-    rows = []
     n_ok = 0
+    n_particles_total = 0
+    mult_by_event = {}
+    any_nan = False
+    any_inf = False
+    seen_event_ids = set()
+    first_chunk = True
+    rows = []
+
+    def flush():
+        nonlocal rows, first_chunk
+        if not rows:
+            return
+        chunk_df = pd.DataFrame(rows, columns=COLUMNS)
+        chunk_df.to_csv(out_path, mode="w" if first_chunk else "a",
+                         header=first_chunk, index=False)
+        first_chunk = False
+        rows = []
+
     for iev in range(n_events):
         if not pythia.next():
             continue
         n_ok += 1
+        n_this = 0
         for prt in pythia.event:
             if not prt.isFinal():
                 continue
             if prt.charge() == 0:
                 continue
+            px, py, pz, E, m = prt.px(), prt.py(), prt.pz(), prt.e(), prt.m()
+            if not (np.isfinite(px) and np.isfinite(py) and np.isfinite(pz)
+                    and np.isfinite(E) and np.isfinite(m)):
+                any_nan = any_nan or any(v != v for v in (px, py, pz, E, m))  # NaN check
+                any_inf = any_inf or any(np.isinf(v) for v in (px, py, pz, E, m))
             rows.append({
                 "event": iev, "pdgid": prt.id(), "status": prt.status(),
-                "charge": prt.charge(),
-                "px": prt.px(), "py": prt.py(), "pz": prt.pz(), "E": prt.e(),
-                "m": prt.m(),
+                "charge": prt.charge(), "px": px, "py": py, "pz": pz, "E": E, "m": m,
             })
-    df = pd.DataFrame(rows)
-    return df, n_ok, actual_version
+            n_this += 1
+        n_particles_total += n_this
+        mult_by_event[iev] = n_this
+        seen_event_ids.add(iev)
+        if len(rows) >= chunk_events * 100:  # ~100 particles/event average
+            flush()
+    flush()
+    if first_chunk:
+        # zero events generated OK -- still write an empty file with header
+        pd.DataFrame(columns=COLUMNS).to_csv(out_path, index=False)
+
+    return {
+        "n_ok": n_ok, "n_particles_total": n_particles_total,
+        "actual_version": actual_version, "mult_by_event": mult_by_event,
+        "any_nan": any_nan, "any_inf": any_inf,
+        "n_unique_event_ids": len(seen_event_ids),
+    }
 
 
 if __name__ == "__main__":
@@ -93,24 +144,24 @@ if __name__ == "__main__":
     else:
         raise ValueError("mode must be smoke, benchmark, or pool <N>")
 
-    print(f"Generating {n} minimum-bias events, seed={seed}, ecm={ecm} GeV")
+    print(f"Generating {n} minimum-bias events, seed={seed}, ecm={ecm} GeV (streaming to {out})")
     t0 = time.time()
-    df, n_ok, actual_version = generate_events(n, seed, ecm)
+    stats = generate_events_streaming(n, seed, out, ecm)
     dt = time.time() - t0
+    n_ok = stats["n_ok"]
 
-    print(f"Pythia8 version actually used: {actual_version}")
+    print(f"Pythia8 version actually used: {stats['actual_version']}")
     print(f"Events generated OK: {n_ok} / {n}")
     print(f"Wall time: {dt:.2f}s ({dt/max(n_ok,1)*1000:.2f} ms/event)")
-    print(f"Total charged final-state particles: {len(df)}")
+    print(f"Total charged final-state particles: {stats['n_particles_total']}")
     if n_ok > 0:
-        mult = df.groupby("event").size()
+        mult = np.array(list(stats["mult_by_event"].values()))
         print(f"Charged multiplicity per event: mean={mult.mean():.2f}, "
               f"min={mult.min()}, max={mult.max()}")
-    print(f"NaN count: {df.isna().sum().sum()}")
-    print(f"Inf count: {np.isinf(df.select_dtypes(include=[np.number])).sum().sum()}")
-    print(f"Unique event IDs: {df['event'].nunique()} (expect <= {n_ok})")
+    print(f"NaN detected: {stats['any_nan']}")
+    print(f"Inf detected: {stats['any_inf']}")
+    print(f"Unique event IDs: {stats['n_unique_event_ids']} (expect <= {n_ok})")
 
-    df.to_csv(out, index=False)
     file_size_mb = __import__("os").path.getsize(out) / 1e6
     print(f"Saved to {out} ({file_size_mb:.2f} MB)")
 
