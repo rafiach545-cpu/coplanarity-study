@@ -372,3 +372,27 @@ Neither is a code-correctness blocker (both pipelines are now validated:
 mu=0 bit-for-bit, mu=5 mechanically clean, pixel-merging bug fixed, real
 background metric implemented) -- both are pure wall-clock-time blockers,
 honestly reported rather than run partially and presented as complete.
+
+## [2026-09-16 ~18:00] Incomplete 125,000-event pool DELETED by explicit
+user decision.
+
+02_backgrounds/pileup/minbias_pool_125000_PARTIAL_NOT_FOR_ANALYSIS.csv
+(1,387,722,114 bytes, 13,327,204 lines, stopped mid-generation at
+~event 118,156/125,000 when the original generation task was terminated --
+see the 2026-09-16 ~14:09 entry above) was deleted. Verified before
+deletion: resolved absolute path; filename confirmed to contain
+PARTIAL_NOT_FOR_ANALYSIS; confirmed distinct from minbias_pool_20000_
+FINAL.csv; confirmed via lsof/fuser that no process had it open; confirmed
+via `git ls-files` that it was never git-tracked (gitignored per
+minbias_pool_*.csv). Deleted with an exact, non-wildcard path. Verified
+after deletion: file no longer exists; minbias_pool_20000_FINAL.csv still
+exists, unchanged (same size, same sha256
+e03cf9a6c9b768c0695bf384b3cae6e16514055ff28c180b05feb3943000e2c9 as
+recorded in this file's own provenance sidecars from its generation run).
+
+This partial file was NEVER used for any analysis result in this
+repository -- every committed pile-up output (validated 20,000-event pool
+runs, SIGNAL_WITH_PILEUP driver, PILEUP_FAKE_BACKGROUND driver, all8layer
+diagnostic) used minbias_pool_20000_FINAL.csv exclusively. Its deletion
+removes an explicitly-rejected, unusable artifact; it does not retract or
+invalidate any prior committed result.
