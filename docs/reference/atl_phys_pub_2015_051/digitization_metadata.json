@@ -1,0 +1,64 @@
+{
+  "source_document": "ATL-PHYS-PUB-2015-051, Figure 1(b) (page 5)",
+  "source_file_provided_by_user": "C:/Users/Dell/Downloads/ATL-PHYS-PUB-2015-051.pdf (14 pages, verified)",
+  "render_tool": "PyMuPDF (fitz) 1.28.0, 4x zoom matrix (approx 288 DPI equivalent)",
+  "render_file": "page5_render.png (2382x3368 px)",
+  "crop_file": "fig1b_crop.png",
+  "digitized_csv": "fig1b_digitized.csv",
+  "axis_calibration": {
+    "x_axis": {
+      "pixel_0": 1320,
+      "pixel_5": 2007,
+      "units": "pT [GeV]",
+      "method": "left/right frame border pixel columns, confirmed against x=0 and x=5 tick label positions"
+    },
+    "y_axis": {
+      "pixel_1.2": 1540,
+      "pixel_1.0": 1681,
+      "pixel_0.6": 1963.5,
+      "units": "Track Reconstruction Efficiency",
+      "method": "major tick-mark pixel rows detected via dark-pixel run search inside left frame; 3-point linearity confirmed self-consistent (1540,1681,1963.5 exactly linear in 0.2-unit steps)"
+    },
+    "final_formula": "pT = (px-1320)/(2007-1320)*5.0 ; efficiency = 1.2 + (py-1540)*(-0.6/423.0)"
+  },
+  "marker_color_identification": {
+    "Loose_marker_rgb": [
+      0,
+      0,
+      0
+    ],
+    "Loose_band_rgb": [
+      179,
+      179,
+      179
+    ],
+    "TightPrimary_marker_rgb": [
+      255,
+      0,
+      0
+    ],
+    "TightPrimary_band_rgb": [
+      255,
+      179,
+      179
+    ],
+    "method": "exact RGB histogram of a clean data-region strip, cross-checked against ROOT legend swatch colors"
+  },
+  "marker_detection_method": "scipy.ndimage connected-component labeling on a color-distance mask (L1 distance < 30 from pure marker color), filtered by blob shape (area 10-35px, width/height 4-9px) and a y-pixel-range window derived from the axis calibration to exclude title text, legend text/swatches, and axis tick marks.",
+  "legend_swatch_exclusion": "One red blob at (px=1788.3, py=1672.7) was excluded as the legend icon for Tight Primary -- its y-position (efficiency approx 1.06, outside the 0.6-1.2 plotted data range entirely) is inconsistent with the descending data sequence, confirming it is not a data point.",
+  "independent_second_check": "Re-ran detection with a looser color-distance tolerance (60 instead of 30). Identical marker counts (17/17 for both curves); centroid shift <0.002 GeV in pT and <0.0001 in efficiency between the two tolerance settings -- confirms robustness, not a second independent digitization method in the strictest sense (no second analyst/tool was available), disclosed as such.",
+  "validation_against_printed_constraints": {
+    "plateau_claim": "Paper text (p.5): Above pT>=5 GeV, the track reconstruction efficiency reaches a plateau equal to ~90% and ~85% respectively for the Loose and Tight Primary selections.",
+    "digitized_highest_bin_pT_4.5GeV": {
+      "Loose": 0.8957,
+      "TightPrimary": 0.8533
+    },
+    "assessment": "Consistent with the printed ~90%/~85% plateau claim to within ~0.5-1 percentage point -- NOT forced to match; this is the natural output of the pixel calibration and marker detection.",
+    "note_on_Table_1_values": "Table 1 values (91%/73%/86%/63%) are eta-BINNED, pT-INTEGRATED over [0.4,20]GeV -- a DIFFERENT slicing than this pT-differential digitization, so they are NOT directly comparable and no forced comparison was attempted."
+  },
+  "uncertainty_disclosure": {
+    "pixel_level_precision": "approx 1 pixel corresponds to approx 0.007 GeV in pT and approx 0.0014 in efficiency (from the calibration formula) -- this is a DIGITIZATION-READOUT precision only.",
+    "NOT_INCLUDED": "The systematic uncertainty BANDS shown in the original figure (light gray/pink shaded regions) were NOT digitized in this pass -- only the central marker values. Any use of these values in an implementation would currently have NO associated systematic uncertainty unless the bands are digitized separately."
+  },
+  "label": "DIGITIZED APPROXIMATION FROM A GRAPHICAL SOURCE -- NOT exact printed numeric data (contrast with Table 1's four printed percentages, which ARE exact). Central marker positions only; uncertainty bands not digitized."
+}
