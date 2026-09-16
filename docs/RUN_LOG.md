@@ -253,3 +253,55 @@ Consequences documented, not ignored:
     overlay calls) specifically so repeated high-multiplicity draws from
     this smaller, more-reused pool stay memory-safe and don't re-pay a full
     pandas groupby() per hard event.
+
+## [2026-09-16 ~15:00-15:20] Part D: mu=0 exact-match validation + mu=5
+smoke test (5 events), both REAL (Pythia8 minbias pool + real EW-quirk
+truth momenta), no synthetic data.
+
+mu=0 exact match (run_pileup_overlay.py, event=3, rng seed=4242 matching
+analyze_ew_quirk.py's own original seed exactly): reproduces the already-
+committed v3 result BIT-FOR-BIT -- ds=0.013232430572373607 (v3: 0.013232),
+dw=0.043214639013254806 (v3: 0.043215), passes_signal_region=False in both.
+Confirms the overlay/merge code path adds zero artifacts at mu=0. A first
+attempt at this check used a different (non-matching) RNG seed and gave a
+DIFFERENT ds/dw (0.017560 vs 0.013232) -- investigated and confirmed as
+expected stochastic RNG-stream difference (SCT Gaussian smearing depends on
+the RNG draws), NOT a bug; re-run with the matching seed to get the true
+bit-for-bit check above.
+
+Also caught and fixed a real bug during this validation: the first version
+of run_pileup_overlay.py did not apply Sec IV's pT_pair>200 GeV trigger cut
+before running the expensive RK4 simulation, so it processed the raw
+511-event untriggered sample's first N rows instead of the validated
+89-event trigger-passing sample -- fixed to match analyze_ew_quirk.py's own
+cutflow order exactly (trigger cut BEFORE simulate_quirk_hits).
+
+mu=5 smoke test (5 events: 3,8,11,13,15 -- the trigger-passing sample's
+first 5 by event id): ALL PASS mechanically -- 5/5 unique event IDs, zero
+NaN/Inf, Poisson(5) draws (n_pu=7,2,7,5,6, sample mean 5.4) qualitatively
+consistent, per-layer hit counts (~100-190/layer) scale sensibly relative
+to the paper's own O(1000)/layer-at-mu=50 anchor, event 3's Delta_s/Delta_w
+UNCHANGED from its mu=0 value even with 919 pile-up hits overlaid (the
+tight growth-factor-3 iterative-fit cut correctly rejects pile-up hits from
+joining the real signal candidate -- a real, physically meaningful check,
+not assumed). Reproducibility: independent re-run of event 3 at mu=5 with
+the same per-event seed formula (seed=20260916+event) is byte-identical.
+Transition table vs mu=0: all 5/5 are 0->0 (none of these 5 specific events
+happen to be among the 6/89 events that pass at mu=0 -- expected for a
+5-event random subsample when only ~6.7% pass overall; no 1->0/0->1/1->1
+example was observed in this smoke sample, honestly noted as a sampling
+gap, not claimed as "no transitions exist"). Committed.
+
+FEASIBILITY FINDING (real, measured, not estimated from a benchmark
+projection): per-event wall time for the real EW-quirk RK4 trajectory
+integration is ~130-170s in this pure-Python pipeline (measured directly:
+171.6s for the mu=0 single-event check, 127.95s/event average for the
+5-event mu=5 smoke test). Extrapolating to the full 89-event trigger-
+passing sample: ~4.2 hours for mu=0, ~3.2 hours for mu=5, and mu=10/20/50
+are expected to take AT LEAST as long (likely longer, since the naive O(N^2)
+seeding pair-combinatorics in coplanarity_fit.py grows with pile-up hit
+density -- the paper's own Sec III C notes an amortized O(N) implementation
+is possible with spatial binning, which this repo's seeding_and_iterative_fit
+does NOT implement). Full 89-event sweeps at mu=5/10/20/50 are NOT complete
+in this session -- reported honestly as pending, not attempted-and-hidden,
+per the explicit instruction to never report an incomplete run as complete.

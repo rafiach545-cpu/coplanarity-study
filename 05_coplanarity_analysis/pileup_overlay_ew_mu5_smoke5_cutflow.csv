@@ -1,0 +1,6 @@
+event,mu,truth_fiducial,n_pu_interactions,n_pu_particles_propagated,n_pu_hits_premerge,n_hits_combined_premerge,n_hits_combined_postmerge,n_candidates,passes_signal_region,ds,dw,per_layer_hit_counts
+3,5.0,True,7,554,919,935,935,1,False,0.017560434725833688,0.04434431922088474,"{1: 127, 2: 127, 3: 125, 4: 125, 5: 117, 6: 110, 7: 104, 8: 100}"
+8,5.0,False,2,120,244,14,14,0,False,,,
+11,5.0,False,7,388,783,12,12,0,False,,,
+13,5.0,True,5,426,821,837,837,0,False,,,"{1: 109, 2: 110, 3: 110, 4: 111, 5: 105, 6: 102, 7: 99, 8: 91}"
+15,5.0,True,6,642,1441,1457,1457,3,False,0.02564139199804561,0.4699666545078678,"{1: 191, 2: 193, 3: 190, 4: 189, 5: 179, 6: 177, 7: 171, 8: 167}"
