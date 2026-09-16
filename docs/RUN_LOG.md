@@ -172,3 +172,84 @@ Pythia8 confirmed available: version 8.312 (paper cites the "8.2" series,
 ref [21] = arXiv:1410.3012 -- version mismatch documented, best available used).
 Proceeding to Part C (real minimum-bias generation) with all above
 assumptions explicitly recorded, none presented as paper-mandated.
+
+## [2026-09-16 ~14:20] STAGE 3 REAL — Part B addendum: read the actual paper
+and ref [34] PDFs directly (arXiv:1708.02243v2 full text + arXiv:1612.00850
+Appendix A, both via pypdf text extraction, not from memory/prior summary).
+Confirmed as genuine MATCH (not just AMBIGUOUS-with-assumption) via ref [34]
+p.14: "we assume the number of pile-up vertices follows a Poisson
+distribution with an average of 50 interactions per bunch crossing... the
+longitudinal z-coordinate of the primary vertex follows a Gaussian
+distribution... width of 45mm... We neglect the width of the beamspot in
+the transverse direction." Ref [34] Appendix A also confirms its pile-up
+detector model is materially richer than the main paper's own Sec III A
+barrel-8-layer model used here (adds endcap SCT discs, service layer, TRT
+barrel+endcap, ECAL, Bethe-Bloch energy loss, single-photon bremsstrahlung).
+DECISION (user-directed): reuse the existing validated Sec III A barrel-8-
+layer model for pile-up too, rather than implement ref [34]'s fuller
+detector -- documented simplification, not a paper requirement, expected to
+UNDER-count pile-up hits somewhat (partially offset by the paper's own
+factor-of-2-conservative <mu>=50 choice, per ref [34]'s own discussion of
+its ~30% Pythia8 soft-track undercount).
+
+## [2026-09-16 ~14:35] Part D prerequisite: helix_propagation.py (exact
+analytic solution for ordinary, non-string-bound charged particles at
+Lambda=0) validated against the existing RK4 quirk integrator across 4
+cases (charge sign, z-shifted vertex, off-axis vertex, electron mass) --
+all PASS, max position diff 1.2e-7 cm, max time diff 5.8e-10 ns across all
+8 layers. Committed (e589eff). pileup_hits.py (pile-up hit generation +
+hard/pile-up overlay + combined pixel merging) built on top of it.
+
+## [2026-09-16 ~13:15-14:09] REAL 125,000-event minimum-bias pool: FIRST
+ATTEMPT OOM-KILLED. The original generate_events() buffered all rows in
+memory before writing; confirmed via dmesg the process reached 7.4GB RSS on
+this 7.6GB-RAM machine before SIGKILL (exit 137) -- the 1000-event
+benchmark's linear ~1.4GB projection undercounted per-Python-object
+overhead at ~14M particle rows. FIXED: generate_events_streaming() flushes
+to CSV in ~2000-event chunks, holding only lightweight summary stats for
+the full run. Verified at 20,000 events: peak RSS 232MB. Committed (93db9da).
+A second 125,000-event attempt was subsequently launched and was still
+running when the USER DECIDED a 20,000-event pool is sufficient for this
+study; that run was stopped cleanly (SIGTERM to the exact PID, confirmed
+exited, no other process touched) at ~118,156/125,000 events. Its partial
+output was preserved (not deleted) as
+minbias_pool_125000_PARTIAL_NOT_FOR_ANALYSIS.csv pending any future
+decision to resume/redo a full-size pool -- NOT used for any physics result
+below.
+
+## [2026-09-16 ~14:40] REAL 20,000-event minimum-bias pool: FINAL, validated.
+minbias_pool_20000_FINAL.csv -- Pythia8 8.312, SoftQCD:nonDiffractive=on,
+13 TeV, Beams:allowVertexSpread=off (beamspot applied at overlay time per
+module docstring), seed=20260916 (same audited seed as the original attempt).
+Validated: 20000/20000 unique event IDs (0..19999, no gaps/dupes), 2,256,066
+charged final-state particle rows, zero NaN/Inf, all charges in {-1,+1},
+10 distinct PDG species, on-shell E^2-p^2-m^2 residual <= 1.1e-5 GeV^2
+(Pythia8 rounding-level), charged multiplicity/event mean=112.80 (min 10,
+max 490, matches the earlier 1000- and 20000-event benchmarks exactly).
+Runtime: 105.4s (5.27 ms/event). File size: 233.5 MB. Reproducibility:
+independent 200-event same-seed regeneration is byte-for-byte identical
+(DataFrame.equals == True).
+
+LIMITATION, explicitly recorded (not to be silently forgotten downstream):
+the paper's own pile-up model uses a 125,000-event minimum-bias pool
+(Sec III D). This implementation uses 20,000 events, a deliberate USER
+DECISION (not a paper requirement, not a feasibility finding -- 125,000 was
+independently confirmed feasible via the streaming-fixed generator, ~11 min
+projected). A 20,000-event pool is smaller than the paper's by 6.25x.
+Consequences documented, not ignored:
+  - sampling WITH replacement (already the documented assumption -- see
+    pileup_hits.py module docstring) becomes materially more consequential:
+    at mu=50, an event draws 50 interactions from only 20,000 available,
+    still low individual reuse probability per event, but AGGREGATE reuse
+    across many hard events in a mu=50 run will be substantial.
+  - repeated reuse of the same pool events across different pile-up draws
+    reduces the STATISTICAL INDEPENDENCE of the pile-up background estimate
+    relative to what a 125,000-event (or larger) pool would give -- results
+    below should be read as a real-physics DEMONSTRATION of the overlay
+    pipeline at reduced statistics, not as an exact reproduction of the
+    paper's own pile-up background rate at its native pool size.
+  - pileup_hits.py's sample_pileup_hits()/build_pool_index() were refactored
+    (pre-group the pool ONCE into numpy arrays per event, reused across all
+    overlay calls) specifically so repeated high-multiplicity draws from
+    this smaller, more-reused pool stay memory-safe and don't re-pay a full
+    pandas groupby() per hard event.
