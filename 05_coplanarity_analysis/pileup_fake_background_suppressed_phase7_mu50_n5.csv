@@ -1,0 +1,6 @@
+n_pu_interactions,n_pu_particles_propagated,n_pu_hits_before_suppression,n_pu_hits_after_suppression,n_tracks_primary,n_tracks_primary_removed,n_tracks_primary_kept,n_tracks_secondary,n_tracks_ambiguous,per_layer_hit_counts,n_candidates,best_candidate_n_layers_with_hit,has_4_of_8_plane,has_8_of_8_plane
+47,5392,10848,6601,1407,573,834,131,0,"{1: 871, 2: 870, 3: 883, 4: 886, 5: 831, 6: 795, 7: 756, 8: 709}",0,0,False,False
+54,6328,12628,7856,1604,641,963,164,0,"{1: 1042, 2: 1053, 3: 1051, 4: 1050, 5: 985, 6: 938, 7: 895, 8: 842}",0,0,False,False
+61,6502,13179,8254,1700,671,1029,199,0,"{1: 1066, 2: 1100, 3: 1116, 4: 1118, 5: 1037, 6: 986, 7: 944, 8: 887}",0,0,False,False
+42,4328,9398,5710,1190,495,695,129,0,"{1: 743, 2: 767, 3: 766, 4: 759, 5: 713, 6: 689, 7: 652, 8: 621}",0,0,False,False
+56,6508,13787,8439,1754,718,1036,198,0,"{1: 1115, 2: 1125, 3: 1134, 4: 1125, 5: 1063, 6: 1020, 7: 956, 8: 901}",0,0,False,False

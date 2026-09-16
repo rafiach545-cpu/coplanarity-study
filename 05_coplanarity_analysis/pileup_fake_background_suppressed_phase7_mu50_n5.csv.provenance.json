@@ -1,0 +1,39 @@
+{
+  "study_type": "PILEUP_FAKE_BACKGROUND",
+  "mu": 50.0,
+  "n_events_processed": 5,
+  "seed": 55550001,
+  "rng_stream_convention": "SeedSequence([seed,i]).spawn(2) -> (rng_pileup, rng_suppression) independent streams per event",
+  "detector_model_version": "atlas_geometry.py Sec-IIIA-barrel-8-layer (no ref[34] endcap/TRT/ECAL/Bethe-Bloch)",
+  "pool_filename": "minbias_pool_20000_FINAL.csv",
+  "pool_size_events": 20000,
+  "pool_sha256": "e03cf9a6c9b768c0695bf384b3cae6e16514055ff28c180b05feb3943000e2c9",
+  "pool_generation_settings": {
+    "pythia_version": "8.312",
+    "process": "SoftQCD:nonDiffractive = on",
+    "beams": "pp, sqrt(s) = 13000 GeV",
+    "seed": 20260916,
+    "n_events_requested": 20000,
+    "note": "125,000-event pool per the paper's own Sec III D; this project uses 20,000 events by explicit user decision, not a paper requirement or a feasibility finding -- see RUN_LOG.md 2026-09-16 ~14:40. Sampling from this pool is WITH REPLACEMENT (documented assumption, not specified by the paper or ref[34]), so results have REDUCED STATISTICAL INDEPENDENCE relative to the paper's own 125,000-event pool and must never be described as an exact paper-sized reproduction."
+  },
+  "git_commit_hash": "a4bb76d4778365025f64c79b25f79fdd6f3186b0",
+  "created_utc": "2026-09-16T17:14:02.593707+00:00",
+  "diagnostic_only": false,
+  "tracking_efficiency_selection": "Loose",
+  "tracking_efficiency_source": "docs/reference/atl_phys_pub_2015_051/fig1b_digitized.csv (Task A digitization)",
+  "suppression_mechanism": "track-level Bernoulli removal, Phase 4 (track_suppression.py) -- modelling assumption, not a uniquely specified paper prescription",
+  "ancestry_pool": "minbias_pool_20000_ANCESTRY_v1.csv",
+  "k_4of8": 0,
+  "rate_4of8": 0.0,
+  "wilson_95ci_4of8": [
+    0.0,
+    0.43449149475208104
+  ],
+  "k_8of8": 0,
+  "rate_8of8": 0.0,
+  "wilson_95ci_8of8": [
+    0.0,
+    0.43449149475208104
+  ],
+  "wall_time_s": 18.568386793136597
+}
