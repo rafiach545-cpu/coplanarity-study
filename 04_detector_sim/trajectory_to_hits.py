@@ -534,7 +534,17 @@ def merge_neighboring_pixel_hits(hits, adjacency=1):
                         stack.append(nb)
 
             cluster = [layer_hits[k] for k in component]
-            source_quirk_indices = sorted(set(c["quirk_index"] for c in cluster))
+            # sorted() on a raw mixed int/str set raises TypeError in Python 3
+            # (e.g. quirk_index=1 for a hard-event hit vs. a pile-up
+            # particle_tag string like "pu5_ev123_p7", once a merged cluster
+            # mixes hard-scatter and pile-up hits -- found via the pixel-
+            # merging unit tests' "mixed hard/pile-up cluster" case, which
+            # crashed here; real pile-up overlay runs at any mu>0 hit this
+            # whenever a pile-up hit lands next to a hard-event hit). Sort by
+            # str(x) instead: still deterministic/reproducible, and this
+            # field is provenance-only (never used for cut logic), so the
+            # sort order itself has no physics meaning.
+            source_quirk_indices = sorted(set(c["quirk_index"] for c in cluster), key=str)
             if len(cluster) == 1:
                 h = cluster[0]
                 merged.append({**h, "merged_count": 1,

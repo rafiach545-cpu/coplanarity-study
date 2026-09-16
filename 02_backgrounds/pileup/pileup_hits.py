@@ -11,15 +11,21 @@ III D) directs pile-up modelling to the detector described in ref [34]
 (arXiv:1612.00850), whose Appendix A includes the beam pipe, IBL, 3 pixel
 layers, SCT barrel AND endcap discs, a service layer, TRT (barrel+endcap)
 and the ECAL, with Bethe-Bloch energy loss and single-photon bremsstrahlung
-at each material crossing. That model is NOT implemented here. This module
-instead reuses the main paper's OWN simplified Sec III A barrel-8-layer
-model (already validated for signal/conversion background) for pile-up
-hits too -- a real simplification relative to ref [34], not a paper
-requirement. This is expected to UNDER-count pile-up hits somewhat (no
-endcap/TRT contribution, no secondaries from hadronic interactions --
-ref [34] itself notes Pythia8 underestimates soft-track multiplicity by a
-comparable ~30%, which the paper's own factor-of-2-conservative <mu>=50
-choice is offered to offset). Documented, not silently ignored.
+at each material crossing, plus explicit trajectory-termination conditions
+(reach calorimeter; KE<10% of mass; time-of-flight>25ns; escape the forward
+region uncovered by calorimeters -- ref [34] Appendix A). NONE of the
+endcap/service/TRT/ECAL material or Bethe-Bloch/bremsstrahlung energy loss
+is implemented here. This module instead reuses the main paper's OWN
+simplified Sec III A barrel-8-layer model (already validated for signal/
+conversion background) for pile-up hits too -- a real simplification
+relative to ref [34], not a paper requirement. The DIRECTION and SIZE of
+this simplification's effect on the fake-coplanarity background rate are
+UNQUANTIFIED by anything in this repository -- it is NOT demonstrated (and
+should not be claimed) that this makes the estimate conservative,
+optimistic, or negligible in either direction. Missing endcap/TRT/ECAL
+material could add pile-up hits (more material = more low-pT loopers/
+secondaries) or the missing secondaries specifically could remove them;
+these effects are not modeled here and no net direction is asserted.
 
 VERIFIED PRESCRIPTIONS USED HERE (paper Sec III D + ref [34] Sec II/App. A):
   - Pile-up multiplicity: Poisson distribution, mean mu (ref [34], p.14:
@@ -49,7 +55,28 @@ VERIFIED PRESCRIPTIONS USED HERE (paper Sec III D + ref [34] Sec II/App. A):
     the plane fit uses the hard vertex.
   - Pixel-hit merging is applied ACROSS the combined (hard + pile-up) hit
     list, since real ATLAS clustering cannot distinguish hit origin.
+  - Per-hit 25ns time-of-flight cutoff (ref [34] Appendix A, trajectory-
+    termination condition (iii): "Their time-of-flight exceeds 25 ns" --
+    verbatim). This is a DIFFERENT requirement from the main paper's own
+    Sec IV "25 ns timing cut" (which is a TRUTH-level, event-level cut on
+    whether a QUIRK EVENT counts as fiducial, i.e. eps_fid). Ref [34]'s
+    condition is a PER-PARTICLE propagation-termination rule applied inside
+    its own detector simulation -- since the main paper explicitly sends
+    pile-up "through the simplified detector described in [34]," a pile-up
+    particle's trajectory (and hence any layer crossing) is only valid past
+    the point ref [34]'s own simulation would have stopped propagating it.
+    Applied here as a PER-HIT rejection: any pile-up layer crossing with
+    t_ns > 25 is not counted as a hit. (Not implemented previously -- added
+    here after re-reading ref [34] Appendix A directly, not from memory.)
+  - Neutral pile-up particles are never propagated for tracker hits (ref
+    [34] Appendix A, verbatim: "Neutral particles are always propagated
+    straight to the calorimeter barrel or wheels without energy loss in the
+    inner tracker" -- i.e. they never produce tracker hits in ref [34]'s own
+    model either). This CONFIRMS (not just assumes) generate_minbias.py's
+    charge!=0 filter as the correct match to ref [34], not merely a
+    reasonable guess.
 """
+PILEUP_HIT_TIMING_CUT_NS = 25.0  # ref [34] Appendix A, propagation-termination condition (iii)
 import sys
 import numpy as np
 sys.path.insert(0, "/home/rafia/coplanarity_study/04_detector_sim")
@@ -79,8 +106,21 @@ def pileup_particle_hits(px, py, pz, m, charge_e, vertex_cm, particle_tag,
         if result is None:
             continue
         xyz, t_ns = result
+        if t_ns is None or t_ns > PILEUP_HIT_TIMING_CUT_NS:
+            continue  # ref [34] Appendix A stopping condition (iii)
         x, y, z = xyz
         r = np.hypot(x, y)
+        # eta from the hit's GLOBAL (lab-frame) position, NOT vertex-relative
+        # -- matches trajectory_to_hits.py's identical, already-validated
+        # convention (see that module's docstring): the barrel's |eta|<1.8
+        # acceptance is a fixed HARDWARE extent in the lab frame, and a
+        # vertex-relative eta would silently cancel the very beamspot-
+        # smearing effect (each interaction's own displaced z0) the paper
+        # wants included in the fiducial acceptance. Verified by direct
+        # construction here: z already reflects this particle's own
+        # (possibly far off-origin) vertex_cm through the helix propagation
+        # above, so a fast/slow-moving or steeply-angled track from a
+        # displaced vertex gets a correspondingly different (correct) eta.
         eta = eta_from_theta(np.arctan2(r, z)) if (z != 0 or r != 0) else 0.0
         if abs(eta) > FIDUCIAL_ETA_MAX:
             continue
@@ -145,7 +185,7 @@ def sample_pileup_hits(pool_index, mu, rng, B_tesla=2.0):
 
     if n_pu > 0 and len(pool_event_ids) > 0:
         chosen = rng.choice(pool_event_ids, size=n_pu, replace=True)
-        sampled_event_ids = list(chosen)
+        sampled_event_ids = [int(e) for e in chosen]  # native int, not numpy.int64
         for pu_idx, ev_id in enumerate(chosen):
             z0_cm = rng.normal(0.0, BEAMSPOT_SIGMA_Z_CM)
             vertex_cm = np.array([0.0, 0.0, z0_cm])
@@ -181,10 +221,17 @@ def overlay_and_merge(hard_hits, pileup_hits):
     """
     combined = list(hard_hits) + list(pileup_hits)
     merged = merge_neighboring_pixel_hits(combined)
+    # source_quirk_indices is set unconditionally by merge_neighboring_pixel_hits
+    # on EVERY returned hit (pixel single/merged AND non-pixel pass-through
+    # branches all set it -- verified by reading trajectory_to_hits.py's
+    # merge_neighboring_pixel_hits directly), so no .get()/KeyError guard is
+    # needed here; asserted rather than silently assumed.
+    assert all("source_quirk_indices" in h for h in merged), \
+        "merge_neighboring_pixel_hits did not set source_quirk_indices on every hit"
     n_mixed = sum(1 for h in merged
                   if len(h["source_quirk_indices"]) > 1
                   and any(isinstance(q, str) for q in h["source_quirk_indices"])
                   and any(not isinstance(q, str) for q in h["source_quirk_indices"]))
-    return merged, {"n_hits_prehmerge_combined": len(combined),
+    return merged, {"n_hits_premerge_combined": len(combined),
                      "n_hits_postmerge_combined": len(merged),
                      "n_merged_hard_pileup_mixed": n_mixed}

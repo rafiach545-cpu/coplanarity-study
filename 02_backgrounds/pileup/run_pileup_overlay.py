@@ -84,7 +84,7 @@ def run_one_event(row, mu, rng, pool_index):
         return result  # matches paper's fid/reco factorization
 
     merged, mstats = overlay_and_merge(hits, pu_hits)
-    result["n_hits_combined_premerge"] = mstats["n_hits_prehmerge_combined"]
+    result["n_hits_combined_premerge"] = mstats["n_hits_premerge_combined"]
     result["n_hits_combined_postmerge"] = mstats["n_hits_postmerge_combined"]
 
     hits_by_layer = build_hits_by_layer(merged, vertex_cm)
@@ -117,8 +117,12 @@ def run_mu(mu, n_events=None, seed=20260916, label=None):
     ew = ew_all[ew_all["pT_pair"] > 200].reset_index(drop=True)
     if n_events is not None:
         ew = ew.iloc[:n_events]
-    pool = pd.read_csv(POOL_PATH)
-    pool_index = build_pool_index(pool)
+    # Build the index and let the raw DataFrame go out of scope immediately
+    # -- build_pool_index() copies every numeric column into pool_index, so
+    # keeping `pool` alive for the rest of the run needlessly doubles peak
+    # memory (~230MB pool DataFrame + ~230MB-equivalent pool_index, held
+    # simultaneously for no reason -- caught during the code-safety re-audit).
+    pool_index = build_pool_index(pd.read_csv(POOL_PATH))
 
     rows = []
     t0 = time.time()
