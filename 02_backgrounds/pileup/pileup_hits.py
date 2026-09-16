@@ -208,18 +208,48 @@ def sample_pileup_hits(pool_index, mu, rng, B_tesla=2.0):
     return all_hits, stats
 
 
-def overlay_and_merge(hard_hits, pileup_hits):
+def overlay_and_merge(raw_hard_hits, raw_pileup_hits):
     """
-    Combine hard-event hits with pile-up hits into one list and apply the
-    SAME pixel-merging logic used for signal (merge_neighboring_pixel_hits),
-    since real ATLAS clustering cannot tell hard-scatter hits from pile-up
-    hits apart. `quirk_index` on pileup hits is the string particle_tag
-    (vs. the hard event's integer 1/2) -- merge_neighboring_pixel_hits only
-    ever uses this field to record provenance (`source_quirk_indices`), so
-    mixed int/str tags are fine and let a merged hit's provenance clearly
-    show whether it mixed hard-scatter and pile-up contributions.
+    Combine RAW (pre-merge) hard-event hits with RAW pile-up hits into ONE
+    list and apply pixel-merging (merge_neighboring_pixel_hits) EXACTLY
+    ONCE, since real ATLAS clustering cannot tell hard-scatter hits from
+    pile-up hits apart and a hit is only ever merged once in reality.
+
+    CALLERS MUST PASS RAW HITS for raw_hard_hits (e.g.
+    simulate_quirk_hits(...)'s traj["raw_hits"], NOT its primary
+    already-merged return value) -- merging hard hits alone first and then
+    merging the result again with pile-up is NOT equivalent in general:
+    (1) a merged hard cluster's recomputed centroid position can differ
+    enough from either original raw hit's position to change whether a
+    nearby pile-up hit falls within one-pixel adjacency of it, and more
+    severely (2) merge_neighboring_pixel_hits sets a multi-quirk merged
+    cluster's own `quirk_index` field to None (see its docstring), so
+    re-merging that already-merged hit a second time LOSES the original
+    per-quirk provenance -- confirmed concretely by a unit test: two raw
+    hard hits (quirk 1, quirk 2) + one raw pile-up hit, merged in one pass,
+    correctly gives source_quirk_indices=[1,2,'pu0']; pre-merging the hard
+    hits first then re-merging with the pile-up hit gives
+    [None,'pu0'] instead -- provenance for BOTH original quirks is lost.
+
+    `quirk_index` on pile-up hits is the string particle_tag (vs. the hard
+    event's integer 1/2) -- merge_neighboring_pixel_hits only ever uses
+    this field to record provenance (`source_quirk_indices`, sorted by
+    str() to tolerate the mixed int/str types), so this is safe and lets a
+    merged hit's provenance clearly show whether it mixed hard-scatter and
+    pile-up contributions.
+
+    Returns (merged_hits, stats) where stats distinguishes every stage
+    requested by the re-audit:
+      n_raw_hard_hits         -- len(raw_hard_hits), BEFORE any merging
+      n_raw_pileup_hits       -- len(raw_pileup_hits), BEFORE any merging
+      n_hits_premerge_combined  -- len(raw_hard_hits)+len(raw_pileup_hits),
+                                    i.e. the input to the SINGLE merge pass
+      n_hits_postmerge_combined -- len(merged), AFTER the single merge pass
+      n_merged_hard_pileup_mixed -- number of merged clusters whose
+                                    source_quirk_indices contains BOTH a
+                                    hard-hit tag (int) and a pile-up tag (str)
     """
-    combined = list(hard_hits) + list(pileup_hits)
+    combined = list(raw_hard_hits) + list(raw_pileup_hits)
     merged = merge_neighboring_pixel_hits(combined)
     # source_quirk_indices is set unconditionally by merge_neighboring_pixel_hits
     # on EVERY returned hit (pixel single/merged AND non-pixel pass-through
@@ -232,6 +262,8 @@ def overlay_and_merge(hard_hits, pileup_hits):
                   if len(h["source_quirk_indices"]) > 1
                   and any(isinstance(q, str) for q in h["source_quirk_indices"])
                   and any(not isinstance(q, str) for q in h["source_quirk_indices"]))
-    return merged, {"n_hits_premerge_combined": len(combined),
+    return merged, {"n_raw_hard_hits": len(raw_hard_hits),
+                     "n_raw_pileup_hits": len(raw_pileup_hits),
+                     "n_hits_premerge_combined": len(combined),
                      "n_hits_postmerge_combined": len(merged),
                      "n_merged_hard_pileup_mixed": n_mixed}

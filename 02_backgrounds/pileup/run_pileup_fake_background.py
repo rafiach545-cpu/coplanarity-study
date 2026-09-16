@@ -36,6 +36,21 @@ sys.path.insert(0, "/home/rafia/coplanarity_study/05_coplanarity_analysis")
 sys.path.insert(0, "/home/rafia/coplanarity_study/02_backgrounds/pileup")
 from coplanarity_fit import seeding_and_iterative_fit, vertex_relative_hits
 from pileup_hits import build_pool_index, sample_pileup_hits
+from provenance import build_provenance, write_csv_with_provenance
+
+DETECTOR_MODEL_VERSION = "atlas_geometry.py Sec-IIIA-barrel-8-layer (no ref[34] endcap/TRT/ECAL/Bethe-Bloch)"
+RNG_STREAM_CONVENTION = "default_rng(seed + i), one independent stream per background 'event' i"
+
+
+def wilson_interval(k, n, z=1.96):
+    """95% Wilson score interval for a binomial proportion k/n."""
+    if n == 0:
+        return (float("nan"), float("nan"))
+    p = k / n
+    denom = 1 + z**2 / n
+    center = (p + z**2 / (2 * n)) / denom
+    half = (z * np.sqrt(p * (1 - p) / n + z**2 / (4 * n**2))) / denom
+    return (max(0.0, center - half), min(1.0, center + half))
 
 LAYER_NAME_TO_IDX = {'L1_IBL': 1, 'L2_PixelB0': 2, 'L3_PixelB1': 3, 'L4_PixelB2': 4,
                       'L5_SCT_B3': 5, 'L6_SCT_B4': 6, 'L7_SCT_B5': 7, 'L8_SCT_B6': 8}
@@ -72,7 +87,7 @@ def run_one_background_event(mu, rng, pool_index, B_tesla=2.0):
     }
 
 
-def run_background_study(mu, n_bg_events, seed=90210001, label=None):
+def run_background_study(mu, n_bg_events, seed=90210001, label=None, overwrite=False):
     pool_index = build_pool_index(pd.read_csv(POOL_PATH))
     rows = []
     t0 = time.time()
@@ -83,15 +98,41 @@ def run_background_study(mu, n_bg_events, seed=90210001, label=None):
 
     df = pd.DataFrame(rows)
     tag = label if label is not None else f"mu{mu}"
-    out_path = f"/home/rafia/coplanarity_study/05_coplanarity_analysis/pileup_only_background_{tag}.csv"
-    df.to_csv(out_path, index=False)
+    out_path = f"/home/rafia/coplanarity_study/05_coplanarity_analysis/pileup_fake_background_{tag}.csv"
 
     n = len(df)
-    rate_4of8 = df["has_4_of_8_plane"].mean() if n else float("nan")
-    rate_8of8 = df["has_8_of_8_plane"].mean() if n else float("nan")
-    print(f"[mu={mu}, n_bg_events={n}] wall time {dt:.1f}s ({dt/max(n,1):.3f} s/event) -> {out_path}")
-    print(f"rate(>=1 plane, >=4/8 layers) = {rate_4of8:.4g} (paper: ~1e-3)")
-    print(f"rate(>=1 plane, 8/8 layers)   = {rate_8of8:.4g} (paper: ~6e-5)")
+    k_4of8 = int(df["has_4_of_8_plane"].sum())
+    k_8of8 = int(df["has_8_of_8_plane"].sum())
+    rate_4of8 = k_4of8 / n if n else float("nan")
+    rate_8of8 = k_8of8 / n if n else float("nan")
+    ci_4of8 = wilson_interval(k_4of8, n)
+    ci_8of8 = wilson_interval(k_8of8, n)
+
+    prov = build_provenance(
+        study_type="PILEUP_FAKE_BACKGROUND", mu=mu, n_events_processed=n,
+        seed=seed, rng_stream_convention=RNG_STREAM_CONVENTION,
+        detector_model_version=DETECTOR_MODEL_VERSION,
+        extra={
+            "primary_vertex_convention": "global origin (0,0,0), NOT SPECIFIED by paper/ref[34] "
+                                          "for a no-hard-vertex event -- documented assumption",
+            "one_analysed_event_definition": "one full bunch crossing: Poisson(mu) pile-up "
+                                              "interactions' combined hits, NO hard-scatter object",
+            "k_4of8": k_4of8, "rate_4of8": rate_4of8, "wilson_95ci_4of8": ci_4of8,
+            "k_8of8": k_8of8, "rate_8of8": rate_8of8, "wilson_95ci_8of8": ci_8of8,
+            "wall_time_s": dt,
+            "caveat": "Reproduces the paper's two directly-counted HEADLINE sanity numbers "
+                      "(Sec IV: ~1e-3 at >=4/8 layers, ~6e-5 at 8/8 layers) ONLY. Does NOT "
+                      "reproduce the paper's actual final signal-region background yield, which "
+                      "uses a separate reweighting scheme (Sec IV: derive the Fig 5 distribution "
+                      "from 1-hit-per-layer events, weighted by the efficiency of the stricter "
+                      "2-hit requirement) -- not implemented here.",
+        },
+    )
+    write_csv_with_provenance(df, out_path, prov, overwrite=overwrite)
+
+    print(f"[PILEUP_FAKE_BACKGROUND mu={mu}, n_bg_events={n}] wall time {dt:.1f}s ({dt/max(n,1):.3f} s/event) -> {out_path}")
+    print(f"rate(>=1 plane, >=4/8 layers) = {rate_4of8:.4g} [{k_4of8}/{n}], 95% Wilson CI {ci_4of8} (paper: ~1e-3)")
+    print(f"rate(>=1 plane, 8/8 layers)   = {rate_8of8:.4g} [{k_8of8}/{n}], 95% Wilson CI {ci_8of8} (paper: ~6e-5)")
     return df, out_path
 
 

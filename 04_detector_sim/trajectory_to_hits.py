@@ -433,6 +433,18 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
     # not a faithful truth-crossing-time proxy.
     traj["max_hit_t_ns_premerge"] = (max(h["t_ns"] for h in raw_hits)
                                        if raw_hits else float("nan"))
+    # Expose the RAW (pre-merge) hit list too -- purely additive (new dict
+    # key on the already-returned traj dict; does not change the function's
+    # signature, the primary `merged_hits` return value, or any existing
+    # caller's behavior). Needed so a caller that wants to combine these
+    # hits with ANOTHER hit source (e.g. pile-up) before merging can do
+    # raw+raw -> one combined merge, instead of merged+raw -> merge again,
+    # which is NOT generally equivalent: merging hard hits alone first can
+    # shift a hit's effective position (a merged cluster's centroid), which
+    # can then change whether a nearby third-party hit (e.g. a pile-up hit)
+    # falls within one-pixel adjacency of it. (Found during the pile-up
+    # overlay re-audit -- 2026-09-16.)
+    traj["raw_hits"] = raw_hits
     return merged_hits, traj
 
 
