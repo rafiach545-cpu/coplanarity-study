@@ -151,3 +151,24 @@ Verified RUN_LOG.md content against actual git log and output files:
   0382101 commit was made, cross-checked against docs/conversion_v2_run.log's
   final lines -- counts match exactly: 9139/9139, 0 pass, upper limit 0.0003).
 This file is being committed now as an accurate, append-only record.
+
+## [2026-09-16 ~07:15] STAGE 3 REAL — PART B (paper audit) complete
+Full 31-item audit performed, re-quoting Sec III D/IV directly (not from
+memory/paraphrase). Evidence table: 20 MATCH, 6 AMBIGUOUS (documented
+assumptions: Poisson mu, sampling with replacement, collision energy,
+minbias definition, stable-particle def, vertex lifetimes), 2 genuine
+MISMATCH/gaps flagged:
+  (16) paper's pileup detector model (ref 34) includes endcaps+service
+       material; our barrel-only 8-layer model is necessarily simpler --
+       documented limitation, not silently ignored.
+  (31) paper's own background-rate normalization uses an explicit
+       reweighting procedure (Sec IV: derive rate from 1-hit-per-layer
+       events, weighted by the efficiency of the stricter cut) because raw
+       full-multiplicity pileup events are extremely rare (paper's own
+       quoted 6e-5). Our existing Stage-3 synthetic framework does NOT
+       implement this -- flagged as required before any real rate can be
+       trusted, will implement in Part D.
+Pythia8 confirmed available: version 8.312 (paper cites the "8.2" series,
+ref [21] = arXiv:1410.3012 -- version mismatch documented, best available used).
+Proceeding to Part C (real minimum-bias generation) with all above
+assumptions explicitly recorded, none presented as paper-mandated.
