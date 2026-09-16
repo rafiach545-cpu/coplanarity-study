@@ -1,0 +1,4 @@
+n_pu_interactions,n_pu_particles_propagated,n_pu_hits_premerge,per_layer_hit_counts,n_candidates,best_candidate_n_layers_with_hit,has_4_of_8_plane,has_8_of_8_plane
+53,6480,13385,"{1: 1706, 2: 1749, 3: 1747, 4: 1746, 5: 1691, 6: 1642, 7: 1582, 8: 1522}",2,4,True,False
+55,7106,15459,"{1: 1847, 2: 1959, 3: 2017, 4: 2022, 5: 1967, 6: 1935, 7: 1881, 8: 1831}",2,5,True,False
+44,5734,12617,"{1: 1602, 2: 1650, 3: 1655, 4: 1647, 5: 1572, 6: 1537, 7: 1497, 8: 1457}",1,5,True,False

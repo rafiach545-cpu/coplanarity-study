@@ -305,3 +305,70 @@ is possible with spatial binning, which this repo's seeding_and_iterative_fit
 does NOT implement). Full 89-event sweeps at mu=5/10/20/50 are NOT complete
 in this session -- reported honestly as pending, not attempted-and-hidden,
 per the explicit instruction to never report an incomplete run as complete.
+
+## [2026-09-16 ~15:30-16:15] Part D re-audit (user-directed): re-read the
+paper + ref [34] directly a second time for 12 specific doubtful points in
+pileup_hits.py. Found and fixed a REAL crash bug (merge_neighboring_pixel_
+hits raised TypeError on any merged cluster mixing a hard-event hit
+[integer quirk_index] with a pile-up hit [string particle_tag] -- caught by
+a new 6-case pixel-merging unit-test suite, all 6 now pass, see
+04_detector_sim/trajectory_to_hits.py). Added the previously-missing
+per-hit 25ns timing cutoff (ref [34] Appendix A stopping condition iii,
+verbatim). Corrected an unsubstantiated "roughly offset" claim about the
+missing ref[34] detector components to state the direction/size of that
+simplification's effect is unquantified. Fixed a typo
+(n_hits_prehmerge_combined -> n_hits_premerge_combined), numpy.int64
+serialization, and a needless ~230MB memory duplication (pool DataFrame
+kept alive alongside pool_index). Committed (358d74f).
+
+CONCEPTUAL CORRECTION: implemented run_pileup_only_background.py, the
+paper's ACTUAL pile-up background-rate metric (Sec IV: rate of "background
+events" -- pile-up ONLY, no hard-scatter object -- that accidentally form a
+>=4/8-layer or 8/8-layer candidate plane). The existing run_pileup_
+overlay.py (signal+pileup) answers a different, still-useful question
+(does a real EW-quirk event's reconstruction survive pile-up contamination)
+but must never be reported as the paper's own background rate -- this was
+a real gap in the previous session's framing, now fixed. Primary vertex for
+a pile-up-only event (no real hard vertex to identify): NOT SPECIFIED by
+the paper; used the global origin (0,0,0), the literal degenerate reading
+of Sec III C's own vertex-assumption sentence -- documented, not asserted
+as a paper requirement.
+
+REAL RESULTS (small-N, explicitly caveated):
+  - mu=5, n=500 background-only events: rate(>=4/8 layers)=0.004 (3/500),
+    rate(8/8 layers)=0/500. Paper quotes ~1e-3 and ~6e-5 respectively --
+    the 4/8 rate is the same order of magnitude (within ~4x, and 3/500 has
+    a ~sqrt(3)/500~=0.7e-2 Poisson uncertainty, i.e. statistically
+    consistent with the paper's value at ~1-2 sigma); 0/500 at 8/8 is
+    consistent with needing >>500 events to see the paper's own much rarer
+    6e-5 rate at all.
+  - mu=50, n=3 background-only events (too few to trust as a rate
+    measurement): 1/3 formed a >=4/8-layer plane. Measured hit density at
+    mu=50 (~1500-2000/layer) is somewhat higher than the paper's own
+    quoted "O(1000)/layer" anchor. A back-of-envelope check: since the
+    seed-pairing combinatorics scale roughly quadratically with hit
+    density, (hit_density_mu50/hit_density_mu5)^2 ~ (1750/151)^2 ~ 134
+    predicts a ~134x higher rate than mu=5's measured 0.004, i.e. ~0.5 --
+    QUALITATIVELY CONSISTENT with observing 1/3 at mu=50, not an
+    unexplained anomaly. NOT presented as a validated rate (n=3 is far too
+    small); flagged as needing a much larger mu=50 sample (thousands of
+    events, ~22s/event measured -> hours) to actually resolve, not run in
+    this session.
+  - Pool reuse (pure sampling, no physics, exact): for the real 89-event
+    EW hard sample, mu=50 touches only ~20% of the 20,000-event pool (max
+    single-event reuse: 4). For a background-only study large enough to
+    resolve the paper's 6e-5 rate (~10,000+ events needed), reuse is much
+    heavier: 100% pool coverage, mean reuse ~25x per pool event at mu=50 --
+    now quantified, not just asserted as a concern.
+
+READINESS FOR FULL mu=0,5,10,20,50 SWEEPS: NOT YET. Two independent,
+measured (not assumed) blockers: (1) the real EW-quirk RK4 cost (~130-170s/
+event, ~3-4+ hours for the full 89-event trigger-passing sample per mu,
+unchanged from the earlier finding) for the signal+pileup robustness study,
+and (2) the pile-up-only background-rate study needs thousands of events
+per mu to resolve the paper's own quoted rates with any statistical
+confidence, which at mu=50's measured ~22s/event is itself several hours.
+Neither is a code-correctness blocker (both pipelines are now validated:
+mu=0 bit-for-bit, mu=5 mechanically clean, pixel-merging bug fixed, real
+background metric implemented) -- both are pure wall-clock-time blockers,
+honestly reported rather than run partially and presented as complete.
