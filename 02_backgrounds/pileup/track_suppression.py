@@ -33,11 +33,11 @@ audit reports). Mechanism, as decided:
 import numpy as np
 import sys
 sys.path.insert(0, "/home/rafia/coplanarity_study/02_backgrounds/pileup")
-from tracking_efficiency import track_efficiency, BASELINE_SELECTION
+from tracking_efficiency import track_efficiency, track_efficiency_variant, BASELINE_SELECTION
 
 
 def suppress_tracks(raw_hits_by_particle, particle_kinematics, particle_labels,
-                     rng_suppression, selection=BASELINE_SELECTION):
+                     rng_suppression, selection=BASELINE_SELECTION, efficiency_variant="central"):
     """
     raw_hits_by_particle: dict {particle_tag: [hit_dict, ...]} -- ALL raw
       (pre-merge) hits produced by that one truth particle (same particle_tag
@@ -83,7 +83,12 @@ def suppress_tracks(raw_hits_by_particle, particle_kinematics, particle_labels,
         # label == "primary"
         stats["n_tracks_primary"] += 1
         pt = particle_kinematics.get(tag, 0.0)
-        eff = track_efficiency(pt, selection=selection)
+        # efficiency_variant default "central" reproduces track_efficiency()
+        # exactly (unchanged behavior for all existing callers, e.g. the
+        # completed 5-mu sweep); "lower"/"upper" additive for the Fig 1(b)
+        # systematic-sensitivity test (2026-09-17), see tracking_efficiency.
+        # track_efficiency_variant().
+        eff = track_efficiency_variant(pt, selection=selection, variant=efficiency_variant)
         draw = rng_suppression.uniform(0.0, 1.0)
         if draw < eff:
             stats["n_tracks_primary_removed"] += 1

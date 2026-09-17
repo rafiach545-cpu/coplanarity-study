@@ -647,3 +647,64 @@ to quantify how much the suppression fraction and downstream fake-plane
 rate shift under the source's own quoted systematic range. This is
 explicitly NOT the large-statistics run and has NOT been launched pending
 user confirmation.
+
+## [2026-09-17 ~12:30] Bounded Fig 1(b) suppression-systematics sensitivity
+test RUN AND COMPLETE (NOT the large-statistics run; n=75/variant/mu,
+mu=10 and mu=50, central/lower/upper, paired same-seed comparison).
+
+Implementation: purely additive changes only. tracking_efficiency.py gained
+a NEW track_efficiency_variant(pt, selection, variant) function (central/
+lower/upper lookup from fig1b_digitized_with_bands_v2.csv); the existing
+track_efficiency() is untouched (re-ran test_suppression_boundaries.py
+after the change -- all 3 tests still pass, confirming no regression).
+track_suppression.suppress_tracks() and pileup_hits_suppressed.
+sample_pileup_hits_suppressed() each gained a new efficiency_variant="central"
+default parameter (backward-compatible, unused by any existing caller,
+including the completed 5-mu sweep). No cut, threshold, detector value,
+ancestry classifier, or minbias pool was touched.
+
+Paired design: SAME per-event SeedSequence([seed=90210777, mu, event_i])
+used across all 3 variants -- rng_pileup/rng_suppression draws are
+IDENTICAL; only the efficiency LOOKUP value differs. Runtime: mu=10,
+21.3-21.6s/75 events per variant; mu=50, 260-271s/75 events per variant
+(864s total for the whole 6-configuration test).
+
+RESULTS:
+
+mu=10 (all 3 variants): mean hits after suppression 1492.8-1509.2 (central
+1500.2) -- a ~1.1% relative spread across the full systematic range. 0/75
+events produced any candidate in ANY variant. 0/75 final Sec IV passes.
+
+mu=50 (all 3 variants): mean hits after suppression 7331.0-7412.4 (central
+7364.0) -- ~1.1% relative spread. 2/75 events produced a candidate/winner
+IN EVERY VARIANT (same 2 events: event_i=43,58) -- for BOTH events, Delta_s
+and Delta_w are BIT-IDENTICAL across central/lower/upper (e.g. event 43:
+delta_s=0.042266, delta_w=0.846445, unchanged to the last printed digit in
+all 3 variants), even though the event's total surviving hit count shifts
+by a few percent -- the specific hits forming the winning candidate are
+unaffected by the efficiency-curve variation for these two events. 0/75
+final Sec IV passes in any variant (consistent with the full sweep's
+proven 0/5000 result).
+
+PAIRED per-event check (150 event-mu combinations total): zero events
+where final_sec_iv_pass, has_winner, or n_candidates differs across
+variants. Complete, verified null result -- not merely "small," genuinely
+zero observed reconstruction-level sensitivity in this sample.
+
+VERDICT:
+  Sensitivity to Fig 1(b) systematic: NEGLIGIBLE (mean hit-count shift
+    ~1.1%; zero change in candidates/planes/final-pass status across 150
+    paired event-mu tests).
+  Does the background conclusion change? NO (0/75 final Sec IV passes in
+    every variant at every mu tested, consistent with the full sweep).
+  Is Tight Primary testing still scientifically necessary? Assessed as
+    LOWER PRIORITY given the demonstrated insensitivity to a comparably-
+    sized curve shift (Tight Primary's own central-value difference from
+    Loose, ~5-10% per ATL-PHYS-PUB-2015-051 p.5, is larger than this
+    systematic band, so it is NOT automatically covered by this null
+    result and remains a DISTINCT open question if pursued later) -- not
+    run in this turn.
+  Is suppression modeling now sufficiently validated to freeze (for the
+    Loose baseline, central-vs-systematic-envelope axis)? YES.
+  Is a larger-statistics run justified next? Not decided here -- reported,
+    not launched, pending user direction.

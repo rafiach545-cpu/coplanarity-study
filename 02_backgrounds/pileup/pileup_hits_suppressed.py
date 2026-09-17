@@ -38,7 +38,8 @@ def build_ancestry_pool_index(ancestry_pool_df):
 
 
 def sample_pileup_hits_suppressed(ancestry_pool_index, mu, rng_pileup, rng_suppression,
-                                    B_tesla=2.0, selection=BASELINE_SELECTION):
+                                    B_tesla=2.0, selection=BASELINE_SELECTION,
+                                    efficiency_variant="central"):
     """
     Same sampling procedure as pileup_hits.sample_pileup_hits() (Poisson(mu)
     interactions, with replacement, independent per-interaction 45mm-Gaussian
@@ -83,7 +84,7 @@ def sample_pileup_hits_suppressed(ancestry_pool_index, mu, rng_pileup, rng_suppr
 
     unassociated_hits, suppression_stats = suppress_tracks(
         raw_hits_by_particle, particle_kinematics, particle_labels,
-        rng_suppression, selection=selection,
+        rng_suppression, selection=selection, efficiency_variant=efficiency_variant,
     )
 
     stats = {
