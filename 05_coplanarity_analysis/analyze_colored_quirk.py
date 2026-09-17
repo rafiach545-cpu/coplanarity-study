@@ -120,6 +120,39 @@ def analyze_one(row, rng):
     return result
 
 
+def report_summary_from_csv(csv_path, n_matched, n_trigger):
+    """
+    Recompute the (corrected) cutflow summary from an ALREADY-SAVED cutflow
+    CSV -- no re-simulation, no new random draws, no change to any stored
+    event-level column. Added 2026-09-17 for the epsilon_reco relabeling
+    audit (RUN_LOG.md): distinguishes the paper's own epsilon_reco (Sec III C
+    plane-found, Delta_w<1cm) from the full-Sec-IV final-selection pass rate
+    (previously mislabeled as epsilon_reco).
+    """
+    rdf = pd.read_csv(csv_path)
+    n_geom_fid = int(rdf["geometric_fiducial"].sum())
+    n_truth_fid = int(rdf["truth_fiducial"].sum())
+    n_seed = int(rdf["seed_found"].sum())
+    n_sec_iv_final_pass = int(rdf["passes_signal_region"].sum())
+    n_plane_found = int(rdf.loc[rdf["truth_fiducial"], "ds"].notna().sum())
+
+    print(f"[from existing CSV: {csv_path}]")
+    print(f"N_matched={n_matched}  N_trigger={n_trigger}  N_geometric_fiducial={n_geom_fid}  "
+          f"N_truth_fiducial={n_truth_fid}  N_seed_found={n_seed}")
+    print(f"N_plane_found (Sec IIIC Event Selection, Delta_w<1cm) = {n_plane_found}")
+    print(f"N_sec_iv_final_pass (full Sec IV) = {n_sec_iv_final_pass}")
+    if n_truth_fid:
+        print(f"epsilon_reco (PAPER definition) = N_plane_found/N_truth_fiducial = {n_plane_found/n_truth_fid:.4f}")
+        print(f"sec_iv_final_pass_rate (NOT epsilon_reco) = N_sec_iv_final_pass/N_truth_fiducial = {n_sec_iv_final_pass/n_truth_fid:.4f}")
+    return {
+        "n_matched": n_matched, "n_trigger": n_trigger, "n_geom_fid": n_geom_fid,
+        "n_truth_fid": n_truth_fid, "n_seed": n_seed,
+        "n_plane_found": n_plane_found, "n_sec_iv_final_pass": n_sec_iv_final_pass,
+        "epsilon_reco": n_plane_found / n_truth_fid if n_truth_fid else float("nan"),
+        "sec_iv_final_pass_rate": n_sec_iv_final_pass / n_truth_fid if n_truth_fid else float("nan"),
+    }
+
+
 if __name__ == "__main__":
     df = pd.read_csv(
         "/home/rafia/coplanarity_study/01_signal_generation/quirk_pair_momenta_1800gev_2kev_v2_CHARGED.csv")
@@ -151,7 +184,10 @@ if __name__ == "__main__":
     n_geom_fid = int(rdf["geometric_fiducial"].sum())
     n_truth_fid = int(rdf["truth_fiducial"].sum())
     n_seed = int(rdf["seed_found"].sum())
-    n_pass = int(rdf["passes_signal_region"].sum())
+    # RELABELED (2026-09-17 audit) -- see analyze_ew_quirk.py's identical
+    # comment and RUN_LOG.md for the full root-cause explanation.
+    n_sec_iv_final_pass = int(rdf["passes_signal_region"].sum())
+    n_plane_found = int(rdf.loc[rdf["truth_fiducial"], "ds"].notna().sum())
 
     print()
     print("=== CUTFLOW ===")
@@ -160,12 +196,17 @@ if __name__ == "__main__":
     print(f"N_geometric_fiducial (16/16, before timing): {n_geom_fid}  (eff vs trigger: {n_geom_fid/n_trigger:.4f})")
     print(f"N_truth_fiducial  : {n_truth_fid}  (16/16 AND max_t<{TIMING_CUT_NS}ns)  (eff vs trigger: {n_truth_fid/n_trigger:.4f})")
     print(f"N_seed_found      : {n_seed}" + (f"  (eff vs fiducial: {n_seed/n_truth_fid:.4f})" if n_truth_fid else ""))
-    print(f"N_signal_region   : {n_pass}" + (f"  (eff vs fiducial: {n_pass/n_truth_fid:.4f})" if n_truth_fid else ""))
+    print(f"N_plane_found (Sec IIIC Event Selection, Delta_w<1cm): {n_plane_found}" +
+          (f"  (eff vs fiducial: {n_plane_found/n_truth_fid:.4f})" if n_truth_fid else ""))
+    print(f"N_sec_iv_final_pass (full Sec IV): {n_sec_iv_final_pass}" +
+          (f"  (eff vs fiducial: {n_sec_iv_final_pass/n_truth_fid:.4f})" if n_truth_fid else ""))
     print()
     print(f"epsilon_trig  = N_trigger/N_matched        = {n_trigger/n_matched:.4f}")
     print(f"epsilon_fid   = N_truth_fiducial/N_trigger = {n_truth_fid/n_trigger:.4f}" if n_trigger else "n/a")
-    print(f"epsilon_reco  = N_signal_region/N_truth_fiducial = "
-          f"{(n_pass/n_truth_fid if n_truth_fid else float('nan')):.4f}")
+    print(f"epsilon_reco  = N_plane_found/N_truth_fiducial (PAPER definition, Sec IV p.7) = "
+          f"{(n_plane_found/n_truth_fid if n_truth_fid else float('nan')):.4f}")
+    print(f"sec_iv_final_pass_rate (NOT epsilon_reco) = N_sec_iv_final_pass/N_truth_fiducial = "
+          f"{(n_sec_iv_final_pass/n_truth_fid if n_truth_fid else float('nan')):.4f}")
     print()
     print("Paper Table I (mQ=1800 GeV, QCD, Lambda=2 keV): eps_trig=0.24, eps_fid=0.28, eps_reco=0.35")
     print(f"\nSaved full per-event cutflow to: {out_csv}")

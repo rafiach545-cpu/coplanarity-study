@@ -708,3 +708,73 @@ VERDICT:
     Loose baseline, central-vs-systematic-envelope axis)? YES.
   Is a larger-statistics run justified next? Not decided here -- reported,
     not launched, pending user direction.
+
+## [2026-09-17 ~13:15] epsilon_reco LABELING FIX (labels/summary statistics
+only -- no event-level result changed, no new simulation).
+
+ROOT CAUSE (confirmed by direct source re-read, Sec IV p.7, exact quote):
+"The reconstruction efficiency is defined as the efficiency of our
+algorithm in finding quirks which satisfy both the trigger and fiducial
+requirements." Combined with the paper's own explanation of what makes
+epsilon_reco drop ("a stringent Delta_w requirement", "hits start
+merging... a plane cannot be found") -- both describe Sec III C's own
+Event Selection (>=1 candidate surviving Delta_w<1cm, smallest Delta_s
+selected), NOT the stricter Sec IV final cuts (hit multiplicity + Delta_s
+<0.01cm).
+
+The PREVIOUS "epsilon_reco" label in analyze_ew_quirk.py and analyze_
+colored_quirk.py incorrectly referred to N_signal_region/N_truth_fiducial,
+i.e. the FULL Sec IV final-selection pass rate -- a real, well-defined,
+correctly-computed quantity, but NOT what the paper's Table I calls
+epsilon_reco. This was a DEFINITION/LABELING mismatch, not a bug in
+seeding_and_iterative_fit, select_reconstructed_plane, check_hit_
+multiplicity, or apply_signal_region_cuts, all of which remain independently
+verified correct against Sec III C/IV.
+
+CORRECTED VALUES (recomputed from the EXISTING, unmodified cutflow CSVs --
+ew_quirk_800gev_4kev_cutflow_v3_VERTEX_FIXED.csv sha256=b3251c3170faf52f...,
+colored_quirk_1800gev_2kev_cutflow_v3_FULL_PIPELINE.csv sha256=a731d74e26a...
+-- both confirmed BYTE-IDENTICAL to their previously-committed versions via
+`git status --short` showing zero diff):
+
+  EW quirk (800GeV, 4keV): epsilon_reco (paper definition) = 32/40 = 0.800
+    (paper: 0.72) -- gap goes from 4.8x-too-low (old mislabeled 0.150) to
+    ~11% high. The EW discrepancy is LARGELY RESOLVED by this correction.
+
+  Colored quirk (1800GeV, 2keV): epsilon_reco (paper definition) = 5/7 =
+    0.714 (paper: 0.35) -- gap flips from ~2.4x-too-low to ~2x-too-high.
+    Binomial test: P(observing >=5/7 | true rate=0.35) = 0.056 -- borderline,
+    NOT strongly inconsistent given N_fid=7. This is SMALL-N LIMITED and
+    should NOT be treated as a confirmed independent algorithm discrepancy
+    -- more fiducial colored-quirk events (a new simulation, not performed
+    here) would be needed to resolve it further.
+
+sec_iv_final_pass_rate (the OLD mislabeled quantity, now correctly named):
+  EW: 6/40 = 0.150. Colored: 1/7 = 0.143. These remain valid, correctly-
+  computed Sec IV final-selection pass rates -- just never equal to the
+  paper's own epsilon_reco definition.
+
+FILES CHANGED: analyze_ew_quirk.py, analyze_colored_quirk.py. Changes are
+STRICTLY confined to (a) renaming/relabeling print statements inside each
+file's `if __name__=="__main__":` block (affects only future re-runs, not
+existing outputs) and (b) a NEW report_summary_from_csv() function in each
+file that recomputes the corrected summary from an already-saved CSV
+without any re-simulation, new random draw, or change to analyze_one()
+(the per-event reconstruction function -- seeding, candidate selection,
+Sec IV cuts, detector smearing all untouched). Verified via git diff: no
+change touches analyze_one(), no change touches any rdf.to_csv() call, no
+change touches signal generation, background code, or any random seed.
+Verified via `git status --short` on both cutflow CSVs: zero modification.
+
+DOWNSTREAM IMPACT: Fig 4 (single-event hit-pattern display) and Fig 5
+(Delta_s/Delta_w distributions) are UNAFFECTED -- both depend on the raw
+ds/dw values themselves, which are unchanged; only a summary RATIO's label
+and denominator-numerator pairing was corrected. Fig 6 readiness: the
+epsilon_reco term that would feed any future exclusion-contour calculation
+should use this corrected definition going forward; Fig 6 itself remains
+NOT YET REPRODUCED (no grid scan attempted), now on a firmer footing for
+the EW benchmark specifically.
+
+NOT DONE (explicitly out of scope, correctly not attempted): no new signal
+events generated; colored-quirk's small-N limitation was NOT resolved
+(would require new simulation); Fig 6 grid scan not started.
