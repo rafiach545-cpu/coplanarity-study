@@ -802,3 +802,32 @@ fb/bin left-panel convention. No detector/cut/bin/weight values tuned.
 Outputs: 05_coplanarity_analysis/fig5_reproduction_2026-09-17/{fig5_left_panel_ds.png,
 fig5_left_ds_only.png, fig5_right_dw_only.png, fig5_data_v3_2026-09-17.json,
 AUDIT_NOTE.md}. No physics code modified. Fig 6 not started.
+
+## 2026-09-17 ~19:15 — Converted-photon Fig. 5 recovery (analysis-only, no new physics)
+
+Patched convert_and_analyze.py to also call select_reconstructed_plane(candidates)
+(Sec IIIC winner, no RNG draw) alongside the existing Sec IV apply_signal_region_cuts()
+call, recording sec3c_ds/sec3c_dw/sec3c_plane_found/sec3c_n_layers. Reran the full
+9139-event zgamma_photons.csv sample, same seed=99, same event order. Verified
+bit-identical to conversion_scan_results_v2_VERTEX_FIXED.csv on every pre-existing
+column (status, n_hits, n_candidates, passes, ds, dw, conv_r_cm, weight_pb) and on
+final Sec IV pass (0/9139 both). New result: N_plane_found=2982/9139; Delta_s
+median=0.02116, p16=0.01489, p84=0.02723, min=0.00089, max=0.04816, frac<0.01cm=0.0312
+(93 events); Delta_w median=0.17767, p16=0.06663, p84=0.38705, min=0.01512, max=0.76062.
+Saved: conversion_scan_results_v3_SEC3C_DS_DW.csv. Commit 96f0fe0.
+
+Gap discovered during this recovery: v3 does NOT record a hit-multiplicity-pass flag
+for the Sec IIIC winner (only ds/dw/plane_found/n_layers) -- a small follow-up gap,
+not blocking the Fig. 5 Delta_s/Delta_w curves themselves.
+
+## 2026-09-17 ~19:20 — Pile-up analysis-only full-cutflow recovery (launched, no new physics)
+
+Added run_one_background_event_full_cutflow() (additive twin of
+run_one_background_event_suppressed(), same detector/suppression/ancestry/vertex chain,
+adds select_reconstructed_plane + check_hit_multiplicity diagnostics) and
+run_sec3c_fullcutflow_sweep.py (same SeedSequence([90210777,mu,i]) convention, same
+minbias_pool_20000_ANCESTRY_v1.csv pool as the original sweep). Verified bit-identical
+against audit_mu5_event2006_reproduced.csv and 5 spot-checked audit_mu50_4of8_events_
+reproduced.csv rows before launching. Commit 57941cc. Launched as PID 124614,
+sequential mu=0,5,10,20,50, n=5000 each, checkpointed, outputs
+pileup_mu{N}_n5000_sec3c_fullcutflow_v1.csv under sweep_mu_2026-09-16/.
