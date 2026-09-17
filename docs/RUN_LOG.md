@@ -778,3 +778,27 @@ the EW benchmark specifically.
 NOT DONE (explicitly out of scope, correctly not attempted): no new signal
 events generated; colored-quirk's small-N limitation was NOT resolved
 (would require new simulation); Fig 6 grid scan not started.
+
+## 2026-09-17 ~15:30 — Fig. 5 reproduction (existing data only)
+
+Reproduced Fig. 5 (Δs/Δw signal+background distributions) using ONLY existing pipeline
+outputs; no new simulation run. Fresh re-read of paper.txt Sec IIIC/IIID/IV + Fig 5 caption
+confirmed: left panel = dσ/dlogΔs (fb/bin, absolute-normalized); right panel =
+(1/σ)dσ/dlogΔw (unit-normalized); population = Sec IIIC plane-found (paper's own εreco
+population, pre-Sec-IV-final-cuts) — explicitly NOT contaminated by the earlier-corrected
+sec_iv_final_pass_rate quantity.
+
+Used: colored/EW quirk cutflow CSVs (ds/dw populated via select_reconstructed_plane
+fallback, N=5/N=32). Used pileup mu=50 audit-reproduction CSV (N=59), flagged as a BIASED
+subsample (>=4-layer winning candidates only, not the full Sec IIIC winner population).
+Converted-photon CONFIRMED UNUSABLE: ds/dw never recorded in
+conversion_scan_results_v2_VERTEX_FIXED.csv for any of 9139 rows — genuine data gap, not
+fabricated.
+
+Both panels rendered unit-normalized (shape only) as a stated approximation, since no
+measured cross-section exists for colored-quirk or pile-up to support the paper's absolute
+fb/bin left-panel convention. No detector/cut/bin/weight values tuned.
+
+Outputs: 05_coplanarity_analysis/fig5_reproduction_2026-09-17/{fig5_left_panel_ds.png,
+fig5_left_ds_only.png, fig5_right_dw_only.png, fig5_data_v3_2026-09-17.json,
+AUDIT_NOTE.md}. No physics code modified. Fig 6 not started.
