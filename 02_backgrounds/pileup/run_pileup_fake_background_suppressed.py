@@ -16,7 +16,8 @@ import numpy as np
 import pandas as pd
 sys.path.insert(0, "/home/rafia/coplanarity_study/05_coplanarity_analysis")
 sys.path.insert(0, "/home/rafia/coplanarity_study/02_backgrounds/pileup")
-from coplanarity_fit import seeding_and_iterative_fit, vertex_relative_hits
+from coplanarity_fit import (seeding_and_iterative_fit, vertex_relative_hits,
+                              select_reconstructed_plane, check_hit_multiplicity)
 from run_pileup_fake_background import (n_layers_with_hits, LAYER_NAME_TO_IDX,
                                           PRIMARY_VERTEX_CM, wilson_interval)
 from pileup_hits_suppressed import build_ancestry_pool_index, sample_pileup_hits_suppressed
@@ -58,6 +59,64 @@ def run_one_background_event_suppressed(mu, rng_pileup, rng_suppression, pool_in
         "has_8_of_8_plane": best_n_layers >= 8,
     }
     return result
+
+
+def run_one_background_event_full_cutflow(mu, rng_pileup, rng_suppression, pool_index,
+                                             selection=BASELINE_SELECTION, B_tesla=2.0):
+    """
+    ADDITIVE, non-invasive twin of run_one_background_event_suppressed(): the
+    exact same detector response / suppression / ancestry / vertex-relative
+    hit chain (sample_pileup_hits_suppressed, seeding_and_iterative_fit) is
+    reused verbatim -- only the OUTPUT diagnostics differ, adding the Sec IIIC
+    Event-Selection winner (select_reconstructed_plane) and Sec IV hit-
+    multiplicity check (check_hit_multiplicity), neither of which consumes
+    any RNG draw. This function does not replace or alter
+    run_one_background_event_suppressed, which remains used elsewhere
+    unchanged.
+    """
+    pu_hits, pu_stats = sample_pileup_hits_suppressed(
+        pool_index, mu, rng_pileup, rng_suppression, B_tesla=B_tesla, selection=selection)
+
+    hits_by_layer = {k: [] for k in range(1, 9)}
+    for h in pu_hits:
+        hx, hy, hz = vertex_relative_hits([(h["x"], h["y"], h["z"])], PRIMARY_VERTEX_CM)[0]
+        hits_by_layer[LAYER_NAME_TO_IDX[h["layer"]]].append((hx, hy, hz))
+
+    candidates = seeding_and_iterative_fit(hits_by_layer)
+    best_n_layers = max((n_layers_with_hits(c["layers"]) for c in candidates), default=0)
+
+    winner = select_reconstructed_plane(candidates)  # Sec IIIC Event Selection (Delta_w<1cm, smallest Delta_s)
+    sec3c_plane_found = winner is not None
+    if sec3c_plane_found:
+        sec3c_ds = winner["fit"]["delta_s"]
+        sec3c_dw = winner["fit"]["delta_w"]
+        sec3c_n_hits = len(winner["layers"])
+        sec3c_n_layers = len(set(winner["layers"]))
+        hit_mult_pass = check_hit_multiplicity(winner["layers"])
+        delta_s_pass_0p01 = sec3c_ds < 0.01
+    else:
+        sec3c_ds = np.nan
+        sec3c_dw = np.nan
+        sec3c_n_hits = np.nan
+        sec3c_n_layers = np.nan
+        hit_mult_pass = False
+        delta_s_pass_0p01 = False
+
+    final_sec_iv_pass = sec3c_plane_found and hit_mult_pass and delta_s_pass_0p01
+
+    return {
+        "n_candidates_raw": len(candidates),
+        "sec3c_plane_found": sec3c_plane_found,
+        "sec3c_ds": sec3c_ds,
+        "sec3c_dw": sec3c_dw,
+        "sec3c_n_hits": sec3c_n_hits,
+        "sec3c_n_layers": sec3c_n_layers,
+        "hit_multiplicity_pass": hit_mult_pass,
+        "delta_s_pass_0p01": delta_s_pass_0p01,
+        "final_sec_iv_pass": final_sec_iv_pass,
+        "has_4_of_8_plane": best_n_layers >= 4,
+        "has_8_of_8_plane": best_n_layers >= 8,
+    }
 
 
 def run_suppressed_background_study(mu, n_bg_events, seed=55550001, label=None,
