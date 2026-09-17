@@ -578,3 +578,72 @@ VERDICT:
     resulting CSV column, not a live function call; therefore every
     downstream result is a deterministic function of unchanged inputs and
     is provably unchanged without needing to be recomputed.
+
+## [2026-09-17 ~12:00] Fig 1(b) systematic-uncertainty bands digitized and
+audited (reference material -- NOT yet wired into any code, no rerun).
+
+Re-verified from the source (ATL-PHYS-PUB-2015-051, p.5, Figure 1 caption,
+re-read fresh, not from memory): "Figure 1: Track reconstruction
+efficiency, evaluated by using minimum bias simulated events, as a function
+of truth eta (a) and pT (b) for Loose and Tight Primary track selections.
+THE BANDS INDICATE THE TOTAL SYSTEMATIC UNCERTAINTY." Cross-checked against
+the earlier-extracted Eq. 3 description (p.6): the systematic uncertainty
+is the quadrature sum of three MATERIAL-BUDGET-related components
+(Sys+5%Extra, SysPixServExtra, Sys+30%IBLExtra) -- confirmed PURE
+SYSTEMATIC (material-modeling driven), not statistical, not combined.
+Both Loose and Tight Primary are explicitly, separately shown in the same
+figure (not defined elsewhere).
+
+Digitization method (band edges): initial naive column-wise min/max
+approach was CONTAMINATED by stray same-colored anti-aliased pixels
+elsewhere on the page (title text) -- caught via a sanity check
+(central value must lie within [lower,upper]), which initially FAILED for
+several points with clearly unphysical upper bounds (e.g. 1.08, 1.14).
+Root cause diagnosed and fixed in two stages: (1) restrict to contiguous
+pixel runs within a distance window of the marker's own y-position: still
+failed for 4/17 Loose points because the marker's OWN opaque color occupies
+the full column at its exact x-center, leaving no band pixels visible
+there; (2) sample multiple OFFSET columns (+-4 to +-8px from the marker
+center, skipping the marker's own occluded region) and combine all nearby
+runs. Final result: ALL 34 points (17 Loose + 17 Tight Primary) pass the
+central-in-[lower,upper] sanity check, robust to color-tolerance choice
+(tested tol=20 and tol=35, identical pass result).
+
+Cross-check: digitized band widths (~1.4-2.3% efficiency) are consistent
+with Table 1's independently-known, EXACTLY PRINTED systematic uncertainty
+range (0.4-2.6%, eta-binned) -- different binning (pT vs eta-integrated) so
+not a literal match, but same order of magnitude, supporting the
+digitization's validity.
+
+Digitization precision: 1 pixel corresponds to ~0.0014 efficiency units
+(from the same axis calibration as the central-value digitization); band
+widths (14-23 pixels) are well above this pixel-noise floor.
+
+Saved: fig1b_digitized_with_bands_v2.csv (selection, pT_GeV,
+central_efficiency, lower_efficiency, upper_efficiency, band_width,
+digitization_note columns) in docs/reference/atl_phys_pub_2015_051/.
+
+Comparison against the current suppression implementation: tracking_
+efficiency.py's track_efficiency() reads ONLY fig1b_digitized.csv (the
+central curve) -- confirmed by direct code inspection, no band usage
+anywhere. The completed 5-mu sweep therefore used ONLY the central curve;
+by construction (central is always inside its own [lower,upper] band,
+verified above), the sweep's suppression fraction trivially lies inside
+the source-supported systematic range, but NO sensitivity to the +-
+systematic variation has been tested yet.
+
+Tight Primary: explicitly source-defined (same section, same figure,
+already digitized in the same CSV files) -- the code (tracking_efficiency.
+track_efficiency(selection="TightPrimary")) already supports it; the
+5-mu sweep used only "Loose" by earlier explicit user decision, not because
+Tight Primary is undefined or undigitized.
+
+Minimal sensitivity sweep proposed (NOT launched): a small, bounded
+comparison (e.g. n=50-100 background-only events at 1-2 representative mu
+values, e.g. mu=10 and mu=50) run three times each -- once with the central
+Loose curve (already effectively covered by the existing full sweep),
+once with the lower-envelope curve, once with the upper-envelope curve --
+to quantify how much the suppression fraction and downstream fake-plane
+rate shift under the source's own quoted systematic range. This is
+explicitly NOT the large-statistics run and has NOT been launched pending
+user confirmation.
