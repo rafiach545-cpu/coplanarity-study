@@ -87,7 +87,7 @@ def run_resumable_fullcutflow(mu, n_events, out_path, seed=SEED,
         f.write(f"completed {n_events} events in {dt:.1f}s at {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
 
     prov = build_provenance(
-        study_type="PILEUP_SEC3C_FULLCUTFLOW_ANALYSIS_ONLY_RERUN", mu=mu,
+        study_type="PILEUP_FAKE_BACKGROUND", mu=mu,
         n_events_processed=n_events, seed=seed,
         rng_stream_convention="SeedSequence([seed,int(mu),i]).spawn(2) -> (rng_pileup, rng_suppression) -- IDENTICAL to run_sweep_resumable.py",
         detector_model_version=DETECTOR_MODEL_VERSION,
