@@ -1,0 +1,2 @@
+mu,event_i,n_pu_interactions,per_layer_hit_counts,n_candidates,best_candidate_n_layers_with_hit,has_4_of_8_plane,has_8_of_8_plane,winner_delta_s,winner_delta_w,winner_n_layers,winner_hit_multiplicity_pass,final_sec_iv_pass
+5.0,2006,4,"{1: 62, 2: 63, 3: 63, 4: 62, 5: 59, 6: 56, 7: 53, 8: 48}",1,8,True,True,0.03691268883404399,0.5776853994486171,8,False,False

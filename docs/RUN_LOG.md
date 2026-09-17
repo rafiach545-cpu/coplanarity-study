@@ -396,3 +396,111 @@ runs, SIGNAL_WITH_PILEUP driver, PILEUP_FAKE_BACKGROUND driver, all8layer
 diagnostic) used minbias_pool_20000_FINAL.csv exclusively. Its deletion
 removes an explicitly-rejected, unusable artifact; it does not retract or
 invalidate any prior committed result.
+
+## [2026-09-17 ~10:30] FINAL READ-ONLY AUDIT of the 5-configuration mu
+sweep (mu=0,5,10,20,50, Loose, suppressed, n=5000 each, committed d35b562/
+778df08). All values independently recomputed directly from the 5
+authoritative CSVs, no summary code reused. Findings:
+
+1. LABEL CORRECTION: "hits before/after suppression" values reported in
+   the plots/table are MEANS PER BUNCH CROSSING (verified against medians
+   and totals, computed directly: e.g. mu=50 mean_before=11842.97,
+   median_before=11713.0, total_before=59,214,840 across 5000 events --
+   all three now distinguished in COMPARISON_TABLE_CORRECTED.csv's
+   explicit hits_before_mean/hits_before_median columns).
+
+2. MAJOR CORRECTION -- what "4/8" and "8/8" actually mean: the sweep's
+   driver (run_one_background_event_suppressed) only ever computed
+   COVERAGE (best_candidate_n_layers_with_hit, i.e. has_4_of_8_plane /
+   has_8_of_8_plane) -- it never called select_reconstructed_plane,
+   check_hit_multiplicity, or apply_signal_region_cuts. These "4/8"/"8/8"
+   counts previously reported (59/5000 at mu=50, etc.) are coverage-only
+   diagnostics, matching the paper's own Sec IV phrasing ("a plane with at
+   least one hit in 4 out of 8 layers" / "in each layer") -- but they are
+   NOT the final Sec IV signal-region pass count, and must never be
+   presented as such.
+
+   To get the true final Sec IV rate WITHOUT launching a new simulation,
+   the 59 mu=50 events with has_4_of_8_plane=True and the 1 mu=5 event
+   (event_i=2006) with has_8_of_8_plane=True were individually REPRODUCED
+   (bounded, deterministic replay of their exact recorded seeds --
+   SeedSequence([90210777, mu, event_i]) -- not a new simulation; results
+   saved as audit_mu50_4of8_events_reproduced.csv and audit_mu5_event2006_
+   reproduced.csv). Reproduction verified bit-consistent with the original
+   sweep CSVs (n_candidates and best_candidate_n_layers_with_hit match
+   exactly for all 60 events). Result: ALL 60 reproduced events FAIL
+   check_hit_multiplicity, and therefore ALL FAIL apply_signal_region_cuts
+   (final_sec_iv_pass = False for all 60, with zero exceptions).
+
+   A structural/logical check (check_hit_multiplicity requires n_with_1plus
+   ==8, i.e. full 8-layer coverage, as a NECESSARY condition -- directly
+   verified: a synthetic 7-layers-represented candidate always fails)
+   combined with the fact that has_8_of_8_plane=True occurred EXACTLY ONCE
+   across the entire 25,000-event sweep (the one mu=5 event, directly
+   verified to fail) PROVES, not merely observes, that the final Sec IV
+   signal-region fake rate is EXACTLY 0/5000 at every mu (0/25,000 total)
+   -- a complete census of the only event that could possibly have passed,
+   not a "zero observed in a finite sample" statement.
+
+3. Re-read Sec III D's exact text again: "The biggest background for our
+   search are unassociated hits, which predominantly come from pile-up
+   tracks for which the track reconstruction failed. For this purpose we
+   use the public available tracking efficiency plots [33]..." -- this
+   means the paper's OWN "~1e-3"/"~6e-5" Sec IV numbers are computed on
+   tracking-efficiency-SUPPRESSED hits already, not raw pile-up hits.
+   CORRECTION to earlier wording: the mismatch between this sweep's rates
+   and the paper's quoted values is NOT primarily a "different denominator"
+   (no direct textual evidence supports that claim, and it is retracted) --
+   it is uncertainty in the specific tracking-efficiency curve/selection/
+   suppression-mechanism details (all documented assumptions here) plus
+   detector-model fidelity and pool-size/statistics differences. Also: the
+   EARLIER (unsuppressed) direct-count driver's comparison to these same
+   paper numbers was even less apt than previously stated, since that
+   driver applied no suppression at all while the paper's own numbers
+   apparently already do.
+
+4. REAL BUG FOUND AND FIXED (metadata only, not physics): every one of the
+   5 committed provenance JSON sidecars incorrectly records pool_filename/
+   pool_sha256 as minbias_pool_20000_FINAL.csv's identity
+   (e03cf9a6c9b768c0695bf384b3cae6e16514055ff28c180b05feb3943000e2c9),
+   because build_provenance()'s default pool_path was never overridden in
+   run_sweep_resumable.py or run_pileup_fake_background_suppressed.py. The
+   ACTUAL simulation correctly sampled from minbias_pool_20000_ANCESTRY_v1.csv
+   (sha256 a8f9149c07b9967332cfd7eba49960dd137bbc927c4be7309b92df6979b172ad
+   -- CORRECT value for the record) -- confirmed by direct inspection of
+   the sampling code path and by the presence of ancestry-dependent
+   behavior (secondary/ambiguous track counts) in every result row. This is
+   a provenance-METADATA bug only; the physics results are unaffected and
+   unchanged. Fixed in both driver files (pool_path=ANCESTRY_POOL_PATH now
+   passed explicitly), verified with a 3-event test showing the corrected
+   field. The 5 already-committed provenance JSONs are NOT retroactively
+   edited (preserving the historical record); this entry is the
+   authoritative correction for anyone reading them.
+
+5. Independently re-verified: all Wilson 68%/95% intervals recomputed from
+   scratch match the originally-reported values exactly. Clopper-Pearson
+   95% intervals additionally computed for comparison (e.g. mu=50 A: Wilson
+   95%=[0.00916,0.01519] vs Clopper-Pearson 95%=[0.00899,0.01520] -- close,
+   Clopper-Pearson slightly wider/more conservative as expected). For
+   zero-observation cases, the naive "3/N" Poisson-upper-limit rule of
+   thumb gives 3/5000=6.0e-4, somewhat tighter than the Wilson/Clopper-
+   Pearson 95% upper bound of ~7.4-7.7e-4 -- both conventions are reported
+   in COMPARISON_TABLE_CORRECTED.csv, Wilson used as the primary reported
+   interval (consistent with all earlier reporting in this project).
+
+6. Provenance/hash/DONE-marker check (all 5 files): seed=90210777 (all),
+   mu correctly recorded per file, n_events_processed=5000 (all),
+   tracking_efficiency_selection="Loose" (all), git_commit_hash=d861f2a76d
+   (all -- consistent, since no commits were made between the sweep's
+   start and its completion). CSV files confirmed unmodified since commit
+   (git diff clean against d35b562/778df08). minbias_pool_20000_FINAL.csv
+   confirmed unchanged throughout (same hash as originally recorded).
+
+7. Item 12 disposition: this is a labels/summary/metadata correction, not
+   a physics-code or results correction -- no simulation results are
+   altered. Corrected outputs: COMPARISON_TABLE_CORRECTED.csv (explicit
+   A/B/C split: partial-plane >=4/8 diagnostic, complete-plane 8/8
+   diagnostic, final Sec IV rate proven zero), audit_mu50_4of8_events_
+   reproduced.csv, audit_mu5_event2006_reproduced.csv, and the
+   run_sweep_resumable.py / run_pileup_fake_background_suppressed.py
+   pool_path fix, all committed separately from the original sweep commit.

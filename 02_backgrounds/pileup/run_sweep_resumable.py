@@ -89,8 +89,13 @@ def run_resumable(mu, n_events, out_path, seed=90210777, selection=BASELINE_SELE
         study_type="PILEUP_FAKE_BACKGROUND", mu=mu, n_events_processed=n_events,
         seed=seed, rng_stream_convention="SeedSequence([seed,int(mu),i]).spawn(2) -> (rng_pileup, rng_suppression)",
         detector_model_version=DETECTOR_MODEL_VERSION,
+        pool_path=ANCESTRY_POOL_PATH,  # BUG FIX (audit, 2026-09-17): build_provenance() defaults
+        # pool_path to provenance.POOL_PATH (minbias_pool_20000_FINAL.csv), but this driver
+        # actually samples from the ANCESTRY pool -- the 5 already-committed sweep provenance
+        # JSONs incorrectly recorded the FINAL pool's filename/hash. Fixed here for all future
+        # runs; the existing committed JSONs are NOT retroactively edited (see RUN_LOG.md
+        # 2026-09-17 errata entry for the correct hash on the record).
         extra={"tracking_efficiency_selection": selection,
-               "ancestry_pool": "minbias_pool_20000_ANCESTRY_v1.csv",
                "checkpoint_every": checkpoint_every, "wall_time_s_this_segment": dt},
     )
     with open(out_path + ".provenance.json", "w") as f:

@@ -89,13 +89,15 @@ def run_suppressed_background_study(mu, n_bg_events, seed=55550001, label=None,
         study_type="PILEUP_FAKE_BACKGROUND", mu=mu, n_events_processed=n,
         seed=seed, rng_stream_convention="SeedSequence([seed,i]).spawn(2) -> (rng_pileup, rng_suppression) independent streams per event",
         detector_model_version=DETECTOR_MODEL_VERSION,
+        pool_path=ANCESTRY_POOL_PATH,  # BUG FIX (audit, 2026-09-17): was previously defaulting to
+        # provenance.POOL_PATH (the FINAL pool), which this driver does NOT sample from -- see
+        # run_sweep_resumable.py's identical fix and RUN_LOG.md 2026-09-17 errata.
         extra={
             "diagnostic_only": False,
             "tracking_efficiency_selection": selection,
             "tracking_efficiency_source": "docs/reference/atl_phys_pub_2015_051/fig1b_digitized.csv (Task A digitization)",
             "suppression_mechanism": "track-level Bernoulli removal, Phase 4 (track_suppression.py) -- "
                                       "modelling assumption, not a uniquely specified paper prescription",
-            "ancestry_pool": "minbias_pool_20000_ANCESTRY_v1.csv",
             "k_4of8": k_4of8, "rate_4of8": rate_4of8, "wilson_95ci_4of8": wilson_interval(k_4of8, n),
             "k_8of8": k_8of8, "rate_8of8": rate_8of8, "wilson_95ci_8of8": wilson_interval(k_8of8, n),
             "wall_time_s": dt,
