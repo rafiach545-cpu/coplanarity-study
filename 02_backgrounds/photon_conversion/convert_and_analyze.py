@@ -39,7 +39,8 @@ import sys
 sys.path.insert(0, "/home/rafia/coplanarity_study/04_detector_sim")
 sys.path.insert(0, "/home/rafia/coplanarity_study/05_coplanarity_analysis")
 from trajectory_to_hits import simulate_quirk_hits
-from coplanarity_fit import seeding_and_iterative_fit, apply_signal_region_cuts, vertex_relative_hits
+from coplanarity_fit import (seeding_and_iterative_fit, apply_signal_region_cuts,
+                              select_reconstructed_plane, vertex_relative_hits)
 from atlas_geometry import BEAMPIPE_RADIUS_CM, BEAMSPOT_SIGMA_Z_CM
 
 ELECTRON_MASS_GEV = 0.000511
@@ -121,6 +122,15 @@ def analyze_one_event(row, rng, max_layer_r_cm=60.0):
         hits_by_layer[LAYER_NAME_TO_IDX[h["layer"]]].append((hx, hy, hz))
 
     candidates = seeding_and_iterative_fit(hits_by_layer)
+
+    # Sec III C Event Selection (Fig. 5's population), computed BEFORE and
+    # INDEPENDENTLY of the stricter Sec IV cuts below. select_reconstructed_
+    # plane() is a pure list operation (filter on delta_w<1cm, then min() on
+    # delta_s) -- it draws no random numbers, so inserting this call cannot
+    # perturb the RNG stream consumed by simulate_quirk_hits() above or any
+    # downstream event's hits/results.
+    sec3c_winner = select_reconstructed_plane(candidates)
+
     winner = apply_signal_region_cuts(candidates)
 
     return {
@@ -128,6 +138,10 @@ def analyze_one_event(row, rng, max_layer_r_cm=60.0):
         "passes": winner is not None,
         "ds": winner["fit"]["delta_s"] if winner else np.nan,
         "dw": winner["fit"]["delta_w"] if winner else np.nan,
+        "sec3c_plane_found": sec3c_winner is not None,
+        "sec3c_ds": sec3c_winner["fit"]["delta_s"] if sec3c_winner else np.nan,
+        "sec3c_dw": sec3c_winner["fit"]["delta_w"] if sec3c_winner else np.nan,
+        "sec3c_n_layers": len(set(sec3c_winner["layers"])) if sec3c_winner else np.nan,
         "conv_r_cm": np.hypot(conv_point[0], conv_point[1]),
     }
 
@@ -152,11 +166,12 @@ if __name__ == "__main__":
             print(f"{i}/{n_test} done, {time.time()-t0:.0f}s elapsed", flush=True)
 
     rdf = pd.DataFrame(results)
-    # New versioned filename -- this run includes the vertex-relative fit
-    # correction; the old conversion_scan_results.csv (pre-fix, 1500-event
-    # test) is left untouched, not overwritten.
+    # v3: adds sec3c_ds/sec3c_dw/sec3c_plane_found/sec3c_n_layers columns
+    # (Sec III C Event Selection, Fig. 5's population) alongside the
+    # unchanged v2 columns. Same input, same seed, same event order as v2;
+    # v2 file is left untouched, not overwritten.
     out_csv = ("/home/rafia/coplanarity_study/02_backgrounds/photon_conversion/"
-               "conversion_scan_results_v2_VERTEX_FIXED.csv")
+               "conversion_scan_results_v3_SEC3C_DS_DW.csv")
     rdf.to_csv(out_csv, index=False)
     print()
     print(rdf["status"].value_counts())
@@ -166,6 +181,17 @@ if __name__ == "__main__":
     n_pass = int(ok["passes"].sum())
     n_tested = len(ok)
     print(f"  events passing signal region: {n_pass} / {n_tested}")
+
+    n_sec3c = int(ok["sec3c_plane_found"].sum())
+    print(f"  Sec IIIC plane-found (Fig. 5 population): {n_sec3c} / {n_tested}")
+    sec3c = ok[ok["sec3c_plane_found"]]
+    if n_sec3c > 0:
+        for col in ("sec3c_ds", "sec3c_dw"):
+            v = sec3c[col].to_numpy()
+            print(f"    {col}: median={np.median(v):.5f} p16={np.percentile(v,16):.5f} "
+                  f"p84={np.percentile(v,84):.5f} min={v.min():.5f} max={v.max():.5f}")
+        frac_below = float((sec3c["sec3c_ds"] < 0.01).mean())
+        print(f"    fraction sec3c_ds < 0.01cm: {frac_below:.4f}")
 
     # Cross-section for events passing the signal region, correctly
     # normalized: (fraction of the TESTED sample passing) x (fraction of
