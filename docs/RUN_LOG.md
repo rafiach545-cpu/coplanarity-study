@@ -504,3 +504,77 @@ authoritative CSVs, no summary code reused. Findings:
    reproduced.csv, audit_mu5_event2006_reproduced.csv, and the
    run_sweep_resumable.py / run_pileup_fake_background_suppressed.py
    pool_path fix, all committed separately from the original sweep commit.
+
+## [2026-09-17 ~11:15] User-suggested classifier gap independently
+re-verified, confirmed genuine, patched, and PROVEN to change zero
+classifications across the entire pool.
+
+Independent verification performed BEFORE accepting the user's suggestion
+(not inherited as a conclusion): (1) re-read ATL-PHYS-PUB-2015-051 p.5
+directly again -- "Primary charged particles are defined as charged
+particles with a mean lifetime tau>300ps, either directly produced...";
+confirmed this is a COMPOUND condition (particle's own tau AND production
+chain), not production-chain-only. (2) Re-read the complete current
+ancestry_classifier.py fresh -- confirmed prt.tau0() (the tracked
+particle's own lifetime) was never referenced anywhere in the function,
+only ancestor lifetimes were checked -- genuine literal gap confirmed.
+(3) Queried Pythia8's own particleData.tau0() directly for all 10 species
+present in the pool (p,pbar,e+,e-,mu+,mu-,pi+,pi-,K+,K-): found a critical
+subtlety -- Pythia8 encodes an ABSOLUTELY STABLE particle's tau0() as
+EXACTLY 0.0 (meaning infinite lifetime), not a large finite value. A naive
+`tau0() > 300ps-threshold` patch would have WRONGLY classified every
+proton and electron as failing the lifetime requirement -- this would have
+been a NEW, WORSE bug than the one being fixed. The correct patch
+special-cases tau0()==0.0 as "stable, trivially satisfies tau>300ps".
+(4) With the CORRECT special-casing, all 10 actual species pass trivially
+(K+-/pi+-/mu+- have finite tau0 >>300ps threshold; p/pbar/e+/e- are
+tau0()==0.0, i.e. stable).
+
+Patch applied (ancestry_classifier.py): smallest possible change, checks
+prt.tau0() once at function entry, correctly handles the tau0()==0.0
+stable-particle sentinel, does not touch any other logic, cut, detector
+assumption, sample, or parameter. Original preserved at
+/tmp/ancestry_classifier_BEFORE_PATCH.py before editing.
+
+Classifier-level validation, OLD vs PATCHED, row-by-row:
+  - 200-event sample: 20,828 particles tested, 0 changed.
+  - FULL POOL (all 20,000 events, EXHAUSTIVE, not a sample): 2,256,066
+    particles tested, 0 changed. old_counts == new_counts exactly:
+    primary=2,026,487, secondary=229,523, ambiguous=56 (identical to the
+    unpatched classifier's counts in every category).
+
+Dependency chain proof (no downstream rerun performed or required):
+classify_particle() is called from exactly ONE place in the entire
+codebase -- generate_ancestry_pool.py, which writes the ancestry_label
+column into minbias_pool_20000_ANCESTRY_v1.csv. (pileup_hits_suppressed.py
+imports classify_particle but never calls it -- it reads the pre-computed
+ancestry_label column from the CSV instead.) Since the classifier's output
+is proven byte-identical across the COMPLETE pool (not sampled), the
+ancestry_label column would be unchanged if the pool were regenerated;
+every downstream consumer (pileup_hits_suppressed.py, track_suppression.py,
+run_pileup_fake_background_suppressed.py, run_sweep_resumable.py, and
+therefore all 5 mu-sweep result CSVs and the post-sweep audit) reads that
+column from the already-committed CSV, not by calling the classifier live
+-- so all downstream results are mathematically identical given identical
+inputs and identical RNG seeds. minbias_pool_20000_ANCESTRY_v1.csv was NOT
+regenerated (proven unnecessary, not assumed).
+
+VERDICT:
+  Source requirement: ATL-PHYS-PUB-2015-051 p.5 -- primary charged particle
+    requires tracked particle's OWN mean lifetime tau>300ps, compound with
+    the production-chain condition.
+  Current code behavior (before patch): checked only the production/
+    ancestry chain, never the tracked particle's own tau0().
+  Genuine bug/gap? YES.
+  Patch applied? YES (smallest correct form, handling the tau0()==0.0
+    stable-particle sentinel correctly -- a naive patch would have
+    introduced a worse bug).
+  Classification changes after patch: ZERO (exhaustively verified across
+    the complete 2,256,066-particle pool, not sampled).
+  Full downstream rerun required? NO.
+  Exact reason: classify_particle() has exactly one call site
+    (generate_ancestry_pool.py); its output is proven byte-identical for
+    every particle in the pool; every downstream stage consumes the
+    resulting CSV column, not a live function call; therefore every
+    downstream result is a deterministic function of unchanged inputs and
+    is provably unchanged without needing to be recomputed.

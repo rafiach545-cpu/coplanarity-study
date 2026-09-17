@@ -47,8 +47,25 @@ def classify_particle(event, idx, max_depth=100):
     """
     Returns (label, reason) where label in {'primary', 'secondary', 'ambiguous'}.
     idx: the FINAL charged particle's own index in `event`.
+
+    PATCH (2026-09-17, independently verified before applying -- see RUN_LOG.md):
+    ref[33] p.5 defines primary charged particles as a COMPOUND condition:
+    "charged particles with a mean lifetime tau>300ps, EITHER directly
+    produced... OR from decays of directly produced particles with tau<30ps."
+    The previous version of this function never checked the TRACKED
+    particle's own tau0() at all -- only its ancestry chain. This is now
+    checked explicitly. IMPORTANT: Pythia8 encodes an ABSOLUTELY STABLE
+    particle's tau0() as exactly 0.0 (infinite lifetime), NOT as "shorter
+    than everything" -- a naive `tau0() > threshold` comparison would
+    WRONGLY reject every stable proton/electron. tau0()==0.0 is therefore
+    special-cased as "stable, trivially satisfies tau>300ps" below.
     """
     prt = event[idx]
+    own_tau0_mm = prt.tau0()
+    if own_tau0_mm != 0.0 and own_tau0_mm <= TAU0_300PS_MM:
+        return "secondary", (f"tracked particle's OWN mean lifetime tau0={own_tau0_mm:.6f}mm "
+                              f"<= 300ps threshold ({TAU0_300PS_MM:.6f}mm) -- fails ref[33]'s own "
+                              "primary-particle lifetime requirement regardless of production chain")
     cur_idx = idx
     depth = 0
     while depth < max_depth:
