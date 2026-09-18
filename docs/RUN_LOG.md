@@ -938,3 +938,28 @@ CONCLUSION: The 9139-event converted-photon result is a validated
 conversion-only baseline. The paper-required converted-photon plus pile-up
 result has not yet been demonstrated. Overlay implementation NOT started in
 this task, per explicit instruction -- awaiting separate authorization.
+
+## 2026-09-18 ~09:30 — Master PPT statistics package (read-only, no new simulation)
+
+Built build_ppt_statistics.py: independently recomputed complete EW/colored
+signal statistics directly from cutflow CSVs (not from memory), and
+cross-checked the prompt-supplied pile-up cutflow table against the already-
+frozen pileup_only_statistics_v1 package -- CONFIRMED exact match for all 5
+mu. Combined with the existing converted-photon-only freeze package
+(read-only reuse, no recomputation of underlying physics) to build master
+cutflow, master Delta_s/Delta_w, paper-vs-project, and notable-events
+tables.
+
+Verified directly from CSVs (not assumed): EW final-passing events
+[260,313,322,332,362,438]; colored final pass event 386 (ds=0.009367);
+colored near-misses 208 (ds=0.010464) and 369 (ds=0.011863); colored
+zero-candidate events 38 and 169 (truth_fiducial=True, n_candidates=0);
+colored full cutflow 125->27->11->7->5->1 confirmed exactly.
+
+Outputs: 05_coplanarity_analysis/ppt_statistics_v1/ (12 ppt_table*.csv +
+8 appendix JSON/CSV files), docs/PPT_STATISTICS_SOURCEBOOK_v1.md. Commits
+1f152e4 (script), d1920fd (tables), [this commit] (sourcebook + RUN_LOG).
+
+No physics code, cuts, or authoritative CSVs modified. No simulation
+launched. PPT itself NOT created, per explicit instruction -- awaiting
+review.
