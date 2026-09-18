@@ -899,3 +899,42 @@ result with documented limitations. Zero final Sec IV events were observed
 in each 5000-crossing sample; this is not a claim that the underlying
 probability is exactly zero. Converted-photon overlay work NOT started in
 this task, per explicit instruction -- awaiting separate authorization.
+
+## 2026-09-18 ~08:15 — Converted-photon-only statistics freeze (v1) COMPLETE, no new simulation
+
+Built build_converted_photon_only_statistics.py + test_converted_photon_only_
+statistics.py for the completed 9139-event conversion_scan_results_v3_
+SEC3C_DS_DW.csv (commit 96f0fe0). Independently verified rather than
+blindly repeated: historical PID 95330 (confirmed via live ps checks earlier
+in this session, not log reconstruction); exit code 0; wall time 17057s
+(4.738h, 1.8672s/event, 1928.85 events/hour -- CORRECTS an unverifiable
+"535.8 events/hour" figure supplied in the task prompt, which could not be
+reproduced by any consistent unit interpretation); v3 bit-identical to v2 on
+all 8 common columns (0 unequal cells); all 12 previously-reported Delta_s/
+Delta_w statistics independently reproduced to 1e-4 tolerance.
+
+Confirmed CONVERTED-PHOTON-ONLY / NO PILE-UP classification via direct
+source inspection (zero "pileup"/"overlay" occurrences in convert_and_
+analyze.py). New intermediate cutflow counts recovered: N(any detector hit)
+=7811/9139 (85.47%), N(raw candidate | any hit)=2982/7811 (38.18%),
+N(>=4/8 layers)=2957/2982, N(8/8 layers)=1479/2982 -- none of these were
+previously reported. Confirmed dataset-specific (not general) identity:
+n_candidates>=1 exactly equals sec3c_plane_found in this sample (max 1
+candidate/event throughout).
+
+Documented gaps (not fabricated): hit-multiplicity pass flag, electron/
+positron-origin hit split, per-layer raw/postmerge hit tables, timing/eta-
+rejected hit counts, CPU time, peak/average RSS, and runtimes for
+generation/extraction/v1/v2 stages -- all require either a full rerun or
+were never instrumented.
+
+18/18 reproducibility tests pass (exit 0). Outputs: 05_coplanarity_analysis/
+converted_photon_only_statistics_v1/ (7 required tables + sidecars + 9
+figures + 3 plot-source CSVs), docs/converted_photon_only_final_statistics_
+v1.md. Commits 5daf50b (script+tests), 9c2af53 (tables), 59df98d (figures),
+788d3a8 (report).
+
+CONCLUSION: The 9139-event converted-photon result is a validated
+conversion-only baseline. The paper-required converted-photon plus pile-up
+result has not yet been demonstrated. Overlay implementation NOT started in
+this task, per explicit instruction -- awaiting separate authorization.
