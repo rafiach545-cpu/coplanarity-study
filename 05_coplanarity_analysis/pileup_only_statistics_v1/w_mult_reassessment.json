@@ -1,0 +1,12 @@
+{
+  "formula": "w_mult = N_hit_mult_pass / N_sec3c_plane_found",
+  "numerator": 0,
+  "denominator": 172,
+  "point_estimate": 0.0,
+  "wilson95_lo": 0.0,
+  "wilson95_hi": 0.021846934968744597,
+  "poisson_3overN_UL": 0.01744186046511628,
+  "denominator_matches_paper_exactly": "UNRESOLVED / ASSUMPTION",
+  "alternative_denominator": "paper says \"events allowed to have 1-hit per layer\" -- could instead mean events with >=1 hit in every layer among a LOOSER (non-Delta_w-filtered) raw-candidate population; not distinguishable from the paper text alone",
+  "do_not_treat_as_exact_zero": "point estimate is 0 but the true rate is only bounded above (Wilson 95% UL ~= 0.0218) -- must be carried as an uncertainty band, not a hard zero, in any Fig.5 pile-up weighting"
+}
