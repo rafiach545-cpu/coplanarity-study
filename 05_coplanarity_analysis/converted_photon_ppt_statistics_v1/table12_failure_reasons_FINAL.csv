@@ -1,0 +1,5 @@
+category,N,pct
+no candidate formed,6157,67.37060947587264
+"plane found, hit-multiplicity FAILS",2978,32.58562205930627
+"plane found, mult PASSES, Delta_s>=0.01 FAILS",4,0.0437684648210964
+final pass (mult PASSES and Delta_s<0.01),0,0.0
