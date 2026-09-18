@@ -1031,3 +1031,34 @@ authorized decision.
 Commits: 04ce39d (script+test), 4411c6d (n=100 cache outputs, 132KB).
 
 v4 (PID 165371) confirmed healthy and undisturbed throughout this work.
+
+## 2026-09-18 ~12:15 — Converted-photon v4 COMPLETE: exact hit-multiplicity cutflow recovered
+
+PID 165371 completed: 9139/9139, wall time 16934.9s (4.704h, 1.853s/event),
+exit via .DONE marker. Validated bit-identical to v3 on all 12 pre-existing
+columns (0 unequal cells across 9139 rows) -- confirms zero physics
+perturbation from the additive diagnostics, as regression-tested pre-launch.
+
+NEW RESULT: N(hit-multiplicity pass | selected plane) = 4/2982 (previously
+only bounded <=1479 via necessary-condition argument). w_mult point
+estimate=0.001341, Wilson 95% CI [0.001237,0.002728], Clopper-Pearson 95%
+[0.000366,0.003431]. All 4 passing events (3578,5240,5805,7723) share the
+identical layer pattern {8:2,7:2,6:2,5:2,4:2,3:2,2:2,1:1}, positron-
+dominated hits (7 positron-origin, 0 electron-origin, 1 mixed per event),
+Delta_s in [0.01907,0.02646]cm -- genuinely above 0.01cm, explaining
+N_final=0 exactly (not just consistent with it).
+
+Complete failure-reason breakdown (9139 total): no-candidate=6157 (67.4%),
+plane-found-but-mult-fails=2978 (32.6%), mult-passes-but-Delta_s-fails=4
+(0.04%), final=0.
+
+sha256(v4 CSV)=fab40924cf24c16466b77d8085227c9ae676fe2515e503611575bcd86edc3ad2.
+Updated table08/09/12 to FINAL versions, added fig14 (failure-reason
+chart), report status upgraded INTERIM->FINAL.
+
+Commits: 842a4e5 (v4 result), e15efa2 (tables/figure), [this] (report).
+
+CONCLUSION: The converted-photon-only analysis is complete at full
+statistics with documented limitations. It is a validated mu=0/no-pile-up
+baseline and is not the paper-required converted-photon plus pile-up
+background. Overlay work remains NOT started, awaiting explicit authorization.
