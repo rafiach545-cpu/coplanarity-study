@@ -1,0 +1,6 @@
+item,value
+Layers,"8 (ATLAS pixel+SCT barrel, per paper Sec IIIC)"
+B field,2.0 T
+Model scope,atlas_geometry.py barrel-only (no endcap/TRT/ECAL/Bethe-Bloch)
+Beamspot sigma_z,45 mm
+Tracking efficiency source,"ATL-PHYS-PUB-2015-051 Fig 1(b), digitized, Loose selection"

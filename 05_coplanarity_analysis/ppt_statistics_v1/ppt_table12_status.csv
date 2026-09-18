@@ -1,0 +1,10 @@
+item,status
+EW signal without pile-up,"COMPLETED, with reconstruction-efficiency discrepancy"
+Colored signal without pile-up,"COMPLETED, small-statistics limitation"
+Pile-up-only background,"COMPLETED AND FROZEN, with documented limitations"
+Converted-photon-only,"COMPLETED BASELINE, no pile-up overlay"
+Converted-photon + pile-up,NOT YET IMPLEMENTED/RUN
+EW signal + pile-up,NOT A FULL AUTHORITATIVE RESULT
+Colored signal + pile-up,NOT RUN
+Exact paper Figure 5,NOT YET COMPLETE
+Diagnostic Figure 5 shape comparison,AVAILABLE WITH LABELLED LIMITATIONS

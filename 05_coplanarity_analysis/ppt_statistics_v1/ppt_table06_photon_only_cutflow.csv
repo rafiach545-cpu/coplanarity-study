@@ -1,0 +1,12 @@
+stage,entering,passing
+N_total,9139,9139
+status=ok,9139,9139
+events_with_detector_hits_(n_hits>=1),9139,7811
+events_with_>=1_raw_candidate,7811,2982
+events_with_selected_Sec_IIIC_plane,2982,2982
+plane_sec3c_n_layers>=4_(>=4/8_layers),2982,2957
+plane_sec3c_n_layers==8_(8/8_layers),2982,1479
+hit_multiplicity_pass,2982,NOT RECORDED / REQUIRES RERUN (hit-multiplicity flag was never added to convert_and_analyze.py's v3 patch -- only ds/dw/plane_found/n_layers were)
+"Delta_w<1cm_(structural,_via_selection)",2982,2982
+"Delta_s<0.01cm_(among_plane-found,_UNWEIGHTED_by_hit-mult)",2982,93
+"full_Sec_IV_pass_(passes_column,_INCLUDES_hit-mult_internally)",9139,0

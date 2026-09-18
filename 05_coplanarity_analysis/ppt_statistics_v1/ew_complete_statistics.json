@@ -1,0 +1,164 @@
+{
+  "benchmark": "EW",
+  "mQ_GeV": 800.0,
+  "Lambda_eV": 4000.0,
+  "N_matched": 511,
+  "N_trigger": 89,
+  "N_geometric_fiducial": 41,
+  "N_truth_fiducial": 40,
+  "N_seed_found": 32,
+  "N_selected_plane": 32,
+  "N_hit_multiplicity_pass": 16,
+  "N_final_Sec_IV_pass": 6,
+  "epsilon_trig": {
+    "k": 89,
+    "n": 511,
+    "rate": 0.17416829745596868,
+    "wilson68": [
+      0.15803178701262605,
+      0.19157758798737395
+    ],
+    "wilson95": [
+      0.1598390897651194,
+      0.19336003011952085
+    ],
+    "cp95": [
+      0.1422713687638582,
+      0.2098885243375241
+    ],
+    "ul3n": 0.005870841487279843
+  },
+  "epsilon_fid": {
+    "k": 40,
+    "n": 89,
+    "rate": 0.449438202247191,
+    "wilson68": [
+      0.39756253352671084,
+      0.5024374664732891
+    ],
+    "wilson95": [
+      0.399893523335251,
+      0.5031671735937119
+    ],
+    "cp95": [
+      0.3437699275385716,
+      0.5585665973748803
+    ],
+    "ul3n": 0.033707865168539325
+  },
+  "epsilon_reco_paper_def": {
+    "k": 32,
+    "n": 40,
+    "rate": 0.8,
+    "wilson68": [
+      0.7297863563013287,
+      0.8555794973572081
+    ],
+    "wilson95": [
+      0.7118306422843471,
+      0.8355946341654176
+    ],
+    "cp95": [
+      0.6435219813207653,
+      0.9094775906000093
+    ],
+    "ul3n": 0.075
+  },
+  "cumulative_final_vs_truth_fid": {
+    "k": 6,
+    "n": 40,
+    "rate": 0.15,
+    "wilson68": [
+      0.10212178777453475,
+      0.21495138295717262
+    ],
+    "wilson95": [
+      0.12451671544551336,
+      0.23682046202976126
+    ],
+    "cp95": [
+      0.05710225815452586,
+      0.29835266683957645
+    ],
+    "ul3n": 0.075
+  },
+  "N_plane_Delta_s": {
+    "count": 32,
+    "min": 0.0025166207890208,
+    "max": 0.0319217227634028,
+    "mean": 0.017869801929759913,
+    "median": 0.0174217974472637,
+    "p16": 0.008963731526554292,
+    "p84": 0.02779224010488479,
+    "N_below_0.01": 6,
+    "frac_below_0.01": 0.1875
+  },
+  "N_plane_Delta_w": {
+    "count": 32,
+    "min": 0.0386904446663164,
+    "max": 0.3150814799713876,
+    "mean": 0.12250752868977813,
+    "median": 0.09086020372469955,
+    "p16": 0.051223497405912054,
+    "p84": 0.19913199645515203
+  },
+  "layer_coverage_distribution": {
+    "5": 1,
+    "6": 2,
+    "7": 8,
+    "8": 21
+  },
+  "final_passing_event_ids": [
+    260,
+    313,
+    322,
+    332,
+    362,
+    438
+  ],
+  "near_miss_events_0.01<=ds<0.013": [
+    {
+      "event": 32,
+      "ds": 0.0125664310551395,
+      "dw": 0.1937409226434748,
+      "best_candidate_passes_hit_multiplicity": true
+    },
+    {
+      "event": 121,
+      "ds": 0.0126204627081264,
+      "dw": 0.0434923204323949,
+      "best_candidate_passes_hit_multiplicity": true
+    },
+    {
+      "event": 339,
+      "ds": 0.0102105773199589,
+      "dw": 0.0667174507000027,
+      "best_candidate_passes_hit_multiplicity": false
+    },
+    {
+      "event": 355,
+      "ds": 0.012645086957759,
+      "dw": 0.1051799745275558,
+      "best_candidate_passes_hit_multiplicity": false
+    },
+    {
+      "event": 386,
+      "ds": 0.0119885204239277,
+      "dw": 0.0420236590436358,
+      "best_candidate_passes_hit_multiplicity": false
+    }
+  ],
+  "zero_candidate_truth_fiducial_events": [
+    72,
+    90,
+    136,
+    198,
+    248,
+    280,
+    373,
+    417
+  ],
+  "cross_section_note": "0.0002337 pb (this project's own MadGraph/Pythia8 matched cross-section, NOT a paper-quoted value)",
+  "runtime": "NOT RECORDED (no per-event timing instrumentation in analyze_colored_quirk.py/analyze_ew_quirk.py)",
+  "peak_RSS": "NOT RECORDED"
+}

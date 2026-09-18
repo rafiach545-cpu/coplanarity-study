@@ -1,0 +1,7 @@
+cut,definition
+Seeding,"layers 7&8, dphi<0.1, dz<2cm pairs; 4-hit combos, x.n3>0, ds<0.05cm, dw<1cm"
+Iterative fit,"outside-in layers 6->1, |x.n1|<0.05cm, |x.n2|<1cm, growth factor<=3"
+Sec IIIC Event Selection,"dw<1cm, keep smallest ds"
+Sec IV hit multiplicity,"all-but-one layer >=2 hits, remaining >=1 hit"
+Sec IV final,dw<1cm & ds<0.01cm
+Timing,25ns fiducial cut

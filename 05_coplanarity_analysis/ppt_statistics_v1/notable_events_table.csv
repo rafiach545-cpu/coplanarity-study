@@ -1,0 +1,17 @@
+event_id,sample,category,layer_coverage,multiplicity_pass,delta_s,delta_w,pass_fail,failure_reason
+260,EW,final_pass,8.0,True,0.0042965179337837,0.1409127138647127,PASS,-
+313,EW,final_pass,8.0,True,0.0025166207890208,0.089607015125377,PASS,-
+322,EW,final_pass,8.0,True,0.0072580061783375,0.1065921114909459,PASS,-
+332,EW,final_pass,8.0,True,0.007061561410002,0.0884438462284804,PASS,-
+362,EW,final_pass,8.0,True,0.0082454979999533,0.3141367609389914,PASS,-
+438,EW,final_pass,8.0,True,0.008993657923496,0.0386904446663164,PASS,-
+339,EW,near_miss,8.0,False,0.0102105773199589,0.0667174507000027,FAIL,hit_multiplicity_pass=False
+386,EW,near_miss,8.0,False,0.0119885204239277,0.0420236590436358,FAIL,hit_multiplicity_pass=False
+386,colored,final_pass,8.0,True,0.0093671750592033,0.2425297540111207,PASS,-
+208,colored,near_miss_ds,8.0,True,0.0104635895949586,0.2191740798862622,FAIL,delta_s just above 0.01cm cut
+369,colored,near_miss_ds,8.0,True,0.0118633549228801,0.2328153376722898,FAIL,delta_s just above 0.01cm cut
+38,colored,zero_candidate,,,,,FAIL,truth_fiducial=True but n_candidates=0 (no seed formed)
+169,colored,zero_candidate,,,,,FAIL,truth_fiducial=True but n_candidates=0 (no seed formed)
+2006,pileup_mu5,sole_8of8_event,8,False,0.0369126888340439,0.5776853994486171,FAIL,only 2/8 layers have >=2 hits (need >=7)
+5598,converted_photon_only,min_delta_s,2.0,NOT RECORDED,0.0008903045887476,0.3394518851813362,"N/A (final pass always False, hit-mult not recorded)",-
+93 events (see plotsrc),converted_photon_only,N(delta_s<0.01),-,NOT RECORDED,min=0.00089 max=0.00996,-,unknown (hit-mult not recorded),-

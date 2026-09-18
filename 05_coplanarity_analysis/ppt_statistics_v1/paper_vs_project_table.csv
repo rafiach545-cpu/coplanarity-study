@@ -1,0 +1,15 @@
+quantity,paper,project,difference,interpretation,limitation
+EW epsilon_trig,not numerically quoted,0.1742,N/A,project-only proxy metric (pT_pair>200GeV truth cut),paper gives no closed formula for trigger efficiency
+EW epsilon_fid,not numerically quoted,0.4494,N/A,-,not tabulated in Sec IIIC/IV text reread
+EW epsilon_reco (paper def.),peak ~70% per Sec IV text,0.8000,+0.1000,small-N (denominator=40) statistical limitation,Table I's exact numeric value not independently re-extracted this turn (extraction renders it as non-text)
+Colored epsilon_trig,not numerically quoted,0.2160,N/A,-,-
+Colored epsilon_fid,not numerically quoted,0.2593,N/A,-,-
+Colored epsilon_reco (paper def.),peak ~70% per Sec IV text,0.7143,+0.0143,VERY small-N (denominator=7) -- not statistically meaningful,N_truth_fiducial=7 is too small for a reliable efficiency estimate
+Pile-up >=4/8 rate (mu=50),~1e-3,0.0118,+0.0108,PARTIAL comparability (different suppression model/pool),documented model differences from paper's own pile-up treatment
+Pile-up 8/8 rate (mu=50),~6e-5,0.0000,-0.0001,PARTIAL comparability,same as above
+Converted-photon result,"converted-gamma+pileup, not numerically quoted","conversion-only, 0/9139 final",N/A,NOT COMPARABLE -- population is incomplete (no pile-up overlay),overlay not implemented
+Detector model,ref[34] full simplified sim (endcap/TRT/ECAL/Bethe-Bloch),atlas_geometry.py 8-layer barrel only,structural,documented simplification,no endcap/TRT/ECAL/Bethe-Bloch modeling
+Pool size,"125,000-event Pythia8 minbias pool","20,000-event pool, with replacement",6.25x smaller,reduced statistical independence,"explicit project decision, not a paper requirement"
+Tracking efficiency,"ATL-PHYS-PUB-2015-051 Fig 1(b), eta-independent in barrel","same curve, digitized, Loose selection","none (systematic bands tested, negligible impact)",MATCH,digitization precision
+Pile-up condition (Fig.5),1-hit-per-layer reweighted by hit-mult efficiency,"w_mult=0/172 (Wilson 95% UL~=0.022), denominator population ASSUMPTION",N/A,unresolved denominator ambiguity,paper text does not disambiguate the reweighting population
+Figure 5 status,"4 curves, absolute+shape normalization","3/4 curves available (no photon+pileup), shape-only",N/A,"diagnostic, not paper-exact",see status classification
