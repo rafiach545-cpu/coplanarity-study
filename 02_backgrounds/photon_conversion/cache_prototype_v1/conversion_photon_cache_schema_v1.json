@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "units": {
+    "x": "cm",
+    "y": "cm",
+    "z": "cm",
+    "t_ns": "ns",
+    "delta_s": "cm",
+    "delta_w": "cm",
+    "px": "GeV",
+    "py": "GeV",
+    "pz": "GeV",
+    "E": "GeV",
+    "layer_r_cm": "cm"
+  },
+  "sample_size": 100,
+  "seed": 99,
+  "rng_stream_convention": "single shared np.random.default_rng(99) stream, sequential over event index -- IDENTICAL to v2/v3/v4",
+  "files": {
+    "event_cache": "conversion_photon_event_cache_sample100_v1.csv (compact, one row per event)",
+    "raw_hit_cache": "conversion_photon_hit_cache_sample100_v1.npz (one row per pre-merge hit, linked by event+raw_hit_id)",
+    "merged_hit_cache": "conversion_photon_hit_cache_sample100_v1_merged.npz (one row per post-merge hit, linked by event+merged_hit_id)",
+    "candidate_cache": "conversion_photon_candidate_cache_sample100_v1.npz (one row per raw seeding_and_iterative_fit candidate)",
+    "candidate_hit_link_cache": "conversion_photon_candidate_hit_link_sample100_v1.npz (candidate_id <-> merged_hit_id join table)"
+  },
+  "known_gaps": {
+    "raw_to_merged_provenance": "NOT individually resolved to specific raw_hit_id lists in this prototype (merge cluster membership is only implicit via merged_count; an exact raw<->merged join was judged unnecessary for the requested cache questions and was not built to keep this prototype bounded)",
+    "acceptance_reason_detail": "simulate_quirk_hits does not separately count/report eta- or timing-rejected raw crossings (they are filtered inline and never appended to raw_hits) -- 'acceptance_reason' column is a placeholder, not a real per-crossing rejection log"
+  },
+  "generated_from_full_9139_event_sample": false,
+  "note": "This is a SMALL-SAMPLE PROTOTYPE (n=100), not a full-statistics cache. No full 9139-event propagation run was performed to build it."
+}

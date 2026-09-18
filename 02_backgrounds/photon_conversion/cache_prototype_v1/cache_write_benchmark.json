@@ -1,0 +1,13 @@
+{
+  "n_events": 100,
+  "wall_time_s": 279.78129839897156,
+  "file_sizes_bytes": {
+    "conversion_photon_hit_cache_sample100_v1_merged.npz": 34123,
+    "conversion_photon_hit_cache_sample100_v1.npz": 39388,
+    "conversion_photon_event_cache_sample100_v1.csv": 35226,
+    "conversion_photon_candidate_hit_link_sample100_v1.npz": 1960,
+    "conversion_photon_candidate_cache_sample100_v1.npz": 3692,
+    "conversion_photon_cache_schema_v1.json": 1843
+  },
+  "total_size_bytes": 116232
+}
