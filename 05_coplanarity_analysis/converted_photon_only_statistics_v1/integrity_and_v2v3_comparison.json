@@ -1,0 +1,63 @@
+{
+  "integrity_issues": [],
+  "nan_report": {
+    "ds": 9139,
+    "dw": 9139,
+    "sec3c_ds": 6157,
+    "sec3c_dw": 6157,
+    "sec3c_n_layers": 6157
+  },
+  "v2_v3_comparison": {
+    "common_row_count": 9139,
+    "event_ordering_identical": true,
+    "common_columns": [
+      "status",
+      "n_hits",
+      "n_candidates",
+      "passes",
+      "ds",
+      "dw",
+      "conv_r_cm",
+      "event",
+      "weight_pb"
+    ],
+    "per_column_equality": {
+      "status": {
+        "n_unequal": 0,
+        "all_equal": true
+      },
+      "n_hits": {
+        "n_unequal": 0,
+        "all_equal": true
+      },
+      "n_candidates": {
+        "n_unequal": 0,
+        "all_equal": true
+      },
+      "passes": {
+        "n_unequal": 0,
+        "all_equal": true
+      },
+      "ds": {
+        "n_unequal": 0,
+        "all_equal": true
+      },
+      "dw": {
+        "n_unequal": 0,
+        "all_equal": true
+      },
+      "conv_r_cm": {
+        "n_unequal": 0,
+        "all_equal": true
+      },
+      "weight_pb": {
+        "n_unequal": 0,
+        "all_equal": true
+      }
+    },
+    "total_unequal_cells": 0,
+    "max_float_abs_diff": 0.0,
+    "final_pass_agreement": true,
+    "bit_identical_claim_CONFIRMED": true
+  }
+}

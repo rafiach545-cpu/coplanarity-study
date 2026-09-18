@@ -1,0 +1,21 @@
+{
+  "unweighted": {
+    "k": 0,
+    "n": 9139,
+    "rate": 0.0,
+    "wilson68_lo": 0.0,
+    "wilson68_hi": 0.00010940919037199125,
+    "wilson95_lo": -2.7093665426580902e-20,
+    "wilson95_hi": 0.00042017571429871426,
+    "cp95_lo": 0.0,
+    "cp95_hi": 0.0004035600242803743,
+    "poisson_3overN_UL": 0.000328263486158223,
+    "note": "Zero observed, not zero probability"
+  },
+  "conversion_probability_weight": 0.01,
+  "per_event_xsec_pb": 2.3105120000000006e-07,
+  "weighted_95CL_upper_limit_pb": 9.70821029995751e-09,
+  "note_A": "unweighted point estimate and CIs are pure Binomial(k=0,n=9139) statistics on the RECONSTRUCTION rate; the weighted quantity separately multiplies by the physical per-event cross-section (weight_pb), never conflated",
+  "note_B": "Zero final Sec. IV events were observed in the 9139-event conversion-only sample; this is not a claim that the underlying probability is exactly zero.",
+  "note_C": "This is NOT the final paper converted-photon background limit, because the paper-required pile-up overlay is absent from this run."
+}

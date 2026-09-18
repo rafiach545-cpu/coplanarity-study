@@ -1,0 +1,23 @@
+{
+  "N_zero_candidates": 6157,
+  "N_exactly_1_candidate": 2982,
+  "N_exactly_2_candidates": 0,
+  "N_exactly_3_candidates": 0,
+  "N_more_than_3_candidates": 0,
+  "total_candidate_count": 2982,
+  "mean_candidates_per_event": 0.32629390524127366,
+  "max_candidates_per_event": 1,
+  "N_selected_plane": 2982,
+  "selected_plane_efficiency_vs_total": 0.32629390524127366,
+  "candidate_layer_coverage_distribution": {
+    "2": 10,
+    "3": 15,
+    "4": 66,
+    "5": 82,
+    "6": 382,
+    "7": 948,
+    "8": 1479
+  },
+  "n_candidates>=1_equals_sec3c_plane_found_in_this_dataset": true,
+  "is_this_a_general_algorithm_identity": "NO -- observed equality in THIS dataset only (every event here has at most 1 raw candidate, and that candidate's Delta_w always happens to be <1cm); not a guaranteed property of seeding_and_iterative_fit/select_reconstructed_plane in general"
+}

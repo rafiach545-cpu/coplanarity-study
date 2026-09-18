@@ -1,0 +1,8 @@
+task,command,input_events,output_events,wall_seconds,status,output_file,start_time,end_time,wall_minutes,wall_hours,seconds_per_event,events_per_hour,cpu_usage,peak_rss,exit_code
+Z+gamma+j event generation,"NOT RECORDED (MadGraph5_aMC@NLO + Pythia8, external to this repo, no run_card/proc_card present on disk)",,10000.0,NOT RECORDED,"external, pre-dates current file tree",,,,,,,,,,
+photon extraction (extract_zgamma_photons.py),python3 extract_zgamma_photons.py,10000.0,9139.0,NOT RECORDED,completed,,,,,,,,,,
+v1 obsolete test run,python3 convert_and_analyze.py 1500 (pre-vertex-fix),1500.0,1500.0,NOT RECORDED,"obsolete, superseded",conversion_scan_results.csv,,,,,,,,,
+v2 vertex-corrected run,python3 convert_and_analyze.py 9139,9139.0,9139.0,NOT RECORDED (docs/conversion_v2_run.log has no per-event timestamps),validated baseline,conversion_scan_results_v2_VERTEX_FIXED.csv,,,,,,,,,
+v3 Sec IIIC Delta_s/Delta_w recovery run (AUTHORITATIVE),python3 convert_and_analyze.py 9139,9139.0,9139.0,17057,COMPLETED,conversion_scan_results_v3_SEC3C_DS_DW.csv,2026-09-17 18:31:07.928222,2026-09-17 23:15:24.928222,284.28333333333336,4.7380555555555555,1.8672140120415983,1928.0060972034942,NOT RECORDED,NOT RECORDED,0.0
+"v2/v3 validation (this session, prior turn)",inline pandas comparison script,,,NOT RECORDED (sub-second),"completed, PASSED",,,,,,,,,,
+this statistics freeze build,python3 build_converted_photon_only_statistics.py,,,measured below,in progress,,,,,,,,,,
