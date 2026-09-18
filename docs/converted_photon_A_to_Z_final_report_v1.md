@@ -1,11 +1,26 @@
 # Converted-photon A–Z final report (v1) — 2026-09-18
 
-**STATUS: INTERIM.** The v4 full-diagnostics rerun (PID 165371, launched
-this task, projected ~4.93h) is still in progress at the time of this
-report. Everything below that does NOT depend on the hit-multiplicity flag
-is final; the hit-multiplicity cutflow stage and e±-origin/timing
-diagnostics will be appended in a follow-up update once v4 completes
-(checked automatically, not polled).
+**STATUS: FINAL.** The v4 full-diagnostics rerun (PID 165371) completed
+successfully: 9139/9139 events, wall time 16934.9s (4.704h), exit via
+`.DONE` marker. Validated bit-identical to v3 on all 12 pre-existing
+columns (0 unequal cells across 9139 rows). The hit-multiplicity cutflow
+stage and e±-origin/timing diagnostics below are now complete, not pending.
+
+## NEW RESULT: exact hit-multiplicity cutflow (previously only bounded, now direct)
+**N(hit-multiplicity pass, given selected plane) = 4/2982** (previously only
+known to be ≤1479 via the necessary-condition bound). Point estimate
+w_mult = 0.001341, Wilson 95% CI [0.001237, 0.002728], Clopper-Pearson 95%
+[0.000366, 0.003431]. All 4 passing events share the **identical** per-layer
+hit pattern `{8:2,7:2,6:2,5:2,4:2,3:2,2:2,1:1}` (events 3578, 5240, 5805,
+7723), all positron-dominated (7 positron-origin hits, 0 electron-origin, 1
+mixed), Δw≈0.50cm, **Δs∈[0.01907, 0.02646]cm — all above the 0.01cm cut**,
+confirming N_final=0 is now traced to its exact cause: every event that
+clears hit-multiplicity fails Δs<0.01cm.
+
+Full failure-reason breakdown (9139 total): no candidate=6157 (67.4%),
+plane found but hit-multiplicity fails=2978 (32.6%), hit-multiplicity
+passes but Δs≥0.01 fails=4 (0.04%), final pass=0. See
+`table12_failure_reasons_FINAL.csv`, `fig14_failure_reason_chart.png`.
 
 ## Paper methodology (Sec IIID, re-verified this turn)
 Z+gamma+j (MadGraph5_aMC@NLO), Z→νν, MET>200GeV, photon pT>0.5GeV, ~1pb
@@ -42,7 +57,8 @@ converted, 1% applied as an end-weight not a stochastic filter, exact
   this dataset, confirmed a dataset-specific observation, not a general
   algorithm guarantee).
 - N(≥4/8 layers)=2957/2982 (99.16%); N(8/8 layers)=1479/2982 (49.60%).
-- N(hit-multiplicity pass): **PENDING v4**.
+- N(hit-multiplicity pass, given selected plane)=**4/2982** (w_mult=0.001341,
+  Wilson 95% CI [0.001237, 0.002728]) — see NEW RESULT section above.
 - N(Δs<0.01 among plane-found, unweighted by multiplicity)=93 (3.12%).
 - N(final Sec IV pass)=0/9139 (this final number is unaffected by v4 — it
   was already computed correctly in v3, since `apply_signal_region_cuts`
@@ -55,12 +71,14 @@ max=0.04816, N(<0.01cm)=93 (3.12%). Δw: median=0.17767, p16=0.06663,
 p84=0.38705, min=0.01512, max=0.76062. Full percentile/threshold detail:
 `table10_delta_s_statistics.csv`, `table11_delta_w_statistics.csv`.
 
-## Failure analysis (partial, hit-multiplicity split PENDING v4)
-`table12_failure_reasons_partial.csv`: no-candidate=6157 (67.38%),
-plane-found-but-Δs≥0.01=2889 (31.61%), plane-found-and-Δs<0.01=93 (1.02%,
-these are NOT automatically final passes — final=0 proves at least one of
-them also fails hit-multiplicity, per the structural AND in
-`apply_signal_region_cuts`). v4 will split this further once complete.
+## Failure analysis (FINAL, complete via v4)
+`table12_failure_reasons_FINAL.csv`: no-candidate=6157 (67.38%),
+plane-found-but-hit-multiplicity-fails=2978 (32.58%),
+hit-multiplicity-passes-but-Δs≥0.01-fails=4 (0.04%), final pass=0. The
+4 near-miss events (3578, 5240, 5805, 7723) all share the identical
+per-layer pattern `{8:2,7:2,6:2,5:2,4:2,3:2,2:2,1:1}`, all positron-
+dominated hits, Δs∈[0.01907,0.02646]cm — genuinely above the 0.01cm cut,
+not a rounding-level near-miss.
 
 ## Notable events
 `table13_notable_events.csv`: minimum/maximum Δs and Δw events, and the
@@ -79,11 +97,11 @@ paper's final converted-photon-background limit (pile-up overlay absent).
 ## Runtimes
 `table14_runtime.csv`. v3 (authoritative, complete): PID 95330, 17057s
 (4.738h), 1.8672 s/event, 1928.85 events/hour, exit 0 — all re-verified
-this turn. v4 (in progress): PID 165371, benchmarked at 97.06s/50 events =
-1.94 s/event on a regression-tested 50-event prefix (all 11 old columns
-bit-identical to v3, 0 failures), projecting ~4.93h for the full run —
-under the 6-hour authorization threshold, launched only after confirming no
-other CPU-heavy process and sufficient disk/RAM.
+this turn. v4 (COMPLETE): PID 165371, actual wall time **16934.9s (4.704h)**,
+1.853 s/event, exit via `.DONE` marker — close to the 1.94 s/event
+50-event benchmark projection (~4.93h), slightly faster in the full run.
+All 12 pre-existing columns confirmed bit-identical to v3 (0 unequal cells
+across 9139 rows) — no physics perturbed by the additive diagnostics.
 
 ## Paper comparison
 `table15_paper_comparison.csv` (reused from the frozen package, still
@@ -98,19 +116,22 @@ NOT IMPLEMENTED. Not started in this task, per explicit instruction.
 
 ## Authoritative files and hashes
 - `conversion_scan_results_v3_SEC3C_DS_DW.csv` — authoritative baseline, unchanged, commit 96f0fe0.
-- `conversion_scan_results_v4_FULL_DIAGNOSTICS.csv` — IN PROGRESS, will be hashed and recorded on completion; never overwrites v3.
+- `conversion_scan_results_v4_FULL_DIAGNOSTICS.csv` — COMPLETE, sha256=`fab40924cf24c16466b77d8085227c9ae676fe2515e503611575bcd86edc3ad2`, 9139 rows, never overwrites v3.
 - `convert_and_analyze_v4_full_diagnostics.py`, `test_v4_regression.py` — commit e999fc0.
+- `cache_prototype_v1/` (n=100 event/hit/candidate cache prototype, NOT full statistics) — commits 04ce39d, 4411c6d.
 
-## Commits (this task, so far)
+## Commits (this task)
 e999fc0 (v4 driver+tests), 6f5eece (figure regen script), 9bc278c (17 PPT
-tables), 2257274 (PPT figures). A final commit will follow once v4
-completes and the report is updated.
+tables, interim), 2257274 (PPT figures, interim), 04ce39d/4411c6d (cache
+prototype), cbd37da (RUN_LOG), plus the final v4-results commit and this
+report's finalization commit (see final response for exact hashes).
 
 ## Next action
-Wait for v4 (PID 165371) to complete (background-monitored, not polled),
-then: validate v4 (row count, bit-identical old columns, new-column
-sanity), compute the complete hit-multiplicity cutflow stage and
-e±-origin/timing statistics, finish `table06`/`table12` (full versions),
-add the failure-reason and hit-origin figures, update this report to FINAL
-status, and commit. **Converted-photon + pile-up overlay and the PPT itself
-remain NOT started, per explicit instruction.**
+**Complete.** Converted-photon-only analysis is now final at full statistics
+with documented limitations. **Converted-photon + pile-up overlay and the
+PPT itself remain NOT started, per explicit instruction — awaiting separate
+authorization.**
+
+**"The converted-photon-only analysis is complete at full statistics with
+documented limitations. It is a validated mu=0/no-pile-up baseline and is
+not the paper-required converted-photon plus pile-up background."**
