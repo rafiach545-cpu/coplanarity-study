@@ -990,3 +990,44 @@ final_report_v1.md (STATUS: INTERIM).
 Commits: e999fc0 (v4 driver+tests), 6f5eece (figure regen script), 9bc278c
 (17 tables), 2257274 (figures), [pending] (report+RUN_LOG). Converted-photon
 + pile-up overlay and PPT itself NOT started, per explicit instruction.
+
+## 2026-09-18 ~11:10 — Converted-photon reusable event/hit/candidate cache PROTOTYPE (n=100, no full rerun)
+
+Per explicit instruction to prevent future full photon reruns: assessed the
+currently-running v4 process (PID 165371, healthy, untouched, still running)
+and confirmed its columns are INSUFFICIENT for full future reuse -- v4 only
+saves scalar/aggregate summaries (hit_multiplicity_pass, winner-only layer
+counts, e-/e+/mixed hit counts), not raw per-hit records, candidate
+memberships, or per-hit provenance. v4's checkpoint is a plain partial CSV,
+not a stored-object cache, so richer data cannot be retroactively extracted
+from it without repropagation.
+
+Per the task's own decision tree, produced only a SMALL diagnostic cache
+SAMPLE (n=100, NOT a full 9139-event rerun): build_photon_event_cache_
+prototype.py, a separate process (same rng=default_rng(99) stream,
+read-only against zgamma_photons.csv), captures event identity, raw
+pre-merge hits (traj["raw_hits"], pre-existing field), merged post-merge
+hits with source_quirk_indices provenance, ALL raw candidates (not just
+winners) with per-layer hit counts, and a candidate<->hit join table.
+Stored as compressed .npz (no pyarrow/h5py available in this environment;
+NPZ satisfies the task's own "Parquet/HDF5/NPZ or another compressed
+structured format" allowance) + one compact CSV, with a schema-version/
+units JSON sidecar.
+
+Validated (test_cache_only_analysis.py, 11/11 pass): unique IDs, no
+duplicates, all links resolve, raw/postmerge counts match the event
+summary exactly, and -- the key result -- complete cutflow, per-layer
+table, Delta_s/Delta_w stats, multiplicity, failure-reason classification,
+notable-event lookup, AND a hypothetical Delta_s<0.02cm cut-threshold
+diagnostic are all reproduced from the cache ALONE in 0.025s (vs 279.78s
+to generate the cache), peak RSS 71.6MB.
+
+Documented gaps: raw-to-merged hit provenance not individually resolved
+(only merged_count); eta/timing-rejected raw crossings not separately
+logged (filtered inline in simulate_quirk_hits, never counted). NO full
+9139-event cache was generated -- that remains a future, separately-
+authorized decision.
+
+Commits: 04ce39d (script+test), 4411c6d (n=100 cache outputs, 132KB).
+
+v4 (PID 165371) confirmed healthy and undisturbed throughout this work.
