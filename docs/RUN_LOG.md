@@ -859,3 +859,43 @@ max=0.99659.
 
 Saved: pileup_mu{0,5,10,20,50}_n5000_sec3c_fullcutflow_v1.csv,
 pileup_fullcutflow_summary_v1.json. Commits e79e6ff (fix), e32e03e (results).
+
+## 2026-09-18 ~07:00 — Pile-up-only statistics freeze (v1) COMPLETE, no new simulation
+
+Built build_pileup_only_statistics.py: joins the original sweep and Sec IIIC/
+Sec IV fullcutflow CSV families (both already-completed, mu=0,5,10,20,50,
+n=5000) on event_i, runs full file-integrity validation (all 10 files: 5000
+rows, 5000 unique event_i, 0 duplicates/missing, non-negative fields,
+postmerge<=premerge, final_sec_iv_pass implies all upstream cuts, mu=0
+all-zero sanity -- ZERO issues found), then computes Poisson/ancestry/
+suppression/per-layer/cutflow/Delta_s/Delta_w/coverage/paper-comparison/
+reweighting statistics with Wilson/Clopper-Pearson intervals throughout.
+
+Corrections made during this freeze: (1) the paper's quoted ~1e-3/~6e-5
+values correspond to the >=4/8 and 8/8 RAW-CANDIDATE coverage diagnostics,
+not the Sec IIIC selected-plane population or the final Sec IV rate --
+explicitly separated in table8_paper_comparison.csv (comparability
+PARTIAL/PARTIAL/NO respectively). (2) w_mult=0/172's denominator-population
+match to the paper's "1-hit-per-layer-allowed" phrase is UNRESOLVED/
+ASSUMPTION, not settled; the zero point estimate carries a Wilson 95% CL
+upper bound ~0.0218, must never be presented as an exact physical weight.
+
+Explicitly NOT AVAILABLE FROM STORED FIELDS (documented, not fabricated):
+pool-reuse identities (sampled_pool_event_ids never persisted), per-class
+hit-removal breakdown, postmerge/timing-rejected hit counts, full
+raw-candidate layer-coverage histogram. One tiny 1-event deterministic
+replay (mu=5, event_i=2006, the sweep's only has_8_of_8_plane=True event)
+recovered its exact per-layer hit breakdown -- bit-identical to the prior
+independent audit reproduction; failure reason: only 2/8 layers have >=2
+hits (need >=7).
+
+Outputs: 05_coplanarity_analysis/pileup_only_statistics_v1/ (10 tables, 12
+figures, 5 per-layer CSVs, w_mult_reassessment.json, integrity_check_
+report.json), docs/pileup_only_final_statistics_v1.md. Commits b9c2547
+(script), 1f697f0 (tables), 4f0e4ff (figures), 0d2e391 (report).
+
+CONCLUSION: The pile-up-only study is frozen as an authoritative project
+result with documented limitations. Zero final Sec IV events were observed
+in each 5000-crossing sample; this is not a claim that the underlying
+probability is exactly zero. Converted-photon overlay work NOT started in
+this task, per explicit instruction -- awaiting separate authorization.
