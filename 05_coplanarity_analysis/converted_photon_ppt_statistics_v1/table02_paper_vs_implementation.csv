@@ -1,0 +1,11 @@
+paper_section,requirement,physical_meaning,code_location,implemented_value,verdict,ppt_wording,consequence
+Sec IIID p6,"Z+gamma+j, Z->nunu, MET>200GeV",generator-level filter + trigger proxy,extract_zgamma_photons.py,"MET>200 (post-shower, exact)",MATCH,paper's own MET cut,-
+Sec IIID p6,photon pT>0.5GeV,photon selection cut,extract_zgamma_photons.py,"pT_gamma>0.5GeV, exact post-shower",MATCH,-,-
+Sec IIID p6,"~1pb fiducial sigma, ~10fb after conversion",fiducial cross section + conversion probability,convert_and_analyze.py,"TOTAL_XSEC_PB=0.2310512, CONVERSION_PROBABILITY=0.01","MATCH (order of magnitude, project's own MadGraph run)","project MC value, not literally the paper's number",-
+Sec IIID p6,conversion probability from PDG figs 33.16/33.17,physical conversion probability at beampipe,hardcoded constant,0.01,ASSUMPTION,not independently re-derived from PDG figures this session,-
+Sec IIID p6,equal e+/e- energy sharing (conservative),50/50 split,convert_and_analyze.py:95-97,"exact 50/50, no smearing",MATCH,paper's own conservative choice,-
+Sec IIID p6,same detector sim as pile-up,detector propagation,trajectory_to_hits.simulate_quirk_hits,atlas_geometry.py 8-layer barrel,MATCH (within project's simplification),no endcap/TRT/ECAL/Bethe-Bloch,-
+Sec IIID p6,"overlay pile-up hits, then reconstruct",pile-up overlay before reconstruction,NONE -- confirmed absent,N/A,NOT IMPLEMENTED,"result is conversion-only, NOT paper-equivalent",Fig.5 converted-gamma curve cannot be produced yet
+Sec IIIC,seeding/iterative fit/Event Selection,Sec IIIC algorithm,"coplanarity_fit.py (seeding_and_iterative_fit, select_reconstructed_plane)","unchanged, shared with signal pipeline",MATCH,-,-
+Sec IV,"hit multiplicity: all-but-one layer>=2 hits, remaining>=1",cut 2,coplanarity_fit.check_hit_multiplicity,unchanged,MATCH,was not separately recorded in v3 (fixed in v4),-
+Sec IV,Delta_w<1cm & Delta_s<0.01cm,cut 3,coplanarity_fit.apply_signal_region_cuts,unchanged,MATCH,-,-

@@ -1,0 +1,5 @@
+category,N,pct
+no candidate formed,6157,67.37060947587264
+"plane found, Delta_s>=0.01 (multiplicity status PENDING v4)",2889,31.611773717036872
+"plane found, Delta_s<0.01 (multiplicity status PENDING v4 -- NOT yet a final pass since v3 final=0 already includes mult)",93,1.0176168070904914
+final pass,0,0.0

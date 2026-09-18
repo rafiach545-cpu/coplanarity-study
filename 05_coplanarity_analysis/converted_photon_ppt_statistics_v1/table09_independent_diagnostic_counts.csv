@@ -1,0 +1,9 @@
+diagnostic,N
+any candidate,2982
+selected plane,2982
+>=4/8 layers,2957
+8/8 layers,1479
+hit-multiplicity pass (any),PENDING v4 rerun
+"Delta_w pass (structural, = selected plane)",2982
+Delta_s pass (regardless of multiplicity),93
+final pass,0
