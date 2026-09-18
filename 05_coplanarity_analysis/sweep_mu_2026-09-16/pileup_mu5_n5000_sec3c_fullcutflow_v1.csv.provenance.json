@@ -1,0 +1,25 @@
+{
+  "study_type": "PILEUP_FAKE_BACKGROUND",
+  "mu": 5,
+  "n_events_processed": 5000,
+  "seed": 90210777,
+  "rng_stream_convention": "SeedSequence([seed,int(mu),i]).spawn(2) -> (rng_pileup, rng_suppression) -- IDENTICAL to run_sweep_resumable.py",
+  "detector_model_version": "atlas_geometry.py Sec-IIIA-barrel-8-layer (no ref[34] endcap/TRT/ECAL/Bethe-Bloch)",
+  "pool_filename": "minbias_pool_20000_ANCESTRY_v1.csv",
+  "pool_size_events": 20000,
+  "pool_sha256": "a8f9149c07b9967332cfd7eba49960dd137bbc927c4be7309b92df6979b172ad",
+  "pool_generation_settings": {
+    "pythia_version": "8.312",
+    "process": "SoftQCD:nonDiffractive = on",
+    "beams": "pp, sqrt(s) = 13000 GeV",
+    "seed": 20260916,
+    "n_events_requested": 20000,
+    "note": "125,000-event pool per the paper's own Sec III D; this project uses 20,000 events by explicit user decision, not a paper requirement or a feasibility finding -- see RUN_LOG.md 2026-09-16 ~14:40. Sampling from this pool is WITH REPLACEMENT (documented assumption, not specified by the paper or ref[34]), so results have REDUCED STATISTICAL INDEPENDENCE relative to the paper's own 125,000-event pool and must never be described as an exact paper-sized reproduction."
+  },
+  "git_commit_hash": "e79e6ff6c6b4df5e2f7be676514846c8641fa3d9",
+  "created_utc": "2026-09-17T21:28:08.445787+00:00",
+  "tracking_efficiency_selection": "Loose",
+  "checkpoint_every": 100,
+  "wall_time_s": 610.2355494499207,
+  "note": "analysis-only rerun over existing deterministic seeds/pool; no new physics generated"
+}
