@@ -831,3 +831,31 @@ against audit_mu5_event2006_reproduced.csv and 5 spot-checked audit_mu50_4of8_ev
 reproduced.csv rows before launching. Commit 57941cc. Launched as PID 124614,
 sequential mu=0,5,10,20,50, n=5000 each, checkpointed, outputs
 pileup_mu{N}_n5000_sec3c_fullcutflow_v1.csv under sweep_mu_2026-09-16/.
+
+## 2026-09-18 ~00:15 — Pile-up full-cutflow recovery COMPLETE (all 5 mu points, no new physics)
+
+run_sec3c_fullcutflow_sweep.py completed all 5 mu points (0,5,10,20,50, n=5000 each) after
+one metadata-only crash (provenance study_type whitelist, fixed commit e79e6ff, mu=0 data
+unaffected/skipped-on-resume). Total wall time ~16193s for mu=50 alone (dominant cost);
+mu=0/5/10/20 << 100s combined.
+
+DIRECT (not inferred) results: N_plane=0,3,6,22,172 at mu=0,5,10,20,50. N_hit_mult_pass=0
+at every mu. N_final_SecIV=0/5000 at every mu -- this UPGRADES the prior logical-inference-
+based "0/5000 proven" result (RUN_LOG 2026-09-17 ~10:30, Evidence class B+C) to a direct
+full-statistics computation (Evidence class A) for all five mu points.
+
+Confirmed N_plane==N_raw_candidates exactly at every mu: every raw seeding_and_iterative_fit
+candidate in this pile-up sample already satisfies Delta_w<1cm (verified: dw range among
+mu=50's 172 plane-found events is [0.321, 0.997]cm, all <1.0) -- select_reconstructed_plane's
+own filter is a structural no-op here, not a bug.
+
+Fig. 5 mu=50 pile-up reweighting (paper's exact 1-hit-per-layer prescription, computed on
+the FULL unbiased 172-event plane-found population, superseding the biased 59-event
+>=4-layer-only subsample used previously): w_mult = N_hit_mult_pass/N_plane = 0/172 = 0.0
+point estimate, Wilson 95% CL upper bound ~0.0218. Delta_s (unweighted, plane-found
+population): median=0.03143, p16=0.01948, p84=0.04045, min=0.00168, max=0.04991,
+N(<0.01cm)=7/172=0.0407. Delta_w: median=0.76399, p16=0.60847, p84=0.88552, min=0.32071,
+max=0.99659.
+
+Saved: pileup_mu{0,5,10,20,50}_n5000_sec3c_fullcutflow_v1.csv,
+pileup_fullcutflow_summary_v1.json. Commits e79e6ff (fix), e32e03e (results).
