@@ -963,3 +963,30 @@ Outputs: 05_coplanarity_analysis/ppt_statistics_v1/ (12 ppt_table*.csv +
 No physics code, cuts, or authoritative CSVs modified. No simulation
 launched. PPT itself NOT created, per explicit instruction -- awaiting
 review.
+
+## 2026-09-18 ~10:15 — Converted-photon A-Z PPT study: v3 deliverables complete, v4 rerun launched
+
+Re-verified baseline (unchanged): v3 9139/9139, PID 95330 (historical),
+17057s=4.738h, 1.8672s/event, 1928.85 events/hour, final 0/9139.
+
+Added convert_and_analyze_v4_full_diagnostics.py (additive, new standalone
+script, does NOT modify v3): recovers hit_multiplicity_pass,
+winner_layer_hit_counts, e-/e+/mixed hit-origin split, hit-timing stats --
+all derivable from objects v3's own simulate_quirk_hits/candidates already
+compute but discard, zero new physics, zero new RNG draws. Regression-tested
+(test_v4_regression.py) against v3 for n=5 and n=50 event prefixes: all 11
+pre-existing columns bit-identical, 0 failures. Benchmarked 97.06s/50 events
+=1.94s/event, projecting ~4.93h (under the 6h authorization threshold).
+Confirmed no other CPU-heavy process, 946G disk/2.9G RAM free. Launched
+PID 165371.
+
+Built 17 PPT tables + 10 figures under converted_photon_ppt_statistics_v1/
+from v3 + zgamma_photons.csv (new: photon pT/eta/MET kinematics, all trivially
+satisfy the MET>200/pT_gamma>0.5 cuts by construction, confirming the
+extraction file). Hit-multiplicity-dependent fields explicitly marked
+PENDING v4, not fabricated. Wrote interim docs/converted_photon_A_to_Z_
+final_report_v1.md (STATUS: INTERIM).
+
+Commits: e999fc0 (v4 driver+tests), 6f5eece (figure regen script), 9bc278c
+(17 tables), 2257274 (figures), [pending] (report+RUN_LOG). Converted-photon
++ pile-up overlay and PPT itself NOT started, per explicit instruction.
