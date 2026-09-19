@@ -1,0 +1,16 @@
+{
+  "N_final_raw_unweighted": 1,
+  "denominator": 9139,
+  "point_estimate_raw": 0.000109421162052741,
+  "wilson95": [
+    0.00016632643243974605,
+    0.00047259965373460034
+  ],
+  "clopper_pearson95": [
+    2.770300132980662e-06,
+    0.0006095032308252988
+  ],
+  "weight_pb_per_event": 2.3105120000000006e-07,
+  "final_effective_cross_section_pb_unweighted_rate_x_1pct_already_in_weight": 2.3105120000000006e-07,
+  "note": "weight_pb ALREADY includes the 1% conversion probability (PER_EVENT_XSEC_PB*0.01); do not apply 0.01 again on top of this."
+}
