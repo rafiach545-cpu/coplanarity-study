@@ -1062,3 +1062,44 @@ CONCLUSION: The converted-photon-only analysis is complete at full
 statistics with documented limitations. It is a validated mu=0/no-pile-up
 baseline and is not the paper-required converted-photon plus pile-up
 background. Overlay work remains NOT started, awaiting explicit authorization.
+
+## 2026-09-19 ~10:05 — Converted-photon + pile-up overlay (paper-required background) LAUNCHED
+
+Phase 1 (paper reread + checklist): docs/converted_photon_overlay_paper_checklist_v1.md,
+14-item DIRECT/CITED/ASSUMPTION/SIMPLIFICATION/UNRESOLVED table. Directly re-confirmed
+Sec IIID's overlay sentence.
+
+Phase 2 (cache inspection): no full 9139-event RAW conversion-hit cache existed (v3/v4
+only store summary scalars; the n=100 cache_prototype_v1 was explicitly a small sample,
+not full statistics). Chose: repeat conversion propagation once inside the new overlay
+driver (unavoidable -- raw hits were never cached at full statistics), producing a
+permanent overlay result as a byproduct rather than a separate non-overlay full cache.
+
+Phase 3 (driver): analyze_converted_photon_with_pileup_v1.py. Event construction: raw
+conversion hits (traj["raw_hits"]) + raw suppressed pile-up hits -> ONE combined merge
+via pileup_hits.overlay_and_merge() (validated, unchanged, re-used from the
+analyze_ew_signal_with_pileup.py precedent, commit 3213219) -> vertex-relative transform
+-> unchanged Sec IIIC/Sec IV reconstruction.
+
+Phase 4 (RNG): rng_photon = single sequential default_rng(99), IDENTICAL construction to
+v2/v3/v4 (guarantees mu=0 bit-identical reproduction). rng_pileup/rng_suppression =
+per-event SeedSequence([90210777,event_i]) children, independent of rng_photon.
+
+Phase 6 (tests): test_overlay_regression.py, 19/19 pass (exit 0). mu=0 n=50 prefix:
+status/n_hits/n_candidates/final_sec_iv_pass/sec3c_plane_found/sec3c_ds/sec3c_dw/
+sec3c_n_layers/conv_r_cm all bit-identical to v4. mu=50 n=50: Poisson stats sane,
+combined premerge=raw_conv+raw_pileup exactly, mixed hard+pileup clusters observed,
+exact run-to-run reproducibility confirmed.
+
+Phase 7 (benchmark+gate): 100-event mu=50 clean benchmark: 615.78s = 6.158s/event.
+Projected full 9139-event runtime: 56276s = 15.63h -- UNDER the 24h gate. 947G disk /
+5.1G RAM free, no other heavy process. GATE PASSED -- launched automatically per
+explicit authorization.
+
+Phase 8: Launched PID 210143, checkpointed every 100 events, output
+conversion_with_pileup_mu50_v1.csv (never overwrites v3/v4). Monitoring via background
+wait, not polling. EW/colored/mu=5,10,20 overlays explicitly NOT run, per instruction.
+
+Commits: 71e461f (driver+tests), fc9e671 (checklist). Phases 9-14 (cutflow tables,
+mu=0-vs-mu=50 transitions, Figure 5/6, final report) deferred to completion (~15.6h),
+per the same pattern used for the earlier v4 photon-only rerun.
