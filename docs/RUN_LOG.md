@@ -1103,3 +1103,53 @@ wait, not polling. EW/colored/mu=5,10,20 overlays explicitly NOT run, per instru
 Commits: 71e461f (driver+tests), fc9e671 (checklist). Phases 9-14 (cutflow tables,
 mu=0-vs-mu=50 transitions, Figure 5/6, final report) deferred to completion (~15.6h),
 per the same pattern used for the earlier v4 photon-only rerun.
+
+## 2026-09-20 ~01:00 — Converted-photon + pile-up overlay COMPLETE: first nonzero result (Phases 9-14)
+
+PID 210143 completed: 9139/9139, wall time 53240.8s (14.79h), exit via
+.DONE marker. sha256(result CSV)=66f715e107797a9e0c88a9baaedadda7bf2fde51f7872aa3c3e81a4e4a065856.
+
+FIRST-EVER nonzero converted-photon-background result in this project:
+N_final=1/9139 (event 2555). Full cutflow: N_plane=3276, N_>=4/8=3128,
+N_8/8=1518, N_mult=203, N_final=1. Wilson 95% CI [0.000166,0.000473],
+Clopper-Pearson 95% [0.0000028,0.000610].
+
+mu=0 vs mu=50 paired transitions (using v4 as the regression-proven mu=0
+equivalent): pile-up NEVER destroys an existing candidate at any stage (0
+removed everywhere), only adds new ones (294 candidates created, 199
+promoted to hit-mult-pass, 1 promoted to final pass). Event 2555 was
+already Delta_s-good at mu=0 (0.00582cm) but failed hit-multiplicity
+there; pile-up coincidentally filled the per-layer multiplicity gap on
+the SAME plane without spoiling Delta_s enough to fail (0.00910cm) --
+genuine, unforced, not tuned.
+
+Figure 5 rebuilt with the CORRECT paper-style 4 components for the first
+time (colored, EW, pileup mu=50, REAL converted-gamma+pileup mu=50 N=3276
+-- not the conversion-only diagnostic). Labeled per requirement:
+"Approximate unit-area Figure 5 shape reproduction; absolute paper
+normalization unavailable." Pile-up reweighting still not applied
+(unresolved denominator ambiguity, unchanged).
+
+Figure 6: re-read definition (95% CL exclusion + discovery curve over
+mQ-Lambda plane, L=300fb^-1). BLOCKED -- requires a cross-section x
+efficiency scan over a continuous grid; project has only 2 discrete
+benchmark points and no colored-quirk cross-section at all. Requirement
+matrix built (figure6_requirement_matrix.csv); no plot produced, no
+values invented.
+
+Cache-only validation: all Phase 9-11 tables/figures computed from the
+compact event-summary CSV alone, zero re-propagation. A full raw-hit-
+level detailed cache for this 9139x mu=50 result was NOT built (only the
+earlier n=100 conversion-only prototype exists at that depth) -- would
+require a second ~14.8h run, not judged justified since the summary
+already answers every Phase 9-11 question.
+
+Outputs: 05_coplanarity_analysis/converted_photon_with_pileup_v1/ (Phase
+9-11 tables + Figure 5 pngs), docs/converted_photon_pileup_overlay_final_
+report_v1.md. Commits: 109c042 (result), 48791b4 (tables), a3940d2
+(figures), [this] (report+RUN_LOG).
+
+CONCLUSION: the paper-required converted-photon+pile-up background is now
+produced for the first time, at full statistics (mu=50, 9139 events), with
+a genuine nonzero result (1 event) that was not tuned toward any target.
+EW/colored+pileup overlays remain NOT run, per explicit instruction.
