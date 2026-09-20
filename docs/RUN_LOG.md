@@ -1360,3 +1360,50 @@ weight_correction_v2.json. docs/figure5_weight_denominator_audit_v1.md.
 Commit: 5774834.
 
 No simulation launched, no events generated, no reconstruction run.
+
+## 2026-09-21 ~06:00 — FINAL RESULT FREEZE + PPT sourcebook (read-only, no simulation)
+
+Marked figure5_left_panel_ABSOLUTE_3curves_v2_CORRECTED.png/.csv
+AUTHORITATIVE; marked the prior no-suffix v1 files OBSOLETE (colored
+curve high by 3.352x, wrong N=125 denominator). Verified and froze all
+requested numeric values directly against saved files (not from memory):
+colored weight=7.5036e-4 fb/event, EW=4.5738e-4, converted-photon+PU=
+2.3105e-4; colored integral=3.7518e-3 fb, EW=1.4636e-2, converted-photon+
+PU=0.756924 -- all confirmed exact matches.
+
+Built master_cutflow_table.csv covering colored, EW, pileup-only
+(mu=0,5,10,20,50), converted-photon-only, and converted-photon+pileup
+mu=50, every cell with an explicit denominator, eps_trig/eps_fid/
+eps_reco/hit-mult/final-pass kept distinct throughout.
+
+Verified (not assumed) that event 2555's responsible pT=0.242GeV pion is
+below the Loose tracking-efficiency reconstruction threshold: direct call
+to track_efficiency(0.242, 'Loose') returns exactly 0.0, and even
+track_efficiency(0.4,...) returns 0.0 (threshold is pT>0.4GeV strictly) --
+confirms the forensic report's wording is correct.
+
+Wrote docs/PPT_SOURCEBOOK_FINAL_v1.md (15 slides: title, method, colored/
+EW cutflow, Table I comparison, pileup-only, converted-photon-only,
+converted-photon+pileup overlay, event 2555 forensic, Figure 5 two-product
+split, Wilson-bug errata, Figure 6 status, overall status matrix,
+limitations, next steps) -- each slide with bullets, equations,
+table/figure placement, source file, speaker note, and limitation note.
+
+Built authoritative_obsolete_file_inventory.csv classifying every major
+project CSV/plot as AUTHORITATIVE/OBSOLETE/SUPERSEDED.
+
+Searched the sourcebook and all new outputs for stale values (old weight
+2.5152e-3, old integral 1.2576e-2, wrong Wilson interval
+[0.000166,0.000473], any "exact four-component absolute" claim) -- ALL
+CLEAN. The only occurrences of old values anywhere are explicitly-labeled
+historical correction notes (in master_cutflow_table.csv's own notes
+column and phase9_final_pass_statistics.json's correction_note field),
+never presented as current.
+
+Wilson regression test rerun: exit 0.
+
+Outputs: 05_coplanarity_analysis/final_freeze_v1/ (inventory, master
+cutflow table), docs/PPT_SOURCEBOOK_FINAL_v1.md. Commit: 4e5e9df.
+
+No simulation launched, no process running. Figure 6 generation, signal
+overlay, and new Monte Carlo runs explicitly NOT started, per instruction.
