@@ -79,12 +79,28 @@ on the *same* pre-existing plane without spoiling Δs enough to fail
 tuned or cherry-picked result.
 
 ## 9. Statistical intervals
-Final: 1/9139, point estimate 0.0001094, Wilson 95% [0.000166, 0.000473],
-Clopper-Pearson 95% [0.0000028, 0.000610]. Since N_final=1 (not 0), the
-"zero observed" wording does not apply to this stage; it does apply to
-several intermediate zero-transition cells in the transition table (e.g.
-0 candidates ever destroyed) and to the pile-up-only/hit-multiplicity
-zero-counts documented in the earlier freeze.
+
+**CORRECTED 2026-09-21** (see `docs/wilson_interval_bug_correction_v1.md`
+for the full audit): the originally-reported interval below was wrong.
+
+Final: 1/9139, point estimate **0.000109421**, Wilson 68%
+**[0.0000418, 0.000286]**, Wilson 95% **[0.0000193, 0.000620]**,
+Clopper-Pearson 68% [0.0000191, 0.000360], Clopper-Pearson 95%
+[0.0000028, 0.000610]. All four intervals correctly contain the point
+estimate. Since N_final=1 (not 0), the "zero observed" wording does not
+apply to this stage; it does apply to several intermediate zero-transition
+cells in the transition table (e.g. 0 candidates ever destroyed) and to
+the pile-up-only/hit-multiplicity zero-counts documented in the earlier
+freeze.
+
+**Terminology**: the raw final probability is 1/9139 = 0.000109421. The
+1%-conversion-weighted equivalent is (1×0.01)/9139 = 1.094×10⁻⁶ — the 0.01
+conversion probability is a physical per-event weight applied multiplicatively
+to the rate, **never** a binomial success count added to k or n. This overlay
+result should be described as a **"paper-matched overlay implementation with
+documented simplifications,"** not as an exact paper-equivalent reproduction
+(absolute normalization, pile-up-reweighting-denominator ambiguity, and the
+20,000- vs 125,000-event pool remain documented simplifications).
 
 ## 10. Figure 5 status and paths
 `converted_photon_with_pileup_v1/figure5_4component_paper_style.png` — the
