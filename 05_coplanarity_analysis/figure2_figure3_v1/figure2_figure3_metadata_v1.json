@@ -1,0 +1,36 @@
+{
+  "status": "DIAGNOSTIC / APPROXIMATE REPRODUCTION -- not the paper's own exact representative event (initial 4-momenta not published)",
+  "tilt_used": [
+    0.0,
+    0.0,
+    1.0
+  ],
+  "benchmark_fig2": {
+    "mQ_GeV": 1800.0,
+    "Lambda_keV": 2.0,
+    "v_internal": 0.6,
+    "beta_cm": 0.3,
+    "B_tesla": 2.0
+  },
+  "benchmark_fig3_curve1": {
+    "mQ_GeV": 1800.0,
+    "Lambda_keV": 2.0
+  },
+  "benchmark_fig3_curve2": {
+    "mQ_GeV": 800.0,
+    "Lambda_keV": 2.0,
+    "note": "Fig.3 uses Lambda=2keV for EW curve, NOT the main 4keV EW benchmark used in Fig.4/5/Table I -- verified by direct visual inspection of the rendered PDF page"
+  },
+  "wall_time_s_total": 55.094807624816895,
+  "n_steps_fig2": 15017,
+  "n_steps_fig3_curve2": 33786,
+  "notation_note": "Paper's Fig.3 CAPTION literally reads 'Delta_theta'; the plot's own y-axis label and body Eq.8/9 both use 'Delta_phi' -- confirmed by direct visual inspection of the rendered PDF, a genuine paper-internal caption/body inconsistency, treated as a caption typo (body+axis are authoritative).",
+  "validation": {
+    "no_NaN_Inf": true,
+    "L_order_of_magnitude_matches_paper": "~1e12 hbar, matches paper's stated order of magnitude for this benchmark",
+    "d_nonvanishing_except_near_r0": true,
+    "dphi_nonzero_after_nondegenerate_tilt": true
+  },
+  "fig3_status": "NOT ACHIEVED -- see Figure_3_NOT_ACHIEVED_v1.md. Figure_3_reproduced_v1.png/CSVs in this directory show the DEGENERATE (Delta_phi identically 0) tilt=[0,0,1] case only -- do not present as a valid reproduction.",
+  "fig2_status": "ACHIEVED (diagnostic) -- L reaches correct ~1e12 hbar order of magnitude, matches paper. Caveat: d touches exactly 0 at r~4.2cm in this single representative event, in some tension with the papers claim it never vanishes except at r=0 -- reported honestly."
+}
