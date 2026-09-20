@@ -1,0 +1,44 @@
+{
+  "colored": {
+    "N_requested_generated_pre_matching": 1000,
+    "N_full_matched_post_shower_HepMC_Erecords": 419,
+    "N_charge_filtered_subset_used_by_analysis_CSV": 125,
+    "N_neutral_excluded": 294,
+    "meaning_of_N125": "A CHARGE-FILTERED SUBSET of the full 419-event matched sample -- NOT the complete matched sample denominator. Events with either R-hadron electrically neutral (per paper Sec II applicability condition) are excluded (294/419, 70.2%), consistent with the paper's own quoted ~30% charged fraction (125/419=29.8%).",
+    "raw_HepMC_per_event_weight": 0.00075035995,
+    "sum_of_all_419_weights_fb": 0.31440081905,
+    "matched_xsec_fb_from_banner": 0.314400819,
+    "weights_constant_positive": true,
+    "OLD_weight_fb_per_event": 0.002515206552,
+    "OLD_denominator_WRONG": 125,
+    "NEW_weight_fb_per_event": 0.00075035995,
+    "NEW_denominator_CORRECT": 419,
+    "correction_factor": 3.3519999994669223,
+    "old_histogram_integral_fb": 0.01257603276,
+    "new_histogram_integral_fb": 0.00375179975
+  },
+  "EW": {
+    "N_requested_generated_pre_matching": 1000,
+    "N_full_matched_post_shower_HepMC_Erecords": 511,
+    "N_charge_filtered_subset": "N/A -- EW quirk is a color singlet, always unit-charged, no filter needed. N=511 IS the full matched sample.",
+    "raw_HepMC_per_event_weight": 0.00045738381,
+    "sum_of_all_511_weights_fb": 0.23372312691000002,
+    "matched_xsec_fb_from_banner": 0.233723127,
+    "weights_constant_positive": true,
+    "OLD_weight_fb_per_event": 0.00045738381017612525,
+    "NEW_weight_fb_per_event": 0.00045738381,
+    "changed": false,
+    "note": "N=511 was ALREADY correct -- no charge/other filter reduces this sample. Old and new weights are identical."
+  },
+  "converted_photon_plus_pileup": {
+    "denominator_used": 10000,
+    "denominator_NOT_used": 9139,
+    "reasoning": "PER_EVENT_XSEC_PB = TOTAL_XSEC_PB/10000 (the FULL generated sample) -- the 861 post-shower-MET-failing events are correctly treated as a downstream filter that reduces accepted yield, exactly per the general formula, NOT renormalized back over 9139. This was ALREADY correct before this audit.",
+    "weight_pb": 2.310512e-07,
+    "weight_fb": 0.0002310512,
+    "conversion_probability_double_counted": false,
+    "pileup_changes_weight": false,
+    "verified_identical_v4_vs_overlay": true,
+    "changed": false
+  }
+}
