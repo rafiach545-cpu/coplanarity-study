@@ -1276,3 +1276,43 @@ comparison_v1.md. Commit: a370754.
 
 No simulation run. No EW/colored/photon/pileup jobs started, per
 explicit instruction.
+
+## 2026-09-21 ~04:00 — Figure 5 absolute-normalization audit: colored-quirk cross-section RECOVERED (read-only, no simulation)
+
+Rendered Fig.5's page (7/10) at 400/600dpi via PyMuPDF for visual
+verification of caption/axes/legend (unchanged from prior text-based
+reading). Bin edges graphically estimated (~20 log-bins per panel,
+paper gives no numeric edges in text) -- not pixel-calibrated, judged
+unnecessary since this task concerns normalization not bin placement.
+
+MAJOR FINDING: searched /home/rafia/hep_tools/ MadGraph run directories
+and found the colored-quirk (1800GeV/2keV) matched cross-section was
+NEVER actually absent -- it exists in run_01_tag_1_banner.txt's
+MGGenerationInfo block (matched=0.00031440081900 pb, total=
+0.00075035994535 pb) and was simply never read by any analysis script.
+Every prior session report calling it "not separately measured" was
+correct about the CODE but wrong about the underlying DATA being absent.
+Also confirmed EW's existing 0.0002337pb IS the matched (post-MLM)
+cross-section (banner: 0.000233723127, matches to 4 sig figs) -- answers
+Phase 4 definitively: matched, appropriate for Fig.5 normalization.
+
+Recovered per-event weights (fb): colored=2.515207e-3 (N_matched=125),
+EW=4.573838e-4 (N_matched=511), converted-gamma+pileup mu=50 (unchanged)
+=2.310512e-4 (N_total=9139). Built a partial ABSOLUTE Fig.5 left panel
+with these 3 curves. Pile-up EXCLUDED (not invented): no cross-section
+concept exists for a per-bunch-crossing overlay process, paper gives no
+luminosity/rate conversion -- structural blocker, documented exactly.
+Existing unit-area 4-curve Fig.5 preserved unchanged, not overwritten.
+
+Pile-up reweighting denominator ambiguity re-confirmed unresolved, both
+interpretations (A: Sec IIIC plane-found population, w_mult=0/172,
+Wilson95 UL~0.0218; B: looser any-candidate population, undeterminable
+from text) preserved side by side.
+
+Wilson regression test rerun: exit 0, unaffected.
+
+Outputs: 05_coplanarity_analysis/fig5_absnorm_audit_v1/ (renders, crops,
+xsec/weight summary, readiness table, partial absolute plot+source),
+docs/figure5_absolute_normalization_audit_v1.md. Commit: 87312b9.
+
+No simulation launched. No events regenerated.
