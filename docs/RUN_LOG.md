@@ -1198,3 +1198,40 @@ reproduction.
 
 Full audit trail: docs/wilson_interval_bug_correction_v1.md. Commits:
 c04fd57 (fix+test), 7549ee0 (regenerated outputs), d9ff215 (report+audit doc).
+
+## 2026-09-21 ~02:00 — Event 2555 forensic audit: root cause identified (targeted replay, no full rerun)
+
+Deterministically replayed ONLY event 2555 (via the unavoidable rng_photon
+sequential-stream prefix replay through events 0..2554, photon-conversion
+propagation only, no pile-up/reconstruction for the discarded prefix).
+
+ROOT CAUSE: a single primary pile-up track (minbias pool event 3628,
+particle 10, charged pion pT=0.242GeV, track reconstruction failed per
+the Loose tracking-efficiency Bernoulli draw) contributed hits on layers
+1,2,3,4. At mu=0, layers 1,2,5 were all below the required 2-hit
+multiplicity (3 deficient layers, cut allows only 1 exception -> FAIL,
+Delta_s=0.00582cm already under the final cut). At mu=50, the same
+track's hits fixed layers 1 and 2, leaving only layer 5 as the single
+allowed exception -> PASS (Delta_s grew to 0.00910cm, still <0.01cm).
+n_candidates=1 at both mu=0 and mu=50; normal vector rotated only 0.371
+degrees -- pile-up preserved and enlarged the original conversion
+candidate, did not create a new/different plane.
+
+BUG FOUND AND FIXED IN THIS AUDIT'S OWN SCRIPT (not authoritative data):
+first mu=0 replay attempt used raw pre-merge hits instead of merged hits
+for reconstruction, giving Delta_s=0.005525cm inconsistent with v4's
+stored 0.005823cm. Corrected (merge raw_conv_hits via merge_neighboring_
+pixel_hits() first, matching v3/v4 exactly) -- now reproduces v4's stored
+row bit-identically. mu=50 branch matched the authoritative overlay CSV
+on first attempt.
+
+Statistics re-verified unchanged from the prior Wilson-interval
+correction: k=1,n=9139, Wilson 95%=[0.0000193,0.000620], 1%-weighted
+equivalent=1.0942e-6, single event does not establish paper agreement.
+
+Outputs: 05_coplanarity_analysis/event_2555_forensic_v1/ (JSON summaries,
+hit-level CSVs, 2 diagnostic figures), docs/event2555_forensic_audit_v1.md.
+Commits: ce55a03 (replay driver), d944ab0 (evidence), [this] (report+RUN_LOG).
+
+No authoritative event CSV modified. No full simulation rerun. No EW/
+colored/pileup-sweep/Figure-6 work started.
