@@ -1153,3 +1153,48 @@ CONCLUSION: the paper-required converted-photon+pile-up background is now
 produced for the first time, at full statistics (mu=50, 9139 events), with
 a genuine nonzero result (1 event) that was not tuned toward any target.
 EW/colored+pileup overlays remain NOT run, per explicit instruction.
+
+## 2026-09-21 ~00:00 — ERRATA: Wilson-interval bug found and corrected (read-only audit, no rerun)
+
+User caught that the previously-reported Wilson 95% CI for the converted-
+photon+pileup final result (k=1, n=9139) did not contain its own point
+estimate: reported [0.000166,0.000473] vs phat=0.000109421. This entry is
+the correction; the 2026-09-20 entry above describing the overlay result
+is NOT retroactively edited (append-only convention) but its Wilson 95%
+CI value is SUPERSEDED by this entry.
+
+ROOT CAUSE: build_ppt_statistics.py's wilson(k,n,z) (and an unsaved inline
+copy of the same pattern used for the overlay's Phase 9 cutflow) omitted
+the leading z multiplier on the margin term. Three other Wilson
+implementations in this repo were independently checked and are correct;
+none of the pile-up-only or converted-photon-only freeze results are
+affected.
+
+CORRECTED final-pass interval (k=1, n=9139): Wilson 68%=[0.0000418,
+0.000286], Wilson 95%=[0.0000193,0.000620] (supersedes the wrong
+[0.000166,0.000473]), Clopper-Pearson 68%=[0.0000191,0.000360],
+Clopper-Pearson 95%=[0.0000028,0.000610] (unchanged -- was already
+correct, computed via scipy.stats.beta directly).
+
+Regression test tests/test_wilson_interval_regression.py added: 5 cases
+(k=0,n=5000; k=1,n=9139; k=4,n=2982; k=n=172,172; k=0,n=172), cross-checked
+via independent manual re-derivation and scipy.stats.beta (statsmodels
+unavailable in this environment). 5/5 pass, exit 0.
+
+Files corrected (no authoritative event CSV touched, no simulation
+rerun): build_ppt_statistics.py (source fix), ew_complete_statistics.json,
+colored_complete_statistics.json (regenerated), phase9_full_cutflow.csv,
+phase9_final_pass_statistics.json (corrected), converted_photon_pileup_
+overlay_final_report_v1.md Sec 9 (corrected in place, not append-only --
+this is a standalone report, not RUN_LOG).
+
+Terminology confirmed: raw final probability=1/9139=0.000109421;
+1%-weighted equivalent=(1x0.01)/9139=1.0942e-6; the 0.01 conversion
+probability was confirmed NEVER treated as a binomial success count
+anywhere in the affected code -- the bug was isolated to the margin
+formula only. Result redescribed as "paper-matched overlay implementation
+with documented simplifications," not an exact paper-equivalent
+reproduction.
+
+Full audit trail: docs/wilson_interval_bug_correction_v1.md. Commits:
+c04fd57 (fix+test), 7549ee0 (regenerated outputs), d9ff215 (report+audit doc).
