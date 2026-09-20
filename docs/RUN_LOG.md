@@ -1316,3 +1316,47 @@ xsec/weight summary, readiness table, partial absolute plot+source),
 docs/figure5_absolute_normalization_audit_v1.md. Commit: 87312b9.
 
 No simulation launched. No events regenerated.
+
+## 2026-09-21 ~05:00 — ERRATA: Figure 5 colored-quirk weight was wrong by 3.352x (read-only audit, no simulation)
+
+The previous turn's "recovered" colored cross-section (0.00031440pb) was
+correct, but the WEIGHT DERIVATION was wrong: it divided by N=125 (the
+charge-filtered analysis subset: R-hadron pairs where BOTH hadrons carry
+non-zero electric charge, per paper Sec II's applicability condition),
+not by the true full matched sample.
+
+Verified directly from the raw HepMC file: `zcat ... | grep -c "^E "` =
+419 E-records (colored), each carrying an identical weight of
+7.5035995e-4, summing exactly to the banner's matched cross-section
+(0.00031440081900pb x 1000 = 0.314400819). This exact raw weight was
+ALREADY stored correctly in quirk_pair_momenta_1800gev_2kev_v2_CHARGED.csv's
+own 'weight' column (0.00075036, all 125 rows) -- it simply was not used
+in the prior turn's calculation, which instead computed a NEW (wrong)
+weight = matched_xsec_pb*1000/125.
+
+CORRECTED: colored weight 2.515207e-3 -> 7.503600e-4 fb/event (3.352x
+smaller, i.e. the colored curve in the absolute Fig.5 was too HIGH by
+that factor). Histogram integral: 1.257603e-2 -> 3.751800e-3 fb.
+
+EW re-verified: N=511 IS the full matched sample (EW quirk is a fixed-
+unit-charge color singlet, no filter reduces it) -- weight UNCHANGED,
+already correct. Converted-photon+pileup re-verified: denominator=10000
+(full generated) correctly used, NOT 9139 (post-cut subset); pileup
+confirmed does not alter weight_pb (identical in v4 and overlay CSVs);
+1% conversion probability confirmed applied exactly once -- UNCHANGED,
+already correct.
+
+Regenerated the absolute Fig.5 left panel + source CSV with the
+corrected colored weight as a new v2_CORRECTED file; the prior v1 files
+(now known incorrect for the colored curve specifically) are preserved,
+not overwritten.
+
+Wilson regression test rerun: exit 0, unaffected.
+
+Outputs: 05_coplanarity_analysis/fig5_absnorm_audit_v1/
+figure5_left_panel_ABSOLUTE_3curves_v2_CORRECTED.png,
+figure5_left_panel_ABSOLUTE_source_v2_CORRECTED.csv,
+weight_correction_v2.json. docs/figure5_weight_denominator_audit_v1.md.
+Commit: 5774834.
+
+No simulation launched, no events generated, no reconstruction run.
