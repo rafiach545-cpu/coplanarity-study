@@ -1407,3 +1407,62 @@ cutflow table), docs/PPT_SOURCEBOOK_FINAL_v1.md. Commit: 4e5e9df.
 
 No simulation launched, no process running. Figure 6 generation, signal
 overlay, and new Monte Carlo runs explicitly NOT started, per instruction.
+
+## 2026-09-21 ~08:00 — Complete paper-figure audit, safe Figure 1-3 reproduction, final 26-slide sourcebook
+
+Reread the complete paper (all 7 figures, confirmed via direct high-DPI
+PDF rendering of pages 2/3/9 -- paper does NOT have Figures 8/9/10;
+references begin immediately after Fig.7). Confirmed Fig.3's caption
+literally reads "Delta_theta" while its own axis label and body Eq.8-9
+both use "Delta_phi" -- verified visually, a genuine paper-internal
+inconsistency, not an OCR artifact.
+
+Figure 1: project-native matplotlib schematic (3 tracker cylinders, 2
+oscillating quirk trajectories, ISR jet, shaded coplanar plane, hits
+verified exactly on-plane) -- ACHIEVED, no simulation.
+
+Figure 2: single-event RK4 run (~16s, reusing the pre-existing validated
+run_bfield_check, only the representative-event tilt direction exposed,
+no force law/mass/Lambda/charge/B changed) -- ACHIEVED (diagnostic): L
+reaches ~1e12 hbar matching paper's stated order of magnitude. Caveat
+honestly reported: d touches exactly 0 at r~4.2cm, in tension with the
+paper's "never vanishes except at r=0" claim.
+
+Figure 3: NOT ACHIEVED. 4 tilt variants tried -- degenerate tilt gives
+Delta_phi=0 (documented geometric degeneracy), non-degenerate small
+tilts still gave 0, tilts with an x-component gave unphysically large
+Delta_phi (~10-25 rad) and L~1e15 hbar (1000x too large). No curve
+fabricated or forced; full technical account in Figure_3_NOT_ACHIEVED_v1.md.
+
+Figure 4: fig4_data_v2.json's Delta_s=0.0192cm/Delta_w=0.548cm values
+CONFIRMED matching the expected representative event exactly, but
+provenance CONFIRMED STALE -- matches no row in the current v3 colored/EW
+cutflow CSVs, predates the vertex-relative-fit correction (commit
+b8f017f). Marked OBSOLETE, no current PNG exists, regeneration
+recommended as a future action.
+
+Figure 5/6/7 status reconfirmed unchanged from prior turns (5: two
+products, absolute pile-up structurally blocked; 6: blocked, 2 points
+only; 7: BLOCKED, confirmed zero Bethe-Bloch/dE/dx/material-budget code
+anywhere in the repository via repo-wide grep).
+
+Built figure_reproduction_matrix_v2.csv/.md (all 7 figures),
+completion_matrix_v1.csv (8-category paper completion table with
+explicit counting method per row), Figure_7_NOT_REPRODUCIBLE.md,
+Figure_4_status_v2.md. Wrote docs/PPT_SOURCEBOOK_FINAL_v2.md (26 slides:
+22 main + appendix), correcting the prior v1 sourcebook's implicit
+10-figure framing.
+
+Stale-value search across all v2 deliverables: clean (no occurrences of
+the old colored weight/integral/Wilson interval as live values; N=2982
+correctly and consistently labeled conversion-only, distinguished from
+the mu=50 N=3276 curve).
+
+Commits: 545c0da (figure inventory), 98d5b30 (Fig.1 + Fig.4 finding),
+b72fe82 (Fig.2/3), 9bf1dbc (sourcebook v2), [this] (RUN_LOG).
+
+No new large Monte Carlo production launched. No EW/colored+pileup, no
+Figure 6 scan, no new minbias pool, no dE/dx implementation. Only two
+small single-event RK4 runs (Fig.2/3, ~1min combined) and a pure-
+matplotlib schematic (Fig.1, no simulation) were performed, exactly as
+authorized.
