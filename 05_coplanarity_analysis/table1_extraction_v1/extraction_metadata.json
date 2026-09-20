@@ -1,0 +1,12 @@
+{
+  "source_pdf": "/mnt/c/Users/Dell/quirks_1708.02243/docs/1708.02243v2_Tracking_down_Quirks.pdf",
+  "pdf_pages_total": 10,
+  "table1_pdf_page_number_1indexed": 8,
+  "render_tool": "PyMuPDF (fitz) 1.28.0",
+  "render_dpi": 400,
+  "full_page_render": "page8_fullpage_400dpi.png",
+  "table_crop": "table1_crop_400dpi.png",
+  "visual_verification": "Full page rendered and visually inspected; table cropped separately with header+caption fully visible; two independent transcriptions (pypdf raw text extraction order-scrambled-but-complete, and direct visual reading of the 400dpi crop) compared cell-by-cell -- ZERO discrepancies found.",
+  "unreadable_cells": "NONE",
+  "missing_row_confirmed_genuine": "QCD block has no printed Lambda=4keV row (jumps 3->5) -- confirmed present in the original PDF via direct visual inspection, not a transcription gap."
+}
