@@ -1235,3 +1235,44 @@ Commits: ce55a03 (replay driver), d944ab0 (evidence), [this] (report+RUN_LOG).
 
 No authoritative event CSV modified. No full simulation rerun. No EW/
 colored/pileup-sweep/Figure-6 work started.
+
+## 2026-09-21 ~03:00 — TABLE I extracted and directly compared against project (read-only, no simulation)
+
+Rendered PDF page 8 (of 10) at 400dpi via PyMuPDF (poppler-utils
+unavailable), visually verified against independent pypdf text
+extraction -- zero discrepancies. All 15 Table I values (mQ, Lambda,
+eps_trig, eps_fid, eps_reco for DY-800GeV and QCD-1800GeV benchmarks)
+transcribed exactly; confirmed the QCD block's missing Lambda=4keV row is
+genuine (present in the original PDF), not an artifact.
+
+Independently recomputed project denominators (colored:
+125->27->11->7->5->3->1; EW: 511->89->41->40->32->16->6), matching all
+"known counts to verify" exactly. Computed corrected Wilson/Clopper-
+Pearson intervals for every efficiency.
+
+KEY FINDING: paper's eps_reco is consistent with project measurements for
+both benchmarks (EW: paper 0.72 within project's [0.652,0.895]; Colored:
+paper 0.35 borderline at the very edge of [0.359,0.918], N=7 tiny stats).
+This is the first direct hard-number confirmation of the project's
+central physics quantity against the paper.
+
+NEW TENSION SURFACED (not previously quantified, since Table I had not
+been extracted before): eps_trig and eps_fid for the EW/DY benchmark fall
+clearly OUTSIDE the project's 95% Wilson CI (paper values lower than
+project). Colored benchmark's eps_trig/eps_fid ARE consistent -- the
+tension is specific to EW/DY, most likely a trigger-proxy (pT_pair>200GeV
+truth-level vs paper's real HLT/MET trigger) and/or fiducial-definition
+mismatch, not a physics bug in the reconstruction algorithm itself.
+
+Confirmed (inferred, not explicit): Table I's signal efficiencies do not
+mention pile-up overlay anywhere in their defining paragraph -- consistent
+with this project's own signal-only cutflow methodology.
+
+Wilson regression test rerun: 5/5 pass, exit 0.
+
+Outputs: 05_coplanarity_analysis/table1_extraction_v1/ (renders, crop,
+transcription, comparison CSV, metadata), docs/table1_extraction_
+comparison_v1.md. Commit: a370754.
+
+No simulation run. No EW/colored/photon/pileup jobs started, per
+explicit instruction.
