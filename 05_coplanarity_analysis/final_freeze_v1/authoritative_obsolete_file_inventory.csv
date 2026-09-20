@@ -1,0 +1,16 @@
+file,status,reason
+figure5_left_panel_ABSOLUTE_3curves_v2_CORRECTED.png,AUTHORITATIVE,corrected colored weight (N=419 denominator)
+figure5_left_panel_ABSOLUTE_source_v2_CORRECTED.csv,AUTHORITATIVE,corrected source data
+figure5_left_panel_ABSOLUTE_3curves.png,OBSOLETE,"colored curve used wrong N=125 denominator, high by 3.352x"
+figure5_left_panel_ABSOLUTE_source.csv,OBSOLETE,same as above
+fig5_reproduction_2026-09-17/fig5_left_panel_ds.png (and siblings),AUTHORITATIVE (unit-area shape product),"4-component shape-only comparison, unaffected by absolute-weight bug (never used absolute weights)"
+conversion_scan_results_v3_SEC3C_DS_DW.csv,AUTHORITATIVE,"converted-photon-only baseline, mu=0 equivalent"
+conversion_scan_results_v4_FULL_DIAGNOSTICS.csv,AUTHORITATIVE,"converted-photon-only, full diagnostics incl. hit-multiplicity"
+conversion_with_pileup_mu50_v1.csv,AUTHORITATIVE,the paper-required converted-photon+pileup mu=50 overlay result
+colored_quirk_1800gev_2kev_cutflow_v3_FULL_PIPELINE.csv,AUTHORITATIVE,colored signal cutflow
+ew_quirk_800gev_4kev_cutflow_v3_VERTEX_FIXED.csv,AUTHORITATIVE,EW signal cutflow
+"pileup_mu{0,5,10,20,50}_n5000_sec3c_fullcutflow_v1.csv",AUTHORITATIVE,"pileup-only full cutflow, all mu"
+event_2555_forensic_v1/*,AUTHORITATIVE,event 2555 root-cause evidence
+table1_extraction_v1/*,AUTHORITATIVE,Table I exact transcription + comparison
+conversion_scan_results.csv (v1),OBSOLETE,"pre-vertex-fix, 1500-event test, superseded"
+conversion_scan_results_v2_VERTEX_FIXED.csv,SUPERSEDED (validated baseline),"superseded by v3/v4 which add Sec IIIC diagnostics; retained for provenance, bit-identical on shared columns"
