@@ -29,11 +29,17 @@ def sha256(path):
 
 
 def wilson(k, n, z):
+    """Canonical two-sided Wilson score interval.
+    FIXED 2026-09-21: the margin term previously omitted the leading `z`
+    multiplier (h = sqrt(...) instead of h = z*sqrt(...)), which produced
+    an interval too narrow to guarantee containing the point estimate --
+    caught via k=1,n=9139 not containing phat=1/9139. See
+    tests/test_wilson_interval_regression.py."""
     if n == 0:
         return (float("nan"), float("nan"))
     phat = k / n
     c = phat + z * z / (2 * n)
-    h = np.sqrt(phat * (1 - phat) / n + z * z / (4 * n * n))
+    h = z * np.sqrt(phat * (1 - phat) / n + z * z / (4 * n * n))
     d = 1 + z * z / n
     return ((c - h) / d, (c + h) / d)
 
