@@ -2,9 +2,17 @@
   "N_final_raw_unweighted": 1,
   "denominator": 9139,
   "point_estimate_raw": 0.000109421162052741,
+  "wilson68": [
+    4.179594605605629e-05,
+    0.00028643162505991753
+  ],
   "wilson95": [
-    0.00016632643243974605,
-    0.00047259965373460034
+    1.9315286218215958e-05,
+    0.0006196107999561305
+  ],
+  "clopper_pearson68": [
+    1.907776824627783e-05,
+    0.00035978907847523695
   ],
   "clopper_pearson95": [
     2.770300132980662e-06,
@@ -12,5 +20,6 @@
   ],
   "weight_pb_per_event": 2.3105120000000006e-07,
   "final_effective_cross_section_pb_unweighted_rate_x_1pct_already_in_weight": 2.3105120000000006e-07,
-  "note": "weight_pb ALREADY includes the 1% conversion probability (PER_EVENT_XSEC_PB*0.01); do not apply 0.01 again on top of this."
+  "note": "weight_pb ALREADY includes the 1% conversion probability (PER_EVENT_XSEC_PB*0.01); do not apply 0.01 again on top of this.",
+  "correction_note": "2026-09-21: wilson68/wilson95 CORRECTED -- the previous computation used a buggy wilson() missing the leading z multiplier on the margin term, producing an interval that did not contain the point estimate (old wilson95=[0.000166,0.000473] vs phat=0.000109). See tests/test_wilson_interval_regression.py."
 }
