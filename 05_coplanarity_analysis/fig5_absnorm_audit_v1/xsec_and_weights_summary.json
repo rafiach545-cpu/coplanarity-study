@@ -1,0 +1,14 @@
+{
+  "EW_matched_xsec_pb": 0.000233723127,
+  "EW_total_xsec_pb": 0.00045738380829,
+  "colored_matched_xsec_pb": 0.000314400819,
+  "colored_total_xsec_pb": 0.00075035994535,
+  "colored_xsec_source": "RECOVERED this task from /home/rafia/hep_tools/quirk_signal_1800gev_2kev/Events/run_01/run_01_tag_1_banner.txt (MGGenerationInfo block) -- previously undocumented/unused in the analysis code, NOT actually absent",
+  "EW_xsec_source": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01/run_01_tag_1_banner.txt (MGGenerationInfo block) -- confirms the project's existing 0.0002337pb IS the matched (post-MLM) cross-section, matching to 4 sig figs (0.000233723127)",
+  "N_matched_colored": 125,
+  "N_matched_EW": 511,
+  "per_event_weight_colored_fb": 0.002515206552,
+  "per_event_weight_EW_fb": 0.00045738381017612525,
+  "per_event_weight_converted_gamma_plus_pileup_fb": 0.00023105120000000006,
+  "pileup_curve_absolute_normalization": "BLOCKED -- no natural cross-section concept exists for a per-bunch-crossing pile-up overlay; paper gives no luminosity/rate conversion for this curve either. Cannot be computed without inventing an assumption the paper does not supply."
+}
