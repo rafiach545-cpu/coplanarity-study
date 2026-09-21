@@ -1,0 +1,7 @@
+tag,discrete_outputs_exact_match,hit_coordinates_exact_match,delta_s_abs_diff,delta_w_abs_diff,baseline_wall_s,optimized_wall_s,speedup,baseline_final_pass,optimized_final_pass
+colored_ev236_lam2keV,True,True,,,201.136,12.066680093994364,16.668710733460664,False,False
+colored_ev236_lam5keV,True,True,,,1429.3,73.02941045400075,19.57156700450536,False,False
+colored_ev322_lam2keV,True,False,,,185.91,11.375827256997582,16.34254773740887,False,False
+colored_ev34_lam2keV,True,False,2.7755575615628914e-17,0.0,132.6473301829974,9.411785616997804,14.093747518370439,False,False
+EW_ev438_lam4keV,True,False,,,1056.4750051279989,62.91949430100067,16.79090108502663,False,False
+EW_ev417_lam4keV,True,False,3.469446951953614e-17,2.0587698212892747e-12,114.11171005500364,6.430248462995223,17.74608099697755,False,False

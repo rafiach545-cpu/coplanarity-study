@@ -1,0 +1,7 @@
+tag,n_hits_match,values_bit_identical,max_abs_coord_diff_cm_or_ns
+colored_ev236_lam2keV,True,True,0.0
+colored_ev236_lam5keV,True,True,0.0
+colored_ev322_lam2keV,True,True,0.0
+colored_ev34_lam2keV,True,True,0.0
+EW_ev438_lam4keV,True,True,0.0
+EW_ev417_lam4keV,True,True,0.0
