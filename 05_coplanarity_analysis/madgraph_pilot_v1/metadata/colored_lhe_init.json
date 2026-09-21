@@ -1,0 +1,27 @@
+{
+  "idbmup": [
+    2212,
+    2212
+  ],
+  "ebmup_gev": [
+    6500.0,
+    6500.0
+  ],
+  "idwtup": -4,
+  "nprup": 2,
+  "processes": [
+    {
+      "xsecup_pb": 0.0003124011,
+      "xerrup_pb": 2.713439e-06,
+      "xmaxup_pb": 0.0007503599,
+      "lprup": 0
+    },
+    {
+      "xsecup_pb": 0.0004379588,
+      "xerrup_pb": 3.520831e-06,
+      "xmaxup_pb": 0.0007503599,
+      "lprup": 1
+    }
+  ],
+  "total_xsecup_pb": 0.0007503599
+}

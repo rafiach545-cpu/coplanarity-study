@@ -1,0 +1,21 @@
+{
+  "per_benchmark": {
+    "EW": {
+      "lhe_init_parse_s": 0.001138448715209961,
+      "lhe_events_parse_s": 0.0644218921661377,
+      "hepmc_events_parse_s": 7.91093373298645,
+      "total_s": 7.976494073867798,
+      "lhe_n_events": 1000,
+      "hepmc_n_events": 511
+    },
+    "colored": {
+      "lhe_init_parse_s": 0.0011875629425048828,
+      "lhe_events_parse_s": 0.0992732048034668,
+      "hepmc_events_parse_s": 6.822732448577881,
+      "total_s": 6.9231932163238525,
+      "lhe_n_events": 1000,
+      "hepmc_n_events": 419
+    }
+  },
+  "total_wall_time_s": 15.041963338851929
+}

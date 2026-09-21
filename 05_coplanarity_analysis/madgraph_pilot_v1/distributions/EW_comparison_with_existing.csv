@@ -1,0 +1,2 @@
+benchmark,n_pilot_matched,n_existing_matched,n_common_compared,max_abs_pT_pair_diff_gev,mean_abs_pT_pair_diff_gev,note
+EW,511,511,511,0.0,0.0,"Pilot extracts from the SAME original LHE/HepMC files as the existing authoritative sample (not an independently generated new sample) -- this is a DATA-INTEGRITY/reproducibility check, expected to show exact (0.0) agreement by construction, NOT an independent statistical cross-check of two different MC runs."

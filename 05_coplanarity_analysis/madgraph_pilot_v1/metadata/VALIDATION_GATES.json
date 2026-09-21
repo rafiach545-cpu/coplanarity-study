@@ -1,0 +1,54 @@
+[
+  {
+    "gate": "EW: raw and event-table counts match (LHE)",
+    "passed": true
+  },
+  {
+    "gate": "EW: no duplicate event IDs (HepMC)",
+    "passed": true
+  },
+  {
+    "gate": "EW: no NaN/Inf in quirk_pair_pt_gev",
+    "passed": true
+  },
+  {
+    "gate": "EW: weights finite",
+    "passed": true
+  },
+  {
+    "gate": "EW: four-momentum records valid (E>=|p|)",
+    "passed": true
+  },
+  {
+    "gate": "colored: raw and event-table counts match (LHE)",
+    "passed": true
+  },
+  {
+    "gate": "colored: no duplicate event IDs (HepMC)",
+    "passed": true
+  },
+  {
+    "gate": "colored: no NaN/Inf in quirk_pair_pt_gev",
+    "passed": true
+  },
+  {
+    "gate": "colored: weights finite",
+    "passed": true
+  },
+  {
+    "gate": "colored: four-momentum records valid (E>=|p|)",
+    "passed": true
+  },
+  {
+    "gate": "cutflow: matching totals close (entering of first stage == 1000 for both)",
+    "passed": true
+  },
+  {
+    "gate": "xsec: units column present and correct",
+    "passed": true
+  },
+  {
+    "gate": "cache-only recomputation exits 0",
+    "passed": true
+  }
+]

@@ -1,0 +1,14 @@
+benchmark,stage,entering,passing,failing,conditional_efficiency,cumulative_efficiency
+EW,LHE requested (Main:numberOfEvents / nevents in run_card),1000,1000,0,1.0,1.0
+EW,LHE generated (unweighted_events.lhe),1000,1000,0,1.0,1.0
+EW,LHE positive-weight,1000,1000,0,1.0,1.0
+EW,Showered + MLM-matched (HepMC final sample),1000,511,489,0.511,0.511
+EW,Exactly 2 quirks identified (mass+PDG window),511,511,0,1.0,0.511
+EW,Trigger proxy (pT_pair>200GeV),511,89,422,0.17416829745596868,0.089
+colored,LHE requested (Main:numberOfEvents / nevents in run_card),1000,1000,0,1.0,1.0
+colored,LHE generated (unweighted_events.lhe),1000,1000,0,1.0,1.0
+colored,LHE positive-weight,1000,1000,0,1.0,1.0
+colored,Showered + MLM-matched (HepMC final sample),1000,419,581,0.419,0.419
+colored,Exactly 2 quirks identified (mass+PDG window),419,419,0,1.0,0.419
+colored,Charge filter (both quirk-hadrons nonzero charge),419,125,294,0.29832935560859186,0.125
+colored,Trigger proxy (pT_pair>200GeV),125,27,98,0.216,0.027

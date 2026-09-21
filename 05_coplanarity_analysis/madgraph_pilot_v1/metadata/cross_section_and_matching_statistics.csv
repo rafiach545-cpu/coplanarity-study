@@ -1,0 +1,3 @@
+benchmark,parton_level_xsec_pb,"matched_xsec_pb (existing, pre-verified this project)","matching_efficiency (matched/parton-level events, approx)",sum_of_weights,sum_of_squared_weights,effective_event_count,n_matched_events,per_event_normalization_weight_fb_per_event,units
+EW,0.00045738379999999996,0.0002337,0.511,0.23372312690999997,0.00010690117427120936,510.99999999999966,511,0.00045733855185909976,pb for cross-sections; fb for per-event weight
+colored,0.0007503599,0.0003144,0.419,0.31440081904999995,0.00023591378286231716,418.99999999999966,419,0.0007503579952267303,pb for cross-sections; fb for per-event weight

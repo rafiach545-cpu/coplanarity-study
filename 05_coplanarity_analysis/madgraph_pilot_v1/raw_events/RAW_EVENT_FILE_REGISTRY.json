@@ -1,0 +1,22 @@
+{
+  "EW_lhe": {
+    "absolute_path": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01/unweighted_events.lhe.gz",
+    "size_bytes": 187667,
+    "sha256": "75999899ae8916ca5f65476b2694fe14d25123efddecea945d6b661b92c1e04e"
+  },
+  "EW_hepmc": {
+    "absolute_path": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01/tag_1_pythia8_events.hepmc.gz",
+    "size_bytes": 33648880,
+    "sha256": "d94c83d61e2126299d5f898e6cadf7e47fd3835e794373427bd54f7ccf6b769a"
+  },
+  "colored_lhe": {
+    "absolute_path": "/home/rafia/hep_tools/quirk_signal_1800gev_2kev/Events/run_01/unweighted_events.lhe.gz",
+    "size_bytes": 194377,
+    "sha256": "3726fa429e9f926ed9e30d5cf33265bb89bd4e2234bee2cad0fd4fdb57a3654a"
+  },
+  "colored_hepmc": {
+    "absolute_path": "/home/rafia/hep_tools/quirk_signal_1800gev_2kev/Events/run_01/tag_1_pythia8_events.hepmc.gz",
+    "size_bytes": 25513586,
+    "sha256": "c983da0977f670b034ee935fa28c9b404ac4676a22809077b5b7d2339ea8ff01"
+  }
+}

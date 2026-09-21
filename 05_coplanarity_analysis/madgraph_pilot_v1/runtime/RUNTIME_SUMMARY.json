@@ -1,0 +1,35 @@
+{
+  "extraction": {
+    "command": "python3 extract_pilot_data.py",
+    "elapsed_wall": "0:16.16",
+    "cpu_pct": "101%",
+    "max_rss_kb": 75208,
+    "exit_code": 0
+  },
+  "cutflow_build": {
+    "command": "python3 build_cutflow_and_xsec.py",
+    "elapsed_wall": "0:01.15",
+    "max_rss_kb": 71648,
+    "exit_code": 0
+  },
+  "distributions_build": {
+    "command": "python3 build_distributions.py",
+    "elapsed_wall": "0:07.20",
+    "max_rss_kb": 150296,
+    "exit_code": 0
+  },
+  "cache_only_test": {
+    "command": "python3 tests/test_cache_only_recompute.py",
+    "elapsed_wall": "0:01.55",
+    "max_rss_kb": 71256,
+    "exit_code": 0
+  },
+  "note": "All measured via /usr/bin/time -v. No MadGraph/Pythia8 generation was run -- these times are for PARSING the already-existing original LHE/HepMC files only, not generation.",
+  "disk_usage": {
+    "lhe_ew_bytes": 187667,
+    "hepmc_ew_bytes": 33648880,
+    "lhe_colored_bytes": 194377,
+    "hepmc_colored_bytes": 25513586,
+    "package_output_bytes_approx": "see du -sh madgraph_pilot_v1"
+  }
+}

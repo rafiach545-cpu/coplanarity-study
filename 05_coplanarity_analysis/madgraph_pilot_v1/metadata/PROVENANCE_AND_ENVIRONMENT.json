@@ -1,0 +1,29 @@
+{
+  "original_generation": {
+    "EW": {
+      "location": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01",
+      "generation_command_recovered": "/home/rafia/hep_tools/MG5_aMC_v3_7_3/HEPTools/pythia8/share/Pythia8/examples/main164 -c tag_1_pythia8.cmd (shower/matching step, from run_shower.sh; the earlier MadGraph event-generation command itself was not separately logged/preserved)",
+      "lhe_file_mtime": "2026-09-14T09:15:51.430270963+02:00",
+      "hepmc_file_mtime": "2026-09-14T09:16:19.626271733+02:00",
+      "note": "mtimes are the best available proxy for original generation start/end timestamps; no separate generation-time log was preserved"
+    },
+    "colored": {
+      "location": "/home/rafia/hep_tools/quirk_signal_1800gev_2kev/Events/run_01",
+      "generation_command_recovered": "/home/rafia/hep_tools/MG5_aMC_v3_7_3/HEPTools/pythia8/share/Pythia8/examples/main164 -c tag_1_pythia8.cmd",
+      "lhe_file_mtime": "2026-09-12T15:18:10.124368190+02:00",
+      "hepmc_file_mtime": "2026-09-12T15:18:23.932634132+02:00",
+      "note": "mtimes are the best available proxy for original generation start/end timestamps; no separate generation-time log was preserved"
+    }
+  },
+  "this_extraction_task": {
+    "hostname": "DESKTOP-E6O31CQ",
+    "git_commit_at_start": "e47b5b2935653df6c087846081888cd51a375919",
+    "date": "2026-09-21",
+    "purpose": "Locate, verify, and preserve the ORIGINAL generator configuration and outputs (not a new pilot generation, since the originals were found intact and give better statistics -- 1000 events -- than the requested ~100-event pilot)",
+    "python_version_system": "3.12.3",
+    "python_version_hep_env": "3.11.16",
+    "conda_env": "hep",
+    "package_versions": {"numpy": "2.4.6", "pandas": "3.0.5", "matplotlib": "3.11.1"},
+    "madgraph_version": "3.7.3 (installed at /home/rafia/hep_tools/MG5_aMC_v3_7_3)"
+  }
+}
