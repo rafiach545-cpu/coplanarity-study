@@ -1,0 +1,69 @@
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /home/rafia/.config/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/pilot100_runs/quirk_ew_800gev_4kev_pilot100v1/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/pilot100_runs/quirk_ew_800gev_4kev_pilot100v1/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+generate_events -f
+stty: 'standard input': Inappropriate ioctl for device
+[1;34mvalue '[]' for entry 'bypass_check' is not valid. Preserving previous value: '[]'.
+allowed values are any list composed of the following entries: partonshower[0m
+Generating 100 events with run name run_01
+survey  run_01 
+INFO: compile directory 
+[1;34mNot able to open file /home/rafia/hep_tools/pilot100_runs/quirk_ew_800gev_4kev_pilot100v1/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+[1;31mError detected in "generate_events -f"
+write debug file /home/rafia/hep_tools/pilot100_runs/quirk_ew_800gev_4kev_pilot100v1/run_01_tag_1_debug.log 
+If you need help with this issue please contact us on https://answers.launchpad.net/mg5amcnlo
+str : Impossible to compile /home/rafia/hep_tools/pilot100_runs/quirk_ew_800gev_4kev_pilot100v1/Source directory
+	Trying to launch make command returns:
+	    [Errno 2] No such file or directory: 'make'
+	In general this means that your computer is not able to compile.[0m
+quit
+INFO:  
+	Command being timed: "./bin/generate_events -f"
+	User time (seconds): 4.19
+	System time (seconds): 0.50
+	Percent of CPU this job got: 70%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.63
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 51484
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 6
+	Minor (reclaiming a frame) page faults: 15074
+	Voluntary context switches: 2003
+	Involuntary context switches: 32
+	Swaps: 0
+	File system inputs: 15816
+	File system outputs: 4752
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
