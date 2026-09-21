@@ -1466,3 +1466,141 @@ Figure 6 scan, no new minbias pool, no dE/dx implementation. Only two
 small single-event RK4 runs (Fig.2/3, ~1min combined) and a pure-
 matplotlib schematic (Fig.1, no simulation) were performed, exactly as
 authorized.
+
+===============================================================
+2026-09-21 (continued) -- FINAL PAPER FIGURE COMPLETION TASK
+===============================================================
+
+Phase 2 -- Figure 4 regeneration (vertex-fixed pipeline):
+"Event 12" (task's reference) could not be located in the current
+authoritative colored-quirk cutflow CSV -- neither row-index 12 (event
+236, not truth-fiducial) nor event-ID 12 (does not exist in the
+trigger-passing sample) gives a usable event. Substituted event 386:
+closest Delta_s to the paper's 0.0083cm reference among the 5 Sec IIIC
+plane-found colored events, and the sole Sec IV final-pass event.
+Deterministic replay (rng=default_rng(4242), same seed as production,
+discarded-prefix method identical to the Event 2555 forensic pattern):
+wall time 4115.4s (~68.6 min, genuinely long -- documented worst-case
+low-boost-event step count in the existing, unmodified integrator, same
+300-steps/period floor used everywhere else in this project). Result:
+Delta_s=0.009367175cm, Delta_w=0.242529754cm -- BIT-IDENTICAL to the
+pre-existing authoritative cutflow CSV row for event 386, confirming
+reproducibility. Delta_s vs paper (0.0083cm): 1.13x, close agreement.
+Delta_w vs paper (0.074cm): 3.28x. Root cause investigated quantitatively
+(not assumed): measured the real 3D separation between the two quirks'
+hit positions at each of the 8 layers directly from replay hit data:
+0.25-0.73cm at every layer -- 1-2 orders of magnitude larger than any
+plausible detector-resolution effect. Conclusion: the Delta_w
+discrepancy is TRAJECTORY-LEVEL kinematic variation for this specific
+event (paper does not publish which event/momenta correspond to its own
+Fig.4), NOT a detector-modeling bug (not SCT resolution, not vertex
+convention, not pixel clustering). Output package:
+`figure4_vertex_fixed_v1/` (replay script, plot script, PNG/PDF, hit-level
+CSVs, plane-membership CSV, metadata JSON, README with full 18-item
+verification checklist). Old `fig4_data_v2.json`/`fig4_best_candidate_v2.pkl`
+remain CONFIRMED OBSOLETE (unchanged finding from prior turn).
+
+Phase 3 -- Figure 5 freeze: built `figure5_final_freeze_v1/`, the single
+final authoritative package superseding all prior partial Fig.5 work.
+Product A (4-component unit-area shape): colored N=5, EW N=32, pileup_mu50
+N=172 (full population, NOT the old biased N=59 subsample), converted-
+gamma+pileup_mu50 N=3276 (full overlay, NOT conversion-only N=2982) --
+all 4 populations asserted in code before plotting. Product B
+(3-component corrected absolute): colored 7.5036e-4 fb/event (N=419
+denominator, integral 3.7518e-3 fb), EW 4.5738e-4 fb/event (integral
+1.4636e-2 fb), converted-gamma+PU 2.3105e-4 fb/event (1% factor applied
+exactly once, integral 0.756924 fb); pile-up excluded (no cross-section
+concept). SHA-256 manifest computed for all 6 output files. README
+documents both products, selections, normalization, and an explicit
+authoritative-vs-obsolete table. Found and fixed one additional stale
+value while auditing: `fig5_absnorm_audit_v1/absolute_normalization_
+readiness_table.csv` still listed the old, wrong colored weight
+(2.5152e-3 fb/event, N=125-denominator bug) as if current -- corrected
+to reference the verified 7.5036e-4 value. Also found and fixed a stale
+AUTHORITATIVE label on the old (now-superseded) 2026-09-17 Fig.5 shape
+figure in `final_freeze_v1/authoritative_obsolete_file_inventory.csv`
+(it used the biased pileup N=59 subsample and had no converted-photon
+curve at all) -- reclassified OBSOLETE, new freeze package added as the
+replacement AUTHORITATIVE entry.
+
+Phase 4 -- Figure 3 diagnostic: MAJOR CORRECTION to the prior turn's
+"NOT ACHIEVED" verdict and this session's own first attempt. Both were
+wrong -- not because the physics was missing, but because Delta_phi was
+measured incorrectly. Bug 1: the prior turn measured internal angular
+momentum L=x_rel x p_rel instead of the paper's own stated definition
+(Eq.8 preamble: rotation of the plane spanned by the quirks' velocity
+vectors, n_v=v1xv2). Bug 2: even after switching to n_v, an initial
+validity threshold (|n_v|>1e-9*max) was too loose, letting through
+samples near periodic near-antiparallel crossings (v1~-v2, where
+|v1xv2|->0 and its direction is numerically ill-conditioned), producing
+isolated spurious spikes of order 0.02-0.1 rad that dominated a naive
+max() statistic. Fixed both (correct n_v definition; percentile-based
+exclusion, valid=|n_v|>0.1*median(|n_v|)) -- found that the SAME simple,
+unperturbed configuration already used for the achieved Figure 2
+reproduction (pure-x CM boost, B=2T along z, internal tilt along z, NO
+artificial perturbation) reproduces Delta_phi(r) with the CORRECT
+magnitude (max~4.6e-4 rad colored, ~6.1e-4 rad EW -- both within the
+paper's stated range: Eq.9 ~1e-5, text "not larger than 1e-3", Fig.3's
+own y-axis 0-4e-4) and CORRECT qualitative shape (rises from 0,
+oscillates, accumulates to a plateau by r~15-20cm, matching the paper's
+own description verbatim). 11 configurations tested total (bounded scan,
+all recorded in `figure3_scan_table_v2.csv` with energy-momentum
+conservation checks, physical-validity flags, and rejection reasons);
+only 1 (config G, tilt orthogonal to both boost and B-field) remained
+genuinely degenerate. Known limitation documented (not hidden): the
+final plot retains a few residual spike artifacts from reference-
+direction re-anchoring at validity-segment boundaries; the underlying
+smooth trend between spikes is the validated signal (percentile stats:
+median~6e-5, p95~1.4e-4, p99~4e-4 rad). Output:
+`figure3_diagnostic_v2/` (script, PNG/PDF, per-config source CSVs, scan
+table, metadata JSON, README). Status: ACHIEVED (APPROXIMATE),
+superseding `figure2_figure3_v1/Figure_3_NOT_ACHIEVED_v1.md` (retained,
+reclassified SUPERSEDED not deleted).
+
+Phase 5 -- Figure 6/7 blockers reconfirmed, no new simulation. Figure 6:
+`figure6_requirement_matrix.csv` re-verified accurate (2 benchmark points,
+no cross-section grid, no luminosity-normalized discovery prescription).
+New: `figure6_figure7_blockers_v1/Figure_6_future_work_grid_proposal_v1.md`
+-- a 91-point (7x7 colored + 6x7 EW) grid proposal with event-count,
+cross-section, luminosity, background, and runtime requirements, explicitly
+NOT executed (proposal only). Figure 7: `Figure_7_NOT_REPRODUCIBLE.md`
+re-verified accurate (zero Bethe-Bloch/material-budget code anywhere in
+the repository).
+
+Phase 6 -- `docs/PPT_SOURCEBOOK_FINAL_v3.md` created (does not overwrite
+v2): 27 main slides + 10 appendix slides, incorporating the corrected
+Figure 3 result, the regenerated Figure 4, the frozen Figure 5 package,
+and the Figure 6 future-work proposal.
+
+Phase 7 -- Global stale-value search (delegated to a read-only Explore
+subagent across docs/*.md, 05_coplanarity_analysis/**/*.md, **/*.py,
+README.md files): ZERO live/current instances found of any of the 9
+target stale claims (10-figure claim; old Fig.4 paths as current; N=2982
+mislabeled as the mu=50 population; old colored weight/integral; old
+Wilson interval; epsilon_reco mislabeling for background quantities;
+false "exactly reproduced" claims for Fig.5/6/7; "zero observed = zero
+probability"). Two real findings surfaced OUTSIDE the agent's md/py
+scope (in CSVs) and were fixed directly this task (see Phase 3 above):
+`absolute_normalization_readiness_table.csv`'s stale colored weight, and
+`authoritative_obsolete_file_inventory.csv`'s stale AUTHORITATIVE label
+on the superseded 2026-09-17 Fig.5 figure. Both CSVs updated with the
+corrected/superseded values annotated in-place (not silently overwritten
+-- the old value and reason for supersession are both stated in the
+corrected cell).
+
+Phase 8 -- Verification: NaN/Inf check clean (Figure 4 hit data, Figure 3
+scan table). Figure 5 population re-check: colored N=5, EW N=32, pileup
+mu50 172/5000, converted+PU mu50 3276/9139 -- all re-verified directly
+against the source CSVs, unchanged. Wilson regression test: 5/5 pass
+(re-run this turn, unchanged from prior verification). Figure 3 scan
+table: energy-momentum conservation confirmed True for all 11 tested
+configurations.
+
+Commits: [to follow] (Fig.3 diagnostic), (Fig.4 replay), (Fig.5 freeze),
+(Fig.6/7 blockers), (sourcebook v3), (this RUN_LOG entry).
+
+No new large Monte Carlo production launched. No Figure 6 grid scan
+executed (proposal only). No dE/dx module implemented. No existing
+authoritative result overwritten -- all corrections are additive
+(new versioned files) or explicit in-place annotations that preserve and
+explain the superseded value rather than erasing it.

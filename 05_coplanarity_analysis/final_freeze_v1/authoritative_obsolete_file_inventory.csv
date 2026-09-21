@@ -3,7 +3,9 @@ figure5_left_panel_ABSOLUTE_3curves_v2_CORRECTED.png,AUTHORITATIVE,corrected col
 figure5_left_panel_ABSOLUTE_source_v2_CORRECTED.csv,AUTHORITATIVE,corrected source data
 figure5_left_panel_ABSOLUTE_3curves.png,OBSOLETE,"colored curve used wrong N=125 denominator, high by 3.352x"
 figure5_left_panel_ABSOLUTE_source.csv,OBSOLETE,same as above
-fig5_reproduction_2026-09-17/fig5_left_panel_ds.png (and siblings),AUTHORITATIVE (unit-area shape product),"4-component shape-only comparison, unaffected by absolute-weight bug (never used absolute weights)"
+fig5_reproduction_2026-09-17/fig5_left_panel_ds.png (and siblings),OBSOLETE (2026-09-21),"superseded by figure5_final_freeze_v1/Figure_5_four_component_v2_AUTHORITATIVE.png -- this file used the biased pileup ND=59 (>=4-layer only) subsample instead of the full N=172 population, and had NO converted-photon curve at all (recorded null in its own source JSON, since the overlay did not exist yet at that time)"
+figure5_final_freeze_v1/Figure_5_four_component_v2_AUTHORITATIVE.png (and .pdf/.csv),AUTHORITATIVE (2026-09-21),"correct populations verified before plotting: colored N=5, EW N=32, pileup_mu50 N=172 (full), converted-gamma+PU_mu50 N=3276 (full overlay, not conversion-only N=2982)"
+figure5_final_freeze_v1/Figure_5_absolute_three_component_v2_CORRECTED.png (and .pdf/.csv),AUTHORITATIVE (2026-09-21),"same corrected absolute product as figure5_left_panel_ABSOLUTE_3curves_v2_CORRECTED.png above, repackaged into the final freeze directory"
 conversion_scan_results_v3_SEC3C_DS_DW.csv,AUTHORITATIVE,"converted-photon-only baseline, mu=0 equivalent"
 conversion_scan_results_v4_FULL_DIAGNOSTICS.csv,AUTHORITATIVE,"converted-photon-only, full diagnostics incl. hit-multiplicity"
 conversion_with_pileup_mu50_v1.csv,AUTHORITATIVE,the paper-required converted-photon+pileup mu=50 overlay result
@@ -14,3 +16,7 @@ event_2555_forensic_v1/*,AUTHORITATIVE,event 2555 root-cause evidence
 table1_extraction_v1/*,AUTHORITATIVE,Table I exact transcription + comparison
 conversion_scan_results.csv (v1),OBSOLETE,"pre-vertex-fix, 1500-event test, superseded"
 conversion_scan_results_v2_VERTEX_FIXED.csv,SUPERSEDED (validated baseline),"superseded by v3/v4 which add Sec IIIC diagnostics; retained for provenance, bit-identical on shared columns"
+figure4_vertex_fixed_v1/Figure_4_reproduced_vertex_fixed_v1.png (and .pdf/hit CSVs/metadata),AUTHORITATIVE (2026-09-21),"event 386 deterministic replay, current vertex-fixed pipeline, bit-identical to authoritative cutflow CSV row"
+figure1_schematic_v1/fig4_data_v2.json (and fig4_best_candidate_v2.pkl),OBSOLETE,"predates vertex-relative-fit correction (commit b8f017f); superseded by figure4_vertex_fixed_v1/"
+figure3_diagnostic_v2/Figure_3_diagnostic_v2.png (and .pdf/source CSVs/metadata),AUTHORITATIVE (2026-09-21),"corrects prior NOT-ACHIEVED verdict -- prior result was a measurement-definition bug (wrong observable + over-loose validity threshold), not real physics"
+figure2_figure3_v1/Figure_3_NOT_ACHIEVED_v1.md,SUPERSEDED (historical record only),"documents the prior (incorrect) NOT-ACHIEVED conclusion and the investigation path that led to it; retained for provenance, superseded by figure3_diagnostic_v2/"
