@@ -1,0 +1,9 @@
+figure,population,N,source_file
+1,N/A (conceptual schematic),N/A,FINAL_FIGURES_FOR_PPT/PNG/FIGURE_1_FINAL_Quirk_Schematic.png
+2,1 representative event (colored benchmark),1,FINAL_FIGURES_FOR_PPT/PNG/FIGURE_2_FINAL_Angular_Momentum_Separation_DIAGNOSTIC.png
+3,2 representative events (colored + EW-mass benchmarks),2,FINAL_FIGURES_FOR_PPT/PNG/FIGURE_3_FINAL_Plane_Rotation.png
+4,event 386 (colored benchmark),1,FINAL_FIGURES_FOR_PPT/PNG/FIGURE_4_FINAL_Reconstructed_Event_VERTEX_FIXED.png
+"5 (shape, 4-component)",colored N=5; EW N=32; pileup_mu50 N=172; converted-gamma+PU_mu50 N=3276,5;32;172;3276,FINAL_FIGURES_FOR_PPT/PNG/FIGURE_5_FINAL_DeltaS_DeltaW_FOUR_COMPONENT.png
+"5C (absolute, 3-component)",colored N=5 (419 matched); EW N=32 (511 matched); converted-gamma+PU N=3276,5;32;3276,FINAL_FIGURES_FOR_PPT/PNG/FIGURE_5C_FINAL_Absolute_Three_Component_CORRECTED.png
+6,"N/A -- BLOCKED, no image exists",N/A,none
+7,"N/A -- BLOCKED, no image exists (standalone Bethe-Bloch formula validation only, not a Fig.7 reproduction)",N/A,none

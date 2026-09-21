@@ -1,0 +1,5 @@
+process,matched_xsec_pb,N_matched,weight_fb_per_event,integral_fb
+Colored (1.8TeV/2keV),0.0003144,419,0.00075036,0.0037518
+EW (800GeV/4keV),0.0002337,511,0.00045738,0.014636
+Converted-photon+PU mu=50,"N/A (background, 1% conv. factor applied)",9139,0.00023105,0.756924
+Pileup-only (all mu),"N/A (no cross-section concept, per-bunch-crossing overlay)",5000/mu,N/A,N/A (excluded from absolute Fig.5 panel)

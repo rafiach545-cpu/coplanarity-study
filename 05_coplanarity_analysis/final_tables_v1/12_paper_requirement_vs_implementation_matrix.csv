@@ -1,0 +1,26 @@
+requirement,classification,notes
+Nambu-Goto confining string + Lorentz force EOM (Eq.3),DIRECT PAPER REQUIREMENT,"quirk_trajectory.py, validated to 1e-12 against Eq.4 (B=0 exact solution)"
+Exact B=0 analytic solution (Eq.4),DIRECT PAPER REQUIREMENT,validate_against_eq4.py
+Internal angular momentum L (Eq.5-7),DIRECT PAPER REQUIREMENT,"Figure 2, achieved (L~1e12 hbar)"
+Plane rotation Delta_phi (Eq.8-9),DIRECT PAPER REQUIREMENT,"Figure 3, achieved this task (measurement bug from prior turn corrected)"
+"Coplanarity tensor T_ij, Delta_s/Delta_w (Eq.10-11)",DIRECT PAPER REQUIREMENT,"coplanarity_fit.py, unmodified since validation"
+Trigger cut pT_pair>200GeV,"DIRECT PAPER REQUIREMENT (verified word-for-word this task, page 4)","exact match, not a proxy as some earlier docs implied"
+Fiducial: each quirk crosses all layers + 25ns timing,"DIRECT PAPER REQUIREMENT (verified word-for-word this task, page 7)",exact match
+Total efficiency factorization eps=eps_trig*eps_fid*eps_reco (Eq.12),DIRECT PAPER REQUIREMENT,"exact match, denominators verified"
+Detector layer radii (8-layer barrel),CITED-REFERENCE REQUIREMENT,"ATLAS arXiv:2007.07624 Table 1, per docs/CUTS_AND_PIPELINE.md"
+Pixel/SCT resolution rule (pixel pitch vs 2x intrinsic for SCT),DIRECT PAPER REQUIREMENT (paper Sec IIIA),applied exactly
+45mm beamspot smearing,DIRECT PAPER REQUIREMENT,applied exactly
+Tracking suppression efficiency curve (Loose selection),CITED-REFERENCE REQUIREMENT,ATL-PHYS-PUB-2015-051
+"Pile-up minbias pool size (125,000 events)","DIRECT PAPER REQUIREMENT, NOT MET","project uses 20,000-event pool with replacement -- PROJECT SIMPLIFICATION, documented"
+"Converted-photon background (Z+gamma+j, MET>200GeV, pT_gamma>0.5GeV)","DIRECT PAPER REQUIREMENT (verified word-for-word this task, page 6)",exact match
+1% photon conversion probability,DIRECT PAPER REQUIREMENT,"applied as end weight, never double-counted"
+"Charge-mass-ratio T_max formula, Bethe-Bloch mean dE/dx formula",CITED-REFERENCE REQUIREMENT (PDG ref [35]),"standalone validation module built this task, NOT integrated (material budget unavailable)"
+dE/dx material budget / path-length per layer,NOT IMPLEMENTED,paper does not specify; project geometry lacks thickness values -- BLOCKED
+MPV (Landau-Vavilov) dE/dx treatment,NOT IMPLEMENTED,"paper uses this, project validated only the simpler Bethe-Bloch mean"
+Endcap/TRT/calorimeter detector elements,PROJECT SIMPLIFICATION,"barrel-only, paper's own Fig.7 discussion notes endcaps 'should increase eps_fid'"
+"MadGraph/Pythia8 generation settings (PDF, merging scale, shower tune)",UNRESOLVED,paper does not specify; project does not preserve run_cards -- root cause of EW trigger/fiducial discrepancy (Phase 5 this task)
+"Production cross-section grid sigma(mQ,Lambda)",NOT IMPLEMENTED,only 2 discrete points measured; Figure 6 blocked
+Luminosity-normalized discovery/exclusion significance,NOT IMPLEMENTED,Figure 6 blocked
+HSCP/monojet external comparison curves (Fig.6),NOT IMPLEMENTED (external input to the paper itself),"paper's own authors were 'supplied' these by other researchers, not reproducible from this project's physics pipeline"
+"Event vertex convention (primary vertex at origin, Sec IIIC)",DIRECT PAPER REQUIREMENT,"vertex-relative hit transform, applied since the v3 pipeline correction"
+Pixel neighboring-hit merge rule,PROJECT ASSUMPTION,"paper does not give a numeric adjacency rule; project's own rule stated explicitly, applied exactly once"
