@@ -1,0 +1,32 @@
+=== which ===
+/home/rafia/miniforge3/envs/mg5_build_tools/bin/make
+/home/rafia/miniforge3/envs/mg5_build_tools/bin/gcc
+/home/rafia/miniforge3/envs/mg5_build_tools/bin/g++
+/home/rafia/miniforge3/envs/mg5_build_tools/bin/gfortran
+/home/rafia/miniforge3/envs/mg5_build_tools/bin/cc
+=== versions ===
+GNU Make 4.4.1
+Built for x86_64-conda-linux-gnu
+Copyright (C) 1988-2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+gcc (conda-forge gcc 16.2.0-5) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+g++ (conda-forge gcc 16.2.0-5) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+GNU Fortran (conda-forge gcc 16.2.0-5) 16.2.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+=== CONDA_PREFIX ===
+/home/rafia/miniforge3/envs/mg5_build_tools
+=== PATH ===
+/home/rafia/miniforge3/envs/mg5_build_tools/bin:/home/rafia/miniforge3/condabin:/home/rafia/.vscode-server/bin/7debcd0e2acdea1c52de81bf9ee1620444407dda/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Dell/AppData/Local/Programs/Python/Python312/Scripts:/mnt/c/Users/Dell/AppData/Local/Programs/Python/Python312:/mnt/c/Users/Dell/AppData/Local/Programs/Python/Launcher:/mnt/c/Users/Dell/AppData/Local/Microsoft/WindowsApps:/mnt/d/Softwares/VS code/Microsoft VS Code/bin:/mnt/c/Program Files/Git/cmd:/snap/bin

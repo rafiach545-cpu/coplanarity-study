@@ -1,0 +1,52 @@
+{
+  "important_caveat": "100 events measures RUNTIME AND CONFIGURATION REPRODUCIBILITY, NOT precision physics agreement. N=60 (EW) / N=49 (colored) matched events give ~13-14% relative statistical uncertainty on any measured efficiency/cross-section -- these are timing/feasibility numbers, not precision measurements.",
+  "measured_this_task": {
+    "EW": {
+      "wall_time_s_full_chain": 172.22, "n_requested": 100, "n_lhe_generated": 100,
+      "n_matched": 60, "shower_matching_time_s": 4, "seed": 9101,
+      "matching_efficiency": 0.6, "matched_xsec_pb": 0.0002647,
+      "original_1000evt_matching_efficiency": 0.511, "original_1000evt_matched_xsec_pb": 0.0002337
+    },
+    "colored": {
+      "wall_time_s_full_chain": 39.77, "n_requested": 100, "n_lhe_generated": 100,
+      "n_matched": 49, "shower_matching_time_s": 3, "seed": 9102,
+      "matching_efficiency": 0.49, "matched_xsec_pb": 0.0003674,
+      "original_1000evt_matching_efficiency": 0.419, "original_1000evt_matched_xsec_pb": 0.0003144
+    }
+  },
+  "item_1_generation_time_per_requested_lhe_event_s": {
+    "EW": 1.7222, "colored": 0.3977,
+    "note": "UPPER BOUND -- includes a one-time Source-directory compile step (only needed once per process directory, not once per point in a multi-point grid). Not separable from a single wall-clock measurement without a second, uncompiled rerun -- not performed, per the explicit stop-after-two-benchmarks instruction."
+  },
+  "item_2_shower_matching_time_per_lhe_event_s": {
+    "EW": 0.04, "colored": 0.03,
+    "note": "This portion IS cleanly separable (explicit 'Pythia8 shower finished after N seconds' log line) and does NOT include any one-time compile cost."
+  },
+  "item_3_time_per_accepted_matched_event_s": {
+    "EW": 2.8703, "colored": 0.8116,
+    "note": "Same one-time-compile caveat as item 1."
+  },
+  "item_4_projected_colored_larger_sample": {
+    "target": "894 charge-filtered matched events (for N_fiducial~50, per colored_statistics_feasibility_v1.md)",
+    "matched_prefilter_needed": 3000,
+    "requested_lhe_events_needed": 6122,
+    "upper_bound_time_h": 0.68,
+    "note": "Uses pilot100's REAL measured matching efficiency (0.49), replacing the earlier feasibility doc's less-certain 0.419 assumption. This number is now KNOWN and SMALL (<1h) where it was previously 'UNKNOWN' -- a major resolution of the Phase-6 colored-statistics blocker."
+  },
+  "item_5_projected_figure6_generation_only": {
+    "n_distinct_mass_points": 13,
+    "n_colored_mass_points": 7, "n_ew_mass_points": 6,
+    "events_per_point": 2000,
+    "colored_generation_h": 3.16, "ew_generation_h": 9.57,
+    "total_generation_h": 12.72,
+    "note": "This is the GENERATION stage only (MadGraph->Pythia8 matching), for 13 DISTINCT MASS POINTS -- not 91, because Lambda is confirmed (this project, multiple prior turns) to be a post-generation-only parameter (governs classical trajectory propagation, Eq.3, never a MadGraph input). The same generated 4-momentum sample at a given mass can be reused for propagation at every Lambda value in the grid."
+  },
+  "item_6_revised_full_figure6_runtime": {
+    "generation_stage_h": 12.72,
+    "downstream_propagation_detector_reconstruction_stage_h": 425,
+    "downstream_stage_note": "UNCHANGED from the Phase-7 estimate (05_coplanarity_analysis/figure6_figure7_blockers_v1/Figure_6_readiness_and_pilot_v1.md) -- this stage genuinely must run once per (mQ,Lambda) COMBINATION (91 total), since Lambda affects the physical trajectory, not just the generation. The generation-stage saving does NOT reduce this stage.",
+    "revised_total_h": 437.7,
+    "generation_share_of_total_pct": 2.9,
+    "conclusion": "The previously complete unknown (MadGraph generation time) is now measured and shown to be a SMALL fraction (~3%) of the total projected Figure 6 cost -- the downstream trajectory/detector/reconstruction stage remains completely dominant and is the real blocker, not generation. This does not change the Phase-7 verdict (FIGURE 6 NOT YET COMPLETE -- VERIFIED GRID PLAN READY, not launched), but it does resolve the generation-time unknown that Phase 6/7 both flagged."
+  }
+}

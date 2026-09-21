@@ -1,0 +1,1 @@
+generation_seed=9101 nevents_requested=100 exit_code=0 wall_time=2:52.22 (172.22s) cpu_pct=108% max_rss_kb=71216

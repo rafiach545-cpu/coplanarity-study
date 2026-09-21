@@ -1,0 +1,33 @@
+{
+  "label": "NOTE: 100 events measures RUNTIME/CONFIGURATION REPRODUCIBILITY, not precision physics agreement (N=60 matched is far too small for a precision cross-section/efficiency measurement)",
+  "n_lhe_requested": 100,
+  "n_lhe_generated": 100,
+  "n_matched": 60,
+  "validation_gates": {
+    "no_nan": true,
+    "no_inf": true,
+    "no_duplicate_event_ids": true,
+    "weights_finite": true
+  },
+  "cross_section": {
+    "parton_level_pb": 0.0004410978,
+    "matched_pb": 0.0002647,
+    "matched_pb_err": 2.193e-05,
+    "original_1000evt_matched_pb": 0.0002337,
+    "ratio_pilot_over_original": 1.1326486949080017
+  },
+  "matching_efficiency": {
+    "pilot100": 0.6,
+    "original_1000evt": 0.511
+  },
+  "trigger_proxy_efficiency": {
+    "pilot100": 0.16666666666666666,
+    "original_1000evt": 0.17416829745596868
+  },
+  "ks_test_quirk_pair_pt_vs_original": {
+    "statistic": 0.06069797782126549,
+    "pvalue": 0.9810651260591794
+  },
+  "seed_pilot100": 9101,
+  "seed_original": 21
+}

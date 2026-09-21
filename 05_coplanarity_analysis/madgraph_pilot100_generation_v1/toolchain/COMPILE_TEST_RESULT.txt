@@ -1,0 +1,1 @@
+C_OK 42 / FORTRAN_OK 42 / make build succeeded, both executed with exit 0
