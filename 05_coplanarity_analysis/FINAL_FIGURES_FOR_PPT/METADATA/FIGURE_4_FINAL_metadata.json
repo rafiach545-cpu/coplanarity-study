@@ -1,0 +1,52 @@
+{
+  "event_id": 386,
+  "benchmark": "colored 1.8TeV/2keV",
+  "seed": 4242,
+  "row_index_in_trigger_sample": 25,
+  "selection_criterion": "closest Delta_s to paper's quoted 0.0083cm among the 5 Sec IIIC plane-found colored events; also the sole Sec IV final-pass event",
+  "task_referenced_event_12": "NOT FOUND in current authoritative CSV -- neither row-index 12 nor event-ID 12 gives a usable representative event; documented, not silently substituted",
+  "n_hits_premerge": 16,
+  "n_hits_postmerge": 16,
+  "vertex_cm": [
+    0.0,
+    0.0,
+    -0.9912170613375602
+  ],
+  "n_candidates": 1,
+  "sec3c_plane_found": true,
+  "sec3c_ds_cm": 0.009367175059203377,
+  "sec3c_dw_cm": 0.2425297540111207,
+  "sec3c_normal_n1": [
+    0.9204540563091281,
+    0.36750424341684707,
+    -0.13305999133730342
+  ],
+  "sec3c_normal_n2": [
+    0.0774764900988264,
+    0.1621227655324245,
+    0.9837243528438668
+  ],
+  "sec3c_normal_n3": [
+    0.3830949277999371,
+    -0.915782091966604,
+    0.12075361827801182
+  ],
+  "sec3c_layer_hit_counts": {
+    "8": 2,
+    "7": 2,
+    "6": 2,
+    "5": 2,
+    "4": 2,
+    "3": 2,
+    "2": 2,
+    "1": 2
+  },
+  "hit_multiplicity_pass": true,
+  "final_sec_iv_pass": true,
+  "paper_reference_value": {
+    "delta_s_cm": 0.0083,
+    "delta_w_cm": 0.074,
+    "source": "paper.txt lines 547-549, direct visual+text verification"
+  },
+  "wall_time_s": 4115.382680892944
+}

@@ -1,0 +1,27 @@
+FIGURE 6 STATUS: BLOCKED -- NOT SAFE FOR PPT AS A RESULT (NO IMAGE EXISTS)
+
+Paper figure: 95% CL exclusion/discovery contours in the (mQ, Lambda)
+plane, colored (3,1)_2/3 left panel + EW (1,1)_1 right panel, L=300fb^-1,
+HSCP/monojet overlay curves, d_cm dashed contour.
+
+This project has exactly 2 simulated benchmark points (colored 1.8TeV/
+2keV, EW 800GeV/4keV). Two points cannot support a continuous contour in
+a 2D (mQ, Lambda) plane -- there is no functional form or grid to
+interpolate from.
+
+Missing components (none implemented in this project):
+- Full production cross-section sigma(mQ, Lambda) grid (only 1 point
+  measured for EW, zero for colored)
+- Luminosity-normalized (300fb^-1) discovery/exclusion significance
+  prescription
+- A dense efficiency grid (only 2 points exist; paper's own Table I has
+  ~5 Lambda values per mQ, itself insufficient for a smooth contour
+  without many more mQ points too)
+
+A future-work grid proposal (91 points: 7x7 colored + 6x7 EW, >=2000
+events/point, >=182,000 total events) has been written up but NOT
+executed. See:
+05_coplanarity_analysis/figure6_figure7_blockers_v1/Figure_6_future_work_grid_proposal_v1.md
+05_coplanarity_analysis/converted_photon_with_pileup_v1/figure6_requirement_matrix.csv
+
+No PNG/PDF exists for Figure 6 in this project. Do not fabricate one.

@@ -1,0 +1,21 @@
+{
+  "colored": {
+    "N": 5
+  },
+  "EW": {
+    "N": 32
+  },
+  "pileup_mu50": {
+    "N": 172
+  },
+  "converted_gamma_plus_pileup_mu50": {
+    "N": 3276,
+    "N_final_sec_iv": 1
+  },
+  "conversion_only_diagnostic_baseline": {
+    "N": 2982
+  },
+  "normalization": "unit-area (shape only) for ALL FOUR curves -- absolute dsigma/dlogDs (fb/bin) NOT available (no production cross-section for colored/pileup; converted-gamma has a weight but pileup has none)",
+  "pileup_reweighting": "NOT applied -- paper's 1-hit-per-layer reweighting denominator-population remains an unresolved ambiguity (documented in the pileup-only freeze)",
+  "label_required": "Approximate unit-area Figure 5 shape reproduction; absolute paper normalization unavailable."
+}

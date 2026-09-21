@@ -1,0 +1,23 @@
+FIGURE 7 STATUS: BLOCKED -- NOT SAFE FOR PPT AS A RESULT (NO IMAGE EXISTS)
+
+Paper figure (Appendix A): differential distribution of dE/dx (left,
+linear 0-100 MeV cm^2/g) and beta*gamma (right, log-log) for both
+benchmarks at Lambda=2keV.
+
+Required physics, none of which exists anywhere in this repository
+(confirmed via exhaustive repo-wide grep for dE/dx, Bethe-Bloch,
+beta_gamma, and related terms -- zero real implementations found):
+- Bethe-Bloch dE/dx formula (mean energy loss vs beta*gamma), or the
+  paper's own preferred most-probable-value (MPV) treatment from PDG
+  ref [35]
+- Silicon path-length-per-hit calculation (detector-material geometry)
+- Pixel-detector material budget / thickness map
+
+Verdict: BLOCKED -- missing physics, not a data-processing gap.
+Implementing a full Bethe-Bloch + material-budget model requires a
+dedicated, explicitly time/runtime-gated future task; it was out of
+scope and NOT attempted here.
+
+See: 05_coplanarity_analysis/figure_inventory_v2/Figure_7_NOT_REPRODUCIBLE.md
+
+No PNG/PDF exists for Figure 7 in this project. Do not fabricate one.

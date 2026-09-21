@@ -1,0 +1,15 @@
+{
+  "label": "Project schematic inspired by Paper Figure 1 -- conceptual, not simulated data.",
+  "source_caption": "FIG. 1: Schematic event display of a pair of quirks (green) with an ISR jet (blue). The cylinders represent the three innermost layers of the ATLAS/CMS tracker. The hits (black dots) all lie on a single plane (shaded red).",
+  "verified_against": "direct visual inspection of rendered PDF page 2 (400dpi)",
+  "elements": [
+    "3 cylindrical tracker layers",
+    "2 oscillatory quirk trajectories (green)",
+    "6 hits (black dots) exactly on the shaded plane",
+    "ISR jet (blue, 6 lines)",
+    "shaded coplanar plane (red)",
+    "interaction point (star marker)"
+  ],
+  "no_invented_numerical_result": true,
+  "visual_verification": "all 6 plotted hits lie exactly on the shaded plane by construction (computed as pp/qq in-plane coordinates, zero out-of-plane component)"
+}
