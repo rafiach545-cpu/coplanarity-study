@@ -1721,3 +1721,90 @@ this RUN_LOG update.
 No new large Monte Carlo production launched. No Figure 6 grid executed.
 No Figure 7 material model invented. No existing authoritative result
 overwritten.
+
+===============================================================
+2026-09-21 (continued) -- FINAL CONSOLIDATED PHYSICS REPORT,
+COMPLETE VERIFIED PROJECT FREEZE
+===============================================================
+
+Audit-only task (no new generation/simulation/rerun): consolidated every
+scientifically valid result into one publication-quality technical
+report. Every number independently recomputed from authoritative files
+this session (not copied from prior chat summaries) via small
+deterministic checks, each well under 15 minutes.
+
+Phase 1: reread the primary paper in full (10 pages, 7 figures,
+confirmed by direct PDF extraction). Confirmed the paper's actual Fig.5
+design: Delta_s (left) panel is ABSOLUTE, Delta_w (right) panel is
+UNIT-NORMALIZED (verified from the paper's own axis labels) -- matches
+this project's existing split between the 4-component shape product and
+the separate 3-component absolute product; no fix needed.
+
+Phase 2-13: recomputed live from authoritative CSVs/JSONs and confirmed
+EXACT agreement with all previously-recorded values: colored cutflow
+(419->125->27->7->5->3->1, event 386); EW cutflow (511->89->40->32->16->6,
+events 260/313/322/332/362/438); generator statistics (1000 LHE -> 419/511
+matched, parton xsec 7.5036e-4/4.5738e-4 pb); Table I intervals (Wilson
+independently re-derived, cross-checked vs scipy.stats.beta; statsmodels
+not installed, stated explicitly not as a failure); pileup Poisson
+means/variances, tracking-suppression counts, layer-coverage diagnostics
+(>=4/8: 0,2,1,5,59; 8/8: 0,1,0,0,0), all 5 mu values' complete cutflow;
+converted-photon-only full cutflow (9139->2982->4->0, Delta_s/Delta_w
+percentile statistics, failure breakdown 6157/2978/4/0); converted-
+photon+PU mu=50 (9139->3276->203->1, event 2555, Wilson95=[1.93e-5,
+6.20e-4] re-derived); event 2555 forensic (pool event 3628 particle 10,
+charged pion pT=0.242GeV, Delta(Delta_s)=+0.003271cm,
+Delta(Delta_w)=+0.163396cm, plane-normal rotation=0.371 degrees --
+independently recomputed from the stored n1 vectors this session).
+
+Phase 19 (stale-value audit, delegated to a read-only subagent, 12
+categories): 10/12 categories clean. TWO real findings, both fixed this
+session: (1) fig5_absnorm_audit_v1/xsec_and_weights_summary.json still
+carried the old colored N=125/2.5152e-3 weight as unmarked plain current
+data (no correction files had ever annotated THIS specific file) --
+fixed with explicit STALE/CORRECTED field pairs, values preserved not
+deleted. (2) three master-cutflow CSVs (final_freeze_v1/
+master_cutflow_table.csv, final_tables_v1/04_pileup_and_master_cutflow_
+all_mu.csv, and the newly-created FINAL_CONSOLIDATED_REPORT_v1/tables/
+09_pileup_complete_cutflow.csv) used the eps_reco column header
+uniformly for BOTH signal rows (correct) and background rows (pileup,
+converted-photon -- incorrect per the paper's Eq.12 signal-only scoping)
+-- fixed by renaming the column to sec3c_plane_fraction and adding an
+explicit quantity_label column distinguishing "epsilon_reco (paper
+Eq.12 signal efficiency)" from "selected-plane fraction (background
+quantity, NOT epsilon_reco)" per row.
+
+Phase 14-15: built 05_coplanarity_analysis/FINAL_CONSOLIDATED_REPORT_v1/
+-- 20 tables (CSV+Markdown each) covering file inventory, paper-to-code
+matrix, generator statistics, both signal cutflows, Table I comparison,
+pileup Poisson/tracking/cutflow/paper-comparison, converted-photon
+cutflows, event 2555 summary, Figure 5 normalization, Figures 1-7
+status, runtime/resources, statistical intervals, limitations, bugs
+(10 total, 2 found this session), and remaining work; plus a figures/
+package (14 files, SHA-256 manifest, including a new runtime-
+optimization bar chart built from already-stored perf_profile_v1
+comparison data).
+
+Phase 17-18: wrote docs/FINAL_CONSOLIDATED_PHYSICS_REPORT_v1.md (41
+sections, self-contained) and docs/PPT_SOURCEBOOK_FINAL_v5.md (30 main +
+8 appendix slides, v4 untouched).
+
+Phase 20: ran 10 tests (Wilson regression, Eq.4 validation, dt-
+convergence, exact-helix 4/4, detector corrections D1-D10, raw-merge-
+ordering, suppression-boundaries, cache-only recomputation, converted-
+photon-only statistics, optimized-RK4-equivalence) -- ALL 10/10 EXIT 0.
+Photon-overlay regression not re-run (already validated earlier this
+session with 0 failures, re-running would cost ~20 more minutes for no
+new information).
+
+No simulation process active at any point (verified via ps before/after
+every phase). No Figure 6 grid, no new signal generation, no new pileup
+sweep, no converted-photon simulation, no detector/trajectory rerun.
+946GB disk free. No authoritative file overwritten -- the 3 modified
+files (xsec_and_weights_summary.json, master_cutflow_table.csv,
+04_pileup_and_master_cutflow_all_mu.csv) are legitimate, documented
+stale-value corrections, not silent overwrites.
+
+Commits: [to follow] -- verification/correction scripts, consolidated
+tables, report figures+manifests, final technical report, PPT sourcebook
+v5, this RUN_LOG update.
