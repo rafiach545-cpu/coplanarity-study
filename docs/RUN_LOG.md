@@ -1604,3 +1604,120 @@ executed (proposal only). No dE/dx module implemented. No existing
 authoritative result overwritten -- all corrections are additive
 (new versioned files) or explicit in-place annotations that preserve and
 explain the superseded value rather than erasing it.
+
+===============================================================
+2026-09-21 (continued) -- FINAL PAPER COMPLETION AUDIT AND
+REMAINING-WORK EXECUTION
+===============================================================
+
+Phase 1: reread the complete primary paper PDF (10 pages, direct PyMuPDF
+extraction of /mnt/c/Users/Dell/quirks_1708.02243/docs/1708.02243v2_
+Tracking_down_Quirks.pdf) end to end, including ligature-normalized text
+(the earlier "fi"/"ff" ligature characters had silently defeated plain
+ASCII greps for "trigger"/"fiducial" in prior turns -- fixed this task by
+normalizing U+FB01/FB02/FB00 before searching). Reconfirmed exactly 7
+figures. Found the paper's trigger cut (page 4) and fiducial definition
+(page 7) both verified WORD-FOR-WORD to be the EXACT criteria this
+project already implements -- correcting an earlier mislabeling in
+project docs that called the trigger cut a "proxy." Confirmed Appendix A
+(page 9) states the paper did NOT use dE/dx in its own analysis (shown
+"for completeness" only), uses MPV-vs-betagamma per PDG ref [35], and
+omits hits with betagamma<0.1.
+
+Phase 2: full re-verification of every stored cutflow number against live
+CSVs (not prior summaries) -- ALL confirmed exact: colored 419->125->27->
+7->5->3->1 (event 386); EW 511->89->40->32->16->6 (events 260,313,322,
+332,362,438); pileup-only 5000/mu with planes 0,3,6,22,172 and 0 final at
+every mu; converted-photon-only 9139->2982->4->0; converted-photon+PU
+mu=50 9139->3276->203->1 (event 2555, Delta_s=0.009095cm). SHA-256
+verification of all 15 files in FINAL_FIGURES_FOR_PPT/ against its own
+manifest: 15/15 OK.
+
+Phase 3: two real stale-value findings fixed this task (found via a
+second, wider read-only subagent audit covering CSV/JSON this time, not
+just md/py): (1) figure6_requirement_matrix.csv claimed colored has "no
+recorded cross-section at all" -- stale, since the Fig.5 weight audit had
+already recovered it (0.0003144pb); corrected. (2) scratch/fig4_
+artifact.html presented pre-vertex-fix Figure 4 values (Delta_s=0.0192cm)
+as a live reproduction with no staleness label; annotated OBSOLETE
+in-place. All other 8 of 10 stale-value categories: zero findings (clean).
+
+Phase 4: all 8 final PNG/PDF in FINAL_FIGURES_FOR_PPT visually
+re-inspected, hashes re-verified (15/15 OK), no regeneration needed (no
+error found in any of them).
+
+Phase 5 (EW trigger/fiducial discrepancy -- "the most important remaining
+core-analysis question"): full 511-row event-level audit table built
+(05_coplanarity_analysis/ew_discrepancy_audit_v1/). Verdict: NO BUG
+FOUND. Cut definitions and denominators independently verified exact
+against the paper's own text. Root cause: neither the paper nor this
+project's own stored files preserve MC generation settings (PDF set,
+merging scale, shower tune) -- genuinely unresolvable from either side --
+compounded by the well-documented sensitivity of Drell-Yan pT spectra
+specifically to merging-scale choices (vs. QCD production, which shows
+close paper agreement in this project, supporting this explanation).
+Retained as an unresolved modeling difference; NO code changed.
+
+Phase 6 (colored statistics feasibility): confirmed 419 matched IS the
+complete available sample (no unused reservoir exists anywhere in the
+repo). Extending to N_fiducial~50 needs ~7.2x more matched events -- a
+NEW MadGraph production, whose runtime is unbounded/unknown from stored
+history (no run_card/banner preserved for the existing sample either). NO
+run launched. Exact future command and partial runtime estimate (1.6h
+physics-pipeline-only, MadGraph generation cost unknown) documented in
+05_coplanarity_analysis/colored_statistics_feasibility_v1.md.
+
+Phase 7 (Figure 6 readiness): re-verified the 91-point grid plan (axis
+coverage, events/point, checkpoint infrastructure -- 11 .checkpoint files
+confirmed proven across pileup/photon-conversion runs). Benchmarked the
+2 EXISTING points from stored data (colored: 30.3s/event physics-pipeline
+cost). Did NOT benchmark a new pilot point (generation settings not
+verified, per the task's own explicit gate). Total grid cost estimate:
+~425h physics-pipeline-only, before MadGraph generation (unknown). Verdict
+(exact phrase per task instruction): FIGURE 6 NOT YET COMPLETE -- VERIFIED
+GRID PLAN READY. No grid launched, no contour interpolated from 2 points.
+
+Phase 8 (Figure 7 dE/dx feasibility): built and validated a standalone
+Bethe-Bloch mean-dE/dx module (05_coplanarity_analysis/
+figure7_dedx_feasibility_v1/) -- validated against the PDG minimum-
+ionizing reference (1.694 vs 1.664 MeV*cm^2/g in silicon, 1.8% agreement,
+consistent with the deliberately-omitted density-effect correction).
+tests/test_bethe_bloch_validation.py: 10/10 pass. NOT integrated into the
+propagator/detector sim (material thickness/path-length unspecified by
+paper or project geometry; none invented). Verdict unchanged: FIGURE 7
+BLOCKED -- MATERIAL MODEL NOT SPECIFIED/IMPLEMENTED.
+
+Phase 9: built 05_coplanarity_analysis/final_tables_v1/, 15 required
+table items, all copied from live-re-verified sources or synthesized
+directly from them this task, SHA-256 manifest included.
+
+Phase 10: wrote docs/FINAL_PAPER_REPRODUCTION_REPORT_v1.md, all 27
+required sections.
+
+Phase 11: wrote docs/PPT_SOURCEBOOK_FINAL_v4.md (v3 untouched), 23 main +
+7 appendix = 30 slides, all figure references point at
+FINAL_FIGURES_FOR_PPT/ exclusively.
+
+Phase 12: full test suite run, ALL PASS -- Wilson regression (5/5),
+Bethe-Bloch validation (10/10), Eq.4 exact-solution validation, dt-
+convergence validation, helix validation (4/4), raw-merge-ordering,
+suppression-boundary tests, cache-only analysis, converted-photon-only
+statistics, detector-corrections suite (D1-D10), v4 regression (n=5,50,
+bit-identical to v3), overlay regression (mu=0 bit-identical to v4;
+mu=50 sanity + exact reproducibility). Two tests (v4/overlay regression)
+needed longer-than-default timeouts to complete (genuine per-event
+trajectory cost, same phenomenon observed for the Figure 4 replay
+earlier this session -- not failures, just slow). Cross-checked: event
+386, Delta_s/Delta_w, and all 4 Figure 5 populations agree exactly across
+CSVs, final_tables_v1/, the technical report, and the sourcebook. No
+simulation left running at any point (verified via ps before/after every
+phase).
+
+Commits: [to follow] -- documentation/count corrections; EW audit; colored
+stats feasibility; Fig.6 pilot/readiness; Fig.7 validated standalone
+feasibility; final tables; final technical report; PPT sourcebook v4;
+this RUN_LOG update.
+
+No new large Monte Carlo production launched. No Figure 6 grid executed.
+No Figure 7 material model invented. No existing authoritative result
+overwritten.
