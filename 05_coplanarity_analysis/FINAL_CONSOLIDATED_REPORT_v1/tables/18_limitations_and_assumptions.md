@@ -1,0 +1,14 @@
+# 18_limitations_and_assumptions
+
+| item | type | impact |
+|---|---|---|
+| Trigger cut | DIRECT PAPER REQUIREMENT (verified exact, not a proxy) | none -- corrects a prior mislabeling in project docs |
+| Pile-up pool size 20k vs paper 125k | PROJECT SIMPLIFICATION | documented, honestly reported, not silently substituted |
+| Barrel-only detector (no endcap/TRT/calo) | PROJECT SIMPLIFICATION | paper notes endcaps should increase eps_fid; project eps_fid may be a lower bound |
+| MC generation settings not preserved (no run_card/banner) | UNRESOLVED / documentation gap | root cause of EW trigger/fiducial discrepancy (Phase 5), and blocks a self-consistent Fig.6 grid |
+| Colored eps_reco based on N=7 fiducial events | UNRESOLVED (statistics) | statistically inconclusive vs paper; extending requires new MadGraph production (Phase 6, not launched) |
+| Pile-up reweighting ambiguity (1-hit-per-layer denominator) | UNRESOLVED | not applied to Figure 5, both products show raw (unweighted) Sec IIIC population |
+| dE/dx material budget | NOT IMPLEMENTED / BLOCKED | Figure 7 cannot be reproduced; standalone formula validated instead |
+| Figure 6 cross-section/efficiency grid | NOT IMPLEMENTED / BLOCKED | Figure 6 cannot be reproduced; verified 91-point grid plan ready but not launched |
+| Figure 3 initial orientation not read from a real ISR-recoil event | PROJECT ASSUMPTION | Figure 3 magnitude/shape achieved, but not tied to a specific real signal event |
+| Figure 4 event substitution (386 for unlocatable event 12) | DOCUMENTED SUBSTITUTION | closest Delta_s match + sole Sec IV final-pass event, not silently substituted |
