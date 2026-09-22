@@ -1,0 +1,4 @@
+point,row_index,discrete_match,ds_diff,baseline_wall_s,optimized_wall_s,speedup,baseline_final_pass,optimized_final_pass
+EW_200GeV,1,True,0.0,55.22347562300274,5.467633676002151,10.100068676031217,False,False
+colored_1500GeV,0,True,0.0,57.20310957900074,4.062605840001197,14.080398599285202,False,False
+colored_2400GeV,1,True,0.0,90.23282253700017,9.166836955002509,9.84339778049161,False,False

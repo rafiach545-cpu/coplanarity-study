@@ -1,0 +1,4 @@
+point,parton_xsec_pb,n_lhe,n_matched,matching_eff
+EW_200GeV,0.15885693,100,60,0.6
+colored_1500GeV,0.003935633,100,43,0.43
+colored_2400GeV,3.405792e-05,100,42,0.42

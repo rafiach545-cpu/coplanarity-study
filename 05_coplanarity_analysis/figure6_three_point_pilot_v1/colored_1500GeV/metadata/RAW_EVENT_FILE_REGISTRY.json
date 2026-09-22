@@ -1,0 +1,12 @@
+{
+  "lhe": {
+    "path": "/home/rafia/hep_tools/pilot100_runs/quirk_colored_1500gev_pilot_v1/Events/run_pilot/unweighted_events.lhe.gz",
+    "size_bytes": 24624,
+    "sha256": "512ef179339d324e8db1ad4539d490c9dcecebdbe41a2706c2489ef9fd9b4411"
+  },
+  "hepmc": {
+    "path": "/home/rafia/hep_tools/pilot100_runs/quirk_colored_1500gev_pilot_v1/Events/run_pilot/tag_1_pythia8_events.hepmc.gz",
+    "size_bytes": 3067326,
+    "sha256": "b16fa93d0b7f9298e157a844572c8af41d99e5963328bf6966813cb065bd2ace"
+  }
+}
