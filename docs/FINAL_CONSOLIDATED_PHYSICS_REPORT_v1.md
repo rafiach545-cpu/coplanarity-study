@@ -36,8 +36,14 @@ variation for the specific available event, not a detector bug.
 beyond statistical uncertainty. This was audited; no code bug was found.
 The cause is hypothesized (undocumented MC generation settings,
 compounded by the known sensitivity of Drell-Yan pT spectra to
-merging-scale choices) but not proven, since neither this project's nor
-the paper's exact generation settings are fully recoverable.
+merging-scale choices) but not proven. **Corrected statement** (an
+earlier draft of this section was self-contradictory): this project's
+own generation settings (PDF, matching scale, seed) were recovered in
+full this project (§6) and are not in question; it is specifically the
+**paper's own exact settings that were never published** and remain
+unrecoverable, making a true apples-to-apples comparison structurally
+impossible regardless of how thoroughly this project's own side is
+documented.
 
 **What cannot yet be compared:** the pile-up intermediate ≥4/8-layer
 coverage rate (1.18×10⁻² at μ=50) is ~11.8× the paper's quoted ~10⁻³, and
@@ -64,9 +70,12 @@ checks (each well under 15 minutes).
 ## 3. References
 
 - **Primary paper:** arXiv:1708.02243v2, "Tracking down Quirks at the
-  Large Hadron Collider" (S. Knapen, H. Lou, M. Papucci, D.J. Robinson,
-  J. Setford), cached and reread in full this session (10 pages, 7
-  figures, confirmed by direct PDF text extraction).
+  Large Hadron Collider" (Simon Knapen, Hou Keong Lou, Michele Papucci,
+  Jack Setford — verified against the paper's own title page this
+  session; an earlier draft of this report incorrectly listed a fifth
+  author, "D.J. Robinson," who does not appear on the paper; corrected),
+  cached and reread in full this session (10 pages, 7 figures, confirmed
+  by direct PDF text extraction).
 - **Cited references consulted:** arXiv:1612.00850 (trigger/detector
   simulation basis, ref [34]); ATL-PHYS-PUB-2015-051 (tracking efficiency
   curve, ref [33]); PDG Review of Particle Physics (dE/dx MPV treatment,
@@ -204,16 +213,21 @@ beta timing): 10/10 PASS, re-run this session.
 
 Vertex-relative coordinates (Sec. IIIC: "assume the primary vertex is
 identified correctly, and is located at the origin" — **DIRECT PAPER
-REQUIREMENT**). Seeding from layers 7&8 (Δφ<0.1, Δz<2cm seed cuts,
-**PROJECT IMPLEMENTATION ASSUMPTION** for the exact numeric seed-cut
-values, not given explicitly by the paper). Coplanarity tensor T_ij
-(Eq. 10–11), eigen-decomposition → n1 (thickness direction, Δs =
-smallest eigenvalue), n2 (width direction, Δw = second eigenvalue), n3
-(flight direction, largest eigenvalue) — **DIRECT PAPER REQUIREMENT**.
-Iterative outside-in layer addition, growth factor ≤3 (**PROJECT
-IMPLEMENTATION ASSUMPTION** for the exact growth-factor threshold).
-Selected-plane definition: smallest Δs among Δw<1cm candidates
-(**DIRECT PAPER REQUIREMENT**, Sec. IIIC event selection).
+REQUIREMENT**). Seeding from layers 7&8 (Δφ<0.1, Δz<2cm seed cuts) —
+**DIRECT PAPER REQUIREMENT**, verified verbatim this session: "Start
+from the 8th layer, collect all pairs of hits with Δφ<0.1 and Δz<2cm.
+Repeat the same for the 7th layer" (page 5). An earlier draft of this
+report incorrectly classified these numeric values as a project
+assumption; corrected. Coplanarity tensor T_ij (Eq. 10–11),
+eigen-decomposition → n1 (thickness direction, Δs = smallest
+eigenvalue), n2 (width direction, Δw = second eigenvalue), n3 (flight
+direction, largest eigenvalue) — **DIRECT PAPER REQUIREMENT**. Iterative
+outside-in layer addition, growth factor 3 — **DIRECT PAPER
+REQUIREMENT**, verified verbatim: "If Δs and Δw do not increase by a
+factor of 3, add the hit to the list" (page 5); likewise corrected from
+an earlier "project assumption" misclassification. Selected-plane
+definition: smallest Δs among Δw<1cm candidates (**DIRECT PAPER
+REQUIREMENT**, Sec. IIIC event selection).
 
 ---
 
@@ -240,11 +254,25 @@ Recomputed live, this session:
 |---|---|---|
 | Raw matched (HepMC) | 419 | — |
 | Charge-filtered (both R-hadrons nonzero charge) | 125 | 29.8% (paper's own quoted ~30% estimate) |
-| Trigger (pT_pair>200GeV) | 27 | 21.6% of matched |
+| Trigger (pT_pair>200GeV) | 27 | 21.6% of **charge-filtered** sample (125), not of the raw 419-matched sample |
 | Fiducial (8/8 layers + 25ns) | 7 | 25.9% of trigger |
 | Sec. IIIC plane found | 5 | 71.4% of fiducial |
 | Hit-multiplicity pass | 3 | — |
 | **Sec. IV final pass** | **1** (event 386) | 14.3% of fiducial |
+
+**Denominator note (corrected this session):** the project's own
+`analyze_colored_quirk.py` computes ε_trig relative to the
+charge-filtered sample (27/125=21.6%), following the paper's implicit
+charge-conditioning (a neutral quirk-hadron is invisible to tracking and
+structurally cannot enter any stage of the analysis, so conditioning on
+"both R-hadrons carry nonzero charge" before computing ε_trig is a
+defensible reading of the paper's own Sec. II statement). An earlier
+draft of this report labeled this ratio "of matched," which is incorrect
+— 125 is the charge-filtered subset, not the 419-event matched sample.
+For transparency, the alternative denominator is also reported:
+27/419 = **6.44%** if ε_trig is instead computed relative to the full
+raw-matched sample. Table I comparisons throughout this project use the
+27/125 convention; this is now stated explicitly, not left ambiguous.
 
 Event 386: Δs=0.009367cm, Δw=0.242530cm (confirmed via direct CSV
 lookup, bit-identical to the deterministic replay in
@@ -367,16 +395,20 @@ events.
 endpoint is **7.68×10⁻⁴**.
 
 **Comparison with the paper** (paper: ~10⁻³ for a plane covering ≥4/8
-layers, ~6×10⁻⁵ for 8/8): at μ=50, project's ≥4/8 rate is 59/5000 =
-1.18×10⁻², approximately **11.8× the paper's quoted value — this
-intermediate rate does not numerically reproduce the paper**. The project
-8/8 rate is 0/5000, which has **insufficient statistics** to meaningfully
-test the paper's ~6×10⁻⁵ value (Wilson 95% UL=7.68×10⁻⁴ is consistent
-with, but does not confirm, 6×10⁻⁵). The paper's own intermediate
-coverage rates and this project's selected-plane/final-pass probabilities
-are **not directly comparable quantities** — the final Sec. IV rejection
-(0/5000 at every μ) is qualitatively consistent with the paper's implied
-negligible pile-up background.
+layers, ~6×10⁻⁵ for 8/8): **the definitions match exactly on both
+sides** — ≥4/8 and 8/8 layer coverage of a Sec. IIIC selected plane are
+the same quantity this project computes. What differs is the **measured
+rate**: at μ=50, project's ≥4/8 rate is 59/5000 = 1.18×10⁻², approximately
+**11.8× the paper's quoted value — a genuine numeric tension, given the
+matching definition**. The project 8/8 rate is 0/5000, which has
+**insufficient statistics** to meaningfully test the paper's ~6×10⁻⁵
+value (Wilson 95% UL=7.68×10⁻⁴ is consistent with, but does not confirm,
+6×10⁻⁵). These intermediate coverage rates are a **separate quantity**
+from the final Sec. IV selected-plane/final-pass probabilities discussed
+elsewhere in this report — the final Sec. IV rejection (0/5000 at every
+μ) is qualitatively consistent with the paper's implied negligible
+pile-up background, independent of whether the intermediate coverage
+rates agree.
 
 ---
 
@@ -583,7 +615,14 @@ absolute paper normalization unavailable."*
 | Converted-γ+pile-up | 2.3105×10⁻⁴ | 9139 | 0.756924 |
 
 Pile-up excluded from the absolute panel (no paper-supported fb/bin
-concept for a per-bunch-crossing overlay process). The old colored weight
+concept for a per-bunch-crossing overlay process). **The paper's own
+Fig.5 left panel plots all four curves (Colored, EW, Pileup, Converted-γ)
+on the same absolute dσ/dlog(Δs) axis — this project's corrected
+absolute product has only 3 of those 4 curves. The complete absolute
+Figure 5 (all four components, paper's exact normalization) has
+therefore NOT been reproduced; only a 3-of-4-curve absolute product
+exists, structurally limited by the absence of any paper-supported
+cross-section concept for pile-up.** The old colored weight
 2.5152×10⁻³ fb/event and integral 1.2576×10⁻² fb **do not appear anywhere
 in this project as current values** (confirmed by this session's
 stale-value audit; two remaining stale occurrences — in
@@ -689,10 +728,10 @@ particular for the explicit separation).
 | 4 | Reconstruction thresholds | **EXACT MATCH** (Sec.IIIC/IV cuts implemented as specified) |
 | 5 | Colored signal efficiencies | **CONSISTENT WITH STATISTICS** (trig/fid); **INSUFFICIENT STATISTICS** (reco, N=7) |
 | 6 | EW signal efficiencies | **TENSION** (trig/fid); **CONSISTENT WITH STATISTICS** (reco) |
-| 7 | Pile-up intermediate probabilities | **NOT DIRECTLY COMPARABLE** (≥4/8) / **INSUFFICIENT STATISTICS** (8/8) |
+| 7 | Pile-up intermediate probabilities | **TENSION** (≥4/8: the *definition* matches the paper exactly, both sides measure the fraction of events with a selected plane spanning ≥4/8 layers — but the *measured rate* is ~11.8× the paper's quoted value, a real numeric disagreement, not a comparability problem) / **INSUFFICIENT STATISTICS** (8/8: definition matches, but 0/5000 cannot resolve a rate as small as the paper's quoted ~6×10⁻⁵) |
 | 8 | Pile-up final rejection | **CONSISTENT WITH STATISTICS** (0/5000 at every μ, qualitatively consistent with paper's negligible-background assumption) |
-| 9 | Converted-photon methodology | **EXACT MATCH** (process, cuts, conversion treatment) |
-| 10 | Converted-photon final background | **CONSISTENT WITH STATISTICS** (1/9139, single event, does not establish agreement) |
+| 9 | Converted-photon methodology | **PAPER-MATCHED PROCEDURE WITH SIMPLIFICATIONS** (process definition and cuts — MET>200GeV, pT_γ>0.5GeV, equal e+/e⁻ energy sharing — verified exact against the paper's text; but the detector response, conversion-probability treatment, and pile-up pool are the same documented simplifications used throughout this project, so "EXACT MATCH" overstated the full methodology, not just the cut definitions — corrected) |
+| 10 | Converted-photon final background | **QUALITATIVELY CONSISTENT; NO DIRECT NUMERIC PAPER VALUE** (paper does not publish a specific target rate for this background to compare against; 1/9139 is a single event and does not establish agreement) |
 | 11 | Figure 1–7 status | see §29 completion matrix |
 | 12 | Table I | see §13 |
 | 13 | Discovery-reach status | **NOT REPRODUCED** (Figure 6 not launched) |
@@ -745,20 +784,21 @@ SIMPLIFICATIONs are itemized inline in §4–§19 above and in
 ## 32. Bugs Found and Corrections
 
 Full table: `05_coplanarity_analysis/FINAL_CONSOLIDATED_REPORT_v1/tables/19_bugs_and_corrections.csv`.
-Eight issues total, all FIXED: Wilson missing-z-multiplier; colored
-cross-section wrong denominator (N=125 vs N=419); Figure 5 biased pile-up
-population (N=59 vs N=172); Figure 5 missing converted-photon overlay;
-pre-vertex-fix Figure 4; Figure 3 wrong observable/degeneracy measurement
-bug; EW charge assignment backwards (predates this reporting session);
-EW vertex-relative-transform missing in an earlier baseline. **Two
-additional stale-value issues found and fixed during this consolidation
-pass** (not previously logged): `xsec_and_weights_summary.json` still
-carried the old N=125/2.5152×10⁻³ colored weight as unmarked current
-data; three master-cutflow CSVs used the `eps_reco` column header for
-background (pile-up, converted-photon) rows, contradicting the paper's
-Eq.12 signal-only scoping — both fixed this session (column renamed to
-`sec3c_plane_fraction` with an explicit `quantity_label` column
-distinguishing signal ε_reco from background selected-plane fraction).
+**Ten issues total, all FIXED** (8 historical + 2 found and fixed during
+this consolidation pass). The 8 historical issues: Wilson
+missing-z-multiplier; colored cross-section wrong denominator (N=125 vs
+N=419); Figure 5 biased pile-up population (N=59 vs N=172); Figure 5
+missing converted-photon overlay; pre-vertex-fix Figure 4; Figure 3 wrong
+observable/degeneracy measurement bug; EW charge assignment backwards
+(predates this reporting session); EW vertex-relative-transform missing
+in an earlier baseline. The 2 new issues (not previously logged):
+`xsec_and_weights_summary.json` still carried the old N=125/2.5152×10⁻³
+colored weight as unmarked current data; three master-cutflow CSVs used
+the `eps_reco` column header for background (pile-up, converted-photon)
+rows, contradicting the paper's Eq.12 signal-only scoping — both fixed
+this session (column renamed to `sec3c_plane_fraction` with an explicit
+`quantity_label` column distinguishing signal ε_reco from background
+selected-plane fraction).
 
 ## 33. Authoritative Data Inventory
 
@@ -795,12 +835,16 @@ Figures 1–5 (all explicitly labeled approximate, never exact); Figure 4's
 EW ε_trig (0.174 vs. paper 0.10) and ε_fid (0.449 vs. paper 0.28) —
 audited, no code bug found, cause hypothesized not proven. Figure 4's Δw
 (3.28× paper), root-caused to genuine per-event trajectory variation.
+Pile-up intermediate ≥4/8-layer coverage rate (project 59/5000=1.18×10⁻²
+is 11.8× the paper's quoted ~10⁻³ — the definition matches exactly on
+both sides, so this is a genuine numeric tension, not a comparability
+problem).
 
 ## 38. What Cannot Yet Be Compared
 
-Pile-up intermediate ≥4/8-layer coverage rate (project 11.8× the paper's
-quoted value — does not numerically reproduce it); 8/8-layer rate
-(0/5000, insufficient statistics to test the paper's ~6×10⁻⁵).
+Pile-up 8/8-layer rate (0/5000, insufficient statistics to meaningfully
+test the paper's quoted ~6×10⁻⁵ — Wilson 95% UL=7.68×10⁻⁴ is consistent
+with but does not confirm it).
 
 ## 39. What Remains Unresolved
 
