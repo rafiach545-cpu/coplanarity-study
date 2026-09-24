@@ -1,0 +1,23 @@
+{
+  "n_events": 47,
+  "counts": {
+    "EW_200GeV": {
+      "n_matched": 323,
+      "n_charge_filtered": 323,
+      "n_trigger": 22
+    },
+    "colored_2400GeV": {
+      "n_matched": 359,
+      "n_charge_filtered": 112,
+      "n_trigger": 25
+    }
+  },
+  "serial_wall_s": 579.5408540610078,
+  "parallel_wall_s": 259.8436365460075,
+  "parallel_wall_s_rerun": 219.82819826299965,
+  "speedup": 2.230344609414344,
+  "all_match_serial": true,
+  "all_match_rerun": true,
+  "mean_s_per_event_serial": 12.330656469383145,
+  "mean_s_per_event_parallel": 5.52858801161718
+}

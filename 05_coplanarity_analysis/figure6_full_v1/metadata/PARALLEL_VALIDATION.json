@@ -1,0 +1,8 @@
+{
+  "serial_wall_s": 214.783268477011,
+  "parallel_wall_s": 121.88512932599406,
+  "speedup": 1.762177795312105,
+  "all_match_serial": true,
+  "all_match_rerun": true,
+  "n_events": 10
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "status": "already_done",
+    "tag": "EW_100gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "EW_200gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "EW_400gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "EW_600gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "EW_800gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "EW_1000gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "colored_600gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "colored_900gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "colored_1200gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "colored_1500gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "colored_1800gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "colored_2100gev"
+  },
+  {
+    "status": "already_done",
+    "tag": "colored_2400gev"
+  }
+]

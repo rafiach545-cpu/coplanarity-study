@@ -1,0 +1,10 @@
+{
+  "n_points_enriched": 13,
+  "all_exit_code_0": true,
+  "requested_vs_generated_match": true,
+  "any_negative_weights": false,
+  "matching_efficiency_range": [
+    0.385,
+    0.719
+  ]
+}
