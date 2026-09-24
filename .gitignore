@@ -1,3 +1,19 @@
 __pycache__/
 *.pyc
 02_backgrounds/pileup/minbias_pool_*.csv
+
+# Active Figure 6 Phase 5 production state: per-event checkpoints, caches,
+# live runtime status, and run logs. These grow/change every time the
+# (currently paused) production resumes and are not final results -- the
+# finalized reports/tables/scripts under figure6_full_v1/metadata,
+# figure6_full_v1/scripts, figure6_full_v1/validation, and
+# figure6_full_v1/run_phase5_production.py ARE tracked.
+05_coplanarity_analysis/figure6_full_v1/generation/
+05_coplanarity_analysis/figure6_full_v1/RUNTIME/
+05_coplanarity_analysis/figure6_full_v1/LOGS/
+05_coplanarity_analysis/figure6_full_v1/TABLES/cutflow_91point.csv
+
+# Empty/stub checkpoint markers and raw run logs -- transient, not results.
+*.checkpoint
+docs/*_run.log
+docs/minbias_pool_gen*.log
