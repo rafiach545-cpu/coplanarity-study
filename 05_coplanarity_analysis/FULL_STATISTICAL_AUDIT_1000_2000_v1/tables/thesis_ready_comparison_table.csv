@@ -1,0 +1,9 @@
+benchmark,quantity,paper_value,original_1000_event_result,corrected_fresh_2000_event_result,statistical_uncertainty_2000_wilson95,p_value_2000_vs_paper,verdict_2000
+Colored,trigger efficiency (eps_trig),0.24,101/419=0.2411,207/873=0.2371,"[0.210,0.266]",0.874,NO_STATISTICALLY_SIGNIFICANT_INCONSISTENCY
+Colored,fiducial efficiency (eps_fid),0.28,7/27=0.2593,25/68=0.3676,"[0.263,0.486]",0.136,NO_STATISTICALLY_SIGNIFICANT_INCONSISTENCY
+Colored,reconstruction efficiency -- Interpretation A: eps_plane_conditional,0.35,5/7=0.7143,12/25=0.4800,"[0.300,0.665]",0.208,NO_STATISTICALLY_SIGNIFICANT_INCONSISTENCY
+Colored,reconstruction efficiency -- Interpretation B: eps_secIV_conditional,0.35,1/7=0.1429,3/25=0.1200,"[0.042,0.300]",0.019,STATISTICALLY_INCONSISTENT
+EW,trigger efficiency (eps_trig),0.1,89/511=0.1742,186/1045=0.1780,"[0.156,0.202]",<0.0001,STRONGLY_INCONSISTENT
+EW,fiducial efficiency (eps_fid),0.28,40/89=0.4494,94/186=0.5054,"[0.434,0.576]",<0.0001,STRONGLY_INCONSISTENT
+EW,reconstruction efficiency -- Interpretation A: eps_plane_conditional,0.72,32/40=0.8000,75/94=0.7979,"[0.706,0.867]",0.107,NO_STATISTICALLY_SIGNIFICANT_INCONSISTENCY
+EW,reconstruction efficiency -- Interpretation B: eps_secIV_conditional,0.72,6/40=0.1500,21/94=0.2234,"[0.151,0.318]",<0.0001,STRONGLY_INCONSISTENT

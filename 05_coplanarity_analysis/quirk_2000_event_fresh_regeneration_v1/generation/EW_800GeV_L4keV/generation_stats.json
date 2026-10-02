@@ -1,0 +1,19 @@
+{
+  "sample": "EW_800GeV_L4keV",
+  "channel": "EW",
+  "mQ_GeV": 800.0,
+  "seed": 8002,
+  "N_requested": 2000,
+  "parton_xsec_pb": 0.0004542,
+  "parton_xsec_err_pb": 2.181e-06,
+  "N_matched": 1045,
+  "matched_xsec_pb": 0.0002373,
+  "matched_xsec_err_pb": 5.199e-06,
+  "wall_s": 1035.6923577785492,
+  "exit_code": 0,
+  "hepmc_sha256": "a703b339afd6654dd57130f538ea43948460b5f4bf8c1f3c808c9b0bdcf729d3",
+  "lhe_sha256": "d900abbf4d467bc271208462852058adc83cbdc3f21b0545fca3fe8fe8dfe6b5",
+  "run_card_sha256": "07be89bdafc928dcfdff9f7c69dc8eddd06a6d2371cea865005ec87a143ebb0c",
+  "param_card_sha256": "62a7f701d4a0cac65a9f2ba8b2b24d8564f4c6538c82bc0a897bfe281920a62d",
+  "banner_path": "/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/run_fresh_tag_1_banner.txt"
+}

@@ -1,0 +1,5 @@
+sample,N_downstream_rows,N_expected_from_trigger_accounting,closure_verified,duplicate_event_idx
+colored1000,27,27,True,0
+EW1000,89,89,True,0
+colored2000,68,68,True,0
+EW2000,186,186,True,0

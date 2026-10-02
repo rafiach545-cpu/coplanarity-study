@@ -1,0 +1,10 @@
+targets (event_idx): [12, 182, 118, 77, 183]
+event_idx=12: replay_wall=48.7s (orig=25.7s), n_prem=16, q1_layers=8, q2_layers=8, geo_ok=True, timing_ok=True
+event_idx=182: replay_wall=55.8s (orig=32.7s), n_prem=16, q1_layers=8, q2_layers=8, geo_ok=True, timing_ok=True
+event_idx=118: replay_wall=50.0s (orig=36.0s), n_prem=16, q1_layers=8, q2_layers=8, geo_ok=True, timing_ok=True
+event_idx=77: replay_wall=60.8s (orig=45.2s), n_prem=4, q1_layers=1, q2_layers=3, geo_ok=False, timing_ok=True
+event_idx=183: replay_wall=37.8s (orig=45.9s), n_prem=16, q1_layers=8, q2_layers=8, geo_ok=True, timing_ok=True
+
+DONE. Replayed 5/5 targeted events.
+MISMATCH (geo_ok vs both==8): 0
+mismatches stored vs replay truth_fiducial: 0

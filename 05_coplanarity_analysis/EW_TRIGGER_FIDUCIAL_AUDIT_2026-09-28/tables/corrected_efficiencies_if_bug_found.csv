@@ -1,0 +1,2 @@
+quantity,original_value,corrected_value,reason
+NONE,n/a,n/a,"No demonstrated code/configuration bug was found in the EW trigger or fiducial computation (see FINAL_EW_TRIGGER_FIDUCIAL_AUDIT.md, items 10-11). Per instruction, a correction is applied only if a bug is found; this table is intentionally empty of rows, not omitted, to document that the check was performed and no correction is warranted."

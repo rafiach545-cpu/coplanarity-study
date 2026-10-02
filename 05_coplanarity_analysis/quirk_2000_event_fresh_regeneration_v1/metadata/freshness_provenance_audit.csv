@@ -1,0 +1,12 @@
+item,value,evidence,sha256
+colored generation seed,8001,CONFIGURATION_FROZEN.json; run_card.dat iseed field,b85dad560f654433dd0a65a219daf970b8efc58498c6dc9d13666e12c6f23cc9
+EW generation seed,8002,CONFIGURATION_FROZEN.json,76570a4d6d0b1951ac2d32f668db48020e41e1917bfb9df88085e57692d7423d
+"colored LHE file (new, this task)",/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/colored_1800GeV_L2keV/Events/run_fresh/unweighted_events.lhe.gz,"freshly generated this task, seed 8001, never existed before",aa4e1d61e6959702d04162bb6ac1db429abf307aa23999d25b424986429bbd34
+"colored HepMC file (new, this task)",/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/colored_1800GeV_L2keV/Events/run_fresh/tag_1_pythia8_events.hepmc.gz,freshly generated this task,b4b217713f44f3f8441896c5d21872f28af65fa4b779432a851b2f2b0f2c2392
+"EW LHE file (new, this task)",/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/unweighted_events.lhe.gz,"freshly generated this task, seed 8002",d900abbf4d467bc271208462852058adc83cbdc3f21b0545fca3fe8fe8dfe6b5
+"EW HepMC file (new, this task)",/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/tag_1_pythia8_events.hepmc.gz,freshly generated this task,a703b339afd6654dd57130f538ea43948460b5f4bf8c1f3c808c9b0bdcf729d3
+frozen process-card template (colored),/home/rafia/hep_tools/quirk_signal_1800gev_2kev/ (unmodified original),"PAPER_REQUIREMENTS.md Independence Log; rsync-copied, only param_card mass (already 1800GeV, unchanged) and run_card nevents/iseed edited in the COPY, not the original","N/A (directory, not a single file; original never modified -- verified via separate hash check below)"
+frozen process-card template (EW),/home/rafia/hep_tools/quirk_ew_800gev_4kev/ (unmodified original),same as above,N/A (directory)
+reused validated physics code,"quirk_trajectory_optimized_v2.py (commit 3c33601), trajectory_to_hits.py, coplanarity_fit.py","PAPER_REQUIREMENTS.md Independence Log -- code reuse, not data reuse",79ec8e28a71dbd3649b0e3845b4bd061f7c835c3e2d32adaa58a803f0e4a2881
+Figure 6 checkpoints/caches consulted,NONE,"verified: run_fresh_regeneration.py imports no Figure 6 module, reads no Figure 6 output path; grep of script confirms zero references to figure6_full_v1",N/A
+old event tables/trajectory caches consulted,NONE,verified: script reads only its own freshly-created events/ and generation/ subdirectories under this task-specific directory,N/A

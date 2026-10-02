@@ -1,0 +1,7 @@
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2067.271653 GeV vs on-shell E=2066.814412 GeV (rel diff 2.21e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2077.693749 GeV vs on-shell E=2076.756478 GeV (rel diff 4.51e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+saved 16 hits
+winner ds,dw: 0.026692586327045693 0.6391264177537167
+stored ds,dw: 0.0266925863253669 0.6391264177537669
+hit_mult_pass (replay): True  stored: True
+final_secIV_pass (replay): False  stored: False

@@ -1,0 +1,191 @@
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                 2026-09-01         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*              http://madgraph.phys.ucl.ac.be/             *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from /home/rafia/.config/mg5_configuration.txt 
+load MG5 configuration from input/mg5_configuration.txt 
+set fastjet to fastjet-config
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MG5_aMC> set eMELA /PATH/TO/eMELA-config
+
+lhapdf-config does not seem to correspond to a valid lhapdf-config executable. 
+Please set the 'lhapdf' variable to the (absolute) /PATH/TO/lhapdf-config (including lhapdf-config).
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ MG5_aMC> set lhapdf /PATH/TO/lhapdf-config
+
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+import /tmp/mg5_nlo_pilot_script.txt
+The import format was not given, so we guess it as command
+set group_subprocesses Auto
+Set group_subprocesses to Auto
+Note that you need to regenerate all processes
+set ignore_six_quark_processes False
+import model loop_sm
+INFO: Restrict model loop_sm with file models/loop_sm/restrict_default.dat . 
+INFO: Run "set stdout_level DEBUG" before import for more information. 
+INFO: Change particles name to pass to MG5 convention 
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+Defined multiparticle l+ = e+ mu+
+Defined multiparticle l- = e- mu-
+Defined multiparticle vl = ve vm vt
+Defined multiparticle vl~ = ve~ vm~ vt~
+Defined multiparticle all = g gh gh~ d u s c d~ u~ s~ c~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ b t b~ t~ z w+ h w- ta- ta+
+define p = g u c d s u~ c~ d~ s~
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+define vl = ve vm vt
+Defined multiparticle vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+Defined multiparticle vl~ = ve~ vm~ vt~
+generate p p > z a [QCD]
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=4: WEIGTHED IS QCD+2*QED 
+[1mSetting the born squared orders automatically in the process definition to QED^2<=4 QCD=0.
+If this is not what you need, please regenerate with the correct orders.[0m
+[1;34mWARNING: Use of multiparticles is non-trivial for NLO process generation and depends on the orders included, the process considered, as well as the PDF set chosen. See appendix D of arXiv:1804.10017 [hep-ph] for some guidance. [0m
+INFO: Generating FKS-subtracted matrix elements for born process: u u~ > z a QCD^2=2 QED^2=4 (1 / 8) 
+INFO: Generating FKS-subtracted matrix elements for born process: c c~ > z a QCD^2=2 QED^2=4 (2 / 8) 
+INFO: Generating FKS-subtracted matrix elements for born process: d d~ > z a QCD^2=2 QED^2=4 (3 / 8) 
+INFO: Generating FKS-subtracted matrix elements for born process: s s~ > z a QCD^2=2 QED^2=4 (4 / 8) 
+INFO: Generating FKS-subtracted matrix elements for born process: u~ u > z a QCD^2=2 QED^2=4 (5 / 8) 
+INFO: Generating FKS-subtracted matrix elements for born process: c~ c > z a QCD^2=2 QED^2=4 (6 / 8) 
+INFO: Generating FKS-subtracted matrix elements for born process: d~ d > z a QCD^2=2 QED^2=4 (7 / 8) 
+INFO: Generating FKS-subtracted matrix elements for born process: s~ s > z a QCD^2=2 QED^2=4 (8 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: u u~ > z a QCD^2=2 QED^2=4 (1 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: c c~ > z a QCD^2=2 QED^2=4 (2 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: d d~ > z a QCD^2=2 QED^2=4 (3 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: s s~ > z a QCD^2=2 QED^2=4 (4 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: u~ u > z a QCD^2=2 QED^2=4 (5 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: c~ c > z a QCD^2=2 QED^2=4 (6 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: d~ d > z a QCD^2=2 QED^2=4 (7 / 8) 
+INFO: Generating virtual matrix element with MadLoop for process: s~ s > z a QCD^2=2 QED^2=4 (8 / 8) 
+INFO: Generated 8 subprocesses with 144 real emission diagrams, 16 born diagrams and 64 virtual diagrams 
+output /home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt
+INFO: Writing out the aMC@NLO code, using optimized Loops 
+INFO: initialize a new directory: nlo_pilot_attempt 
+INFO: remove old information in nlo_pilot_attempt 
+[1;34mWARNING: The collier reduction library could not be found with PATH:/home/rafia/hep_tools/MG5_aMC_v3_7_3/HEPTools/lib specified in mg5_configuration.txt. It will not be available. [0m
+INFO: Generating real emission matrix-elements... 
+INFO: Generating Helas calls for FKS process: u u~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (1 / 8) 
+INFO: Processing color information for process: u u~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating Helas calls for FKS process: c c~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (2 / 8) 
+INFO: Generating Helas calls for FKS process: d d~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (3 / 8) 
+INFO: Reusing existing color information for process: d d~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating Helas calls for FKS process: s s~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (4 / 8) 
+INFO: Generating Helas calls for FKS process: u~ u > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (5 / 8) 
+INFO: Processing color information for process: u~ u > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating Helas calls for FKS process: c~ c > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (6 / 8) 
+INFO: Generating Helas calls for FKS process: d~ d > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (7 / 8) 
+INFO: Reusing existing color information for process: d~ d > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating Helas calls for FKS process: s~ s > z a [ all = QCD QED ] QCD^2=2 QED^2=4 (8 / 8) 
+INFO: ... Done 
+INFO: Writing files in P0_uux_za (1 / 4) 
+INFO: Creating files in directory V0_uux_za 
+INFO: Computing diagram color coefficients 
+INFO: Drawing loop Feynman diagrams for Process: u u~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating born Feynman diagrams for Process: u u~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Writing files in P0_ddx_za (2 / 4) 
+INFO: Creating files in directory V0_ddx_za 
+INFO: Computing diagram color coefficients 
+INFO: Drawing loop Feynman diagrams for Process: d d~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating born Feynman diagrams for Process: d d~ > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Writing files in P0_uxu_za (3 / 4) 
+INFO: Creating files in directory V0_uxu_za 
+INFO: Computing diagram color coefficients 
+INFO: Drawing loop Feynman diagrams for Process: u~ u > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating born Feynman diagrams for Process: u~ u > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Writing files in P0_dxd_za (4 / 4) 
+INFO: Creating files in directory V0_dxd_za 
+INFO: Computing diagram color coefficients 
+INFO: Drawing loop Feynman diagrams for Process: d~ d > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+INFO: Generating born Feynman diagrams for Process: d~ d > z a [ all = QCD QED ] QCD^2=2 QED^2=4 
+History written to /home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt/Cards/proc_card_mg5.dat
+ALOHA: aloha starts to compute helicity amplitudes
+ALOHA: aloha creates 19 routines in  10.225 s
+save configuration file to /home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt/Cards/amcatnlo_configuration.txt
+INFO: The value for lhapdf in the current configuration does not correspond to a valid executable.
+Please set it correctly either in input/mg5_configuration or with "set lhapdf /path/to/lhapdf-config" and regenrate the process. 
+To avoid regeneration, edit the /home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt/Cards/amcatnlo_configuration.txt file.
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ 
+INFO: Use Fortran compiler gfortran 
+INFO: Use c++ compiler g++ 
+INFO: Generate jpeg diagrams 
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+INFO: Generate web pages 
+Type "launch" to generate events from this process, or see
+/home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt/README
+Run "open index.html" to see more information about this process.
+quit
+Checking if MG5 is up-to-date... (takes up to 5s)
+New Version of MG5 available! Do you want to update your current version? [[4mn[0m, y][60s to answer] 
+>Update bypassed.
+The next check for a new version will be performed in 7 days
+In order to change this delay. Enter the command:
+set auto_update X
+Putting X to zero will prevent this check at anytime.
+You can upgrade your version at any time by typing:
+install update

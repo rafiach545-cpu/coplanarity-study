@@ -1,0 +1,8 @@
+{
+  "sample": "EW_800GeV_L4keV",
+  "N_showered": 1045,
+  "N_matched": 1045,
+  "N_trigger_of_full_matched": 186,
+  "eps_trig_of_full_matched": 0.17799043062200956,
+  "N_to_propagate": 186
+}

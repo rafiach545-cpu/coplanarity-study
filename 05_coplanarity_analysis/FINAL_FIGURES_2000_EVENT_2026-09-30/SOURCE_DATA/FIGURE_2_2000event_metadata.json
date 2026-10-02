@@ -1,0 +1,10 @@
+{
+  "event_idx": 65,
+  "seed": 2123515583,
+  "mQ_GeV": 1800.0,
+  "Lambda_GeV": 2e-06,
+  "B_tesla": 2.0,
+  "selection_criterion": "fastest-converging (smallest wall_time_s) among the 12 corrected fiducial-AND-plane-found colored events",
+  "sample": "fresh Colored 2000-event (quirk_2000_event_fresh_regeneration_v1)",
+  "label": "representative project event -- NOT a claimed exact reproduction of the paper's own (unpublished) representative event"
+}

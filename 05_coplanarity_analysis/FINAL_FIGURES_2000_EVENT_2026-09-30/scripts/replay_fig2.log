@@ -1,0 +1,8 @@
+Selected event_idx=65, seed=2123515583, stored wall_time_s=12.817092306009728
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2067.271653 GeV vs on-shell E=2066.814412 GeV (rel diff 2.21e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2077.693749 GeV vs on-shell E=2076.756478 GeV (rel diff 4.51e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+rows saved: 2518, r range [2.356,21.995] cm
+d vanishes (< 1e-6 cm) at 1 points (expect only near r=0)
+d range: [0.0000e+00, 1.6273e+00] cm
+L range: [0.0000e+00, 5.2220e+13] hbar
+DONE

@@ -1,0 +1,27 @@
+sample,stage,count
+Colored 1000,Matched,419
+Colored 1000,Trig-only,101
+Colored 1000,Trig&Charged,27
+Colored 1000,Fiducial,7
+Colored 1000,Fid&Plane,5
+Colored 1000,Fid&Plane&Mult,3
+Colored 1000,Final,1
+Colored 2000,Matched,873
+Colored 2000,Trig-only,207
+Colored 2000,Trig&Charged,68
+Colored 2000,Fiducial,25
+Colored 2000,Fid&Plane,12
+Colored 2000,Fid&Plane&Mult,7
+Colored 2000,Final,3
+EW 1000,Matched,511
+EW 1000,Trigger,89
+EW 1000,Fiducial,40
+EW 1000,Fid&Plane,32
+EW 1000,Hit-mult,16
+EW 1000,Final,6
+EW 2000,Matched,1045
+EW 2000,Trigger,186
+EW 2000,Fiducial,94
+EW 2000,Fid&Plane,75
+EW 2000,Hit-mult,48
+EW 2000,Final,21

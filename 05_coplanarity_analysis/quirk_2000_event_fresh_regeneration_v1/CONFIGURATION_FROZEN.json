@@ -1,0 +1,29 @@
+{
+  "task": "fresh independent 2000+2000 event quirk regeneration",
+  "frozen_at_utc": "2026-09-24",
+  "samples": {
+    "colored_1800GeV_L2keV": {
+      "channel": "colored", "production": "QCD-only",
+      "mQ_GeV": 1800.0, "Lambda_GeV": 2e-6, "Lambda_keV": 2.0,
+      "N_requested": 2000,
+      "generation_seed": 8001,
+      "downstream_seed_base": 60001,
+      "template_process_dir": "/home/rafia/hep_tools/quirk_signal_1800gev_2kev (frozen, unmodified, process structure only)",
+      "B_tesla": 2.0
+    },
+    "EW_800GeV_L4keV": {
+      "channel": "EW", "production": "Drell-Yan",
+      "mQ_GeV": 800.0, "Lambda_GeV": 4e-6, "Lambda_keV": 4.0,
+      "N_requested": 2000,
+      "generation_seed": 8002,
+      "downstream_seed_base": 60002,
+      "template_process_dir": "/home/rafia/hep_tools/quirk_ew_800gev_4kev (frozen, unmodified, process structure only)",
+      "B_tesla": 2.0
+    }
+  },
+  "execution_order": "colored first, then EW (strictly sequential, one sample fully complete before the next begins)",
+  "output_root": "05_coplanarity_analysis/quirk_2000_event_fresh_regeneration_v1",
+  "independence_statement": "No prior numerical results (event samples, cutflows, efficiencies, CSVs, Figure 6 checkpoints, consolidated reports, plots) were read, copied, validated against, or used to tune this configuration. See PAPER_REQUIREMENTS.md Independence Log for the two explicitly-permitted exceptions (frozen process-card templates; validated physics code reuse).",
+  "pythia8_fix_applied": "PYTHIA8DATA unset for the generate_events subprocess only (scoped environment fix, root-caused during Figure 6 Phase 5 -- an infrastructure/environment fix, not a numerical result, applies identically here)",
+  "downstream_pipeline": "optimized-v2 trajectory integrator (quirk_trajectory_optimized_v2.py, commit 3c33601), trajectory_to_hits.py, coplanarity_fit.py -- validated code reused unmodified, per Independence Log"
+}

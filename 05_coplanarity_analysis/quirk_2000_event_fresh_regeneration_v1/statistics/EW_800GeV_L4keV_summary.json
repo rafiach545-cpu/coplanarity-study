@@ -1,0 +1,21 @@
+{
+  "sample": "EW_800GeV_L4keV",
+  "N_fiducial": 94,
+  "N_plane_SecIIIC": 84,
+  "N_hit_multiplicity": 48,
+  "N_final_SecIV": 21,
+  "eps_reco_paper_defined_N_plane_over_N_fid": 0.8936170212765957,
+  "sec_iv_final_pass_rate_N_final_over_N_fid": 0.22340425531914893,
+  "failure_reason_counts": {
+    "fiducial": 90,
+    "hit_multiplicity": 27,
+    "signal_region_cuts": 27,
+    "final_pass": 21,
+    "no_plane_reconstructed": 19,
+    "technical_exception": 2
+  },
+  "nan_count": 0,
+  "inf_count": 0,
+  "duplicate_event_count": 0,
+  "total_downstream_wall_s": 31067.07564911706
+}

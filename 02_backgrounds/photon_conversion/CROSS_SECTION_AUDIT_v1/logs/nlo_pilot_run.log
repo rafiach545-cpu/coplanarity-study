@@ -1,0 +1,53 @@
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.7.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /home/rafia/.config/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+launch -f
+stty: 'standard input': Inappropriate ioctl for device
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+[1;34mNot able to open file /home/rafia/coplanarity_study/02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/nlo_pilot_attempt/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Using built-in libraries for PDFs 
+[1mINFO: For gauge cancellation, the width of 'Z' has been set to zero. [0m
+INFO: Compiling source... 
+INFO:           ...done, continuing with P* directories 
+[1;34mWARNING: Could not compile StdHEP because its source directory could not be found in the SOURCE folder.
+ Check the MG5_aMC option 'output_dependencies'.
+ This will prevent the use of HERWIG6/Pythia6 shower. [0m
+INFO: Compiling directories... 
+INFO: Compiling on 4 cores 
+INFO:  Compiling P0_uux_za... 
+INFO:  Compiling P0_ddx_za... 
+INFO:  Compiling P0_uxu_za... 
+INFO:  Compiling P0_dxd_za... 
+./check_poles: error while loading shared libraries: libninja.so.0: cannot open shared object file: No such file or directory
+./check_poles: error while loading shared libraries: libninja.so.0: cannot open shared object file: No such file or directory
+./check_poles: error while loading shared libraries: libninja.so.0: cannot open shared object file: No such file or directory
+./check_poles: error while loading shared libraries: libninja.so.0: cannot open shared object file: No such file or directory

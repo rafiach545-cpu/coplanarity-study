@@ -1,0 +1,16 @@
+{
+  "sample": "colored_1800GeV_L2keV",
+  "N_showered": 873,
+  "N_matched": 873,
+  "N_both_neutral": 178,
+  "N_one_charged": 421,
+  "N_both_charged": 274,
+  "N_charge_filtered": 274,
+  "N_trigger_of_full_matched": 207,
+  "eps_trig_of_full_matched": 0.23711340206185566,
+  "N_trigger_AND_charge_filtered": 68,
+  "N_trigger_of_charge_filtered": 68,
+  "eps_trig_of_charge_filtered": 0.24817518248175183,
+  "joint_trigger_and_charge_survival_prob": 0.07789232531500573,
+  "N_to_propagate": 68
+}

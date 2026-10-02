@@ -1,0 +1,23 @@
+event_id,stage,stored,replay,match
+18,seed_recomputation,1368457327,1368457327,True
+18,input_momenta_csv_precision,full float64 (17 sig figs),identical (verified repr()),True
+18,n_hits_premerge,16,16,True
+18,n_hits_postmerge,16,16,True
+18,plane_found,True,True,True
+18,delta_s_cm,0.0035192103927336,0.003765420674057911,False
+18,delta_w_cm,0.3043884661111697,0.2854014487052422,False
+18,hit_multiplicity_pass,True,True,True
+18,final_sec_iv_pass,True,True,True
+18,isolated_single_process_replay,n/a,0.003765420674057911,n/a
+18,isolated_multiprocessing_replay,n/a,0.003765420674057911,n/a (agrees with isolated)
+18,chunk1_context_multiprocessing_replay,n/a,0.003765420674057911,n/a (agrees with isolated)
+18,single_threaded_BLAS_replay,n/a,0.003765420674057911,n/a (agrees with isolated)
+18,code_file_mtime_check,"trajectory_to_hits.py 2026-09-16, coplanarity_fit.py 2026-09-15, quirk_trajectory_optimized_v2.py 2026-09-21 -- all predate the 2026-09-24 original run",unchanged since original run,True
+75,seed_recomputation,3104328179,3104328179,True
+75,n_hits_premerge,16,16,True
+75,n_hits_postmerge,15,15,True
+75,plane_found,True,True,True
+75,delta_s_cm,0.0048960086459142,0.00534370757444926,False
+75,delta_w_cm,0.0418845327401202,0.040250508744703394,False
+75,hit_multiplicity_pass,True,True,True
+75,final_sec_iv_pass,True,True,True

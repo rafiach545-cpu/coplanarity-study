@@ -1,0 +1,23 @@
+{
+  "colored": {
+    "event_idx": 65,
+    "seed": 2123515583,
+    "selection_criterion": "fastest-converging (smallest wall_time_s) among the 12 corrected fiducial-AND-plane-found colored events",
+    "delta_s_cm": 0.026692586327045693,
+    "delta_w_cm": 0.6391264177537167,
+    "hit_multiplicity_pass": true,
+    "final_secIV_pass": false,
+    "n_hits": 16
+  },
+  "EW": {
+    "event_idx": 182,
+    "seed": 2626882725,
+    "selection_criterion": "fastest-converging (smallest wall_time_s) among the 75 corrected fiducial-AND-plane-found EW events",
+    "delta_s_cm": 0.0077850299200439,
+    "delta_w_cm": 0.0808772669419935,
+    "hit_multiplicity_pass": true,
+    "final_secIV_pass": true,
+    "n_hits": 16
+  },
+  "disclosure": "Selection criterion (fastest wall_time_s, for computational tractability) is declared explicitly, not chosen because the event 'looks most like the paper'."
+}

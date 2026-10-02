@@ -1,0 +1,21 @@
+{
+  "sample": "colored_1800GeV_L2keV",
+  "N_fiducial": 25,
+  "N_plane_SecIIIC": 20,
+  "N_hit_multiplicity": 9,
+  "N_final_SecIV": 4,
+  "eps_reco_paper_defined_N_plane_over_N_fid": 0.8,
+  "sec_iv_final_pass_rate_N_final_over_N_fid": 0.16,
+  "failure_reason_counts": {
+    "fiducial": 41,
+    "no_plane_reconstructed": 13,
+    "hit_multiplicity": 5,
+    "signal_region_cuts": 4,
+    "final_pass": 3,
+    "technical_exception": 2
+  },
+  "nan_count": 0,
+  "inf_count": 0,
+  "duplicate_event_count": 0,
+  "total_downstream_wall_s": 2843.388591325027
+}

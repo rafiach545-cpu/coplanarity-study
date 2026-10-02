@@ -1,0 +1,5 @@
+sample,purpose,seed,previously_used_by,notes
+colored_1800GeV_L2keV,MadGraph/Pythia8 generation,8001,none (fresh),distinct from Figure6 range (9400-9412) and prior pilots (9101-9302)
+EW_800GeV_L4keV,MadGraph/Pythia8 generation,8002,none (fresh),distinct from Figure6 range and prior pilots
+colored_1800GeV_L2keV,downstream trajectory/detector RNG (SeedSequence base),60001,none (fresh),independent per-event child seeds via numpy SeedSequence.spawn
+EW_800GeV_L4keV,downstream trajectory/detector RNG (SeedSequence base),60002,none (fresh),independent per-event child seeds via numpy SeedSequence.spawn

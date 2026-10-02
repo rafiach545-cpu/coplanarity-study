@@ -1,0 +1,11 @@
+sample,quantity,numerator,denominator,value,wilson68,wilson95,cp95,paper_value,binomial_p_value,verdict
+colored,"eps_trig_full_matched (trigger-ONLY, verified NOT trigger+charge)",207,873,0.2371,"[0.223,0.252]","[0.210,0.266]","[0.209,0.267]",0.24,0.874084,CONSISTENT
+colored,"eps_trig_charge_conditional (separate, of charge-filtered)",68,274,0.2482,"[0.223,0.275]","[0.201,0.303]","[0.198,0.304]",0.24,0.777211,CONSISTENT
+colored,joint_trigger_and_charge (explicitly NOT called trigger efficiency),68,873,0.0779,"[0.069,0.087]","[0.062,0.098]","[0.061,0.098]",,,NO_PAPER_TARGET
+colored,"eps_fid (of trigger-AND-charge-filtered, this project's convention)",25,68,0.3676,"[0.311,0.428]","[0.263,0.486]","[0.254,0.493]",0.28,0.136199,CONSISTENT
+colored,eps_reco_A_SecIIIC_plane (N_plane/N_fid),20,25,0.8,"[0.709,0.868]","[0.609,0.911]","[0.593,0.932]",0.35,5e-06,STATISTICALLY_SIGNIFICANT_DIFFERENCE
+colored,eps_reco_B_SecIV_final (N_final/N_fid),4,25,0.16,"[0.100,0.246]","[0.064,0.347]","[0.045,0.361]",,,NO_PAPER_TARGET
+EW,eps_trig,186,1045,0.178,"[0.166,0.190]","[0.156,0.202]","[0.155,0.203]",0.1,0.0,STATISTICALLY_SIGNIFICANT_DIFFERENCE
+EW,eps_fid,94,186,0.5054,"[0.469,0.542]","[0.434,0.576]","[0.431,0.579]",0.28,0.0,STATISTICALLY_SIGNIFICANT_DIFFERENCE
+EW,eps_reco_A_SecIIIC_plane (N_plane/N_fid),84,94,0.8936,"[0.858,0.921]","[0.815,0.941]","[0.813,0.948]",0.72,7.3e-05,STATISTICALLY_SIGNIFICANT_DIFFERENCE
+EW,eps_reco_B_SecIV_final (N_final/N_fid),21,94,0.2234,"[0.183,0.269]","[0.151,0.318]","[0.144,0.321]",,,NO_PAPER_TARGET

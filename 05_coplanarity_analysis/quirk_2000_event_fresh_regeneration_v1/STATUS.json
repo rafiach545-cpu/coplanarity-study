@@ -1,0 +1,9 @@
+{
+  "stage": "COMPLETE",
+  "pid": 118580,
+  "last_update_utc": "2026-09-24T21:06:20Z",
+  "elapsed_h": 3.965,
+  "sample": "EW_800GeV_L4keV",
+  "total_events": 186,
+  "events_done": "186/186"
+}

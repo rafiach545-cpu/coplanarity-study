@@ -1,0 +1,109 @@
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /home/rafia/.config/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+generate_events run_fresh -f
+stty: 'standard input': Inappropriate ioctl for device
+[1;34mvalue '[]' for entry 'bypass_check' is not valid. Preserving previous value: '[]'.
+allowed values are any list composed of the following entries: partonshower[0m
+Generating 2000 events with run name run_fresh
+survey  run_fresh 
+INFO: compile directory 
+[1;34mNot able to open file /home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 8002
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/3. 
+INFO:     P1_gq_qepqemq  
+INFO: Compiling for process 2/3. 
+INFO:     P1_qq_qepqemg  
+INFO: Compiling for process 3/3. 
+INFO:     P0_qq_qepqem  
+INFO:     P1_gq_qepqemq  
+INFO:     P1_qq_qepqemg  
+INFO:     P0_qq_qepqem  
+INFO:  Idle: 2,  Running: 1,  Completed: 2 [ current time: 19h42 ] 
+INFO:  Idle: 1,  Running: 1,  Completed: 3 [  3.1s  ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 4 [  8.7s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 5 [  12.7s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 5 [  12.7s  ] 
+INFO: End survey 
+refine 2000
+Creating Jobs
+INFO: Refine results to 2000 
+INFO: Generating 2000.0 unweighted events. 
+sum of cpu time of last step: 35 seconds
+INFO: Effective Luminosity 5404105.864975506 pb^-1 
+INFO: need to improve 3 channels 
+- Current estimate of cross-section: 0.00044410676992000003 +- 4.799675713348553e-06
+    P1_gq_qepqemq 
+    P1_qq_qepqemg 
+    P0_qq_qepqem 
+INFO:  Idle: 3,  Running: 1,  Completed: 0 [ current time: 19h42 ] 
+INFO:  Idle: 2,  Running: 1,  Completed: 1 [  18.1s  ] 
+INFO:  Idle: 1,  Running: 1,  Completed: 2 [  2m 46s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 4 [  2m 51s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 4 [  2m 51s  ] 
+INFO: Combining runs 
+sum of cpu time of last step: 3m23s
+INFO: finish refine 
+refine 2000 --treshold=0.9
+No need for second refine due to stability of cross-section
+INFO: Combining Events 
+combination of events done in 5.036349296569824 s 
+  === Results Summary for run: run_fresh tag: tag_1 ===
+
+     Cross-section :   0.0004542 +- 2.181e-06 pb
+     Nb of events :  2000
+ 
+INFO: No version of lhapdf. Can not run systematics computation 
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+INFO: [92mRunning Pythia8 [arXiv:1410.3012][0m 
+No user-defined value for Pythia8 parameter 'JetMatching:nJetMax'. Setting it automatically to 1.
+Follow Pythia8 shower by running the following command (in a separate terminal):
+    tail -f /home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/tag_1_pythia8.log
+INFO: Create matching plots for Pythia8 
+[1;34mFailed to produce Pythia8 merging plots.[0m
+INFO: Pythia8 shower finished after 2m29s. 
+  === Results Summary for run: run_fresh tag: tag_1 ===
+
+     Cross-section :   0.0004542 +- 2.181e-06 pb
+     Nb of events :  2000
+     Matched cross-section :   0.0002373 +- 5.199e-06 pb
+     Nb of events after matching/merging :  1045
+ 
+INFO: storing files of previous run 
+INFO: Storing Pythia8 files of previous run 
+INFO: Done 
+quit
+INFO:  

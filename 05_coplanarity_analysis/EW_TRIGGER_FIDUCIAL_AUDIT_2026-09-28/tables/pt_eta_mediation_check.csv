@@ -1,0 +1,3 @@
+test,spearman_r,spearman_p,interpretation
+pT_pair vs max_abs_eta (mediator check),-0.06640620264908689,0.36782813410422743,not significantly correlated (p>0.05) -- pT_pair's effect on fiducial pass is NOT mediated through eta-centrality
+"partial correlation: pT_pair vs fiducial, controlling for max_abs_eta",0.19140497065971426,,"0.191 vs raw point-biserial 0.230 -- barely attenuated, confirming pT_pair has a genuine, eta-independent positive association with fiducial pass"

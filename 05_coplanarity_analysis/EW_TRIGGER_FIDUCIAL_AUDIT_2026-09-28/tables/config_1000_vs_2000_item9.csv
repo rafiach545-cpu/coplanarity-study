@@ -1,0 +1,8 @@
+comparison,sample_1000,sample_2000,identical
+generation_seed,iseed=21,iseed=8002,"NO (by design, independent seeds)"
+N_requested,1000,2000,NO (by design)
+process_card (MG5ProcCard),generate p p > qe+ qe- @0 / add process p p > qe+ qe- j @1,"identical (same process directory reused, template_process_dir in CONFIGURATION_FROZEN.json)",YES
+"run_card numeric/string settings (xqcut, ickkw, PDF, scale, ptj, etaj, ebeam, etc.)",see generation_matching_configuration_comparison.csv,"byte-identical values (only whitespace formatting differs, verified by direct diff)",YES
+downstream trajectory/detector-sim RNG seed base,not a numpy SeedSequence-based design (predates this convention),"60002 (SeedSequence base, per-event child seeds via .spawn())","N/A -- different code generations, not comparable by design"
+downstream trajectory integrator,"baseline (pre-optimization) integrator, per project chronology",quirk_trajectory_optimized_v2.py (validated bit-identical to baseline per earlier project validation),"YES in physics output (validated separately, not re-derived in this audit)"
+MadGraph/Pythia8 version,MadGraph5_aMC@NLO 3.7.3,MadGraph5_aMC@NLO 3.7.3 (same install),YES

@@ -1,0 +1,5 @@
+sample,N_requested,N_lhe,N_showered,N_matched,N_charge_eligible,N_trigger_only,N_trigger_AND_charge,N_propagated_downstream,N_truth_fiducial,N_plane_found_total,N_fiducial_AND_plane,N_hit_multiplicity_total,N_fid_AND_plane_AND_mult,N_delta_s_pass,N_delta_w_pass,N_final_SecIV_total,N_fiducial_AND_final
+colored1000,1000,1000.0,419,419,125.0,101,27.0,27,7,5,5,3,3,1,5,1,1
+EW1000,1000,1000.0,511,511,,89,,89,40,32,32,16,16,6,32,6,6
+colored2000,2000,,873,873,274.0,207,68.0,68,25,20,12,9,7,5,20,4,3
+EW2000,2000,,1045,1045,,186,,186,94,84,75,48,48,27,84,21,21

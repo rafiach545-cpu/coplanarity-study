@@ -1,0 +1,12 @@
+quantity,paper_stated,project_baseline_run02,match_status,evidence_class
+process,p p > Z gamma j; Z > nu nu (all flavours implied),p p > z a j z>vlvl~ (ve+vm+vt summed),MATCH,DIRECT PAPER EVIDENCE + DIRECT CODE EVIDENCE
+generator,MadGraph5 aMC@NLO (name only, LO/NLO accuracy not confirmable from text),MadGraph5_aMC@NLO v3.7.3 run in LO mode (generate p p > z a j with no NLO order tag; standard LO MadEvent P1_* structure),UNRESOLVED - tool name matches but LO/NLO accuracy cannot be confirmed from paper text alone,INFERENCE
+sqrt(s),not restated in Sec IIID (13 TeV used elsewhere in paper),13 TeV (ebeam1=ebeam2=6500),ASSUMED MATCH,INFERENCE
+MET cut,>200 GeV (stated explicitly as trigger requirement),misset=200.0 GeV at generation,MATCH,DIRECT PAPER EVIDENCE + DIRECT CODE EVIDENCE
+photon pT cut,>0.5 GeV (explicitly part of the quoted ~1pb fiducial xsec),ptgmin=0.0 at generation (no cut); 0.5 GeV cut applied POST-SHOWER in separate analysis script, NOT included in the quoted 0.2311pb baseline number,MISMATCH IN SELECTION STAGE,DIRECT PAPER EVIDENCE + DIRECT CODE EVIDENCE
+jet pT cut (technical),not stated,ptj=20.0 GeV,CANNOT COMPARE (paper silent),UNAVAILABLE (paper)
+jet eta cut (technical),not stated,etaj<5.0,CANNOT COMPARE (paper silent),UNAVAILABLE (paper)
+PDF set,not stated,NNPDF2.3 LO (nn23lo1, lhaid 230000),CANNOT COMPARE (paper silent),UNAVAILABLE (paper)
+matching/merging (MLM/CKKW),not stated -- paper describes a single "Z+gamma+j sample", suggesting no multi-jet-multiplicity merging,not enabled (JetMatching:qCut=-1.0),ASSUMED MATCH (both single-multiplicity samples),INFERENCE
+neutrino flavours summed,"decay the Z to neutrinos" (ambiguous: 1 flavour representative, or sum of 3),3 flavours summed (ve, vm, vt),ASSUMED MATCH (physically correct choice; paper wording does not exclude it),INFERENCE
+conversion probability application point,applied AFTER the ~1pb fiducial xsec, as a separate multiplicative factor -> ~10fb,applied as a separate downstream step (not part of generation) per project convention,MATCH IN METHOD,DIRECT PAPER EVIDENCE + DIRECT CODE EVIDENCE

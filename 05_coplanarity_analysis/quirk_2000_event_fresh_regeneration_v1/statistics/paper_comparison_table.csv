@@ -1,0 +1,8 @@
+sample,quantity,project_k_over_n,paper_value,wilson95,cp95,binomial_p_value,verdict
+colored,eps_trig_full_matched,207/873=0.2371,0.24,"[0.210,0.266]","[0.209,0.267]",0.8741,CONSISTENT
+colored,eps_trig_charge_conditional,68/274=0.2482,0.24,"[0.201,0.303]","[0.198,0.304]",0.7772,CONSISTENT
+colored,eps_fid,25/68=0.3676,0.28,"[0.263,0.486]","[0.254,0.493]",0.1362,CONSISTENT
+colored,eps_reco_paper_defined,20/25=0.8000,0.35,"[0.609,0.911]","[0.593,0.932]",0.0000,INCONSISTENT
+EW,eps_trig_full_matched,186/1045=0.1780,0.1,"[0.156,0.202]","[0.155,0.203]",0.0000,INCONSISTENT
+EW,eps_fid,94/186=0.5054,0.28,"[0.434,0.576]","[0.431,0.579]",0.0000,INCONSISTENT
+EW,eps_reco_paper_defined,84/94=0.8936,0.72,"[0.815,0.941]","[0.813,0.948]",0.0001,INCONSISTENT
