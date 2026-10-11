@@ -1,0 +1,1 @@
+Signal Δs (top) and Δw (bottom) with the authors' Fig. 5 population: plane found, before the Δs and Δw cuts, no hit-multiplicity cut. Three SCT z settings; dotted: the paper's Fig. 5 from its vector source figure. Vertical lines: the signal-region cuts.

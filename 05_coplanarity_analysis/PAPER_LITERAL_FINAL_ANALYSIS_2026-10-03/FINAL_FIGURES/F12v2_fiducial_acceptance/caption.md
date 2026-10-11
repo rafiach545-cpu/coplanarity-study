@@ -1,0 +1,1 @@
+Fiducial efficiency under the paper-stated |η| < 1.8 acceptance (primary) and under the finite barrel lengths of Ref. [27] (inferred sensitivity), each sample separately. The paper's 0.28 is reproduced only by the inferred finite barrel for EW.

@@ -1,0 +1,16 @@
+{
+ "figure": "F16v2_ds_signal_vs_conversion",
+ "source_csv": "F16v2_ds_signal_vs_conversion_source.csv",
+ "source_csv_sha256": "b522fcb85d27ccdb693add0b16524750206fc1590633851da693d10a090076c4",
+ "plot_reads_only_source_csv": true,
+ "selection": "see caption",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/acceptance_longitudinal_per_event.csv": "e3f6c93d1e0d4ebe0998bbe46342e67922fff3a879a352f01a2e646956cf3cd0",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P10_chunks_ETA": "directory/not-a-file",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P10_chunks_ETA_Z0": "directory/not-a-file",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../../PAPER_TABLE_I_REPRODUCTION_FORENSICS_2026-10-02/tables/paper_fig5_extracted.json": "bece94bd8e24b85be15b1a2019227475b55026c18dafe3d36e9f941ba589f1da"
+ },
+ "script": "F16v2_ds_signal_vs_conversion.py",
+ "script_sha256": "e1e5676fecf4245d8e073d3617ccba624f033496a4cfc8e6aa572f5651b4e59c",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

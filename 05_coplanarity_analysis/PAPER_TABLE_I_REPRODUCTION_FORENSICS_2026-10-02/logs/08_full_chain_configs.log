@@ -1,0 +1,55 @@
+jobs 607 {'EW1000': 89, 'COL1000': 27, 'EW2000': 186, 'COL2000': 68, 'G0_EW': 187, 'G0_COL': 50} {"G0_EW": {"N_matched": 1101, "N_trigger_all": 187, "N_both_charged_matched": 1101, "N_trigger_charged": 187}, "G0_COL": {"N_matched": 855, "N_trigger_all": 186, "N_both_charged_matched": 248, "N_trigger_charged": 50}}
+
+
+
+
+
+geom model                            set quantity   k   n    eff  w95_lo  w95_hi  paper  p_vs_paper paper_in_w95
+   A    R0        EW existing (1000+2000)      fid 131 275 0.4764  0.4181  0.5353   0.28      0.0000        False
+   A    R0        EW existing (1000+2000)  reco_SR  14 131 0.1069  0.0647  0.1714   0.72      0.0000        False
+   A    R0       COL existing (1000+2000)      fid  39  95 0.4105  0.3170  0.5110   0.28      0.0060        False
+   A    R0       COL existing (1000+2000)  reco_SR   5  39 0.1282  0.0560  0.2671   0.35      0.0036        False
+   A    R0  EW INDEPENDENT G0 (seed 9101)      fid  89 187 0.4759  0.4056  0.5473   0.28      0.0000        False
+   A    R0  EW INDEPENDENT G0 (seed 9101)  reco_SR  10  89 0.1124  0.0622  0.1946   0.72      0.0000        False
+   A    R0 COL INDEPENDENT G0 (seed 9201)      fid  18  50 0.3600  0.2414  0.4986   0.28      0.2099         True
+   A    R0 COL INDEPENDENT G0 (seed 9201)  reco_SR   1  18 0.0556  0.0099  0.2576   0.35      0.0060        False
+   A    R2        EW existing (1000+2000)      fid 131 275 0.4764  0.4181  0.5353   0.28      0.0000        False
+   A    R2        EW existing (1000+2000)  reco_SR  99 131 0.7557  0.6756  0.8213   0.72      0.3831         True
+   A    R2       COL existing (1000+2000)      fid  39  95 0.4105  0.3170  0.5110   0.28      0.0060        False
+   A    R2       COL existing (1000+2000)  reco_SR  18  39 0.4615  0.3157  0.6143   0.35      0.1783         True
+   A    R2  EW INDEPENDENT G0 (seed 9101)      fid  89 187 0.4759  0.4056  0.5473   0.28      0.0000        False
+   A    R2  EW INDEPENDENT G0 (seed 9101)  reco_SR  69  89 0.7753  0.6782  0.8496   0.72      0.2881         True
+   A    R2 COL INDEPENDENT G0 (seed 9201)      fid  18  50 0.3600  0.2414  0.4986   0.28      0.2099         True
+   A    R2 COL INDEPENDENT G0 (seed 9201)  reco_SR   8  18 0.4444  0.2456  0.6628   0.35      0.4603         True
+   A    R3        EW existing (1000+2000)      fid 131 275 0.4764  0.4181  0.5353   0.28      0.0000        False
+   A    R3        EW existing (1000+2000)  reco_SR 118 131 0.9008  0.8376  0.9411   0.72      0.0000        False
+   A    R3       COL existing (1000+2000)      fid  39  95 0.4105  0.3170  0.5110   0.28      0.0060        False
+   A    R3       COL existing (1000+2000)  reco_SR  23  39 0.5897  0.4342  0.7292   0.35      0.0023        False
+   A    R3  EW INDEPENDENT G0 (seed 9101)      fid  89 187 0.4759  0.4056  0.5473   0.28      0.0000        False
+   A    R3  EW INDEPENDENT G0 (seed 9101)  reco_SR  77  89 0.8652  0.7790  0.9212   0.72      0.0019        False
+   A    R3 COL INDEPENDENT G0 (seed 9201)      fid  18  50 0.3600  0.2414  0.4986   0.28      0.2099         True
+   A    R3 COL INDEPENDENT G0 (seed 9201)  reco_SR  10  18 0.5556  0.3372  0.7544   0.35      0.0833         True
+   B    R0        EW existing (1000+2000)      fid  94 275 0.3418  0.2883  0.3997   0.28      0.0265        False
+   B    R0        EW existing (1000+2000)  reco_SR  10  94 0.1064  0.0588  0.1849   0.72      0.0000        False
+   B    R0       COL existing (1000+2000)      fid  27  95 0.2842  0.2033  0.3819   0.28      0.9094         True
+   B    R0       COL existing (1000+2000)  reco_SR   1  27 0.0370  0.0066  0.1828   0.35      0.0002        False
+   B    R0  EW INDEPENDENT G0 (seed 9101)      fid  58 187 0.3102  0.2482  0.3797   0.28      0.3704         True
+   B    R0  EW INDEPENDENT G0 (seed 9101)  reco_SR   5  58 0.0862  0.0374  0.1864   0.72      0.0000        False
+   B    R0 COL INDEPENDENT G0 (seed 9201)      fid  14  50 0.2800  0.1747  0.4167   0.28      1.0000         True
+   B    R0 COL INDEPENDENT G0 (seed 9201)  reco_SR   1  14 0.0714  0.0127  0.3147   0.35      0.0266        False
+   B    R2        EW existing (1000+2000)      fid  94 275 0.3418  0.2883  0.3997   0.28      0.0265        False
+   B    R2        EW existing (1000+2000)  reco_SR  69  94 0.7340  0.6368  0.8129   0.72      0.8191         True
+   B    R2       COL existing (1000+2000)      fid  27  95 0.2842  0.2033  0.3819   0.28      0.9094         True
+   B    R2       COL existing (1000+2000)  reco_SR  12  27 0.4444  0.2759  0.6269   0.35      0.3172         True
+   B    R2  EW INDEPENDENT G0 (seed 9101)      fid  58 187 0.3102  0.2482  0.3797   0.28      0.3704         True
+   B    R2  EW INDEPENDENT G0 (seed 9101)  reco_SR  45  58 0.7759  0.6534  0.8641   0.72      0.3834         True
+   B    R2 COL INDEPENDENT G0 (seed 9201)      fid  14  50 0.2800  0.1747  0.4167   0.28      1.0000         True
+   B    R2 COL INDEPENDENT G0 (seed 9201)  reco_SR   8  14 0.5714  0.3259  0.7862   0.35      0.0959         True
+   B    R3        EW existing (1000+2000)      fid  94 275 0.3418  0.2883  0.3997   0.28      0.0265        False
+   B    R3        EW existing (1000+2000)  reco_SR  85  94 0.9043  0.8280  0.9488   0.72      0.0000        False
+   B    R3       COL existing (1000+2000)      fid  27  95 0.2842  0.2033  0.3819   0.28      0.9094         True
+   B    R3       COL existing (1000+2000)  reco_SR  16  27 0.5926  0.4073  0.7549   0.35      0.0137        False
+   B    R3  EW INDEPENDENT G0 (seed 9101)      fid  58 187 0.3102  0.2482  0.3797   0.28      0.3704         True
+   B    R3  EW INDEPENDENT G0 (seed 9101)  reco_SR  52  58 0.8966  0.7921  0.9517   0.72      0.0018        False
+   B    R3 COL INDEPENDENT G0 (seed 9201)      fid  14  50 0.2800  0.1747  0.4167   0.28      1.0000         True
+   B    R3 COL INDEPENDENT G0 (seed 9201)  reco_SR   9  14 0.6429  0.3876  0.8366   0.35      0.0449        False

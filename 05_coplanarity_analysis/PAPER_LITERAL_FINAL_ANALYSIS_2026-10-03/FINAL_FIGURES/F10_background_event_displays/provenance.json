@@ -1,0 +1,14 @@
+{
+ "figure": "F10_background_event_displays",
+ "source_csv": "F10_background_event_displays_source.csv",
+ "source_csv_sha256": "05ad634c03e78e3981e481a24f53805d38c5448c4aacedfb641c32db67f070f7",
+ "plot_reads_only_source_csv": true,
+ "selection": "see selection column",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P9_chunks_LITERAL": "directory/not-a-file",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P10_chunks_LITERAL": "directory/not-a-file"
+ },
+ "script": "F10_background_event_displays.py",
+ "script_sha256": "782631bcd20a6846901bee712cd998184f5c76b9ac7d99055bafcfda4d689340",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

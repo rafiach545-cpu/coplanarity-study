@@ -1,0 +1,13 @@
+{
+ "figure": "F07_signal_cutflow_literal",
+ "source_csv": "F07_signal_cutflow_literal_source.csv",
+ "source_csv_sha256": "7a6414a740f2c990e2c465fbed193e9f57888bbe9a04c67c39fdc3171be55cee",
+ "plot_reads_only_source_csv": true,
+ "selection": "config == LITERAL",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/signal_cutflow_with_event_ids.csv": "5ec73811e40fe3562a2abce9f4ce8479be815c16c11261f69b20f75240d053c5"
+ },
+ "script": "F06_table_I_and_signal_cutflow.py",
+ "script_sha256": "d2729d5bd1bbc74bda3c30b7e229aa3b6d692024458739bd1f1a099613e70b75",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

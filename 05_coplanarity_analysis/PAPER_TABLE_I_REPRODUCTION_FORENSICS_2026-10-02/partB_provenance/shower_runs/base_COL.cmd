@@ -1,0 +1,16 @@
+! Baseline = verbatim changed settings of the frozen 2000-event runs (colored)
+Beams:frameType = 4
+Beams:setProductionScalesFromLHEF = on
+Check:epTolErr = 0.01
+JetMatching:merge = on
+JetMatching:scheme = 1
+JetMatching:setMad = off
+JetMatching:qCut = 45.0
+JetMatching:coneRadius = 1.0
+JetMatching:etaJetMax = 1000.0
+JetMatching:nJetMax = 1
+JetMatching:nQmatch = 4
+JetMatching:doShowerKt = off
+StringZ:useOldAExtra = on
+RHadrons:allow = on
+RHadrons:allowDecay = off

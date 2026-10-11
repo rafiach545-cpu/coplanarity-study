@@ -1,0 +1,1 @@
+Figure 4 style, no SCT z smearing. Selection rule: for COL2000 and EW2000, the event with the median Δs among events passing the full signal region (one hit per quirk per layer, Ref. [27] lengths). Left: all hits in the plane's (n₃, n₂) coordinates, layers as ellipses (grey). Right: zoom with the ±Δw band (Δw = √λ₂, Eq. 11).

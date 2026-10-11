@@ -1,0 +1,15 @@
+{
+ "figure": "G3_one_resolution_for_both",
+ "source_csv": "G3_one_resolution_for_both_source.csv",
+ "source_csv_sha256": "0c962323689a8a227f244046894f42b88a0a3b5d148a544035a120b411ff1039",
+ "plot_reads_only_source_csv": true,
+ "selection": "current primary",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/v6_primary_table_I.csv": "1038bc08ee42edecd8aaf26a4200db6b9df71b8549e06bb4dff208b45e1ba8ce",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P10_chunks_B_Z0_REF34": "directory/not-a-file",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P10_chunks_B_Z580_REF34": "directory/not-a-file"
+ },
+ "script": "F20_meeting_figures.py",
+ "script_sha256": "b32deda5b3fd32733668192e040ec1c76740a3ea94181b3671441a9919c6b6f5",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

@@ -1,0 +1,16 @@
+{
+ "figure": "F05_fig5_ds_dw_absolute",
+ "source_csv": "F05_fig5_ds_dw_absolute_source.csv",
+ "source_csv_sha256": "805591d2ec6e2a98a3bf93932443f6d008bb2e928a88d8c4840f3946905544f2",
+ "plot_reads_only_source_csv": true,
+ "selection": "literal configuration; populations as stated",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/signal_per_event_all_configs.csv": "8a9de621fd70fe7744bfc10848f62178a4ceaee2bda1a2098afd7cb2e6f4663a",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/pileup_per_event_literal.csv": "db952db299c75b2762bbf9a96b5f189b0e47e4423bb97f16bee4471f6429a3ff",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P9_chunks_LITERAL": "directory/not-a-file",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P10_chunks_LITERAL": "directory/not-a-file"
+ },
+ "script": "F05_fig5_ds_dw.py",
+ "script_sha256": "2394ec90c254d3c56ce90b8ac7cd322de5b98df2235752fb367f6da272ee3ea9",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

@@ -1,0 +1,17 @@
+! Baseline = verbatim changed settings of the frozen 2000-event runs (EW)
+Beams:frameType = 4
+Beams:setProductionScalesFromLHEF = on
+Check:epTolErr = 0.01
+JetMatching:merge = on
+JetMatching:scheme = 1
+JetMatching:setMad = off
+JetMatching:qCut = 45.0
+JetMatching:coneRadius = 1.0
+JetMatching:etaJetMax = 1000.0
+JetMatching:nJetMax = 1
+JetMatching:nQmatch = 4
+JetMatching:doShowerKt = off
+StringZ:useOldAExtra = on
+! override: JetMatching:merge = off
+JetMatching:merge = off
+Beams:LHEF = /home/rafia/hep_tools/TABLE_I_TRIGGER_SEARCH_2026-10-02/inputs/D2_0jet_nomatch_EW.lhe

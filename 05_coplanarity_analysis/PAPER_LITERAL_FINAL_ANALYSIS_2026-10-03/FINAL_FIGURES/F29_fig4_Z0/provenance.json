@@ -1,0 +1,13 @@
+{
+ "figure": "F29_fig4_Z0",
+ "source_csv": "F29_fig4_Z0_source.csv",
+ "source_csv_sha256": "2c79196733335facffe1e80bcc48dd0af16f2c863494c2febd96f27075f2882a",
+ "plot_reads_only_source_csv": true,
+ "selection": "median Delta_s among signal-region events",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/all_crossings_per_event.csv": "9998588086cf82cbb7463c1e80658ddf995bcb157992954b6f0b8739daeda2cc"
+ },
+ "script": "F29_fig4_median_events.py",
+ "script_sha256": "775fa6a4478df0527eaeb62c129011e496d1874d14c6706d36b17c05fa95bdf9",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

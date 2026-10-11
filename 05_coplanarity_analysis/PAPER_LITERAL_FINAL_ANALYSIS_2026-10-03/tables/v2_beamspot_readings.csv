@@ -1,0 +1,73 @@
+sample,acceptance,sct_z,beamspot,fiducial,plane,mult,final,eps_reco,beamspot_reading
+COL1000,A,Z0,CO,7,4,0,0,0.0,"one common shift/event, fit from origin"
+COL1000,A,Z0,CV,7,5,5,5,0.7142857142857143,"one common shift/event, fit from true vertex"
+COL1000,A,Z0,PH,8,0,0,0,0.0,independent 45 mm shift of every hit
+COL1000,A,Z1160,CO,7,5,0,0,0.0,"one common shift/event, fit from origin"
+COL1000,A,Z1160,CV,7,5,3,1,0.1428571428571428,"one common shift/event, fit from true vertex"
+COL1000,A,Z1160,PH,8,0,0,0,0.0,independent 45 mm shift of every hit
+COL1000,A,Z580,CO,7,4,0,0,0.0,"one common shift/event, fit from origin"
+COL1000,A,Z580,CV,7,5,5,3,0.4285714285714285,"one common shift/event, fit from true vertex"
+COL1000,A,Z580,PH,8,0,0,0,0.0,independent 45 mm shift of every hit
+COL1000,B,Z0,CO,6,3,0,0,0.0,"one common shift/event, fit from origin"
+COL1000,B,Z0,CV,6,5,5,5,0.8333333333333334,"one common shift/event, fit from true vertex"
+COL1000,B,Z0,PH,5,0,0,0,0.0,independent 45 mm shift of every hit
+COL1000,B,Z1160,CO,6,4,0,0,0.0,"one common shift/event, fit from origin"
+COL1000,B,Z1160,CV,6,5,3,1,0.1666666666666666,"one common shift/event, fit from true vertex"
+COL1000,B,Z1160,PH,5,0,0,0,0.0,independent 45 mm shift of every hit
+COL1000,B,Z580,CO,6,3,0,0,0.0,"one common shift/event, fit from origin"
+COL1000,B,Z580,CV,6,5,5,2,0.3333333333333333,"one common shift/event, fit from true vertex"
+COL1000,B,Z580,PH,5,0,0,0,0.0,independent 45 mm shift of every hit
+COL2000,A,Z0,CO,25,7,0,0,0.0,"one common shift/event, fit from origin"
+COL2000,A,Z0,CV,25,19,11,11,0.44,"one common shift/event, fit from true vertex"
+COL2000,A,Z0,PH,21,0,0,0,0.0,independent 45 mm shift of every hit
+COL2000,A,Z1160,CO,25,8,0,0,0.0,"one common shift/event, fit from origin"
+COL2000,A,Z1160,CV,25,12,7,3,0.12,"one common shift/event, fit from true vertex"
+COL2000,A,Z1160,PH,21,0,0,0,0.0,independent 45 mm shift of every hit
+COL2000,A,Z580,CO,25,9,0,0,0.0,"one common shift/event, fit from origin"
+COL2000,A,Z580,CV,25,19,12,5,0.2,"one common shift/event, fit from true vertex"
+COL2000,A,Z580,PH,21,0,0,0,0.0,independent 45 mm shift of every hit
+COL2000,B,Z0,CO,22,5,0,0,0.0,"one common shift/event, fit from origin"
+COL2000,B,Z0,CV,22,18,8,8,0.3636363636363636,"one common shift/event, fit from true vertex"
+COL2000,B,Z0,PH,22,0,0,0,0.0,independent 45 mm shift of every hit
+COL2000,B,Z1160,CO,22,5,0,0,0.0,"one common shift/event, fit from origin"
+COL2000,B,Z1160,CV,22,9,4,1,0.0454545454545454,"one common shift/event, fit from true vertex"
+COL2000,B,Z1160,PH,22,0,0,0,0.0,independent 45 mm shift of every hit
+COL2000,B,Z580,CO,22,6,0,0,0.0,"one common shift/event, fit from origin"
+COL2000,B,Z580,CV,22,18,9,3,0.1363636363636363,"one common shift/event, fit from true vertex"
+COL2000,B,Z580,PH,22,0,0,0,0.0,independent 45 mm shift of every hit
+EW1000,A,Z0,CO,40,28,1,1,0.025,"one common shift/event, fit from origin"
+EW1000,A,Z0,CV,40,40,34,34,0.85,"one common shift/event, fit from true vertex"
+EW1000,A,Z0,PH,35,0,0,0,0.0,independent 45 mm shift of every hit
+EW1000,A,Z1160,CO,40,27,0,0,0.0,"one common shift/event, fit from origin"
+EW1000,A,Z1160,CV,40,32,16,6,0.15,"one common shift/event, fit from true vertex"
+EW1000,A,Z1160,PH,35,0,0,0,0.0,independent 45 mm shift of every hit
+EW1000,A,Z580,CO,40,28,1,0,0.0,"one common shift/event, fit from origin"
+EW1000,A,Z580,CV,40,37,28,10,0.25,"one common shift/event, fit from true vertex"
+EW1000,A,Z580,PH,35,0,0,0,0.0,independent 45 mm shift of every hit
+EW1000,B,Z0,CO,33,21,1,1,0.0303030303030303,"one common shift/event, fit from origin"
+EW1000,B,Z0,CV,33,33,27,27,0.8181818181818182,"one common shift/event, fit from true vertex"
+EW1000,B,Z0,PH,33,0,0,0,0.0,independent 45 mm shift of every hit
+EW1000,B,Z1160,CO,33,20,0,0,0.0,"one common shift/event, fit from origin"
+EW1000,B,Z1160,CV,33,25,10,2,0.0606060606060606,"one common shift/event, fit from true vertex"
+EW1000,B,Z1160,PH,33,0,0,0,0.0,independent 45 mm shift of every hit
+EW1000,B,Z580,CO,33,21,1,0,0.0,"one common shift/event, fit from origin"
+EW1000,B,Z580,CV,33,29,20,5,0.1515151515151515,"one common shift/event, fit from true vertex"
+EW1000,B,Z580,PH,33,0,0,0,0.0,independent 45 mm shift of every hit
+EW2000,A,Z0,CO,94,60,10,4,0.0425531914893617,"one common shift/event, fit from origin"
+EW2000,A,Z0,CV,94,93,77,76,0.8085106382978723,"one common shift/event, fit from true vertex"
+EW2000,A,Z0,PH,66,0,0,0,0.0,independent 45 mm shift of every hit
+EW2000,A,Z1160,CO,94,63,7,3,0.0319148936170212,"one common shift/event, fit from origin"
+EW2000,A,Z1160,CV,94,75,48,21,0.2234042553191489,"one common shift/event, fit from true vertex"
+EW2000,A,Z1160,PH,66,0,0,0,0.0,independent 45 mm shift of every hit
+EW2000,A,Z580,CO,94,62,10,3,0.0319148936170212,"one common shift/event, fit from origin"
+EW2000,A,Z580,CV,94,92,75,29,0.3085106382978723,"one common shift/event, fit from true vertex"
+EW2000,A,Z580,PH,66,0,0,0,0.0,independent 45 mm shift of every hit
+EW2000,B,Z0,CO,62,33,4,1,0.0161290322580645,"one common shift/event, fit from origin"
+EW2000,B,Z0,CV,62,62,50,50,0.8064516129032258,"one common shift/event, fit from true vertex"
+EW2000,B,Z0,PH,63,0,0,0,0.0,independent 45 mm shift of every hit
+EW2000,B,Z1160,CO,62,35,2,0,0.0,"one common shift/event, fit from origin"
+EW2000,B,Z1160,CV,62,45,24,10,0.1612903225806451,"one common shift/event, fit from true vertex"
+EW2000,B,Z1160,PH,63,0,0,0,0.0,independent 45 mm shift of every hit
+EW2000,B,Z580,CO,62,34,4,0,0.0,"one common shift/event, fit from origin"
+EW2000,B,Z580,CV,62,61,45,14,0.2258064516129032,"one common shift/event, fit from true vertex"
+EW2000,B,Z580,PH,63,0,0,0,0.0,independent 45 mm shift of every hit

@@ -1,0 +1,220 @@
+COL2000: 68 trigger events, momenta vs raw max|diff|=nan, 0 already propagated, 68 to run
+  1/68 key=2 ok=False wall=0s
+  2/68 key=10 ok=True wall=3s
+  3/68 key=4 ok=True wall=3s
+  4/68 key=8 ok=True wall=3s
+  5/68 key=7 ok=True wall=3s
+  6/68 key=3 ok=True wall=5s
+  7/68 key=6 ok=True wall=5s
+  8/68 key=1 ok=True wall=5s
+  9/68 key=9 ok=True wall=6s
+  10/68 key=5 ok=True wall=6s
+  11/68 key=13 ok=True wall=3s
+  12/68 key=12 ok=True wall=3s
+  13/68 key=0 ok=True wall=7s
+  14/68 key=16 ok=True wall=3s
+  15/68 key=18 ok=True wall=3s
+  16/68 key=15 ok=True wall=5s
+  17/68 key=21 ok=True wall=4s
+  18/68 key=11 ok=True wall=9s
+  19/68 key=20 ok=True wall=6s
+  20/68 key=27 ok=True wall=1s
+  21/68 key=19 ok=True wall=6s
+  22/68 key=17 ok=True wall=7s
+  23/68 key=25 ok=True wall=3s
+  24/68 key=29 ok=True wall=2s
+  25/68 key=32 ok=True wall=2s
+  26/68 key=26 ok=True wall=5s
+  27/68 key=24 ok=True wall=7s
+  28/68 key=23 ok=True wall=8s
+  29/68 key=22 ok=True wall=9s
+  30/68 key=14 ok=True wall=13s
+  31/68 key=36 ok=True wall=2s
+  32/68 key=28 ok=True wall=7s
+  33/68 key=33 ok=True wall=5s
+  34/68 key=38 ok=True wall=3s
+  35/68 key=37 ok=True wall=3s
+  36/68 key=35 ok=True wall=4s
+  37/68 key=30 ok=True wall=7s
+  38/68 key=34 ok=True wall=5s
+  39/68 key=47 ok=False wall=0s
+  40/68 key=43 ok=True wall=2s
+  41/68 key=42 ok=True wall=2s
+  42/68 key=44 ok=True wall=2s
+  43/68 key=48 ok=True wall=2s
+  44/68 key=41 ok=True wall=4s
+  45/68 key=49 ok=True wall=1s
+  46/68 key=40 ok=True wall=6s
+  47/68 key=39 ok=True wall=7s
+  48/68 key=54 ok=True wall=1s
+  49/68 key=55 ok=True wall=1s
+  50/68 key=53 ok=True wall=3s
+  51/68 key=45 ok=True wall=6s
+  52/68 key=31 ok=True wall=14s
+  53/68 key=59 ok=True wall=2s
+  54/68 key=56 ok=True wall=4s
+  55/68 key=51 ok=True wall=6s
+  56/68 key=62 ok=True wall=1s
+  57/68 key=46 ok=True wall=9s
+  58/68 key=58 ok=True wall=5s
+  59/68 key=65 ok=True wall=1s
+  60/68 key=57 ok=True wall=6s
+  61/68 key=60 ok=True wall=5s
+  62/68 key=50 ok=True wall=9s
+  63/68 key=61 ok=True wall=4s
+  64/68 key=64 ok=True wall=3s
+  65/68 key=66 ok=True wall=2s
+  66/68 key=63 ok=True wall=3s
+  67/68 key=52 ok=True wall=9s
+  68/68 key=67 ok=True wall=4s
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2168.696505 GeV vs on-shell E=2168.115320 GeV (rel diff 2.68e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2304.687624 GeV vs on-shell E=2304.277494 GeV (rel diff 1.78e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2002.217808 GeV vs on-shell E=2001.745707 GeV (rel diff 2.36e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2010.252174 GeV vs on-shell E=2009.781961 GeV (rel diff 2.34e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1900.885885 GeV vs on-shell E=1900.222791 GeV (rel diff 3.49e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2032.950812 GeV vs on-shell E=2032.330808 GeV (rel diff 3.05e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2041.110076 GeV vs on-shell E=2040.646973 GeV (rel diff 2.27e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1841.915454 GeV vs on-shell E=1841.402255 GeV (rel diff 2.79e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1926.031160 GeV vs on-shell E=1925.540380 GeV (rel diff 2.55e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2380.619144 GeV vs on-shell E=2380.222098 GeV (rel diff 1.67e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2004.942240 GeV vs on-shell E=2004.470781 GeV (rel diff 2.35e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2040.964690 GeV vs on-shell E=2040.501553 GeV (rel diff 2.27e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2199.552804 GeV vs on-shell E=2199.123066 GeV (rel diff 1.95e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2358.831321 GeV vs on-shell E=2358.430606 GeV (rel diff 1.70e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2322.584569 GeV vs on-shell E=2322.177599 GeV (rel diff 1.75e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2154.930474 GeV vs on-shell E=2154.220190 GeV (rel diff 3.30e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2067.271653 GeV vs on-shell E=2066.814412 GeV (rel diff 2.21e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2077.693749 GeV vs on-shell E=2076.756478 GeV (rel diff 4.51e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2127.916035 GeV vs on-shell E=2127.471828 GeV (rel diff 2.09e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=3130.014551 GeV vs on-shell E=3129.712577 GeV (rel diff 9.65e-05 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1897.635751 GeV vs on-shell E=1897.137625 GeV (rel diff 2.63e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2049.442234 GeV vs on-shell E=2048.981014 GeV (rel diff 2.25e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1919.346034 GeV vs on-shell E=1918.853544 GeV (rel diff 2.57e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2946.836761 GeV vs on-shell E=2946.409070 GeV (rel diff 1.45e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1950.392192 GeV vs on-shell E=1949.745936 GeV (rel diff 3.31e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2367.131318 GeV vs on-shell E=2366.732009 GeV (rel diff 1.69e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2249.567557 GeV vs on-shell E=2249.007271 GeV (rel diff 2.49e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2145.943585 GeV vs on-shell E=2145.230326 GeV (rel diff 3.32e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1860.902391 GeV vs on-shell E=1860.394429 GeV (rel diff 2.73e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1999.311947 GeV vs on-shell E=1998.839159 GeV (rel diff 2.37e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2283.236926 GeV vs on-shell E=2282.822942 GeV (rel diff 1.81e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2564.992719 GeV vs on-shell E=2564.624216 GeV (rel diff 1.44e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1920.319171 GeV vs on-shell E=1919.826930 GeV (rel diff 2.56e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2150.999137 GeV vs on-shell E=2150.559697 GeV (rel diff 2.04e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2261.414106 GeV vs on-shell E=2260.737277 GeV (rel diff 2.99e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2490.138257 GeV vs on-shell E=2489.758676 GeV (rel diff 1.52e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1901.151488 GeV vs on-shell E=1900.180499 GeV (rel diff 5.11e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1905.180095 GeV vs on-shell E=1904.518497 GeV (rel diff 3.47e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2545.180407 GeV vs on-shell E=2544.809036 GeV (rel diff 1.46e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1955.733832 GeV vs on-shell E=1955.250507 GeV (rel diff 2.47e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2555.569875 GeV vs on-shell E=2555.200014 GeV (rel diff 1.45e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1918.883632 GeV vs on-shell E=1918.226760 GeV (rel diff 3.42e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2036.328642 GeV vs on-shell E=2035.709667 GeV (rel diff 3.04e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2220.291179 GeV vs on-shell E=2219.865456 GeV (rel diff 1.92e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2419.206082 GeV vs on-shell E=2418.815369 GeV (rel diff 1.62e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2494.913812 GeV vs on-shell E=2494.534958 GeV (rel diff 1.52e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1939.902938 GeV vs on-shell E=1939.113892 GeV (rel diff 4.07e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1853.284073 GeV vs on-shell E=1852.774022 GeV (rel diff 2.75e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2294.615602 GeV vs on-shell E=2294.203671 GeV (rel diff 1.80e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2019.668217 GeV vs on-shell E=2019.200196 GeV (rel diff 2.32e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1945.951100 GeV vs on-shell E=1945.465345 GeV (rel diff 2.50e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1866.127090 GeV vs on-shell E=1865.620551 GeV (rel diff 2.72e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1947.540823 GeV vs on-shell E=1946.487270 GeV (rel diff 5.41e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1808.245436 GeV vs on-shell E=1806.544626 GeV (rel diff 9.41e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2184.667310 GeV vs on-shell E=2183.966697 GeV (rel diff 3.21e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2322.811414 GeV vs on-shell E=2322.268799 GeV (rel diff 2.34e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2095.652392 GeV vs on-shell E=2095.201344 GeV (rel diff 2.15e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2140.612477 GeV vs on-shell E=2140.170905 GeV (rel diff 2.06e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1839.471065 GeV vs on-shell E=1838.957184 GeV (rel diff 2.79e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2606.913564 GeV vs on-shell E=2606.326458 GeV (rel diff 2.25e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2273.563108 GeV vs on-shell E=2273.008737 GeV (rel diff 2.44e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2810.039162 GeV vs on-shell E=2809.702799 GeV (rel diff 1.20e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1956.444545 GeV vs on-shell E=1955.961396 GeV (rel diff 2.47e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1895.309729 GeV vs on-shell E=1894.810991 GeV (rel diff 2.63e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2434.292345 GeV vs on-shell E=2433.774585 GeV (rel diff 2.13e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2174.916068 GeV vs on-shell E=2174.336545 GeV (rel diff 2.67e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2300.017078 GeV vs on-shell E=2299.351612 GeV (rel diff 2.89e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2073.319417 GeV vs on-shell E=2072.863510 GeV (rel diff 2.20e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2005.925180 GeV vs on-shell E=2005.296821 GeV (rel diff 3.13e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=3326.348245 GeV vs on-shell E=3326.064096 GeV (rel diff 8.54e-05 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1886.905189 GeV vs on-shell E=1886.404229 GeV (rel diff 2.66e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1991.433353 GeV vs on-shell E=1990.958694 GeV (rel diff 2.38e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1902.069993 GeV vs on-shell E=1901.573029 GeV (rel diff 2.61e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2100.379527 GeV vs on-shell E=2099.929494 GeV (rel diff 2.14e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2010.617382 GeV vs on-shell E=2010.058000 GeV (rel diff 2.78e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=3295.291988 GeV vs on-shell E=3294.909528 GeV (rel diff 1.16e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2097.289195 GeV vs on-shell E=2096.838499 GeV (rel diff 2.15e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2181.009910 GeV vs on-shell E=2180.576518 GeV (rel diff 1.99e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=3310.116056 GeV vs on-shell E=3309.830513 GeV (rel diff 8.63e-05 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2217.638046 GeV vs on-shell E=2217.211814 GeV (rel diff 1.92e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2297.959153 GeV vs on-shell E=2297.547822 GeV (rel diff 1.79e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2027.429416 GeV vs on-shell E=2026.963187 GeV (rel diff 2.30e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1897.824398 GeV vs on-shell E=1897.160234 GeV (rel diff 3.50e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1910.453525 GeV vs on-shell E=1909.958741 GeV (rel diff 2.59e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1863.257212 GeV vs on-shell E=1862.580723 GeV (rel diff 3.63e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2524.788673 GeV vs on-shell E=2524.414301 GeV (rel diff 1.48e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1988.368597 GeV vs on-shell E=1987.734688 GeV (rel diff 3.19e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1970.340263 GeV vs on-shell E=1969.860522 GeV (rel diff 2.44e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2074.190752 GeV vs on-shell E=2073.735036 GeV (rel diff 2.20e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2428.280631 GeV vs on-shell E=2427.891378 GeV (rel diff 1.60e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2076.656642 GeV vs on-shell E=2075.767751 GeV (rel diff 4.28e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1921.500264 GeV vs on-shell E=1921.008326 GeV (rel diff 2.56e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2228.639742 GeV vs on-shell E=2228.215614 GeV (rel diff 1.90e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1859.123799 GeV vs on-shell E=1858.615352 GeV (rel diff 2.74e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2544.216077 GeV vs on-shell E=2543.844565 GeV (rel diff 1.46e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2435.043072 GeV vs on-shell E=2434.654901 GeV (rel diff 1.59e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2218.016002 GeV vs on-shell E=2217.447743 GeV (rel diff 2.56e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1809.298257 GeV vs on-shell E=1808.775803 GeV (rel diff 2.89e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2396.554635 GeV vs on-shell E=2395.915983 GeV (rel diff 2.67e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2513.530043 GeV vs on-shell E=2513.153995 GeV (rel diff 1.50e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2704.029657 GeV vs on-shell E=2703.463642 GeV (rel diff 2.09e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2561.388585 GeV vs on-shell E=2561.019564 GeV (rel diff 1.44e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1953.699636 GeV vs on-shell E=1953.215808 GeV (rel diff 2.48e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1976.621047 GeV vs on-shell E=1976.142830 GeV (rel diff 2.42e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1867.354291 GeV vs on-shell E=1866.848085 GeV (rel diff 2.71e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2390.458259 GeV vs on-shell E=2390.062847 GeV (rel diff 1.65e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1928.032299 GeV vs on-shell E=1927.542029 GeV (rel diff 2.54e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1913.212659 GeV vs on-shell E=1912.718590 GeV (rel diff 2.58e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2894.451811 GeV vs on-shell E=2894.125258 GeV (rel diff 1.13e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2130.797598 GeV vs on-shell E=2130.353991 GeV (rel diff 2.08e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2062.596676 GeV vs on-shell E=2062.138398 GeV (rel diff 2.22e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1955.745976 GeV vs on-shell E=1955.262654 GeV (rel diff 2.47e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1954.307229 GeV vs on-shell E=1953.823552 GeV (rel diff 2.48e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=3355.126225 GeV vs on-shell E=3354.844513 GeV (rel diff 8.40e-05 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2087.557983 GeV vs on-shell E=2087.105186 GeV (rel diff 2.17e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2635.314198 GeV vs on-shell E=2634.955530 GeV (rel diff 1.36e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2209.701395 GeV vs on-shell E=2209.273631 GeV (rel diff 1.94e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2309.349419 GeV vs on-shell E=2308.940117 GeV (rel diff 1.77e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1879.087822 GeV vs on-shell E=1878.584778 GeV (rel diff 2.68e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2143.046643 GeV vs on-shell E=2142.605572 GeV (rel diff 2.06e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2296.573289 GeV vs on-shell E=2296.161709 GeV (rel diff 1.79e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1902.376347 GeV vs on-shell E=1901.879463 GeV (rel diff 2.61e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1959.774240 GeV vs on-shell E=1959.291911 GeV (rel diff 2.46e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2141.995387 GeV vs on-shell E=2141.554100 GeV (rel diff 2.06e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2127.552052 GeV vs on-shell E=2127.204845 GeV (rel diff 1.63e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=3511.403060 GeV vs on-shell E=3511.133887 GeV (rel diff 7.67e-05 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2006.301804 GeV vs on-shell E=2005.830664 GeV (rel diff 2.35e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2226.789294 GeV vs on-shell E=2226.364813 GeV (rel diff 1.91e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2726.152210 GeV vs on-shell E=2725.805495 GeV (rel diff 1.27e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1928.237858 GeV vs on-shell E=1927.747640 GeV (rel diff 2.54e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2379.806711 GeV vs on-shell E=2379.409529 GeV (rel diff 1.67e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2716.070243 GeV vs on-shell E=2715.722241 GeV (rel diff 1.28e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2734.863814 GeV vs on-shell E=2734.518204 GeV (rel diff 1.26e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2027.834149 GeV vs on-shell E=2027.368013 GeV (rel diff 2.30e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2180.545735 GeV vs on-shell E=2179.967709 GeV (rel diff 2.65e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1970.067002 GeV vs on-shell E=1969.587194 GeV (rel diff 2.44e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+{
+  "A_project_baseline": 25,
+  "A0_baseline_no_vertex_smear": 29,
+  "B_finite_barrel_nominal": 22,
+  "B2_finite_barrel_sct80": 22,
+  "B0_finite_barrel_nominal_no_vertex_smear": 21,
+  "C_eta1p8_and_finite_barrel": 19,
+  "D_eta1p5_crossing": 16,
+  "E_geometric_only_no_timing_eta1p8": 28,
+  "N_trigger": 68,
+  "baseline_agreement": "68/68",
+  "project_truth_fiducial": 25,
+  "technical_exceptions": 2,
+  "mean_wall_s": 4.637715057363631
+}

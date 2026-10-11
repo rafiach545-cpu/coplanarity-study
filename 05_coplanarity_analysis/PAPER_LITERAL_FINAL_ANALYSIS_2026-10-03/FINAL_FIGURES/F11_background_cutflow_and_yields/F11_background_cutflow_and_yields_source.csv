@@ -1,0 +1,57 @@
+background,config,stage,k,n,frac,cp95_upper,table,sigma_choice,eff_D_k,eff_D_n,N_300fb-1,N_300fb-1_cp95_upper
+pile-up μ=50,"LITERAL (B, SCT 34/1160 um, merging)",Sec. III C plane,109.0,5000.0,0.0218,0.0255119315352219,cutflow,,,,,
+pile-up μ=50,"LITERAL (B, SCT 34/1160 um, merging)",hit multiplicity 7x2+1,0.0,5000.0,0.0,0.0005989670023149,cutflow,,,,,
+pile-up μ=50,"LITERAL (B, SCT 34/1160 um, merging)",dw < 1 cm,0.0,5000.0,0.0,0.0005989670023149,cutflow,,,,,
+pile-up μ=50,"LITERAL (B, SCT 34/1160 um, merging)",final,0.0,5000.0,0.0,0.0005989670023149,cutflow,,,,,
+pile-up μ=50,"FROZEN project sweep (eta-cone |eta|<1.8, SCT 34/1160 um, no pixel merging)",Sec. III C plane,172.0,5000.0,0.0344,0.038946471152549,cutflow,,,,,
+pile-up μ=50,"FROZEN project sweep (eta-cone |eta|<1.8, SCT 34/1160 um, no pixel merging)",hit multiplicity 7x2+1,0.0,5000.0,0.0,0.0005989670023149,cutflow,,,,,
+pile-up μ=50,"FROZEN project sweep (eta-cone |eta|<1.8, SCT 34/1160 um, no pixel merging)",dw < 1 cm,0.0,5000.0,0.0,0.0005989670023149,cutflow,,,,,
+pile-up μ=50,"FROZEN project sweep (eta-cone |eta|<1.8, SCT 34/1160 um, no pixel merging)",final,0.0,5000.0,0.0,0.0005989670023149,cutflow,,,,,
+converted photon,"FROZEN_v4 (eta-cone |eta|<1.8, SCT 34/1160 um, conv-point origin, sequential rng 99)",Sec. III C plane,2982.0,9139.0,0.3262939052412736,0.334455914166836,cutflow,,,,,
+converted photon,"FROZEN_v4 (eta-cone |eta|<1.8, SCT 34/1160 um, conv-point origin, sequential rng 99)",hit multiplicity 7x2+1,4.0,9139.0,0.0004376846482109,0.0010013063149872,cutflow,,,,,
+converted photon,"FROZEN_v4 (eta-cone |eta|<1.8, SCT 34/1160 um, conv-point origin, sequential rng 99)",dw < 1 cm,4.0,9139.0,0.0004376846482109,0.0010013063149872,cutflow,,,,,
+converted photon,"FROZEN_v4 (eta-cone |eta|<1.8, SCT 34/1160 um, conv-point origin, sequential rng 99)",final,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,"LITERAL (finite barrel, SCT 34/1160 um, PV origin, pile-up helix)",Sec. III C plane,1746.0,9139.0,0.1910493489440858,0.1979406994497725,cutflow,,,,,
+converted photon,"LITERAL (finite barrel, SCT 34/1160 um, PV origin, pile-up helix)",hit multiplicity 7x2+1,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,"LITERAL (finite barrel, SCT 34/1160 um, PV origin, pile-up helix)",dw < 1 cm,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,"LITERAL (finite barrel, SCT 34/1160 um, PV origin, pile-up helix)",final,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,SYS_CONVPT (fit origin = conversion point),Sec. III C plane,1746.0,9139.0,0.1910493489440858,0.1979406994497725,cutflow,,,,,
+converted photon,SYS_CONVPT (fit origin = conversion point),hit multiplicity 7x2+1,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,SYS_CONVPT (fit origin = conversion point),dw < 1 cm,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,SYS_CONVPT (fit origin = conversion point),final,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,"SYS_Z0 (SCT z not smeared; calibrated, NOT literal)",Sec. III C plane,4323.0,9139.0,0.4730276835539993,0.4816783029685888,cutflow,,,,,
+converted photon,"SYS_Z0 (SCT z not smeared; calibrated, NOT literal)",hit multiplicity 7x2+1,22.0,9139.0,0.0024072655651603,0.003435674062911,cutflow,,,,,
+converted photon,"SYS_Z0 (SCT z not smeared; calibrated, NOT literal)",dw < 1 cm,22.0,9139.0,0.0024072655651603,0.003435674062911,cutflow,,,,,
+converted photon,"SYS_Z0 (SCT z not smeared; calibrated, NOT literal)",final,22.0,9139.0,0.0024072655651603,0.003435674062911,cutflow,,,,,
+converted photon,SYS_ETA (eta-cone acceptance),Sec. III C plane,3005.0,9139.0,0.3288105919684867,0.336987914177305,cutflow,,,,,
+converted photon,SYS_ETA (eta-cone acceptance),hit multiplicity 7x2+1,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,SYS_ETA (eta-cone acceptance),dw < 1 cm,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon,SYS_ETA (eta-cone acceptance),final,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+conversion + pile-up,FROZEN overlay v1 (all 9139),Sec. III C plane,3276.0,9139.0,0.3584637268847795,0.3668020853609159,cutflow,,,,,
+conversion + pile-up,FROZEN overlay v1 (all 9139),hit multiplicity 7x2+1,203.0,9139.0,0.0222124958967064,0.0249189087260144,cutflow,,,,,
+conversion + pile-up,FROZEN overlay v1 (all 9139),dw < 1 cm,203.0,9139.0,0.0222124958967064,0.0249189087260144,cutflow,,,,,
+conversion + pile-up,FROZEN overlay v1 (all 9139),final,1.0,9139.0,0.0001094211620527,0.0005189728578815,cutflow,,,,,
+conversion + pile-up,"LITERAL overlay (finite barrel, SCT 34/1160 um, mu=50)",Sec. III C plane,1990.0,9139.0,0.2177481124849546,0.2249700611505045,cutflow,,,,,
+conversion + pile-up,"LITERAL overlay (finite barrel, SCT 34/1160 um, mu=50)",hit multiplicity 7x2+1,48.0,9139.0,0.0052522157785315,0.0066758102527352,cutflow,,,,,
+conversion + pile-up,"LITERAL overlay (finite barrel, SCT 34/1160 um, mu=50)",dw < 1 cm,48.0,9139.0,0.0052522157785315,0.0066758102527352,cutflow,,,,,
+conversion + pile-up,"LITERAL overlay (finite barrel, SCT 34/1160 um, mu=50)",final,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+conversion + pile-up,"SYS_CONVPT overlay (finite barrel, SCT 34/1160 um, mu=50)",Sec. III C plane,1969.0,9139.0,0.215450268081847,0.2226455675190027,cutflow,,,,,
+conversion + pile-up,"SYS_CONVPT overlay (finite barrel, SCT 34/1160 um, mu=50)",hit multiplicity 7x2+1,50.0,9139.0,0.005471058102637,0.0069199070333519,cutflow,,,,,
+conversion + pile-up,"SYS_CONVPT overlay (finite barrel, SCT 34/1160 um, mu=50)",dw < 1 cm,50.0,9139.0,0.005471058102637,0.0069199070333519,cutflow,,,,,
+conversion + pile-up,"SYS_CONVPT overlay (finite barrel, SCT 34/1160 um, mu=50)",final,0.0,9139.0,0.0,0.0003277427871661,cutflow,,,,,
+converted photon (no pile-up),"FROZEN_v4 (eta-cone |eta|<1.8, SCT 34/1160 um, conv-point origin, sequential rng 99)",,,,,,yield300,A project sigma_afterMET = 0.21116 pb,0.0,9139.0,0.0,0.2076162312083247
+converted photon (no pile-up),"FROZEN_v4 (eta-cone |eta|<1.8, SCT 34/1160 um, conv-point origin, sequential rng 99)",,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",0.0,9139.0,0.0,0.983228361498466
+converted photon (no pile-up),"LITERAL (finite barrel, SCT 34/1160 um, PV origin, pile-up helix)",,,,,,yield300,A project sigma_afterMET = 0.21116 pb,0.0,9139.0,0.0,0.2076162312083247
+converted photon (no pile-up),"LITERAL (finite barrel, SCT 34/1160 um, PV origin, pile-up helix)",,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",0.0,9139.0,0.0,0.983228361498466
+converted photon (no pile-up),SYS_CONVPT (fit origin = conversion point),,,,,,yield300,A project sigma_afterMET = 0.21116 pb,0.0,9139.0,0.0,0.2076162312083247
+converted photon (no pile-up),SYS_CONVPT (fit origin = conversion point),,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",0.0,9139.0,0.0,0.983228361498466
+converted photon (no pile-up),"SYS_Z0 (SCT z not smeared; calibrated, NOT literal)",,,,,,yield300,A project sigma_afterMET = 0.21116 pb,22.0,9139.0,1.52493792,2.1764070134674234
+converted photon (no pile-up),"SYS_Z0 (SCT z not smeared; calibrated, NOT literal)",,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",22.0,9139.0,7.221796695480906,10.307022188733104
+converted photon (no pile-up),SYS_ETA (eta-cone acceptance),,,,,,yield300,A project sigma_afterMET = 0.21116 pb,0.0,9139.0,0.0,0.2076162312083247
+converted photon (no pile-up),SYS_ETA (eta-cone acceptance),,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",0.0,9139.0,0.0,0.983228361498466
+converted photon + mu=50 pile-up,FROZEN overlay v1,,,,,,yield300,A project sigma_afterMET = 0.21116 pb,1.0,9139.0,0.06931536,0.3287553321445061
+converted photon + mu=50 pile-up,FROZEN overlay v1,,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",1.0,9139.0,0.328263486158223,1.556918573644573
+converted photon + mu=50 pile-up,LITERAL,,,,,,yield300,A project sigma_afterMET = 0.21116 pb,0.0,9139.0,0.0,0.2076162312083247
+converted photon + mu=50 pile-up,LITERAL,,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",0.0,9139.0,0.0,0.983228361498466
+converted photon + mu=50 pile-up,SYS_CONVPT,,,,,,yield300,A project sigma_afterMET = 0.21116 pb,0.0,9139.0,0.0,0.2076162312083247
+converted photon + mu=50 pile-up,SYS_CONVPT,,,,,,yield300,"B paper sigma ~ 1 pb (alternative, not a correction)",0.0,9139.0,0.0,0.983228361498466

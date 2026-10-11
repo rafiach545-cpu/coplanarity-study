@@ -1,0 +1,1 @@
+Pile-up only (μ = 50, 5000 events, literal detector): per-event rates with Wilson 95% intervals; when no event passes, the one-sided Clopper–Pearson 95% upper limit is drawn. Diamonds: rates quoted in the paper (Sec. IV).

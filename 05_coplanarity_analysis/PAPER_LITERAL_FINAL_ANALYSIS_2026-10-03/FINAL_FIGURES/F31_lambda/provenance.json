@@ -1,0 +1,14 @@
+{
+ "figure": "F31_lambda",
+ "source_csv": "F31_lambda_source.csv",
+ "source_csv_sha256": "d0e992417a2d4741debf7c2c54b0f553f3a5666be6f0307190050b74810fe967",
+ "plot_reads_only_source_csv": true,
+ "selection": "2000-event samples",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/lambda_scan_summary.csv": "4df6ccc85422b73532d248573d768cfa813ac9ebe87255abc8954d0c6a914550",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/lambda_scan_z1160_summary.csv": "4a3e539e9aca9721a7679da64f16a1278a745b8d90ef59c5613b9ba1be01d072"
+ },
+ "script": "F31_table_I_figs.py",
+ "script_sha256": "0b292b8d575da244ce1ab305fbdb29c3c7f869e1e33e8d01e2869085d7513201",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

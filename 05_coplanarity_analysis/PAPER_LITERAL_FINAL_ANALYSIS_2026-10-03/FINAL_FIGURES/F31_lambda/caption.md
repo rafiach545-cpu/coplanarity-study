@@ -1,0 +1,1 @@
+ε_reco vs the string tension Λ, the Λ column of the paper's Table I (2000-event samples). Filled: one hit per quirk per layer, with Wilson 95% intervals; open: every layer crossing within 25 ns, ≥ 2 hits per layer. Blue: SCT z 1.16 mm; orange: no SCT z smearing; black squares: paper.

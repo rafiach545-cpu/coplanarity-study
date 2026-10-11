@@ -1,0 +1,3 @@
+347 Counter({'NARRATIVE': 234, 'COMMENT': 65, 'PAPER-STATED': 46, 'PAPER-STATED || PAPER-STATED + REFERENCE-STATED': 1, 'PAPER-STATED + REFERENCE-STATED': 1}) Counter({'v2 body': 275, 'v2 TeX': 65, 'v1->v2 replace': 7})
+annotation patterns matched: 54 / 54
+UNMATCHED: []

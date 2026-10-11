@@ -1,0 +1,1 @@
+ε_reco of the same events for each SCT z treatment; left: paper-stated |η| < 1.8 acceptance (primary), right: finite barrel of Ref. [27] (inferred sensitivity). Beam spot: one common 45 mm shift per event, fit from the true vertex.

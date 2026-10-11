@@ -1,0 +1,24 @@
+{
+  "EW2000": {
+    "generated": 2000,
+    "matched": 1045,
+    "trigger": 186,
+    "fiducial": 94,
+    "fid_and_plane": 75,
+    "fid_and_final": 21,
+    "plane_any_trigger_STALE_DEFINITION": 84,
+    "plane_found_outside_fiducial": 9,
+    "technical_exceptions": 2
+  },
+  "EW1000": {
+    "generated": 1000,
+    "matched": 511,
+    "trigger": 89,
+    "fiducial": 40,
+    "fid_and_plane": 32,
+    "fid_and_final": 6,
+    "plane_any_trigger_STALE_DEFINITION": 32,
+    "plane_found_outside_fiducial": 0,
+    "plane_column_used": "seed_found (= >=1 candidate after seeding+iterative fit incl. final dw<1cm)"
+  }
+}

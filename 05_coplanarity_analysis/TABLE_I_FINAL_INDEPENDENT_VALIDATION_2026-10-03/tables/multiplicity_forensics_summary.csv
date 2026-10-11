@@ -1,0 +1,7 @@
+bench,sct,n_fid,n_plane,n_mult_fail,failing_layer_reasons,event_reason_combos,other_candidate_would_pass,near_threshold_events,truth_hits_pass_mult_among_fails
+EW,Z0,152,152,38,"{'growth_rule': 86, 'merged': 33}","{'growth_rule': 27, 'merged-only': 10, 'growth_rule+merged': 1}",0.0,0.0,38.0
+EW,Z1160,152,124,61,"{'window_n1': 163, 'growth_rule': 1, 'merged': 34}","{'window_n1': 48, 'growth_rule': 1, 'merged+window_n1': 3, 'merged-only': 9}",0.0,3.0,61.0
+EW,TRUTH hits (no quantisation/smearing/merging),152,152,0,{},,,,
+COL,Z0,41,34,13,"{'window_n2': 31, 'growth_rule': 14}","{'window_n2': 7, 'growth_rule': 5, 'growth_rule+window_n2': 1}",0.0,0.0,5.0
+COL,Z1160,41,24,14,"{'window_n1': 34, 'window_n2': 15}","{'window_n1': 9, 'window_n2': 1, 'window_n1+window_n2': 4}",0.0,0.0,9.0
+COL,TRUTH hits (no quantisation/smearing/merging),41,34,9,"{'window_n2': 31, 'growth_rule': 5}",,,,

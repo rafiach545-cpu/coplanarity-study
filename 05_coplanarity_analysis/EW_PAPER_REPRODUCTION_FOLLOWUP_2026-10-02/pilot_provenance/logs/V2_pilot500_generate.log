@@ -1,0 +1,88 @@
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.2.3.3               20xx-xx-xx         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/build/MG5_aMC_v2_3_3/input/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+generate_events pilot500 -f
+Generating 500 events with run name pilot500
+survey  pilot500 
+INFO: compile directory 
+[1;34mNot able to open file /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 24
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO:     P1_gq_qepqemq  
+INFO:     P1_qq_qepqemg  
+INFO:     P0_qq_qepqem  
+INFO:  Idle: 0,  Running: 1,  Completed: 4 [ current time: 21h13 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 5 [  0.47s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 5 [  0.47s  ] 
+INFO: End survey 
+refine 500
+Creating Jobs
+INFO: Refine results to 500 
+INFO: Generating 500.0 unweigthed events. 
+INFO: Effective Luminosity 1342720.07186 pb^-1 
+INFO: need to improve 2 channels 
+Current estimate of cross-section: 0.00044685412289 +- 7.38977010583e-06
+    P1_gq_qepqemq 
+    P1_qq_qepqemg 
+    P0_qq_qepqem 
+INFO:  Idle: 0,  Running: 2,  Completed: 0 [ current time: 21h13 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 2 [  2s  ] 
+INFO: Combining runs 
+INFO: finish refine 
+refine 500
+Creating Jobs
+INFO: Refine results to 500 
+INFO: Generating 500.0 unweigthed events. 
+INFO: Effective Luminosity 1331764.44707 pb^-1 
+INFO: need to improve 0 channels 
+Current estimate of cross-section: 0.00045053012289 +- 3.81464224233e-06
+    P1_gq_qepqemq 
+    P1_qq_qepqemg 
+    P0_qq_qepqem 
+INFO:  Idle: 0,  Running: 0,  Completed: 0 [ current time: 21h13 ] 
+INFO: Combining runs 
+INFO: finish refine 
+combine_events
+INFO: Combining Events 
+  === Results Summary for run: pilot500 tag: tag_1 ===
+
+     Cross-section :   0.0004505 +- 3.815e-06 pb
+     Nb of events :  500
+ 
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+quit
+INFO:  
+ 
+INFO:  
+ 
+launch in debug mode

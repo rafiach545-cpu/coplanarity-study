@@ -1,0 +1,1 @@
+Figure 5-style Δs (top) and Δw (bottom), current setup, unit area on the paper's log bins; dotted = paper's Fig. 5 (digitised, unit area). Vertical lines = signal-region cuts. Our Δw is √λ₂ (paper Eq. 11); the paper's plotted Δw appears to be ½√λ₂.

@@ -1,0 +1,1 @@
+One SCT z resolution cannot give both: the signal efficiency matches the paper only without SCT z smearing (left); the conversion background matches the paper only with 580 µm (right). Left: Ref. [27] lengths, Wilson 95%. Right: conversion + μ = 50 pile-up, cited detector model, 300 fb⁻¹ with the paper's σ.

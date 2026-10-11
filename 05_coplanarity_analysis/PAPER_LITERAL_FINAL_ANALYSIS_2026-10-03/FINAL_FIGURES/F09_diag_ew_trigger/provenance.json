@@ -1,0 +1,14 @@
+{
+ "figure": "F09_diag_ew_trigger",
+ "source_csv": "F09_diag_ew_trigger_source.csv",
+ "source_csv_sha256": "fa0e0c73bbd9844a937b75c4a5e1021655ed7ec7d6c76ca58c47d4585648c95f",
+ "plot_reads_only_source_csv": true,
+ "selection": "all rows of both source tables",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../../PAPER_TABLE_I_REPRODUCTION_FORENSICS_2026-10-02/tables/trigger_screen_results.csv": "84931a08f684e15256e041fcbab3dcd7afe39fb3980ef7ca516c7f6d209d3830",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../../EW_PAPER_REPRODUCTION_FOLLOWUP_2026-10-02/tables/version_pilot_variants.csv": "2f12941935ddcfaff013d39e03cbce9b7fe829cdbef2c89e5c1376cd93d10052"
+ },
+ "script": "F09_diag_trigger.py",
+ "script_sha256": "3413a7a16ca6e0d13db213fcb679a652199c99ec64153bb22bf82cdc941e7bd6",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

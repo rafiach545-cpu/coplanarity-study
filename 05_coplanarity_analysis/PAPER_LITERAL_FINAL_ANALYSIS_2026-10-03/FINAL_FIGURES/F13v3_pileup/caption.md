@@ -1,0 +1,1 @@
+Pile-up only (μ = 50, 5000 events; |η| < 1.8, SCT 34 µm / 1.16 mm, pixel merging): per-event rates with Wilson 95% intervals, or the one-sided 95% upper limit when no event passes. Diamonds: the paper's approximate rates.

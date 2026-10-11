@@ -1,0 +1,1 @@
+Signal Δs before the last cut (plane + hit multiplicity), paper-stated |η| < 1.8 acceptance, unit area on the paper's log bins, for the inferred SCT z 1160 µm and the undocumented no-smearing treatment, vs the paper's digitised Fig. 5.

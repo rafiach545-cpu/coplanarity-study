@@ -1,0 +1,1 @@
+Rotation Δφ of the plane spanned by the quirk pair (normal along r_rel × p_rel) versus centre-of-mass transverse radius, for one real colored event (1800 GeV, 2 keV) and one real EW event at its Table I Λ = 4 keV and replayed at Λ = 2 keV (the paper's Fig. 3 EW label). Paper Fig. 3 analogue; single events, not distributions.

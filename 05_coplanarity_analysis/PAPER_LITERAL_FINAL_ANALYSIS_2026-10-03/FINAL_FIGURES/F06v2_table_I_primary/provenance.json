@@ -1,0 +1,13 @@
+{
+ "figure": "F06v2_table_I_primary",
+ "source_csv": "F06v2_table_I_primary_source.csv",
+ "source_csv_sha256": "4f445a00e6218da62e15a9f262789756207f6d7d2ec51aef8528feb5823685dd",
+ "plot_reads_only_source_csv": true,
+ "selection": "acceptance A, beam spot CV",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/v2_primary_table_I.csv": "7693debc2dd67908cde6e1f4c160d4d2ccc8d12c4867df67d8dfdcbd88d9d50e"
+ },
+ "script": "F_v2_figures.py",
+ "script_sha256": "ff2ede66797ee3ad5a4db2088af50a392102019df25426b968cb30d9db62a41c",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

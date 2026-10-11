@@ -1,0 +1,5 @@
+component,layer_names,cumulative_X0_eta_lt_0p5,n_layers,per_layer_X0_normal_incidence,status,source
+beam_pipe,,0.0019,1,0.0019,DERIVED,"Ref. [27] = ATL-PHYS-PUB-2009-002 (public version of ATL-COM-PHYS-2008-105, cited by arXiv:1612.00850 as Andreazza:2009zz), arXiv:0901.0512 p. 43 Fig. 3 left, vector-digitised, mean over 0<|eta|<0.5"
+pixel,L2_PixelB0 L3_PixelB1 L4_PixelB2,0.1163,3,0.0373,DERIVED (equal split per layer INFERRED),"same figure; per layer = cumulative / mean cosh(eta) (1.04) / 3; includes services inside the pixel active volume"
+sct,L5_SCT_B3 L6_SCT_B4 L7_SCT_B5 L8_SCT_B6,0.1366,4,0.0329,DERIVED (equal split per layer INFERRED),"same figure; per layer = cumulative / 1.04 / 4"
+ibl,L1_IBL,,1,0.0373,INFERRED,"IBL did not exist in the 2009 reference; pixel per-layer value used"

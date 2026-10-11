@@ -1,0 +1,9 @@
+layer,name,radius_cm,half_length_cm,source,eta_edge_vertex_at_0,eta_edge_vertex_at_plus2sigma,project_cone_equivalent_half_length_cm,project_implementation,binding_constraint_if_both,cone_vs_barrel
+1,IBL,3.325,33.015,arXiv:1803.00844 (active |z| 330.15 mm),2.9911656358469467,2.6751145083788437,9.782729507918136,infinite cylinder + per-hit |eta_origin|<1.8,eta<1.8 cone,cone TIGHTER than barrel
+2,Pixel B-layer,5.05,40.05,JINST 3 S08003 Table 1.2,2.767838941497102,2.5159061109977956,14.857980154883183,infinite cylinder + per-hit |eta_origin|<1.8,eta<1.8 cone,cone TIGHTER than barrel
+3,Pixel L1,8.85,40.05,JINST 3 S08003 Table 1.2,2.2148480950697893,1.96804601467097,26.038242449646766,infinite cylinder + per-hit |eta_origin|<1.8,eta<1.8 cone,cone TIGHTER than barrel
+4,Pixel L2,12.25,40.05,JINST 3 S08003 Table 1.2,1.900358317712843,1.6600396162522195,36.04163502917208,infinite cylinder + per-hit |eta_origin|<1.8,eta<1.8 cone,cone TIGHTER than barrel
+5,SCT B3,29.9,74.9,JINST 3 S08003 Table 1.2,1.6490927004597022,1.5313199883936528,87.97101121406082,infinite cylinder + per-hit |eta_origin|<1.8,finite z,cone LOOSER than barrel
+6,SCT B4,37.1,74.9,JINST 3 S08003 Table 1.2,1.4520417656834452,1.3388631184216435,109.15466608834973,infinite cylinder + per-hit |eta_origin|<1.8,finite z,cone LOOSER than barrel
+7,SCT B5,44.3,74.9,JINST 3 S08003 Table 1.2,1.2961184045623202,1.187856630306077,130.33832096263862,infinite cylinder + per-hit |eta_origin|<1.8,finite z,cone LOOSER than barrel
+8,SCT B6,51.4,74.9,JINST 3 S08003 Table 1.2,1.170784261660912,1.0674905570461246,151.22775840811795,infinite cylinder + per-hit |eta_origin|<1.8,finite z,cone LOOSER than barrel

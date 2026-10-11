@@ -1,0 +1,62 @@
+sample                                  step  n_pass  n_fid  frac_of_fid  lost_here                                                                                               lost_event_ids
+EW1000                              fiducial      40     40     1.000000          0                                                                                                             
+EW1000 raw_candidate_exists (n_candidates>0)      32     40     0.800000          8                                                                                72 90 136 198 248 280 373 417
+EW1000 plane_found (Sec IIIC selected, dw<1)      32     40     0.800000          0                                                                                                             
+EW1000                      hit_multiplicity      16     40     0.400000         16                                                   3 13 15 84 149 186 208 279 320 339 341 355 368 386 405 500
+EW1000                        delta_w < 1 cm      16     40     0.400000          0                                                                                                             
+EW1000                     delta_s < 0.01 cm       6     40     0.150000         10                                                                        32 61 110 121 182 256 266 340 394 499
+EW1000             final_SecIV (stored flag)       6     40     0.150000          0                                                                                                             
+EW2000                              fiducial      94     94     1.000000          0                                                                                                             
+EW2000 raw_candidate_exists (n_candidates>0)      75     94     0.797872         19                                   37 79 133 214 284 290 371 373 456 496 528 598 627 671 849 923 925 932 1029
+EW2000 plane_found (Sec IIIC selected, dw<1)      75     94     0.797872          0                                                                                                             
+EW2000                      hit_multiplicity      48     94     0.510638         27   40 219 276 328 337 376 383 384 424 469 511 558 564 619 634 638 714 740 745 747 787 808 839 880 908 945 997
+EW2000                        delta_w < 1 cm      48     94     0.510638          0                                                                                                             
+EW2000                     delta_s < 0.01 cm      21     94     0.223404         27 70 182 205 361 403 427 570 572 632 662 674 717 730 731 785 799 805 831 874 883 921 956 967 971 986 1000 1016
+EW2000             final_SecIV (stored flag)      21     94     0.223404          0                                                                                                             
+[
+  {
+    "sample": "EW1000",
+    "n_fid": 40,
+    "n_plane": 32,
+    "fail_ds_only": 10,
+    "fail_mult_only": 0,
+    "fail_both": 16,
+    "pass_all": 6,
+    "ds_pass_given_plane": 6,
+    "mult_pass_given_plane": 16,
+    "ids_fail_ds_only": "32 61 110 121 182 256 266 340 394 499",
+    "ids_fail_mult_only": "",
+    "ids_fail_both": "3 13 15 84 149 186 208 279 320 339 341 355 368 386 405 500",
+    "ds_quantiles_plane": [
+      0.00735675536049908,
+      0.01242195339733655,
+      0.0174217974472637,
+      0.0245946258850233,
+      0.028867876529376793
+    ],
+    "dw_max_plane": 0.3150814799713876
+  },
+  {
+    "sample": "EW2000",
+    "n_fid": 94,
+    "n_plane": 75,
+    "fail_ds_only": 27,
+    "fail_mult_only": 5,
+    "fail_both": 22,
+    "pass_all": 21,
+    "ds_pass_given_plane": 26,
+    "mult_pass_given_plane": 48,
+    "ids_fail_ds_only": "70 182 205 361 403 427 570 572 632 662 674 717 730 731 785 799 805 831 874 883 921 956 967 971 986 1000 1016",
+    "ids_fail_mult_only": "328 376 469 839 880",
+    "ids_fail_both": "40 219 276 337 383 384 424 511 558 564 619 634 638 714 740 745 747 787 808 908 945 997",
+    "ds_quantiles_plane": [
+      0.0035332269811422998,
+      0.0076550412470444505,
+      0.0149428713570474,
+      0.023764975124341302,
+      0.030550853633524666
+    ],
+    "dw_max_plane": 0.4219922687926846
+  }
+]
+{'EW1000_seed_found_vs_selected_plane_among_fid': {'seed_found': 32, 'selected_plane': 32}}

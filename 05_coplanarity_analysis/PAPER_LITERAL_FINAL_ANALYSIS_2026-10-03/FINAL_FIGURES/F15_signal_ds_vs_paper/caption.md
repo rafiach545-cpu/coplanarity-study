@@ -1,0 +1,1 @@
+Signal Δs before the final cut (plane + hit multiplicity), literal geometry, unit area on the paper's log bins. With the SCT z smearing the text implies (1.16 mm) our Δs sits well right of the paper's Fig. 5 (EW median 110 µm vs ~28 µm); without it, it moves close to the paper (44 µm) but not exactly onto it.

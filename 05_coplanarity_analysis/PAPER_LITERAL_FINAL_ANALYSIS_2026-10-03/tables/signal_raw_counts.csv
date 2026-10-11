@@ -1,0 +1,5 @@
+sample,generated,showered,matched,trigger,trigger_events_analysed,note
+COL1000,1000,1000,419,101,27,colored analysed events = trigger AND both R-hadrons non-zero charge
+COL2000,2000,2000,873,207,68,colored analysed events = trigger AND both R-hadrons non-zero charge
+EW1000,1000,1000,511,89,89,
+EW2000,2000,2000,1045,186,186,

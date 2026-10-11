@@ -1,0 +1,1 @@
+Table I efficiencies, 2000-event samples: points = this work with Wilson 95% intervals, dashes = paper. ε_reco for SCT z 1.16 mm (blue) and without SCT z smearing (orange). Numbers below the points: k/n.

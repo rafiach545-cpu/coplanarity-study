@@ -1,0 +1,31 @@
+[2026-10-04T10:14:43Z] start
+KEY pdlabel1 NOT FOUND
+FAILED C1_combo COL 9311 xqcut=60.0 pdlabel1=cteq6l1 pdlabel2=cteq6l1 scalefact=2.0
+[2026-10-04T10:15:25Z] attempt 1 stopped: colored run cards use the key 'pdlabel' (not pdlabel1/2); same setting cteq6l1; restarting all jobs
+[2026-10-04T10:15:25Z] start
+C1_combo COL:  9311 = iseed ! rnd seed (0=assigned automatically=default))
+C1_combo COL: #  Number of Events        :       2000
+C1_combo COL: #  Integrated weight (pb)  :       0.00033569913642000004
+C1_combo EW:  9301 = iseed ! rnd seed (0=assigned automatically=default))
+C1_combo EW: #  Number of Events        :       2000
+C1_combo EW: #  Integrated weight (pb)  :       0.00035071241576
+C5_0jet_combo COL:  9312 = iseed ! rnd seed (0=assigned automatically=default))
+C5_0jet_combo COL: #  Number of Events        :       2000
+C5_0jet_combo COL: #  Integrated weight (pb)  :       0.0002171589
+C5_0jet_combo EW:  9302 = iseed ! rnd seed (0=assigned automatically=default))
+C5_0jet_combo EW: #  Number of Events        :       2000
+C5_0jet_combo EW: #  Integrated weight (pb)  :       0.00023676
+[2026-10-04T10:16:28Z] generation done
+C1 EW DRIVER_SUMMARY lhe_events_read=1339 accepted=1339 next_false=0
+C1 COL DRIVER_SUMMARY lhe_events_read=1156 accepted=1156 next_false=0
+C2 EW DRIVER_SUMMARY lhe_events_read=1322 accepted=1322 next_false=0
+C2 COL DRIVER_SUMMARY lhe_events_read=1213 accepted=1213 next_false=0
+C3 EW DRIVER_SUMMARY lhe_events_read=1315 accepted=1315 next_false=0
+C3 COL DRIVER_SUMMARY lhe_events_read=1141 accepted=1141 next_false=0
+C4 EW DRIVER_SUMMARY lhe_events_read=1321 accepted=1321 next_false=0
+C4 COL DRIVER_SUMMARY lhe_events_read=1128 accepted=1128 next_false=0
+C5 EW DRIVER_SUMMARY lhe_events_read=2000 accepted=2000 next_false=0
+C5 COL DRIVER_SUMMARY lhe_events_read=2000 accepted=2000 next_false=0
+C6 EW DRIVER_SUMMARY lhe_events_read=2000 accepted=2000 next_false=0
+C6 COL DRIVER_SUMMARY lhe_events_read=2000 accepted=2000 next_false=0
+COMB_EXIT=0

@@ -1,0 +1,1 @@
+DIAGNOSTIC: ε_reco vs the SCT z resolution, same events and hits. Only geometry B with σ_z = 1160 µm is the literal result; the other points are systematic variants. σ_z = 0 is calibrated (not paper-stated). The paper's own Fig. 5 Δs is only consistent with σ_z ≲ 34 µm (UNRESOLVED_DIFFERENCES.md U2).

@@ -1,0 +1,33 @@
+bench                              stage                     definition   n  median  paper_fig5_median  ratio_to_paper   ks_D   ks_p
+   EW                           S0_truth              Eq11_sqrt_lambda2 134  0.1026             0.0485          2.1145 0.3904 0.0000
+   EW                           S0_truth paper_quoted_=0.5*sqrt_lambda2 134  0.0513             0.0485          1.0573 0.0596 0.7323
+   EW                         S1_hits_R0              Eq11_sqrt_lambda2 134  0.1107             0.0485          2.2826 0.4889 0.0000
+   EW                         S1_hits_R0 paper_quoted_=0.5*sqrt_lambda2 134  0.0554             0.0485          1.1413 0.1591 0.0023
+   EW                         S1_hits_R2              Eq11_sqrt_lambda2 134  0.1032             0.0485          2.1268 0.3828 0.0000
+   EW                         S1_hits_R2 paper_quoted_=0.5*sqrt_lambda2 134  0.0516             0.0485          1.0634 0.0547 0.8182
+   EW                       S2_merged_R0              Eq11_sqrt_lambda2 134  0.1119             0.0485          2.3055 0.4964 0.0000
+   EW                       S2_merged_R0 paper_quoted_=0.5*sqrt_lambda2 134  0.0559             0.0485          1.1528 0.1666 0.0012
+   EW                       S2_merged_R2              Eq11_sqrt_lambda2 134  0.1032             0.0485          2.1268 0.3828 0.0000
+   EW                       S2_merged_R2 paper_quoted_=0.5*sqrt_lambda2 134  0.0516             0.0485          1.0634 0.0596 0.7323
+   EW                     S3_selected_R0              Eq11_sqrt_lambda2 107  0.1016             0.0485          2.0935 0.4322 0.0000
+   EW                     S3_selected_R0 paper_quoted_=0.5*sqrt_lambda2 107  0.0508             0.0485          1.0468 0.0989 0.2464
+   EW                     S3_selected_R2              Eq11_sqrt_lambda2 133  0.1033             0.0485          2.1286 0.3904 0.0000
+   EW                     S3_selected_R2 paper_quoted_=0.5*sqrt_lambda2 133  0.0516             0.0485          1.0643 0.0646 0.6401
+   EW    amp_pred_cm (Eq.1/4, per quirk)                              - 134  0.2221             0.0485             NaN    NaN    NaN
+   EW S0_truth / amp_pred (median ratio)                              - 134  0.5901                NaN             NaN    NaN    NaN
+  COL                           S0_truth              Eq11_sqrt_lambda2  32  0.5195             0.0927          5.6049 0.5333 0.0004
+  COL                           S0_truth paper_quoted_=0.5*sqrt_lambda2  32  0.2598             0.0927          2.8025 0.3604 0.0066
+  COL                         S1_hits_R0              Eq11_sqrt_lambda2  32  0.5224             0.0927          5.6364 0.5909 0.0001
+  COL                         S1_hits_R0 paper_quoted_=0.5*sqrt_lambda2  32  0.2612             0.0927          2.8182 0.3604 0.0066
+  COL                         S1_hits_R2              Eq11_sqrt_lambda2  32  0.5198             0.0927          5.6083 0.5333 0.0004
+  COL                         S1_hits_R2 paper_quoted_=0.5*sqrt_lambda2  32  0.2599             0.0927          2.8042 0.3793 0.0027
+  COL                       S2_merged_R0              Eq11_sqrt_lambda2  32  0.5224             0.0927          5.6364 0.5909 0.0001
+  COL                       S2_merged_R0 paper_quoted_=0.5*sqrt_lambda2  32  0.2612             0.0927          2.8182 0.3604 0.0066
+  COL                       S2_merged_R2              Eq11_sqrt_lambda2  32  0.5198             0.0927          5.6083 0.5333 0.0004
+  COL                       S2_merged_R2 paper_quoted_=0.5*sqrt_lambda2  32  0.2599             0.0927          2.8042 0.3793 0.0027
+  COL                     S3_selected_R0              Eq11_sqrt_lambda2  17  0.4272             0.0927          4.6090 0.6432 0.0000
+  COL                     S3_selected_R0 paper_quoted_=0.5*sqrt_lambda2  17  0.2136             0.0927          2.3045 0.3869 0.0123
+  COL                     S3_selected_R2              Eq11_sqrt_lambda2  24  0.4352             0.0927          4.6951 0.5490 0.0001
+  COL                     S3_selected_R2 paper_quoted_=0.5*sqrt_lambda2  24  0.2176             0.0927          2.3476 0.3992 0.0010
+  COL    amp_pred_cm (Eq.1/4, per quirk)                              -  32  1.0392             0.0927             NaN    NaN    NaN
+  COL S0_truth / amp_pred (median ratio)                              -  32  0.5257                NaN             NaN    NaN    NaN

@@ -1,0 +1,385 @@
+sample,geometry,sct_z,dw_convention,stage,subset_of_previous,duplicates
+COL1000,A,Z0,W1,fiducial,True,0
+COL1000,A,Z0,W1,plane found,True,0
+COL1000,A,Z0,W1,hit multiplicity,True,0
+COL1000,A,Z0,W1,Delta_w < cut,True,0
+COL1000,A,Z0,W1,Delta_s < 0.01 cm,True,0
+COL1000,A,Z0,W1,final Sec. IV,True,0
+COL1000,A,Z0,W2,fiducial,True,0
+COL1000,A,Z0,W2,plane found,True,0
+COL1000,A,Z0,W2,hit multiplicity,True,0
+COL1000,A,Z0,W2,Delta_w < cut,True,0
+COL1000,A,Z0,W2,Delta_s < 0.01 cm,True,0
+COL1000,A,Z0,W2,final Sec. IV,True,0
+COL1000,A,Z1160,W1,fiducial,True,0
+COL1000,A,Z1160,W1,plane found,True,0
+COL1000,A,Z1160,W1,hit multiplicity,True,0
+COL1000,A,Z1160,W1,Delta_w < cut,True,0
+COL1000,A,Z1160,W1,Delta_s < 0.01 cm,True,0
+COL1000,A,Z1160,W1,final Sec. IV,True,0
+COL1000,A,Z1160,W2,fiducial,True,0
+COL1000,A,Z1160,W2,plane found,True,0
+COL1000,A,Z1160,W2,hit multiplicity,True,0
+COL1000,A,Z1160,W2,Delta_w < cut,True,0
+COL1000,A,Z1160,W2,Delta_s < 0.01 cm,True,0
+COL1000,A,Z1160,W2,final Sec. IV,True,0
+COL1000,A,Z34,W1,fiducial,True,0
+COL1000,A,Z34,W1,plane found,True,0
+COL1000,A,Z34,W1,hit multiplicity,True,0
+COL1000,A,Z34,W1,Delta_w < cut,True,0
+COL1000,A,Z34,W1,Delta_s < 0.01 cm,True,0
+COL1000,A,Z34,W1,final Sec. IV,True,0
+COL1000,A,Z34,W2,fiducial,True,0
+COL1000,A,Z34,W2,plane found,True,0
+COL1000,A,Z34,W2,hit multiplicity,True,0
+COL1000,A,Z34,W2,Delta_w < cut,True,0
+COL1000,A,Z34,W2,Delta_s < 0.01 cm,True,0
+COL1000,A,Z34,W2,final Sec. IV,True,0
+COL1000,A,Z580,W1,fiducial,True,0
+COL1000,A,Z580,W1,plane found,True,0
+COL1000,A,Z580,W1,hit multiplicity,True,0
+COL1000,A,Z580,W1,Delta_w < cut,True,0
+COL1000,A,Z580,W1,Delta_s < 0.01 cm,True,0
+COL1000,A,Z580,W1,final Sec. IV,True,0
+COL1000,A,Z580,W2,fiducial,True,0
+COL1000,A,Z580,W2,plane found,True,0
+COL1000,A,Z580,W2,hit multiplicity,True,0
+COL1000,A,Z580,W2,Delta_w < cut,True,0
+COL1000,A,Z580,W2,Delta_s < 0.01 cm,True,0
+COL1000,A,Z580,W2,final Sec. IV,True,0
+COL1000,B,Z0,W1,fiducial,True,0
+COL1000,B,Z0,W1,plane found,True,0
+COL1000,B,Z0,W1,hit multiplicity,True,0
+COL1000,B,Z0,W1,Delta_w < cut,True,0
+COL1000,B,Z0,W1,Delta_s < 0.01 cm,True,0
+COL1000,B,Z0,W1,final Sec. IV,True,0
+COL1000,B,Z0,W2,fiducial,True,0
+COL1000,B,Z0,W2,plane found,True,0
+COL1000,B,Z0,W2,hit multiplicity,True,0
+COL1000,B,Z0,W2,Delta_w < cut,True,0
+COL1000,B,Z0,W2,Delta_s < 0.01 cm,True,0
+COL1000,B,Z0,W2,final Sec. IV,True,0
+COL1000,B,Z1160,W1,fiducial,True,0
+COL1000,B,Z1160,W1,plane found,True,0
+COL1000,B,Z1160,W1,hit multiplicity,True,0
+COL1000,B,Z1160,W1,Delta_w < cut,True,0
+COL1000,B,Z1160,W1,Delta_s < 0.01 cm,True,0
+COL1000,B,Z1160,W1,final Sec. IV,True,0
+COL1000,B,Z1160,W2,fiducial,True,0
+COL1000,B,Z1160,W2,plane found,True,0
+COL1000,B,Z1160,W2,hit multiplicity,True,0
+COL1000,B,Z1160,W2,Delta_w < cut,True,0
+COL1000,B,Z1160,W2,Delta_s < 0.01 cm,True,0
+COL1000,B,Z1160,W2,final Sec. IV,True,0
+COL1000,B,Z34,W1,fiducial,True,0
+COL1000,B,Z34,W1,plane found,True,0
+COL1000,B,Z34,W1,hit multiplicity,True,0
+COL1000,B,Z34,W1,Delta_w < cut,True,0
+COL1000,B,Z34,W1,Delta_s < 0.01 cm,True,0
+COL1000,B,Z34,W1,final Sec. IV,True,0
+COL1000,B,Z34,W2,fiducial,True,0
+COL1000,B,Z34,W2,plane found,True,0
+COL1000,B,Z34,W2,hit multiplicity,True,0
+COL1000,B,Z34,W2,Delta_w < cut,True,0
+COL1000,B,Z34,W2,Delta_s < 0.01 cm,True,0
+COL1000,B,Z34,W2,final Sec. IV,True,0
+COL1000,B,Z580,W1,fiducial,True,0
+COL1000,B,Z580,W1,plane found,True,0
+COL1000,B,Z580,W1,hit multiplicity,True,0
+COL1000,B,Z580,W1,Delta_w < cut,True,0
+COL1000,B,Z580,W1,Delta_s < 0.01 cm,True,0
+COL1000,B,Z580,W1,final Sec. IV,True,0
+COL1000,B,Z580,W2,fiducial,True,0
+COL1000,B,Z580,W2,plane found,True,0
+COL1000,B,Z580,W2,hit multiplicity,True,0
+COL1000,B,Z580,W2,Delta_w < cut,True,0
+COL1000,B,Z580,W2,Delta_s < 0.01 cm,True,0
+COL1000,B,Z580,W2,final Sec. IV,True,0
+COL2000,A,Z0,W1,fiducial,True,0
+COL2000,A,Z0,W1,plane found,True,0
+COL2000,A,Z0,W1,hit multiplicity,True,0
+COL2000,A,Z0,W1,Delta_w < cut,True,0
+COL2000,A,Z0,W1,Delta_s < 0.01 cm,True,0
+COL2000,A,Z0,W1,final Sec. IV,True,0
+COL2000,A,Z0,W2,fiducial,True,0
+COL2000,A,Z0,W2,plane found,True,0
+COL2000,A,Z0,W2,hit multiplicity,True,0
+COL2000,A,Z0,W2,Delta_w < cut,True,0
+COL2000,A,Z0,W2,Delta_s < 0.01 cm,True,0
+COL2000,A,Z0,W2,final Sec. IV,True,0
+COL2000,A,Z1160,W1,fiducial,True,0
+COL2000,A,Z1160,W1,plane found,True,0
+COL2000,A,Z1160,W1,hit multiplicity,True,0
+COL2000,A,Z1160,W1,Delta_w < cut,True,0
+COL2000,A,Z1160,W1,Delta_s < 0.01 cm,True,0
+COL2000,A,Z1160,W1,final Sec. IV,True,0
+COL2000,A,Z1160,W2,fiducial,True,0
+COL2000,A,Z1160,W2,plane found,True,0
+COL2000,A,Z1160,W2,hit multiplicity,True,0
+COL2000,A,Z1160,W2,Delta_w < cut,True,0
+COL2000,A,Z1160,W2,Delta_s < 0.01 cm,True,0
+COL2000,A,Z1160,W2,final Sec. IV,True,0
+COL2000,A,Z34,W1,fiducial,True,0
+COL2000,A,Z34,W1,plane found,True,0
+COL2000,A,Z34,W1,hit multiplicity,True,0
+COL2000,A,Z34,W1,Delta_w < cut,True,0
+COL2000,A,Z34,W1,Delta_s < 0.01 cm,True,0
+COL2000,A,Z34,W1,final Sec. IV,True,0
+COL2000,A,Z34,W2,fiducial,True,0
+COL2000,A,Z34,W2,plane found,True,0
+COL2000,A,Z34,W2,hit multiplicity,True,0
+COL2000,A,Z34,W2,Delta_w < cut,True,0
+COL2000,A,Z34,W2,Delta_s < 0.01 cm,True,0
+COL2000,A,Z34,W2,final Sec. IV,True,0
+COL2000,A,Z580,W1,fiducial,True,0
+COL2000,A,Z580,W1,plane found,True,0
+COL2000,A,Z580,W1,hit multiplicity,True,0
+COL2000,A,Z580,W1,Delta_w < cut,True,0
+COL2000,A,Z580,W1,Delta_s < 0.01 cm,True,0
+COL2000,A,Z580,W1,final Sec. IV,True,0
+COL2000,A,Z580,W2,fiducial,True,0
+COL2000,A,Z580,W2,plane found,True,0
+COL2000,A,Z580,W2,hit multiplicity,True,0
+COL2000,A,Z580,W2,Delta_w < cut,True,0
+COL2000,A,Z580,W2,Delta_s < 0.01 cm,True,0
+COL2000,A,Z580,W2,final Sec. IV,True,0
+COL2000,B,Z0,W1,fiducial,True,0
+COL2000,B,Z0,W1,plane found,True,0
+COL2000,B,Z0,W1,hit multiplicity,True,0
+COL2000,B,Z0,W1,Delta_w < cut,True,0
+COL2000,B,Z0,W1,Delta_s < 0.01 cm,True,0
+COL2000,B,Z0,W1,final Sec. IV,True,0
+COL2000,B,Z0,W2,fiducial,True,0
+COL2000,B,Z0,W2,plane found,True,0
+COL2000,B,Z0,W2,hit multiplicity,True,0
+COL2000,B,Z0,W2,Delta_w < cut,True,0
+COL2000,B,Z0,W2,Delta_s < 0.01 cm,True,0
+COL2000,B,Z0,W2,final Sec. IV,True,0
+COL2000,B,Z1160,W1,fiducial,True,0
+COL2000,B,Z1160,W1,plane found,True,0
+COL2000,B,Z1160,W1,hit multiplicity,True,0
+COL2000,B,Z1160,W1,Delta_w < cut,True,0
+COL2000,B,Z1160,W1,Delta_s < 0.01 cm,True,0
+COL2000,B,Z1160,W1,final Sec. IV,True,0
+COL2000,B,Z1160,W2,fiducial,True,0
+COL2000,B,Z1160,W2,plane found,True,0
+COL2000,B,Z1160,W2,hit multiplicity,True,0
+COL2000,B,Z1160,W2,Delta_w < cut,True,0
+COL2000,B,Z1160,W2,Delta_s < 0.01 cm,True,0
+COL2000,B,Z1160,W2,final Sec. IV,True,0
+COL2000,B,Z34,W1,fiducial,True,0
+COL2000,B,Z34,W1,plane found,True,0
+COL2000,B,Z34,W1,hit multiplicity,True,0
+COL2000,B,Z34,W1,Delta_w < cut,True,0
+COL2000,B,Z34,W1,Delta_s < 0.01 cm,True,0
+COL2000,B,Z34,W1,final Sec. IV,True,0
+COL2000,B,Z34,W2,fiducial,True,0
+COL2000,B,Z34,W2,plane found,True,0
+COL2000,B,Z34,W2,hit multiplicity,True,0
+COL2000,B,Z34,W2,Delta_w < cut,True,0
+COL2000,B,Z34,W2,Delta_s < 0.01 cm,True,0
+COL2000,B,Z34,W2,final Sec. IV,True,0
+COL2000,B,Z580,W1,fiducial,True,0
+COL2000,B,Z580,W1,plane found,True,0
+COL2000,B,Z580,W1,hit multiplicity,True,0
+COL2000,B,Z580,W1,Delta_w < cut,True,0
+COL2000,B,Z580,W1,Delta_s < 0.01 cm,True,0
+COL2000,B,Z580,W1,final Sec. IV,True,0
+COL2000,B,Z580,W2,fiducial,True,0
+COL2000,B,Z580,W2,plane found,True,0
+COL2000,B,Z580,W2,hit multiplicity,True,0
+COL2000,B,Z580,W2,Delta_w < cut,True,0
+COL2000,B,Z580,W2,Delta_s < 0.01 cm,True,0
+COL2000,B,Z580,W2,final Sec. IV,True,0
+EW1000,A,Z0,W1,fiducial,True,0
+EW1000,A,Z0,W1,plane found,True,0
+EW1000,A,Z0,W1,hit multiplicity,True,0
+EW1000,A,Z0,W1,Delta_w < cut,True,0
+EW1000,A,Z0,W1,Delta_s < 0.01 cm,True,0
+EW1000,A,Z0,W1,final Sec. IV,True,0
+EW1000,A,Z0,W2,fiducial,True,0
+EW1000,A,Z0,W2,plane found,True,0
+EW1000,A,Z0,W2,hit multiplicity,True,0
+EW1000,A,Z0,W2,Delta_w < cut,True,0
+EW1000,A,Z0,W2,Delta_s < 0.01 cm,True,0
+EW1000,A,Z0,W2,final Sec. IV,True,0
+EW1000,A,Z1160,W1,fiducial,True,0
+EW1000,A,Z1160,W1,plane found,True,0
+EW1000,A,Z1160,W1,hit multiplicity,True,0
+EW1000,A,Z1160,W1,Delta_w < cut,True,0
+EW1000,A,Z1160,W1,Delta_s < 0.01 cm,True,0
+EW1000,A,Z1160,W1,final Sec. IV,True,0
+EW1000,A,Z1160,W2,fiducial,True,0
+EW1000,A,Z1160,W2,plane found,True,0
+EW1000,A,Z1160,W2,hit multiplicity,True,0
+EW1000,A,Z1160,W2,Delta_w < cut,True,0
+EW1000,A,Z1160,W2,Delta_s < 0.01 cm,True,0
+EW1000,A,Z1160,W2,final Sec. IV,True,0
+EW1000,A,Z34,W1,fiducial,True,0
+EW1000,A,Z34,W1,plane found,True,0
+EW1000,A,Z34,W1,hit multiplicity,True,0
+EW1000,A,Z34,W1,Delta_w < cut,True,0
+EW1000,A,Z34,W1,Delta_s < 0.01 cm,True,0
+EW1000,A,Z34,W1,final Sec. IV,True,0
+EW1000,A,Z34,W2,fiducial,True,0
+EW1000,A,Z34,W2,plane found,True,0
+EW1000,A,Z34,W2,hit multiplicity,True,0
+EW1000,A,Z34,W2,Delta_w < cut,True,0
+EW1000,A,Z34,W2,Delta_s < 0.01 cm,True,0
+EW1000,A,Z34,W2,final Sec. IV,True,0
+EW1000,A,Z580,W1,fiducial,True,0
+EW1000,A,Z580,W1,plane found,True,0
+EW1000,A,Z580,W1,hit multiplicity,True,0
+EW1000,A,Z580,W1,Delta_w < cut,True,0
+EW1000,A,Z580,W1,Delta_s < 0.01 cm,True,0
+EW1000,A,Z580,W1,final Sec. IV,True,0
+EW1000,A,Z580,W2,fiducial,True,0
+EW1000,A,Z580,W2,plane found,True,0
+EW1000,A,Z580,W2,hit multiplicity,True,0
+EW1000,A,Z580,W2,Delta_w < cut,True,0
+EW1000,A,Z580,W2,Delta_s < 0.01 cm,True,0
+EW1000,A,Z580,W2,final Sec. IV,True,0
+EW1000,B,Z0,W1,fiducial,True,0
+EW1000,B,Z0,W1,plane found,True,0
+EW1000,B,Z0,W1,hit multiplicity,True,0
+EW1000,B,Z0,W1,Delta_w < cut,True,0
+EW1000,B,Z0,W1,Delta_s < 0.01 cm,True,0
+EW1000,B,Z0,W1,final Sec. IV,True,0
+EW1000,B,Z0,W2,fiducial,True,0
+EW1000,B,Z0,W2,plane found,True,0
+EW1000,B,Z0,W2,hit multiplicity,True,0
+EW1000,B,Z0,W2,Delta_w < cut,True,0
+EW1000,B,Z0,W2,Delta_s < 0.01 cm,True,0
+EW1000,B,Z0,W2,final Sec. IV,True,0
+EW1000,B,Z1160,W1,fiducial,True,0
+EW1000,B,Z1160,W1,plane found,True,0
+EW1000,B,Z1160,W1,hit multiplicity,True,0
+EW1000,B,Z1160,W1,Delta_w < cut,True,0
+EW1000,B,Z1160,W1,Delta_s < 0.01 cm,True,0
+EW1000,B,Z1160,W1,final Sec. IV,True,0
+EW1000,B,Z1160,W2,fiducial,True,0
+EW1000,B,Z1160,W2,plane found,True,0
+EW1000,B,Z1160,W2,hit multiplicity,True,0
+EW1000,B,Z1160,W2,Delta_w < cut,True,0
+EW1000,B,Z1160,W2,Delta_s < 0.01 cm,True,0
+EW1000,B,Z1160,W2,final Sec. IV,True,0
+EW1000,B,Z34,W1,fiducial,True,0
+EW1000,B,Z34,W1,plane found,True,0
+EW1000,B,Z34,W1,hit multiplicity,True,0
+EW1000,B,Z34,W1,Delta_w < cut,True,0
+EW1000,B,Z34,W1,Delta_s < 0.01 cm,True,0
+EW1000,B,Z34,W1,final Sec. IV,True,0
+EW1000,B,Z34,W2,fiducial,True,0
+EW1000,B,Z34,W2,plane found,True,0
+EW1000,B,Z34,W2,hit multiplicity,True,0
+EW1000,B,Z34,W2,Delta_w < cut,True,0
+EW1000,B,Z34,W2,Delta_s < 0.01 cm,True,0
+EW1000,B,Z34,W2,final Sec. IV,True,0
+EW1000,B,Z580,W1,fiducial,True,0
+EW1000,B,Z580,W1,plane found,True,0
+EW1000,B,Z580,W1,hit multiplicity,True,0
+EW1000,B,Z580,W1,Delta_w < cut,True,0
+EW1000,B,Z580,W1,Delta_s < 0.01 cm,True,0
+EW1000,B,Z580,W1,final Sec. IV,True,0
+EW1000,B,Z580,W2,fiducial,True,0
+EW1000,B,Z580,W2,plane found,True,0
+EW1000,B,Z580,W2,hit multiplicity,True,0
+EW1000,B,Z580,W2,Delta_w < cut,True,0
+EW1000,B,Z580,W2,Delta_s < 0.01 cm,True,0
+EW1000,B,Z580,W2,final Sec. IV,True,0
+EW2000,A,Z0,W1,fiducial,True,0
+EW2000,A,Z0,W1,plane found,True,0
+EW2000,A,Z0,W1,hit multiplicity,True,0
+EW2000,A,Z0,W1,Delta_w < cut,True,0
+EW2000,A,Z0,W1,Delta_s < 0.01 cm,True,0
+EW2000,A,Z0,W1,final Sec. IV,True,0
+EW2000,A,Z0,W2,fiducial,True,0
+EW2000,A,Z0,W2,plane found,True,0
+EW2000,A,Z0,W2,hit multiplicity,True,0
+EW2000,A,Z0,W2,Delta_w < cut,True,0
+EW2000,A,Z0,W2,Delta_s < 0.01 cm,True,0
+EW2000,A,Z0,W2,final Sec. IV,True,0
+EW2000,A,Z1160,W1,fiducial,True,0
+EW2000,A,Z1160,W1,plane found,True,0
+EW2000,A,Z1160,W1,hit multiplicity,True,0
+EW2000,A,Z1160,W1,Delta_w < cut,True,0
+EW2000,A,Z1160,W1,Delta_s < 0.01 cm,True,0
+EW2000,A,Z1160,W1,final Sec. IV,True,0
+EW2000,A,Z1160,W2,fiducial,True,0
+EW2000,A,Z1160,W2,plane found,True,0
+EW2000,A,Z1160,W2,hit multiplicity,True,0
+EW2000,A,Z1160,W2,Delta_w < cut,True,0
+EW2000,A,Z1160,W2,Delta_s < 0.01 cm,True,0
+EW2000,A,Z1160,W2,final Sec. IV,True,0
+EW2000,A,Z34,W1,fiducial,True,0
+EW2000,A,Z34,W1,plane found,True,0
+EW2000,A,Z34,W1,hit multiplicity,True,0
+EW2000,A,Z34,W1,Delta_w < cut,True,0
+EW2000,A,Z34,W1,Delta_s < 0.01 cm,True,0
+EW2000,A,Z34,W1,final Sec. IV,True,0
+EW2000,A,Z34,W2,fiducial,True,0
+EW2000,A,Z34,W2,plane found,True,0
+EW2000,A,Z34,W2,hit multiplicity,True,0
+EW2000,A,Z34,W2,Delta_w < cut,True,0
+EW2000,A,Z34,W2,Delta_s < 0.01 cm,True,0
+EW2000,A,Z34,W2,final Sec. IV,True,0
+EW2000,A,Z580,W1,fiducial,True,0
+EW2000,A,Z580,W1,plane found,True,0
+EW2000,A,Z580,W1,hit multiplicity,True,0
+EW2000,A,Z580,W1,Delta_w < cut,True,0
+EW2000,A,Z580,W1,Delta_s < 0.01 cm,True,0
+EW2000,A,Z580,W1,final Sec. IV,True,0
+EW2000,A,Z580,W2,fiducial,True,0
+EW2000,A,Z580,W2,plane found,True,0
+EW2000,A,Z580,W2,hit multiplicity,True,0
+EW2000,A,Z580,W2,Delta_w < cut,True,0
+EW2000,A,Z580,W2,Delta_s < 0.01 cm,True,0
+EW2000,A,Z580,W2,final Sec. IV,True,0
+EW2000,B,Z0,W1,fiducial,True,0
+EW2000,B,Z0,W1,plane found,True,0
+EW2000,B,Z0,W1,hit multiplicity,True,0
+EW2000,B,Z0,W1,Delta_w < cut,True,0
+EW2000,B,Z0,W1,Delta_s < 0.01 cm,True,0
+EW2000,B,Z0,W1,final Sec. IV,True,0
+EW2000,B,Z0,W2,fiducial,True,0
+EW2000,B,Z0,W2,plane found,True,0
+EW2000,B,Z0,W2,hit multiplicity,True,0
+EW2000,B,Z0,W2,Delta_w < cut,True,0
+EW2000,B,Z0,W2,Delta_s < 0.01 cm,True,0
+EW2000,B,Z0,W2,final Sec. IV,True,0
+EW2000,B,Z1160,W1,fiducial,True,0
+EW2000,B,Z1160,W1,plane found,True,0
+EW2000,B,Z1160,W1,hit multiplicity,True,0
+EW2000,B,Z1160,W1,Delta_w < cut,True,0
+EW2000,B,Z1160,W1,Delta_s < 0.01 cm,True,0
+EW2000,B,Z1160,W1,final Sec. IV,True,0
+EW2000,B,Z1160,W2,fiducial,True,0
+EW2000,B,Z1160,W2,plane found,True,0
+EW2000,B,Z1160,W2,hit multiplicity,True,0
+EW2000,B,Z1160,W2,Delta_w < cut,True,0
+EW2000,B,Z1160,W2,Delta_s < 0.01 cm,True,0
+EW2000,B,Z1160,W2,final Sec. IV,True,0
+EW2000,B,Z34,W1,fiducial,True,0
+EW2000,B,Z34,W1,plane found,True,0
+EW2000,B,Z34,W1,hit multiplicity,True,0
+EW2000,B,Z34,W1,Delta_w < cut,True,0
+EW2000,B,Z34,W1,Delta_s < 0.01 cm,True,0
+EW2000,B,Z34,W1,final Sec. IV,True,0
+EW2000,B,Z34,W2,fiducial,True,0
+EW2000,B,Z34,W2,plane found,True,0
+EW2000,B,Z34,W2,hit multiplicity,True,0
+EW2000,B,Z34,W2,Delta_w < cut,True,0
+EW2000,B,Z34,W2,Delta_s < 0.01 cm,True,0
+EW2000,B,Z34,W2,final Sec. IV,True,0
+EW2000,B,Z580,W1,fiducial,True,0
+EW2000,B,Z580,W1,plane found,True,0
+EW2000,B,Z580,W1,hit multiplicity,True,0
+EW2000,B,Z580,W1,Delta_w < cut,True,0
+EW2000,B,Z580,W1,Delta_s < 0.01 cm,True,0
+EW2000,B,Z580,W1,final Sec. IV,True,0
+EW2000,B,Z580,W2,fiducial,True,0
+EW2000,B,Z580,W2,plane found,True,0
+EW2000,B,Z580,W2,hit multiplicity,True,0
+EW2000,B,Z580,W2,Delta_w < cut,True,0
+EW2000,B,Z580,W2,Delta_s < 0.01 cm,True,0
+EW2000,B,Z580,W2,final Sec. IV,True,0

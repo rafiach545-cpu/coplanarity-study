@@ -1,0 +1,4 @@
+delta_s_cm EW Quirk min h 7.815175187275896e-06  best units (w, maxdev, N): [('7.752e-06', np.float64(0.072), 984), ('7.752e-06', np.float64(0.073), 984), ('7.752e-06', np.float64(0.074), 984)]
+delta_s_cm Colored Quirk min h 2.5012038710726157e-05  best units (w, maxdev, N): [('8.294e-06', np.float64(0.039), 495), ('8.294e-06', np.float64(0.039), 495), ('8.294e-06', np.float64(0.039), 495)]
+delta_w_cm EW Quirk min h 0.0009515387656940949  best units (w, maxdev, N): [('0.0009433', np.float64(0.069), 1092), ('0.0009433', np.float64(0.07), 1092), ('0.0009433', np.float64(0.07), 1092)]
+delta_w_cm Colored Quirk min h 0.0019414515567823718  best units (w, maxdev, N): [('0.001927', np.float64(0.036), 534), ('0.001927', np.float64(0.037), 534), ('0.001927', np.float64(0.037), 534)]

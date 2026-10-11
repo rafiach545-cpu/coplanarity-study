@@ -1,0 +1,1 @@
+Converted-photon background, 9139 Z(νν)γ+jet photons: fraction surviving each signal-region cut (sequential). Literal detector for conversion only and with μ = 50 pile-up overlaid; the old project setup (one event survived); and the calibrated variant without SCT z smearing (22 events survive). Open triangles: 95% upper limit when no event survives.

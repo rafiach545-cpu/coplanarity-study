@@ -1,0 +1,14 @@
+{
+  "A_project_baseline": 40,
+  "A0_baseline_no_vertex_smear": 51,
+  "B_finite_barrel_nominal": 33,
+  "B2_finite_barrel_sct80": 34,
+  "B0_finite_barrel_nominal_no_vertex_smear": 33,
+  "C_eta1p8_and_finite_barrel": 30,
+  "D_eta1p5_crossing": 31,
+  "E_geometric_only_no_timing_eta1p8": 41,
+  "N_trigger": 89,
+  "baseline_agreement": "89/89",
+  "project_truth_fiducial": 40,
+  "mean_wall_s": 19.92479231628087
+}

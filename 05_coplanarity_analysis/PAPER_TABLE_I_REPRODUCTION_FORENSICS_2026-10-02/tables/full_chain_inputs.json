@@ -1,0 +1,24 @@
+{
+ "trigger_counts": {
+  "EW1000": 89,
+  "COL1000": 27,
+  "EW2000": 186,
+  "COL2000": 68,
+  "G0_EW": 187,
+  "G0_COL": 50
+ },
+ "independent_sample_info": {
+  "G0_EW": {
+   "N_matched": 1101,
+   "N_trigger_all": 187,
+   "N_both_charged_matched": 1101,
+   "N_trigger_charged": 187
+  },
+  "G0_COL": {
+   "N_matched": 855,
+   "N_trigger_all": 186,
+   "N_both_charged_matched": 248,
+   "N_trigger_charged": 50
+  }
+ }
+}

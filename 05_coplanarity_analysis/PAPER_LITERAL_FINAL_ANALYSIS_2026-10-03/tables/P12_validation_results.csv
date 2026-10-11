@@ -1,0 +1,26 @@
+check,result,evidence
+signal: eff == N_pass/N_total and percent == 100*eff (all rows),PASS,"256 rows, 0 mismatches"
+pileup_cutflow.csv: frac == k/n,PASS,14 rows
+pileup_cutflow.csv: sequential stages monotone non-increasing,PASS,per config
+converted_photon_cutflow.csv: frac == k/n,PASS,33 rows
+converted_photon_cutflow.csv: sequential stages monotone non-increasing,PASS,per config
+overlay_cutflow.csv: frac == k/n,PASS,24 rows
+overlay_cutflow.csv: sequential stages monotone non-increasing,PASS,per config
+"signal event closure: every stage subset of previous, no duplicates",PASS,columns checked ['subset_of_previous']
+"signal per-event: unique (sample,key,geom,sct,wconv)",PASS,5920
+literal signal: final ⊆ mult ⊆ plane ⊆ fiducial per event,PASS,4 samples
+literal reco k/n recomputed from per-event table == statistics table,PASS,all 4 match
+no stale 20/25 or 84/94 used as a result in reports (only in rejection context),PASS,none
+units: literal signal Δs in cm (max < 1) and Δw in cm (max < 10),PASS,"ds max 0.0384 cm, dw max 0.650 cm"
+"every FINAL_FIGURES entry: png/pdf/svg, caption, provenance, source-CSV hash matches",PASS,45 figures
+paper Table I values cited correctly,PASS,6 values x samples
+"paper text contains quoted background numbers (10^{-3}, 6\times 10^{-5}, ~1 pb, ~10 fb)",PASS,quirks_prd_v2.tex
+"LITERAL rows use only geometry B, SCT Z1160, W1",PASS,statistics table
+paper_project_comparison built from LITERAL only,PASS,12
+frozen signal LHE/HepMC SHA-256 unchanged since Phase 3,PASS,8 files identical
+frozen conversion CSVs unchanged since P9b,PASS,2 files identical
+no tracked project file modified outside this analysis folder,PASS,clean
+"HEAD = 97258a5 or a local commit on top of it (commit authorized 2026-10-05), nothing pushed",PASS,f35a9d7; remote branches containing HEAD: none
+Figure 6 checkpoint hash unchanged,PASS,aa59eaa418c8339f
+no Figure 6 process running,PASS,none
+minbias pool sha256 (untracked; functional check = P8 VALIDATE 200/200 exact),INFO,a8f9149c07b9967332cfd7eba49960dd137bbc927c4be7309b92df6979b172ad

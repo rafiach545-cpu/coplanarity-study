@@ -1,0 +1,1 @@
+Δs against the paper's Fig. 5. Left: EW signal, unit area. Right: converted photon + μ = 50 pile-up after plane and hit multiplicity (the population that enters the Δs cut), in fb per bin using the paper's σ ≈ 1 pb and 1% conversion probability, as in the paper's dσ/dlogΔs axis. SCT z smearing 1.16 mm (solid) vs none (dashed); dotted = paper.

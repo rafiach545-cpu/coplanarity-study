@@ -1,0 +1,1 @@
+Figure 2 on the paper's axes. |L| (solid, left axis) and quirk separation d (dashed, right axis) in the exact centre-of-mass frame vs the transverse radius r of the centre of mass. Left: the paper's curves read from its vector source figure. Right: COL2000 fiducial event with the median |L|max.

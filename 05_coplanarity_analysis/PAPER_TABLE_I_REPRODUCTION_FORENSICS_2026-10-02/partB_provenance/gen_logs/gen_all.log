@@ -1,0 +1,56 @@
+G0_newseed COL:  9201 = iseed ! rnd seed (0=assigned automatically=default))
+G0_newseed COL: #  Number of Events        :       2000
+G0_newseed COL: #  Integrated weight (pb)  :       0.0007483693473000001
+G1_xqcut15 COL:  9202 = iseed ! rnd seed (0=assigned automatically=default))
+G1_xqcut15 COL: #  Number of Events        :       2000
+G1_xqcut15 COL: #  Integrated weight (pb)  :       0.0010710033655800001
+G2_xqcut60 COL:  9203 = iseed ! rnd seed (0=assigned automatically=default))
+G2_xqcut60 COL: #  Number of Events        :       2000
+G2_xqcut60 COL: #  Integrated weight (pb)  :       0.0005485909659299999
+G2_xqcut60 EW:  9103 = iseed ! rnd seed (0=assigned automatically=default))
+G2_xqcut60 EW: #  Number of Events        :       2000
+G2_xqcut60 EW: #  Integrated weight (pb)  :       0.00035074294837
+KEY pdlabel1 NOT FOUND
+FAILED G3_cteq6l1 COL 9204 pdlabel1=cteq6l1 pdlabel2=cteq6l1
+G1_xqcut15 EW:  9102 = iseed ! rnd seed (0=assigned automatically=default))
+G1_xqcut15 EW: #  Number of Events        :       2000
+G1_xqcut15 EW: #  Integrated weight (pb)  :       0.00060392997654
+G4_dynscale3 COL:  9205 = iseed ! rnd seed (0=assigned automatically=default))
+G4_dynscale3 COL: #  Number of Events        :       2000
+G4_dynscale3 COL: #  Integrated weight (pb)  :       0.0007441686956399999
+G3_cteq6l1 EW:  9104 = iseed ! rnd seed (0=assigned automatically=default))
+G3_cteq6l1 EW: #  Number of Events        :       2000
+G3_cteq6l1 EW: #  Integrated weight (pb)  :       0.00049593128014
+G5_scalefact0p5 COL:  9206 = iseed ! rnd seed (0=assigned automatically=default))
+G5_scalefact0p5 COL: #  Number of Events        :       2000
+G5_scalefact0p5 COL: #  Integrated weight (pb)  :       0.0013493677286
+G4_dynscale3 EW:  9105 = iseed ! rnd seed (0=assigned automatically=default))
+G4_dynscale3 EW: #  Number of Events        :       2000
+G4_dynscale3 EW: #  Integrated weight (pb)  :       0.00049648401511
+G5_scalefact0p5 EW:  9106 = iseed ! rnd seed (0=assigned automatically=default))
+G5_scalefact0p5 EW: #  Number of Events        :       2000
+G5_scalefact0p5 EW: #  Integrated weight (pb)  :       0.00054244228785
+G6_scalefact2 COL:  9207 = iseed ! rnd seed (0=assigned automatically=default))
+G6_scalefact2 COL: #  Number of Events        :       2000
+G6_scalefact2 COL: #  Integrated weight (pb)  :       0.0005083886767600001
+G7_14TeV COL:  9208 = iseed ! rnd seed (0=assigned automatically=default))
+G7_14TeV COL: #  Number of Events        :       2000
+G7_14TeV COL: #  Integrated weight (pb)  :       0.00128698382049
+G6_scalefact2 EW:  9107 = iseed ! rnd seed (0=assigned automatically=default))
+G6_scalefact2 EW: #  Number of Events        :       2000
+G6_scalefact2 EW: #  Integrated weight (pb)  :       0.00041007645765000003
+G7_14TeV EW:  9108 = iseed ! rnd seed (0=assigned automatically=default))
+G7_14TeV EW: #  Number of Events        :       2000
+G7_14TeV EW: #  Integrated weight (pb)  :       0.00058195797938
+D2_0jet_nomatch EW:  9110 = iseed ! rnd seed (0=assigned automatically=default))
+D2_0jet_nomatch EW: #  Number of Events        :       2000
+D2_0jet_nomatch EW: #  Integrated weight (pb)  :       0.000231549
+D2_0jet_nomatch COL:  9210 = iseed ! rnd seed (0=assigned automatically=default))
+D2_0jet_nomatch COL: #  Number of Events        :       2000
+D2_0jet_nomatch COL: #  Integrated weight (pb)  :       0.00031217399999999997
+D1_upto2jets COL:  9209 = iseed ! rnd seed (0=assigned automatically=default))
+D1_upto2jets COL: #  Number of Events        :       2000
+D1_upto2jets COL: #  Integrated weight (pb)  :       0.00115765895914853
+D1_upto2jets EW:  9109 = iseed ! rnd seed (0=assigned automatically=default))
+D1_upto2jets EW: #  Number of Events        :       2000
+D1_upto2jets EW: #  Integrated weight (pb)  :       0.0005845684243445212

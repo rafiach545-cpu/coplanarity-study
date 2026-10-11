@@ -1,0 +1,13 @@
+{
+ "figure": "F27_reco_all_crossings",
+ "source_csv": "F27_reco_all_crossings_source.csv",
+ "source_csv_sha256": "a9b6ffcb1c3f706ffed69595169756d56b767a8efc0c66f073990625b34e0307",
+ "plot_reads_only_source_csv": true,
+ "selection": "all fiducial events",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/v7_primary_table_I.csv": "6e90b55c4f94ad3bf72ccefc32281ff6bc180503b178a8d29ceccb76d3b4698b"
+ },
+ "script": "F27_reco_all_crossings.py",
+ "script_sha256": "e0094fb6275df3979fde68169abbce03461b1ef7d197c21af400dee1a8df01bb",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

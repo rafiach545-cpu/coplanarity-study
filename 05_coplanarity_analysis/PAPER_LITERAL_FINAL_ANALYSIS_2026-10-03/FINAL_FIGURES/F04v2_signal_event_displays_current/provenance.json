@@ -1,0 +1,14 @@
+{
+ "figure": "F04v2_signal_event_displays_current",
+ "source_csv": "F04v2_signal_event_displays_current_source.csv",
+ "source_csv_sha256": "8fd1966d869ef85d00fe886819190c24faba1cc79f9045885f96507834b32255",
+ "plot_reads_only_source_csv": true,
+ "selection": "first literal SR-passing event (else first literal-fiducial event with a plane) in COL2000 and EW2000",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/acceptance_longitudinal_per_event.csv": "e3f6c93d1e0d4ebe0998bbe46342e67922fff3a879a352f01a2e646956cf3cd0",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/signal_exact_crossings_all_trigger_events.csv": "bde7031fa464116e499b3fcb41c65e46887797f6b1d3cc597e9d7ebda138b950"
+ },
+ "script": "F04v2_signal_event_displays_current.py",
+ "script_sha256": "8451a04c7938778192040e995fc8543024452c46ac7090f20665ef32b1d42398",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

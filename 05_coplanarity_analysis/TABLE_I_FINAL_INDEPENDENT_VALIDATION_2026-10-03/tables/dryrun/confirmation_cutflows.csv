@@ -1,0 +1,337 @@
+benchmark,geometry,sct_z,dw_convention,step,stage,events
+COL,A,Z0,W1,0,generated,2000
+COL,A,Z0,W1,1,showered,2000
+COL,A,Z0,W1,2,matched,855
+COL,A,Z0,W1,3,trigger,186
+COL,A,Z0,W1,4,trigger AND both charged,51
+COL,A,Z0,W1,5,fiducial,5
+COL,A,Z0,W1,6,plane found,4
+COL,A,Z0,W1,7,hit multiplicity,3
+COL,A,Z0,W1,8,Delta_w cut,3
+COL,A,Z0,W1,9,Delta_s < 0.01 cm,3
+COL,A,Z0,W1,10,final SR,3
+COL,A,Z0,W2,0,generated,2000
+COL,A,Z0,W2,1,showered,2000
+COL,A,Z0,W2,2,matched,855
+COL,A,Z0,W2,3,trigger,186
+COL,A,Z0,W2,4,trigger AND both charged,51
+COL,A,Z0,W2,5,fiducial,5
+COL,A,Z0,W2,6,plane found,4
+COL,A,Z0,W2,7,hit multiplicity,3
+COL,A,Z0,W2,8,Delta_w cut,3
+COL,A,Z0,W2,9,Delta_s < 0.01 cm,3
+COL,A,Z0,W2,10,final SR,3
+COL,A,Z1160,W1,0,generated,2000
+COL,A,Z1160,W1,1,showered,2000
+COL,A,Z1160,W1,2,matched,855
+COL,A,Z1160,W1,3,trigger,186
+COL,A,Z1160,W1,4,trigger AND both charged,51
+COL,A,Z1160,W1,5,fiducial,5
+COL,A,Z1160,W1,6,plane found,1
+COL,A,Z1160,W1,7,hit multiplicity,0
+COL,A,Z1160,W1,8,Delta_w cut,0
+COL,A,Z1160,W1,9,Delta_s < 0.01 cm,0
+COL,A,Z1160,W1,10,final SR,0
+COL,A,Z1160,W2,0,generated,2000
+COL,A,Z1160,W2,1,showered,2000
+COL,A,Z1160,W2,2,matched,855
+COL,A,Z1160,W2,3,trigger,186
+COL,A,Z1160,W2,4,trigger AND both charged,51
+COL,A,Z1160,W2,5,fiducial,5
+COL,A,Z1160,W2,6,plane found,1
+COL,A,Z1160,W2,7,hit multiplicity,0
+COL,A,Z1160,W2,8,Delta_w cut,0
+COL,A,Z1160,W2,9,Delta_s < 0.01 cm,0
+COL,A,Z1160,W2,10,final SR,0
+COL,A,Z34,W1,0,generated,2000
+COL,A,Z34,W1,1,showered,2000
+COL,A,Z34,W1,2,matched,855
+COL,A,Z34,W1,3,trigger,186
+COL,A,Z34,W1,4,trigger AND both charged,51
+COL,A,Z34,W1,5,fiducial,5
+COL,A,Z34,W1,6,plane found,4
+COL,A,Z34,W1,7,hit multiplicity,3
+COL,A,Z34,W1,8,Delta_w cut,3
+COL,A,Z34,W1,9,Delta_s < 0.01 cm,3
+COL,A,Z34,W1,10,final SR,3
+COL,A,Z34,W2,0,generated,2000
+COL,A,Z34,W2,1,showered,2000
+COL,A,Z34,W2,2,matched,855
+COL,A,Z34,W2,3,trigger,186
+COL,A,Z34,W2,4,trigger AND both charged,51
+COL,A,Z34,W2,5,fiducial,5
+COL,A,Z34,W2,6,plane found,4
+COL,A,Z34,W2,7,hit multiplicity,3
+COL,A,Z34,W2,8,Delta_w cut,3
+COL,A,Z34,W2,9,Delta_s < 0.01 cm,3
+COL,A,Z34,W2,10,final SR,3
+COL,A,Z580,W1,0,generated,2000
+COL,A,Z580,W1,1,showered,2000
+COL,A,Z580,W1,2,matched,855
+COL,A,Z580,W1,3,trigger,186
+COL,A,Z580,W1,4,trigger AND both charged,51
+COL,A,Z580,W1,5,fiducial,5
+COL,A,Z580,W1,6,plane found,3
+COL,A,Z580,W1,7,hit multiplicity,1
+COL,A,Z580,W1,8,Delta_w cut,1
+COL,A,Z580,W1,9,Delta_s < 0.01 cm,0
+COL,A,Z580,W1,10,final SR,0
+COL,A,Z580,W2,0,generated,2000
+COL,A,Z580,W2,1,showered,2000
+COL,A,Z580,W2,2,matched,855
+COL,A,Z580,W2,3,trigger,186
+COL,A,Z580,W2,4,trigger AND both charged,51
+COL,A,Z580,W2,5,fiducial,5
+COL,A,Z580,W2,6,plane found,3
+COL,A,Z580,W2,7,hit multiplicity,1
+COL,A,Z580,W2,8,Delta_w cut,1
+COL,A,Z580,W2,9,Delta_s < 0.01 cm,0
+COL,A,Z580,W2,10,final SR,0
+COL,B,Z0,W1,0,generated,2000
+COL,B,Z0,W1,1,showered,2000
+COL,B,Z0,W1,2,matched,855
+COL,B,Z0,W1,3,trigger,186
+COL,B,Z0,W1,4,trigger AND both charged,51
+COL,B,Z0,W1,5,fiducial,3
+COL,B,Z0,W1,6,plane found,3
+COL,B,Z0,W1,7,hit multiplicity,2
+COL,B,Z0,W1,8,Delta_w cut,2
+COL,B,Z0,W1,9,Delta_s < 0.01 cm,2
+COL,B,Z0,W1,10,final SR,2
+COL,B,Z0,W2,0,generated,2000
+COL,B,Z0,W2,1,showered,2000
+COL,B,Z0,W2,2,matched,855
+COL,B,Z0,W2,3,trigger,186
+COL,B,Z0,W2,4,trigger AND both charged,51
+COL,B,Z0,W2,5,fiducial,3
+COL,B,Z0,W2,6,plane found,3
+COL,B,Z0,W2,7,hit multiplicity,2
+COL,B,Z0,W2,8,Delta_w cut,2
+COL,B,Z0,W2,9,Delta_s < 0.01 cm,2
+COL,B,Z0,W2,10,final SR,2
+COL,B,Z1160,W1,0,generated,2000
+COL,B,Z1160,W1,1,showered,2000
+COL,B,Z1160,W1,2,matched,855
+COL,B,Z1160,W1,3,trigger,186
+COL,B,Z1160,W1,4,trigger AND both charged,51
+COL,B,Z1160,W1,5,fiducial,3
+COL,B,Z1160,W1,6,plane found,0
+COL,B,Z1160,W1,7,hit multiplicity,0
+COL,B,Z1160,W1,8,Delta_w cut,0
+COL,B,Z1160,W1,9,Delta_s < 0.01 cm,0
+COL,B,Z1160,W1,10,final SR,0
+COL,B,Z1160,W2,0,generated,2000
+COL,B,Z1160,W2,1,showered,2000
+COL,B,Z1160,W2,2,matched,855
+COL,B,Z1160,W2,3,trigger,186
+COL,B,Z1160,W2,4,trigger AND both charged,51
+COL,B,Z1160,W2,5,fiducial,3
+COL,B,Z1160,W2,6,plane found,0
+COL,B,Z1160,W2,7,hit multiplicity,0
+COL,B,Z1160,W2,8,Delta_w cut,0
+COL,B,Z1160,W2,9,Delta_s < 0.01 cm,0
+COL,B,Z1160,W2,10,final SR,0
+COL,B,Z34,W1,0,generated,2000
+COL,B,Z34,W1,1,showered,2000
+COL,B,Z34,W1,2,matched,855
+COL,B,Z34,W1,3,trigger,186
+COL,B,Z34,W1,4,trigger AND both charged,51
+COL,B,Z34,W1,5,fiducial,3
+COL,B,Z34,W1,6,plane found,3
+COL,B,Z34,W1,7,hit multiplicity,2
+COL,B,Z34,W1,8,Delta_w cut,2
+COL,B,Z34,W1,9,Delta_s < 0.01 cm,2
+COL,B,Z34,W1,10,final SR,2
+COL,B,Z34,W2,0,generated,2000
+COL,B,Z34,W2,1,showered,2000
+COL,B,Z34,W2,2,matched,855
+COL,B,Z34,W2,3,trigger,186
+COL,B,Z34,W2,4,trigger AND both charged,51
+COL,B,Z34,W2,5,fiducial,3
+COL,B,Z34,W2,6,plane found,3
+COL,B,Z34,W2,7,hit multiplicity,2
+COL,B,Z34,W2,8,Delta_w cut,2
+COL,B,Z34,W2,9,Delta_s < 0.01 cm,2
+COL,B,Z34,W2,10,final SR,2
+COL,B,Z580,W1,0,generated,2000
+COL,B,Z580,W1,1,showered,2000
+COL,B,Z580,W1,2,matched,855
+COL,B,Z580,W1,3,trigger,186
+COL,B,Z580,W1,4,trigger AND both charged,51
+COL,B,Z580,W1,5,fiducial,3
+COL,B,Z580,W1,6,plane found,2
+COL,B,Z580,W1,7,hit multiplicity,0
+COL,B,Z580,W1,8,Delta_w cut,0
+COL,B,Z580,W1,9,Delta_s < 0.01 cm,0
+COL,B,Z580,W1,10,final SR,0
+COL,B,Z580,W2,0,generated,2000
+COL,B,Z580,W2,1,showered,2000
+COL,B,Z580,W2,2,matched,855
+COL,B,Z580,W2,3,trigger,186
+COL,B,Z580,W2,4,trigger AND both charged,51
+COL,B,Z580,W2,5,fiducial,3
+COL,B,Z580,W2,6,plane found,2
+COL,B,Z580,W2,7,hit multiplicity,0
+COL,B,Z580,W2,8,Delta_w cut,0
+COL,B,Z580,W2,9,Delta_s < 0.01 cm,0
+COL,B,Z580,W2,10,final SR,0
+EW,A,Z0,W1,0,generated,2000
+EW,A,Z0,W1,1,showered,2000
+EW,A,Z0,W1,2,matched,1101
+EW,A,Z0,W1,3,trigger,187
+EW,A,Z0,W1,4,fiducial,10
+EW,A,Z0,W1,5,plane found,10
+EW,A,Z0,W1,6,hit multiplicity,7
+EW,A,Z0,W1,7,Delta_w cut,7
+EW,A,Z0,W1,8,Delta_s < 0.01 cm,7
+EW,A,Z0,W1,9,final SR,7
+EW,A,Z0,W2,0,generated,2000
+EW,A,Z0,W2,1,showered,2000
+EW,A,Z0,W2,2,matched,1101
+EW,A,Z0,W2,3,trigger,187
+EW,A,Z0,W2,4,fiducial,10
+EW,A,Z0,W2,5,plane found,10
+EW,A,Z0,W2,6,hit multiplicity,7
+EW,A,Z0,W2,7,Delta_w cut,7
+EW,A,Z0,W2,8,Delta_s < 0.01 cm,7
+EW,A,Z0,W2,9,final SR,7
+EW,A,Z1160,W1,0,generated,2000
+EW,A,Z1160,W1,1,showered,2000
+EW,A,Z1160,W1,2,matched,1101
+EW,A,Z1160,W1,3,trigger,187
+EW,A,Z1160,W1,4,fiducial,10
+EW,A,Z1160,W1,5,plane found,9
+EW,A,Z1160,W1,6,hit multiplicity,5
+EW,A,Z1160,W1,7,Delta_w cut,5
+EW,A,Z1160,W1,8,Delta_s < 0.01 cm,1
+EW,A,Z1160,W1,9,final SR,1
+EW,A,Z1160,W2,0,generated,2000
+EW,A,Z1160,W2,1,showered,2000
+EW,A,Z1160,W2,2,matched,1101
+EW,A,Z1160,W2,3,trigger,187
+EW,A,Z1160,W2,4,fiducial,10
+EW,A,Z1160,W2,5,plane found,9
+EW,A,Z1160,W2,6,hit multiplicity,5
+EW,A,Z1160,W2,7,Delta_w cut,5
+EW,A,Z1160,W2,8,Delta_s < 0.01 cm,1
+EW,A,Z1160,W2,9,final SR,1
+EW,A,Z34,W1,0,generated,2000
+EW,A,Z34,W1,1,showered,2000
+EW,A,Z34,W1,2,matched,1101
+EW,A,Z34,W1,3,trigger,187
+EW,A,Z34,W1,4,fiducial,10
+EW,A,Z34,W1,5,plane found,10
+EW,A,Z34,W1,6,hit multiplicity,10
+EW,A,Z34,W1,7,Delta_w cut,10
+EW,A,Z34,W1,8,Delta_s < 0.01 cm,10
+EW,A,Z34,W1,9,final SR,10
+EW,A,Z34,W2,0,generated,2000
+EW,A,Z34,W2,1,showered,2000
+EW,A,Z34,W2,2,matched,1101
+EW,A,Z34,W2,3,trigger,187
+EW,A,Z34,W2,4,fiducial,10
+EW,A,Z34,W2,5,plane found,10
+EW,A,Z34,W2,6,hit multiplicity,10
+EW,A,Z34,W2,7,Delta_w cut,10
+EW,A,Z34,W2,8,Delta_s < 0.01 cm,10
+EW,A,Z34,W2,9,final SR,10
+EW,A,Z580,W1,0,generated,2000
+EW,A,Z580,W1,1,showered,2000
+EW,A,Z580,W1,2,matched,1101
+EW,A,Z580,W1,3,trigger,187
+EW,A,Z580,W1,4,fiducial,10
+EW,A,Z580,W1,5,plane found,10
+EW,A,Z580,W1,6,hit multiplicity,8
+EW,A,Z580,W1,7,Delta_w cut,8
+EW,A,Z580,W1,8,Delta_s < 0.01 cm,2
+EW,A,Z580,W1,9,final SR,2
+EW,A,Z580,W2,0,generated,2000
+EW,A,Z580,W2,1,showered,2000
+EW,A,Z580,W2,2,matched,1101
+EW,A,Z580,W2,3,trigger,187
+EW,A,Z580,W2,4,fiducial,10
+EW,A,Z580,W2,5,plane found,10
+EW,A,Z580,W2,6,hit multiplicity,8
+EW,A,Z580,W2,7,Delta_w cut,8
+EW,A,Z580,W2,8,Delta_s < 0.01 cm,2
+EW,A,Z580,W2,9,final SR,2
+EW,B,Z0,W1,0,generated,2000
+EW,B,Z0,W1,1,showered,2000
+EW,B,Z0,W1,2,matched,1101
+EW,B,Z0,W1,3,trigger,187
+EW,B,Z0,W1,4,fiducial,7
+EW,B,Z0,W1,5,plane found,7
+EW,B,Z0,W1,6,hit multiplicity,5
+EW,B,Z0,W1,7,Delta_w cut,5
+EW,B,Z0,W1,8,Delta_s < 0.01 cm,5
+EW,B,Z0,W1,9,final SR,5
+EW,B,Z0,W2,0,generated,2000
+EW,B,Z0,W2,1,showered,2000
+EW,B,Z0,W2,2,matched,1101
+EW,B,Z0,W2,3,trigger,187
+EW,B,Z0,W2,4,fiducial,7
+EW,B,Z0,W2,5,plane found,7
+EW,B,Z0,W2,6,hit multiplicity,5
+EW,B,Z0,W2,7,Delta_w cut,5
+EW,B,Z0,W2,8,Delta_s < 0.01 cm,5
+EW,B,Z0,W2,9,final SR,5
+EW,B,Z1160,W1,0,generated,2000
+EW,B,Z1160,W1,1,showered,2000
+EW,B,Z1160,W1,2,matched,1101
+EW,B,Z1160,W1,3,trigger,187
+EW,B,Z1160,W1,4,fiducial,7
+EW,B,Z1160,W1,5,plane found,6
+EW,B,Z1160,W1,6,hit multiplicity,3
+EW,B,Z1160,W1,7,Delta_w cut,3
+EW,B,Z1160,W1,8,Delta_s < 0.01 cm,1
+EW,B,Z1160,W1,9,final SR,1
+EW,B,Z1160,W2,0,generated,2000
+EW,B,Z1160,W2,1,showered,2000
+EW,B,Z1160,W2,2,matched,1101
+EW,B,Z1160,W2,3,trigger,187
+EW,B,Z1160,W2,4,fiducial,7
+EW,B,Z1160,W2,5,plane found,6
+EW,B,Z1160,W2,6,hit multiplicity,3
+EW,B,Z1160,W2,7,Delta_w cut,3
+EW,B,Z1160,W2,8,Delta_s < 0.01 cm,1
+EW,B,Z1160,W2,9,final SR,1
+EW,B,Z34,W1,0,generated,2000
+EW,B,Z34,W1,1,showered,2000
+EW,B,Z34,W1,2,matched,1101
+EW,B,Z34,W1,3,trigger,187
+EW,B,Z34,W1,4,fiducial,7
+EW,B,Z34,W1,5,plane found,7
+EW,B,Z34,W1,6,hit multiplicity,7
+EW,B,Z34,W1,7,Delta_w cut,7
+EW,B,Z34,W1,8,Delta_s < 0.01 cm,7
+EW,B,Z34,W1,9,final SR,7
+EW,B,Z34,W2,0,generated,2000
+EW,B,Z34,W2,1,showered,2000
+EW,B,Z34,W2,2,matched,1101
+EW,B,Z34,W2,3,trigger,187
+EW,B,Z34,W2,4,fiducial,7
+EW,B,Z34,W2,5,plane found,7
+EW,B,Z34,W2,6,hit multiplicity,7
+EW,B,Z34,W2,7,Delta_w cut,7
+EW,B,Z34,W2,8,Delta_s < 0.01 cm,7
+EW,B,Z34,W2,9,final SR,7
+EW,B,Z580,W1,0,generated,2000
+EW,B,Z580,W1,1,showered,2000
+EW,B,Z580,W1,2,matched,1101
+EW,B,Z580,W1,3,trigger,187
+EW,B,Z580,W1,4,fiducial,7
+EW,B,Z580,W1,5,plane found,7
+EW,B,Z580,W1,6,hit multiplicity,5
+EW,B,Z580,W1,7,Delta_w cut,5
+EW,B,Z580,W1,8,Delta_s < 0.01 cm,1
+EW,B,Z580,W1,9,final SR,1
+EW,B,Z580,W2,0,generated,2000
+EW,B,Z580,W2,1,showered,2000
+EW,B,Z580,W2,2,matched,1101
+EW,B,Z580,W2,3,trigger,187
+EW,B,Z580,W2,4,fiducial,7
+EW,B,Z580,W2,5,plane found,7
+EW,B,Z580,W2,6,hit multiplicity,5
+EW,B,Z580,W2,7,Delta_w cut,5
+EW,B,Z580,W2,8,Delta_s < 0.01 cm,1
+EW,B,Z580,W2,9,final SR,1

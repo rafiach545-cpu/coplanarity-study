@@ -1,0 +1,8 @@
+[
+  {
+    "key": 175,
+    "ok": false,
+    "err": "RuntimeError: simulate_quirk_hits: cannot reach MIN_STEPS_PER_PERIOD=300 within ABSOLUTE_MAX_STEPS=20000000 total steps (would need 3.141e+05 steps for 300.0 steps/period). This is the defensive ceiling for a genuinely pathological input, not the normal operating path -- check mass=800.0 GeV, Lambda=4e-06 GeV, and the supplied momenta for a real error before raising ABSOLUTE_MAX_STEPS further (period_est=8.619e+13, t_max=9.025e+16 GeV^-1).",
+    "wall": 0.0008892420009942725
+  }
+]

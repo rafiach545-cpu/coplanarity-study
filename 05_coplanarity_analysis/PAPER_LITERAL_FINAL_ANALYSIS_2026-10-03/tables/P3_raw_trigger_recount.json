@@ -1,0 +1,67 @@
+{
+ "EW1000": {
+  "lhe": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01/unweighted_events.lhe.gz",
+  "lhe_sha256": "75999899ae8916ca5f65476b2694fe14d25123efddecea945d6b661b92c1e04e",
+  "hepmc": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01/tag_1_pythia8_events.hepmc.gz",
+  "hepmc_sha256": "d94c83d61e2126299d5f898e6cadf7e47fd3835e794373427bd54f7ccf6b769a",
+  "generated": 1000,
+  "matched": 511,
+  "matched_with_2_final_objects": 511,
+  "trigger_final": 89,
+  "trigger_hard_status23": 64,
+  "trigger_post_shower_pre_hadronisation": 89,
+  "trigger_final_ge200": 89,
+  "events_within_1GeV_of_threshold": []
+ },
+ "EW2000": {
+  "lhe": "/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/unweighted_events.lhe.gz",
+  "lhe_sha256": "d900abbf4d467bc271208462852058adc83cbdc3f21b0545fca3fe8fe8dfe6b5",
+  "hepmc": "/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/tag_1_pythia8_events.hepmc.gz",
+  "hepmc_sha256": "a703b339afd6654dd57130f538ea43948460b5f4bf8c1f3c808c9b0bdcf729d3",
+  "generated": 2000,
+  "matched": 1045,
+  "matched_with_2_final_objects": 1045,
+  "trigger_final": 186,
+  "trigger_hard_status23": 121,
+  "trigger_post_shower_pre_hadronisation": 186,
+  "trigger_final_ge200": 186,
+  "events_within_1GeV_of_threshold": [
+   200.03065394384217
+  ]
+ },
+ "COL1000": {
+  "lhe": "/home/rafia/hep_tools/quirk_signal_1800gev_2kev/Events/run_01/unweighted_events.lhe.gz",
+  "lhe_sha256": "3726fa429e9f926ed9e30d5cf33265bb89bd4e2234bee2cad0fd4fdb57a3654a",
+  "hepmc": "/home/rafia/hep_tools/quirk_signal_1800gev_2kev/Events/run_01/tag_1_pythia8_events.hepmc.gz",
+  "hepmc_sha256": "c983da0977f670b034ee935fa28c9b404ac4676a22809077b5b7d2339ea8ff01",
+  "generated": 1000,
+  "matched": 419,
+  "matched_with_2_final_objects": 419,
+  "trigger_final": 101,
+  "trigger_hard_status23": 67,
+  "trigger_post_shower_pre_hadronisation": 101,
+  "trigger_final_ge200": 101,
+  "events_within_1GeV_of_threshold": [
+   200.85242098350295,
+   200.0044925917357
+  ]
+ },
+ "COL2000": {
+  "lhe": "/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/colored_1800GeV_L2keV/Events/run_fresh/unweighted_events.lhe.gz",
+  "lhe_sha256": "aa4e1d61e6959702d04162bb6ac1db429abf307aa23999d25b424986429bbd34",
+  "hepmc": "/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/colored_1800GeV_L2keV/Events/run_fresh/tag_1_pythia8_events.hepmc.gz",
+  "hepmc_sha256": "b4b217713f44f3f8441896c5d21872f28af65fa4b779432a851b2f2b0f2c2392",
+  "generated": 2000,
+  "matched": 873,
+  "matched_with_2_final_objects": 873,
+  "trigger_final": 207,
+  "trigger_hard_status23": 138,
+  "trigger_post_shower_pre_hadronisation": 210,
+  "trigger_final_ge200": 207,
+  "events_within_1GeV_of_threshold": [
+   200.69721554969536,
+   199.99579632453404,
+   199.45153676968872
+  ]
+ }
+}

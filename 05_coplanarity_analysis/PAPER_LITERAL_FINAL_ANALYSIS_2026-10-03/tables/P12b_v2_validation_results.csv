@@ -1,0 +1,12 @@
+check,result,evidence
+matrix counts recomputed from per-event file (72 configs),PASS,0 mismatches
+"primary fiducial numerators = 7, 25, 40, 94",PASS,"{'COL1000': 7, 'COL2000': 25, 'EW1000': 40, 'EW2000': 94}"
+primary reco denominators equal primary fiducial counts,PASS,"{'COL1000': array([7]), 'COL2000': array([25]), 'EW1000': array([40]), 'EW2000': array([94])}"
+"finite-barrel EW2000 fiducial = 62 (not 61), final 10",PASS,EW2000 B
+conversion acceptance-A finals recomputed from per-event file,PASS,"[['A_Z0_PV', 30], ['A_Z1160_PV', 0], ['A_Z580_PV', 0]]"
+conversion acceptance-A covers 9139 photons x 3 configs,PASS,27417
+frozen signal LHE/HepMC unchanged,PASS,8 identical
+no tracked file modified,PASS,clean
+no Figure 6 process,PASS,none
+Figure 6 checkpoint hash unchanged,PASS,aa59eaa4…
+v1 professor PDF still present (not overwritten),PASS,v1 + v2

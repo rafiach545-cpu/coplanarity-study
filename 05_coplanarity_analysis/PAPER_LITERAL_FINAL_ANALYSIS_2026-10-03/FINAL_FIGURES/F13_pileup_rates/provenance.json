@@ -1,0 +1,13 @@
+{
+ "figure": "F13_pileup_rates",
+ "source_csv": "F13_pileup_rates_source.csv",
+ "source_csv_sha256": "0767ed4068166b22120d500f60385dd6964d2205f45c69f3aa9f7dc00d5ef6ec",
+ "plot_reads_only_source_csv": true,
+ "selection": "config LITERAL",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/pileup_cutflow.csv": "38491a00336bf915229195d91b8005b690e4f0857452db3920bc57344122ca43"
+ },
+ "script": "F13_report_background_figures.py",
+ "script_sha256": "8eeea17a81c6bab62448162107492ffdfb2faefdad289bd16a268b014af6904d",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

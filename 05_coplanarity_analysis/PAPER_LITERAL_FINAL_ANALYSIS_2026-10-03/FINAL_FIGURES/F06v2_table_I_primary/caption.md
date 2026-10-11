@@ -1,0 +1,1 @@
+PRIMARY Table I comparison (v2): paper-stated acceptance (barrel only, |η| < 1.8, no finite-z boundary), 45 mm beam spot as one common shift per event with the fit from the true vertex, SCT R-φ 34 µm. Reconstruction shown for every SCT z treatment. Bars: Wilson 95%. Dashed: paper Table I.

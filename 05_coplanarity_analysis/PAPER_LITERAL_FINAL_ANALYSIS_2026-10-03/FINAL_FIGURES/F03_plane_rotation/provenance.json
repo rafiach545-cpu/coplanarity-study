@@ -1,0 +1,15 @@
+{
+ "figure": "F03_plane_rotation",
+ "source_csv": "F03_plane_rotation_source.csv",
+ "source_csv_sha256": "54d46c93bd05d954ca36de91faf4be47431bde4bd241bf401fff5e4c230a04c2",
+ "plot_reads_only_source_csv": true,
+ "selection": "first literal-fiducial events of COL2000 and EW2000",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/signal_per_event_all_configs.csv": "8a9de621fd70fe7744bfc10848f62178a4ceaee2bda1a2098afd7cb2e6f4663a",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/quirk_2000_event_fresh_regeneration_v1/events/colored_1800GeV_L2keV/trigger_passing_events.csv": "bbfa0da8ff3e3623003495560e8a874431608b0b79cfc0d72b8a5650839bb822",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/quirk_2000_event_fresh_regeneration_v1/events/EW_800GeV_L4keV/trigger_passing_events.csv": "6783ccee31407105604fc273d731564b3b3fd215d306b962e84a07a14d118588"
+ },
+ "script": "F01_fig2_fig3_dynamics.py",
+ "script_sha256": "9bc09de3dc234b8e4c63d7885a07cff48d371434d8a4a83c58f41c8f16c93662",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

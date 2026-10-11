@@ -1,0 +1,157 @@
+MB_INEL_MONASH Pythia 8.312 n_ok 20000 particles 1826792 labels {'primary': 1643417, 'secondary': 183351, 'ambiguous': 24} 79s
+MB_ND_A2 Pythia 8.312 n_ok 20000 particles 2238954 labels {'primary': 2034154, 'secondary': 204748, 'ambiguous': 52} 109s
+CHECK_BASELINE: pool /home/rafia/coplanarity_study/02_backgrounds/pileup/minbias_pool_20000_ANCESTRY_v1.csv, 1 chunks to run
+Traceback (most recent call last):
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/P22_pileup_minbias_variants.py", line 25, in <module>
+    main()
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/P22_pileup_minbias_variants.py", line 21, in main
+    for k, (start, rows) in enumerate(pool.imap_unordered(p21.chunk_job, todo), 1):
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 873, in next
+    raise value
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 540, in _handle_tasks
+    put(task)
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)
+_pickle.PicklingError: Can't pickle <function chunk_job at 0x74ed6c2d8360>: import of module 'p21' failed
+MB_INEL_MONASH: pool /home/rafia/coplanarity_study/02_backgrounds/pileup/minbias_pool_20000_MB_INEL_MONASH_v1.csv, 50 chunks to run
+Traceback (most recent call last):
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/P22_pileup_minbias_variants.py", line 25, in <module>
+    main()
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/P22_pileup_minbias_variants.py", line 21, in main
+    for k, (start, rows) in enumerate(pool.imap_unordered(p21.chunk_job, todo), 1):
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 873, in next
+    raise value
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 540, in _handle_tasks
+    put(task)
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)
+_pickle.PicklingError: Can't pickle <function chunk_job at 0x70f4387e0360>: import of module 'p21' failed
+MB_ND_A2: pool /home/rafia/coplanarity_study/02_backgrounds/pileup/minbias_pool_20000_MB_ND_A2_v1.csv, 50 chunks to run
+Traceback (most recent call last):
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/P22_pileup_minbias_variants.py", line 25, in <module>
+    main()
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/P22_pileup_minbias_variants.py", line 21, in main
+    for k, (start, rows) in enumerate(pool.imap_unordered(p21.chunk_job, todo), 1):
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 873, in next
+    raise value
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 540, in _handle_tasks
+    put(task)
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)
+_pickle.PicklingError: Can't pickle <function chunk_job at 0x7e756eb58360>: import of module 'p21' failed
+P22_EXIT=0
+--- 2026-10-08 relaunch after PicklingError (plumbing fix: local chunk_job wrapper); pools already generated above ---
+CHECK_BASELINE: pool /home/rafia/coplanarity_study/02_backgrounds/pileup/minbias_pool_20000_ANCESTRY_v1.csv, 1 chunks to run
+  chunk 0 done (1/1), 430s
+MB_INEL_MONASH: pool /home/rafia/coplanarity_study/02_backgrounds/pileup/minbias_pool_20000_MB_INEL_MONASH_v1.csv, 50 chunks to run
+  chunk 500 done (1/50), 674s
+  chunk 800 done (2/50), 694s
+  chunk 900 done (3/50), 697s
+  chunk 0 done (4/50), 711s
+  chunk 100 done (5/50), 713s
+  chunk 200 done (6/50), 713s
+  chunk 600 done (7/50), 725s
+  chunk 300 done (8/50), 726s
+  chunk 400 done (9/50), 733s
+  chunk 700 done (10/50), 744s
+  chunk 1000 done (11/50), 1371s
+  chunk 1200 done (12/50), 1378s
+  chunk 1100 done (13/50), 1395s
+  chunk 1500 done (14/50), 1423s
+  chunk 1700 done (15/50), 1428s
+  chunk 1300 done (16/50), 1429s
+  chunk 1600 done (17/50), 1438s
+  chunk 1800 done (18/50), 1449s
+  chunk 1400 done (19/50), 1459s
+  chunk 1900 done (20/50), 1475s
+  chunk 2000 done (21/50), 2084s
+  chunk 2100 done (22/50), 2085s
+  chunk 2400 done (23/50), 2110s
+  chunk 2200 done (24/50), 2129s
+  chunk 2300 done (25/50), 2137s
+  chunk 2600 done (26/50), 2146s
+  chunk 2700 done (27/50), 2171s
+  chunk 2800 done (28/50), 2183s
+  chunk 2500 done (29/50), 2192s
+  chunk 2900 done (30/50), 2210s
+  chunk 3000 done (31/50), 2790s
+  chunk 3100 done (32/50), 2822s
+  chunk 3200 done (33/50), 2847s
+  chunk 3400 done (34/50), 2861s
+  chunk 3300 done (35/50), 2869s
+  chunk 3600 done (36/50), 2913s
+  chunk 3700 done (37/50), 2931s
+  chunk 3500 done (38/50), 2935s
+  chunk 3800 done (39/50), 2957s
+  chunk 3900 done (40/50), 2978s
+  chunk 4000 done (41/50), 3567s
+  chunk 4100 done (42/50), 3595s
+  chunk 4300 done (43/50), 3598s
+  chunk 4400 done (44/50), 3604s
+  chunk 4200 done (45/50), 3619s
+  chunk 4500 done (46/50), 3647s
+  chunk 4600 done (47/50), 3669s
+  chunk 4700 done (48/50), 3670s
+  chunk 4800 done (49/50), 3676s
+  chunk 4900 done (50/50), 3689s
+MB_ND_A2: pool /home/rafia/coplanarity_study/02_backgrounds/pileup/minbias_pool_20000_MB_ND_A2_v1.csv, 50 chunks to run
+  chunk 800 done (1/50), 1008s
+  chunk 500 done (2/50), 1025s
+  chunk 900 done (3/50), 1045s
+  chunk 100 done (4/50), 1046s
+  chunk 300 done (5/50), 1049s
+  chunk 0 done (6/50), 1052s
+  chunk 400 done (7/50), 1067s
+  chunk 600 done (8/50), 1071s
+  chunk 200 done (9/50), 1095s
+  chunk 700 done (10/50), 1103s
+  chunk 1200 done (11/50), 2041s
+  chunk 1000 done (12/50), 2057s
+  chunk 1100 done (13/50), 2078s
+  chunk 1700 done (14/50), 2091s
+  chunk 1300 done (15/50), 2094s
+  chunk 1500 done (16/50), 2094s
+  chunk 1800 done (17/50), 2106s
+  chunk 1400 done (18/50), 2122s
+  chunk 1600 done (19/50), 2127s
+  chunk 1900 done (20/50), 2185s
+  chunk 2000 done (21/50), 2956s
+  chunk 2300 done (22/50), 2984s
+  chunk 2100 done (23/50), 2988s
+  chunk 2400 done (24/50), 3000s
+  chunk 2200 done (25/50), 3006s
+  chunk 2600 done (26/50), 3007s
+  chunk 2500 done (27/50), 3030s
+  chunk 2700 done (28/50), 3068s
+  chunk 2800 done (29/50), 3071s
+  chunk 2900 done (30/50), 3136s
+  chunk 3000 done (31/50), 3851s
+  chunk 3100 done (32/50), 3897s
+  chunk 3200 done (33/50), 3902s
+  chunk 3400 done (34/50), 3957s
+  chunk 3300 done (35/50), 3962s
+  chunk 3500 done (36/50), 3965s
+  chunk 3600 done (37/50), 3979s
+  chunk 3700 done (38/50), 4016s
+  chunk 3800 done (39/50), 4056s
+  chunk 3900 done (40/50), 4134s
+  chunk 4000 done (41/50), 4796s
+  chunk 4300 done (42/50), 4867s
+  chunk 4200 done (43/50), 4882s
+  chunk 4100 done (44/50), 4888s
+  chunk 4400 done (45/50), 4893s
+  chunk 4500 done (46/50), 4902s
+  chunk 4600 done (47/50), 4914s
+  chunk 4700 done (48/50), 4930s
+  chunk 4800 done (49/50), 4944s
+  chunk 4900 done (50/50), 4975s
+P22_RUN_EXIT=0

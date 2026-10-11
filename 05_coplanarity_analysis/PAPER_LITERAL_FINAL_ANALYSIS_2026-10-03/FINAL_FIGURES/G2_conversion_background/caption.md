@@ -1,0 +1,1 @@
+Converted-photon + μ = 50 pile-up background in the signal region (9139 photons, cited detector model [34], Ref. [27] lengths), scaled to 300 fb⁻¹ with the paper's σ ≈ 1 pb and 1% conversion probability. Square + bar: Wilson 95%; arrow: one-sided 95% upper limit for 0 events. Dashed: the paper's Fig. 5 level (≈ 0.0024 fb).

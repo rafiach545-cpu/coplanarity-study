@@ -1,0 +1,17 @@
+series,stage,k,n,frac,cp95_upper
+conversion only — literal,plane,1746,9139,0.1910493489440858,0.1979406994497725
+conversion only — literal,hit multiplicity,0,9139,0.0,0.0003277427871661
+conversion only — literal,Δw < 1 cm,0,9139,0.0,0.0003277427871661
+conversion only — literal,Δs < 0.01 cm (signal region),0,9139,0.0,0.0003277427871661
+conversion + pile-up — literal,plane,1990,9139,0.2177481124849546,0.2249700611505045
+conversion + pile-up — literal,hit multiplicity,48,9139,0.0052522157785315,0.0066758102527352
+conversion + pile-up — literal,Δw < 1 cm,48,9139,0.0052522157785315,0.0066758102527352
+conversion + pile-up — literal,Δs < 0.01 cm (signal region),0,9139,0.0,0.0003277427871661
+conversion + pile-up — old project setup,plane,3276,9139,0.3584637268847795,0.3668020853609159
+conversion + pile-up — old project setup,hit multiplicity,203,9139,0.0222124958967064,0.0249189087260144
+conversion + pile-up — old project setup,Δw < 1 cm,203,9139,0.0222124958967064,0.0249189087260144
+conversion + pile-up — old project setup,Δs < 0.01 cm (signal region),1,9139,0.0001094211620527,0.0005189728578815
+conversion only — no SCT z smearing (calibrated),plane,4323,9139,0.4730276835539993,0.4816783029685888
+conversion only — no SCT z smearing (calibrated),hit multiplicity,22,9139,0.0024072655651603,0.003435674062911
+conversion only — no SCT z smearing (calibrated),Δw < 1 cm,22,9139,0.0024072655651603,0.003435674062911
+conversion only — no SCT z smearing (calibrated),Δs < 0.01 cm (signal region),22,9139,0.0024072655651603,0.003435674062911

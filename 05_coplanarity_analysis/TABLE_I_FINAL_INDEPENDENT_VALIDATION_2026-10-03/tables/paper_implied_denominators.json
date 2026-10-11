@@ -1,0 +1,30 @@
+{
+ "EW|Fig5 = plane+multiplicity": {
+  "N_fig5": 3246,
+  "N_fid": 4130,
+  "N_trig": 14749,
+  "N_matched": 147487,
+  "note": ""
+ },
+ "EW|Fig5 = plane only (upper bound on plane eff = 1)": {
+  "N_fig5": 3246,
+  "N_fid": 3246,
+  "N_trig": 11593,
+  "N_matched": 115929,
+  "note": ""
+ },
+ "COL|Fig5 = plane+multiplicity": {
+  "N_fig5": 2122,
+  "N_fid": 5451,
+  "N_trig": 19466,
+  "N_matched": 81109,
+  "note": "colored N_trig is after the charge requirement; matched-sample size also needs the charged fraction (~0.30)"
+ },
+ "COL|Fig5 = plane only (upper bound on plane eff = 1)": {
+  "N_fig5": 2122,
+  "N_fid": 2122,
+  "N_trig": 7579,
+  "N_matched": 31577,
+  "note": "colored N_trig is after the charge requirement; matched-sample size also needs the charged fraction (~0.30)"
+ }
+}

@@ -1,0 +1,12 @@
+delta_s_cm|EW Quirk {'unit_weight': 3.9065033727798376e-06, 'max_deviation_from_integer': 0.4275172225314634, 'accepted': False, 'N_in_plot': 1952, 'sum_heights': 0.007624464649877963, 'units': 'fb per event'}
+   counts: [147, 191, 230, 256, 313, 236, 177, 141, 64, 34, 36, 48, 24, 18, 18, 18, 2]
+delta_s_cm|Colored Quirk {'unit_weight': 8.295586559165692e-06, 'max_deviation_from_integer': 0.05047910313444959, 'accepted': True, 'N_in_plot': 495, 'sum_heights': 0.004108458842409029, 'units': 'fb per event'}
+   counts: [29, 32, 58, 57, 69, 83, 54, 39, 19, 5, 8, 9, 11, 7, 8, 4, 3]
+delta_w_cm|EW Quirk {'unit_weight': 0.0003171895151842544, 'max_deviation_from_integer': 0.4352382783122266, 'accepted': False, 'N_in_plot': 3246, 'sum_heights': 1.029694306209886, 'units': 'normalised (1/N)'}
+   counts: [3, 6, 9, 24, 15, 54, 69, 92, 170, 214, 274, 363, 392, 327, 363, 294, 229, 146, 95, 69, 24, 12, 3]
+delta_w_cm|Colored Quirk {'unit_weight': 0.00048529241996332964, 'max_deviation_from_integer': 0.38006663050953193, 'accepted': False, 'N_in_plot': 2122, 'sum_heights': 1.0295991823942958, 'units': 'normalised (1/N)'}
+   counts: [8, 4, 4, 12, 8, 24, 32, 32, 68, 111, 163, 159, 278, 246, 266, 218, 187, 115, 103, 60, 24]
+EW|Fig5 = plane+multiplicity {'N_fig5': 3246, 'N_fid': 4130, 'N_trig': 14749, 'N_matched': 147487, 'note': ''}
+EW|Fig5 = plane only (upper bound on plane eff = 1) {'N_fig5': 3246, 'N_fid': 3246, 'N_trig': 11593, 'N_matched': 115929, 'note': ''}
+COL|Fig5 = plane+multiplicity {'N_fig5': 2122, 'N_fid': 5451, 'N_trig': 19466, 'N_matched': 81109, 'note': 'colored N_trig is after the charge requirement; matched-sample size also needs the charged fraction (~0.30)'}
+COL|Fig5 = plane only (upper bound on plane eff = 1) {'N_fig5': 2122, 'N_fid': 2122, 'N_trig': 7579, 'N_matched': 31577, 'note': 'colored N_trig is after the charge requirement; matched-sample size also needs the charged fraction (~0.30)'}

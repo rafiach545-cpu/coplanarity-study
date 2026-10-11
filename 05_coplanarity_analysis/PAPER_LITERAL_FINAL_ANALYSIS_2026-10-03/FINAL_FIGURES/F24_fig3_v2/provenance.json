@@ -1,0 +1,14 @@
+{
+ "figure": "F24_fig3_v2",
+ "source_csv": "F24_fig3_v2_source.csv",
+ "source_csv_sha256": "9999ddc489e1d6bf19582217f7d49afa5bb57e20f795f748a96687dfd06f0b9c",
+ "plot_reads_only_source_csv": true,
+ "selection": "rules in caption",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/dynamics_v2_trajectories.csv": "f26056c6078410bbf5eb2f700cf93bdb345aba3bba1b74dcbacb8f96ba549aa1",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/dynamics_v2_summary.csv": "5337d5e10fdfcca3181bf5785c35c7af8527b7299e211556ecfbfd79fb379ed6"
+ },
+ "script": "F23_fig2_fig3_v2.py",
+ "script_sha256": "a0e6ba23ad4c09a874fa8ad249212360e327b19bcb37fa1ff1b33d2c638e192a",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

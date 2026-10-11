@@ -1,0 +1,20 @@
+implementation_choice,exact_source,status,resulting_counts
+"Barrel only (pixel + SCT, 8 layers)",Paper Sec. III A: 'we only included the barrel of the pixel and SCT detectors in our simulations',PAPER-STATED,frame for all counts
+"Acceptance: effective |eta| < 1.8, per hit, no finite-z boundary (PRIMARY)",Paper Sec. III A: '... which effectively restricts the fiducial range to |eta| <~ 1.8' (applying it as a per-hit cut is the implementation),PAPER-STATED,"fiducial COL1000 7/27, COL2000 25/68, EW1000 40/89, EW2000 94/186"
+"Acceptance: finite barrel lengths (pixel |z|<400.5 mm, SCT |z|<749 mm, IBL |z|<330.15 mm)",Ref. [27] (arXiv:0901.0512 pp. 40-43) table 'Sensitive barrel 0 < |z| < 400.5 / 749'; IBL arXiv:1803.00844. No evidence the authors applied them,INFERRED (sensitivity),"fiducial COL1000 6/27, COL2000 22/68, EW1000 33/89, EW2000 62/186"
+"Layer radii IBL 33.25, pixel 50.5/88.5/122.5, SCT 299/371/443/514 mm","Ref. [27] ranges '50.5<R<122.5', '299<R<514'; ATLAS JINST 3 S08003; IBL from arXiv:1803.00844 and paper Fig. 4 spacing",REFERENCE-STATED (IBL INFERRED),all counts
+"Pixel hit = centre of hit pixel, 50x400 um (IBL 50x250 um)","Paper: 'the center of each pixel hit is used', 'pixel size rather than the resolution'; Ref. [27]: 'minimum pixel size on a sensor is 50x400 um2'",PAPER-STATED + REFERENCE-STATED (IBL pitch INFERRED),all counts
+Neighbouring-pixel merging,Paper: 'Hits in neightboring pixels ... are merged to a single hit' (adjacency rule INFERRED),PAPER-STATED,all counts
+SCT R-phi resolution 34 um,Paper: 'we conservatively assume a resolution of twice the intrinsic accuracy quoted in [27]'; Ref. [27]: '17 um (R-phi)',PAPER-STATED rule x REFERENCE-STATED value,all counts
+SCT z resolution 1160 um (= 2 x 580 um),"Same paper sentence (no coordinate named); Ref. [27]: 'intrinsic accuracies per module in the barrel are 17 um (R-phi) and 580 um (z)', footnote 'Arises from the 40 mrad stereo angle'. Original project choice",INFERRED (paper rule applied to the reference z value; contradicted by paper Fig. 5),"final COL1000 1/7, COL2000 3/25, EW1000 6/40, EW2000 21/94"
+SCT z resolution 580 um (1 x Ref. [27]),Ref. [27] value without the paper's doubling,INFERRED (sensitivity; contradicts 'twice'),"final COL1000 3/7, COL2000 5/25, EW1000 10/40, EW2000 29/94"
+No SCT z measurement smearing,No source; closer to paper Fig. 5 Delta_s,UNDOCUMENTED,"final COL1000 5/7, COL2000 11/25, EW1000 34/40, EW2000 76/94"
+45 mm longitudinal beam-spot smearing exists,"Paper: 'a uniform, gaussian smearing with width 45 mm to the z-coordinates of all the hits'",PAPER-STATED,—
+"Beam spot = one common z shift per event, fit relative to the true vertex (PRIMARY reading)",Same sentence + 'We will assume that the primary vertex is identified correctly',INFERRED (wording ambiguous),"SCT z 1160: COL2000 3/25, EW2000 21/94"
+"Beam spot = one common z shift per event, fit relative to the origin",'... and is located at the origin' read literally,INFERRED (alternative reading),"SCT z 1160: COL2000 0/25, EW2000 3/94"
+Beam spot = independent 45 mm shift of every hit,'smearing ... to the z-coordinates of all the hits' read per hit,INFERRED (alternative reading),"fiducial COL2000 21/68, EW2000 66/186; final 0 and 0 for every SCT z (no plane found)"
+25 ns timing cut,Paper Sec. IV (location of the cut INFERRED),PAPER-STATED,all counts
+Delta_w = sqrt(lambda_2) (Eq. 11),Paper Eq. 11; paper Fig. 4 band corresponds to 0.5 sqrt(lambda_2),PAPER-STATED (paper-internal inconsistency),no count changes
+Trigger: pT(QQbar) > 200 GeV over matched events,Paper Sec. III B,PAPER-STATED,"COL1000 101/419, COL2000 207/873, EW1000 89/511, EW2000 186/1045"
+"Generator settings (matching scale, PDF, scales, tune)",not stated in the paper,UNDOCUMENTED,trigger as above; 36 variations give EW 0.13-0.19
+"Converted photon under acceptance A, PV fit origin",Paper Sec. III D (procedure); acceptance A as above,as above,"final 0/9139 (SCT z 1160), 0/9139 (580), 30/9139 (no z smearing)"

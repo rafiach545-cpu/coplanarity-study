@@ -1,0 +1,14 @@
+{
+ "figure": "F06_table_I_comparison",
+ "source_csv": "F06_table_I_comparison_source.csv",
+ "source_csv_sha256": "69919735fe3591ccde2ccfa8d6c36ded7b98a1730f5cae7002143621f24f007c",
+ "plot_reads_only_source_csv": true,
+ "selection": "config == LITERAL; all four samples",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/paper_project_comparison.csv": "823f6b3b608d74603202f92f50ce3a6f8d5b70ef0aa581de32f8bd5899565851",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/signal_efficiency_statistics.csv": "991507c859f486e7ff26b2d6f761e5e7e129a9d47badef6f4a5658cbdbe6c444"
+ },
+ "script": "F06_table_I_and_signal_cutflow.py",
+ "script_sha256": "d2729d5bd1bbc74bda3c30b7e229aa3b6d692024458739bd1f1a099613e70b75",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

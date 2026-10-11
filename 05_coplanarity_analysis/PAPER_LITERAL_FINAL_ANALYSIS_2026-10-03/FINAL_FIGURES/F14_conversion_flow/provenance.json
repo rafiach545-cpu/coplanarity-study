@@ -1,0 +1,14 @@
+{
+ "figure": "F14_conversion_flow",
+ "source_csv": "F14_conversion_flow_source.csv",
+ "source_csv_sha256": "b21036061cd6507eb735062af53484842d87291546672685916eef1ee1b3e32c",
+ "plot_reads_only_source_csv": true,
+ "selection": "as listed",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/converted_photon_cutflow.csv": "d935ba92ec59d436e44d777ab61bdc6513622e0838ac00921dfe0d4cce6290f6",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/overlay_cutflow.csv": "0f332a57df0fd09ed3ef233312c9944c2b3dc543e1e456896d7e125fd51c3e96"
+ },
+ "script": "F13_report_background_figures.py",
+ "script_sha256": "8eeea17a81c6bab62448162107492ffdfb2faefdad289bd16a268b014af6904d",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

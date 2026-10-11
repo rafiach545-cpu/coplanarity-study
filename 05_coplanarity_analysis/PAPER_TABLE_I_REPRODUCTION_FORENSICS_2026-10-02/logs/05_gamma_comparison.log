@@ -1,0 +1,6 @@
+EW matched (2000)              N= 1045  mean(g-1)=0.287  median=0.209
+EW trigger (2000)              N=  186  mean(g-1)=0.302  median=0.228
+COL matched (2000)             N=  873  mean(g-1)=0.168  median=0.135
+COL trigger charged (2000)     N=   68  mean(g-1)=0.158  median=0.129
+EW fiducial (2000)             N=   94  mean(g-1)=0.278  median=0.228
+paper Fig.6 d_cm contour: EW 800 GeV <g-1> ~0.305 ; colored 1800 GeV ~0.180

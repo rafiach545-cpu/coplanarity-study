@@ -1,0 +1,6 @@
+import model sm
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+import model quirk
+generate p p > qe+ qe- @0
+output /home/rafia/hep_tools/TABLE_I_TRIGGER_SEARCH_2026-10-02/proc/TEMPLATE_D2_EW -f

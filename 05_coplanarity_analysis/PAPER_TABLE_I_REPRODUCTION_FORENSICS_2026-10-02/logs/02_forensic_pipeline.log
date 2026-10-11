@@ -1,0 +1,4 @@
+EW1000: fiducial events 40; R0/A0 vs stored: ds exact 40/40, plane match 40, final match 40, npost match 40
+EW2000: fiducial events 94; R0/A0 vs stored: ds exact 76/94, plane match 92, final match 94, npost match 94
+COL1000: fiducial events 7; R0/A0 vs stored: ds exact 7/7, plane match 7, final match 7, npost match 7
+COL2000: fiducial events 25; R0/A0 vs stored: ds exact 25/25, plane match 25, final match 25, npost match 25

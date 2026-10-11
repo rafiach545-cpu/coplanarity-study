@@ -1,0 +1,14 @@
+{
+ "figure": "F15_signal_ds_vs_paper",
+ "source_csv": "F15_signal_ds_vs_paper_source.csv",
+ "source_csv_sha256": "86f931ecf36710da090ffc27801361cd5b82cc398467ca427adcd19dc0d424d7",
+ "plot_reads_only_source_csv": true,
+ "selection": "EW2000 and COL2000, geometry B, plane & mult",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/signal_per_event_all_configs.csv": "8a9de621fd70fe7744bfc10848f62178a4ceaee2bda1a2098afd7cb2e6f4663a",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../../PAPER_TABLE_I_REPRODUCTION_FORENSICS_2026-10-02/tables/paper_fig5_extracted.json": "bece94bd8e24b85be15b1a2019227475b55026c18dafe3d36e9f941ba589f1da"
+ },
+ "script": "F15_signal_ds_vs_paper.py",
+ "script_sha256": "73d00996a41a7744872b9c5f4b865009724f5acdde634f378f95aa17a9365a74",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

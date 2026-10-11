@@ -1,0 +1,1 @@
+DIAGNOSTIC (UNRESOLVED_DIFFERENCES.md U4): fiducial efficiency with the literal finite-barrel acceptance from ref. [27] vs the project's η-cone |η| < 1.8 reading of the paper's '|η| ≲ 1.8' remark, each sample separately (Wilson 95%). The literal geometry reproduces the paper's 0.28 in all four samples; the η-cone overshoots for EW.

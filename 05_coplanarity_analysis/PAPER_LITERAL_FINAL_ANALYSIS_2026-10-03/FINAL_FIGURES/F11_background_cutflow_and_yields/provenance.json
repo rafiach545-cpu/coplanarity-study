@@ -1,0 +1,17 @@
+{
+ "figure": "F11_background_cutflow_and_yields",
+ "source_csv": "F11_background_cutflow_and_yields_source.csv",
+ "source_csv_sha256": "5749fda4081c594d9cd76d9ffac5ade9a1b9d80c2ee9ed2e27807a34ed02c1b9",
+ "plot_reads_only_source_csv": true,
+ "selection": "all configurations in the source tables",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/pileup_cutflow.csv": "38491a00336bf915229195d91b8005b690e4f0857452db3920bc57344122ca43",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/converted_photon_cutflow.csv": "d935ba92ec59d436e44d777ab61bdc6513622e0838ac00921dfe0d4cce6290f6",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/overlay_cutflow.csv": "0f332a57df0fd09ed3ef233312c9944c2b3dc543e1e456896d7e125fd51c3e96",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/weighted_yields_conversion.csv": "51ada5d7857ee3dea3933dec4fb1e28c52cc8e72f548012b834ffa53d8f5037e",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/weighted_yields_overlay.csv": "ae9146008cb83de3498035fd401cefbacd532d1cc5cbbd2dc0866ce35e0dacf5"
+ },
+ "script": "F11_background_cutflow_yields.py",
+ "script_sha256": "adb5b2983094e4c6118bfefaaa6727acc9e5bbe930a9d73fac83646a25308c1c",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

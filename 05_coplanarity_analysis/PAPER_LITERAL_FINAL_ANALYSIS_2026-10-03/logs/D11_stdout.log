@@ -1,0 +1,10 @@
+== COL2000: 22 fiducial events | crossings found 300 vs 1500 equal in 22
+   max hit shift over events: r-phi 1.76e+04 um (median 2.05e+03), z 4.46e+04 um (median 2.11e+03), time 776 ps
+   SCT z Z0: signal region 300 = 8, 1500 = 9; events changing = 1; plane decision changed = 1; max |delta ds| 41.6 um
+   SCT z Z1160: signal region 300 = 1, 1500 = 1; events changing = 0; plane decision changed = 0; max |delta ds| 94.8 um
+== EW2000: 62 fiducial events | crossings found 300 vs 1500 equal in 62
+   max hit shift over events: r-phi 7.6e+05 um (median 1.43e+03), z 2.46e+04 um (median 2.09e+03), time 424 ps
+   SCT z Z0: signal region 300 = 50, 1500 = 43; events changing = 15; plane decision changed = 0; max |delta ds| 65.4 um
+   SCT z Z1160: signal region 300 = 10, 1500 = 9; events changing = 7; plane decision changed = 11; max |delta ds| 93.6 um
+== real event COL2000 key 35, 300 steps/period, full length: t_gev_inv identical=True, x1 identical=True, p1 identical=True, x2 identical=True, p2 identical=True | runtime baseline 14.3 s, v2 1.6 s
+D11_EXIT=0

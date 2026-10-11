@@ -1,0 +1,17 @@
+pre-shower trigger: 121 of 1045; also after-shower trigger: 114
+to run 121
+10/121
+20/121
+30/121
+40/121
+50/121
+60/121
+70/121
+80/121
+90/121
+100/121
+110/121
+120/121
+column H: fiducial (2 keV) 44/121 = 0.364 1 keV: fid 43, SR 8/43 | 2 keV: fid 44, SR 26/44 | 4 keV: fid 44, SR 33/44
+column S: fiducial (2 keV) 48/121 = 0.397 1 keV: fid 48, SR 10/48 | 2 keV: fid 48, SR 35/48 | 4 keV: fid 48, SR 40/48
+P23_EXIT=0

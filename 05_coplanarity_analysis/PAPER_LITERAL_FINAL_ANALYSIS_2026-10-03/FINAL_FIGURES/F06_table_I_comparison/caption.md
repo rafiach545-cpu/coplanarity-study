@@ -1,0 +1,1 @@
+Table I comparison, LITERAL configuration, each frozen sample separately (no pooling). Point = k/n; thick bar = Wilson 68%; thin bar = Wilson 95%; dashed line = paper Table I central value (paper publishes no counts or uncertainties). ε_reco = full Sec. IV signal region / (trigger ∧ fiducial).

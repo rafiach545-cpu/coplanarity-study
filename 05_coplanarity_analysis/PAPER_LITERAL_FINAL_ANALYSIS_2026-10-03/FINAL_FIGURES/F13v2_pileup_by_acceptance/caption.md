@@ -1,0 +1,1 @@
+Pile-up only (μ = 50), 5000 events per run: per-event rates with Wilson 95% intervals (one-sided 95% upper limit when 0) for the existing run with the paper-stated |η| < 1.8 acceptance (no pixel merging) and the finite-barrel run (inferred, with merging). Diamonds: paper.

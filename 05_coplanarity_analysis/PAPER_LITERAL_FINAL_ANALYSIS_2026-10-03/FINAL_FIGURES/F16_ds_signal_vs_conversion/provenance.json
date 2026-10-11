@@ -1,0 +1,15 @@
+{
+ "figure": "F16_ds_signal_vs_conversion",
+ "source_csv": "F16_ds_signal_vs_conversion_source.csv",
+ "source_csv_sha256": "dbccd2d8b546dc1efb4dc222243418e793e0186584111d3003db0d8672ec1006",
+ "plot_reads_only_source_csv": true,
+ "selection": "EW2000 signal; 9139 conversions; acceptance A",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/acceptance_longitudinal_per_event.csv": "e3f6c93d1e0d4ebe0998bbe46342e67922fff3a879a352f01a2e646956cf3cd0",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/conversion_acceptance_A_per_event.csv": "04790f35c6c9b97ce2456e263178f6df5402015067fbdb4daef1c2ffb824f333",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../../PAPER_TABLE_I_REPRODUCTION_FORENSICS_2026-10-02/tables/paper_fig5_extracted.json": "bece94bd8e24b85be15b1a2019227475b55026c18dafe3d36e9f941ba589f1da"
+ },
+ "script": "F16_ds_signal_vs_conversion.py",
+ "script_sha256": "42d74f673d334f1ed10882b32f3e8f9290b4cece33400d9bc5b2cf2ce154a35a",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

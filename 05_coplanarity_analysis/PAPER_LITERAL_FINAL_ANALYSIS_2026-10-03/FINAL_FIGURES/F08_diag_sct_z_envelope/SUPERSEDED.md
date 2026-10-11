@@ -1,0 +1,1 @@
+SUPERSEDED (2026-10-03, v2 correction): this figure treats the finite barrel of Ref. [27] as primary. The paper-stated |eta| < 1.8 acceptance is now primary; see F06v2 / F08v2 / F12v2 / F15v2 and CORRECTION_ACCEPTANCE_AND_LONGITUDINAL_2026-10-03.md. Kept for provenance.

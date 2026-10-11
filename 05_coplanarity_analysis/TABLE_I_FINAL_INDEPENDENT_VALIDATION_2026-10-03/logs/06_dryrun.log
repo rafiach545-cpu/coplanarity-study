@@ -1,0 +1,84 @@
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2896.302375 GeV vs on-shell E=2895.976030 GeV (rel diff 1.13e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2871.128769 GeV vs on-shell E=2870.799564 GeV (rel diff 1.15e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2311.805157 GeV vs on-shell E=2311.396290 GeV (rel diff 1.77e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1896.718393 GeV vs on-shell E=1895.911375 GeV (rel diff 4.26e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2607.017200 GeV vs on-shell E=2606.533751 GeV (rel diff 1.85e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2012.287292 GeV vs on-shell E=2011.526640 GeV (rel diff 3.78e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2342.259176 GeV vs on-shell E=2341.855626 GeV (rel diff 1.72e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2322.121941 GeV vs on-shell E=2321.714891 GeV (rel diff 1.75e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=3128.382968 GeV vs on-shell E=3128.080836 GeV (rel diff 9.66e-05 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2407.597005 GeV vs on-shell E=2407.073503 GeV (rel diff 2.17e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1827.423516 GeV vs on-shell E=1826.906246 GeV (rel diff 2.83e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1944.378053 GeV vs on-shell E=1943.891905 GeV (rel diff 2.50e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1851.811462 GeV vs on-shell E=1851.301006 GeV (rel diff 2.76e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1871.789860 GeV vs on-shell E=1871.284853 GeV (rel diff 2.70e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1920.166870 GeV vs on-shell E=1919.674590 GeV (rel diff 2.56e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=3224.300013 GeV vs on-shell E=3224.006870 GeV (rel diff 9.09e-05 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2195.589397 GeV vs on-shell E=2195.158883 GeV (rel diff 1.96e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2142.393538 GeV vs on-shell E=2141.531933 GeV (rel diff 4.02e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1840.785359 GeV vs on-shell E=1839.953808 GeV (rel diff 4.52e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=1882.331760 GeV vs on-shell E=1881.913997 GeV (rel diff 2.22e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2113.170138 GeV vs on-shell E=2112.722830 GeV (rel diff 2.12e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2500.217682 GeV vs on-shell E=2499.839631 GeV (rel diff 1.51e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2096.811443 GeV vs on-shell E=2096.210327 GeV (rel diff 2.87e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2033.593052 GeV vs on-shell E=2032.973244 GeV (rel diff 3.05e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2378.799348 GeV vs on-shell E=2378.401998 GeV (rel diff 1.67e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2142.068329 GeV vs on-shell E=2141.627057 GeV (rel diff 2.06e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=1849.500931 GeV vs on-shell E=1848.989837 GeV (rel diff 2.76e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2116.163271 GeV vs on-shell E=2115.567654 GeV (rel diff 2.82e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2440.660771 GeV vs on-shell E=2440.273494 GeV (rel diff 1.59e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2177.847048 GeV vs on-shell E=2177.413026 GeV (rel diff 1.99e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 1]: supplied E=2214.172099 GeV vs on-shell E=2213.745200 GeV (rel diff 1.93e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+WARNING [check_onshell_energy quirk/particle 2]: supplied E=2094.446393 GeV vs on-shell E=2093.995086 GeV (rel diff 2.16e-04 > tol 1e-06). Using on-shell E for period/geometry sizing so it is consistent with what the integrator's dynamics actually use.
+{"EW": {"generated": 2000, "matched": 1101, "trigger": 187, "trigger_charged": 187}, "COL": {"generated": 2000, "matched": 855, "trigger": 186, "trigger_charged": 51}}
+benchmark geometry sct_z dw_convention       quantity  N_pass  N_total    eff  wilson95_lo  wilson95_hi  cp95_lo  cp95_hi  paper  paper_inside_wilson95  p_exact
+      COL        A    Z0            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        A    Z0            W1       fiducial       5       20 0.2500       0.1119       0.4687   0.0866   0.4910   0.28                   True   1.0000
+      COL        A    Z0            W1 reconstruction       3        5 0.6000       0.2307       0.8824   0.1466   0.9473   0.35                   True   0.3512
+      COL        A Z1160            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        A Z1160            W1       fiducial       5       20 0.2500       0.1119       0.4687   0.0866   0.4910   0.28                   True   1.0000
+      COL        A Z1160            W1 reconstruction       0        5 0.0000       0.0000       0.4345   0.0000   0.5218   0.35                   True   0.1701
+      COL        A   Z34            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        A   Z34            W1       fiducial       5       20 0.2500       0.1119       0.4687   0.0866   0.4910   0.28                   True   1.0000
+      COL        A   Z34            W1 reconstruction       3        5 0.6000       0.2307       0.8824   0.1466   0.9473   0.35                   True   0.3512
+      COL        A  Z580            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        A  Z580            W1       fiducial       5       20 0.2500       0.1119       0.4687   0.0866   0.4910   0.28                   True   1.0000
+      COL        A  Z580            W1 reconstruction       0        5 0.0000       0.0000       0.4345   0.0000   0.5218   0.35                   True   0.1701
+      COL        B    Z0            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        B    Z0            W1       fiducial       3       20 0.1500       0.0524       0.3604   0.0321   0.3789   0.28                   True   0.3173
+      COL        B    Z0            W1 reconstruction       2        3 0.6667       0.2077       0.9385   0.0943   0.9916   0.35                   True   0.2817
+      COL        B Z1160            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        B Z1160            W1       fiducial       3       20 0.1500       0.0524       0.3604   0.0321   0.3789   0.28                   True   0.3173
+      COL        B Z1160            W1 reconstruction       0        3 0.0000       0.0000       0.5615   0.0000   0.7076   0.35                   True   0.5564
+      COL        B   Z34            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        B   Z34            W1       fiducial       3       20 0.1500       0.0524       0.3604   0.0321   0.3789   0.28                   True   0.3173
+      COL        B   Z34            W1 reconstruction       2        3 0.6667       0.2077       0.9385   0.0943   0.9916   0.35                   True   0.2817
+      COL        B  Z580            W1        trigger     186      855 0.2175       0.1912       0.2464   0.1903   0.2467   0.24                   True   0.1282
+      COL        B  Z580            W1       fiducial       3       20 0.1500       0.0524       0.3604   0.0321   0.3789   0.28                   True   0.3173
+      COL        B  Z580            W1 reconstruction       0        3 0.0000       0.0000       0.5615   0.0000   0.7076   0.35                   True   0.5564
+       EW        A    Z0            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        A    Z0            W1       fiducial      10       20 0.5000       0.2993       0.7007   0.2720   0.7280   0.28                  False   0.0428
+       EW        A    Z0            W1 reconstruction       7       10 0.7000       0.3968       0.8922   0.3475   0.9333   0.72                   True   1.0000
+       EW        A Z1160            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        A Z1160            W1       fiducial      10       20 0.5000       0.2993       0.7007   0.2720   0.7280   0.28                  False   0.0428
+       EW        A Z1160            W1 reconstruction       1       10 0.1000       0.0179       0.4042   0.0025   0.4450   0.72                  False   0.0001
+       EW        A   Z34            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        A   Z34            W1       fiducial      10       20 0.5000       0.2993       0.7007   0.2720   0.7280   0.28                  False   0.0428
+       EW        A   Z34            W1 reconstruction      10       10 1.0000       0.7225       1.0000   0.6915   1.0000   0.72                  False   0.0716
+       EW        A  Z580            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        A  Z580            W1       fiducial      10       20 0.5000       0.2993       0.7007   0.2720   0.7280   0.28                  False   0.0428
+       EW        A  Z580            W1 reconstruction       2       10 0.2000       0.0567       0.5098   0.0252   0.5561   0.72                  False   0.0010
+       EW        B    Z0            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        B    Z0            W1       fiducial       7       20 0.3500       0.1812       0.5671   0.1539   0.5922   0.28                   True   0.4635
+       EW        B    Z0            W1 reconstruction       5        7 0.7143       0.3589       0.9178   0.2904   0.9633   0.72                   True   1.0000
+       EW        B Z1160            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        B Z1160            W1       fiducial       7       20 0.3500       0.1812       0.5671   0.1539   0.5922   0.28                   True   0.4635
+       EW        B Z1160            W1 reconstruction       1        7 0.1429       0.0257       0.5131   0.0036   0.5787   0.72                  False   0.0026
+       EW        B   Z34            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        B   Z34            W1       fiducial       7       20 0.3500       0.1812       0.5671   0.1539   0.5922   0.28                   True   0.4635
+       EW        B   Z34            W1 reconstruction       7        7 1.0000       0.6457       1.0000   0.5904   1.0000   0.72                   True   0.2019
+       EW        B  Z580            W1        trigger     187     1101 0.1698       0.1488       0.1932   0.1481   0.1934   0.10                  False   0.0000
+       EW        B  Z580            W1       fiducial       7       20 0.3500       0.1812       0.5671   0.1539   0.5922   0.28                   True   0.4635
+       EW        B  Z580            W1 reconstruction       1        7 0.1429       0.0257       0.5131   0.0036   0.5787   0.72                  False   0.0026
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed

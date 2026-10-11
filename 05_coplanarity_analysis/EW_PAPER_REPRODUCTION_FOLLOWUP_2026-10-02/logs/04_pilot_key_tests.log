@@ -1,0 +1,13 @@
+SHOWER_PROD2000_mg5_233_seed8003_py8212_Soff: 179/1037 = 0.1726  W95 [0.1508,0.1968]  CP95 [0.1501,0.1970]  p_vs_0.10 = 8.110e-13  Fisher_vs_frozen p = 0.792  KS p = 0.797
+SHOWER_PROD2000_mg5_233_seed8003_py8317_Soff: 183/1011 = 0.1810  W95 [0.1585,0.2059]  CP95 [0.1577,0.2062]  p_vs_0.10 = 6.227e-15  Fisher_vs_frozen p = 0.792  KS p = 0.807
+SHOWER_EW2000_mg5_373_py8317_Son: 186/1045 = 0.1780  W95 [0.1560,0.2023]  CP95 [0.1553,0.2026]  p_vs_0.10 = 1.788e-14  Fisher_vs_frozen p = 0.958  KS p = 1.000
+SHOWER_EW2000_mg5_373_py8212_Son: 180/1031 = 0.1746  W95 [0.1526,0.1990]  CP95 [0.1519,0.1992]  p_vs_0.10 = 2.236e-13  Fisher_vs_frozen p = 0.916  KS p = 0.955
+POOLED MG373+Py8317 S=on (=frozen config, rerun): 280/1538 = 0.1821  p_vs_0.10 = 1.635e-22  Fisher vs frozen 275/1556 p = 0.708
+POOLED MG373+Py8317 S=off: 240/1582 = 0.1517  p_vs_0.10 = 1.183e-10  Fisher vs frozen 275/1556 p = 0.060
+POOLED MG373+Py8212 S=on: 268/1556 = 0.1722  p_vs_0.10 = 3.248e-18  Fisher vs frozen 275/1556 p = 0.777
+POOLED MG373+Py8212 S=off: 257/1579 = 0.1628  p_vs_0.10 = 1.469e-14  Fisher vs frozen 275/1556 p = 0.318
+POOLED MG233+Py8317 S=off (2000+500): 214/1248 = 0.1715  p_vs_0.10 = 1.203e-14  Fisher vs frozen 275/1556 p = 0.726
+POOLED MG233+Py8212 S=off (2000+500) ERA-FAITHFUL: 214/1279 = 0.1673  p_vs_0.10 = 1.168e-13  Fisher vs frozen 275/1556 p = 0.516
+S effect (Py8317, same LHE): Fisher p = 0.024
+ME-version effect (Py8212, S=off): Fisher p = 0.7611
+Pythia-version effect (MG373, S=off): Fisher p = 0.4063

@@ -1,0 +1,13 @@
+{
+ "figure": "F08_diag_sct_z_envelope",
+ "source_csv": "F08_diag_sct_z_envelope_source.csv",
+ "source_csv_sha256": "c5179af8489b69ff2ece186cfe0413458b458ec118251a66e9c0087fa2548285",
+ "plot_reads_only_source_csv": true,
+ "selection": "reconstruction, W1, all geometries and SCT z variants",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/signal_efficiency_statistics.csv": "991507c859f486e7ff26b2d6f761e5e7e129a9d47badef6f4a5658cbdbe6c444"
+ },
+ "script": "F06_table_I_and_signal_cutflow.py",
+ "script_sha256": "d2729d5bd1bbc74bda3c30b7e229aa3b6d692024458739bd1f1a099613e70b75",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

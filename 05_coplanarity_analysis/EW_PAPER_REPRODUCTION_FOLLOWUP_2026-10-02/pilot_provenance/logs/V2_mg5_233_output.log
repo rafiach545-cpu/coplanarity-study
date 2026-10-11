@@ -1,0 +1,226 @@
+Python 2.7.15
+GNU Fortran (conda-forge gcc 16.2.0-7) 16.2.0
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 2.3.3                 2015-10-25         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from ../build/MG5_aMC_v2_3_3/input/mg5_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MG5_aMC> set fastjet /PATH/TO/fastjet-config
+
+set lhapdf to lhapdf-config
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+import /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_cards/proc_card_mg5.dat
+The import format was not given, so we guess it as command
+import model sm
+INFO: load particles 
+INFO: load vertices 
+INFO: Restrict model sm with file ../build/MG5_aMC_v2_3_3/models/sm/restrict_default.dat . 
+INFO: Run "set stdout_level DEBUG" before import for more information. 
+INFO: Change particles name to pass to MG5 convention 
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+Defined multiparticle l+ = e+ mu+
+Defined multiparticle l- = e- mu-
+Defined multiparticle vl = ve vm vt
+Defined multiparticle vl~ = ve~ vm~ vt~
+Defined multiparticle all = g u c d s u~ c~ d~ s~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t b t~ b~ z w+ h w- ta- ta+
+define p = g u c d s u~ c~ d~ s~
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+Defined multiparticle l+ = e+ mu+
+define l- = e- mu-
+Defined multiparticle l- = e- mu-
+define vl = ve vm vt
+Defined multiparticle vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+Defined multiparticle vl~ = ve~ vm~ vt~
+import model quirk
+INFO: load particles 
+INFO: load vertices 
+INFO: Restrict model quirk with file ../build/MG5_aMC_v2_3_3/models/quirk/restrict_default.dat . 
+INFO: Run "set stdout_level DEBUG" before import for more information. 
+INFO: Change particles name to pass to MG5 convention 
+Kept definitions of multiparticles l- / j / vl / l+ / p / vl~ unchanged
+Defined multiparticle all = g u c d s u~ c~ d~ s~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t t1 b t~ t1~ b~ z w+ h g0 g+ w- g- qe- ta- qe+ ta+
+generate p p > qe+ qe- @0
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying process: g g > qe+ qe- WEIGHTED=4  
+INFO: Trying process: u u~ > qe+ qe- WEIGHTED=4  
+INFO: Process has 2 diagrams 
+INFO: Trying process: u c~ > qe+ qe- WEIGHTED=4  
+INFO: Trying process: c u~ > qe+ qe- WEIGHTED=4  
+INFO: Trying process: c c~ > qe+ qe- WEIGHTED=4  
+INFO: Process has 2 diagrams 
+INFO: Trying process: d d~ > qe+ qe- WEIGHTED=4  
+INFO: Process has 2 diagrams 
+INFO: Trying process: d s~ > qe+ qe- WEIGHTED=4  
+INFO: Trying process: s d~ > qe+ qe- WEIGHTED=4  
+INFO: Trying process: s s~ > qe+ qe- WEIGHTED=4  
+INFO: Process has 2 diagrams 
+INFO: Process u~ u > qe+ qe- added to mirror process u u~ > qe+ qe- 
+INFO: Process c~ c > qe+ qe- added to mirror process c c~ > qe+ qe- 
+INFO: Process d~ d > qe+ qe- added to mirror process d d~ > qe+ qe- 
+INFO: Process s~ s > qe+ qe- added to mirror process s s~ > qe+ qe- 
+4 processes with 8 diagrams generated in 0.019 s
+Total: 4 processes with 8 diagrams
+add process p p > qe+ qe- j @1
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED=5 
+INFO: Trying process: g g > qe+ qe- g WEIGHTED=5 @1  
+INFO: Trying process: g u > qe+ qe- u WEIGHTED=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Trying process: g u > qe+ qe- c WEIGHTED=5 @1  
+INFO: Trying process: g c > qe+ qe- u WEIGHTED=5 @1  
+INFO: Trying process: g c > qe+ qe- c WEIGHTED=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Trying process: g d > qe+ qe- d WEIGHTED=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Trying process: g d > qe+ qe- s WEIGHTED=5 @1  
+INFO: Trying process: g s > qe+ qe- d WEIGHTED=5 @1  
+INFO: Trying process: g s > qe+ qe- s WEIGHTED=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Crossed process found for g u~ > qe+ qe- u~, reuse diagrams. 
+INFO: Crossed process found for g c~ > qe+ qe- c~, reuse diagrams. 
+INFO: Crossed process found for g d~ > qe+ qe- d~, reuse diagrams. 
+INFO: Crossed process found for g s~ > qe+ qe- s~, reuse diagrams. 
+INFO: Process u g > qe+ qe- u added to mirror process g u > qe+ qe- u 
+INFO: Crossed process found for u u~ > qe+ qe- g, reuse diagrams. 
+INFO: Process c g > qe+ qe- c added to mirror process g c > qe+ qe- c 
+INFO: Crossed process found for c c~ > qe+ qe- g, reuse diagrams. 
+INFO: Process d g > qe+ qe- d added to mirror process g d > qe+ qe- d 
+INFO: Crossed process found for d d~ > qe+ qe- g, reuse diagrams. 
+INFO: Process s g > qe+ qe- s added to mirror process g s > qe+ qe- s 
+INFO: Crossed process found for s s~ > qe+ qe- g, reuse diagrams. 
+INFO: Process u~ g > qe+ qe- u~ added to mirror process g u~ > qe+ qe- u~ 
+INFO: Process u~ u > qe+ qe- g added to mirror process u u~ > qe+ qe- g 
+INFO: Process c~ g > qe+ qe- c~ added to mirror process g c~ > qe+ qe- c~ 
+INFO: Process c~ c > qe+ qe- g added to mirror process c c~ > qe+ qe- g 
+INFO: Process d~ g > qe+ qe- d~ added to mirror process g d~ > qe+ qe- d~ 
+INFO: Process d~ d > qe+ qe- g added to mirror process d d~ > qe+ qe- g 
+INFO: Process s~ g > qe+ qe- s~ added to mirror process g s~ > qe+ qe- s~ 
+INFO: Process s~ s > qe+ qe- g added to mirror process s s~ > qe+ qe- g 
+12 processes with 48 diagrams generated in 0.072 s
+Total: 16 processes with 56 diagrams
+output /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233 -f
+INFO: initialize a new directory: V2_proc_mg5_233 
+INFO: remove old information in V2_proc_mg5_233 
+INFO: Organizing processes into subprocess groups 
+INFO: Generating Helas calls for process: g u > qe+ qe- u WEIGHTED=5 @1 
+INFO: Processing color information for process: g u > qe+ qe- u  @1 
+INFO: Combined process g c > qe+ qe- c WEIGHTED=5 @1 with process g u > qe+ qe- u WEIGHTED=5 @1 
+INFO: Generating Helas calls for process: g d > qe+ qe- d WEIGHTED=5 @1 
+INFO: Reusing existing color information for process: g d > qe+ qe- d  @1 
+INFO: Combined process g s > qe+ qe- s WEIGHTED=5 @1 with process g d > qe+ qe- d WEIGHTED=5 @1 
+INFO: Generating Helas calls for process: g u~ > qe+ qe- u~ WEIGHTED=5 @1 
+INFO: Processing color information for process: g u~ > qe+ qe- u~  @1 
+INFO: Combined process g c~ > qe+ qe- c~ WEIGHTED=5 @1 with process g u~ > qe+ qe- u~ WEIGHTED=5 @1 
+INFO: Generating Helas calls for process: g d~ > qe+ qe- d~ WEIGHTED=5 @1 
+INFO: Reusing existing color information for process: g d~ > qe+ qe- d~  @1 
+INFO: Combined process g s~ > qe+ qe- s~ WEIGHTED=5 @1 with process g d~ > qe+ qe- d~ WEIGHTED=5 @1 
+INFO: Generating Helas calls for process: u u~ > qe+ qe- g WEIGHTED=5 @1 
+INFO: Processing color information for process: u u~ > qe+ qe- g  @1 
+INFO: Combined process c c~ > qe+ qe- g WEIGHTED=5 @1 with process u u~ > qe+ qe- g WEIGHTED=5 @1 
+INFO: Generating Helas calls for process: d d~ > qe+ qe- g WEIGHTED=5 @1 
+INFO: Reusing existing color information for process: d d~ > qe+ qe- g  @1 
+INFO: Combined process s s~ > qe+ qe- g WEIGHTED=5 @1 with process d d~ > qe+ qe- g WEIGHTED=5 @1 
+INFO: Generating Helas calls for process: u u~ > qe+ qe- WEIGHTED=4 
+INFO: Processing color information for process: u u~ > qe+ qe-  
+INFO: Combined process c c~ > qe+ qe- WEIGHTED=4 with process u u~ > qe+ qe- WEIGHTED=4 
+INFO: Generating Helas calls for process: d d~ > qe+ qe- WEIGHTED=4 
+INFO: Reusing existing color information for process: d d~ > qe+ qe-  
+INFO: Combined process s s~ > qe+ qe- WEIGHTED=4 with process d d~ > qe+ qe- WEIGHTED=4 
+INFO: Creating files in directory P1_gq_qepqemq 
+INFO: Generating Feynman diagrams for Process: g u > qe+ qe- u WEIGHTED=5 @1 
+INFO: Generating Feynman diagrams for Process: g d > qe+ qe- d WEIGHTED=5 @1 
+INFO: Generating Feynman diagrams for Process: g u~ > qe+ qe- u~ WEIGHTED=5 @1 
+INFO: Generating Feynman diagrams for Process: g d~ > qe+ qe- d~ WEIGHTED=5 @1 
+INFO: Finding symmetric diagrams for subprocess group gq_qepqemq 
+INFO: Creating files in directory P1_qq_qepqemg 
+INFO: Generating Feynman diagrams for Process: u u~ > qe+ qe- g WEIGHTED=5 @1 
+INFO: Generating Feynman diagrams for Process: d d~ > qe+ qe- g WEIGHTED=5 @1 
+INFO: Finding symmetric diagrams for subprocess group qq_qepqemg 
+INFO: Creating files in directory P0_qq_qepqem 
+INFO: Generating Feynman diagrams for Process: u u~ > qe+ qe- WEIGHTED=4 
+INFO: Generating Feynman diagrams for Process: d d~ > qe+ qe- WEIGHTED=4 
+INFO: Finding symmetric diagrams for subprocess group qq_qepqem 
+History written to /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233/Cards/proc_card_mg5.dat
+Generated helas calls for 8 subprocesses (28 diagrams) in 0.041 s
+Wrote files for 94 helas calls in 0.098 s
+Export UFO model to MG4 format
+ALOHA: aloha creates FFV2 routines
+ALOHA: aloha creates FFV3 routines
+ALOHA: aloha creates FFV1 routines
+ALOHA: aloha creates FFV4 routines
+ALOHA: aloha creates FFV5 routines
+save configuration file to /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233/Cards/me5_configuration.txt
+INFO: Use Fortran compiler gfortran 
+INFO: Generate jpeg diagrams 
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+nice: ‘gs’: No such file or directory
+nice: ‘gs’: No such file or directory
+cp: cannot stat 'card.jpg': No such file or directory
+INFO: Generate web pages 
+Output to directory /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233 done.
+Type "launch" to generate events from this process, or see
+/home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/runs/V2_proc_mg5_233/README
+Run "open index.html" to see more information about this process.
+quit
+ 
+Checking if MG5 is up-to-date... (takes up to 5s)
+[1;31mCommand "quit" interrupted with error:
+TypeError : unsupported operand type(s) for -: 'str' and 'int'
+Please report this bug on https://bugs.launchpad.net/madgraph5
+More information is found in 'MG5_debug'.
+Please attach this file to your report.[0m
+failed to connect server
+ 
+

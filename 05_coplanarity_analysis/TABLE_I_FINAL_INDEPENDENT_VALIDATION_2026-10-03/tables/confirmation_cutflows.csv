@@ -1,0 +1,337 @@
+benchmark,geometry,sct_z,dw_convention,step,stage,events
+COL,A,Z0,W1,0,generated,10000
+COL,A,Z0,W1,1,showered,10000
+COL,A,Z0,W1,2,matched,4331
+COL,A,Z0,W1,3,trigger,997
+COL,A,Z0,W1,4,trigger AND both charged,333
+COL,A,Z0,W1,5,fiducial,122
+COL,A,Z0,W1,6,plane found,82
+COL,A,Z0,W1,7,hit multiplicity,58
+COL,A,Z0,W1,8,Delta_w cut,58
+COL,A,Z0,W1,9,Delta_s < 0.01 cm,58
+COL,A,Z0,W1,10,final SR,58
+COL,A,Z0,W2,0,generated,10000
+COL,A,Z0,W2,1,showered,10000
+COL,A,Z0,W2,2,matched,4331
+COL,A,Z0,W2,3,trigger,997
+COL,A,Z0,W2,4,trigger AND both charged,333
+COL,A,Z0,W2,5,fiducial,122
+COL,A,Z0,W2,6,plane found,94
+COL,A,Z0,W2,7,hit multiplicity,58
+COL,A,Z0,W2,8,Delta_w cut,58
+COL,A,Z0,W2,9,Delta_s < 0.01 cm,58
+COL,A,Z0,W2,10,final SR,58
+COL,A,Z1160,W1,0,generated,10000
+COL,A,Z1160,W1,1,showered,10000
+COL,A,Z1160,W1,2,matched,4331
+COL,A,Z1160,W1,3,trigger,997
+COL,A,Z1160,W1,4,trigger AND both charged,333
+COL,A,Z1160,W1,5,fiducial,122
+COL,A,Z1160,W1,6,plane found,63
+COL,A,Z1160,W1,7,hit multiplicity,34
+COL,A,Z1160,W1,8,Delta_w cut,34
+COL,A,Z1160,W1,9,Delta_s < 0.01 cm,13
+COL,A,Z1160,W1,10,final SR,13
+COL,A,Z1160,W2,0,generated,10000
+COL,A,Z1160,W2,1,showered,10000
+COL,A,Z1160,W2,2,matched,4331
+COL,A,Z1160,W2,3,trigger,997
+COL,A,Z1160,W2,4,trigger AND both charged,333
+COL,A,Z1160,W2,5,fiducial,122
+COL,A,Z1160,W2,6,plane found,68
+COL,A,Z1160,W2,7,hit multiplicity,34
+COL,A,Z1160,W2,8,Delta_w cut,34
+COL,A,Z1160,W2,9,Delta_s < 0.01 cm,13
+COL,A,Z1160,W2,10,final SR,13
+COL,A,Z34,W1,0,generated,10000
+COL,A,Z34,W1,1,showered,10000
+COL,A,Z34,W1,2,matched,4331
+COL,A,Z34,W1,3,trigger,997
+COL,A,Z34,W1,4,trigger AND both charged,333
+COL,A,Z34,W1,5,fiducial,122
+COL,A,Z34,W1,6,plane found,81
+COL,A,Z34,W1,7,hit multiplicity,68
+COL,A,Z34,W1,8,Delta_w cut,68
+COL,A,Z34,W1,9,Delta_s < 0.01 cm,68
+COL,A,Z34,W1,10,final SR,68
+COL,A,Z34,W2,0,generated,10000
+COL,A,Z34,W2,1,showered,10000
+COL,A,Z34,W2,2,matched,4331
+COL,A,Z34,W2,3,trigger,997
+COL,A,Z34,W2,4,trigger AND both charged,333
+COL,A,Z34,W2,5,fiducial,122
+COL,A,Z34,W2,6,plane found,94
+COL,A,Z34,W2,7,hit multiplicity,68
+COL,A,Z34,W2,8,Delta_w cut,68
+COL,A,Z34,W2,9,Delta_s < 0.01 cm,68
+COL,A,Z34,W2,10,final SR,68
+COL,A,Z580,W1,0,generated,10000
+COL,A,Z580,W1,1,showered,10000
+COL,A,Z580,W1,2,matched,4331
+COL,A,Z580,W1,3,trigger,997
+COL,A,Z580,W1,4,trigger AND both charged,333
+COL,A,Z580,W1,5,fiducial,122
+COL,A,Z580,W1,6,plane found,76
+COL,A,Z580,W1,7,hit multiplicity,52
+COL,A,Z580,W1,8,Delta_w cut,52
+COL,A,Z580,W1,9,Delta_s < 0.01 cm,24
+COL,A,Z580,W1,10,final SR,24
+COL,A,Z580,W2,0,generated,10000
+COL,A,Z580,W2,1,showered,10000
+COL,A,Z580,W2,2,matched,4331
+COL,A,Z580,W2,3,trigger,997
+COL,A,Z580,W2,4,trigger AND both charged,333
+COL,A,Z580,W2,5,fiducial,122
+COL,A,Z580,W2,6,plane found,87
+COL,A,Z580,W2,7,hit multiplicity,52
+COL,A,Z580,W2,8,Delta_w cut,52
+COL,A,Z580,W2,9,Delta_s < 0.01 cm,24
+COL,A,Z580,W2,10,final SR,24
+COL,B,Z0,W1,0,generated,10000
+COL,B,Z0,W1,1,showered,10000
+COL,B,Z0,W1,2,matched,4331
+COL,B,Z0,W1,3,trigger,997
+COL,B,Z0,W1,4,trigger AND both charged,333
+COL,B,Z0,W1,5,fiducial,94
+COL,B,Z0,W1,6,plane found,65
+COL,B,Z0,W1,7,hit multiplicity,42
+COL,B,Z0,W1,8,Delta_w cut,42
+COL,B,Z0,W1,9,Delta_s < 0.01 cm,42
+COL,B,Z0,W1,10,final SR,42
+COL,B,Z0,W2,0,generated,10000
+COL,B,Z0,W2,1,showered,10000
+COL,B,Z0,W2,2,matched,4331
+COL,B,Z0,W2,3,trigger,997
+COL,B,Z0,W2,4,trigger AND both charged,333
+COL,B,Z0,W2,5,fiducial,94
+COL,B,Z0,W2,6,plane found,75
+COL,B,Z0,W2,7,hit multiplicity,42
+COL,B,Z0,W2,8,Delta_w cut,42
+COL,B,Z0,W2,9,Delta_s < 0.01 cm,42
+COL,B,Z0,W2,10,final SR,42
+COL,B,Z1160,W1,0,generated,10000
+COL,B,Z1160,W1,1,showered,10000
+COL,B,Z1160,W1,2,matched,4331
+COL,B,Z1160,W1,3,trigger,997
+COL,B,Z1160,W1,4,trigger AND both charged,333
+COL,B,Z1160,W1,5,fiducial,94
+COL,B,Z1160,W1,6,plane found,47
+COL,B,Z1160,W1,7,hit multiplicity,22
+COL,B,Z1160,W1,8,Delta_w cut,22
+COL,B,Z1160,W1,9,Delta_s < 0.01 cm,6
+COL,B,Z1160,W1,10,final SR,6
+COL,B,Z1160,W2,0,generated,10000
+COL,B,Z1160,W2,1,showered,10000
+COL,B,Z1160,W2,2,matched,4331
+COL,B,Z1160,W2,3,trigger,997
+COL,B,Z1160,W2,4,trigger AND both charged,333
+COL,B,Z1160,W2,5,fiducial,94
+COL,B,Z1160,W2,6,plane found,50
+COL,B,Z1160,W2,7,hit multiplicity,22
+COL,B,Z1160,W2,8,Delta_w cut,22
+COL,B,Z1160,W2,9,Delta_s < 0.01 cm,6
+COL,B,Z1160,W2,10,final SR,6
+COL,B,Z34,W1,0,generated,10000
+COL,B,Z34,W1,1,showered,10000
+COL,B,Z34,W1,2,matched,4331
+COL,B,Z34,W1,3,trigger,997
+COL,B,Z34,W1,4,trigger AND both charged,333
+COL,B,Z34,W1,5,fiducial,94
+COL,B,Z34,W1,6,plane found,64
+COL,B,Z34,W1,7,hit multiplicity,51
+COL,B,Z34,W1,8,Delta_w cut,51
+COL,B,Z34,W1,9,Delta_s < 0.01 cm,51
+COL,B,Z34,W1,10,final SR,51
+COL,B,Z34,W2,0,generated,10000
+COL,B,Z34,W2,1,showered,10000
+COL,B,Z34,W2,2,matched,4331
+COL,B,Z34,W2,3,trigger,997
+COL,B,Z34,W2,4,trigger AND both charged,333
+COL,B,Z34,W2,5,fiducial,94
+COL,B,Z34,W2,6,plane found,75
+COL,B,Z34,W2,7,hit multiplicity,51
+COL,B,Z34,W2,8,Delta_w cut,51
+COL,B,Z34,W2,9,Delta_s < 0.01 cm,51
+COL,B,Z34,W2,10,final SR,51
+COL,B,Z580,W1,0,generated,10000
+COL,B,Z580,W1,1,showered,10000
+COL,B,Z580,W1,2,matched,4331
+COL,B,Z580,W1,3,trigger,997
+COL,B,Z580,W1,4,trigger AND both charged,333
+COL,B,Z580,W1,5,fiducial,94
+COL,B,Z580,W1,6,plane found,59
+COL,B,Z580,W1,7,hit multiplicity,36
+COL,B,Z580,W1,8,Delta_w cut,36
+COL,B,Z580,W1,9,Delta_s < 0.01 cm,16
+COL,B,Z580,W1,10,final SR,16
+COL,B,Z580,W2,0,generated,10000
+COL,B,Z580,W2,1,showered,10000
+COL,B,Z580,W2,2,matched,4331
+COL,B,Z580,W2,3,trigger,997
+COL,B,Z580,W2,4,trigger AND both charged,333
+COL,B,Z580,W2,5,fiducial,94
+COL,B,Z580,W2,6,plane found,68
+COL,B,Z580,W2,7,hit multiplicity,36
+COL,B,Z580,W2,8,Delta_w cut,36
+COL,B,Z580,W2,9,Delta_s < 0.01 cm,16
+COL,B,Z580,W2,10,final SR,16
+EW,A,Z0,W1,0,generated,4000
+EW,A,Z0,W1,1,showered,4000
+EW,A,Z0,W1,2,matched,2069
+EW,A,Z0,W1,3,trigger,352
+EW,A,Z0,W1,4,fiducial,151
+EW,A,Z0,W1,5,plane found,151
+EW,A,Z0,W1,6,hit multiplicity,122
+EW,A,Z0,W1,7,Delta_w cut,122
+EW,A,Z0,W1,8,Delta_s < 0.01 cm,122
+EW,A,Z0,W1,9,final SR,122
+EW,A,Z0,W2,0,generated,4000
+EW,A,Z0,W2,1,showered,4000
+EW,A,Z0,W2,2,matched,2069
+EW,A,Z0,W2,3,trigger,352
+EW,A,Z0,W2,4,fiducial,151
+EW,A,Z0,W2,5,plane found,151
+EW,A,Z0,W2,6,hit multiplicity,122
+EW,A,Z0,W2,7,Delta_w cut,122
+EW,A,Z0,W2,8,Delta_s < 0.01 cm,122
+EW,A,Z0,W2,9,final SR,122
+EW,A,Z1160,W1,0,generated,4000
+EW,A,Z1160,W1,1,showered,4000
+EW,A,Z1160,W1,2,matched,2069
+EW,A,Z1160,W1,3,trigger,352
+EW,A,Z1160,W1,4,fiducial,151
+EW,A,Z1160,W1,5,plane found,130
+EW,A,Z1160,W1,6,hit multiplicity,68
+EW,A,Z1160,W1,7,Delta_w cut,68
+EW,A,Z1160,W1,8,Delta_s < 0.01 cm,23
+EW,A,Z1160,W1,9,final SR,23
+EW,A,Z1160,W2,0,generated,4000
+EW,A,Z1160,W2,1,showered,4000
+EW,A,Z1160,W2,2,matched,2069
+EW,A,Z1160,W2,3,trigger,352
+EW,A,Z1160,W2,4,fiducial,151
+EW,A,Z1160,W2,5,plane found,130
+EW,A,Z1160,W2,6,hit multiplicity,68
+EW,A,Z1160,W2,7,Delta_w cut,68
+EW,A,Z1160,W2,8,Delta_s < 0.01 cm,23
+EW,A,Z1160,W2,9,final SR,23
+EW,A,Z34,W1,0,generated,4000
+EW,A,Z34,W1,1,showered,4000
+EW,A,Z34,W1,2,matched,2069
+EW,A,Z34,W1,3,trigger,352
+EW,A,Z34,W1,4,fiducial,151
+EW,A,Z34,W1,5,plane found,151
+EW,A,Z34,W1,6,hit multiplicity,138
+EW,A,Z34,W1,7,Delta_w cut,138
+EW,A,Z34,W1,8,Delta_s < 0.01 cm,138
+EW,A,Z34,W1,9,final SR,138
+EW,A,Z34,W2,0,generated,4000
+EW,A,Z34,W2,1,showered,4000
+EW,A,Z34,W2,2,matched,2069
+EW,A,Z34,W2,3,trigger,352
+EW,A,Z34,W2,4,fiducial,151
+EW,A,Z34,W2,5,plane found,151
+EW,A,Z34,W2,6,hit multiplicity,138
+EW,A,Z34,W2,7,Delta_w cut,138
+EW,A,Z34,W2,8,Delta_s < 0.01 cm,138
+EW,A,Z34,W2,9,final SR,138
+EW,A,Z580,W1,0,generated,4000
+EW,A,Z580,W1,1,showered,4000
+EW,A,Z580,W1,2,matched,2069
+EW,A,Z580,W1,3,trigger,352
+EW,A,Z580,W1,4,fiducial,151
+EW,A,Z580,W1,5,plane found,140
+EW,A,Z580,W1,6,hit multiplicity,107
+EW,A,Z580,W1,7,Delta_w cut,107
+EW,A,Z580,W1,8,Delta_s < 0.01 cm,41
+EW,A,Z580,W1,9,final SR,41
+EW,A,Z580,W2,0,generated,4000
+EW,A,Z580,W2,1,showered,4000
+EW,A,Z580,W2,2,matched,2069
+EW,A,Z580,W2,3,trigger,352
+EW,A,Z580,W2,4,fiducial,151
+EW,A,Z580,W2,5,plane found,140
+EW,A,Z580,W2,6,hit multiplicity,107
+EW,A,Z580,W2,7,Delta_w cut,107
+EW,A,Z580,W2,8,Delta_s < 0.01 cm,41
+EW,A,Z580,W2,9,final SR,41
+EW,B,Z0,W1,0,generated,4000
+EW,B,Z0,W1,1,showered,4000
+EW,B,Z0,W1,2,matched,2069
+EW,B,Z0,W1,3,trigger,352
+EW,B,Z0,W1,4,fiducial,102
+EW,B,Z0,W1,5,plane found,102
+EW,B,Z0,W1,6,hit multiplicity,78
+EW,B,Z0,W1,7,Delta_w cut,78
+EW,B,Z0,W1,8,Delta_s < 0.01 cm,78
+EW,B,Z0,W1,9,final SR,78
+EW,B,Z0,W2,0,generated,4000
+EW,B,Z0,W2,1,showered,4000
+EW,B,Z0,W2,2,matched,2069
+EW,B,Z0,W2,3,trigger,352
+EW,B,Z0,W2,4,fiducial,102
+EW,B,Z0,W2,5,plane found,102
+EW,B,Z0,W2,6,hit multiplicity,78
+EW,B,Z0,W2,7,Delta_w cut,78
+EW,B,Z0,W2,8,Delta_s < 0.01 cm,78
+EW,B,Z0,W2,9,final SR,78
+EW,B,Z1160,W1,0,generated,4000
+EW,B,Z1160,W1,1,showered,4000
+EW,B,Z1160,W1,2,matched,2069
+EW,B,Z1160,W1,3,trigger,352
+EW,B,Z1160,W1,4,fiducial,102
+EW,B,Z1160,W1,5,plane found,83
+EW,B,Z1160,W1,6,hit multiplicity,38
+EW,B,Z1160,W1,7,Delta_w cut,38
+EW,B,Z1160,W1,8,Delta_s < 0.01 cm,14
+EW,B,Z1160,W1,9,final SR,14
+EW,B,Z1160,W2,0,generated,4000
+EW,B,Z1160,W2,1,showered,4000
+EW,B,Z1160,W2,2,matched,2069
+EW,B,Z1160,W2,3,trigger,352
+EW,B,Z1160,W2,4,fiducial,102
+EW,B,Z1160,W2,5,plane found,83
+EW,B,Z1160,W2,6,hit multiplicity,38
+EW,B,Z1160,W2,7,Delta_w cut,38
+EW,B,Z1160,W2,8,Delta_s < 0.01 cm,14
+EW,B,Z1160,W2,9,final SR,14
+EW,B,Z34,W1,0,generated,4000
+EW,B,Z34,W1,1,showered,4000
+EW,B,Z34,W1,2,matched,2069
+EW,B,Z34,W1,3,trigger,352
+EW,B,Z34,W1,4,fiducial,102
+EW,B,Z34,W1,5,plane found,102
+EW,B,Z34,W1,6,hit multiplicity,93
+EW,B,Z34,W1,7,Delta_w cut,93
+EW,B,Z34,W1,8,Delta_s < 0.01 cm,93
+EW,B,Z34,W1,9,final SR,93
+EW,B,Z34,W2,0,generated,4000
+EW,B,Z34,W2,1,showered,4000
+EW,B,Z34,W2,2,matched,2069
+EW,B,Z34,W2,3,trigger,352
+EW,B,Z34,W2,4,fiducial,102
+EW,B,Z34,W2,5,plane found,102
+EW,B,Z34,W2,6,hit multiplicity,93
+EW,B,Z34,W2,7,Delta_w cut,93
+EW,B,Z34,W2,8,Delta_s < 0.01 cm,93
+EW,B,Z34,W2,9,final SR,93
+EW,B,Z580,W1,0,generated,4000
+EW,B,Z580,W1,1,showered,4000
+EW,B,Z580,W1,2,matched,2069
+EW,B,Z580,W1,3,trigger,352
+EW,B,Z580,W1,4,fiducial,102
+EW,B,Z580,W1,5,plane found,91
+EW,B,Z580,W1,6,hit multiplicity,61
+EW,B,Z580,W1,7,Delta_w cut,61
+EW,B,Z580,W1,8,Delta_s < 0.01 cm,20
+EW,B,Z580,W1,9,final SR,20
+EW,B,Z580,W2,0,generated,4000
+EW,B,Z580,W2,1,showered,4000
+EW,B,Z580,W2,2,matched,2069
+EW,B,Z580,W2,3,trigger,352
+EW,B,Z580,W2,4,fiducial,102
+EW,B,Z580,W2,5,plane found,91
+EW,B,Z580,W2,6,hit multiplicity,61
+EW,B,Z580,W2,7,Delta_w cut,61
+EW,B,Z580,W2,8,Delta_s < 0.01 cm,20
+EW,B,Z580,W2,9,final SR,20

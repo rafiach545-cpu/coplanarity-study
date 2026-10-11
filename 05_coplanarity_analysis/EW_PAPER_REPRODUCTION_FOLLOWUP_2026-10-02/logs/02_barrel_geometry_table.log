@@ -1,0 +1,21 @@
+ layer          name  radius_cm  half_length_cm  eta_edge_vertex_at_0  eta_edge_vertex_at_plus2sigma  project_cone_equivalent_half_length_cm binding_constraint_if_both           cone_vs_barrel
+     1           IBL      3.325          33.015                 2.991                          2.675                                   9.783               eta<1.8 cone cone TIGHTER than barrel
+     2 Pixel B-layer      5.050          40.050                 2.768                          2.516                                  14.858               eta<1.8 cone cone TIGHTER than barrel
+     3      Pixel L1      8.850          40.050                 2.215                          1.968                                  26.038               eta<1.8 cone cone TIGHTER than barrel
+     4      Pixel L2     12.250          40.050                 1.900                          1.660                                  36.042               eta<1.8 cone cone TIGHTER than barrel
+     5        SCT B3     29.900          74.900                 1.649                          1.531                                  87.971                   finite z  cone LOOSER than barrel
+     6        SCT B4     37.100          74.900                 1.452                          1.339                                 109.155                   finite z  cone LOOSER than barrel
+     7        SCT B5     44.300          74.900                 1.296                          1.188                                 130.338                   finite z  cone LOOSER than barrel
+     8        SCT B6     51.400          74.900                 1.171                          1.067                                 151.228                   finite z  cone LOOSER than barrel
+EW1000: B=33 C=30 (cone removes 3 events that are inside every finite barrel layer)
+EW2000: B=62 C=60 (cone removes 2 events that are inside every finite barrel layer)
+COL2000: B=22 C=19 (cone removes 3 events that are inside every finite barrel layer)
+ sample  row_index  event_id     z0_cm layers_failing_cone  max_abs_z_lab_cm
+ EW1000         61       346  5.565435                   1         71.814907
+ EW1000         79       435 -8.476702                   1         33.690058
+ EW1000         86       479  6.734017                   1         53.996941
+ EW2000         41       270  7.049353                   1         57.174721
+ EW2000         72       430  7.830220                   1         54.918209
+COL2000         12       186  8.910908                   1         61.293030
+COL2000         56       706  7.960765                   1         45.565703
+COL2000         66       860  9.837913                   1         41.759364

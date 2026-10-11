@@ -1,0 +1,1 @@
+Literal signal cutflow (absolute event counts, log scale) from trigger-analysed events to the final Sec. IV signal region, each sample separately. Lost event IDs per stage: tables/signal_cutflow_with_event_ids.csv.

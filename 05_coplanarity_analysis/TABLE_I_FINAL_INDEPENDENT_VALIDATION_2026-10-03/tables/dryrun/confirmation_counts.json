@@ -1,0 +1,17 @@
+{
+ "counts": {
+  "EW": {
+   "generated": 2000,
+   "matched": 1101,
+   "trigger": 187,
+   "trigger_charged": 187
+  },
+  "COL": {
+   "generated": 2000,
+   "matched": 855,
+   "trigger": 186,
+   "trigger_charged": 51
+  }
+ },
+ "technical_exceptions": {}
+}

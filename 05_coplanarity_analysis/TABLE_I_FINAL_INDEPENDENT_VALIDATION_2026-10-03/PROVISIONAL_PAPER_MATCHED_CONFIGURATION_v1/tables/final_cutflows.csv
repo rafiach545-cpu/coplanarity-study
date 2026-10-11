@@ -1,0 +1,85 @@
+bench,sample,step,stage,events
+EW,EW1000,0,generated (LHE events),1000
+EW,EW1000,1,showered (all LHE events passed to Pythia8),1000
+EW,EW1000,2,matched (MLM-accepted),511
+EW,EW1000,3,trigger: pair pT > 200 GeV,89
+EW,EW1000,4,"fiducial (finite barrel, 16 crossings, t<25 ns)",33
+EW,EW1000,5,plane found (Sec. III C selection),33
+EW,EW1000,6,hit multiplicity (SR cut 2),28
+EW,EW1000,7,Delta_w < 1 cm (SR cut 3a),28
+EW,EW1000,8,Delta_s < 0.01 cm (SR cut 3b),28
+EW,EW1000,9,final signal region,28
+EW,EW2000,0,generated (LHE events),2000
+EW,EW2000,1,showered (all LHE events passed to Pythia8),2000
+EW,EW2000,2,matched (MLM-accepted),1045
+EW,EW2000,3,trigger: pair pT > 200 GeV,186
+EW,EW2000,4,"fiducial (finite barrel, 16 crossings, t<25 ns)",61
+EW,EW2000,5,plane found (Sec. III C selection),61
+EW,EW2000,6,hit multiplicity (SR cut 2),41
+EW,EW2000,7,Delta_w < 1 cm (SR cut 3a),41
+EW,EW2000,8,Delta_s < 0.01 cm (SR cut 3b),41
+EW,EW2000,9,final signal region,41
+EW,G0_EW,0,generated (LHE events),2000
+EW,G0_EW,1,showered (all LHE events passed to Pythia8),2000
+EW,G0_EW,2,matched (MLM-accepted),1101
+EW,G0_EW,3,trigger: pair pT > 200 GeV,187
+EW,G0_EW,4,"fiducial (finite barrel, 16 crossings, t<25 ns)",58
+EW,G0_EW,5,plane found (Sec. III C selection),58
+EW,G0_EW,6,hit multiplicity (SR cut 2),45
+EW,G0_EW,7,Delta_w < 1 cm (SR cut 3a),45
+EW,G0_EW,8,Delta_s < 0.01 cm (SR cut 3b),45
+EW,G0_EW,9,final signal region,45
+EW,EW POOLED (primary),0,generated (LHE events),5000
+EW,EW POOLED (primary),1,showered (all LHE events passed to Pythia8),5000
+EW,EW POOLED (primary),2,matched (MLM-accepted),2657
+EW,EW POOLED (primary),3,trigger: pair pT > 200 GeV,462
+EW,EW POOLED (primary),4,"fiducial (finite barrel, 16 crossings, t<25 ns)",152
+EW,EW POOLED (primary),5,plane found (Sec. III C selection),152
+EW,EW POOLED (primary),6,hit multiplicity (SR cut 2),114
+EW,EW POOLED (primary),7,Delta_w < 1 cm (SR cut 3a),114
+EW,EW POOLED (primary),8,Delta_s < 0.01 cm (SR cut 3b),114
+EW,EW POOLED (primary),9,final signal region,114
+COL,COL1000,0,generated (LHE events),1000
+COL,COL1000,1,showered (all LHE events passed to Pythia8),1000
+COL,COL1000,2,matched (MLM-accepted),419
+COL,COL1000,3,trigger: pair pT > 200 GeV,101
+COL,COL1000,4,trigger AND both R-hadrons charged (non-zero),27
+COL,COL1000,5,"fiducial (finite barrel, 16 crossings, t<25 ns)",6
+COL,COL1000,6,plane found (Sec. III C selection),5
+COL,COL1000,7,hit multiplicity (SR cut 2),5
+COL,COL1000,8,Delta_w < 1 cm (SR cut 3a),5
+COL,COL1000,9,Delta_s < 0.01 cm (SR cut 3b),5
+COL,COL1000,10,final signal region,5
+COL,COL2000,0,generated (LHE events),2000
+COL,COL2000,1,showered (all LHE events passed to Pythia8),2000
+COL,COL2000,2,matched (MLM-accepted),873
+COL,COL2000,3,trigger: pair pT > 200 GeV,207
+COL,COL2000,4,trigger AND both R-hadrons charged (non-zero),68
+COL,COL2000,5,"fiducial (finite barrel, 16 crossings, t<25 ns)",21
+COL,COL2000,6,plane found (Sec. III C selection),18
+COL,COL2000,7,hit multiplicity (SR cut 2),7
+COL,COL2000,8,Delta_w < 1 cm (SR cut 3a),7
+COL,COL2000,9,Delta_s < 0.01 cm (SR cut 3b),7
+COL,COL2000,10,final signal region,7
+COL,G0_COL,0,generated (LHE events),2000
+COL,G0_COL,1,showered (all LHE events passed to Pythia8),2000
+COL,G0_COL,2,matched (MLM-accepted),855
+COL,G0_COL,3,trigger: pair pT > 200 GeV,186
+COL,G0_COL,4,trigger AND both R-hadrons charged (non-zero),51
+COL,G0_COL,5,"fiducial (finite barrel, 16 crossings, t<25 ns)",14
+COL,G0_COL,6,plane found (Sec. III C selection),11
+COL,G0_COL,7,hit multiplicity (SR cut 2),9
+COL,G0_COL,8,Delta_w < 1 cm (SR cut 3a),9
+COL,G0_COL,9,Delta_s < 0.01 cm (SR cut 3b),9
+COL,G0_COL,10,final signal region,9
+COL,COL POOLED (primary),0,generated (LHE events),5000
+COL,COL POOLED (primary),1,showered (all LHE events passed to Pythia8),5000
+COL,COL POOLED (primary),2,matched (MLM-accepted),2147
+COL,COL POOLED (primary),3,trigger: pair pT > 200 GeV,494
+COL,COL POOLED (primary),4,trigger AND both R-hadrons charged (non-zero),146
+COL,COL POOLED (primary),5,"fiducial (finite barrel, 16 crossings, t<25 ns)",41
+COL,COL POOLED (primary),6,plane found (Sec. III C selection),34
+COL,COL POOLED (primary),7,hit multiplicity (SR cut 2),21
+COL,COL POOLED (primary),8,Delta_w < 1 cm (SR cut 3a),21
+COL,COL POOLED (primary),9,Delta_s < 0.01 cm (SR cut 3b),21
+COL,COL POOLED (primary),10,final signal region,21

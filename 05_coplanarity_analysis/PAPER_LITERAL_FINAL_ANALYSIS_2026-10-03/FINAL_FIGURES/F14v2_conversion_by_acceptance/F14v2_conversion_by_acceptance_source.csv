@@ -1,0 +1,13 @@
+series,stage,k,n,frac,cp95_upper
+"conversion, |η|<1.8, SCT z 1160 µm (primary)",plane,3005,9139,0.3288105919684867,0.336987914177305
+"conversion, |η|<1.8, SCT z 1160 µm (primary)",hit multiplicity,0,9139,0.0,0.0003277427871661
+"conversion, |η|<1.8, SCT z 1160 µm (primary)",signal region,0,9139,0.0,0.0003277427871661
+"conversion, |η|<1.8, no SCT z smearing (undoc.)",plane,5937,9139,0.6496334391071233,0.6578607528978024
+"conversion, |η|<1.8, no SCT z smearing (undoc.)",hit multiplicity,30,9139,0.0032826348615822,0.0044497974964643
+"conversion, |η|<1.8, no SCT z smearing (undoc.)",signal region,30,9139,0.0032826348615822,0.0044497974964643
+"conversion + pile-up, |η|<1.8, SCT 1160, conv.-point origin (old run)",plane,3276,9139,0.3584637268847795,0.3668020853609159
+"conversion + pile-up, |η|<1.8, SCT 1160, conv.-point origin (old run)",hit multiplicity,203,9139,0.0222124958967064,0.0249189087260144
+"conversion + pile-up, |η|<1.8, SCT 1160, conv.-point origin (old run)",signal region,1,9139,0.0001094211620527,0.0005189728578815
+"conversion + pile-up, finite barrel, SCT 1160, PV origin (sensitivity)",plane,1990,9139,0.2177481124849546,0.2249700611505045
+"conversion + pile-up, finite barrel, SCT 1160, PV origin (sensitivity)",hit multiplicity,48,9139,0.0052522157785315,0.0066758102527352
+"conversion + pile-up, finite barrel, SCT 1160, PV origin (sensitivity)",signal region,0,9139,0.0,0.0003277427871661

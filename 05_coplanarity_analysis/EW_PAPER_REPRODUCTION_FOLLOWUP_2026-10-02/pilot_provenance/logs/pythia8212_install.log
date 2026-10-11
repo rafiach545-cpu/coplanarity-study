@@ -1,0 +1,6 @@
+mkdir -p /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/bin /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/include /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/lib /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/share/Pythia8
+rsync -a bin/* /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/bin --exclude .svn
+rsync -a include/* /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/include --exclude .svn
+rsync -a lib/* /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/lib --exclude .svn
+rsync -a share/Pythia8/* /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/share/Pythia8 --exclude .svn
+rsync -a examples /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/install/pythia8212/share/Pythia8 --exclude .svn

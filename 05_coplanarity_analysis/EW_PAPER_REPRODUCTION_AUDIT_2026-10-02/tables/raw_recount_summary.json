@@ -1,0 +1,75 @@
+{
+  "EW1000": {
+    "lhe_path": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01/unweighted_events.lhe.gz",
+    "lhe_sha256": "75999899ae8916ca5f65476b2694fe14d25123efddecea945d6b661b92c1e04e",
+    "hepmc_path": "/home/rafia/hep_tools/quirk_ew_800gev_4kev/Events/run_01/tag_1_pythia8_events.hepmc.gz",
+    "hepmc_sha256": "d94c83d61e2126299d5f898e6cadf7e47fd3835e794373427bd54f7ccf6b769a",
+    "hepmc_units": [
+      "U GEV MM"
+    ],
+    "N_generated_LHE": 1000,
+    "N_hepmc_events": 511,
+    "N_hepmc_with_2_final_quirks": 511,
+    "N_hepmc_mapped_to_unique_LHE": 510,
+    "quirk_status_census": {
+      "1": 1022,
+      "23": 1022,
+      "44": 4426,
+      "52": 1
+    },
+    "N_trigger_strict_gt200_final": 89,
+    "N_trigger_ge200_final": 89,
+    "N_trigger_gt200_hard_status23": 64,
+    "N_trigger_gt200_last_status44": 89,
+    "pair_pt_within_1GeV_of_200": [],
+    "LHE_events_with_pair_pt_gt200_parton_level": 70,
+    "matching_by_LHE_parton_multiplicity": {
+      "0": {
+        "lhe": 497,
+        "matched": 232
+      },
+      "1": {
+        "lhe": 503,
+        "matched": 278
+      }
+    },
+    "max_abs_final_minus_status44_pairpt": 6.321829766768797
+  },
+  "EW2000": {
+    "lhe_path": "/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/unweighted_events.lhe.gz",
+    "lhe_sha256": "d900abbf4d467bc271208462852058adc83cbdc3f21b0545fca3fe8fe8dfe6b5",
+    "hepmc_path": "/home/rafia/hep_tools/quirk_2000_fresh_regen_runs/EW_800GeV_L4keV/Events/run_fresh/tag_1_pythia8_events.hepmc.gz",
+    "hepmc_sha256": "a703b339afd6654dd57130f538ea43948460b5f4bf8c1f3c808c9b0bdcf729d3",
+    "hepmc_units": [
+      "U GEV MM"
+    ],
+    "N_generated_LHE": 2000,
+    "N_hepmc_events": 1045,
+    "N_hepmc_with_2_final_quirks": 1045,
+    "N_hepmc_mapped_to_unique_LHE": 1042,
+    "quirk_status_census": {
+      "1": 2090,
+      "23": 2090,
+      "44": 9096
+    },
+    "N_trigger_strict_gt200_final": 186,
+    "N_trigger_ge200_final": 186,
+    "N_trigger_gt200_hard_status23": 121,
+    "N_trigger_gt200_last_status44": 185,
+    "pair_pt_within_1GeV_of_200": [
+      200.03065394384217
+    ],
+    "LHE_events_with_pair_pt_gt200_parton_level": 130,
+    "matching_by_LHE_parton_multiplicity": {
+      "0": {
+        "lhe": 1012,
+        "matched": 471
+      },
+      "1": {
+        "lhe": 988,
+        "matched": 571
+      }
+    },
+    "max_abs_final_minus_status44_pairpt": 6.742562552708081
+  }
+}

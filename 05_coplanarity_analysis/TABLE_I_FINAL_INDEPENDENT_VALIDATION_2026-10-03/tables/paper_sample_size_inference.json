@@ -1,0 +1,14 @@
+{
+ "method": "integer quantisation of the paper's Fig. 5 signal histogram bin heights (vector-extracted); continuous scan of the unit weight; all bins within 0.07 of an integer (scripts/05_paper_sample_size.py + logs/05b_quantisation_scan.log)",
+ "status": "INFERENCE from the published figure; the paper states no signal sample size",
+ "fig5_unit_weights": {"EW_delta_s_fb_per_event": 7.752e-06, "COL_delta_s_fb_per_event": 8.294e-06,
+                       "EW_delta_w_normalised_unit": 0.0009433, "COL_delta_w_normalised_unit": 0.001927},
+ "fig5_event_counts": {"EW_delta_s_in_plot_range": 984, "EW_delta_w_total": [1060, 1092],
+                       "COL_delta_s_in_plot_range": 495, "COL_delta_w_total": [519, 534]},
+ "implied_paper_denominators_range": {
+   "EW":  {"N_fid": [1075, 1400], "N_trig": [3840, 5000], "N_matched": [38400, 50000]},
+   "COL": {"N_fid": [650, 1400], "N_trig_charged": [2300, 5000]}},
+ "implied_paper_binomial_sigma": {"EW_trig": 0.0014, "EW_fid": [0.0064, 0.0072], "EW_reco": [0.012, 0.014],
+                                  "COL_trig": 0.0020, "COL_fid": [0.0064, 0.0094], "COL_reco": [0.013, 0.019]},
+ "rounding_sigma_two_decimals": 0.0029
+}

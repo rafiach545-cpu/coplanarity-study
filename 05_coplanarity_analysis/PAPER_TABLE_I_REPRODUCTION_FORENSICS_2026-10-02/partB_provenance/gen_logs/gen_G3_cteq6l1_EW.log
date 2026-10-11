@@ -1,0 +1,113 @@
+/home/rafia/miniconda3/envs/hep/bin/gfortran
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                                    *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /home/rafia/hep_tools/TABLE_I_TRIGGER_SEARCH_2026-10-02/proc/G3_cteq6l1_EW/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/TABLE_I_TRIGGER_SEARCH_2026-10-02/proc/G3_cteq6l1_EW/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+generate_events run -f
+stty: 'standard input': Inappropriate ioctl for device
+[1;34mvalue '[]' for entry 'bypass_check' is not valid. Preserving previous value: '[]'.
+allowed values are any list composed of the following entries: partonshower[0m
+Generating 2000 events with run name run
+survey  run 
+INFO: compile directory 
+[1;34mNot able to open file /home/rafia/hep_tools/TABLE_I_TRIGGER_SEARCH_2026-10-02/proc/G3_cteq6l1_EW/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 9104
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/3. 
+INFO:     P1_gq_qepqemq  
+INFO: Compiling for process 2/3. 
+INFO:     P1_qq_qepqemg  
+INFO: Compiling for process 3/3. 
+INFO:     P0_qq_qepqem  
+INFO:     P1_gq_qepqemq  
+INFO:     P1_qq_qepqemg  
+INFO:     P0_qq_qepqem  
+INFO:  Idle: 1,  Running: 0,  Completed: 4 [ current time: 22h01 ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 4 [ current time: 22h01 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 5 [  0.5s  ] 
+INFO: End survey 
+refine 2000
+Creating Jobs
+INFO: Refine results to 2000 
+INFO: Generating 2000.0 unweighted events. 
+sum of cpu time of last step: 5 seconds
+INFO: Effective Luminosity 4969332.179118198 pb^-1 
+INFO: need to improve 3 channels 
+- Current estimate of cross-section: 0.00048296228014 +- 8.348564494891208e-06
+    P1_gq_qepqemq 
+    P1_qq_qepqemg 
+    P0_qq_qepqem 
+INFO:  Idle: 1,  Running: 3,  Completed: 0 [ current time: 22h01 ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 3 [  8.3s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 4 [  28.1s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 4 [  28.1s  ] 
+INFO: Combining runs 
+sum of cpu time of last step: 42 seconds
+INFO: finish refine 
+refine 2000 --treshold=0.9
+No need for second refine due to stability of cross-section
+INFO: Combining Events 
+combination of events done in 0.8844947814941406 s 
+  === Results Summary for run: run tag: tag_1 ===
+
+     Cross-section :   0.0004959 +- 1.842e-06 pb
+     Nb of events :  2000
+ 
+INFO: Running Systematics computation 
+INFO: Trying to download cteq6l1 
+cteq6l1.tar.gz:     8.0 KB[2.6%] cteq6l1.tar.gz:    16.0 KB[5.2%] cteq6l1.tar.gz:    24.0 KB[7.7%] cteq6l1.tar.gz:    32.0 KB[10.3%] cteq6l1.tar.gz:    40.0 KB[12.9%] cteq6l1.tar.gz:    48.0 KB[15.5%] cteq6l1.tar.gz:    56.0 KB[18.0%] cteq6l1.tar.gz:    64.0 KB[20.6%] cteq6l1.tar.gz:    72.0 KB[23.2%] cteq6l1.tar.gz:    80.0 KB[25.8%] cteq6l1.tar.gz:    88.0 KB[28.4%] cteq6l1.tar.gz:    96.0 KB[30.9%] cteq6l1.tar.gz:   104.0 KB[33.5%] cteq6l1.tar.gz:   112.0 KB[36.1%] cteq6l1.tar.gz:   120.0 KB[38.7%] cteq6l1.tar.gz:   128.0 KB[41.2%] cteq6l1.tar.gz:   136.0 KB[43.8%] cteq6l1.tar.gz:   144.0 KB[46.4%] cteq6l1.tar.gz:   152.0 KB[49.0%] cteq6l1.tar.gz:   160.0 KB[51.5%] cteq6l1.tar.gz:   168.0 KB[54.1%] cteq6l1.tar.gz:   176.0 KB[56.7%] cteq6l1.tar.gz:   184.0 KB[59.3%] cteq6l1.tar.gz:   192.0 KB[61.9%] cteq6l1.tar.gz:   200.0 KB[64.4%] cteq6l1.tar.gz:   208.0 KB[67.0%] cteq6l1.tar.gz:   216.0 KB[69.6%] cteq6l1.tar.gz:   224.0 KB[72.2%] cteq6l1.tar.gz:   232.0 KB[74.7%] cteq6l1.tar.gz:   240.0 KB[77.3%] cteq6l1.tar.gz:   248.0 KB[79.9%] cteq6l1.tar.gz:   256.0 KB[82.5%] cteq6l1.tar.gz:   264.0 KB[85.1%] cteq6l1.tar.gz:   272.0 KB[87.6%] cteq6l1.tar.gz:   280.0 KB[90.2%] cteq6l1.tar.gz:   288.0 KB[92.8%] cteq6l1.tar.gz:   296.0 KB[95.4%] cteq6l1.tar.gz:   304.0 KB[97.9%] cteq6l1.tar.gz:   310.4 KB[100.0%] 
+INFO: cteq6l1 successfully downloaded and stored in /home/rafia/miniconda3/envs/hep/share/LHAPDF 
+INFO: Patching LHAPDF metadata in /home/rafia/miniconda3/envs/hep/share/LHAPDF/cteq6l1/cteq6l1.info: adding AlphaS_FlavorScheme, AlphaS_NumFlavors 
+INFO: # Events generated with PDF: NNPDF23_lo_as_0130_qed (247000) 
+INFO: # Will compute 147 weights per event. 
+INFO: # Currently at event 0 [elapsed time: 0.0081 s] 
+INFO: #***************************************************************************
+#
+# original cross-section: 0.0004959312800000072
+#     scale variation: +8.33% -7.43%
+#     emission scale variation: +6.94% -5.37%
+#     central scheme variation: +5.16% -4.15%
+# PDF variation: +7.25% -7.25%
+#
+# dynamical scheme # 1 : 0.000506056 +8.62% -7.63% # \sum ET
+# dynamical scheme # 2 : 0.000481177 +8.38% -7.44% # \sum\sqrt{m^2+pt^2}
+# dynamical scheme # 3 : 0.000521512 +8.76% -7.73% # 0.5 \sum\sqrt{m^2+pt^2}
+# dynamical scheme # 4 : 0.000475342 +8.31% -7.38% # \sqrt{\hat s}
+#***************************************************************************
+ 
+INFO: End of systematics computation 
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+INFO: storing files of previous run 
+INFO: Done 
+quit
+INFO:  

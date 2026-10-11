@@ -1,0 +1,17 @@
+bench                            source model            population   n  median_quoted_dw   ks_D   ks_p
+   EW     existing geomA (exact stream)    R0              P1 plane 107            0.0508 0.0989 0.2464
+   EW     existing geomA (exact stream)    R0 P2 plane+multiplicity  64            0.0520 0.1011 0.5303
+   EW     existing geomA (exact stream)    R2              P1 plane 133            0.0516 0.0646 0.6401
+   EW     existing geomA (exact stream)    R2 P2 plane+multiplicity 111            0.0536 0.0826 0.4347
+   EW final chain geomB (all 3 samples)    R0              P1 plane 124            0.0501 0.1213 0.0521
+   EW final chain geomB (all 3 samples)    R0 P2 plane+multiplicity  63            0.0491 0.1067 0.4703
+   EW final chain geomB (all 3 samples)    R2              P1 plane 152            0.0488 0.0526 0.8006
+   EW final chain geomB (all 3 samples)    R2 P2 plane+multiplicity 114            0.0496 0.0349 0.9991
+  COL     existing geomA (exact stream)    R0              P1 plane  17            0.2136 0.3869 0.0123
+  COL     existing geomA (exact stream)    R0 P2 plane+multiplicity  10            0.1674 0.3575 0.1551
+  COL     existing geomA (exact stream)    R2              P1 plane  24            0.2176 0.3992 0.0010
+  COL     existing geomA (exact stream)    R2 P2 plane+multiplicity  16            0.1674 0.3320 0.0587
+  COL final chain geomB (all 3 samples)    R0              P1 plane  24            0.2031 0.4362 0.0002
+  COL final chain geomB (all 3 samples)    R0 P2 plane+multiplicity  10            0.1791 0.3695 0.1303
+  COL final chain geomB (all 3 samples)    R2              P1 plane  34            0.2007 0.3872 0.0001
+  COL final chain geomB (all 3 samples)    R2 P2 plane+multiplicity  21            0.1377 0.2824 0.0702

@@ -1,0 +1,19 @@
+G0_newseed COL 9201
+G1_xqcut15 EW 9102 xqcut=15.0
+G1_xqcut15 COL 9202 xqcut=15.0
+G2_xqcut60 EW 9103 xqcut=60.0
+G2_xqcut60 COL 9203 xqcut=60.0
+G3_cteq6l1 EW 9104 pdlabel1=cteq6l1 pdlabel2=cteq6l1
+G3_cteq6l1 COL 9204 pdlabel1=cteq6l1 pdlabel2=cteq6l1
+G4_dynscale3 EW 9105 dynamical_scale_choice=3
+G4_dynscale3 COL 9205 dynamical_scale_choice=3
+G5_scalefact0p5 EW 9106 scalefact=0.5
+G5_scalefact0p5 COL 9206 scalefact=0.5
+G6_scalefact2 EW 9107 scalefact=2.0
+G6_scalefact2 COL 9207 scalefact=2.0
+G7_14TeV EW 9108 ebeam1=7000.0 ebeam2=7000.0
+G7_14TeV COL 9208 ebeam1=7000.0 ebeam2=7000.0
+D1_upto2jets EW 9109 TEMPLATE=D1_EW
+D1_upto2jets COL 9209 TEMPLATE=D1_COL
+D2_0jet_nomatch EW 9110 TEMPLATE=D2_EW ickkw=0 xqcut=0.0
+D2_0jet_nomatch COL 9210 TEMPLATE=D2_COL ickkw=0 xqcut=0.0
