@@ -9,6 +9,6 @@
   "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/paper_fig6_vector.json": "5d4ecf9868da53746e23c6dbbc3c556f7fbcc85938b8fe4a1d50e4547a6542e3"
  },
  "script": "F6_03_contours.py",
- "script_sha256": "17922a2bb27e6d19ce6943e11ddaa09c7d1adb25d981731716086d585277967b",
+ "script_sha256": "87c1be459157474a242a53208a6a01d4dc00e5930aafe287ec921ee629a52f8d",
  "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
 }

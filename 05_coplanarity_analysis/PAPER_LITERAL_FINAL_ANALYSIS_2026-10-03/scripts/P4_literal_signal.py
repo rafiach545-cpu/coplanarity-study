@@ -25,7 +25,7 @@ import importlib.util, json, math, os, sys, multiprocessing as mp
 from collections import Counter
 import numpy as np, pandas as pd
 
-BASE = "/home/rafia/coplanarity_study"
+BASE = os.environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study")   # env var for running elsewhere (2026-10-17)
 HERE = os.path.dirname(os.path.abspath(__file__)); T = f"{HERE}/../tables"; LOGD = f"{HERE}/../logs"
 FOR = f"{BASE}/05_coplanarity_analysis/PAPER_TABLE_I_REPRODUCTION_FORENSICS_2026-10-02"
 sys.path[:0] = [f"{BASE}/04_detector_sim", f"{BASE}/03_trajectory_sim", f"{BASE}/05_coplanarity_analysis"]

@@ -22,8 +22,9 @@ Pipeline per event:
 
 import numpy as np
 import sys
-sys.path.insert(0, "/home/rafia/coplanarity_study/03_trajectory_sim")
-sys.path.insert(0, "/home/rafia/coplanarity_study/04_detector_sim")
+import os as _os   # paths relative to this file (same directories as before on the original machine; 2026-10-17)
+sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), "03_trajectory_sim"))
+sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 from quirk_trajectory import integrate_trajectory, gev_to_cm, gev_to_s
 from atlas_geometry import LAYERS, FIDUCIAL_ETA_MAX, BEAMSPOT_SIGMA_Z_CM, eta_from_theta
 

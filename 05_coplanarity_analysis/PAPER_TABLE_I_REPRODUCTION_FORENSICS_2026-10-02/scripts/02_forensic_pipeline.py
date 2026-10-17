@@ -32,7 +32,7 @@ from collections import Counter
 import numpy as np
 import pandas as pd
 
-BASE = "/home/rafia/coplanarity_study"
+BASE = os.environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study")   # env var for running elsewhere (2026-10-17)
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUTT = f"{HERE}/../tables"
 OUTF = f"{HERE}/../forensics"

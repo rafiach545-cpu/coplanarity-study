@@ -20,7 +20,7 @@ import sys
 import math
 import numpy as np
 
-sys.path.insert(0, "/home/rafia/coplanarity_study/03_trajectory_sim")
+sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))   # this file's directory (2026-10-17)
 from quirk_trajectory import _validate_integration_inputs
 
 TESLA_TO_GEV2 = 1.9535e-16

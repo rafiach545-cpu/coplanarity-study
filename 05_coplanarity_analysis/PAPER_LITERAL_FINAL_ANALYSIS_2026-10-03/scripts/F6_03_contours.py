@@ -16,20 +16,26 @@ from scipy import stats
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = f"{HERE}/.."; LOG = f"{ROOT}/logs"; OUT = f"{ROOT}/fig6"
 LUMI = 300.0
 LAMS = (0.1, 0.2, 0.3, 0.5, 0.7, 1, 2, 3, 4, 5, 7, 10)
+HIGH = (15, 20, 25, 30, 35)                                                   # high band (15-35 keV): used when its checkpoints exist
 C = pd.read_csv(f"{OUT}/inputs/counts.csv")
+if any(os.path.exists(f"{LOG}/F6_{r.channel}_{r.mass_gev}gev_high_events.jsonl") for r in C.itertuples()): LAMS = LAMS + HIGH
 # ---- EW LO ratio from the MG5 log (order: for each mass, A then B)
-xs = [float(v) for v in re.findall(r"Cross-section :\s+([0-9.eE+-]+) \+-", open("/home/rafia/hep_tools/F6_EW_LO_ratio/mg5_run.log").read())]
-dxs = [float(v) for v in re.findall(r"Cross-section :\s+[0-9.eE+-]+ \+- ([0-9.eE+-]+) pb", open("/home/rafia/hep_tools/F6_EW_LO_ratio/mg5_run.log").read())]
-assert len(xs) == 12, len(xs)
-LO = pd.DataFrame([dict(mass_gev=m, sigma_A_fb=xs[2 * i] * 1e3, sigma_A_err_fb=dxs[2 * i] * 1e3, sigma_B_fb=xs[2 * i + 1] * 1e3, sigma_B_err_fb=dxs[2 * i + 1] * 1e3)
-                   for i, m in enumerate((100, 200, 400, 600, 800, 1000))])
-LO["ratio"] = LO.sigma_B_fb / LO.sigma_A_fb; LO["ratio_err"] = LO.ratio * np.hypot(LO.sigma_A_err_fb / LO.sigma_A_fb, LO.sigma_B_err_fb / LO.sigma_B_fb)
-assert abs(LO.set_index("mass_gev").ratio[800] - 0.0960) < 0.002, "EW 800 LO ratio must reproduce Table I (0.096)"
-LO.to_csv(f"{OUT}/F6_ew_lo_ratio.csv", index=False)
+_MG = "/home/rafia/hep_tools/F6_EW_LO_ratio/mg5_run.log"
+if os.path.exists(_MG):                                                       # original machine: parse the MG5 log
+    xs = [float(v) for v in re.findall(r"Cross-section :\s+([0-9.eE+-]+) \+-", open("/home/rafia/hep_tools/F6_EW_LO_ratio/mg5_run.log").read())]
+    dxs = [float(v) for v in re.findall(r"Cross-section :\s+[0-9.eE+-]+ \+- ([0-9.eE+-]+) pb", open("/home/rafia/hep_tools/F6_EW_LO_ratio/mg5_run.log").read())]
+    assert len(xs) == 12, len(xs)
+    LO = pd.DataFrame([dict(mass_gev=m, sigma_A_fb=xs[2 * i] * 1e3, sigma_A_err_fb=dxs[2 * i] * 1e3, sigma_B_fb=xs[2 * i + 1] * 1e3, sigma_B_err_fb=dxs[2 * i + 1] * 1e3)
+                       for i, m in enumerate((100, 200, 400, 600, 800, 1000))])
+    LO["ratio"] = LO.sigma_B_fb / LO.sigma_A_fb; LO["ratio_err"] = LO.ratio * np.hypot(LO.sigma_A_err_fb / LO.sigma_A_fb, LO.sigma_B_err_fb / LO.sigma_B_fb)
+    assert abs(LO.set_index("mass_gev").ratio[800] - 0.0960) < 0.002, "EW 800 LO ratio must reproduce Table I (0.096)"
+    LO.to_csv(f"{OUT}/F6_ew_lo_ratio.csv", index=False)
+else:                                                                         # elsewhere: the table written from that log
+    LO = pd.read_csv(f"{OUT}/F6_ew_lo_ratio.csv")
 
 def load(tag):
     rows = []
-    for band in ("low", "mid"):
+    for band in ("low", "mid", "high"):
         f = f"{LOG}/F6_{tag}{'' if band == 'mid' else '_' + band}_events.jsonl"
         if os.path.exists(f): rows += [r for l in open(f) if l.strip() for r in json.loads(l)]
     return pd.DataFrame(rows)
@@ -75,7 +81,8 @@ _al = np.polyfit([np.log10(v) for v, _ in cal["y_log_ticks"]], [p for _, p in ca
 _bl = np.polyfit([v for v, _ in cal["y_lin_ticks"]], [p for _, p in cal["y_lin_ticks"]], 1)
 def Yd(lam_eV):                                                              # paper's display coordinate (minus page y): log below 1 keV, linear above
     l = np.asarray(lam_eV, float); return -np.where(l <= 1000, np.polyval(_al, np.log10(np.clip(l, 1e-6, None))), np.polyval(_bl, l))
-XR = {"colored": (500, 2500), "EW": (0, 1200)}; SCT = {"Z1160": "SCT z 1.16 mm (signal and background)", "Z0": "no SCT z smearing (signal only)"}
+XR = {"colored": (500, 2500), "EW": (0, 1200)}; SCT = {"Z1160": "signal SCT z = 1.16 mm (literal text)", "Z0": "signal without SCT z smearing (what the paper's results require)"}
+RCH = pd.read_csv(f"{OUT}/F6_reach.csv") if os.path.exists(f"{OUT}/F6_reach.csv") else None
 def contours(ax, g, col, ls_ex, ls_di, lw, label):
     ms = sorted(g.mass_gev.unique()); ys = Yd(np.array(LAMS) * 1e3)
     Z = np.full((len(ms), len(LAMS)), np.nan)
@@ -100,8 +107,9 @@ def panel(ax, ch, sct):
         ax.plot(P[k]["m_GeV"], Yd(P[k]["lambda_eV"]), color=c, ls=ls, lw=1.2, zorder=1)
     for k in ("dcm_100um", "dcm_1mm", "dcm_1cm", "dcm_1m", "dcm_100m"):
         ax.plot(P[k]["m_GeV"], Yd(P[k]["lambda_eV"]), color="#9cb9d1", ls=":", lw=1.0, zorder=1)
-        ax.text(x1 - 0.02 * (x1 - x0), Yd(P[k]["lambda_eV"][-1]) + 3, "d$_{cm}$ = " + {"100um": "100 µm", "1mm": "1 mm", "1cm": "1 cm", "1m": "1 m", "100m": "100 m"}[k[4:]],
-                ha="right", fontsize=6.5, color="#5f87a8")
+        xl = x0 + (0.73 if ch == "colored" else 0.75) * (x1 - x0)                    # between grid columns, so the dots do not hide the label
+        ax.text(xl, float(np.interp(xl, P[k]["m_GeV"], Yd(P[k]["lambda_eV"]))) + 3, "d$_{cm}$ = " + {"100um": "100 µm", "1mm": "1 mm", "1cm": "1 cm", "1m": "1 m", "100m": "100 m"}[k[4:]],
+                ha="center", fontsize=6.5, color="#5f87a8", zorder=5, bbox=dict(boxstyle="square,pad=0.1", fc=fu.SURFACE, ec="none", alpha=0.85))
     ax.plot(P["exclusion"]["m_GeV"], Yd(P["exclusion"]["lambda_eV"]), color=fu.INK, ls="--", lw=1.6, zorder=3)
     ax.plot(P["discovery"]["m_GeV"], Yd(P["discovery"]["lambda_eV"]), color=fu.INK, ls="-", lw=1.6, zorder=3)
     g = G[(G.channel == ch) & (G.sct == sct)]
@@ -115,30 +123,50 @@ def panel(ax, ch, sct):
             else: ax.plot(r.mass_gev, y, "o", ms=2.2, color=fu.INK2, zorder=4)
         elif r.status_with_f == "bound": ax.plot(r.mass_gev, y, "o", ms=2.2, color=fu.MUTED, mfc="none", zorder=4)
     mmin, mmax = g.mass_gev.min(), g.mass_gev.max()
-    ax.fill_between([x0, x1], Yd(10e3), Yd(35e3), color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
-    ax.text((x0 + x1) / 2, Yd(22e3), "Λ > 10 keV: not computed", ha="center", fontsize=8.5, color=fu.INK2, zorder=5)
-    if mmin > x0: ax.fill_betweenx([Yd(3), Yd(10e3)], x0, mmin, color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
+    if max(LAMS) <= 10:
+        ax.fill_between([x0, x1], Yd(10e3), Yd(35e3), color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
+        ax.text((x0 + x1) / 2, Yd(22e3), "Λ > 10 keV: not computed", ha="center", fontsize=8.5, color=fu.INK2, zorder=5)
+    if mmin > x0: ax.fill_betweenx([Yd(3), Yd(max(LAMS) * 1e3)], x0, mmin, color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
     ax.fill_between([x0, x1], Yd(3), Yd(100), color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
     ax.text(x1 - 0.02 * (x1 - x0), Yd(5), "Λ < 100 eV: not computed", ha="right", fontsize=8, color=fu.INK2, zorder=5)
     ax.set_xlim(x0, x1); ax.set_ylim(Yd(3), Yd(35000))
     tv = [10, 100, 1000, 10000, 20000, 30000]; ax.set_yticks(Yd(tv)); ax.set_yticklabels(["10", "10²", "10³", "10000", "20000", "30000"])
     ax.axhline(Yd(1000), color=fu.MUTED, lw=0.6, ls="-"); ax.set_xlabel("m$_Q$ (GeV)"); ax.set_ylabel("Λ (eV)")
     ax.set_title(f"{'colored (3,1)$_{2/3}$' if ch == 'colored' else 'EW (1,1)$_1$'}: {SCT[sct]}", fontsize=9.5, loc="left")
+    if RCH is not None:                                                     # nose values (maximum mass reach) with the +-1 sigma range
+        q = RCH[(RCH.channel == ch) & (RCH.sct == sct) & (RCH.variant == "charge factor included")].set_index("contour")
+        txt = (f"max reach, this work (±1σ):\n  exclusion {int(q.loc['exclusion', 'm_max_GeV'])} ({int(q.loc['exclusion', 'm_max_lo'])}–{int(q.loc['exclusion', 'm_max_hi'])}) GeV\n"
+               f"  discovery {int(q.loc['discovery', 'm_max_GeV'])} ({int(q.loc['discovery', 'm_max_lo'])}–{int(q.loc['discovery', 'm_max_hi'])}) GeV\n"
+               f"paper: {int(q.loc['exclusion', 'paper_m_max_GeV'])} / {int(q.loc['discovery', 'paper_m_max_GeV'])} GeV")
+        ax.text(0.98, 0.70, txt, transform=ax.transAxes, ha="right", va="top", fontsize=8, color=fu.INK, zorder=6,
+                bbox=dict(boxstyle="round,pad=0.35", fc=fu.SURFACE, ec=fu.SERIES[0], lw=1.0))
+NOTES = ("Normalisation: σ = MadGraph5 3.7.3 LO (0 + 1 jet, MLM-matched with Pythia8) for one quirk species, no K-factor; the paper gives no σ. The \"N_Q = 2\" of the paper's "
+         "panel titles is NOT applied (no factor 2 on σ). A factor of 1.5–1.7 (colored) and 1.3–1.4 (EW) on σ brings our maxima close to the paper's (sensitivity, not a fit; F6_kfactor).\n"
+         "EW trigger: ε_trig = σ(pp → QQ̄ + j, p_T(j) > 200 GeV) / σ(pp → QQ̄) at LO (0.096 at 800 GeV, = paper 0.10), NOT the matched + shower count (0.178 at 800 GeV), which would "
+         "move the EW maximum outward by ~60–80 GeV. EW ε_fid and ε_reco: from the matched + shower sample of each mass; the LO sample at 800 GeV (D41, 3000 events) gives ε_fid 0.30 "
+         "vs 0.31 here and k/n within ±13%, which moves the EW maximum by +5 GeV. Colored: ε_trig = matched count; the both-charged factor (~0.33) is included (thin orange: without it).\n"
+         "Red ✕: at low Λ for colored 600–1200 GeV and EW 100–200 GeV our samples (40–70 events per mass) are too small; the paper's lower-left edge passes there and is not "
+         "tested here (larger samples needed). Λ > 10 keV: not computed (the maxima are at 3–5 keV, so the reach is unaffected; only the upper part of the shape is missing).\n"
+         "Annihilation is not simulated (as in the paper). Worst case (α = 0.05, annihilation chance at every second meeting) it lowers the signal near the maxima by ~17–24% (EW 4–5 keV) "
+         "and ~17% (colored 5 keV), moving the maxima inward by ~30 GeV (colored) and ~25–40 GeV (EW).")
 def plot(_):
-    fig, axs = plt.subplots(2, 2, figsize=(13, 11))
+    fig, axs = plt.subplots(2, 2, figsize=(13, 11.5))
     for i, ch in enumerate(("colored", "EW")):
         for j, sct in enumerate(("Z1160", "Z0")): panel(axs[i, j], ch, sct)
     from matplotlib.lines import Line2D
     h = [Line2D([], [], color=fu.INK, ls="--", lw=1.6, label="paper: exclusion (3 events)"), Line2D([], [], color=fu.INK, ls="-", lw=1.6, label="paper: discovery (5 events)"),
          Line2D([], [], color=fu.SERIES[0], ls="--", lw=2.4, label="this work: exclusion (3 events)"), Line2D([], [], color=fu.SERIES[0], ls="-", lw=2.4, label="this work: discovery (5 events)"),
-         Line2D([], [], color=fu.SERIES[1], ls="--", lw=1.3, label="this work, colored, without the charged-hadron factor"),
+         Line2D([], [], color=fu.SERIES[1], ls="--", lw=1.3, label="this work, colored, no charge factor: exclusion"),
+         Line2D([], [], color=fu.SERIES[1], ls="-", lw=1.3, label="this work, colored, no charge factor: discovery"),
          Line2D([], [], color="#7fbf7f", lw=1.2, label="HSCP 12.9 / 300 fb⁻¹ (from the paper)"), Line2D([], [], color="#b5b5b5", lw=1.2, label="monojet 12.9 / 300 fb⁻¹ (from the paper)"),
          Line2D([], [], color="#9cb9d1", ls=":", lw=1.2, label="d$_{cm}$ (from the paper)"),
          Line2D([], [], marker="o", ls="", color=fu.INK2, ms=4, label="grid point with ≥ 1 event in the signal region"),
          Line2D([], [], marker="x", ls="", color=fu.MUTED, ms=6, label="0 events passed: N < 3 at 95% CL"), Line2D([], [], marker="x", ls="", color=fu.SERIES[7], ms=6, label="0 events passed: not resolved (95% UL on N ≥ 3)"),
          Line2D([], [], marker="o", ls="", color=fu.MUTED, mfc="none", ms=4, label="not propagated: N < 3 even with ε$_{fid}$ = ε$_{reco}$ = 1")]
-    fig.legend(handles=h, loc="lower center", ncol=3, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.06))
-    fig.suptitle("Figure 6 of arXiv:1708.02243: 300 fb⁻¹, no background (left: same SCT z smearing for signal and background; right: signal without SCT z smearing)", fontsize=10.5)
+    fig.legend(handles=h, loc="lower center", ncol=3, fontsize=8, frameon=False, bbox_to_anchor=(0.5, -0.07))
+    fig.text(0.01, -0.105, NOTES, fontsize=7.9, color=fu.INK, va="top", ha="left", wrap=True)
+    fig.suptitle("Figure 6 of arXiv:1708.02243: contours of 3 (exclusion) and 5 (discovery) signal events at 300 fb⁻¹, no background, as in the paper\n"
+                 "left: signal SCT z = 1.16 mm (literal text);  right: signal without SCT z smearing (what the paper's results require)", fontsize=10.5)
     fig.tight_layout(); return fig
 SRC = G.copy()
 fu.figure("F6_fig6", SRC, plot,

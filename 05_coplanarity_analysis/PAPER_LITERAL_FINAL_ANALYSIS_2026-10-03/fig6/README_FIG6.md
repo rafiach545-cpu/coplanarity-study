@@ -64,3 +64,27 @@ All maxima are at Λ = 4–5 keV (SCT z 1.16 mm, EW: 7 keV), as in the paper (4�
 - **Λ < 100 eV and m_Q below the sample range** (colored < 600 GeV, EW < 100 GeV).
 - **Low-Λ edges (≲ 0.7 keV).** 0 of 40–150 events pass there, and at the lightest masses the 95% UL on N is still ≥ 3. Resolving these edges needs larger samples.
 - **Cross-section normalisation.** The paper gives no σ. We use our matched σ (colored) and LO σ_B/σ_A × σ_matched (EW), with no K-factor and no tuning.
+
+## Normalisation sensitivity (no new simulation; `scripts/F6_05_sensitivity.py`, `fig6/F6_reach_sensitivity.csv`, `FINAL_FIGURES/F6_kfactor/`)
+
+Every grid N is multiplied by a common factor and the contours are redrawn. This is a sensitivity study, not a fit. Signal has no SCT z smearing; the charge factor is included.
+
+| Variant | Colored exclusion / discovery (GeV) | EW exclusion / discovery (GeV) |
+|---|---|---|
+| Paper, Fig. 6 | 1793 / 1707 | 762 / 688 |
+| K = 1 (our LO σ) | 1702 / 1591 | 712 / 643 |
+| K = 1.2 (EW) | – | 745 / 667 |
+| K = 1.4 (EW) | – | 774 / 688 |
+| K = 1.5 (colored) | 1789 / 1679 | – |
+| K = 1.8 (colored) | 1817 / 1718 | – |
+| K = 2 ("N_Q = 2" read as ×2 on σ) | 1831 / 1741 | > 800 (not determined; EW 1000 not computed) / 745 |
+| EW ε_trig from the matched + shower count instead of the LO ratio (×1.3–1.9 per mass) | – | 792 / 701 |
+| Annihilation, worst case (α = 0.05, survival from D27 at the benchmark masses, applied to all masses) | 1672 / 1560 | 685 / 605 |
+
+An overall factor of about 1.5 (colored) or 1.4 (EW) on the signal puts our maxima on the paper's curves. The paper gives no σ, so the source of this factor cannot be identified from the paper. A factor 2 overshoots both channels.
+
+Main-figure changes (2026-10-17):
+- Title wording.
+- Maxima with ±1σ written in each panel.
+- Notes on the normalisation: LO, no K-factor, N_Q not applied, EW ε_trig = LO ratio.
+- Notes on the red ✕ regions, Λ > 10 keV and the annihilation worst case.

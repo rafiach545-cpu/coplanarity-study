@@ -28,3 +28,5 @@ docs/minbias_pool_gen*.log
 # third-party reference papers (not our work)
 05_coplanarity_analysis/EW_PAPER_REPRODUCTION_FOLLOWUP_2026-10-02/paper_source/
 05_coplanarity_analysis/EW_PAPER_REPRODUCTION_AUDIT_2026-10-02/paper_source/
+FIG6_HIGH_BAND_BUNDLE_*.tar.gz
+05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/logs/*_pilot*_fast_events.jsonl

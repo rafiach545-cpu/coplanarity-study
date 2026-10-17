@@ -742,3 +742,26 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
   - Contour fix: k = 0 points are no longer given an arbitrary value; no contour passes through them.
   - No SCT z smearing, with the charge factor: discovery colored 1591 / EW 643 GeV (paper abstract 1600 / 650; paper figure 1707 / 688); exclusion 1702 / 712 (paper 1793 / 762).
   - SCT z 1.16 mm, with the charge factor: discovery 1424 / 428; exclusion 1497 / 474.
+
+## D49 (2026-10-17) Fig. 6 normalisation sensitivity and caption (user's list)
+- K-factor overlay F6_kfactor: colored ×1.5 and EW ×1.4 bring the maxima onto the paper's; ×2 (N_Q reading) overshoots.
+- Bug fixed before reporting: a "bound" point scaled above the threshold was being used as a measured N. It is now "not determined beyond the last computed mass".
+- Main figure:
+  - title: "left: signal SCT z = 1.16 mm (literal text); right: signal without SCT z smearing (what the paper's results require)";
+  - the maxima with ±1σ are written in each panel;
+  - notes: LO σ, no K-factor, N_Q = 2 not applied, EW ε_trig = LO ratio (the matched count would add ~60–80 GeV), red ✕ regions untested, Λ > 10 keV not computed, annihilation worst case −30 (colored) / −25…−40 (EW) GeV.
+
+## D50 (2026-10-17) Fig. 6 high band moved to another machine; numba integrator
+- 03_trajectory_sim/quirk_trajectory_numba.py is a compiled copy of quirk_trajectory_optimized_v2.
+  - Bitwise identical trajectories.
+  - Full-pipeline validation: 396 rows, 0 differences (scripts/F6_06_validate_numba.py). 15–37× faster.
+  - F6_02_grid.py uses it with FAST=1.
+- The high-band pilot on this laptop was killed twice by the OOM killer (one 30–35 keV trajectory ≈ 2 GB; WSL has 8 GB). By the user's decision the high band runs on another machine.
+- Portability (no change in results on this machine):
+  - BASE in P4 and in the forensic pipeline can be set with env COPLANARITY_BASE;
+  - the sys.path inserts in trajectory_to_hits, optimized_v2 and numba are now relative to the file;
+  - F6_03 reads fig6/F6_ew_lo_ratio.csv when the MG5 log is absent, and reads high-band checkpoints when they exist.
+- Bundle: FIG6_HIGH_BAND_BUNDLE_2026-10-17.tar.gz (3 MB) with RUN_FIG6_HIGH_BAND.sh and README_FIG6_HIGH_BAND.md. Tested unpacked elsewhere:
+  - no file was opened from the original repo (audit hook);
+  - validation passed;
+  - the grid checksum is identical.
