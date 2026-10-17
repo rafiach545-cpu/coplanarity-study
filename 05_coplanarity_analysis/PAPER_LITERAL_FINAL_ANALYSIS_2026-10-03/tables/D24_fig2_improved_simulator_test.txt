@@ -1,0 +1,5 @@
+constructed (+-2/3, axis z)  production integrator : d max 3.607 cm, spacing 1.164 cm, |L| at closest approaches 0.6434 / 0.0004 / 0.6430 / 0.0001
+constructed (+-2/3, axis z)  improved simulator    : d max 3.607 cm, spacing 1.163 cm, |L| at closest approaches 0.6434 / 0.0002 / 0.6430 / 0.0008
+COL2000 key 8 (+-1)          production integrator : d max 4.191 cm, spacing 1.047 cm, |L| at closest approaches 0.8620 / 0.0001 / 0.8622 / 0.0005
+COL2000 key 8 (+-1)          improved simulator    : d max 4.188 cm, spacing 1.047 cm, |L| at closest approaches 0.8619 / 0.0005 / 0.8599 / 0.0003
+paper: d max 3.556 cm, spacing 1.153 cm, |L| at closest approaches 0.645 / 0.194 / 0.514 / 0.287

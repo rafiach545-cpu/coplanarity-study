@@ -4,3 +4,34 @@ photons to run 300
 60/300
 80/300
 photons to run 220
+photons to run 210
+20/210
+40/210
+60/210
+80/210
+photons to run 122
+20/122
+40/122
+60/122
+Traceback (most recent call last):
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/D13_conversion_trajectory_check.py", line 12, in <module>
+    import literal_detector as ld, atlas_geometry as ag
+  File "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/literal_detector.py", line 27, in <module>
+    import pileup_hits_suppressed as phs           # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/coplanarity_study/02_backgrounds/pileup/pileup_hits_suppressed.py", line 20, in <module>
+    from ancestry_classifier import classify_particle
+  File "/home/rafia/coplanarity_study/02_backgrounds/pileup/ancestry_classifier.py", line 39, in <module>
+    from generate_minbias import make_pythia
+  File "/home/rafia/coplanarity_study/02_backgrounds/pileup/generate_minbias.py", line 36, in <module>
+    import pythia8
+ModuleNotFoundError: No module named 'pythia8'
+photons to run 62
+20/62
+40/62
+60/62
+photons 300, leptons 600: lepton pT median 17.68 GeV [16-84%: 6.57-57.23], min 1.280
+gyroradius median 29.5 m [16-84%: 10.95-95.4 m], min 213.5 cm; leptons with R < 1 m: 0
+analytic helix (P9/P10)           : crossings found 4800/4800; distance to reference: median 1.01e-06 um, 99% 0.000214 um, max 0.00239 um
+root-finding helix (P17, report)  : crossings found 4800/4800; distance to reference: median 0.00523 um, 99% 0.316 um, max 0.807 um
+RK4 5000 steps (legacy v1)        : crossings found 4800/4800; distance to reference: median 0.000257 um, 99% 0.00374 um, max 0.00757 um

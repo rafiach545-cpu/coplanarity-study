@@ -1,0 +1,137 @@
+{
+ "config_sha256": "23a00dda02bbda4b5ff26ca0acb3df671a3441511b6b77a8ad11059803e4a06d",
+ "files": [
+  "detector.yaml",
+  "reconstruction.yaml",
+  "benchmarks.yaml"
+ ],
+ "used": [
+  "benchmarks.colored.lambda_ev_production",
+  "benchmarks.colored.mass_gev",
+  "benchmarks.ew.lambda_ev_production",
+  "benchmarks.ew.mass_gev",
+  "detector.beamspot.sigma_z_mm",
+  "detector.layers",
+  "detector.magnetic_field_t",
+  "detector.sct.rphi_sigma_mm",
+  "detector.sct.z_sigma_mm",
+  "detector.sct.z_sigma_options_mm",
+  "detector.timing_cut_ns",
+  "reconstruction.cuts.final_delta_w_max_mm",
+  "reconstruction.cuts.iter_growth_factor_max",
+  "reconstruction.cuts.iter_n1_max_mm",
+  "reconstruction.cuts.iter_n2_max_mm",
+  "reconstruction.cuts.seed_delta_phi_rad",
+  "reconstruction.cuts.seed_delta_s_max_mm",
+  "reconstruction.cuts.seed_delta_w_max_mm",
+  "reconstruction.cuts.seed_delta_z_mm",
+  "reconstruction.cuts.signal_delta_s_max_mm",
+  "reconstruction.hits.mode",
+  "reconstruction.hits.mode_options",
+  "reconstruction.hits.multiplicity_rule",
+  "reconstruction.simulation.max_layer_radius_mm",
+  "reconstruction.simulation.steps_per_period"
+ ],
+ "values": {
+  "benchmarks.colored.lambda_ev_production": 2000,
+  "benchmarks.colored.mass_gev": 1800.0,
+  "benchmarks.ew.lambda_ev_production": 4000,
+  "benchmarks.ew.mass_gev": 800.0,
+  "detector.beamspot.sigma_z_mm": 45.0,
+  "detector.layers": [
+   {
+    "id": 1,
+    "name": "L1_IBL",
+    "kind": "pixel",
+    "radius_mm": 33.25,
+    "z_half_mm": 330.15,
+    "pitch_rphi_mm": 0.05,
+    "pitch_z_mm": 0.25
+   },
+   {
+    "id": 2,
+    "name": "L2_PixelB0",
+    "kind": "pixel",
+    "radius_mm": 50.5,
+    "z_half_mm": 400.5,
+    "pitch_rphi_mm": 0.05,
+    "pitch_z_mm": 0.4
+   },
+   {
+    "id": 3,
+    "name": "L3_PixelB1",
+    "kind": "pixel",
+    "radius_mm": 88.5,
+    "z_half_mm": 400.5,
+    "pitch_rphi_mm": 0.05,
+    "pitch_z_mm": 0.4
+   },
+   {
+    "id": 4,
+    "name": "L4_PixelB2",
+    "kind": "pixel",
+    "radius_mm": 122.5,
+    "z_half_mm": 400.5,
+    "pitch_rphi_mm": 0.05,
+    "pitch_z_mm": 0.4
+   },
+   {
+    "id": 5,
+    "name": "L5_SCT_B3",
+    "kind": "sct",
+    "radius_mm": 299.0,
+    "z_half_mm": 749.0
+   },
+   {
+    "id": 6,
+    "name": "L6_SCT_B4",
+    "kind": "sct",
+    "radius_mm": 371.0,
+    "z_half_mm": 749.0
+   },
+   {
+    "id": 7,
+    "name": "L7_SCT_B5",
+    "kind": "sct",
+    "radius_mm": 443.0,
+    "z_half_mm": 749.0
+   },
+   {
+    "id": 8,
+    "name": "L8_SCT_B6",
+    "kind": "sct",
+    "radius_mm": 514.0,
+    "z_half_mm": 749.0
+   }
+  ],
+  "detector.magnetic_field_t": 2.0,
+  "detector.sct.rphi_sigma_mm": 0.034,
+  "detector.sct.z_sigma_mm": 0.0,
+  "detector.sct.z_sigma_options_mm": [
+   0.0,
+   0.034,
+   0.58,
+   1.16
+  ],
+  "detector.timing_cut_ns": 25.0,
+  "reconstruction.cuts.final_delta_w_max_mm": 10.0,
+  "reconstruction.cuts.iter_growth_factor_max": 3.0,
+  "reconstruction.cuts.iter_n1_max_mm": 0.5,
+  "reconstruction.cuts.iter_n2_max_mm": 10.0,
+  "reconstruction.cuts.seed_delta_phi_rad": 0.1,
+  "reconstruction.cuts.seed_delta_s_max_mm": 0.5,
+  "reconstruction.cuts.seed_delta_w_max_mm": 10.0,
+  "reconstruction.cuts.seed_delta_z_mm": 20.0,
+  "reconstruction.cuts.signal_delta_s_max_mm": 0.1,
+  "reconstruction.hits.mode": "first_crossing",
+  "reconstruction.hits.mode_options": [
+   "first_crossing",
+   "all_crossings"
+  ],
+  "reconstruction.hits.multiplicity_rule": "at_least_2",
+  "reconstruction.simulation.max_layer_radius_mm": 600.0,
+  "reconstruction.simulation.steps_per_period": 300
+ },
+ "lhe": "inputs_D41/EW_B_mg5_373_ptj200_py8317_noMatch.csv",
+ "prereg": "notes/D41_prereg.md"
+}

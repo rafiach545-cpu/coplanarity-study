@@ -1,0 +1,23 @@
+# Detector model for the Table I reproduction of arXiv:1708.02243. LENGTHS IN MM, times in ns, field in T.
+# Every key is read by scripts/analysis_config.py; an unknown, missing or unused key is an error.
+# Sources: [paper] = arXiv:1708.02243 Sec. III A; [27] = ATL-PHYS-PUB-2009-002 (the paper's detector reference); [ours] = choice where the paper is silent.
+magnetic_field_t: 2.0                    # [paper] "uniform 2T magnetic field along the z-direction"
+beam_pipe_radius_mm: 23.5                # [ours] Run-2 beam pipe; used only by the conversion background (paper: "conversions in the beam pipe")
+timing_cut_ns: 25.0                      # [paper] Sec. IV "25 ns timing cut"
+beamspot:
+  sigma_z_mm: 45.0                       # [paper] "gaussian smearing with width 45 mm to the z-coordinates of all the hits"
+  mode: common_shift_fit_true_vertex     # [ours] one z0 per event shifts all hits; fit uses the true vertex (paper: vertex "at the origin")
+sct:
+  rphi_sigma_mm: 0.034                   # [paper] "twice the intrinsic accuracy" of [27]: 2 x 17 um
+  z_sigma_mm: 0.0                        # PRIMARY setting. [27] gives 580 um per module; paper text implies 2 x 580 = 1.16 mm; paper results need 0
+  z_sigma_options_mm: [0.0, 0.034, 0.58, 1.16]  # settings evaluated side by side (P18: 0, 0.58, 1.16; 0.034 = variant used by F06 / literal_detector)
+merge_hits_in: [pixel]                   # [paper] "Hits in neighboring pixels ... are merged"; SCT hits not merged
+layers:                                  # radius and half-length; pixel hit = pixel centre ([paper] "pixel size rather than the resolution")
+  - {id: 1, name: L1_IBL,     kind: pixel, radius_mm: 33.25,  z_half_mm: 330.15, pitch_rphi_mm: 0.05, pitch_z_mm: 0.25}  # [ours] IBL is not in [27] (2008); Run-2 IBL values
+  - {id: 2, name: L2_PixelB0, kind: pixel, radius_mm: 50.5,   z_half_mm: 400.5,  pitch_rphi_mm: 0.05, pitch_z_mm: 0.40}  # [27]
+  - {id: 3, name: L3_PixelB1, kind: pixel, radius_mm: 88.5,   z_half_mm: 400.5,  pitch_rphi_mm: 0.05, pitch_z_mm: 0.40}  # [27]
+  - {id: 4, name: L4_PixelB2, kind: pixel, radius_mm: 122.5,  z_half_mm: 400.5,  pitch_rphi_mm: 0.05, pitch_z_mm: 0.40}  # [27]
+  - {id: 5, name: L5_SCT_B3,  kind: sct,   radius_mm: 299.0,  z_half_mm: 749.0}                                          # [27]
+  - {id: 6, name: L6_SCT_B4,  kind: sct,   radius_mm: 371.0,  z_half_mm: 749.0}                                          # [27]
+  - {id: 7, name: L7_SCT_B5,  kind: sct,   radius_mm: 443.0,  z_half_mm: 749.0}                                          # [27]
+  - {id: 8, name: L8_SCT_B6,  kind: sct,   radius_mm: 514.0,  z_half_mm: 749.0}                                          # [27]

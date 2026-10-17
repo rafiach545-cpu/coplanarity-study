@@ -1,0 +1,135 @@
+panel,sample,bin_lo_cm,bin_hi_cm,height,y_quantity,filled_zero
+delta_s,Colored Quirk,0.00100006,0.001259,0.000240855,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.001259,0.00158499,0.000265727,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00158499,0.00199539,0.000481144,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00199539,0.00251204,0.000472862,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00251204,0.00316247,0.000572226,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00316247,0.00398132,0.000688115,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00398132,0.00501218,0.000448015,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00501218,0.00630996,0.000323745,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00630996,0.00794377,0.000157915,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.00794377,0.0100006,4.16506e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.0100006,0.01259,6.6588e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.01259,0.0158499,7.48965e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.0158499,0.0199538,9.1509e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.0199538,0.0251204,5.82777e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.0251204,0.0316247,6.6588e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.0316247,0.0398132,3.33332e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Colored Quirk,0.0398132,0.0501218,2.5012e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00100006,0.001259,0.000574117,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.001259,0.00158499,0.000744472,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00158499,0.00199539,0.000899282,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00199539,0.00251204,0.000999884,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00251204,0.00316247,0.00122424,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00316247,0.00398132,0.000922499,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00398132,0.00501218,0.000690276,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00501218,0.00630996,0.000550881,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00630996,0.00794377,0.00024862,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.00794377,0.0100006,0.000132221,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.0100006,0.01259,0.000139985,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.01259,0.0158499,0.000186556,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.0158499,0.0199538,9.33878e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.0199538,0.0251204,7.0075e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.0251204,0.0316247,7.0075e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.0316247,0.0398132,7.0075e-05,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,EW Quirk,0.0398132,0.0501218,7.81518e-06,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.00398132,0.00501218,0.00083057,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.00501218,0.00630996,0.00083057,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.00630996,0.00794377,0.00165919,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.00794377,0.0100006,0.00083057,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0100006,0.01259,0.00579483,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.01259,0.0158499,0.014052,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0158499,0.0199538,0.0214758,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0199538,0.0251204,0.0437248,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0251204,0.0316247,0.09804,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0316247,0.0398132,0.220492,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0398132,0.0501218,0.44785,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0501218,0.0630996,0.834009,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0630996,0.0794377,0.793853,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Pileup,0.0794377,0.100006,0.167915,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.00100006,0.001259,0.00011683,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.00125893,0.00158489,0,dsigma/dlog(Delta_s) [fb/bin],True
+delta_s,Converted gamma,0.00158489,0.00199526,0,dsigma/dlog(Delta_s) [fb/bin],True
+delta_s,Converted gamma,0.00199539,0.00251204,0.00011683,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.00251189,0.00316228,0,dsigma/dlog(Delta_s) [fb/bin],True
+delta_s,Converted gamma,0.00316247,0.00398132,0.000233386,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.00398132,0.00501218,0.000233386,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.00501218,0.00630996,0.000349839,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.00630996,0.00794377,0.00139607,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.00794377,0.0100006,0.00220872,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.0100006,0.01259,0.00348476,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.01259,0.0158499,0.00360072,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.0158499,0.0199538,0.00452817,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.0199538,0.0251204,0.00800363,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.0251204,0.0316247,0.0108978,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.0316247,0.0398132,0.0129807,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.0398132,0.0501218,0.0166824,dsigma/dlog(Delta_s) [fb/bin],False
+delta_s,Converted gamma,0.0501218,0.0630996,0.00244081,dsigma/dlog(Delta_s) [fb/bin],False
+delta_w,Colored Quirk,0.0031625,0.00398135,0.00387785,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.00398135,0.00501223,0.00194145,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.00501187,0.00630957,0,(1/sigma) dsigma/dlog(Delta_w),True
+delta_w,Colored Quirk,0.00631002,0.00794385,0.00194145,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.00794385,0.0100007,0.00581234,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0100007,0.0125901,0.00387785,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0125901,0.0158501,0.0116095,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0158501,0.019954,0.015471,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.019954,0.0251206,0.015471,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0251206,0.031625,0.0328293,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.031625,0.0398135,0.0540211,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0398135,0.0501223,0.0790455,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0501223,0.0631002,0.0771212,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0631002,0.0794384,0.13482,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.0794384,0.100007,0.119439,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.100007,0.125901,0.129053,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.125901,0.158501,0.105978,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.158501,0.19954,0.0905899,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.19954,0.251206,0.0559467,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.251206,0.31625,0.0501694,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.31625,0.398135,0.0289738,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Colored Quirk,0.398135,0.501223,0.0116095,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.00251206,0.0031625,0.000951539,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0031625,0.00398135,0.0019006,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.00398135,0.00501223,0.00284873,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.00501223,0.00631002,0.0075826,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.00631002,0.00794385,0.00474332,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.00794385,0.0100007,0.0170349,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0100007,0.0125901,0.0217567,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0125901,0.0158501,0.0293078,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0158501,0.019954,0.0538269,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.019954,0.0251206,0.067962,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0251206,0.031625,0.0868003,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.031625,0.0398135,0.115044,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0398135,0.0501223,0.124455,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0501223,0.0631002,0.103748,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0631002,0.0794384,0.115044,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.0794384,0.100007,0.0933918,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.100007,0.125901,0.0726724,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.125901,0.158501,0.0462854,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.158501,0.19954,0.0302514,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.19954,0.251206,0.0217567,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.251206,0.31625,0.0075826,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.31625,0.398135,0.00379625,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,EW Quirk,0.398135,0.501223,0.000951539,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.125901,0.158501,0.00128607,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.158501,0.19954,0.000965078,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.19954,0.251206,0.00928936,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.251206,0.31625,0.0290868,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.31625,0.398135,0.088672,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.398135,0.501223,0.288023,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.501223,0.631002,0.487405,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Pileup,0.631002,0.794384,0.122408,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.0158501,0.019954,0.00178775,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.019954,0.0251206,0.00178775,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.0251206,0.031625,0.00713239,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.031625,0.0398135,0.0284553,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.0398135,0.0501223,0.0922749,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.0501223,0.0631002,0.0586092,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.0631002,0.0794384,0.0639268,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.0794384,0.100007,0.0993591,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.100007,0.125901,0.0958171,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.125901,0.158501,0.0710157,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.158501,0.19954,0.10113,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.19954,0.251206,0.120606,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.251206,0.31625,0.117066,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.31625,0.398135,0.118836,(1/sigma) dsigma/dlog(Delta_w),False
+delta_w,Converted gamma,0.398135,0.501223,0.0515176,(1/sigma) dsigma/dlog(Delta_w),False

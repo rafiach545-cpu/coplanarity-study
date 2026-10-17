@@ -1,0 +1,783 @@
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                 2026-09-01         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*              http://madgraph.phys.ucl.ac.be/             *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from ../../../../../../home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MG5_aMC> set fastjet /PATH/TO/fastjet-config
+
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MG5_aMC> set eMELA /PATH/TO/eMELA-config
+
+lhapdf-config does not seem to correspond to a valid lhapdf-config executable. 
+Please set the 'lhapdf' variable to the (absolute) /PATH/TO/lhapdf-config (including lhapdf-config).
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ MG5_aMC> set lhapdf /PATH/TO/lhapdf-config
+
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+import /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/v373.mg5
+The import format was not given, so we guess it as command
+import model quirk
+INFO: Restrict model quirk with file ../../../../../../home/rafia/hep_tools/MG5_aMC_v3_7_3/models/quirk/restrict_default.dat . 
+INFO: Run "set stdout_level DEBUG" before import for more information. 
+INFO: Change particles name to pass to MG5 convention 
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+Defined multiparticle l+ = e+ mu+
+Defined multiparticle l- = e- mu-
+Defined multiparticle vl = ve vm vt
+Defined multiparticle vl~ = ve~ vm~ vt~
+Defined multiparticle all = g u c d s u~ c~ d~ s~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t t1 b t~ t1~ b~ z w+ h w- qe- ta- qe+ ta+
+define p = g u c d s u~ c~ d~ s~
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+generate p p > qe+ qe-
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying process: g g > qe+ qe- WEIGHTED<=4 @1  
+INFO: Trying process: u u~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Process has 2 diagrams 
+INFO: Trying process: u c~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Trying process: c u~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Trying process: c c~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Process has 2 diagrams 
+INFO: Trying process: d d~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Process has 2 diagrams 
+INFO: Trying process: d s~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Trying process: s d~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Trying process: s s~ > qe+ qe- WEIGHTED<=4 @1  
+INFO: Process has 2 diagrams 
+INFO: Process u~ u > qe+ qe- added to mirror process u u~ > qe+ qe- 
+INFO: Process c~ c > qe+ qe- added to mirror process c c~ > qe+ qe- 
+INFO: Process d~ d > qe+ qe- added to mirror process d d~ > qe+ qe- 
+INFO: Process s~ s > qe+ qe- added to mirror process s s~ > qe+ qe- 
+4 processes with 8 diagrams generated in 0.009 s
+Total: 4 processes with 8 diagrams
+output EW_A_373
+INFO: initialize a new directory: EW_A_373 
+INFO: remove old information in EW_A_373 
+INFO: Organizing processes into subprocess groups 
+INFO: Generating Helas calls for process: u u~ > qe+ qe- WEIGHTED<=4 @1 
+INFO: Processing color information for process: u u~ > qe+ qe- @1 
+INFO: Combined process c c~ > qe+ qe- WEIGHTED<=4 @1 with process u u~ > qe+ qe- WEIGHTED<=4 @1 
+INFO: Generating Helas calls for process: d d~ > qe+ qe- WEIGHTED<=4 @1 
+INFO: Reusing existing color information for process: d d~ > qe+ qe- @1 
+INFO: Combined process s s~ > qe+ qe- WEIGHTED<=4 @1 with process d d~ > qe+ qe- WEIGHTED<=4 @1 
+INFO: Creating files in directory P1_qq_qepqem 
+INFO: Generating Feynman diagrams for Process: u u~ > qe+ qe- WEIGHTED<=4 @1 
+INFO: Generating Feynman diagrams for Process: d d~ > qe+ qe- WEIGHTED<=4 @1 
+INFO: Finding symmetric diagrams for subprocess group qq_qepqem 
+Generated helas calls for 2 subprocesses (4 diagrams) in 0.003 s
+Wrote files for 16 helas calls in 0.030 s
+ALOHA: aloha starts to compute helicity amplitudes
+ALOHA: aloha creates 5 routines in  0.561 s
+save configuration file to /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_A_373/Cards/me5_configuration.txt
+INFO: Use Fortran compiler gfortran 
+INFO: Use c++ compiler g++ 
+INFO: Generate web pages 
+Output to directory /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_A_373 done.
+Type "launch" to generate events from this process, or see
+/tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_A_373/README
+Run "open index.html" to see more information about this process.
+launch EW_A_373
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                 2026-09-01         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_A_373/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_A_373/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+generate_events run_01
+stty: 'standard input': Inappropriate ioctl for device
+The following switches determine which programs are run:
+/===========================================================================\
+| 1. Choose the shower/hadronization program   [1m  shower[0m = [31mOFF[0m               |
+| 2. Choose the detector simulation program    [1mdetector[0m = [01mNot Avail.[0m        |
+| 3. Choose an analysis package (plot/convert) [1manalysis[0m = [01mNot Avail.[0m        |
+| 4. Decay onshell particles                   [1m madspin[0m = [31mOFF[0m               |
+| 5. Add weights to events for new hypp.       [1mreweight[0m = [31mOFF[0m               |
+\===========================================================================/
+Either type the switch number (1 to 5) to change its setting,
+Set any switch explicitly (e.g. type 'shower=Pythia8' at the prompt)
+Type 'help' for the list of all valid option
+Type '0', 'auto', 'done' or just press enter when you are done.
+set nevents 2000
+[1mINFO: modify parameter nevents of the run_card.dat to 2000 [0m
+set iseed 41001
+[1mINFO: modify parameter iseed of the run_card.dat to 41001 [0m
+set pdlabel nn23lo1
+[1mINFO: modify parameter pdlabel of the run_card.dat to nn23lo1 [0m
+INFO: Update the dependent parameter of the param_card.dat 
+[1;34mWARNING: update the strong coupling value (alpha_s) to the value from the pdf selected: 0.13 [0m
+[1;34mvalue '[]' for entry 'bypass_check' is not valid. Preserving previous value: '[]'.
+allowed values are any list composed of the following entries: partonshower[0m
+Generating 2000 events with run name run_01
+survey  run_01 
+INFO: compile directory 
+[1;34mNot able to open file /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_A_373/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 41001
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/1. 
+INFO:     P1_qq_qepqem  
+  0%|          | 0/742 [00:00<?, ?it/s]100%|██████████| 742/742 [00:00<00:00, 274635.86it/s]
+  0%|          | 0/743 [00:00<?, ?it/s]100%|██████████| 743/743 [00:00<00:00, 330824.61it/s]
+INFO:     P1_qq_qepqem  
+INFO:  Idle: 1,  Running: 0,  Completed: 0 [ current time: 13h40 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  0.27s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  0.28s  ] 
+INFO: End survey 
+refine 2000
+Creating Jobs
+INFO: Refine results to 2000 
+INFO: Generating 2000.0 unweighted events. 
+sum of cpu time of last step: 0 second
+INFO: Effective Luminosity 10477009.512251554 pb^-1 
+INFO: need to improve 1 channels 
+- Current estimate of cross-section: 0.000229073 +- 1.4378179480031538e-06
+    P1_qq_qepqem 
+INFO:  Idle: 1,  Running: 2,  Completed: 0 [ current time: 13h40 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 3 [  0.45s  ] 
+INFO: Combining runs 
+sum of cpu time of last step: 2 seconds
+INFO: finish refine 
+refine 2000 --treshold=0.9
+No need for second refine due to stability of cross-section
+INFO: Combining Events 
+combination of events done in 0.34814953804016113 s 
+  === Results Summary for run: run_01 tag: tag_1 ===
+
+     Cross-section :   0.0002307 +- 6.236e-07 pb
+     Nb of events :  2000
+ 
+INFO: No version of lhapdf. Can not run systematics computation 
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+INFO: storing files of previous run 
+INFO: Done 
+quit
+INFO:  
+more information in /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_A_373/index.html
+generate p p > qe+ qe- j
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=5: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: g g > qe+ qe- g WEIGHTED<=5 @1  
+INFO: Trying process: g u > qe+ qe- u WEIGHTED<=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Trying process: g u > qe+ qe- c WEIGHTED<=5 @1  
+INFO: Trying process: g c > qe+ qe- u WEIGHTED<=5 @1  
+INFO: Trying process: g c > qe+ qe- c WEIGHTED<=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Trying process: g d > qe+ qe- d WEIGHTED<=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Trying process: g d > qe+ qe- s WEIGHTED<=5 @1  
+INFO: Trying process: g s > qe+ qe- d WEIGHTED<=5 @1  
+INFO: Trying process: g s > qe+ qe- s WEIGHTED<=5 @1  
+INFO: Process has 4 diagrams 
+INFO: Crossed process found for g u~ > qe+ qe- u~, reuse diagrams. 
+INFO: Crossed process found for g c~ > qe+ qe- c~, reuse diagrams. 
+INFO: Crossed process found for g d~ > qe+ qe- d~, reuse diagrams. 
+INFO: Crossed process found for g s~ > qe+ qe- s~, reuse diagrams. 
+INFO: Process u g > qe+ qe- u added to mirror process g u > qe+ qe- u 
+INFO: Crossed process found for u u~ > qe+ qe- g, reuse diagrams. 
+INFO: Process c g > qe+ qe- c added to mirror process g c > qe+ qe- c 
+INFO: Crossed process found for c c~ > qe+ qe- g, reuse diagrams. 
+INFO: Process d g > qe+ qe- d added to mirror process g d > qe+ qe- d 
+INFO: Crossed process found for d d~ > qe+ qe- g, reuse diagrams. 
+INFO: Process s g > qe+ qe- s added to mirror process g s > qe+ qe- s 
+INFO: Crossed process found for s s~ > qe+ qe- g, reuse diagrams. 
+INFO: Process u~ g > qe+ qe- u~ added to mirror process g u~ > qe+ qe- u~ 
+INFO: Process u~ u > qe+ qe- g added to mirror process u u~ > qe+ qe- g 
+INFO: Process c~ g > qe+ qe- c~ added to mirror process g c~ > qe+ qe- c~ 
+INFO: Process c~ c > qe+ qe- g added to mirror process c c~ > qe+ qe- g 
+INFO: Process d~ g > qe+ qe- d~ added to mirror process g d~ > qe+ qe- d~ 
+INFO: Process d~ d > qe+ qe- g added to mirror process d d~ > qe+ qe- g 
+INFO: Process s~ g > qe+ qe- s~ added to mirror process g s~ > qe+ qe- s~ 
+INFO: Process s~ s > qe+ qe- g added to mirror process s s~ > qe+ qe- g 
+12 processes with 48 diagrams generated in 0.050 s
+Total: 12 processes with 48 diagrams
+output EW_B_373
+INFO: initialize a new directory: EW_B_373 
+INFO: remove old information in EW_B_373 
+INFO: Organizing processes into subprocess groups 
+INFO: Generating Helas calls for process: g u > qe+ qe- u WEIGHTED<=5 @1 
+INFO: Processing color information for process: g u > qe+ qe- u @1 
+INFO: Combined process g c > qe+ qe- c WEIGHTED<=5 @1 with process g u > qe+ qe- u WEIGHTED<=5 @1 
+INFO: Generating Helas calls for process: g d > qe+ qe- d WEIGHTED<=5 @1 
+INFO: Reusing existing color information for process: g d > qe+ qe- d @1 
+INFO: Combined process g s > qe+ qe- s WEIGHTED<=5 @1 with process g d > qe+ qe- d WEIGHTED<=5 @1 
+INFO: Generating Helas calls for process: g u~ > qe+ qe- u~ WEIGHTED<=5 @1 
+INFO: Processing color information for process: g u~ > qe+ qe- u~ @1 
+INFO: Combined process g c~ > qe+ qe- c~ WEIGHTED<=5 @1 with process g u~ > qe+ qe- u~ WEIGHTED<=5 @1 
+INFO: Generating Helas calls for process: g d~ > qe+ qe- d~ WEIGHTED<=5 @1 
+INFO: Reusing existing color information for process: g d~ > qe+ qe- d~ @1 
+INFO: Combined process g s~ > qe+ qe- s~ WEIGHTED<=5 @1 with process g d~ > qe+ qe- d~ WEIGHTED<=5 @1 
+INFO: Generating Helas calls for process: u u~ > qe+ qe- g WEIGHTED<=5 @1 
+INFO: Processing color information for process: u u~ > qe+ qe- g @1 
+INFO: Combined process c c~ > qe+ qe- g WEIGHTED<=5 @1 with process u u~ > qe+ qe- g WEIGHTED<=5 @1 
+INFO: Generating Helas calls for process: d d~ > qe+ qe- g WEIGHTED<=5 @1 
+INFO: Reusing existing color information for process: d d~ > qe+ qe- g @1 
+INFO: Combined process s s~ > qe+ qe- g WEIGHTED<=5 @1 with process d d~ > qe+ qe- g WEIGHTED<=5 @1 
+INFO: Creating files in directory P1_gq_qepqemq 
+INFO: Generating Feynman diagrams for Process: g u > qe+ qe- u WEIGHTED<=5 @1 
+INFO: Generating Feynman diagrams for Process: g d > qe+ qe- d WEIGHTED<=5 @1 
+INFO: Generating Feynman diagrams for Process: g u~ > qe+ qe- u~ WEIGHTED<=5 @1 
+INFO: Generating Feynman diagrams for Process: g d~ > qe+ qe- d~ WEIGHTED<=5 @1 
+INFO: Finding symmetric diagrams for subprocess group gq_qepqemq 
+INFO: Creating files in directory P1_qq_qepqemg 
+INFO: Generating Feynman diagrams for Process: u u~ > qe+ qe- g WEIGHTED<=5 @1 
+INFO: Generating Feynman diagrams for Process: d d~ > qe+ qe- g WEIGHTED<=5 @1 
+INFO: Finding symmetric diagrams for subprocess group qq_qepqemg 
+Generated helas calls for 6 subprocesses (24 diagrams) in 0.029 s
+Wrote files for 78 helas calls in 0.112 s
+ALOHA: aloha starts to compute helicity amplitudes
+ALOHA: aloha creates 10 routines in  0.626 s
+save configuration file to /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_B_373/Cards/me5_configuration.txt
+INFO: Use Fortran compiler gfortran 
+INFO: Use c++ compiler g++ 
+INFO: Generate web pages 
+Output to directory /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_B_373 done.
+Type "launch" to generate events from this process, or see
+/tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_B_373/README
+Run "open index.html" to see more information about this process.
+launch EW_B_373
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                 2026-09-01         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_B_373/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_B_373/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+generate_events run_01
+stty: 'standard input': Inappropriate ioctl for device
+The following switches determine which programs are run:
+/===========================================================================\
+| 1. Choose the shower/hadronization program   [1m  shower[0m = [31mOFF[0m               |
+| 2. Choose the detector simulation program    [1mdetector[0m = [01mNot Avail.[0m        |
+| 3. Choose an analysis package (plot/convert) [1manalysis[0m = [01mNot Avail.[0m        |
+| 4. Decay onshell particles                   [1m madspin[0m = [31mOFF[0m               |
+| 5. Add weights to events for new hypp.       [1mreweight[0m = [31mOFF[0m               |
+\===========================================================================/
+Either type the switch number (1 to 5) to change its setting,
+Set any switch explicitly (e.g. type 'shower=Pythia8' at the prompt)
+Type 'help' for the list of all valid option
+Type '0', 'auto', 'done' or just press enter when you are done.
+set nevents 3000
+[1mINFO: modify parameter nevents of the run_card.dat to 3000 [0m
+set iseed 41002
+[1mINFO: modify parameter iseed of the run_card.dat to 41002 [0m
+set pdlabel nn23lo1
+[1mINFO: modify parameter pdlabel of the run_card.dat to nn23lo1 [0m
+set ptj 200
+[1mINFO: modify parameter ptj of the run_card.dat to 200.0 [0m
+set ickkw 0
+[1mINFO: modify parameter ickkw of the run_card.dat to 0 [0m
+set xqcut 0
+[1mINFO: modify parameter xqcut of the run_card.dat to 0.0 [0m
+INFO: Update the dependent parameter of the param_card.dat 
+[1;34mWARNING: update the strong coupling value (alpha_s) to the value from the pdf selected: 0.13 [0m
+[1;34mWARNING: Failed to update dependent parameter. This might create trouble for external program (like MadSpin/shower/...) [0m
+[1;34mvalue '[]' for entry 'bypass_check' is not valid. Preserving previous value: '[]'.
+allowed values are any list composed of the following entries: partonshower[0m
+Generating 3000 events with run name run_01
+survey  run_01 
+INFO: compile directory 
+[1;34mNot able to open file /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_B_373/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 41002
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/2. 
+INFO:     P1_gq_qepqemq  
+  0%|          | 0/764 [00:00<?, ?it/s]100%|██████████| 764/764 [00:00<00:00, 159100.75it/s]
+  0%|          | 0/764 [00:00<?, ?it/s]100%|██████████| 764/764 [00:00<00:00, 160664.24it/s]
+  0%|          | 0/766 [00:00<?, ?it/s]100%|██████████| 766/766 [00:00<00:00, 154917.64it/s]
+  0%|          | 0/766 [00:00<?, ?it/s]100%|██████████| 766/766 [00:00<00:00, 150364.43it/s]
+INFO: Compiling for process 2/2. 
+INFO:     P1_qq_qepqemg  
+  0%|          | 0/764 [00:00<?, ?it/s]100%|██████████| 764/764 [00:00<00:00, 147943.13it/s]
+  0%|          | 0/764 [00:00<?, ?it/s]100%|██████████| 764/764 [00:00<00:00, 140978.81it/s]
+INFO:     P1_gq_qepqemq  
+INFO:     P1_qq_qepqemg  
+INFO:  Idle: 1,  Running: 3,  Completed: 0 [ current time: 13h41 ] 
+INFO:  Idle: 0,  Running: 3,  Completed: 1 [  0.12s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 4 [  0.43s  ] 
+INFO: End survey 
+refine 3000
+Creating Jobs
+INFO: Refine results to 3000 
+INFO: Generating 3000.0 unweighted events. 
+sum of cpu time of last step: 4 seconds
+INFO: Effective Luminosity 163607540.37540627 pb^-1 
+INFO: need to improve 2 channels 
+- Current estimate of cross-section: 2.200387581e-05 +- 2.637748093473338e-07
+    P1_gq_qepqemq 
+    P1_qq_qepqemg 
+INFO:  Idle: 1,  Running: 3,  Completed: 0 [ current time: 13h41 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 4 [  0.94s  ] 
+INFO: Combining runs 
+sum of cpu time of last step: 8 seconds
+INFO: finish refine 
+refine 3000 --treshold=0.9
+No need for second refine due to stability of cross-section
+INFO: Combining Events 
+combination of events done in 0.5768718719482422 s 
+  === Results Summary for run: run_01 tag: tag_1 ===
+
+     Cross-section :   2.214e-05 +- 1.217e-07 pb
+     Nb of events :  3000
+ 
+INFO: No version of lhapdf. Can not run systematics computation 
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+INFO: storing files of previous run 
+INFO: Done 
+quit
+INFO:  
+generate p p > t1 t1~
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=2: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: g g > t1 t1~ WEIGHTED<=2 @1  
+INFO: Process has 3 diagrams 
+INFO: Trying process: u u~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Process has 1 diagrams 
+INFO: Trying process: u c~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Trying process: c u~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Trying process: c c~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Process has 1 diagrams 
+INFO: Trying process: d d~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Process has 1 diagrams 
+INFO: Trying process: d s~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Trying process: s d~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Trying process: s s~ > t1 t1~ WEIGHTED<=2 @1  
+INFO: Process has 1 diagrams 
+INFO: Process u~ u > t1 t1~ added to mirror process u u~ > t1 t1~ 
+INFO: Process c~ c > t1 t1~ added to mirror process c c~ > t1 t1~ 
+INFO: Process d~ d > t1 t1~ added to mirror process d d~ > t1 t1~ 
+INFO: Process s~ s > t1 t1~ added to mirror process s s~ > t1 t1~ 
+5 processes with 7 diagrams generated in 0.007 s
+Total: 5 processes with 7 diagrams
+output COL_A_373
+INFO: initialize a new directory: COL_A_373 
+INFO: remove old information in COL_A_373 
+INFO: Organizing processes into subprocess groups 
+INFO: Generating Helas calls for process: g g > t1 t1~ WEIGHTED<=2 @1 
+INFO: Processing color information for process: g g > t1 t1~ @1 
+INFO: Generating Helas calls for process: u u~ > t1 t1~ WEIGHTED<=2 @1 
+INFO: Processing color information for process: u u~ > t1 t1~ @1 
+INFO: Combined process c c~ > t1 t1~ WEIGHTED<=2 @1 with process u u~ > t1 t1~ WEIGHTED<=2 @1 
+INFO: Combined process d d~ > t1 t1~ WEIGHTED<=2 @1 with process u u~ > t1 t1~ WEIGHTED<=2 @1 
+INFO: Combined process s s~ > t1 t1~ WEIGHTED<=2 @1 with process u u~ > t1 t1~ WEIGHTED<=2 @1 
+INFO: Creating files in directory P1_gg_t1t1x 
+INFO: Generating Feynman diagrams for Process: g g > t1 t1~ WEIGHTED<=2 @1 
+INFO: Finding symmetric diagrams for subprocess group gg_t1t1x 
+INFO: Creating files in directory P1_qq_t1t1x 
+INFO: Generating Feynman diagrams for Process: u u~ > t1 t1~ WEIGHTED<=2 @1 
+INFO: Finding symmetric diagrams for subprocess group qq_t1t1x 
+Generated helas calls for 2 subprocesses (4 diagrams) in 0.004 s
+Wrote files for 16 helas calls in 0.039 s
+ALOHA: aloha starts to compute helicity amplitudes
+ALOHA: aloha creates 12 routines in  0.160 s
+save configuration file to /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_A_373/Cards/me5_configuration.txt
+INFO: Use Fortran compiler gfortran 
+INFO: Use c++ compiler g++ 
+INFO: Generate web pages 
+Output to directory /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_A_373 done.
+Type "launch" to generate events from this process, or see
+/tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_A_373/README
+Run "open index.html" to see more information about this process.
+launch COL_A_373
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                 2026-09-01         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_A_373/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_A_373/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+generate_events run_01
+stty: 'standard input': Inappropriate ioctl for device
+The following switches determine which programs are run:
+/===========================================================================\
+| 1. Choose the shower/hadronization program   [1m  shower[0m = [31mOFF[0m               |
+| 2. Choose the detector simulation program    [1mdetector[0m = [01mNot Avail.[0m        |
+| 3. Choose an analysis package (plot/convert) [1manalysis[0m = [01mNot Avail.[0m        |
+| 4. Decay onshell particles                   [1m madspin[0m = [31mOFF[0m               |
+| 5. Add weights to events for new hypp.       [1mreweight[0m = [31mOFF[0m               |
+\===========================================================================/
+Either type the switch number (1 to 5) to change its setting,
+Set any switch explicitly (e.g. type 'shower=Pythia8' at the prompt)
+Type 'help' for the list of all valid option
+Type '0', 'auto', 'done' or just press enter when you are done.
+set nevents 2000
+[1mINFO: modify parameter nevents of the run_card.dat to 2000 [0m
+set iseed 41003
+[1mINFO: modify parameter iseed of the run_card.dat to 41003 [0m
+set pdlabel nn23lo1
+[1mINFO: modify parameter pdlabel of the run_card.dat to nn23lo1 [0m
+set MQC 1800
+[1mINFO: modify param_card information BLOCK mass with id (1000006,) set to 1800.0 [0m
+INFO: Update the dependent parameter of the param_card.dat 
+[1;34mWARNING: update the strong coupling value (alpha_s) to the value from the pdf selected: 0.13 [0m
+[1;34mWARNING: Failed to update dependent parameter. This might create trouble for external program (like MadSpin/shower/...) [0m
+[1;34mvalue '[]' for entry 'bypass_check' is not valid. Preserving previous value: '[]'.
+allowed values are any list composed of the following entries: partonshower[0m
+Generating 2000 events with run name run_01
+survey  run_01 
+INFO: compile directory 
+[1;34mNot able to open file /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_A_373/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 41003
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/2. 
+INFO:     P1_gg_t1t1x  
+  0%|          | 0/722 [00:00<?, ?it/s]100%|██████████| 722/722 [00:00<00:00, 194757.70it/s]
+INFO: Compiling for process 2/2. 
+INFO:     P1_qq_t1t1x  
+  0%|          | 0/718 [00:00<?, ?it/s]100%|██████████| 718/718 [00:00<00:00, 367391.76it/s]
+INFO:     P1_gg_t1t1x  
+INFO:     P1_qq_t1t1x  
+INFO:  Idle: 1,  Running: 0,  Completed: 1 [ current time: 13h41 ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 1 [ current time: 13h41 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 2 [  0.13s  ] 
+INFO: End survey 
+refine 2000
+Creating Jobs
+INFO: Refine results to 2000 
+INFO: Generating 2000.0 unweighted events. 
+sum of cpu time of last step: 1 seconds
+INFO: Effective Luminosity 7753565.832619898 pb^-1 
+INFO: need to improve 2 channels 
+- Current estimate of cross-section: 0.000309535 +- 2.7511107640313215e-06
+    P1_gg_t1t1x 
+    P1_qq_t1t1x 
+INFO:  Idle: 1,  Running: 2,  Completed: 0 [ current time: 13h41 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 3 [  0.29s  ] 
+INFO: Combining runs 
+sum of cpu time of last step: 2 seconds
+INFO: finish refine 
+refine 2000 --treshold=0.9
+No need for second refine due to stability of cross-section
+INFO: Combining Events 
+combination of events done in 0.30324697494506836 s 
+  === Results Summary for run: run_01 tag: tag_1 ===
+
+     Cross-section :   0.0003123 +- 1.006e-06 pb
+     Nb of events :  2000
+ 
+INFO: No version of lhapdf. Can not run systematics computation 
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+INFO: storing files of previous run 
+INFO: Done 
+quit
+INFO:  
+more information in /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_A_373/index.html
+generate p p > t1 t1~ j
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=3: WEIGTHED IS QCD+2*QED 
+INFO: Trying process: g g > t1 t1~ g WEIGHTED<=3 @1  
+INFO: Process has 16 diagrams 
+INFO: Trying process: g u > t1 t1~ u WEIGHTED<=3 @1  
+INFO: Process has 5 diagrams 
+INFO: Trying process: g u > t1 t1~ c WEIGHTED<=3 @1  
+INFO: Trying process: g c > t1 t1~ u WEIGHTED<=3 @1  
+INFO: Trying process: g c > t1 t1~ c WEIGHTED<=3 @1  
+INFO: Process has 5 diagrams 
+INFO: Trying process: g d > t1 t1~ d WEIGHTED<=3 @1  
+INFO: Process has 5 diagrams 
+INFO: Trying process: g d > t1 t1~ s WEIGHTED<=3 @1  
+INFO: Trying process: g s > t1 t1~ d WEIGHTED<=3 @1  
+INFO: Trying process: g s > t1 t1~ s WEIGHTED<=3 @1  
+INFO: Process has 5 diagrams 
+INFO: Crossed process found for g u~ > t1 t1~ u~, reuse diagrams. 
+INFO: Crossed process found for g c~ > t1 t1~ c~, reuse diagrams. 
+INFO: Crossed process found for g d~ > t1 t1~ d~, reuse diagrams. 
+INFO: Crossed process found for g s~ > t1 t1~ s~, reuse diagrams. 
+INFO: Process u g > t1 t1~ u added to mirror process g u > t1 t1~ u 
+INFO: Crossed process found for u u~ > t1 t1~ g, reuse diagrams. 
+INFO: Process c g > t1 t1~ c added to mirror process g c > t1 t1~ c 
+INFO: Crossed process found for c c~ > t1 t1~ g, reuse diagrams. 
+INFO: Process d g > t1 t1~ d added to mirror process g d > t1 t1~ d 
+INFO: Crossed process found for d d~ > t1 t1~ g, reuse diagrams. 
+INFO: Process s g > t1 t1~ s added to mirror process g s > t1 t1~ s 
+INFO: Crossed process found for s s~ > t1 t1~ g, reuse diagrams. 
+INFO: Process u~ g > t1 t1~ u~ added to mirror process g u~ > t1 t1~ u~ 
+INFO: Process u~ u > t1 t1~ g added to mirror process u u~ > t1 t1~ g 
+INFO: Process c~ g > t1 t1~ c~ added to mirror process g c~ > t1 t1~ c~ 
+INFO: Process c~ c > t1 t1~ g added to mirror process c c~ > t1 t1~ g 
+INFO: Process d~ g > t1 t1~ d~ added to mirror process g d~ > t1 t1~ d~ 
+INFO: Process d~ d > t1 t1~ g added to mirror process d d~ > t1 t1~ g 
+INFO: Process s~ g > t1 t1~ s~ added to mirror process g s~ > t1 t1~ s~ 
+INFO: Process s~ s > t1 t1~ g added to mirror process s s~ > t1 t1~ g 
+13 processes with 76 diagrams generated in 0.034 s
+Total: 13 processes with 76 diagrams
+output COL_B_373
+INFO: initialize a new directory: COL_B_373 
+INFO: remove old information in COL_B_373 
+INFO: Organizing processes into subprocess groups 
+INFO: Generating Helas calls for process: g g > t1 t1~ g WEIGHTED<=3 @1 
+INFO: Processing color information for process: g g > t1 t1~ g @1 
+INFO: Generating Helas calls for process: g u > t1 t1~ u WEIGHTED<=3 @1 
+INFO: Processing color information for process: g u > t1 t1~ u @1 
+INFO: Combined process g c > t1 t1~ c WEIGHTED<=3 @1 with process g u > t1 t1~ u WEIGHTED<=3 @1 
+INFO: Combined process g d > t1 t1~ d WEIGHTED<=3 @1 with process g u > t1 t1~ u WEIGHTED<=3 @1 
+INFO: Combined process g s > t1 t1~ s WEIGHTED<=3 @1 with process g u > t1 t1~ u WEIGHTED<=3 @1 
+INFO: Generating Helas calls for process: g u~ > t1 t1~ u~ WEIGHTED<=3 @1 
+INFO: Processing color information for process: g u~ > t1 t1~ u~ @1 
+INFO: Combined process g c~ > t1 t1~ c~ WEIGHTED<=3 @1 with process g u~ > t1 t1~ u~ WEIGHTED<=3 @1 
+INFO: Combined process g d~ > t1 t1~ d~ WEIGHTED<=3 @1 with process g u~ > t1 t1~ u~ WEIGHTED<=3 @1 
+INFO: Combined process g s~ > t1 t1~ s~ WEIGHTED<=3 @1 with process g u~ > t1 t1~ u~ WEIGHTED<=3 @1 
+INFO: Generating Helas calls for process: u u~ > t1 t1~ g WEIGHTED<=3 @1 
+INFO: Processing color information for process: u u~ > t1 t1~ g @1 
+INFO: Combined process c c~ > t1 t1~ g WEIGHTED<=3 @1 with process u u~ > t1 t1~ g WEIGHTED<=3 @1 
+INFO: Combined process d d~ > t1 t1~ g WEIGHTED<=3 @1 with process u u~ > t1 t1~ g WEIGHTED<=3 @1 
+INFO: Combined process s s~ > t1 t1~ g WEIGHTED<=3 @1 with process u u~ > t1 t1~ g WEIGHTED<=3 @1 
+INFO: Creating files in directory P1_gg_t1t1xg 
+INFO: Generating Feynman diagrams for Process: g g > t1 t1~ g WEIGHTED<=3 @1 
+INFO: Finding symmetric diagrams for subprocess group gg_t1t1xg 
+INFO: Creating files in directory P1_gq_t1t1xq 
+INFO: Generating Feynman diagrams for Process: g u > t1 t1~ u WEIGHTED<=3 @1 
+INFO: Generating Feynman diagrams for Process: g u~ > t1 t1~ u~ WEIGHTED<=3 @1 
+INFO: Finding symmetric diagrams for subprocess group gq_t1t1xq 
+INFO: Creating files in directory P1_qq_t1t1xg 
+INFO: Generating Feynman diagrams for Process: u u~ > t1 t1~ g WEIGHTED<=3 @1 
+INFO: Finding symmetric diagrams for subprocess group qq_t1t1xg 
+Generated helas calls for 4 subprocesses (31 diagrams) in 0.027 s
+Wrote files for 84 helas calls in 0.083 s
+ALOHA: aloha starts to compute helicity amplitudes
+ALOHA: aloha creates 17 routines in  0.328 s
+save configuration file to /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_373/Cards/me5_configuration.txt
+INFO: Use Fortran compiler gfortran 
+INFO: Use c++ compiler g++ 
+INFO: Generate web pages 
+Output to directory /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_373 done.
+Type "launch" to generate events from this process, or see
+/tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_373/README
+Run "open index.html" to see more information about this process.
+launch COL_B_373
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.7.3                 2026-09-01         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_373/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/MG5_aMC_v3_7_3/input/mg5_configuration.txt  
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_373/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+generate_events run_01
+stty: 'standard input': Inappropriate ioctl for device
+The following switches determine which programs are run:
+/===========================================================================\
+| 1. Choose the shower/hadronization program   [1m  shower[0m = [31mOFF[0m               |
+| 2. Choose the detector simulation program    [1mdetector[0m = [01mNot Avail.[0m        |
+| 3. Choose an analysis package (plot/convert) [1manalysis[0m = [01mNot Avail.[0m        |
+| 4. Decay onshell particles                   [1m madspin[0m = [31mOFF[0m               |
+| 5. Add weights to events for new hypp.       [1mreweight[0m = [31mOFF[0m               |
+\===========================================================================/
+Either type the switch number (1 to 5) to change its setting,
+Set any switch explicitly (e.g. type 'shower=Pythia8' at the prompt)
+Type 'help' for the list of all valid option
+Type '0', 'auto', 'done' or just press enter when you are done.
+set nevents 2000
+[1mINFO: modify parameter nevents of the run_card.dat to 2000 [0m
+set iseed 41004
+[1mINFO: modify parameter iseed of the run_card.dat to 41004 [0m
+set pdlabel nn23lo1
+[1mINFO: modify parameter pdlabel of the run_card.dat to nn23lo1 [0m
+set MQC 1800
+[1mINFO: modify param_card information BLOCK mass with id (1000006,) set to 1800.0 [0m
+set ptj 200
+[1mINFO: modify parameter ptj of the run_card.dat to 200.0 [0m
+set ickkw 0
+[1mINFO: modify parameter ickkw of the run_card.dat to 0 [0m
+set xqcut 0
+[1mINFO: modify parameter xqcut of the run_card.dat to 0.0 [0m
+INFO: Update the dependent parameter of the param_card.dat 
+[1;34mWARNING: update the strong coupling value (alpha_s) to the value from the pdf selected: 0.13 [0m
+[1;34mWARNING: Failed to update dependent parameter. This might create trouble for external program (like MadSpin/shower/...) [0m
+[1;34mvalue '[]' for entry 'bypass_check' is not valid. Preserving previous value: '[]'.
+allowed values are any list composed of the following entries: partonshower[0m
+Generating 2000 events with run name run_01
+survey  run_01 
+INFO: compile directory 
+[1;34mNot able to open file /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_373/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 41004
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO: Compiling for process 1/3. 
+INFO:     P1_gg_t1t1xg  
+  0%|          | 0/823 [00:00<?, ?it/s]100%|██████████| 823/823 [00:00<00:00, 39438.26it/s]
+INFO: Compiling for process 2/3. 
+INFO:     P1_gq_t1t1xq  
+  0%|          | 0/764 [00:00<?, ?it/s]100%|██████████| 764/764 [00:00<00:00, 147956.79it/s]
+  0%|          | 0/764 [00:00<?, ?it/s]100%|██████████| 764/764 [00:00<00:00, 151295.95it/s]
+INFO: Compiling for process 3/3. 
+INFO:     P1_qq_t1t1xg  
+  0%|          | 0/764 [00:00<?, ?it/s]100%|██████████| 764/764 [00:00<00:00, 106283.52it/s]
+INFO:     P1_gg_t1t1xg  
+INFO:     P1_gq_t1t1xq  
+INFO:     P1_qq_t1t1xg  
+INFO:  Idle: 1,  Running: 3,  Completed: 5 [ current time: 13h41 ] 
+INFO:  Idle: 0,  Running: 3,  Completed: 6 [  0.021s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 9 [  0.39s  ] 
+INFO: End survey 
+refine 2000
+Creating Jobs
+INFO: Refine results to 2000 
+INFO: Generating 2000.0 unweighted events. 
+sum of cpu time of last step: 9 seconds
+INFO: Effective Luminosity 54055356.982951425 pb^-1 
+INFO: need to improve 0 channels 
+- Current estimate of cross-section: 4.43989298e-05 +- 2.886123834942892e-07
+    P1_gg_t1t1xg 
+    P1_gq_t1t1xq 
+    P1_qq_t1t1xg 
+INFO:  Idle: 0,  Running: 0,  Completed: 0 [ current time: 13h41 ] 
+INFO: Combining runs 
+sum of cpu time of last step: 9 seconds
+INFO: finish refine 
+refine 2000 --treshold=0.9
+No need for second refine due to stability of cross-section
+INFO: Combining Events 
+combination of events done in 0.4723479747772217 s 
+  === Results Summary for run: run_01 tag: tag_1 ===
+
+     Cross-section :   4.44e-05 +- 2.886e-07 pb
+     Nb of events :  2000
+ 
+INFO: No version of lhapdf. Can not run systematics computation 
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+INFO: storing files of previous run 
+INFO: Done 
+quit
+INFO:  
+more information in /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_373/index.html
+quit

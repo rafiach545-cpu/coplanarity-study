@@ -1,0 +1,10 @@
+1. Eq. 3 (paper, literal) vs _rhs, 2000 random states: max |F_code - F_paper| / Lambda^2 = 9.0e-16
+   direction: quirk 1 above quirk 2 (z), string force on quirk 1 z-component -1.000000 Lambda^2 (towards the partner: negative)
+2. Lorentz: q = 0.3, v along +x, B = +z: F = (+0.000e+00, -1.664e-02, -0.000e+00); q v x B = (0, -q v B, 0) -> expected y < 0
+   e = sqrt(4 pi alpha) = 0.302822 (code 0.30282212); 1 T = 1.95353e-16 GeV^2 (code 1.9535e-16)
+3. gyroradius, p_T = 50 GeV, B = 2 T, q = +1: simulated distance from expected centre 1.18e-03 m (expected R = 83.3910 m, centre at -y for q > 0)
+4. Eq. 4, v = 0.556, B = 0, v_cm = 0.0: max |d/2 - d_cm(t)| over two periods = 3.9e-11 of the amplitude (amplitude 1.8035 cm)
+6. energy E1 + E2 + Lambda^2 d (B = 0, head-on): max relative change 6.9e-05
+5. Eq. 4, v = 0.556, B = 0, v_cm = 0.3: max |d/2 - d_cm(t)| over two periods = 9.9e-05 of the amplitude (amplitude 1.8035 cm)
+7. Fig. 2 constructed event, 3000 steps/period: |L| at closest approaches 1-4 = 0.6434 / 0.0004 / 0.6430 / 0.0001
+7. Fig. 2 constructed event, 6000 steps/period: |L| at closest approaches 1-4 = 0.6435 / 0.0002 / 0.6433 / 0.0003

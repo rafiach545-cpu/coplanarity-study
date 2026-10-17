@@ -1,0 +1,12 @@
+D41 mg5_373_lo_showered_first2000: 2000 events (LHE inputs_D41/EW_B_mg5_373_ptj200_py8317_noMatch.csv); errors 71
+Lambda 1 keV: eps_fid 681/2000 = 0.341 [0.320, 0.362] p(paper 0.28) = 3.4e-09 | eps_reco 86/681 = 0.126 [0.103, 0.153] paper 0.11 p = 0.18 | Delta_s median 45.9 um
+Lambda 2 keV: eps_fid 683/2000 = 0.342 [0.321, 0.363] p(paper 0.28) = 1.9e-09 | eps_reco 389/683 = 0.570 [0.532, 0.606] paper 0.41 p = 6.4e-17 | Delta_s median 45.4 um
+Lambda 3 keV: eps_fid 683/2000 = 0.342 [0.321, 0.363] p(paper 0.28) = 1.9e-09 | eps_reco 536/683 = 0.785 [0.752, 0.814] paper 0.65 p = 2.2e-14 | Delta_s median 45.8 um
+Lambda 4 keV: eps_fid 687/2000 = 0.344 [0.323, 0.365] p(paper 0.28) = 6.1e-10 | eps_reco 562/687 = 0.818 [0.787, 0.845] paper 0.72 p = 3e-09 | Delta_s median 45.7 um
+Lambda 5 keV: eps_fid 687/2000 = 0.344 [0.323, 0.365] p(paper 0.28) = 6.1e-10 | eps_reco 533/687 = 0.776 [0.743, 0.805] paper 0.74 p = 0.033 | Delta_s median 45.3 um
+combined chi2 (bootstrap correlation) = 121.55, dof 5, p = 1.5e-24  (production: 23.81, p = 2.4e-4)
+criteria: (i) eps_fid (4 keV) vs 0.28 p = 6.1e-10 -> False; (ii) combined p = 1.5e-24 -> False; (iii) eps_reco(2 keV) = 0.570 <= 0.545 -> False; REJECT test: eps_fid vs production 0.333 p = 0.34, |eps_reco(2) - 0.645| = 0.075 -> True
+VERDICT: REJECT
+interim rule: eps_fid 0.344 +- 0.011; eps_reco(2 keV) 0.570 +- 0.019 (n_fid 683); combined p 1.5e-24
+   decided: (i) True [np.False_, np.False_, np.False_] | (ii) True | (iii) False | REJECT parts: fid vs 0.333 False [np.True_, np.True_, np.False_], 2 keV vs 0.645 +- 0.10 False
+   INTERIM: not all criteria decided -> verdict waits for 3000 events

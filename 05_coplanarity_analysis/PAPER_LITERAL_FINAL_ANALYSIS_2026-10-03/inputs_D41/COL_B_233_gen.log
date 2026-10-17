@@ -1,0 +1,90 @@
+************************************************************
+*                                                          *
+*                      W E L C O M E to                    *
+*             M A D G R A P H 5 _ a M C @ N L O            *
+*                      M A D E V E N T                     *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.2.3.3               20xx-xx-xx         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_233/Cards/me5_configuration.txt  
+INFO: load configuration from /home/rafia/hep_tools/EW_VERSION_PILOT_2026-10-02/build/MG5_aMC_v2_3_3/input/mg5_configuration.txt  
+INFO: load configuration from /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_233/Cards/me5_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+generate_events run_01 -f
+Generating 2000 events with run name run_01
+survey  run_01 
+INFO: compile directory 
+[1;34mNot able to open file /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/COL_B_233/crossx.html since no program configured.Please set one in ./input/mg5_configuration.txt[0m
+compile Source Directory
+Using random number seed offset = 41104
+INFO: Running Survey 
+Creating Jobs
+Working on SubProcesses
+INFO:     P1_gg_t1t1xg  
+INFO:     P1_gq_t1t1xq  
+INFO:     P1_qq_t1t1xg  
+INFO:  Idle: 0,  Running: 2,  Completed: 7 [ current time: 13h42 ] 
+INFO:  Idle: 0,  Running: 1,  Completed: 8 [  0.57s  ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 9 [  0.63s  ] 
+INFO: End survey 
+refine 2000
+INFO: compile directory 
+compile Source Directory
+Creating Jobs
+INFO: Refine results to 2000 
+INFO: Generating 2000.0 unweigthed events. 
+INFO: Effective Luminosity 53957472.645 pb^-1 
+INFO: need to improve 0 channels 
+Current estimate of cross-section: 4.447947397e-05 +- 3.39884221649e-07
+    P1_gg_t1t1xg 
+    P1_gq_t1t1xq 
+    P1_qq_t1t1xg 
+INFO:  Idle: 0,  Running: 0,  Completed: 0 [ current time: 13h42 ] 
+INFO: Combining runs 
+INFO: finish refine 
+refine 2000
+Creating Jobs
+INFO: Refine results to 2000 
+INFO: Generating 2000.0 unweigthed events. 
+INFO: Effective Luminosity 53957472.645 pb^-1 
+INFO: need to improve 0 channels 
+Current estimate of cross-section: 4.447947397e-05 +- 3.39884221649e-07
+    P1_gg_t1t1xg 
+    P1_gq_t1t1xq 
+    P1_qq_t1t1xg 
+INFO:  Idle: 0,  Running: 0,  Completed: 0 [ current time: 13h42 ] 
+INFO: Combining runs 
+INFO: finish refine 
+combine_events
+INFO: Combining Events 
+  === Results Summary for run: run_01 tag: tag_1 ===
+
+     Cross-section :   4.448e-05 +- 3.399e-07 pb
+     Nb of events :  2000
+ 
+running syscalc on mode parton
+store_events
+INFO: Storing parton level results 
+INFO: End Parton 
+reweight -from_cards
+decay_events -from_cards
+quit
+INFO:  
+ 
+INFO:  
+ 
+launch in debug mode

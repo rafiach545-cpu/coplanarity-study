@@ -400,3 +400,345 @@ discrepancy between our simulation with the authors' stated resolution and their
   The docstring of quirk_trajectory_optimized_v2.py ("bit-for-bit") does not hold for this run; the differences are floating-point rounding.
 - CM-frame L(t): max |difference| 0.86 hbar out of |L|max 6.4e11 (1.3e-12 relative). Runtime: baseline 27.3 s, v2 3.0 s (median of 3; 9.0x faster).
 - The optimisation does not change the physics model or the initial conditions, so it is not the source of the Fig. 2 difference.
+
+## D23. Fig. 2: further checks of the |L| pattern (2026-10-12)
+1. L definition (constructed event, axes x / z, charges +-2/3, `scratchpad` check, no new files): lab-frame d x (p1 - p2)/2 at equal lab time, lab centre of
+   energy, and lab about the production point (axis z) all give |L| at closest approaches 0.64 / 0 / 0.64 / 0 e12 hbar, as the CM frame does.
+   (About the production point with axis x |L| grows with r: 0.14 / 0.40 / 1.34 / 1.82; not the paper's shape either.)
+2. Charge assignments x axes (`scripts/D15_fig2_charge_axis_scan.py`, `tables/D15_fig2_charge_axis_scan.txt`): charges (+-2/3), (+-1), (+1, 0), (0, -1),
+   (+1, -1/3), (+2/3, -1/3), (+-1/3); axes x, y, z, xz 45 deg, yz 45 deg. Every case with nonzero L has |L| = 0.00 at the 2nd and 4th closest approach;
+   the first peak scales with (q1 - q2)/2 and with the axis component perpendicular to E_cm. Unequal charges do not produce the paper's non-reversing part.
+3. Conclusion: within Eq. 3 plus the Lorentz force, the frame of L, the charges and the oscillation axis do not produce the paper's |L| values at the 2nd/4th
+   approach (0.19 / 0.29 e12). The paper's curves need a torque component of about 6% that does not change sign (D21); its source is not stated by the paper.
+   No parameter is adjusted to force agreement. Open question for the authors (D20).
+
+## D24. Fig. 2: four checks (2026-10-12): `scripts/D16_fig2_four_checks.py`, `tables/D16_fig2_four_checks.txt`
+1. Paper curves, parabolic minima on each curve's own points: d minima at r = 1.161 / 2.314 / 3.467 / 4.620 cm (d = 0.05-0.11 cm); |L| there
+   0.645 / 0.194 / 0.514 / 0.287 e12 hbar. |L| minima at r = 1.909 / 2.664 / 4.105 cm (|L| 0.013-0.018), where d = 3.19 / 3.01 / 3.50 cm (near the d maxima).
+   Signed per half-oscillation (sign flipped at each |L| zero): dL = +0.645 / -0.839 / +0.708 / -0.801, i.e. the negative half-oscillations are ~20% larger.
+2. Implementation: magnetic force of the integrator's right-hand side = q v x B with B along +z (checked numerically). Constructed event: p1* + p2* = 0,
+   |v*| = 0.556 both, v_cm = (0.0975, 0, 0), charges +-2/3, d max 3.612 cm (energy conservation 3.607). Key 8: |v*| = 0.5876 both, |v_cm,T| = 0.0808,
+   charges +-1, d max 4.196 cm (4.188). (Key 8: the CSV energies are 2.7e-4 / 1.8e-4 above on-shell for m = 1800 GeV; the code uses on-shell E.)
+3. Signed L: L stays along one fixed axis (constructed: angle 0 deg; key 8: <= 0.65 deg); the projection goes from 0 to +|L|max and back to 0
+   (min -0.001 to -0.002 of |L|max): L touches zero, it does not change sign.
+4. Torque per half-oscillation (projection on that axis): dL(trajectory) +0.643 / -0.643 / +0.643 / -0.643 / +0.644 (key 8: +-0.862);
+   exact CM-frame electromagnetic torque integral +-0.556 (key 8 +-0.731), identical to the paper's form q d x E_cm. The trajectory's dL is 16% (18%)
+   larger than the electromagnetic torque; this extra part also alternates in sign (it is from the remaining force, i.e. the string force as
+   implemented in the lab frame; not further decomposed). Every part cancels over two half-oscillations to <= 1e-3 of |L|max.
+   Result: the cancellation follows from the equations as implemented, not from a sign or frame error. The paper's curves have unequal
+   alternate half-oscillations (item 1), which our trajectories (equal half-oscillations) do not produce.
+
+## D25. Fig. 2 torque decomposition (2026-10-12): `scripts/D17_fig2_torque_decomposition.py`, `tables/D17_fig2_torque_decomposition.txt`
+Forces from the integrator's own right-hand side (string only: B = 0; electromagnetic only: Lambda = 0); L about the centre of energy;
+dL = int tau_EM + int tau_string - int (dX/dt x P) + residual, per half-oscillation (projection on the L axis, 1e12 hbar).
+- Constructed event (CM frame = lab result here): dL +0.6434 / -0.6430 / +0.6426 / -0.6429 = EM +-0.556 + string +-0.087 + frame 0; residual <= 9e-5.
+  Key 8, CM frame (Fig. 2 definition): dL +-0.862 = EM +-0.731 + string +-0.131; residual <= 5e-4. string/EM = 0.156 (constructed), 0.179 (key 8), same sign as EM
+  in every half-oscillation. (Key 8 in the lab frame: large opposite string and frame terms, +-620, because the pair has net momentum; their sum closes.)
+- Check: the integrator's EM force transformed to the CM frame equals q(E* + v* x B*) to 6e-16.
+- Origin of the string torque: in the CM frame the implemented string force deviates from the CM separation line by median 5.7e-6 deg (1.0e-7 rad;
+  key 8 4.8e-5 deg). With the string force ~1e6 times the EM force, this angle gives the 16-18%. The integrator applies Eq. 3 in the lab frame with the
+  separation at equal lab time; the paper states the straight-string limit "in the center of mass frame". Which of the two (simultaneity or the
+  v_par v_perp term of Eq. 3 in the lab) produces the angle is not separated here.
+- The extra term alternates with the EM term, so it changes the size of the |L| peaks by ~16-18% but not the pattern (zero at every second approach).
+
+## D26. Fig. 2 string torque at B = 0 (2026-10-12): `scripts/D18_fig2_B0_string_test.py`, `tables/D18_fig2_B0_string_test.txt`
+Constructed event (v* = 0.556, 1800 GeV, 2 keV), B = 0, initial L0 = 0.5e12 hbar from a 0.08 um offset along y (perpendicular to motion and boost),
+v_cm = 0 / 0.0975 / 0.3 along x; quirk L in the initial CM frame at equal CM time about the centre of energy.
+- In all three runs L/L0 = 0.8312 at every turning point (d max) and 1.000 at every closest approach (1/gamma* = 0.8312). L keeps its direction.
+- The variation does not depend on v_cm (0.831205 / 0.831201 / 0.831202 at the first turning point); with v_cm the values at closest approach
+  drift by <= 5e-4 over 8 approaches (v_cm = 0: <= 1.7e-4).
+- Result: the string torque of D25 is not a lab-frame / simultaneity effect. It is the non-central v_par v_perp term of Eq. 3 (the string carries
+  part of the angular momentum); it is present at v_cm = 0 and is part of the paper's equation of motion. The quirk L plotted in Fig. 2 therefore
+  depends on whether the string's share is included; the paper does not say which L it plots.
+
+## D27. Recheck of the equations in the simulation (2026-10-12): `scripts/D19_eom_recheck.py`, `tables/D19_eom_recheck.txt`
+1. Paper Eq. 3 written literally (v_par = v.s signed, s from the partner to the quirk) vs the integrator's _rhs at 2000 random states: max difference 9e-16 Lambda^2.
+2. Lorentz force = q v x B (B along +z); e = sqrt(4 pi alpha) = 0.302822 (code 0.30282212); 1 T = 1.95353e-16 GeV^2 (code 1.9535e-16, 1.5e-5 rounding).
+3. Gyroradius (p_T 50 GeV, 2 T): 83.391 m expected, simulated within 1.2 mm (1.4e-5, the constant's rounding).
+4. Eq. 4 (B = 0, v = 0.556): d/2 = d_cm(t) to 4e-11 of the amplitude over two periods; boosted (v_cm = 0.3, CM frame): 1e-4.
+5. Energy E1 + E2 + Lambda^2 d: constant to 7e-12 (median); 7e-5 only at the single step where the quirks cross (d = 0, force direction flips).
+6. Fig. 2 event, 3000 vs 6000 steps/period: |L| at closest approaches 0.6434/0.0004/0.6430/0.0001 vs 0.6435/0.0002/0.6433/0.0003.
+No error found. Not tested here: material effects (not in the code; the paper does not state them for Fig. 2).
+
+## D28. Fig. 2: scan of the possibilities behind the three author questions (2026-10-12)
+`scripts/D20_fig2_possibilities.py` (`tables/D20_fig2_possibilities.txt`), `scripts/D21_fig2_cm_frame_integration.py` (`tables/D21_fig2_cm_frame_integration.txt`).
+Metric: |L| at closest approaches 1-4 and ratio |L(2nd)|/|L(1st)|; paper 0.645 / 0.194 / 0.514 / 0.287, ratio 0.30.
+- Q1 definition of L (base trajectory): CM equal time; non-relativistic m v; lab midpoint; lab centre of energy; about the production point;
+  vs r of quirk 1; total L of quirks + string (integral of the EM torque, 0.556). All: second approach 0.000 (ratio 0.001).
+- Q2 charges and initial momenta: 60 random configurations (isotropic axis, random transverse CM direction, longitudinal CM speed 0-0.5,
+  charges +-2/3, +-1, (+1, 0), (+1, -1/3)): ratio median 0.0004, max 0.0012.
+- Q3 equation of motion (own RK4, C0 reproduces the production result 0.643 / 0.000): without the v_par v_perp term 0.643 / 0.000; constant string
+  force 0.636 / 0.000; non-relativistic 0.631 / 0.000; B x gamma_cm 0.646 / 0.000; RK4 300 steps 0.643 / 0.005 / 0.640 / 0.006.
+  Forward Euler: 3000 steps 0.650 / 0.008 / 0.670 / 0.016; 300 steps 0.700 / 0.075 / 0.869 / 0.170 with d max growing to 4.21 cm (energy not
+  conserved). This is the only variant with |L| != 0 at the 2nd approach, but its peaks and d max grow, while the paper's d max is constant
+  (3.556 in every arch) and its peaks decrease.
+- CM-frame integration (E* = gamma v_cm x B, B* = gamma B): full Eq. 3 gives 0.6434 in the CM frame and 0.6434 in the lab frame (D26 confirmed:
+  the 16% string share is physical and frame independent). Without the v_par v_perp term: 0.556 in the CM frame vs 0.643 in the lab frame,
+  i.e. that truncated equation is frame dependent; the D20 C1 result (0.643) is a lab-frame effect of the truncated equation.
+- Result: none of the tested definitions, charge / momentum configurations or equation-of-motion variants with conserved energy gives the
+  paper's pattern. The three questions to the authors remain open.
+
+## D29. Fig. 2: |L| at the "L = 0" closest approaches in units of hbar (annihilation question, 2026-10-12)
+`scripts/D22_fig2_L_residual_annihilation.py`, `tables/D22_fig2_L_residual_annihilation.txt`. Constructed event, production integrator; signed L
+interpolated to the time of minimum d. 2nd / 4th closest approach: 3000 steps/period +4.2e8 / +1.3e8 hbar; 10000: -5.9e6 / -2.4e7; 30000: +5.5e7 / +5.8e7;
+100000: +5.5e6 / +2.1e6 hbar (1st / 3rd: 6.435e11, stable). Not converged (sign and size change with step size): the classical value is below
+~1e-5 of the peak and cannot be resolved further with this integrator; a value of order hbar is not excluded.
+- Paper (Sec. II): "whenever |L| = 0, the separation between the quirks is large, and annihilation is suppressed by a small wave-function
+  overlap". In our trajectories (paper's Eq. 3 + Lorentz force) |L| is minimal exactly at every second closest approach, so this protection
+  is not present there. Annihilation is simulated neither in the paper nor here; Table I assumes no annihilation.
+
+## D30. Fig. 2 test with the pair simulator supplied by the user (2026-10-12): `scripts/D23_fig2_external_simulator_test.py`,
+`tables/D23_fig2_external_simulator_test.txt`, `FINAL_FIGURES/F35_fig2_external_sim_test/`
+Supplied code (simulate_quirk_pair_tracks; mm, ns, GeV, T) differs from the paper in: Lorentz term 0.3 q beta x B without c (force 3.34x too large;
+confirmed: |L| peak 3.184 vs 0.955 with c); constant string force T s (no sqrt(1-v_perp^2) and no v_par v_perp term of Eq. 3); quirks start 2 mm apart;
+relative momentum always transverse and perpendicular to the pair momentum, i.e. parallel to E_cm.
+Fig. 2 kinematics (v* = 0.556, CM transverse speed 0.0975, charges +-1):
+- as supplied: d max 3.79 cm, spacing 1.339 cm, |L| = 0 throughout (axis parallel to E_cm: no torque).
+- c fixed, start at one point, axis z: d max 3.59 cm, spacing 1.305 cm, |L| at closest approaches 0.955 / 0.000 / 0.955 (same pattern as our simulation).
+- c fixed, 2 mm start, axis z: |L| ~1.2e4 e12 hbar from the initial offset (2 mm x p*).
+The supplied simulator does not produce the paper's pattern either. Its spacing (1.305 cm) differs from the paper (1.155) and from Eq. 3 (1.163).
+
+## D31. Improved version of the supplied pair simulator (2026-10-12): `scripts/quirk_pair_sim_eq3.py`; test `scripts/D24_fig2_improved_simulator_test.py`,
+`tables/D24_fig2_improved_simulator_test.txt`, `FINAL_FIGURES/F36_fig2_improved_simulator/`
+Same interface and units (mm, ns, GeV, T, Lambda in eV) as the supplied simulate_quirk_pair_tracks; equations changed to the paper's: full Eq. 3,
+Lorentz force with c (0.29979e-3 GeV/(T mm) x q v[mm/ns] x B), production at one point (sep0_mm = 0), CM-frame back-to-back momenta along rel_dir boosted
+to the lab, separate charges, string direction from the relative velocity at zero separation. Validation, 3000 steps per period:
+- constructed event (+-2/3, axis z): production d max 3.607, spacing 1.164, |L| 0.6434 / 0.0004 / 0.6430 / 0.0001; improved simulator 3.607, 1.163, 0.6434 / 0.0002 / 0.6430 / 0.0008.
+- COL2000 key 8 (+-1): production 4.191, 1.047, 0.8620 / 0.0001 / 0.8622 / 0.0005; improved simulator 4.188, 1.047, 0.8619 / 0.0005 / 0.8599 / 0.0003.
+The improved simulator reproduces the production integrator; the paper's Fig. 2 pattern is not obtained.
+
+## D32. Fig. 2 cross-check with PreFASERQuirkSim (2026-10-12): `scripts/D25_fig2_prefaser_check.py`, `tables/D25_fig2_prefaser_check.txt`,
+driver `scripts/external/D25_prefaser_driver.cxx` (compiled against github.com/eliwelch17/PreFASERQuirkSim src/, downloaded to the scratchpad, not in the repo)
+Package (C++ port of the Mathematica code of arXiv:2404.13814) read: CalculateForces = Eq. 3 (both terms, Lambda^2/100 and /6.58 for um, ns, eV) +
+0.587 q v x B (0.587/6.58 = 0.0892 GeV/(T ns); exact 0.29979^2 = 0.0899, i.e. 0.74% low) + dE/dx along v; string direction with a CM-simultaneity
+correction and separate lab times t1, t2 per quirk (CalculateCt); p += F dt, trapezoidal r; dt = min(0.03 ns, t1q/divStep), t1q = closest-approach
+interval; integer charges only. Driver: the package's functions and main-loop step, uniform 2 T, no material, production at the origin.
+- constructed (+-1): production 3.607 cm, 1.164 cm, 0.9651 / 0.0006 / 0.9646 / 0.0002; PreFASER divStep 10000: 3.613, 1.165, 0.9587 / 0.0074 / 0.9667 / 0.0084;
+  divStep 40000: 3.609, 1.164, 0.9583 / 0.0007 / 0.9590 / 0.0010.
+- key 8 (+-1): production 4.191, 1.047, 0.8620 / 0.0001 / 0.8622 / 0.0005; PreFASER 10000: 4.195, 1.048, 0.8556 / 0.0009 / 0.8607 / 0.0029; 40000: 4.191, 1.048, 0.8571 / 0.0007 / 0.8570 / 0.0006.
+- An independent code with a different string-direction convention (CM simultaneity) and integrator gives the same pattern (|L| = 0 at every
+  second closest approach); peaks 0.6% lower, consistent with its 0.74% lower magnetic constant.
+
+## D33. PhD thesis of J. Setford (University of Sussex, March 2018), Chapter 5 = arXiv:1708.02243 (read 2026-10-12)
+Source: https://inspirehep.net/files/cc16a891fef1fa911454ec3528371b8d (135 pages). Declaration: "My role in this paper was to simulate the quirk
+trajectories and understand their dynamics." Chapter 5 reproduces the paper (Eqs. 5.1-5.12, Fig. 5.2 = Fig. 2, Table 5.1 = Table I) with the same text.
+Differences / additional information found:
+- Sec. 5.2: in the CM frame "the magnetic field is seen as a combination of an E-field and a B-field. If we neglect the effect of the B-field in
+  this frame, we can estimate the torque due to the E-field" (the paper: "seen as an E-field"). This concerns the estimate Eq. 5.5 only; the
+  numerical solution uses Eq. 5.3 "with F_ext the Lorentz force" and "a uniform 2T magnetic field along the z-direction".
+- Material: "We therefore neglect this effect in our simulations" (also in the paper, Sec. II, line 190 of the tex source; our earlier wording
+  "the paper does not state material for Fig. 2" in D27 and the sheet is corrected: the paper states that material is neglected).
+- No integrator, step size, L definition (frame / point), or the initial conditions of the Fig. 2 event are given. No code reference.
+Effect on the three author questions: Q3 is answered for material (neglected); Q1 and Q2 remain open.
+
+## D34. Li-Pei group papers read (2026-10-12; PDFs from arxiv.org, text extracted with PyMuPDF)
+**arXiv:2002.07503, "The quirk trajectory" (Li, Li, Pei, Zhang, EPJC 2020)**, quirks in a tracker with uniform B (CMS, 4 T):
+- EoM (II.1-II.3): Eq. 3 string force; F_ext = q v x B - <dE/dx> v_hat. s_hat in the CoM frame approximately parallel to the separation.
+- Sec. II.B / App. A: analytic solution with uniform B, motion decomposed in the CoM frame into z+ (from B_c) and z- (from E_z = CoM electric field).
+  App. A: "the average torque on the system of two quirks is zero when g is increased from 2n to 2n + 2 such that the total angular momentum of the
+  quirk pair is also invariant at g = 2n" (g = Lambda^2 t_c / (2 m rho); the quirks meet at every integer g), and "two quirks meet each other and
+  have opposite velocity at g = 2n in the CoM frame"; the system at g + 2 equals the system at g rotated by a small angle eta.
+  This is the same result as ours with the magnetic field: L returns to its initial value (0) at every second meeting (D17-D32).
+- Sec. V / App. B: analytic plane thickness d (Eq. V.5-V.9: d_E = 2 m q E_z rho asinh(rho) / Lambda^4, d_B = 2 m q B_c (rho - atan rho) / Lambda^4),
+  linear in the quirk charge for a neutral pair; agrees with their numerical thickness within an order of magnitude (App. C).
+- Sec. VI: ~10% of events with > 2 hits on at least one layer (Table I, CMS).
+- Sec. VIII: string direction with CoM simultaneity, t1 - t2 = beta.(r1 - r2) (VIII.1), step condition (VIII.2), s_hat from (VIII.3-4);
+  a fixed s_hat changes the plane thickness strongly. (PreFASERQuirkSim implements VIII.1-VIII.4; D32: same Fig. 2 result as our lab-frame method.)
+**arXiv:2404.13814 (Feng, Li, Liao, Ni, Pei 2024)**: EoM (5.1-5.3) = string force + ionization; "we ignore [magnetic fields] in our simulation for
+  simplicity" (the C++ port PreFASERQuirkSim includes field maps). Annihilation is treated only from the quirkonium ground state after radiative
+  energy loss (Sec. 4, Eq. 4.10-4.11: S-wave sigma v |psi(0)|^2); radiative de-excitation times are orders of magnitude longer than annihilation.
+**arXiv:2108.06748 (FASER, 2021)**: Eq. (4.1) L_tot = r1 x p1 + r2 x p2 in the lab; L'_tot = the same after boosting to the CoM frame ("The initial
+  L'_tot at the IP is zero"); torque from ionization; torque integrated over a complete oscillation ~0 (no magnetic field in that paper).
+  (Equation numbers given in D-chat earlier as "Eq. 18 / 30" came from an automated summary; the PDF numbers are (4.1)-(4.12).)
+Wording for reports: "Independent groups using the same Eq. 3 find that the torque cancels over a full oscillation: arXiv:2002.07503 (uniform
+  magnetic field, App. A) and arXiv:2108.06748 (material); this agrees with our result and not with the |L| shown in Fig. 2 of arXiv:1708.02243."
+Note on scripts/quirk_pair_sim_eq3.py (D31): changes are relative to the simulate_quirk_pair_tracks text pasted on 2026-10-12; a Colab version was
+  not available here and was not compared.
+
+## D35. Review points from a comparison with another implementation (2026-10-12): verified and applied
+1. Colored model: the production process (quirk_2000_fresh_regen_runs/colored_1800GeV_L2keV) uses PDG 1000006 (named t1 / QC), but it is a Dirac
+   fermion: param_card QNUMBERS 1000006 "2 = number of spin states", particles.py spin = 2, colour 3, charge 2/3; matrix elements use fermion
+   wave functions (IXXXXX/OXXXXX with MDL_MQC) and FFV1 vertices. Only the PDG number is borrowed from the stop. Our eps_trig (P3 recount):
+   COL2000 207/873 = 0.237, COL1000 0.241, EW2000 186/1045 = 0.178, EW1000 0.174 (the other implementation, with VLQ_UFO / VLLS_NLO models,
+   is reported to give 0.243 / 0.175; not verified here).
+2. Step-by-step cut-flow: `scripts/D26_stepwise_cutflow.py`, `tables/D26_stepwise_cutflow.csv` (Wilson 95% per step; final counts equal the stored
+   Table I counts: COL Z0 8/22, Z580 3/22; EW Z0 50/62, Z580 14/62). Losses (SCT z none): colored: layer-8 seed pair 3 (keys 48 49 55),
+   seed Delta_w 1 (key 42), hit multiplicity 10 of 18 planes; EW: hit multiplicity 12 of 62, nothing else. With 580 um: colored Delta_s 6 of 9,
+   EW hit multiplicity 16 and Delta_s 31 of 45. The last row is the eps_reco numerator; the denominator is the fiducial count.
+3. Settings: `config/analysis_settings.yaml` (all production settings with their code locations) + `scripts/T1_config_check.py` (compares the file
+   with the values in the code, exit 1 on a difference; config sha256 printed). Run 2026-10-12: all settings agree. The code is not changed to read it.
+4. Physics tests: `scripts/T0_physics_tests.py` (4 s): Eq. 3 vs integrator 7e-16; Lorentz direction; gyroradius 1.4e-5; energy at B = 0 6.6e-12;
+   d max vs 2(gamma-1)m/Lambda^2 5e-14; torque balance |L(2nd)|/|L(1st)| = 6.6e-4. All pass.
+5. Fig. 5 population "plane found, before hit pattern and Delta_s / Delta_w cuts" was already done for the signal (P24, D18 follow-up):
+   colored Delta_w median 0.498 cm (after hit multiplicity 0.482), EW 0.096 (0.097); paper 0.092 / 0.048. The population does not change Delta_w.
+   Backgrounds in that population were not re-made.
+6. Generator settings: `tables/generator_settings_2000.csv` from the run banners (MG5 3.7.3, Pythia 8.317, seeds 8001 / 8002, nn23lo1,
+   dynamical scale -1, ickkw 1, xqcut 30, ptj 20, maxjetflavor 4, qCut 45, nJetMax 1, nQmatch 4, doShowerKt off, scheme 1). For the next report.
+   Not applied: stopping the integration once both quirks are outside and moving outward (all-crossings mode needs the full trajectory, and the
+   production simulator is not changed).
+
+## D36. Settings moved to three config files read by the production code (2026-10-12; supersedes D35 item 3)
+- `config/detector.yaml` (mm, T, ns; source per line: [paper] Sec. III A, [27] = ATL-PHYS-PUB-2009-002 (verified in the .bbl), [ours]):
+  B 2 T, beam pipe 23.5 mm, timing 25 ns, beam spot 45 mm (mode common_shift_fit_true_vertex), SCT r-phi 0.034 mm (2 x 17 um), SCT z primary 0
+  with options 0 / 0.034 / 0.58 / 1.16 mm, merge_hits_in [pixel], 8 layers (IBL marked [ours]: not in [27], which predates the IBL).
+- `config/reconstruction.yaml`: integrator, 300 steps per period (D14), max radius 600 mm, hit mode first_crossing (options first / all),
+  multiplicity rule at_least_2 (exactly_2 implemented in P18.mult_ok), all Sec. III C / IV cuts in mm with the paper's cm value, prefilter none.
+- `config/benchmarks.yaml`: colored 1800 GeV, Table I Lambda [1000, 2000, 3000, 5000, 10000] eV, production 2000, charged fraction 0.3, seed 8001;
+  EW 800 GeV, [1000 ... 5000], production 4000, 1.0, seed 8002; trigger 200 GeV; 300 fb^-1; pile-up mu 0 (signal) / 50 (background).
+- `scripts/analysis_config.py`: strict loader. Unknown key, missing key, option outside its list, production Lambda outside the Table I list,
+  unimplemented choice -> error. Every key is declared with the code that reads it (scope signal / background / limits); `assert_used("signal")`
+  fails if a signal key was not read; `write_provenance(out)` writes `<out>.config.json` with the sha256 of the three files and the values read.
+- Code changes: P4_literal_signal (HALF, SZ, PAR, beam spot, layers, step floor, B, max radius from the config; mm -> cm rounded to 12 digits so
+  that the values are bit-identical), P18_all_crossings (timing cut, SCT r-phi, all cuts, multiplicity rule, B, max radius; provenance),
+  D26 (same). `scripts/T1_config_check.py` (15 checks incl. 4 rejection tests and equality with the former literals): all pass.
+- End-to-end: D26 re-run under the config: output byte-identical to the run before the change, 0 mismatches vs p18.reco,
+  provenance tables/D26_stepwise_cutflow.csv.config.json (config sha256 23a00dda02bbda4b...).
+- Not changed: scripts that do not go through P4/P18 keep their own constants (the earlier D-scripts and background scripts); background-scope
+  keys (beam pipe, pile-up mu 50) are declared for those scripts but not wired yet.
+
+## D37. Annihilation at the L ~ 0 meetings: worst-case estimate and quantum toy test (2026-10-13)
+`scripts/D27_annihilation_tests.py`, `tables/D27_annihilation_A.csv`, `tables/D27_annihilation_B.txt`, `logs/D27_annihilation_stdout.log`.
+A. Worst case: S-wave at every second meeting. |psi(0)|^2 = mu F / 2 pi (any S state of V = F r), Gamma = sigma v |psi(0)|^2, one full oscillation
+   T = 4 m gamma* v* / Lambda^2 -> P_osc = c_sigma alpha^2 gamma* v* (m and Lambda cancel). c_sigma = 1, or the dark-gluon channel of arXiv:2404.13814
+   Eq. 4.11 with N_IC = 2 (1/8 colored, 3/8 colour-neutral); alpha = 0.02, 0.05 (not given by the paper). Per fiducial event: gamma* v* (median 0.58
+   colored, 0.69 EW), N = full oscillations until the CM reaches r = 51.4 cm or 25 ns. Mean survival (min over events):
+   - colored 2 keV (N ~ 19): 0.995 / 0.970 (c=1, alpha 0.02 / 0.05); dark gluons 0.999 / 0.996.
+   - colored 10 keV (N ~ 470): 0.887 / 0.494; dark gluons 0.985 / 0.911.
+   - EW 4 keV (N ~ 93): 0.971 / 0.835; dark gluons 0.989 / 0.934.  EW 5 keV (N ~ 145): 0.955 / 0.756; dark gluons 0.983 / 0.899.
+   Survival falls with Lambda (N ~ Lambda^2). Above 95% everywhere only for alpha = 0.02 with the dark-gluon sigma v; for alpha = 0.05 or c_sigma = 1
+   it drops to 0.5-0.9 at the highest Lambda of Table I. Order of magnitude (non-relativistic formula, v* ~ 0.6).
+B. Quantum toy model (2D relative coordinate, hbar = mu = F = 1, H = p^2/2 + r - f x, packet from the origin with p0 = 8 along z, split-operator FFT
+   768^2, t <= 64, four meetings). Probability inside r < 1 at each meeting relative to the field-free run, quantum <L> +- spread, classical L:
+   - f = 0.029 (classical L peak 10): meetings 1-4: ratio 0.35 / 0.98 / 0.36 / 0.93; <L> = 10.0 / 0.7 / 8.7 / 2.4 (spread ~6); classical 10.0 / 0.2 / 10.1 / 0.5.
+   - f = 0.088 (peak 30): ratio 0.001 / 0.89 / 0.019 / 0.57; <L> = 28.6 / 3.2 / 27.2 / 10.7 (spread 7-12); classical 28.8 / 1.7 / 30.1 / 6.2.
+   The quantum evolution follows the classical torque cancellation: at every second meeting the overlap at the origin returns to (nearly) the
+   field-free value; the angular momentum does not protect against annihilation there. (In the toy, L / (p0 A) ~ 0.04-0.1, so the cancellation is
+   less complete than in the real system, where it is ~1e-6 of the peak.) Norm loss <= 5% (absorbing boundary).
+Conclusion: the paper's statement that |L| = 0 only at large separation is not supported classically (D29) or quantum mechanically (B). Whether
+annihilation changes Table I depends on alpha_dark and sigma v, which the paper does not give: negligible at 2 keV colored, up to ~10-50% loss at the
+highest Lambda in the pessimistic setting. Reported as a worst-case systematic, not a prediction.
+
+## D38. Quantum toy checks and repeated layer crossings (2026-10-14)
+**Toy model (D37 B), f = 0.0879 (classical L peak 30), meeting-4 overlap 0.57** (`scripts/D28_quantum_toy_checks.py`, `tables/D28_quantum_toy_checks.txt`):
+- Finer grid 1024^2 (dx 0.094) and dt 0.0025: overlap ratios 0.001 / 0.892 / 0.022 / 0.565, <L> 28.1 / 3.2 / 27.1 / 10.1 (D27: 0.001 / 0.889 / 0.019 / 0.573): converged.
+- Classical ensemble of 4000 trajectories from the Wigner function of the same initial packet: 0.005 / 0.917 / 0.024 / 0.521, <L> 29.3 / 3.9 / 28.6 / 13.4.
+- The incomplete return at meeting 4 is reproduced by the classical ensemble: it is the spread of the initial packet (momentum spread 0.7 / p0 = 9%
+  in the toy), not a quantum effect. Single classical trajectory: L 28.8 / 1.7 / 30.1 / 6.2.
+**Repeated crossings of the same layer** (tables/all_crossings_per_event.csv, fiducial events, SCT z none; hits after the t < 25 ns, acceptance and
+pixel-merging steps; mode ALL vs FIRST):
+- COL2000: 13/22 = 0.59 [Wilson 0.39, 0.77] have > 2 hits on at least one layer (max-hits distribution 2: 9, 4: 7, 6: 3, 8: 3; median 9 extra hits).
+- EW2000: 31/62 = 0.50 [0.38, 0.62] (2: 31, 3: 3, 4: 18, 5: 1, 6: 6, 8: 3). (1000-event samples: COL1000 1/6, EW1000 12/33 = 0.36 [0.22, 0.53].)
+- arXiv:1708.02243 Sec. III B: the pT > 200 GeV requirement implies the pair is "sufficiently boosted, such that each quirk will most likely
+  intersect each layer only once". Our 2000-event samples have repeated crossings in half or more of the fiducial events.
+- arXiv:2002.07503 Sec. VI / Table I (CMS, m = 100-500 GeV, pT > 100-300 GeV, Lambda 0.2-2 keV): F(n_max > 2) ~ 10%, rising with Lambda and m/pT.
+  Our benchmarks have larger m/pT (1800 or 800 GeV at pT > 200 GeV) and Lambda (2-4 keV), the direction in which that paper finds more
+  repeated crossings; the numbers are not directly comparable (different detector and benchmarks).
+
+## D39. Amendment to D9 ("no code error found") and pre-registered test (2026-10-14)
+String direction taken at equal lab time instead of equal CM time; inflates the truth plane thickness (EW median 15 um vs 1.1 um, D30; each
+convention converged in step size, D31: lab 5-55 um at 1500 / 3000 / 6000 steps, CM 0.6-1.6 um at divStep 3000 / 30000). This is a modelling
+approximation that departs from the paper's stated straight-string limit "in the center of mass frame" (and from 2002.07503 Sec. VIII,
+1911.02223 Sec. III B), not a crash or a wrong formula. Fig. 2 / |L| is unaffected (D21). Effect on Table I under study: pre-registration
+notes/D39_prereg.md (sha256 in notes/D39_prereg_sha256.txt), written before the run.
+Other results of 2026-10-14 (scripts/D29_li_pei_formulas.py, tables/D29_li_pei_formulas.csv; MG5 LO runs in the scratchpad):
+- Delta_w vs the belt width L of 2002.07503 Eq. III.1: Spearman 0.74 (colored), 0.96 (EW); Delta_w / L median 0.28 / 0.35, close to 1/sqrt(12) = 0.29
+  for a uniform strip. Our Delta_w follows the analytic width of our kinematics; the paper's 2-5x smaller Delta_w is not explained by the reconstruction.
+- Repeated crossings: the strict condition D' < R < L' (App. D) holds for 2/22 colored and 0/62 EW events (observed 13 / 31); the second condition
+  "R >> L'" applies to all our layers. 2002.07503 Table II (CMS, Lambda = 2 keV) also shows 4-8 hits on several layers: qualitatively consistent.
+- Truth plane thickness (lab-time string): colored median 4.1 um, EW 13 um; measured Delta_s 38 / 43 um: Delta_s is dominated by the detector resolution.
+  1911.02223 Eq. III.12: 2.1 / 0.06 um; 2002.07503 Eq. V.6: 0.55 / 0.12 um.
+- EW trigger: MG5 3.7.3 LO, 13 TeV, our model: sigma(pp -> QE+ QE-) = 2.321e-4 pb, sigma(pp -> QE+ QE- j, pT(j) > 200 GeV) = 2.195e-5 pb, ratio 0.095.
+  Colored 1800 GeV: 3.120e-4 pb and 4.395e-5 pb, ratio 0.141. 1911.02223 App. A: "the trigger efficiency (pT(j) > 200 GeV) for Ec production
+  process is 0.1, which coincides with the number in the Table I of the Ref. [1]". Inference: the paper's EW 0.10 equals the LO ratio, while its
+  colored 0.24 matches the matched + showered sample (ours 0.237); this suggests different procedures for the two benchmarks.
+- 1911.02223 (CMS): hit resolution 10 um for all hits; no information on ATLAS SCT z. Footnote 9: "In Ref. [1], they assume 8 layers for the ATLAS
+  tracker. We use the actual ATLAS tracker which has 3 layer for the pixel detector and 4 layers for the silicon-strip detector."
+
+## D40. Result of the D39 pre-registered test (pre-registered text verified unchanged: sha256 eb59c8f7... OK), 2026-10-15
+`scripts/D32_cm_time_string_reco.py`, `tables/D32_cm_time_string_reco.csv` (+ .config.json), `logs/D32_stdout.log`. Validation: the lab-time results
+equal the stored production values (COL 2 keV 8/22, 3/22; EW 4 keV 50/62, 14/62; EW 1 / 2 keV 12/62, 40/62 = tables/lambda_scan_per_event.csv).
+CM-time step converged at divStep 30000 (one EW event: 0.918 / 0.544 / 0.538 um at 3000 / 30000 / 100000). All lab-fiducial events stay fiducial.
+| benchmark | truth thickness lab / CM | SCT z none: eps_reco lab -> CM (changed) ; Delta_s median | SCT z 580 um: eps_reco lab -> CM (changed) ; Delta_s |
+| COL 2 keV | 4.1 / 1.9 um | 8/22 -> 8/22 (2) ; 37.7 -> 40.1 um | 3/22 -> 3/22 (0) ; 184 -> 151 um |
+| EW 1 keV  | 12.4 / 7.3 um | 12/62 -> 11/62 (1) ; 37.2 -> 27.8 um | 4/62 -> 5/62 (1) ; 132 -> 153 um |
+| EW 2 keV  | 13.1 / 2.0 um | 40/62 -> 42/62 (6) ; 42.0 -> 32.9 um | 16/62 -> 15/62 (3) ; 162 -> 149 um |
+| EW 4 keV  | 13.0 / 0.6 um | 50/62 -> 51/62 (7) ; 43.1 -> 37.9 um | 14/62 -> 15/62 (5) ; 149 -> 141 um |
+Against the expectations: EW 4 keV Delta_s (none) fell to 37.9 um (expected ~40), not to 28 um: as expected. Colored unchanged: as expected.
+eps_reco changed by at most 2 events net at every benchmark (no change of 5 or more): as expected. 580 um: small change: as expected.
+EW 1-2 keV "can only rise": 2 keV +2, 1 keV -1 (not confirmed in direction; within the event-level changes). Individual events change in both
+directions (up to 7 at EW 4 keV), the same size as the step-size changes of D14 (300 vs 6000 steps: 7 EW events), since the two codes differ also in
+integrator and step. Delta_w unchanged (0.093-0.552 vs 0.096-0.547 cm).
+Conclusion: the string-direction convention changes the truth plane thickness (EW 13 -> 0.6-7 um) and lowers the EW Delta_s without SCT z smearing
+by 5-9 um, but it does not change eps_reco beyond +-2 events and does not explain the Table I differences (EW trigger, low-Lambda eps_reco,
+Delta_w, SCT z). Production is kept with the lab-time string; the convention is listed as a modelling approximation (D39).
+
+## D42. Updated report of 2026-10-15 (TABLE_I_REPRODUCTION_REPORT_2026-10-15.pdf, 10 pages; the 2026-10-09 report is unchanged)
+Scripts: R_data_2026_10_15.py (all numbers, read from the outputs with assertions), F38_report_2026_10_15_figs.py (F38_table_I, F38_lambda, F38_fig2),
+R_report_2026-10-15.py (built with reportlab 4.2.5 in the scratchpad venv). Uncertainties: simple binomial sigma = sqrt(e(1-e)/n) with each
+efficiency's own denominator; MG integration errors for the LO ratio; quadrature of relative sigma for Eq. 12; 95% UL 1 - 0.05^(1/n) for 0/n.
+No Wilson intervals or p-values (request of 2026-10-15). D41 enters as a frozen snapshot (D41_NMAX; 2118 of 3000 events at build time), the same
+for tables and figures; the report states "run in progress". Independent verification against the raw CSV / jsonl and the PDF text: 27 of 27 checks.
+New input copies: inputs_D41/ (MG5 logs and banners, LHE of sample B, showered CSV, Pythia settings). Detached waiter logs/D41_waiter.sh starts the
+showered run after the main run reaches 3000 events. To rebuild after D41 finishes:
+  <python with reportlab> scripts/R_report_2026-10-15.py   (unset D41_NMAX; uses all finished events)
+
+## D43 (2026-10-15) Report v2
+- New `TABLE_I_REPRODUCTION_REPORT_2026-10-15_v2.pdf` (script `scripts/R_report_2026-10-15_v2.py`); the first 2026-10-15 report is kept.
+- Only SCT z none and 1.16 mm are shown. Fig. 5 is rebuilt as `F40_fig5_<sct>`, with the backgrounds at the same SCT z as the signal (F30 used 580 µm backgrounds). No pile-up-only sample exists without SCT z smearing.
+- Decision rule: consistent if |ε − p| ≤ 2√(p(1−p)/n). It agrees with Wilson 95% for every cell.
+
+## D44 (2026-10-16) Report v3
+- New `TABLE_I_REPRODUCTION_REPORT_2026-10-16.pdf` (script `scripts/R_report_2026-10-16_v3.py`); v2 is kept.
+- Added coloured headings and key boxes.
+- Added a cut-flow at every Λ for both benchmarks (fiducial, plane, +hits, SR pass/fail, ε_reco, ε from Eq. 12 vs the paper's product), built from `lambda_scan_*per_event.csv`. It is asserted equal to the summary counts.
+- Added the Fig. 3 Δφ table and the background pass/fail cut-flow (1.16 mm and none; pile-up at 1.16 mm only).
+- Rewrote the annihilation section in two parts:
+  - **4.1:** b = |L|/p from D22: the left-over |L| is 2e6–4e8 ħ, so b·m_Q is 3e6–6e8. 1/m_Q = 1.1e-17 cm, not 1e-16.
+  - **4.2:** checked against the papers.
+    - 2108.06748 Sec. 4 says the initial L' is zero and that material changes L.
+    - 2404.13814 Eq. 4.11 gives the annihilation cross section; annihilation happens only from the ground state, and radiation matters only for Λ ≳ 100 keV.
+    - η (2002.07503 Eq. A.6) keeps the head-on meetings of Eq. A.5, so it is not written as a cause.
+
+## D45 (2026-10-16) Final meeting report
+- New `TABLE_I_REPRODUCTION_REPORT_2026-10-16_final.pdf` (script `scripts/R_report_2026-10-16_final.py`). The 10-16 v3 report is kept.
+- Table I: actual values in every row. For k = 0 the 95% UL is given (k = n: 95% LL). Every decision cell shows |Δ| and 2σ₀. The 2σ₀ rule agrees with Wilson in every cell.
+- EW 3 keV n_fid = 61: event 127 could not be integrated at 3 keV (step limit), so it is counted as not fiducial. This is not a typo.
+- Section 2.3: production vs LO (3000 events) vs LO + Pythia shower (2792 of 3000 with pT(QQ) > 200 GeV after the shower; complete).
+  - The trigger cells use |Δ| ≤ max(2σ, 0.005), because the paper quotes 0.10 to two decimals: LO 0.096 consistent, showered 0.089 inconsistent.
+  - ε_reco (no SCT z) is above the paper in the LO sample at Λ = 1–5 keV.
+  - The showered run stopped at 2120 events when the machine restarted (checkpoint intact) and was resumed. It finished at 13:08 with 111 failures in 13960 trajectories.
+- F41_appendixA_diagram: (a) is a conceptual sketch with Eq. A.5 at g = 0 and 2; (b) and (c) are simulation output. It is included in Section 3.
+
+## D46 (2026-10-16) Final meeting report v2
+- `TABLE_I_REPRODUCTION_REPORT_2026-10-16_final_v2.pdf` (script `R_report_2026-10-16_final_v2.py`); `_final` is kept.
+- Section 3 adds two tables built with `scripts/T_fig2_meeting_table.py`:
+  - the initial values of the constructed event and of key 8 (`fig2_initial_values.csv`);
+  - the per-meeting comparison with the paper: r, |L|, signed L, ΔL per half, zeros, b = |L|/p* (`fig2_meetings_detail.csv`).
+- Formulas and key-box labels are shown in red. The L definition now states "*, equal CM time", and Eq. 5 also gives the paper's form.
+
+## D47 (2026-10-17) Figure 6 restarted with the Table I pipeline
+- The user asked to move to Figure 6 with "the best consistent results"; this lifts the earlier "do not resume Figure 6" constraint.
+- The old figure6_full_v1 production (paused 2026-09-24; 20/91 cells; SCT z 1.16 mm; EW trigger counted on matched events; old pipeline) is NOT resumed. It is kept unchanged as an archive.
+- Kept: the 13 generated HepMC samples (hep_tools/figure6_full_v1_runs).
+  - `scripts/F6_01_extract_events.py` writes fig6/inputs/<tag>_events.csv (needs PYTHIA8DATA for the R-hadron charge table) and counts.csv.
+- New: `scripts/F6_02_grid.py`, the Table I pipeline per event:
+  - Λ = 1, 2, 3, 4, 5, 7, 10 keV; first crossing;
+  - reco with SCT z none and 1.16 mm using the same draws;
+  - colored: both charged |q| > 0.5;
+  - seeds SeedSequence([6, m, i]);
+  - append-only logs/F6_<tag>_events.jsonl.
+- Pilots (6 colored 1800 events, 3 EW 100 events): ~120–140 s CPU per event for all 7 Λ (half of it at 10 keV); about 70 s wall per event with 3 workers on 4 vCPU. The full grid of ~1160 events takes about one day.
+- Launched detached: logs/F6_runner.sh (benchmarks first), started 2026-10-17 00:56.
+- Fig. 6 has no background (paper: "assuming negligible irreducible backgrounds"). Main contour: SCT z 1.16 mm for signal and background, where our background is 0/9139, so the assumption holds. Comparison contour: signal with no SCT z smearing, which reproduces Table I, but the same-smearing background is 146/9139 there.
+
+## D48 (2026-10-17) Figure 6 overnight run (user: "fig 6 subah tk", decisions: show f_ch both ways; use current samples, mark unresolved edges)
+- Full paper reread. Settings and checks are in fig6/README_FIG6.md.
+- The high-Λ band (15–35 keV) costs about 38 min per event, about 2 days in total, so it is not run tonight. The figure marks Λ > 10 keV as not computed.
+- Run: low band (0.1–0.7 keV) and mid band (1–10 keV), 9 workers on 10 vCPU (WSL raised to 10 processors by the user). logs/F6_overnight.sh started 01:47.
+- EW LO ratios: 12 MG5 3.7.3 runs in hep_tools/F6_EW_LO_ratio (nn23lo1, MQE set; B: ptj 200, ickkw 0, xqcut 0). At 800 GeV: 0.0961.
+- Paper Fig. 6 curves: scripts/S4_fig6_vector_extract.py → tables/paper_fig6_vector.json. The 12.9 fb⁻¹ regions are taken from their solid outlines; the filled paths are hatch tiles.
+- Analysis and plot: scripts/F6_03_contours.py → fig6/F6_N_grid.csv, FINAL_FIGURES/F6_fig6/.
+- 2026-10-17 09:00: the run finished (low + mid, 11 points). Figure FINAL_FIGURES/F6_fig6. Reach and checks are in fig6/README_FIG6.md.
+  - Contour fix: k = 0 points are no longer given an arbitrary value; no contour passes through them.
+  - No SCT z smearing, with the charge factor: discovery colored 1591 / EW 643 GeV (paper abstract 1600 / 650; paper figure 1707 / 688); exclusion 1702 / 712 (paper 1793 / 762).
+  - SCT z 1.16 mm, with the charge factor: discovery 1424 / 428; exclusion 1497 / 474.

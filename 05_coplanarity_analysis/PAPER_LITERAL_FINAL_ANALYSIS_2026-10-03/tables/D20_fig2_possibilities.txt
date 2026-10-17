@@ -1,0 +1,33 @@
+paper target: |L| at closest approaches 0.645 / 0.194 / 0.514 / 0.287 (ratio 0.30)
+
+== A. Definition of L (Q1), base trajectory
+A0 CM frame, equal CM time, about the CM (base)        : 0.643 / 0.000 / 0.643 / 0.000  ratio 0.001
+A1 same, non-relativistic momenta m v                  : 0.535 / 0.000 / 0.535 / 0.000  ratio 0.001
+A2 lab, equal lab time, about the midpoint            : 0.643 / 0.000 / 0.643 / 0.000  ratio 0.001
+A3 lab, equal lab time, about the centre of energy    : 0.643 / 0.000 / 0.643 / 0.000  ratio 0.001
+A4 lab, about the production point (interaction pt.)  : 0.643 / 0.000 / 0.643 / 0.000  ratio 0.001
+A5 lab midpoint L, plotted vs r of quirk 1             : 0.643 / 0.000 / 0.643 / 0.000  ratio 0.001
+A6 total L of quirks + string (integral of EM torque)  : 0.556 / 0.000 / 0.556 / 0.000  ratio 0.001
+
+== B. Charges and initial momenta (Q2): 60 random configurations, production integrator
+   # 0 axis [ 0.    0.74 -0.68], v_cm [0.015 0.096 0.15 ], charges (+0.67,-0.67): 0.647 / 0.000 / 0.646 / 0.000  ratio 0.000
+   # 1 axis [-0.59  0.04  0.8 ], v_cm [ 0.028 -0.093  0.234], charges (+1.00,-1.00): 0.815 / 0.000 / 0.815 / 0.000  ratio 0.000
+   # 2 axis [0.8  0.58 0.17], v_cm [-0.092  0.033  0.252], charges (+1.00,+0.00): 0.289 / 0.000 / 0.289 / 0.000  ratio 0.000
+   # 3 axis [ 0.44 -0.85 -0.29], v_cm [-0.07  -0.068  0.494], charges (+1.00,-0.33): 0.294 / 0.000 / 0.294  ratio 0.000
+   # 4 axis [-0.82 -0.1  -0.56], v_cm [0.094 0.027 0.018], charges (+0.67,-0.67): 0.637 / 0.000 / 0.637 / 0.000  ratio 0.000
+   # 5 axis [-0.07 -0.98 -0.21], v_cm [-0.067 -0.071  0.257], charges (+1.00,-1.00): 0.785 / 0.000 / 0.784 / 0.001  ratio 0.000
+   # 6 axis [-0.81 -0.25 -0.52], v_cm [-0.035 -0.091  0.1  ], charges (+1.00,+0.00): 0.360 / 0.000 / 0.360 / 0.000  ratio 0.000
+   # 7 axis [-0.67 -0.03  0.74], v_cm [0.055 0.08  0.134], charges (+1.00,-0.33): 0.545 / 0.000 / 0.545 / 0.000  ratio 0.000
+   60 configurations: ratio |L(2nd)|/|L(1st)| median 0.0004, max 0.0012 (paper 0.30)
+
+== C. Equation of motion (Q3), own RK4 with switchable terms
+C0 Eq. 3 + Lorentz (own RK4, check vs A0)         : 0.643 / 0.000 / 0.643 / 0.000  ratio 0.000   d max 3.61 cm
+C1 without the v_par v_perp string term          : 0.643 / 0.000 / 0.643  ratio 0.000   d max 3.61 cm
+C2 constant string force -T s                    : 0.636 / 0.000 / 0.637  ratio 0.000   d max 3.59 cm
+C3 non-relativistic  m dv/dt = F                 : 0.631 / 0.000 / 0.632 / 0.000  ratio 0.000   d max 4.00 cm
+C4 Eq. 3 + Lorentz, forward Euler, 3000 steps     : 0.650 / 0.008 / 0.670 / 0.016  ratio 0.012   d max 3.67 cm
+C4b forward Euler, 300 steps                      : 0.700 / 0.075 / 0.869 / 0.170  ratio 0.107   d max 4.21 cm
+C5 RK4, 300 steps per period                      : 0.643 / 0.005 / 0.640 / 0.006  ratio 0.008   d max 3.63 cm
+C6 Lorentz force with B x gamma_cm                : 0.646 / 0.000 / 0.646 / 0.000  ratio 0.000   d max 3.61 cm
+
+paper: 0.645 / 0.194 / 0.514 / 0.287 (ratio 0.30)

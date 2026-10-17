@@ -1,0 +1,11 @@
+-- classical ensemble (4000 trajectories, Wigner sampling of the initial packet), f = 0.0879
+   meeting 1: P(r<1) 0.0003 / field-free 0.0540 = ratio 0.005 | <L> = +29.25  (t = 13.65)
+   meeting 2: P(r<1) 0.0275 / field-free 0.0300 = ratio 0.917 | <L> =  +3.88  (t = 32.20)
+   meeting 3: P(r<1) 0.0005 / field-free 0.0213 = ratio 0.024 | <L> = +28.60  (t = 49.00)
+   meeting 4: P(r<1) 0.0095 / field-free 0.0182 = ratio 0.521 | <L> = +13.37  (t = 62.90)
+-- quantum, grid 1024^2 (dx 0.094), dt 0.0025, f = 0.0879
+   meeting 1: P(r<1) 0.0001 / field-free 0.0588 = ratio 0.001 | <L> = +28.05  (t = 13.60)
+   meeting 2: P(r<1) 0.0251 / field-free 0.0282 = ratio 0.892 | <L> =  +3.15  (t = 32.70)
+   meeting 3: P(r<1) 0.0004 / field-free 0.0184 = ratio 0.022 | <L> = +27.11  (t = 50.45)
+   meeting 4: P(r<1) 0.0079 / field-free 0.0140 = ratio 0.565 | <L> = +10.14  (t = 64.90)
+D27 (768^2, dx 0.125, dt 0.005): ratio 0.001 / 0.889 / 0.019 / 0.573, <L> 28.6 / 3.2 / 27.2 / 10.7; single classical trajectory L 28.8 / 1.7 / 30.1 / 6.2

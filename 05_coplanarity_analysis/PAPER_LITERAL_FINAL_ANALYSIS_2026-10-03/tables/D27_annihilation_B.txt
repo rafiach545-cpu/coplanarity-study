@@ -1,0 +1,56 @@
+== A. worst case (S-wave at every second meeting), mean over fiducial events: survival probability inside the tracker
+ sample  lambda_ev            sigma_v  alpha  N_osc_median  gamma_v_median  survival_mean  survival_min
+COL2000       1000          c_sigma=1   0.02          4.72          0.5797         0.9988        0.9979
+COL2000       1000          c_sigma=1   0.05          4.72          0.5797         0.9925        0.9872
+COL2000       1000 dark gluons N_IC=2   0.02          4.72          0.5797         0.9998        0.9997
+COL2000       1000 dark gluons N_IC=2   0.05          4.72          0.5797         0.9991        0.9984
+COL2000       2000          c_sigma=1   0.02         18.88          0.5797         0.9952        0.9918
+COL2000       2000          c_sigma=1   0.05         18.88          0.5797         0.9703        0.9499
+COL2000       2000 dark gluons N_IC=2   0.02         18.88          0.5797         0.9994         0.999
+COL2000       2000 dark gluons N_IC=2   0.05         18.88          0.5797         0.9962        0.9936
+COL2000       3000          c_sigma=1   0.02         42.48          0.5797         0.9892        0.9817
+COL2000       3000          c_sigma=1   0.05         42.48          0.5797         0.9346        0.8909
+COL2000       3000 dark gluons N_IC=2   0.02         42.48          0.5797         0.9986        0.9977
+COL2000       3000 dark gluons N_IC=2   0.05         42.48          0.5797         0.9915        0.9857
+COL2000       5000          c_sigma=1   0.02           118          0.5797         0.9703          0.95
+COL2000       5000          c_sigma=1   0.05           118          0.5797         0.8305        0.7254
+COL2000       5000 dark gluons N_IC=2   0.02           118          0.5797         0.9962        0.9936
+COL2000       5000 dark gluons N_IC=2   0.05           118          0.5797         0.9767        0.9607
+COL2000      10000          c_sigma=1   0.02           472          0.5797         0.8873        0.8143
+COL2000      10000          c_sigma=1   0.05           472          0.5797          0.494        0.2769
+COL2000      10000 dark gluons N_IC=2   0.02           472          0.5797          0.985        0.9747
+COL2000      10000 dark gluons N_IC=2   0.05           472          0.5797         0.9106        0.8518
+ EW2000       1000          c_sigma=1   0.02         5.796          0.6901         0.9982        0.9954
+ EW2000       1000          c_sigma=1   0.05         5.796          0.6901         0.9886        0.9717
+ EW2000       1000 dark gluons N_IC=2   0.02         5.796          0.6901         0.9993        0.9983
+ EW2000       1000 dark gluons N_IC=2   0.05         5.796          0.6901         0.9957        0.9893
+ EW2000       2000          c_sigma=1   0.02         23.18          0.6901         0.9927        0.9818
+ EW2000       2000          c_sigma=1   0.05         23.18          0.6901         0.9552        0.8915
+ EW2000       2000 dark gluons N_IC=2   0.02         23.18          0.6901         0.9972        0.9931
+ EW2000       2000 dark gluons N_IC=2   0.05         23.18          0.6901         0.9829        0.9579
+ EW2000       3000          c_sigma=1   0.02         52.16          0.6901         0.9836        0.9596
+ EW2000       3000          c_sigma=1   0.05         52.16          0.6901         0.9026        0.7724
+ EW2000       3000 dark gluons N_IC=2   0.02         52.16          0.6901         0.9938        0.9846
+ EW2000       3000 dark gluons N_IC=2   0.05         52.16          0.6901         0.9621        0.9078
+ EW2000       4000          c_sigma=1   0.02         92.73          0.6901         0.9711        0.9293
+ EW2000       4000          c_sigma=1   0.05         92.73          0.6901         0.8348        0.6318
+ EW2000       4000 dark gluons N_IC=2   0.02         92.73          0.6901          0.989        0.9729
+ EW2000       4000 dark gluons N_IC=2   0.05         92.73          0.6901         0.9338         0.842
+ EW2000       5000          c_sigma=1   0.02         144.9          0.6901         0.9553        0.8917
+ EW2000       5000          c_sigma=1   0.05         144.9          0.6901         0.7564         0.488
+ EW2000       5000 dark gluons N_IC=2   0.02         144.9          0.6901         0.9829        0.9579
+ EW2000       5000 dark gluons N_IC=2   0.05         144.9          0.6901         0.8989        0.7643
+
+== B. quantum toy model (2D relative coordinate, hbar = mu = F = 1, p0 = 8)
+-- f = 0.0293 (classical |L| peak target 10 hbar)
+   meeting 1 (t = 15.80): P(r < 1) = 0.0197, field-free 0.0563, ratio 0.350 | quantum <L> =  +10.01 +-  6.23 | classical L =  +10.00 | norm 0.973
+   meeting 2 (t = 32.70): P(r < 1) = 0.0263, field-free 0.0268, ratio 0.983 | quantum <L> =   +0.71 +-  5.68 | classical L =   +0.17 | norm 0.966
+   meeting 3 (t = 47.70): P(r < 1) = 0.0063, field-free 0.0175, ratio 0.358 | quantum <L> =   +8.72 +-  6.16 | classical L =  +10.05 | norm 0.961
+   meeting 4 (t = 64.00): P(r < 1) = 0.0120, field-free 0.0129, ratio 0.933 | quantum <L> =   +2.37 +-  6.22 | classical L =   +0.46 | norm 0.960
+   peak |<L>|: quantum 10.04 at t = 16.3; classical 10.06 at t = 48.0
+-- f = 0.0879 (classical |L| peak target 30 hbar)
+   meeting 1 (t = 14.05): P(r < 1) = 0.0000, field-free 0.0563, ratio 0.001 | quantum <L> =  +28.61 +-  9.19 | classical L =  +28.80 | norm 0.972
+   meeting 2 (t = 32.75): P(r < 1) = 0.0238, field-free 0.0268, ratio 0.889 | quantum <L> =   +3.16 +-  6.51 | classical L =   +1.72 | norm 0.967
+   meeting 3 (t = 49.95): P(r < 1) = 0.0003, field-free 0.0175, ratio 0.019 | quantum <L> =  +27.22 +- 12.02 | classical L =  +30.05 | norm 0.954
+   meeting 4 (t = 63.55): P(r < 1) = 0.0074, field-free 0.0129, ratio 0.573 | quantum <L> =  +10.67 +-  9.66 | classical L =   +6.19 | norm 0.954
+   peak |<L>|: quantum 30.14 at t = 16.4; classical 30.89 at t = 48.2

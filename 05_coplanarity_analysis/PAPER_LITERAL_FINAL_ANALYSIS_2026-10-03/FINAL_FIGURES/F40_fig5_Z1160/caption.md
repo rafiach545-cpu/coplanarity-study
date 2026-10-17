@@ -1,0 +1,1 @@
+Figure 5 on the paper's bins, SCT z 1.16 mm (signal and backgrounds). Signal: COL2000 / EW2000 after the plane and hit cuts, before the Δs cut; converted γ + pile-up (9139 photons, P10_chunks_LITERAL); pile-up only (5000 events, P8_chunks_LITERAL). Unit area; dotted: the paper's histograms. Vertical lines: signal-region cuts.

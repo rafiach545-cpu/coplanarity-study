@@ -1,0 +1,1 @@
+ε_reco vs the string tension Λ (the Λ column of Table I), first crossing, with simple binomial σ. Orange: production, no SCT z smearing; blue: production, SCT z 1.16 mm; green squares: EW LO sample B (D41), no SCT z smearing; black: paper.

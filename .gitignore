@@ -17,3 +17,14 @@ __pycache__/
 *.checkpoint
 docs/*_run.log
 docs/minbias_pool_gen*.log
+
+# 2026-10-17: large raw outputs kept locally, not pushed (regenerable; GitHub size limits)
+02_backgrounds/photon_conversion/CROSS_SECTION_AUDIT_v1/generation/
+05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/logs/P10_chunks_*/
+05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/logs/F6_*pilot*
+05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/tables/dynamics_v2_trajectories.csv
+05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/tables/fig2_final/fig2_ours_constructed_steps.csv
+05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/FINAL_FIGURES/F42_fig2_log_scale/F42_fig2_log_scale_source.csv
+# third-party reference papers (not our work)
+05_coplanarity_analysis/EW_PAPER_REPRODUCTION_FOLLOWUP_2026-10-02/paper_source/
+05_coplanarity_analysis/EW_PAPER_REPRODUCTION_AUDIT_2026-10-02/paper_source/

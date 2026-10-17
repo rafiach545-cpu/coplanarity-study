@@ -1,0 +1,12 @@
+D41 mg5_373_lo_first1000: 1000 events (LHE /tmp/claude-1000/-home-rafia-coplanarity-study/7b5e4cb9-053a-44f5-ad4a-78ff193d4440/scratchpad/mg5_d41/EW_B_373/Events/run_01/unweighted_events.lhe.gz); errors 40
+Lambda 1 keV: eps_fid 280/1000 = 0.280 [0.253, 0.309] p(paper 0.28) = 1 | eps_reco 47/280 = 0.168 [0.129, 0.216] paper 0.11 p = 0.0039 | Delta_s median 44.7 um
+Lambda 2 keV: eps_fid 286/1000 = 0.286 [0.259, 0.315] p(paper 0.28) = 0.67 | eps_reco 164/286 = 0.573 [0.516, 0.629] paper 0.41 p = 3.4e-08 | Delta_s median 43.6 um
+Lambda 3 keV: eps_fid 288/1000 = 0.288 [0.261, 0.317] p(paper 0.28) = 0.57 | eps_reco 232/288 = 0.806 [0.756, 0.847] paper 0.65 p = 9.5e-09 | Delta_s median 44.2 um
+Lambda 4 keV: eps_fid 288/1000 = 0.288 [0.261, 0.317] p(paper 0.28) = 0.57 | eps_reco 237/288 = 0.823 [0.775, 0.863] paper 0.72 p = 5.8e-05 | Delta_s median 44.7 um
+Lambda 5 keV: eps_fid 288/1000 = 0.288 [0.261, 0.317] p(paper 0.28) = 0.57 | eps_reco 239/288 = 0.830 [0.782, 0.869] paper 0.74 p = 0.00035 | Delta_s median 46.1 um
+combined chi2 (bootstrap correlation) = 64.93, dof 5, p = 1.2e-12  (production: 23.81, p = 2.4e-4)
+criteria: (i) eps_fid (4 keV) vs 0.28 p = 0.57 -> True; (ii) combined p = 1.2e-12 -> False; (iii) eps_reco(2 keV) = 0.573 <= 0.545 -> False; REJECT test: eps_fid vs production 0.333 p = 0.0023, |eps_reco(2) - 0.645| = 0.072 -> False
+VERDICT: PARTIAL
+interim rule: eps_fid 0.288 +- 0.014; eps_reco(2 keV) 0.573 +- 0.029 (n_fid 286); combined p 1.2e-12
+   decided: (i) False [np.True_, np.True_, np.False_] | (ii) True | (iii) False | REJECT parts: fid vs 0.333 False [np.False_, np.False_, np.True_], 2 keV vs 0.645 +- 0.10 False
+   INTERIM: not all criteria decided -> verdict waits for 3000 events

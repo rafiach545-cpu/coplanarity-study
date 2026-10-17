@@ -1,0 +1,5 @@
+1/m_Q = 5.556e-04 GeV^-1 = 1.10e-17 cm; p* = 1204.1 GeV, so b > 1/m_Q requires |L| > 0.67 hbar
+  3000 steps/period, signed L at closest approaches 1-4: +6.434e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | +4.215e+08 hbar (b = 6.9e-09 cm, b*m_Q = 6.3e+08) | +6.430e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | +1.322e+08 hbar (b = 2.2e-09 cm, b*m_Q = 2.0e+08)
+ 10000 steps/period, signed L at closest approaches 1-4: +6.434e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | -5.897e+06 hbar (b = 9.7e-11 cm, b*m_Q = 8.8e+06) | +6.436e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | -2.371e+07 hbar (b = 3.9e-10 cm, b*m_Q = 3.5e+07)
+ 30000 steps/period, signed L at closest approaches 1-4: +6.434e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | +5.498e+07 hbar (b = 9.0e-10 cm, b*m_Q = 8.2e+07) | +6.435e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | +5.772e+07 hbar (b = 9.5e-10 cm, b*m_Q = 8.6e+07)
+100000 steps/period, signed L at closest approaches 1-4: +6.435e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | +5.453e+06 hbar (b = 8.9e-11 cm, b*m_Q = 8.2e+06) | +6.435e+11 hbar (b = 1.1e-05 cm, b*m_Q = 9.6e+11) | +2.103e+06 hbar (b = 3.4e-11 cm, b*m_Q = 3.1e+06)

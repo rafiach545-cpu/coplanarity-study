@@ -1,0 +1,1 @@
+Fig. 2: |L| (top) and quirk separation d (bottom) vs the transverse radius r of the centre of mass, m_Q = 1.8 TeV, Λ = 2 keV, B = 2 T. Grey lines: closest approaches (minima of d); numbers: |L| there. Our curves: initial CM frame, equal CM time, 3000 RK4 steps per period.

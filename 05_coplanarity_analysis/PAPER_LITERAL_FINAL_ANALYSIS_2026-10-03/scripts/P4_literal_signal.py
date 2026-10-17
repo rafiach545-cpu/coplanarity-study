@@ -31,9 +31,12 @@ FOR = f"{BASE}/05_coplanarity_analysis/PAPER_TABLE_I_REPRODUCTION_FORENSICS_2026
 sys.path[:0] = [f"{BASE}/04_detector_sim", f"{BASE}/03_trajectory_sim", f"{BASE}/05_coplanarity_analysis"]
 spec = importlib.util.spec_from_file_location("fp", f"{FOR}/scripts/02_forensic_pipeline.py")
 fp = importlib.util.module_from_spec(spec); spec.loader.exec_module(fp)
-HALF = {1: 33.015, 2: 40.05, 3: 40.05, 4: 40.05, 5: 74.9, 6: 74.9, 7: 74.9, 8: 74.9}
-SZ = {"Z1160": 0.1160, "Z580": 0.0580, "Z34": 0.0034, "Z0": 0.0}
-PAR = {"EW": (800.0, 4e-6), "COL": (1800.0, 2e-6)}
+# Settings from config/*.yaml (2026-10-12, D36); values identical to the former literals
+# HALF = {1: 33.015, 2: 40.05, 3: 40.05, 4: 40.05, 5: 74.9, 6: 74.9, 7: 74.9, 8: 74.9}; SZ = {"Z1160": 0.1160, "Z580": 0.0580, "Z34": 0.0034, "Z0": 0.0};
+# PAR = {"EW": (800.0, 4e-6), "COL": (1800.0, 2e-6)}; fp.SIG_Z0 = 4.5
+sys.path.insert(0, HERE); import analysis_config as AC   # noqa: E402
+CFG = AC.load(); R = CFG.resolved()
+HALF, SZ, PAR = R["HALF"], R["SZ"], R["PAR"]; fp.SIG_Z0 = R["beamspot_cm"]
 SAMPLES = ("EW1000", "EW2000", "COL1000", "COL2000")
 
 
@@ -55,14 +58,20 @@ def _init():
     from quirk_trajectory_optimized_v2 import integrate_trajectory_fast_v2
     _t.integrate_trajectory = integrate_trajectory_fast_v2
     tth, cf = _t, _c
+    _t.MIN_STEPS_PER_PERIOD = R["steps_per_period"]; _t.BEAMSPOT_SIGMA_Z_CM = R["beamspot_cm"]
+    for L, c in zip(_t.LAYERS, R["layers"]):                       # detector layers from config (checked equal to the former values, D36)
+        L["name"], L["r_cm"], L["is_pixel"] = c["name"], round(c["radius_mm"] / 10.0, 12), c["kind"] == "pixel"
+        if L["is_pixel"]:
+            L["pitch_rphi_um"], L["pitch_z_um"] = round(c["pitch_rphi_mm"] * 1000), round(c["pitch_z_mm"] * 1000)
+            L["eff_res_rphi_um"], L["eff_res_z_um"] = L["pitch_rphi_um"], L["pitch_z_um"]
 
 
 def propagate(a):
     s, key, p1, p2, c1, c2, z0 = a
     mq, lam = PAR["EW" if s.startswith("EW") else "COL"]
     try:
-        _, traj = tth.simulate_quirk_hits(p1, p2, mass_gev=mq, Lambda_gev=lam, B_tesla=2.0, charge1=c1, charge2=c2,
-                                          rng=np.random.default_rng(0), z0_cm=z0, max_layer_r_cm=60.0)
+        _, traj = tth.simulate_quirk_hits(p1, p2, mass_gev=mq, Lambda_gev=lam, B_tesla=R["B_tesla"], charge1=c1, charge2=c2,
+                                          rng=np.random.default_rng(0), z0_cm=z0, max_layer_r_cm=R["max_layer_r_cm"])
     except Exception as e:
         return s, key, None, f"{type(e).__name__}: {str(e)[:120]}"
     x = (traj["x1"] * 1.973269804e-14, traj["x2"] * 1.973269804e-14)

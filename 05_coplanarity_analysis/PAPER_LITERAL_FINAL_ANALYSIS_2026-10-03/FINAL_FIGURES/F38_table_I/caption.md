@@ -1,0 +1,1 @@
+Table I efficiencies with simple binomial uncertainties σ = √(ε(1−ε)/n): circles = production samples (2000 events generated, MLM-matched + Pythia 8), squares = EW LO sample B (D41) and LO cross-section ratios, dashes = paper. Numbers below the points: k/n.

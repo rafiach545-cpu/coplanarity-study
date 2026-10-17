@@ -1,0 +1,36 @@
+axis x     q=(+0.67,-0.67) dmax=3.61  L@approach=0.64 / 0.00 / 0.64 / 0.00  L-zeros r=2.33 / 4.65
+axis x     q=(+1.00,-1.00) dmax=3.61  L@approach=0.96 / 0.00 / 0.96 / 0.00  L-zeros r=2.33 / 4.65
+axis x     q=(+1.00,+0.00) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=2.33 / 4.65
+axis x     q=(+0.00,-1.00) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=0.85 / 1.48 / 2.32 / 2.33 / 3.17 / 3.81 / 4.65 / 4.66
+axis x     q=(+1.00,-0.33) dmax=3.61  L@approach=0.64 / 0.00 / 0.64 / 0.00  L-zeros r=2.33 / 4.65
+axis x     q=(+0.67,-0.33) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=2.33 / 4.65
+axis x     q=(+0.33,-0.33) dmax=3.61  L@approach=0.32 / 0.00 / 0.32 / 0.00  L-zeros r=2.33 / 4.65
+axis z     q=(+0.67,-0.67) dmax=3.61  L@approach=0.64 / 0.00 / 0.64 / 0.00  L-zeros r=2.33 / 4.65
+axis z     q=(+1.00,-1.00) dmax=3.61  L@approach=0.97 / 0.00 / 0.96 / 0.00  L-zeros r=2.33 / 4.65
+axis z     q=(+1.00,+0.00) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=2.33 / 4.65
+axis z     q=(+0.00,-1.00) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=2.33 / 4.65
+axis z     q=(+1.00,-0.33) dmax=3.61  L@approach=0.64 / 0.00 / 0.64 / 0.00  L-zeros r=2.33 / 4.65
+axis z     q=(+0.67,-0.33) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=2.33 / 4.65
+axis z     q=(+0.33,-0.33) dmax=3.61  L@approach=0.32 / 0.00 / 0.32 / 0.00  L-zeros r=2.33 / 4.65
+axis y     q=(+0.67,-0.67) dmax=3.61  L@approach=0.00 / 0.00 / 0.00 / 0.00  L-zeros r=
+axis y     q=(+1.00,-1.00) dmax=3.61  L@approach=0.00 / 0.00 / 0.00 / 0.00  L-zeros r=
+axis y     q=(+1.00,+0.00) dmax=3.61  L@approach=0.00 / 0.00 / 0.00 / 0.00  L-zeros r=1.16 / 1.16 / 2.33 / 3.49 / 3.49 / 4.65
+axis y     q=(+0.00,-1.00) dmax=3.61  L@approach=0.00 / 0.00 / 0.00 / 0.00  L-zeros r=1.16 / 1.16 / 2.33 / 3.49 / 3.49 / 4.65
+axis y     q=(+1.00,-0.33) dmax=3.61  L@approach=0.00 / 0.00 / 0.00 / 0.00  L-zeros r=1.16 / 1.16 / 2.33 / 3.49 / 3.49 / 4.65
+axis y     q=(+0.67,-0.33) dmax=3.61  L@approach=0.00 / 0.00 / 0.00 / 0.00  L-zeros r=1.16 / 1.16 / 2.33 / 3.49 / 3.49 / 4.65
+axis y     q=(+0.33,-0.33) dmax=3.61  L@approach=0.00 / 0.00 / 0.00 / 0.00  L-zeros r=
+axis xz45  q=(+0.67,-0.67) dmax=3.61  L@approach=0.64 / 0.00 / 0.64 / 0.00  L-zeros r=2.33 / 4.65
+axis xz45  q=(+1.00,-1.00) dmax=3.61  L@approach=0.96 / 0.00 / 0.96 / 0.00  L-zeros r=2.33 / 4.65
+axis xz45  q=(+1.00,+0.00) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=2.33 / 4.65
+axis xz45  q=(+0.00,-1.00) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=0.75 / 1.58 / 2.32 / 2.34 / 3.07 / 3.91 / 4.65 / 4.66
+axis xz45  q=(+1.00,-0.33) dmax=3.61  L@approach=0.64 / 0.00 / 0.64 / 0.00  L-zeros r=2.33 / 4.65
+axis xz45  q=(+0.67,-0.33) dmax=3.61  L@approach=0.48 / 0.00 / 0.48 / 0.00  L-zeros r=2.33 / 4.65
+axis xz45  q=(+0.33,-0.33) dmax=3.61  L@approach=0.32 / 0.00 / 0.32 / 0.00  L-zeros r=2.33 / 4.65
+axis yz45  q=(+0.67,-0.67) dmax=3.61  L@approach=0.45 / 0.00 / 0.45 / 0.00  L-zeros r=2.33 / 4.65
+axis yz45  q=(+1.00,-1.00) dmax=3.61  L@approach=0.68 / 0.00 / 0.68 / 0.00  L-zeros r=2.33 / 4.65
+axis yz45  q=(+1.00,+0.00) dmax=3.61  L@approach=0.34 / 0.00 / 0.34 / 0.00  L-zeros r=2.33 / 4.65
+axis yz45  q=(+0.00,-1.00) dmax=3.61  L@approach=0.34 / 0.00 / 0.34 / 0.00  L-zeros r=2.33 / 4.65
+axis yz45  q=(+1.00,-0.33) dmax=3.61  L@approach=0.45 / 0.00 / 0.45 / 0.00  L-zeros r=2.33 / 4.65
+axis yz45  q=(+0.67,-0.33) dmax=3.61  L@approach=0.34 / 0.00 / 0.34 / 0.00  L-zeros r=2.33 / 4.65
+axis yz45  q=(+0.33,-0.33) dmax=3.61  L@approach=0.23 / 0.00 / 0.23 / 0.00  L-zeros r=2.33 / 4.65
+paper: L@approach 0.65 / 0.19 / 0.52 / 0.29 ; zeros r = 1.91 / 2.67 / 4.10

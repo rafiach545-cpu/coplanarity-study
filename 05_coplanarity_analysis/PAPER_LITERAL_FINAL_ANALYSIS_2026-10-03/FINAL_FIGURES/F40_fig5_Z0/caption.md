@@ -1,0 +1,1 @@
+Figure 5 on the paper's bins, no SCT z smearing (signal and backgrounds). Signal: COL2000 / EW2000 after the plane and hit cuts, before the Δs cut; converted γ + pile-up (9139 photons, P10_chunks_B_Z0_REF34); pile-up only not simulated without SCT z smearing. Unit area; dotted: the paper's histograms. Vertical lines: signal-region cuts.

@@ -1,0 +1,13 @@
+{
+ "figure": "F38_fig2",
+ "source_csv": "F38_fig2_source.csv",
+ "source_csv_sha256": "fa54f878a7d9f25ad8dd54a0724edacd904dd99914b11159662645656640695f",
+ "plot_reads_only_source_csv": true,
+ "selection": "paper event; constructed event; COL2000 key 8",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/tables/fig2_final": "directory/not-a-file"
+ },
+ "script": "F38_report_2026_10_15_figs.py",
+ "script_sha256": "45a0ba4aa99307f74ba8c04286d6b36a6636c966070f566b197bb6b2e29decb9",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

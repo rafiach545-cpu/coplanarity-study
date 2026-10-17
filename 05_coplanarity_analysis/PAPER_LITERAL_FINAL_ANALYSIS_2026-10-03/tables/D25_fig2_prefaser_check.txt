@@ -1,0 +1,7 @@
+constructed  production integrator (RK4, 3000/period)  : d max 3.607 cm, spacing 1.164 cm, |L| at closest approaches 0.9651 / 0.0006 / 0.9646 / 0.0002
+constructed  PreFASERQuirkSim step, divStep  10000     : d max 3.613 cm, spacing 1.165 cm, |L| at closest approaches 0.9587 / 0.0074 / 0.9667 / 0.0084
+constructed  PreFASERQuirkSim step, divStep  40000     : d max 3.609 cm, spacing 1.164 cm, |L| at closest approaches 0.9583 / 0.0007 / 0.9590 / 0.0010
+key8         production integrator (RK4, 3000/period)  : d max 4.191 cm, spacing 1.047 cm, |L| at closest approaches 0.8620 / 0.0001 / 0.8622 / 0.0005
+key8         PreFASERQuirkSim step, divStep  10000     : d max 4.195 cm, spacing 1.048 cm, |L| at closest approaches 0.8556 / 0.0009 / 0.8607 / 0.0029
+key8         PreFASERQuirkSim step, divStep  40000     : d max 4.191 cm, spacing 1.048 cm, |L| at closest approaches 0.8571 / 0.0007 / 0.8570 / 0.0006
+paper: d max 3.556 cm, spacing 1.153 cm, |L| at closest approaches 0.645 / 0.194 / 0.514 / 0.287 (charges not stated)

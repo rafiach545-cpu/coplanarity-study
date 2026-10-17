@@ -1,0 +1,17 @@
+jobs 621
+
+== COL2000 2 keV: lab fiducial 22; CM-time fiducial among them 22; truth thickness median lab 4.12 um, CM 1.89 um
+   SCT z Z0: eps_reco lab 8/22 = 0.364 [0.197, 0.570] | CM 8/22 = 0.364 [0.197, 0.570] | events changed 2 | Delta_s median lab 37.7 um, CM 40.1 um | Delta_w median lab 0.498, CM 0.515 cm
+   SCT z Z580: eps_reco lab 3/22 = 0.136 [0.047, 0.333] | CM 3/22 = 0.136 [0.047, 0.333] | events changed 0 | Delta_s median lab 184.1 um, CM 151.4 um | Delta_w median lab 0.498, CM 0.509 cm
+
+== EW2000 1 keV: lab fiducial 62; CM-time fiducial among them 62; truth thickness median lab 12.35 um, CM 7.25 um
+   SCT z Z0: eps_reco lab 12/62 = 0.194 [0.114, 0.309] | CM 11/62 = 0.177 [0.102, 0.290] | events changed 1 | Delta_s median lab 37.2 um, CM 27.8 um | Delta_w median lab 0.547, CM 0.552 cm
+   SCT z Z580: eps_reco lab 4/62 = 0.065 [0.025, 0.154] | CM 5/62 = 0.081 [0.035, 0.175] | events changed 1 | Delta_s median lab 131.6 um, CM 153.3 um | Delta_w median lab 0.552, CM 0.550 cm
+
+== EW2000 2 keV: lab fiducial 62; CM-time fiducial among them 62; truth thickness median lab 13.14 um, CM 2.01 um
+   SCT z Z0: eps_reco lab 40/62 = 0.645 [0.521, 0.753] | CM 42/62 = 0.677 [0.554, 0.780] | events changed 6 | Delta_s median lab 42.0 um, CM 32.9 um | Delta_w median lab 0.311, CM 0.326 cm
+   SCT z Z580: eps_reco lab 16/62 = 0.258 [0.166, 0.379] | CM 15/62 = 0.242 [0.152, 0.362] | events changed 3 | Delta_s median lab 162.3 um, CM 149.2 um | Delta_w median lab 0.306, CM 0.328 cm
+
+== EW2000 4 keV: lab fiducial 62; CM-time fiducial among them 62; truth thickness median lab 13.00 um, CM 0.59 um
+   SCT z Z0: eps_reco lab 50/62 = 0.806 [0.691, 0.886] | CM 51/62 = 0.823 [0.710, 0.898] | events changed 7 | Delta_s median lab 43.1 um, CM 37.9 um | Delta_w median lab 0.096, CM 0.093 cm
+   SCT z Z580: eps_reco lab 14/62 = 0.226 [0.140, 0.344] | CM 15/62 = 0.242 [0.152, 0.362] | events changed 5 | Delta_s median lab 148.5 um, CM 140.6 um | Delta_w median lab 0.096, CM 0.092 cm

@@ -1,0 +1,136 @@
+modules, and also, more recently, during the combined test beam (CTB) runs in 2004 [2,3] and in a series
+of cosmic-ray tests in 2006 [2, 4]. The results have been used to update and validate the modelling of
+the detector response in the Monte-Carlo simulation. This paper describes the expected performance of
+the inner detector in terms of tracking, vertexing and particle identiﬁcation. The alignment of the inner
+detector is described elsewhere ( [2] and the references therein).
+|
+η|
+0
+0 5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+)
+0
+Radiation length (X
+0
+0.5
+1
+1.5
+2
+2.5
+|
+η|
+0
+0 5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+)
+0
+Radiation length (X
+0
+0.5
+1
+1.5
+2
+2.5
+Services
+TRT
+SCT
+Pixel
+Beam-pipe
+|
+η|
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+)
+λ
+Interaction length (
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+|
+η|
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+)
+λ
+Interaction length (
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+Services
+TRT
+SCT
+Pixel
+Beam-pipe
+Figure 3: Material distribution (X0, λ) at the exit of the ID envelope, including the services and thermal
+enclosures. The distribution is shown as a function of |η| and averaged over φ. The breakdown indicates
+the contributions of external services and of individual sub-detectors, including services in their active
+volume.
+2
+Track reconstruction
+The inner detector track reconstruction software [5] follows a modular and ﬂexible software design,
+which includes features covering the requirements of both the inner detector and muon spectrometer [2]
+reconstruction. These features comprise a common event data model [6] and detector description [7],
+which allow for standardised interfaces to all reconstruction tools, such as track extrapolation, track ﬁt-
+ting including material corrections and vertex ﬁtting. The extrapolation package combines propagation
+tools with an accurate and optimised description of the active and passive material of the full detector [8]
+to allow for material corrections in the reconstruction process. The suite of track-ﬁtting tools includes
+global-χ2 and Kalman-ﬁlter techniques, and also more specialised ﬁtters such as dynamic noise adjust-
+ment (DNA) [9], Gaussian-sum ﬁlters (GSF) [10] and deterministic annealing ﬁlters [11]. Optimisation
+of these tools continues and their performance will need to be evaluated on real data. The tools intended
+to cope with electron bremsstrahlung (DNA and GSF – see Section 5.1) will be run after the track re-
+construction, as part of the electron-photon identiﬁcation. Other common tracking tools are provided,
+including those to apply calibration corrections at later stages of the pattern recognition, to correct for
+module deformations or to resolve hit-association ambiguities.
+Track reconstruction in the inner detector is logically sub-divided into three stages:
+1. A pre-processing stage, in which the raw data from the pixel and SCT detectors are converted
+into clusters and the TRT raw timing information is translated into calibrated drift circles. The
+SCT clusters are transformed into space-points, using a combination of the cluster information
+from opposite sides of a SCT module.
+2. A track-ﬁnding stage, in which different tracking strategies [5, 12], optimised to cover different
+applications, are implemented. (The results of studies of the various algorithms are reported else-
+TRACKING – THE EXPECTED PERFORMANCE OF THE INNER DETECTOR
+19

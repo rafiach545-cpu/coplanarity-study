@@ -1,0 +1,31 @@
+== 1. paper curves (parabolic minima on each curve's own points)
+   d minima (r cm, d cm): (1.161, 0.047) / (2.314, 0.068) / (3.467, 0.088) / (4.620, 0.107)
+   |L| at the d minima (linear interpolation of the L curve): 0.645 / 0.194 / 0.514 / 0.287
+   |L| minima (r cm, |L| 1e12 hbar): (1.909, 0.015) / (2.664, 0.018) / (4.105, 0.013)
+   d at the |L| minima: 3.19 / 3.01 / 3.50
+   sampling: d points 153 L points 129 median spacing in r 0.0304 / 0.0304 cm
+== 2. implemented magnetic force for q = 0.3, p = +x, B along +z: F = [ 0. -1. -0.] (q v x B = -y: expect [0, -1, 0])
+
+== constructed (axis z, +-2/3)
+2. initial CM frame: |p1*+p2*|/|p1*| = 0.00e+00 | |v1*|, |v2*| = 0.5560, 0.5560 | v_cm = [0.0975 0.     0.    ] |v_cm,T| = 0.0975 | charges 0.6666666666666666 -0.6666666666666666 | B = +z, 2 T | d max 3.612 cm, energy-conservation prediction 3.607 cm
+3. signed L along its direction at the |L| peak: n = [1. 0. 0.] | angle of L to +-n where |L| > 5% of max: max 0 deg | min signed L/|L|max -0.0011, max +1.0000
+4. per half-oscillation (between successive d minima), projections on n in 1e12 hbar:
+   arch  r_end(cm)   dL(trajectory)   int tau dt (exact CM)   int q d x E_cm (paper Eq. 5 form)   L at arch end
+     1     1.164        +0.6434              +0.5563                    +0.5563         0.6434
+     2     2.327        -0.6430              -0.5559                    -0.5559         0.0004
+     3     3.491        +0.6426              +0.5557                    +0.5557         0.6430
+     4     4.654        -0.6429              -0.5559                    -0.5559         0.0001
+     5     5.818        +0.6435              +0.5564                    +0.5564         0.6437
+   max |L(t) - L(0) - int tau dt| / |L|max over the whole trajectory = 1.36e-01
+
+== simulated COL2000 key 8
+2. initial CM frame: |p1*+p2*|/|p1*| = 1.74e-16 | |v1*|, |v2*| = 0.5876, 0.5876 | v_cm = [ 0.04245  0.06873 -0.06262] |v_cm,T| = 0.0808 | charges 1.0 -1.0 | B = +z, 2 T | d max 4.196 cm, energy-conservation prediction 4.188 cm
+3. signed L along its direction at the |L| peak: n = [-0.137  -0.2221  0.9654] | angle of L to +-n where |L| > 5% of max: max 0.647 deg | min signed L/|L|max -0.0018, max +1.0000
+4. per half-oscillation (between successive d minima), projections on n in 1e12 hbar:
+   arch  r_end(cm)   dL(trajectory)   int tau dt (exact CM)   int q d x E_cm (paper Eq. 5 form)   L at arch end
+     1     1.047        +0.8620              +0.7309                    +0.7309         0.8620
+     2     2.095        -0.8621              -0.7310                    -0.7310         0.0001
+     3     3.142        +0.8624              +0.7312                    +0.7312         0.8622
+     4     4.189        -0.8627              -0.7315                    -0.7315         0.0005
+     5     5.237        +0.8628              +0.7315                    +0.7315         0.8623
+   max |L(t) - L(0) - int tau dt| / |L|max over the whole trajectory = 1.47e-01

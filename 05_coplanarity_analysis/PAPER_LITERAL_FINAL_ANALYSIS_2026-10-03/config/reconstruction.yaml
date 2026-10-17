@@ -1,0 +1,20 @@
+# Simulation and reconstruction settings. LENGTHS IN MM. The paper quotes cuts in cm (value in brackets); every key is read and checked.
+simulation:
+  integrator: quirk_trajectory_optimized_v2_rk4      # [ours] paper: "numerically solving the equation of motion", method not stated
+  steps_per_period: 300                  # [ours] D14: hit positions not converged (median shift 0.4-0.6 mm vs 6000), signal-region count +-1 event
+  max_layer_radius_mm: 600.0             # [ours] integration covers 3 x this radius / beta_T (trajectory_to_hits)
+hits:
+  mode: first_crossing                   # PRIMARY. options: first_crossing | all_crossings (paper silent)
+  mode_options: [first_crossing, all_crossings]
+  multiplicity_rule: at_least_2          # at_least_2 | exactly_2. [paper] "All but one layer must contain 2 hits, the remaining layer at least 1"
+cuts:                                    # [paper] Sec. III C (seeding, iterative fit, event selection) and Sec. IV (signal region)
+  seed_delta_phi_rad: 0.1                # [paper] dphi < 0.1
+  seed_delta_z_mm: 20.0                  # [paper] dz < 2 cm
+  seed_delta_s_max_mm: 0.5               # [paper] Delta_s < 0.05 cm
+  seed_delta_w_max_mm: 10.0              # [paper] Delta_w < 1 cm
+  iter_n1_max_mm: 0.5                    # [paper] |x.n1| < 0.05 cm
+  iter_n2_max_mm: 10.0                   # [paper] |x.n2| < 1 cm
+  iter_growth_factor_max: 3.0            # [paper] "do not increase by a factor of 3"
+  final_delta_w_max_mm: 10.0             # [paper] final cut Delta_w < 1 cm
+  signal_delta_s_max_mm: 0.1             # [paper] Delta_s < 0.01 cm
+  prefilter: none                        # [paper] no prefilter

@@ -1,0 +1,16 @@
+{
+ "figure": "F40_fig5_Z1160",
+ "source_csv": "F40_fig5_Z1160_source.csv",
+ "source_csv_sha256": "ca1d3ac3745dc0388a30215fe6680e1307ee867f8dc8ff9600bf59a2b3894d7d",
+ "plot_reads_only_source_csv": true,
+ "selection": "see caption",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/all_crossings_per_event.csv": "9998588086cf82cbb7463c1e80658ddf995bcb157992954b6f0b8739daeda2cc",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P10_chunks_LITERAL": "directory/not-a-file",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../logs/P8_chunks_LITERAL": "directory/not-a-file",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/paper_fig5_vector.json": "2438b97e695c0f03cb54f4e3974019ae1689098719f8192fbac131cd83eaaa8c"
+ },
+ "script": "F40_fig5_same_smearing.py",
+ "script_sha256": "10a673654de903e9df6c87c461593e76e41f56c74c6134fbc3a12a0e3735eccb",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

@@ -1,0 +1,13 @@
+{
+ "figure": "F41_appendixA_diagram",
+ "source_csv": "F41_appendixA_diagram_source.csv",
+ "source_csv_sha256": "2cd8ccf250c02837f94437463d9c6ad4a08ca0676019cc6c7e6f558d572d9239",
+ "plot_reads_only_source_csv": true,
+ "selection": "event with the paper's kinematics",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/fig2_final/fig2_ours_constructed.csv": "4a05461468114b4fcff461437d9b75c8b7669f77ebf36f18d04f8a23f47f786a"
+ },
+ "script": "F41_appendixA_diagram.py",
+ "script_sha256": "01ccae735fe4d138678b5c1bbb2e10c4c224b3a57ec712d3214f99364d5dd4af",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

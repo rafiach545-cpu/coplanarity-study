@@ -8,6 +8,7 @@ of the ATLAS inner detector are calculated"), instead of only the first outward 
 Validation: mode FIRST must reproduce tables/acceptance_longitudinal_per_event.csv (B, CV) for every event.
 Output: tables/all_crossings_per_event.csv"""
 import os, sys, math, importlib.util, multiprocessing as mp, numpy as np, pandas as pd
+from collections import Counter
 HERE = os.path.dirname(os.path.abspath(__file__)); T = f"{HERE}/../tables"
 spec = importlib.util.spec_from_file_location("p4", f"{HERE}/P4_literal_signal.py"); p4 = importlib.util.module_from_spec(spec); spec.loader.exec_module(p4)
 NS = 6.582119569e-16; CM = 1.973269804e-14; SID = {s: i for i, s in enumerate(p4.SAMPLES)}
@@ -21,30 +22,35 @@ def all_crossings(traj):
                 f = (R - r[i]) / (r[i + 1] - r[i]); p = x[i] + f * (x[i + 1] - x[i]); tt = t[i] + f * (t[i + 1] - t[i])
                 out.append(dict(quirk=qi, layer=L, order=k, x=p[0], y=p[1], z_lab=p[2], t_ns=tt, r=R))
     return out
+def mult_ok(layers):
+    """Sec. IV cut 2 with the rule of config/reconstruction.yaml (hits.multiplicity_rule): at_least_2 = coplanarity_fit.check_hit_multiplicity
+    (7 layers with >= 2 hits, all 8 with >= 1); exactly_2 = 7 layers with exactly 2 hits, the remaining layer with >= 1."""
+    if p4.R["mult_rule"] == "at_least_2": return p4.cf.check_hit_multiplicity(layers)
+    n = Counter(layers); return sum(1 for l in range(1, 9) if n.get(l, 0) == 2) >= 7 and all(n.get(l, 0) >= 1 for l in range(1, 9))
 def reco(hits_cr, z0, g, sct, key, sample, first_only):
     tth, cf = p4.tth, p4.cf; rng = np.random.default_rng(np.random.SeedSequence([18, SID[sample], int(key)])); raw = []
     for c in hits_cr:
         if first_only and c["order"] > 0: continue
-        if c["t_ns"] >= 25.0 or abs(c["z_lab"]) >= p4.HALF[c["layer"]]: continue
+        if c["t_ns"] >= p4.R["timing_ns"] or abs(c["z_lab"]) >= p4.HALF[c["layer"]]: continue
         lay = tth.LAYERS[c["layer"] - 1]; rphi = lay["r_cm"] * math.atan2(c["y"], c["x"])
         if lay["is_pixel"]: rh, zh, ir, iz = tth.quantize_pixel(rphi, c["z_lab"], lay["eff_res_rphi_um"], lay["eff_res_z_um"])
         else:
             g1, g2 = g[(c["quirk"], c["layer"])] if (c["order"] == 0 and (c["quirk"], c["layer"]) in g) else rng.standard_normal(2)
-            rh, zh, ir, iz = rphi + 34e-4 * g1, c["z_lab"] + p4.SZ[sct] * g2, None, None
+            rh, zh, ir, iz = rphi + p4.R["sct_rphi_cm"] * g1, c["z_lab"] + p4.SZ[sct] * g2, None, None
         ph = rh / lay["r_cm"]
         raw.append(dict(layer=lay["name"], layer_r_cm=lay["r_cm"], quirk_index=c["quirk"], t_ns=c["t_ns"], x=lay["r_cm"] * math.cos(ph), y=lay["r_cm"] * math.sin(ph), z=zh,
                         is_pixel=lay["is_pixel"], idx_rphi=ir, idx_z=iz))
     merged = tth.merge_neighboring_pixel_hits(raw); idx = {Ly["name"]: i for i, Ly in enumerate(tth.LAYERS, 1)}
     hbl = {k: [] for k in range(1, 9)}
     for h in merged: hbl[idx[h["layer"]]].append(tuple(cf.vertex_relative_hits([(h["x"], h["y"], h["z"])], np.array([0.0, 0.0, z0]))[0]))
-    cands = cf.seeding_and_iterative_fit(hbl); surv = [c for c in cands if c["fit"]["delta_w"] < 1.0]; sel = min(surv, key=lambda c: c["fit"]["delta_s"]) if surv else None
-    mult = cf.check_hit_multiplicity(sel["layers"]) if sel else False; ds = sel["fit"]["delta_s"] if sel else np.nan; dw = sel["fit"]["delta_w"] if sel else np.nan
+    cands = cf.seeding_and_iterative_fit(hbl, **p4.R["seed"]); surv = [c for c in cands if c["fit"]["delta_w"] < p4.R["final_dw_cm"]]; sel = min(surv, key=lambda c: c["fit"]["delta_s"]) if surv else None
+    mult = mult_ok(sel["layers"]) if sel else False; ds = sel["fit"]["delta_s"] if sel else np.nan; dw = sel["fit"]["delta_w"] if sel else np.nan
     from collections import Counter
-    return dict(plane=sel is not None, mult=bool(mult), ds=ds, dw=dw, final=bool(sel is not None and mult and ds < 0.01), n_hits_input=sum(len(v) for v in hbl.values()),
+    return dict(plane=sel is not None, mult=bool(mult), ds=ds, dw=dw, final=bool(sel is not None and mult and ds < p4.R["signal_ds_cm"]), n_hits_input=sum(len(v) for v in hbl.values()),
                 max_hits_per_layer=max(len(v) for v in hbl.values()), sel_layers=str(dict(Counter(sel["layers"]))) if sel else "")
 def job(a):
     s, key, eid, p1, p2, c1, c2, z0, g, fid = a; mq, lam = p4.PAR["EW" if s.startswith("EW") else "COL"]
-    _, traj = p4.tth.simulate_quirk_hits(p1, p2, mass_gev=mq, Lambda_gev=lam, B_tesla=2.0, charge1=c1, charge2=c2, rng=np.random.default_rng(0), z0_cm=z0, max_layer_r_cm=60.0)
+    _, traj = p4.tth.simulate_quirk_hits(p1, p2, mass_gev=mq, Lambda_gev=lam, B_tesla=p4.R["B_tesla"], charge1=c1, charge2=c2, rng=np.random.default_rng(0), z0_cm=z0, max_layer_r_cm=p4.R["max_layer_r_cm"])
     cr = all_crossings(traj); out = []
     for mode in ("FIRST", "ALL"):
         for sct in ("Z0", "Z580", "Z1160"):
@@ -73,6 +79,7 @@ if __name__ == "__main__":
     print("events", len(jobs), flush=True)
     with mp.Pool(10, initializer=p4._init) as pool: out = [r for rr in pool.imap_unordered(job, jobs, chunksize=2) for r in rr]
     d = pd.DataFrame(out); d.to_csv(f"{T}/all_crossings_per_event.csv", index=False)
+    p4.CFG.validate_signal_inputs(); p4.CFG.assert_used("signal"); p4.CFG.write_provenance(f"{T}/all_crossings_per_event.csv")
     # validation: FIRST mode == stored B/CV results
     TR = lambda x: x.astype(str) == "True"; bad = 0
     for sct in ("Z0", "Z580", "Z1160"):

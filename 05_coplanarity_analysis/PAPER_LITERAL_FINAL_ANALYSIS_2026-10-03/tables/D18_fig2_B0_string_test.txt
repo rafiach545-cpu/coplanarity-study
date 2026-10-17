@@ -1,0 +1,19 @@
+p* = 1204.07 GeV, CM period 23.760 cm/c, delta = 8.194e-02 um, L0 target 0.5e12 hbar
+
+== v_cm = 0.0: steps 12901, d max 3.611 cm, closest approaches 8, L0 = 0.5000 e12 hbar
+   L along n0, relative to L0: min 0.831205, max 1.000129; component perpendicular to n0: max 0.00e+00 of L0
+   at successive turning points (d max) and closest approaches (d min), L/L0:
+   max 0.831205 | min 0.999958 | max 0.831205 | min 0.999886 | max 0.831226 | min 0.999991 | max 0.831226 | min 1.000113 | max 0.831226 | min 1.000129 | max 0.831226 | min 0.999976 | max 0.831222 | min 0.999849 | max 0.831222 | min 0.999834 | max 0.831222
+   d min values (um): 29.4 / 0.0821 / 32.6 / 6.49 / 9.73 / 42.3 / 16.1 / 19.3
+
+== v_cm = 0.0975: steps 12963, d max 3.621 cm, closest approaches 8, L0 = 0.5000 e12 hbar
+   L along n0, relative to L0: min 0.831197, max 1.000497; component perpendicular to n0: max 0.00e+00 of L0
+   at successive turning points (d max) and closest approaches (d min), L/L0:
+   max 0.831205 | min 1.000153 | max 0.831201 | min 1.000228 | max 0.831201 | min 1.000288 | max 0.831199 | min 1.000363 | max 0.831199 | min 1.000288 | max 0.831199 | min 1.000362 | max 0.831199 | min 1.000424 | max 0.831198 | min 1.000497 | max 0.831197
+   d min values (um): 42.6 / 26.5 / 39.7 / 5.56 / 7.61 / 37.7 / 24.5 / 40.6
+
+== v_cm = 0.3: steps 13524, d max 3.616 cm, closest approaches 8, L0 = 0.5000 e12 hbar
+   L along n0, relative to L0: min 0.831201, max 1.000350; component perpendicular to n0: max 0.00e+00 of L0
+   at successive turning points (d max) and closest approaches (d min), L/L0:
+   max 0.831202 | min 1.000052 | max 0.831202 | min 1.000089 | max 0.831202 | min 1.000052 | max 0.831202 | min 1.000088 | max 0.831201 | min 1.000182 | max 0.831201 | min 1.000219 | max 0.831201 | min 1.000313 | max 0.831201 | min 1.000350 | max 0.831201
+   d min values (um): 20.1 / 15.8 / 4.33 / 31.6 / 11.4 / 19.3 / 28.8 / 20.9

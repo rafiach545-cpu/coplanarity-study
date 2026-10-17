@@ -1,0 +1,31 @@
+sample,COL2000,EW2000
+mg5,3.7.3,3.7.3
+pythia,8.317,8.317
+process,generate p p > t1 t1~ @0; add process p p > t1 t1~ j @1,generate p p > qe+ qe- @0; add process p p > qe+ qe- j @1
+iseed,8001,8002
+nevents,2000,2000
+ebeam1,6500.0,6500.0
+pdlabel,nn23lo1,nn23lo1 (pdlabel1 = pdlabel2)
+lhaid,230000,230000
+dynamical_scale_choice,-1,-1
+fixed_ren_scale,False,False
+scalefact,1.0,1.0
+ickkw,1,1
+xqcut,30.0,30.0
+ptj,20.0,20.0
+drjj,not in banner,not in banner
+maxjetflavor,4,4
+auto_ptj_mjj,True,True
+ktdurham,-1.0,-1.0
+use_syst,True,True
+asrwgtflavor,4,4
+alpsfact,1.0,1.0
+JetMatching:qCut,4.5000000000e+01,4.5000000000e+01
+JetMatching:doShowerKt,off,off
+JetMatching:nJetMax,1,1
+JetMatching:etaJetMax,1.0000000000e+03,1.0000000000e+03
+JetMatching:merge,on,on
+JetMatching:scheme,1,1
+JetMatching:setMad,off,off
+JetMatching:coneRadius,1.0000000000e+00,1.0000000000e+00
+JetMatching:nQmatch,4,4

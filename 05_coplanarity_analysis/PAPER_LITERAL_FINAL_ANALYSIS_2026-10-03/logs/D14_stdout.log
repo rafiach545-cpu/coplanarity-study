@@ -54,3 +54,51 @@ events 84 done 48 to run 36
 1/36
 2/36
 events 84 done 50 to run 34
+events 84 done 50 to run 34
+1/34
+2/34
+events 84 done 52 to run 32
+1/32
+events 84 done 53 to run 31
+events 84 done 53 to run 31
+events 84 done 53 to run 31
+1/31
+2/31
+3/31
+4/31
+5/31
+6/31
+7/31
+8/31
+9/31
+10/31
+11/31
+12/31
+13/31
+14/31
+15/31
+16/31
+17/31
+18/31
+19/31
+20/31
+21/31
+22/31
+23/31
+24/31
+25/31
+26/31
+27/31
+28/31
+29/31
+30/31
+31/31
+not run (step ceiling): [{'sample': 'EW2000', 'key': 76, 'steps': 3000}, {'sample': 'EW2000', 'key': 76, 'steps': 6000}]
+COL2000   300 steps/period: hit shift vs 6000 median    408.0 um, worst event   44678.2 um, max dt 776.78 ps | SR (none) 8/22 [changed vs 6000: 1] | SR (1.16 mm) 1/22 [changed: 0]
+COL2000  1500 steps/period: hit shift vs 6000 median     77.2 um, worst event   19798.9 um, max dt 605.00 ps | SR (none) 9/22 [changed vs 6000: 0] | SR (1.16 mm) 1/22 [changed: 0]
+COL2000  3000 steps/period: hit shift vs 6000 median     34.3 um, worst event    2467.8 um, max dt 327.93 ps | SR (none) 9/22 [changed vs 6000: 0] | SR (1.16 mm) 1/22 [changed: 0]
+COL2000  6000 steps/period: hit shift vs 6000 median      0.0 um, worst event       0.0 um, max dt   0.00 ps | SR (none) 9/22 [changed vs 6000: 0] | SR (1.16 mm) 1/22 [changed: 0]
+EW2000   300 steps/period: hit shift vs 6000 median    640.7 um, worst event   29626.4 um, max dt 411.45 ps | SR (none) 50/61 [changed vs 6000: 7] | SR (1.16 mm) 10/61 [changed: 2]
+EW2000  1500 steps/period: hit shift vs 6000 median    175.8 um, worst event   12391.7 um, max dt 139.25 ps | SR (none) 43/61 [changed vs 6000: 10] | SR (1.16 mm) 9/61 [changed: 5]
+EW2000  3000 steps/period: hit shift vs 6000 median    135.6 um, worst event    5872.6 um, max dt  99.88 ps | SR (none) 51/61 [changed vs 6000: 0] | SR (1.16 mm) 12/61 [changed: 2]
+EW2000  6000 steps/period: hit shift vs 6000 median      0.0 um, worst event       0.0 um, max dt   0.00 ps | SR (none) 51/61 [changed vs 6000: 0] | SR (1.16 mm) 10/61 [changed: 0]

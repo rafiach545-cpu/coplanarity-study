@@ -1,0 +1,14 @@
+{
+ "figure": "F42_fig2_log_scale",
+ "source_csv": "F42_fig2_log_scale_source.csv",
+ "source_csv_sha256": "fec8bb54e7315de5a05bedb686fbfc73454cddb9b9beb0f3f5caf17fa78f7917",
+ "plot_reads_only_source_csv": true,
+ "selection": "event with the paper's kinematics",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/fig2_final/fig2_ours_constructed_steps.csv": "7a310297c30b8611161c209205f148cb0efac4452d2345283e07c6613c745fde",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/fig2_final/fig2_paper_L.csv": "9733a7cdfcc5200b57293214f10a30f11c17091fd5817f1880ca213c49d853fe"
+ },
+ "script": "F42_fig2_log_scale.py",
+ "script_sha256": "71500c878b0c40ad6c5f4fe03089a53fe6006d41706a30bf1f1671ead5ced54c",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

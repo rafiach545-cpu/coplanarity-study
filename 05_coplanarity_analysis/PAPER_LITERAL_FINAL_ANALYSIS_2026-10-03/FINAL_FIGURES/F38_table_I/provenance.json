@@ -1,0 +1,15 @@
+{
+ "figure": "F38_table_I",
+ "source_csv": "F38_table_I_source.csv",
+ "source_csv_sha256": "aaba15b0a05642fb7b3c5945bba09d35b7a265ebc307b47a1fe0f319faa2be7a",
+ "plot_reads_only_source_csv": true,
+ "selection": "2000-event production samples; D41 contiguous finished events",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/tables/all_crossings_per_event.csv": "9998588086cf82cbb7463c1e80658ddf995bcb157992954b6f0b8739daeda2cc",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/inputs_D41/mg5_373_run.log": "b3ff25c5bf19e5cb585ca90dccb7324eefd27d4d613debec79ecd0324fb28151",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/logs/D41_mg5_373_lo_events.jsonl": "bdcd55b07a7bc525e42849f5815124f678ff714c14054b02cc8fa599d95f80f0"
+ },
+ "script": "F38_report_2026_10_15_figs.py",
+ "script_sha256": "45a0ba4aa99307f74ba8c04286d6b36a6636c966070f566b197bb6b2e29decb9",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

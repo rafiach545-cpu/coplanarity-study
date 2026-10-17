@@ -1,0 +1,19 @@
+# Benchmarks of Table I. Masses in GeV, Lambda in eV.
+colored:
+  model: "(3,1)_2/3 vector-like fermion; MG5 model quirk, PDG 1000006 (spin 2 = fermion, D35)"
+  mass_gev: 1800.0                       # [paper] Table I
+  lambda_ev_table: [1000, 2000, 3000, 5000, 10000]   # [paper] Table I rows
+  lambda_ev_production: 2000             # must be one of lambda_ev_table
+  charged_fraction: 0.3                  # [paper] "probability ... to have +-1 charges is roughly 30%"
+  generator_seed: 8001                   # run banner (tables/generator_settings_2000.csv)
+ew:
+  model: "(1,1)_1 vector-like fermion; MG5 model quirk, PDG 9000011"
+  mass_gev: 800.0                        # [paper] Table I
+  lambda_ev_table: [1000, 2000, 3000, 4000, 5000]    # [paper] Table I rows
+  lambda_ev_production: 4000
+  charged_fraction: 1.0                  # unit charge
+  generator_seed: 8002
+trigger_pt_pair_min_gev: 200.0           # [paper] pT > 200 GeV on the quirk pair
+luminosity_fb: 300.0                     # [paper] Fig. 6
+pileup_mu_signal: 0                      # [ours] signal efficiencies without pile-up (paper does not state)
+pileup_mu_background: 50                 # [paper] <mu> = 50

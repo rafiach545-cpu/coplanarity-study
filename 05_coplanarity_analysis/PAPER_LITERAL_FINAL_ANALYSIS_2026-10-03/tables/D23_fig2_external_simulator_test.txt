@@ -1,0 +1,7 @@
+paper: d max 3.56 cm, spacing 1.155 cm, |L| at closest approaches 0.645 / 0.194 / 0.514 / 0.287 (1e12 hbar)
+as supplied (no c in Lorentz, 2 mm start, axis perp): d max 3.79 cm, spacing 1.339 cm, |L| max 0.000, |L| at closest approaches 0.000 / 0.000 / 0.000
+c fixed, 2 mm start, axis perp                      : d max 3.79 cm, spacing 1.339 cm, |L| max 0.000, |L| at closest approaches 0.000 / 0.000 / 0.000
+c fixed, start at one point, axis perp              : d max 3.59 cm, spacing 1.305 cm, |L| max 0.000, |L| at closest approaches 0.000 / 0.000 / 0.000
+c fixed, start at one point, axis z                 : d max 3.59 cm, spacing 1.305 cm, |L| max 0.955, |L| at closest approaches 0.955 / 0.000 / 0.955
+no c, start at one point, axis z                    : d max 3.59 cm, spacing 1.305 cm, |L| max 3.184, |L| at closest approaches 3.184 / 0.000 / 3.183
+c fixed, 2 mm start, axis z                         : d max 3.78 cm, spacing 1.343 cm, |L| max 12204.811, |L| at closest approaches 12204.811 / 12203.817 / 12204.748
