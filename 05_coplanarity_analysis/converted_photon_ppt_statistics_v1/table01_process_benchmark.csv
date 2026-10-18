@@ -1,9 +1,0 @@
-item,value
-Process,"Z+gamma+j, MadGraph5_aMC@NLO"
-Z decay,Z->nu nu (all 3 flavors summed at generation)
-Collider,"pp, sqrt(s)=13 TeV"
-MET requirement,">200 GeV (post-shower, exact)"
-Photon pT requirement,>0.5 GeV
-Conversion probability,"0.01 (event weight, not stochastic selection)"
-Conversion radius,2.35 cm (beampipe)
-Energy sharing,exact 50/50 (paper's conservative assumption)

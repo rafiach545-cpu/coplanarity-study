@@ -1,5 +1,0 @@
-item,value
-Layers,8
-B field,2.0 T
-Model,"atlas_geometry.py 8-layer barrel (Sec IIIA), no endcap/TRT/ECAL/Bethe-Bloch"
-eta acceptance,|eta|<1.8

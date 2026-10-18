@@ -1,6 +1,0 @@
-mu,mean_interactions,median_interactions,min_interactions,max_interactions,mean_particles,median_particles,min_particles,max_particles,mean_retained_tracks,median_retained_tracks,min_retained_tracks,max_retained_tracks,mean_hits_before,median_hits_before,mean_hits_after,median_hits_after
-0,0.0,0.0,0,0,0.0,0.0,0,0,0.0,0.0,0,0,0.0,0.0,0.0,0.0
-5,4.9674,5.0,0,14,560.666,526.0,0,1962,104.2066,96.0,0,404,1175.0866,1075.0,717.541,661.0
-10,10.053,10.0,1,25,1134.8664,1106.0,48,3188,210.541,204.0,12,592,2373.4854,2298.5,1449.8246,1406.0
-20,20.0428,20.0,7,37,2263.9392,2228.0,622,4796,419.7794,412.0,99,957,4741.1832,4641.0,2890.6594,2832.0
-50,49.9572,50.0,28,79,5647.6108,5593.0,2494,9852,1048.8536,1040.0,443,1933,11842.968,11713.0,7223.7886,7166.0

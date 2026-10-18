@@ -1,8 +1,0 @@
-stage,wall_time,wall_time_s,wall_time_h,s_per_event,events_per_hour,PID,exit_code
-Colored/EW signal analysis,NOT RECORDED,,,,,,
-Photon v3 (authoritative),,17057,4.738,1.8672,1928.85,95330.0,0.0
-Pileup mu=0 (fullcutflow),,see provenance (~2.3s orig sweep; fullcutflow skipped-on-resume),,,,,
-Pileup mu=5 (fullcutflow),,610.24,,,,,
-Pileup mu=10 (fullcutflow),,1377.28,,,,,
-Pileup mu=20 (fullcutflow),,3279.97,,,,,
-Pileup mu=50 (fullcutflow),,16193.4,,,,,

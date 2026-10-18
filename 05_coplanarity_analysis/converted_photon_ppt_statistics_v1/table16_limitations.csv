@@ -1,7 +1,0 @@
-limitation
-"No pile-up overlay -- conversion-only result, not paper-equivalent"
-Hit-multiplicity pass PENDING v4 rerun completion (in progress at time of this report)
-No production-level generation files (run_card/proc_card) present in repo; N=10000 raw generated is a hardcoded constant
-No absolute fb/bin normalization beyond the fiducial-sigma x conversion-probability chain
-Detector model omits endcap/TRT/ECAL/Bethe-Bloch
-CPU time / peak RSS not instrumented for any run

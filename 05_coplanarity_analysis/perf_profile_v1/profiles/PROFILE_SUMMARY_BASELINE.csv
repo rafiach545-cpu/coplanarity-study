@@ -1,7 +1,0 @@
-benchmark,event,lambda_gev,wall_time_s,time_integrate_trajectory_s,time_find_layer_crossing_s,time_quantize_pixel_s,time_merge_neighboring_pixel_hits_s,time_seeding_and_iterative_fit_s,sec3c_ds_cm,final_sec_iv_pass,source,mQ_gev,boost_class,pT_pair_gev,cpu_time_s,peak_rss_kb,n_hits_premerge,n_hits_postmerge,n_candidates,geometric_fiducial,truth_fiducial,sec3c_plane_found,sec3c_dw_cm,hit_multiplicity_pass,time_apply_signal_region_cuts_s,time_vertex_relative_hits_s,time_fit_plane_s
-colored,236,2e-06,201.136,201.09,0.0311,0.0,0.0,0.0,,False,main_run,,,,,,,,,,,,,,,,
-colored,236,4.9999999999999996e-06,1429.3,1429.038,0.2247,0.0,0.0,0.0,,False,main_run,,,,,,,,,,,,,,,,
-colored,322,2e-06,185.91,185.861,0.0308,0.0002,0.0003,0.0125,,False,main_run,,,,,,,,,,,,,,,,
-colored,34,2e-06,132.6473301829974,132.589244682,0.038277801,0.0002466,0.0004961,0.0111708,0.011910961381614,False,supplement,1800.0,high,847.5157519297334,132.583571,81084.0,16.0,16.0,1.0,True,True,True,0.1530837363265764,False,8.6e-06,0.0011335,0.0091841
-EW,438,4e-06,1056.4750051279989,1056.2381733260002,0.199845202,0.0001726,0.0002129,7.8e-06,,False,supplement,800.0,low,202.6499322385554,1055.9790020000005,151304.0,6.0,6.0,0.0,False,False,False,,False,1.5e-06,4.3700000000000005e-05,0.0
-EW,417,4e-06,114.11171005500364,114.081395556,0.024289299,0.0002956,0.0002507,0.0019129,0.0149221457679139,False,supplement,800.0,high,998.7349133919548,114.06479900000002,151304.0,16.0,16.0,1.0,True,True,True,0.1361999798087982,False,3.1000000000000004e-06,0.0001017,0.0015764

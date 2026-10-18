@@ -1,8 +1,0 @@
-category,count,note
-trigger_passing_total,186,denominator for fiducial efficiency
-"technical_exception (known physics-driven integration edge case, e.g. ABSOLUTE_MAX_STEPS)",2,"pre-existing, documented category, not new; excluded from geometric/timing breakdown below"
-status_ok (eligible for geometric/timing breakdown),184,186 - technical_exceptions
-"geometric_failure (n_hits_premerge != 16, i.e. NOT both quirks covering all 8 layers)",89,"structurally guaranteed to mean at least one quirk missed >=1 layer -- see code-level proof in report SS: find_layer_crossing caps each quirk at <=8 hits, so 16 total is only achievable as 8+8"
-timing_failure (geometric_fiducial True but max_hit_t_ns >= 25ns or NaN),1,"both quirks covered all 8 layers, but last crossing exceeded the 25ns cut"
-one_quirk_only_failure (asymmetric 16-total misclassification),0,STRUCTURALLY IMPOSSIBLE given code proof -- verified empirically consistent on spot-check replay (see EW2000_fiducial_replay_detail.csv)
-truth_fiducial (geometric AND timing both pass),94,= geo_ok_total - timing_fail = final N_fiducial

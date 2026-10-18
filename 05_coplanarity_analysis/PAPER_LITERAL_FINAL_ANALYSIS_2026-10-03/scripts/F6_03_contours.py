@@ -145,7 +145,7 @@ def panel(ax, ch, sct):
 NOTES = ("Normalisation: σ = MadGraph5 3.7.3 LO (0 + 1 jet, MLM-matched with Pythia8) for one quirk species, no K-factor; the paper gives no σ. The \"N_Q = 2\" of the paper's "
          "panel titles is NOT applied (no factor 2 on σ). A factor of 1.5–1.7 (colored) and 1.3–1.4 (EW) on σ brings our maxima close to the paper's (sensitivity, not a fit; F6_kfactor).\n"
          "EW trigger: ε_trig = σ(pp → QQ̄ + j, p_T(j) > 200 GeV) / σ(pp → QQ̄) at LO (0.096 at 800 GeV, = paper 0.10), NOT the matched + shower count (0.178 at 800 GeV), which would "
-         "move the EW maximum outward by ~60–80 GeV. EW ε_fid and ε_reco: from the matched + shower sample of each mass; the LO sample at 800 GeV (D41, 3000 events) gives ε_fid 0.30 "
+         "move the EW maximum outward by ~60–80 GeV. EW ε_fid and ε_reco: from the matched + shower sample of each mass; the LO sample at 800 GeV (3000 events, report Section 2.3) gives ε_fid 0.30 "
          "vs 0.31 here and k/n within ±13%, which moves the EW maximum by +5 GeV. Colored: ε_trig = matched count; the both-charged factor (~0.33) is included (thin orange: without it).\n"
          "Red ✕: at low Λ for colored 600–1200 GeV and EW 100–200 GeV our samples (40–70 events per mass) are too small; the paper's lower-left edge passes there and is not "
          "tested here (larger samples needed). Λ = 15–25 keV: computed (the integrator's 20-million-step ceiling removes ≤ 13% of the events fiducial at 10 keV there); Λ > 25 keV: not computed, "

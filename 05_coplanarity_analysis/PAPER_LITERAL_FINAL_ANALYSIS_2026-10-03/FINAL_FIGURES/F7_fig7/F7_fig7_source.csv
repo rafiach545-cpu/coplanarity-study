@@ -1,0 +1,967 @@
+selection,sample,var,lo,hi,frac,n_hits,x,y
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,0.0,2.0,0.2579787234042553,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,2.0,4.0,0.3962765957446808,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,4.0,6.0,0.11436170212765957,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,6.0,8.0,0.07712765957446809,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,8.0,10.0,0.02925531914893617,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,10.0,12.0,0.031914893617021274,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,12.0,14.0,0.007978723404255319,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,14.0,16.0,0.010638297872340425,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,16.0,18.0,0.010638297872340425,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,18.0,20.0,0.005319148936170213,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,20.0,22.0,0.010638297872340425,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,22.0,24.0,0.005319148936170213,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,24.0,26.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,26.0,28.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,28.0,30.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,30.0,32.0,0.007978723404255319,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,32.0,34.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,34.0,36.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,36.0,38.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,38.0,40.0,0.005319148936170213,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,40.0,42.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,42.0,44.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,44.0,46.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,46.0,48.0,0.005319148936170213,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,48.0,50.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,50.0,52.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,52.0,54.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,54.0,56.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,56.0,58.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,58.0,60.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,60.0,62.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,62.0,64.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,64.0,66.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,66.0,68.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,68.0,70.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,70.0,72.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,72.0,74.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,74.0,76.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,76.0,78.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,78.0,80.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,80.0,82.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,82.0,84.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,84.0,86.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,86.0,88.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,88.0,90.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,90.0,92.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,92.0,94.0,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,94.0,96.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,96.0,98.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,dEdx,98.0,100.0,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.0001,0.00012589254117941674,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00012589254117941674,0.00015848931924611142,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00015848931924611142,0.00019952623149688788,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00019952623149688788,0.00025118864315095795,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00025118864315095795,0.00031622776601683794,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00031622776601683794,0.00039810717055349735,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00039810717055349735,0.0005011872336272725,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.0005011872336272725,0.000630957344480193,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.000630957344480193,0.0007943282347242813,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.0007943282347242813,0.001,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.001,0.0012589254117941675,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.0012589254117941675,0.001584893192461114,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.001584893192461114,0.001995262314968879,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.001995262314968879,0.002511886431509582,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.002511886431509582,0.0031622776601683794,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.0031622776601683794,0.003981071705534973,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.003981071705534973,0.005011872336272725,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.005011872336272725,0.00630957344480193,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00630957344480193,0.00794328234724282,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.00794328234724282,0.01,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.01,0.012589254117941675,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.012589254117941675,0.01584893192461114,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.01584893192461114,0.01995262314968881,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.01995262314968881,0.025118864315095822,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.025118864315095822,0.03162277660168379,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.03162277660168379,0.039810717055349734,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.039810717055349734,0.05011872336272725,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.05011872336272725,0.06309573444801936,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.06309573444801936,0.07943282347242822,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.07943282347242822,0.1,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.1,0.12589254117941676,0.005319148936170213,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.12589254117941676,0.15848931924611143,0.018617021276595744,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.15848931924611143,0.19952623149688808,0.018617021276595744,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.19952623149688808,0.25118864315095824,0.03723404255319149,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.25118864315095824,0.31622776601683794,0.0398936170212766,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.31622776601683794,0.3981071705534973,0.06914893617021277,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.3981071705534973,0.5011872336272725,0.1196808510638298,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.5011872336272725,0.6309573444801936,0.1595744680851064,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.6309573444801936,0.7943282347242822,0.1622340425531915,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,0.7943282347242822,1.0,0.1595744680851064,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,1.0,1.2589254117941688,0.11436170212765957,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,1.2589254117941688,1.584893192461114,0.07712765957446809,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,1.584893192461114,1.9952623149688788,0.015957446808510637,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,1.9952623149688788,2.5118864315095824,0.0026595744680851063,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,2.5118864315095824,3.1622776601683795,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,3.1622776601683795,3.9810717055349776,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,3.9810717055349776,5.011872336272725,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,5.011872336272725,6.309573444801943,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,6.309573444801943,7.943282347242821,0.0,376.0,,
+"main: fiducial events, first crossing",EW_800GeV_2keV,betagamma,7.943282347242821,10.0,0.0,376.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,0.0,2.0,0.03164556962025317,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,2.0,4.0,0.23417721518987342,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,4.0,6.0,0.22151898734177214,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,6.0,8.0,0.13291139240506328,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,8.0,10.0,0.08860759493670886,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,10.0,12.0,0.056962025316455694,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,12.0,14.0,0.0379746835443038,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,14.0,16.0,0.0379746835443038,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,16.0,18.0,0.02531645569620253,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,18.0,20.0,0.0379746835443038,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,20.0,22.0,0.012658227848101266,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,22.0,24.0,0.02531645569620253,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,24.0,26.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,26.0,28.0,0.006329113924050633,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,28.0,30.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,30.0,32.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,32.0,34.0,0.012658227848101266,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,34.0,36.0,0.006329113924050633,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,36.0,38.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,38.0,40.0,0.006329113924050633,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,40.0,42.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,42.0,44.0,0.006329113924050633,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,44.0,46.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,46.0,48.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,48.0,50.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,50.0,52.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,52.0,54.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,54.0,56.0,0.006329113924050633,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,56.0,58.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,58.0,60.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,60.0,62.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,62.0,64.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,64.0,66.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,66.0,68.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,68.0,70.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,70.0,72.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,72.0,74.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,74.0,76.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,76.0,78.0,0.006329113924050633,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,78.0,80.0,0.006329113924050633,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,80.0,82.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,82.0,84.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,84.0,86.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,86.0,88.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,88.0,90.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,90.0,92.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,92.0,94.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,94.0,96.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,96.0,98.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,dEdx,98.0,100.0,0.0,158.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.0001,0.00012589254117941674,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00012589254117941674,0.00015848931924611142,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00015848931924611142,0.00019952623149688788,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00019952623149688788,0.00025118864315095795,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00025118864315095795,0.00031622776601683794,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00031622776601683794,0.00039810717055349735,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00039810717055349735,0.0005011872336272725,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.0005011872336272725,0.000630957344480193,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.000630957344480193,0.0007943282347242813,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.0007943282347242813,0.001,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.001,0.0012589254117941675,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.0012589254117941675,0.001584893192461114,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.001584893192461114,0.001995262314968879,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.001995262314968879,0.002511886431509582,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.002511886431509582,0.0031622776601683794,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.0031622776601683794,0.003981071705534973,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.003981071705534973,0.005011872336272725,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.005011872336272725,0.00630957344480193,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00630957344480193,0.00794328234724282,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.00794328234724282,0.01,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.01,0.012589254117941675,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.012589254117941675,0.01584893192461114,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.01584893192461114,0.01995262314968881,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.01995262314968881,0.025118864315095822,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.025118864315095822,0.03162277660168379,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.03162277660168379,0.039810717055349734,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.039810717055349734,0.05011872336272725,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.05011872336272725,0.06309573444801936,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.06309573444801936,0.07943282347242822,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.07943282347242822,0.1,0.0125,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.1,0.12589254117941676,0.0125,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.12589254117941676,0.15848931924611143,0.01875,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.15848931924611143,0.19952623149688808,0.025,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.19952623149688808,0.25118864315095824,0.10625,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.25118864315095824,0.31622776601683794,0.11875,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.31622776601683794,0.3981071705534973,0.16875,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.3981071705534973,0.5011872336272725,0.2,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.5011872336272725,0.6309573444801936,0.16875,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.6309573444801936,0.7943282347242822,0.09375,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,0.7943282347242822,1.0,0.04375,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,1.0,1.2589254117941688,0.03125,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,1.2589254117941688,1.584893192461114,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,1.584893192461114,1.9952623149688788,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,1.9952623149688788,2.5118864315095824,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,2.5118864315095824,3.1622776601683795,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,3.1622776601683795,3.9810717055349776,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,3.9810717055349776,5.011872336272725,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,5.011872336272725,6.309573444801943,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,6.309573444801943,7.943282347242821,0.0,160.0,,
+"main: fiducial events, first crossing",colored_1800GeV_2keV,betagamma,7.943282347242821,10.0,0.0,160.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,0.0,2.0,0.3433261955745896,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,2.0,4.0,0.3868665239114918,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,4.0,6.0,0.09635974304068523,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,6.0,8.0,0.06281227694503926,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,8.0,10.0,0.027123483226266953,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,10.0,12.0,0.018558172733761598,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,12.0,14.0,0.010706638115631691,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,14.0,16.0,0.009992862241256246,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,16.0,18.0,0.005710206995003569,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,18.0,20.0,0.0035688793718772305,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,20.0,22.0,0.005710206995003569,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,22.0,24.0,0.0035688793718772305,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,24.0,26.0,0.0014275517487508922,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,26.0,28.0,0.0021413276231263384,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,28.0,30.0,0.0014275517487508922,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,30.0,32.0,0.004282655246252677,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,32.0,34.0,0.0014275517487508922,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,34.0,36.0,0.0014275517487508922,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,36.0,38.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,38.0,40.0,0.0028551034975017845,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,40.0,42.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,42.0,44.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,44.0,46.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,46.0,48.0,0.0014275517487508922,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,48.0,50.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,50.0,52.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,52.0,54.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,54.0,56.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,56.0,58.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,58.0,60.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,60.0,62.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,62.0,64.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,64.0,66.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,66.0,68.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,68.0,70.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,70.0,72.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,72.0,74.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,74.0,76.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,76.0,78.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,78.0,80.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,80.0,82.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,82.0,84.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,84.0,86.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,86.0,88.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,88.0,90.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,90.0,92.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,92.0,94.0,0.0007137758743754461,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,94.0,96.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,96.0,98.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,dEdx,98.0,100.0,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.0001,0.00012589254117941674,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00012589254117941674,0.00015848931924611142,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00015848931924611142,0.00019952623149688788,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00019952623149688788,0.00025118864315095795,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00025118864315095795,0.00031622776601683794,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00031622776601683794,0.00039810717055349735,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00039810717055349735,0.0005011872336272725,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.0005011872336272725,0.000630957344480193,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.000630957344480193,0.0007943282347242813,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.0007943282347242813,0.001,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.001,0.0012589254117941675,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.0012589254117941675,0.001584893192461114,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.001584893192461114,0.001995262314968879,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.001995262314968879,0.002511886431509582,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.002511886431509582,0.0031622776601683794,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.0031622776601683794,0.003981071705534973,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.003981071705534973,0.005011872336272725,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.005011872336272725,0.00630957344480193,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00630957344480193,0.00794328234724282,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.00794328234724282,0.01,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.01,0.012589254117941675,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.012589254117941675,0.01584893192461114,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.01584893192461114,0.01995262314968881,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.01995262314968881,0.025118864315095822,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.025118864315095822,0.03162277660168379,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.03162277660168379,0.039810717055349734,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.039810717055349734,0.05011872336272725,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.05011872336272725,0.06309573444801936,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.06309573444801936,0.07943282347242822,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.07943282347242822,0.1,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.1,0.12589254117941676,0.004996431120628123,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.12589254117941676,0.15848931924611143,0.007851534618129907,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.15848931924611143,0.19952623149688808,0.013561741613133477,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.19952623149688808,0.25118864315095824,0.01998572448251249,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.25118864315095824,0.31622776601683794,0.034261241970021415,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.31622776601683794,0.3981071705534973,0.0649536045681656,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.3981071705534973,0.5011872336272725,0.0835117773019272,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.5011872336272725,0.6309573444801936,0.13133476088508209,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.6309573444801936,0.7943282347242822,0.17915774446823698,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,0.7943282347242822,1.0,0.16987865810135616,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,1.0,1.2589254117941688,0.13204853675945752,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,1.2589254117941688,1.584893192461114,0.08137044967880086,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,1.584893192461114,1.9952623149688788,0.047109207708779445,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,1.9952623149688788,2.5118864315095824,0.026409707351891507,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,2.5118864315095824,3.1622776601683795,0.0035688793718772305,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,3.1622776601683795,3.9810717055349776,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,3.9810717055349776,5.011872336272725,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,5.011872336272725,6.309573444801943,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,6.309573444801943,7.943282347242821,0.0,1401.0,,
+"all triggered events, all crossings",EW_800GeV_2keV,betagamma,7.943282347242821,10.0,0.0,1401.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,0.0,2.0,0.0775462962962963,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,2.0,4.0,0.3414351851851852,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,4.0,6.0,0.1863425925925926,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,6.0,8.0,0.11574074074074074,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,8.0,10.0,0.0798611111111111,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,10.0,12.0,0.03587962962962963,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,12.0,14.0,0.02662037037037037,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,14.0,16.0,0.023148148148148147,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,16.0,18.0,0.013888888888888888,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,18.0,20.0,0.019675925925925927,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,20.0,22.0,0.010416666666666666,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,22.0,24.0,0.005787037037037037,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,24.0,26.0,0.005787037037037037,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,26.0,28.0,0.009259259259259259,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,28.0,30.0,0.005787037037037037,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,30.0,32.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,32.0,34.0,0.003472222222222222,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,34.0,36.0,0.003472222222222222,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,36.0,38.0,0.003472222222222222,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,38.0,40.0,0.004629629629629629,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,40.0,42.0,0.0023148148148148147,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,42.0,44.0,0.003472222222222222,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,44.0,46.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,46.0,48.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,48.0,50.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,50.0,52.0,0.0023148148148148147,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,52.0,54.0,0.0023148148148148147,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,54.0,56.0,0.0023148148148148147,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,56.0,58.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,58.0,60.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,60.0,62.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,62.0,64.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,64.0,66.0,0.0023148148148148147,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,66.0,68.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,68.0,70.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,70.0,72.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,72.0,74.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,74.0,76.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,76.0,78.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,78.0,80.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,80.0,82.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,82.0,84.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,84.0,86.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,86.0,88.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,88.0,90.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,90.0,92.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,92.0,94.0,0.0011574074074074073,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,94.0,96.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,96.0,98.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,dEdx,98.0,100.0,0.0,864.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.0001,0.00012589254117941674,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00012589254117941674,0.00015848931924611142,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00015848931924611142,0.00019952623149688788,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00019952623149688788,0.00025118864315095795,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00025118864315095795,0.00031622776601683794,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00031622776601683794,0.00039810717055349735,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00039810717055349735,0.0005011872336272725,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.0005011872336272725,0.000630957344480193,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.000630957344480193,0.0007943282347242813,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.0007943282347242813,0.001,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.001,0.0012589254117941675,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.0012589254117941675,0.001584893192461114,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.001584893192461114,0.001995262314968879,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.001995262314968879,0.002511886431509582,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.002511886431509582,0.0031622776601683794,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.0031622776601683794,0.003981071705534973,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.003981071705534973,0.005011872336272725,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.005011872336272725,0.00630957344480193,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00630957344480193,0.00794328234724282,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.00794328234724282,0.01,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.01,0.012589254117941675,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.012589254117941675,0.01584893192461114,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.01584893192461114,0.01995262314968881,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.01995262314968881,0.025118864315095822,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.025118864315095822,0.03162277660168379,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.03162277660168379,0.039810717055349734,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.039810717055349734,0.05011872336272725,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.05011872336272725,0.06309573444801936,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.06309573444801936,0.07943282347242822,0.002304147465437788,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.07943282347242822,0.1,0.002304147465437788,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.1,0.12589254117941676,0.010368663594470046,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.12589254117941676,0.15848931924611143,0.020737327188940093,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.15848931924611143,0.19952623149688808,0.03110599078341014,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.19952623149688808,0.25118864315095824,0.055299539170506916,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.25118864315095824,0.31622776601683794,0.0771889400921659,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.31622776601683794,0.3981071705534973,0.14861751152073732,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.3981071705534973,0.5011872336272725,0.1716589861751152,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.5011872336272725,0.6309573444801936,0.18317972350230416,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.6309573444801936,0.7943282347242822,0.14631336405529954,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,0.7943282347242822,1.0,0.10023041474654378,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,1.0,1.2589254117941688,0.04262672811059908,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,1.2589254117941688,1.584893192461114,0.008064516129032258,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,1.584893192461114,1.9952623149688788,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,1.9952623149688788,2.5118864315095824,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,2.5118864315095824,3.1622776601683795,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,3.1622776601683795,3.9810717055349776,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,3.9810717055349776,5.011872336272725,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,5.011872336272725,6.309573444801943,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,6.309573444801943,7.943282347242821,0.0,868.0,,
+"all triggered events, all crossings",colored_1800GeV_2keV,betagamma,7.943282347242821,10.0,0.0,868.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,0.0,2.0,0.23187891687359583,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,2.0,4.0,0.3526073075558709,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,4.0,6.0,0.13775570533286036,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,6.0,8.0,0.07697765164952111,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,8.0,10.0,0.04765283197351307,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,10.0,12.0,0.030507272082298687,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,12.0,14.0,0.02140238855386071,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,14.0,16.0,0.017027314650585313,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,16.0,18.0,0.011824524062906468,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,18.0,20.0,0.00957786449095424,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,20.0,22.0,0.008750147806550786,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,22.0,24.0,0.00555752630956604,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,24.0,26.0,0.005912262031453234,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,26.0,28.0,0.003429111978242876,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,28.0,30.0,0.002837885775097552,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,30.0,32.0,0.004375073903275393,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,32.0,34.0,0.0027196405344684874,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,34.0,36.0,0.002246659571952229,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,36.0,38.0,0.002246659571952229,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,38.0,40.0,0.0018919238500650349,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,40.0,42.0,0.0018919238500650349,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,42.0,44.0,0.001418942887548776,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,44.0,46.0,0.0020101690906940994,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,46.0,48.0,0.0018919238500650349,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,48.0,50.0,0.001418942887548776,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,50.0,52.0,0.0016554333688069056,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,52.0,54.0,0.001064207165661582,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,54.0,56.0,0.0005912262031453234,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,56.0,58.0,0.0008277166844034528,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,58.0,60.0,0.0008277166844034528,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,60.0,62.0,0.0009459619250325174,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,62.0,64.0,0.001064207165661582,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,64.0,66.0,0.001064207165661582,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,66.0,68.0,0.000709471443774388,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,68.0,70.0,0.000709471443774388,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,70.0,72.0,0.000354735721887194,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,72.0,74.0,0.0008277166844034528,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,74.0,76.0,0.000354735721887194,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,76.0,78.0,0.000354735721887194,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,78.0,80.0,0.0004729809625162587,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,80.0,82.0,0.00023649048125812936,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,82.0,84.0,0.000354735721887194,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,84.0,86.0,0.00023649048125812936,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,86.0,88.0,0.00023649048125812936,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,88.0,90.0,0.00023649048125812936,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,90.0,92.0,0.000354735721887194,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,92.0,94.0,0.000709471443774388,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,94.0,96.0,0.0,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,96.0,98.0,0.0,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,dEdx,98.0,100.0,0.0,8457.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.0001,0.00012589254117941674,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00012589254117941674,0.00015848931924611142,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00015848931924611142,0.00019952623149688788,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00019952623149688788,0.00025118864315095795,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00025118864315095795,0.00031622776601683794,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00031622776601683794,0.00039810717055349735,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00039810717055349735,0.0005011872336272725,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.0005011872336272725,0.000630957344480193,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.000630957344480193,0.0007943282347242813,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.0007943282347242813,0.001,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.001,0.0012589254117941675,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.0012589254117941675,0.001584893192461114,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.001584893192461114,0.001995262314968879,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.001995262314968879,0.002511886431509582,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.002511886431509582,0.0031622776601683794,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.0031622776601683794,0.003981071705534973,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.003981071705534973,0.005011872336272725,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.005011872336272725,0.00630957344480193,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00630957344480193,0.00794328234724282,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.00794328234724282,0.01,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.01,0.012589254117941675,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.012589254117941675,0.01584893192461114,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.01584893192461114,0.01995262314968881,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.01995262314968881,0.025118864315095822,0.00023369946249123628,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.025118864315095822,0.03162277660168379,0.00046739892498247256,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.03162277660168379,0.039810717055349734,0.0003505491937368544,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.039810717055349734,0.05011872336272725,0.000817948118719327,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.05011872336272725,0.06309573444801936,0.0015190465061930359,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.06309573444801936,0.07943282347242822,0.002687543818649217,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.07943282347242822,0.1,0.005725636831035288,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.1,0.12589254117941676,0.009464828230895068,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.12589254117941676,0.15848931924611143,0.01507361533068474,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.15848931924611143,0.19952623149688808,0.022668847861649917,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.19952623149688808,0.25118864315095824,0.040313157279738256,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.25118864315095824,0.31622776601683794,0.06087870997896705,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.31622776601683794,0.3981071705534973,0.09441458284645945,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.3981071705534973,0.5011872336272725,0.11720028043935499,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.5011872336272725,0.6309573444801936,0.14407571862584717,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.6309573444801936,0.7943282347242822,0.1545921944379528,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,0.7943282347242822,1.0,0.14314092077588222,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,1.0,1.2589254117941688,0.10411311053984576,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,1.2589254117941688,1.584893192461114,0.05585417153540547,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,1.584893192461114,1.9952623149688788,0.020331853236737557,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,1.9952623149688788,2.5118864315095824,0.005491937368544053,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,2.5118864315095824,3.1622776601683795,0.0005842486562280906,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,3.1622776601683795,3.9810717055349776,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,3.9810717055349776,5.011872336272725,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,5.011872336272725,6.309573444801943,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,6.309573444801943,7.943282347242821,0.0,8558.0,,
+"all matched events (no trigger), all crossings",EW_800GeV_2keV,betagamma,7.943282347242821,10.0,0.0,8558.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,0.0,2.0,0.04674717569146864,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,2.0,4.0,0.28126217374366963,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,4.0,6.0,0.20023373587845733,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,6.0,8.0,0.11881573821581613,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,8.0,10.0,0.07479548110634983,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,10.0,12.0,0.04830541488118426,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,12.0,14.0,0.0362290611608882,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,14.0,16.0,0.02765874561745228,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,16.0,18.0,0.023763147643163226,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,18.0,20.0,0.020646669263731984,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,20.0,22.0,0.01090767432800935,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,22.0,24.0,0.014803272302298403,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,24.0,26.0,0.008180755746007013,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,26.0,28.0,0.007791195948578107,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,28.0,30.0,0.009349435138293729,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,30.0,32.0,0.00584339696143358,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,32.0,34.0,0.00584339696143358,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,34.0,36.0,0.006622516556291391,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,36.0,38.0,0.00506427736657577,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,38.0,40.0,0.00584339696143358,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,40.0,42.0,0.0019477989871445266,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,42.0,44.0,0.0038955979742890533,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,44.0,46.0,0.0019477989871445266,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,46.0,48.0,0.0027269185820023374,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,48.0,50.0,0.002337358784573432,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,50.0,52.0,0.0038955979742890533,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,52.0,54.0,0.002337358784573432,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,54.0,56.0,0.001168679392286716,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,56.0,58.0,0.0027269185820023374,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,58.0,60.0,0.002337358784573432,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,60.0,62.0,0.001168679392286716,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,62.0,64.0,0.0015582391897156214,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,64.0,66.0,0.0015582391897156214,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,66.0,68.0,0.00038955979742890534,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,68.0,70.0,0.002337358784573432,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,70.0,72.0,0.001168679392286716,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,72.0,74.0,0.00038955979742890534,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,74.0,76.0,0.0007791195948578107,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,76.0,78.0,0.001168679392286716,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,78.0,80.0,0.00038955979742890534,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,80.0,82.0,0.0,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,82.0,84.0,0.0007791195948578107,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,84.0,86.0,0.0007791195948578107,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,86.0,88.0,0.001168679392286716,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,88.0,90.0,0.0015582391897156214,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,90.0,92.0,0.00038955979742890534,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,92.0,94.0,0.00038955979742890534,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,94.0,96.0,0.0,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,96.0,98.0,0.0,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,dEdx,98.0,100.0,0.0,2567.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.0001,0.00012589254117941674,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00012589254117941674,0.00015848931924611142,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00015848931924611142,0.00019952623149688788,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00019952623149688788,0.00025118864315095795,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00025118864315095795,0.00031622776601683794,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00031622776601683794,0.00039810717055349735,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00039810717055349735,0.0005011872336272725,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.0005011872336272725,0.000630957344480193,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.000630957344480193,0.0007943282347242813,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.0007943282347242813,0.001,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.001,0.0012589254117941675,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.0012589254117941675,0.001584893192461114,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.001584893192461114,0.001995262314968879,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.001995262314968879,0.002511886431509582,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.002511886431509582,0.0031622776601683794,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.0031622776601683794,0.003981071705534973,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.003981071705534973,0.005011872336272725,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.005011872336272725,0.00630957344480193,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00630957344480193,0.00794328234724282,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.00794328234724282,0.01,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.01,0.012589254117941675,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.012589254117941675,0.01584893192461114,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.01584893192461114,0.01995262314968881,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.01995262314968881,0.025118864315095822,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.025118864315095822,0.03162277660168379,0.0003808073115003808,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.03162277660168379,0.039810717055349734,0.0011424219345011425,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.039810717055349734,0.05011872336272725,0.001904036557501904,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.05011872336272725,0.06309573444801936,0.0026656511805026656,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.06309573444801936,0.07943282347242822,0.006854531607006854,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.07943282347242822,0.1,0.00952018278750952,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.1,0.12589254117941676,0.015613099771515614,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.12589254117941676,0.15848931924611143,0.031607006854531605,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.15848931924611143,0.19952623149688808,0.046458492003046456,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.19952623149688808,0.25118864315095824,0.07311500380807312,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.25118864315095824,0.31622776601683794,0.10281797410510282,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.31622776601683794,0.3981071705534973,0.1447067783701447,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.3981071705534973,0.5011872336272725,0.18126428027418126,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.5011872336272725,0.6309573444801936,0.16108149276466108,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.6309573444801936,0.7943282347242822,0.12147753236862148,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,0.7943282347242822,1.0,0.0753998476770754,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,1.0,1.2589254117941688,0.020944402132520943,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,1.2589254117941688,1.584893192461114,0.0030464584920030465,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,1.584893192461114,1.9952623149688788,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,1.9952623149688788,2.5118864315095824,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,2.5118864315095824,3.1622776601683795,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,3.1622776601683795,3.9810717055349776,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,3.9810717055349776,5.011872336272725,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,5.011872336272725,6.309573444801943,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,6.309573444801943,7.943282347242821,0.0,2626.0,,
+"all matched events (no trigger), all crossings",colored_1800GeV_2keV,betagamma,7.943282347242821,10.0,0.0,2626.0,,
+paper,EW_800GeV_2keV,dEdx,,,,,18.85714434259275,4.392438461110929e-05
+paper,EW_800GeV_2keV,dEdx,,,,,18.85714434259275,0.08274925752454364
+paper,EW_800GeV_2keV,dEdx,,,,,19.442858760993477,0.08274925752454364
+paper,EW_800GeV_2keV,dEdx,,,,,19.442858760993477,0.24838316049122977
+paper,EW_800GeV_2keV,dEdx,,,,,20.0285731793942,0.24838316049122977
+paper,EW_800GeV_2keV,dEdx,,,,,20.0285731793942,0.15063482318254637
+paper,EW_800GeV_2keV,dEdx,,,,,20.61428704364752,0.15063482318254637
+paper,EW_800GeV_2keV,dEdx,,,,,20.61428704364752,0.09795158643776888
+paper,EW_800GeV_2keV,dEdx,,,,,21.200000907900833,0.09795158643776888
+paper,EW_800GeV_2keV,dEdx,,,,,21.200000907900833,0.06693750977895316
+paper,EW_800GeV_2keV,dEdx,,,,,21.78571588044897,0.06693750977895316
+paper,EW_800GeV_2keV,dEdx,,,,,21.78571588044897,0.04946672356832577
+paper,EW_800GeV_2keV,dEdx,,,,,22.371429744702283,0.04946672356832577
+paper,EW_800GeV_2keV,dEdx,,,,,22.371429744702283,0.04374471755301421
+paper,EW_800GeV_2keV,dEdx,,,,,22.957143608955597,0.04374471755301421
+paper,EW_800GeV_2keV,dEdx,,,,,22.957143608955597,0.033248682774189874
+paper,EW_800GeV_2keV,dEdx,,,,,23.542858581503737,0.033248682774189874
+paper,EW_800GeV_2keV,dEdx,,,,,23.542858581503737,0.026646357730462044
+paper,EW_800GeV_2keV,dEdx,,,,,24.12857244575705,0.026646357730462044
+paper,EW_800GeV_2keV,dEdx,,,,,24.12857244575705,0.01994243734035959
+paper,EW_800GeV_2keV,dEdx,,,,,24.714286310010365,0.01994243734035959
+paper,EW_800GeV_2keV,dEdx,,,,,24.714286310010365,0.017775522948398837
+paper,EW_800GeV_2keV,dEdx,,,,,25.300001282558505,0.017775522948398837
+paper,EW_800GeV_2keV,dEdx,,,,,25.300001282558505,0.015270015630012079
+paper,EW_800GeV_2keV,dEdx,,,,,25.88571514681182,0.015270015630012079
+paper,EW_800GeV_2keV,dEdx,,,,,25.88571514681182,0.01435584687662675
+paper,EW_800GeV_2keV,dEdx,,,,,26.471429011065133,0.01435584687662675
+paper,EW_800GeV_2keV,dEdx,,,,,26.471429011065133,0.012392078300173871
+paper,EW_800GeV_2keV,dEdx,,,,,27.057142875318448,0.012392078300173871
+paper,EW_800GeV_2keV,dEdx,,,,,27.057142875318448,0.011647198328364118
+paper,EW_800GeV_2keV,dEdx,,,,,27.642857847866583,0.011647198328364118
+paper,EW_800GeV_2keV,dEdx,,,,,27.642857847866583,0.00873539908005247
+paper,EW_800GeV_2keV,dEdx,,,,,28.228571712119898,0.00873539908005247
+paper,EW_800GeV_2keV,dEdx,,,,,28.228571712119898,0.009581853628737138
+paper,EW_800GeV_2keV,dEdx,,,,,28.814285576373212,0.009581853628737138
+paper,EW_800GeV_2keV,dEdx,,,,,28.814285576373212,0.00768579478998383
+paper,EW_800GeV_2keV,dEdx,,,,,29.39999944062653,0.00768579478998383
+paper,EW_800GeV_2keV,dEdx,,,,,29.39999944062653,0.007110207119513899
+paper,EW_800GeV_2keV,dEdx,,,,,29.985713304879845,0.007110207119513899
+paper,EW_800GeV_2keV,dEdx,,,,,29.985713304879845,0.006636196366186772
+paper,EW_800GeV_2keV,dEdx,,,,,30.5714293857228,0.006636196366186772
+paper,EW_800GeV_2keV,dEdx,,,,,30.5714293857228,0.005586593089157386
+paper,EW_800GeV_2keV,dEdx,,,,,31.157143249976116,0.005586593089157386
+paper,EW_800GeV_2keV,dEdx,,,,,31.157143249976116,0.005485018283628648
+paper,EW_800GeV_2keV,dEdx,,,,,31.74285711422943,0.005485018283628648
+paper,EW_800GeV_2keV,dEdx,,,,,31.74285711422943,0.0044015593684678155
+paper,EW_800GeV_2keV,dEdx,,,,,32.328570978482745,0.0044015593684678155
+paper,EW_800GeV_2keV,dEdx,,,,,32.914284842736066,0.0044015593684678155
+paper,EW_800GeV_2keV,dEdx,,,,,32.914284842736066,0.004435415730549409
+paper,EW_800GeV_2keV,dEdx,,,,,33.49999870698937,0.004435415730549409
+paper,EW_800GeV_2keV,dEdx,,,,,33.49999870698937,0.004029118864231949
+paper,EW_800GeV_2keV,dEdx,,,,,34.08571478783233,0.004029118864231949
+paper,EW_800GeV_2keV,dEdx,,,,,34.08571478783233,0.003555104074718324
+paper,EW_800GeV_2keV,dEdx,,,,,34.67142865208565,0.003555104074718324
+paper,EW_800GeV_2keV,dEdx,,,,,34.67142865208565,0.0026409345743621947
+paper,EW_800GeV_2keV,dEdx,,,,,35.257142516338966,0.0026409345743621947
+paper,EW_800GeV_2keV,dEdx,,,,,35.257142516338966,0.0025393605488271366
+paper,EW_800GeV_2keV,dEdx,,,,,35.84285638059228,0.0025393605488271366
+paper,EW_800GeV_2keV,dEdx,,,,,35.84285638059228,0.0025732183709817817
+paper,EW_800GeV_2keV,dEdx,,,,,36.428570244845595,0.0025732183709817817
+paper,EW_800GeV_2keV,dEdx,,,,,36.428570244845595,0.0030133739466724537
+paper,EW_800GeV_2keV,dEdx,,,,,37.01428410909891,0.0030133739466724537
+paper,EW_800GeV_2keV,dEdx,,,,,37.01428410909891,0.002708651457955366
+paper,EW_800GeV_2keV,dEdx,,,,,37.599997973352224,0.002708651457955366
+paper,EW_800GeV_2keV,dEdx,,,,,37.599997973352224,0.0023023543488834004
+paper,EW_800GeV_2keV,dEdx,,,,,38.18571405419519,0.0023023543488834004
+paper,EW_800GeV_2keV,dEdx,,,,,38.18571405419519,0.002166921413860785
+paper,EW_800GeV_2keV,dEdx,,,,,38.771427918448495,0.002166921413860785
+paper,EW_800GeV_2keV,dEdx,,,,,38.771427918448495,0.002065346068550462
+paper,EW_800GeV_2keV,dEdx,,,,,39.35714178270182,0.002065346068550462
+paper,EW_800GeV_2keV,dEdx,,,,,39.35714178270182,0.0016590486617418514
+paper,EW_800GeV_2keV,dEdx,,,,,39.942855646955124,0.0016590486617418514
+paper,EW_800GeV_2keV,dEdx,,,,,39.942855646955124,0.001523615725420376
+paper,EW_800GeV_2keV,dEdx,,,,,40.528569511208445,0.001523615725420376
+paper,EW_800GeV_2keV,dEdx,,,,,41.11428337546175,0.001523615725420376
+paper,EW_800GeV_2keV,dEdx,,,,,41.11428337546175,0.0015574744961263317
+paper,EW_800GeV_2keV,dEdx,,,,,41.69999945630472,0.0015574744961263317
+paper,EW_800GeV_2keV,dEdx,,,,,41.69999945630472,0.002065346068550462
+paper,EW_800GeV_2keV,dEdx,,,,,42.28571332055803,0.002065346068550462
+paper,EW_800GeV_2keV,dEdx,,,,,42.28571332055803,0.0013204674784525012
+paper,EW_800GeV_2keV,dEdx,,,,,42.871427184811346,0.0013204674784525012
+paper,EW_800GeV_2keV,dEdx,,,,,42.871427184811346,0.000981886002903472
+paper,EW_800GeV_2keV,dEdx,,,,,43.45714104906466,0.000981886002903472
+paper,EW_800GeV_2keV,dEdx,,,,,43.45714104906466,0.0011173184559864456
+paper,EW_800GeV_2keV,dEdx,,,,,44.042854913317974,0.0011173184559864456
+paper,EW_800GeV_2keV,dEdx,,,,,44.042854913317974,0.001455899624758869
+paper,EW_800GeV_2keV,dEdx,,,,,44.62856877757129,0.001455899624758869
+paper,EW_800GeV_2keV,dEdx,,,,,44.62856877757129,0.0015574744961263317
+paper,EW_800GeV_2keV,dEdx,,,,,45.2142826418246,0.0015574744961263317
+paper,EW_800GeV_2keV,dEdx,,,,,45.2142826418246,0.0010157439252671781
+paper,EW_800GeV_2keV,dEdx,,,,,45.79999872266757,0.0010157439252671781
+paper,EW_800GeV_2keV,dEdx,,,,,45.79999872266757,0.000981886002903472
+paper,EW_800GeV_2keV,dEdx,,,,,46.38571258692088,0.000981886002903472
+paper,EW_800GeV_2keV,dEdx,,,,,46.38571258692088,0.00023700709365153937
+paper,EW_800GeV_2keV,dEdx,,,,,46.971426451174196,0.00023700709365153937
+paper,EW_800GeV_2keV,dEdx,,,,,46.971426451174196,4.392438461110929e-05
+paper,colored_1800GeV_2keV,dEdx,,,,,18.85714434259275,4.392438461110929e-05
+paper,colored_1800GeV_2keV,dEdx,,,,,18.85714434259275,0.009804951930672748
+paper,colored_1800GeV_2keV,dEdx,,,,,19.442858760993477,0.009804951930672748
+paper,colored_1800GeV_2keV,dEdx,,,,,19.442858760993477,0.12014990856655557
+paper,colored_1800GeV_2keV,dEdx,,,,,20.0285731793942,0.12014990856655557
+paper,colored_1800GeV_2keV,dEdx,,,,,20.0285731793942,0.1208315548404362
+paper,colored_1800GeV_2keV,dEdx,,,,,20.61428704364752,0.1208315548404362
+paper,colored_1800GeV_2keV,dEdx,,,,,20.61428704364752,0.10182464266126118
+paper,colored_1800GeV_2keV,dEdx,,,,,21.200000907900833,0.10182464266126118
+paper,colored_1800GeV_2keV,dEdx,,,,,21.200000907900833,0.0802485260327211
+paper,colored_1800GeV_2keV,dEdx,,,,,21.78571588044897,0.0802485260327211
+paper,colored_1800GeV_2keV,dEdx,,,,,21.78571588044897,0.06344377203224584
+paper,colored_1800GeV_2keV,dEdx,,,,,22.371429744702283,0.06344377203224584
+paper,colored_1800GeV_2keV,dEdx,,,,,22.371429744702283,0.05447776003130305
+paper,colored_1800GeV_2keV,dEdx,,,,,22.957143608955597,0.05447776003130305
+paper,colored_1800GeV_2keV,dEdx,,,,,22.957143608955597,0.047189598887044826
+paper,colored_1800GeV_2keV,dEdx,,,,,23.542858581503737,0.047189598887044826
+paper,colored_1800GeV_2keV,dEdx,,,,,23.542858581503737,0.039324665441342714
+paper,colored_1800GeV_2keV,dEdx,,,,,24.12857244575705,0.039324665441342714
+paper,colored_1800GeV_2keV,dEdx,,,,,24.12857244575705,0.03436974764184152
+paper,colored_1800GeV_2keV,dEdx,,,,,24.714286310010365,0.03436974764184152
+paper,colored_1800GeV_2keV,dEdx,,,,,24.714286310010365,0.03051593627068498
+paper,colored_1800GeV_2keV,dEdx,,,,,25.300001282558505,0.03051593627068498
+paper,colored_1800GeV_2keV,dEdx,,,,,25.300001282558505,0.024538591292339897
+paper,colored_1800GeV_2keV,dEdx,,,,,25.88571514681182,0.024538591292339897
+paper,colored_1800GeV_2keV,dEdx,,,,,25.88571514681182,0.022205322311724385
+paper,colored_1800GeV_2keV,dEdx,,,,,26.471429011065133,0.022205322311724385
+paper,colored_1800GeV_2keV,dEdx,,,,,26.471429011065133,0.019898284269161372
+paper,colored_1800GeV_2keV,dEdx,,,,,27.057142875318448,0.019898284269161372
+paper,colored_1800GeV_2keV,dEdx,,,,,27.057142875318448,0.018482595165286726
+paper,colored_1800GeV_2keV,dEdx,,,,,27.642857847866583,0.018482595165286726
+paper,colored_1800GeV_2keV,dEdx,,,,,27.642857847866583,0.01628041313383031
+paper,colored_1800GeV_2keV,dEdx,,,,,28.228571712119898,0.01628041313383031
+paper,colored_1800GeV_2keV,dEdx,,,,,28.228571712119898,0.014812293509843194
+paper,colored_1800GeV_2keV,dEdx,,,,,28.814285576373212,0.014812293509843194
+paper,colored_1800GeV_2keV,dEdx,,,,,28.814285576373212,0.012531462019345284
+paper,colored_1800GeV_2keV,dEdx,,,,,29.39999944062653,0.012531462019345284
+paper,colored_1800GeV_2keV,dEdx,,,,,29.39999944062653,0.0114828008387105
+paper,colored_1800GeV_2keV,dEdx,,,,,29.985713304879845,0.0114828008387105
+paper,colored_1800GeV_2keV,dEdx,,,,,29.985713304879845,0.01114198817965219
+paper,colored_1800GeV_2keV,dEdx,,,,,30.5714293857228,0.01114198817965219
+paper,colored_1800GeV_2keV,dEdx,,,,,30.5714293857228,0.01116820688774237
+paper,colored_1800GeV_2keV,dEdx,,,,,31.157143249976116,0.01116820688774237
+paper,colored_1800GeV_2keV,dEdx,,,,,31.157143249976116,0.009831163813405062
+paper,colored_1800GeV_2keV,dEdx,,,,,31.74285711422943,0.009831163813405062
+paper,colored_1800GeV_2keV,dEdx,,,,,31.74285711422943,0.009988466032129481
+paper,colored_1800GeV_2keV,dEdx,,,,,32.328570978482745,0.009988466032129481
+paper,colored_1800GeV_2keV,dEdx,,,,,32.328570978482745,0.008546560154115092
+paper,colored_1800GeV_2keV,dEdx,,,,,32.914284842736066,0.008546560154115092
+paper,colored_1800GeV_2keV,dEdx,,,,,32.914284842736066,0.008231961489044669
+paper,colored_1800GeV_2keV,dEdx,,,,,33.49999870698937,0.008231961489044669
+paper,colored_1800GeV_2keV,dEdx,,,,,33.49999870698937,0.006737625097089485
+paper,colored_1800GeV_2keV,dEdx,,,,,34.08571478783233,0.006737625097089485
+paper,colored_1800GeV_2keV,dEdx,,,,,34.08571478783233,0.007157089749722727
+paper,colored_1800GeV_2keV,dEdx,,,,,34.67142865208565,0.007157089749722727
+paper,colored_1800GeV_2keV,dEdx,,,,,34.67142865208565,0.0065016794985072205
+paper,colored_1800GeV_2keV,dEdx,,,,,35.257142516338966,0.0065016794985072205
+paper,colored_1800GeV_2keV,dEdx,,,,,35.257142516338966,0.0060035645852099155
+paper,colored_1800GeV_2keV,dEdx,,,,,35.84285638059228,0.0060035645852099155
+paper,colored_1800GeV_2keV,dEdx,,,,,35.84285638059228,0.005636535374283372
+paper,colored_1800GeV_2keV,dEdx,,,,,36.428570244845595,0.005636535374283372
+paper,colored_1800GeV_2keV,dEdx,,,,,36.428570244845595,0.005295721195767039
+paper,colored_1800GeV_2keV,dEdx,,,,,37.01428410909891,0.005295721195767039
+paper,colored_1800GeV_2keV,dEdx,,,,,37.01428410909891,0.005112207961535125
+paper,colored_1800GeV_2keV,dEdx,,,,,37.599997973352224,0.005112207961535125
+paper,colored_1800GeV_2keV,dEdx,,,,,37.599997973352224,0.005190856519592172
+paper,colored_1800GeV_2keV,dEdx,,,,,38.18571405419519,0.005190856519592172
+paper,colored_1800GeV_2keV,dEdx,,,,,38.18571405419519,0.005217072501632576
+paper,colored_1800GeV_2keV,dEdx,,,,,38.771427918448495,0.005217072501632576
+paper,colored_1800GeV_2keV,dEdx,,,,,38.771427918448495,0.0044830109986563815
+paper,colored_1800GeV_2keV,dEdx,,,,,39.35714178270182,0.0044830109986563815
+paper,colored_1800GeV_2keV,dEdx,,,,,39.35714178270182,0.004011116967469261
+paper,colored_1800GeV_2keV,dEdx,,,,,39.942855646955124,0.004011116967469261
+paper,colored_1800GeV_2keV,dEdx,,,,,39.942855646955124,0.003460569483045468
+paper,colored_1800GeV_2keV,dEdx,,,,,40.528569511208445,0.003460569483045468
+paper,colored_1800GeV_2keV,dEdx,,,,,40.528569511208445,0.0039586828276466585
+paper,colored_1800GeV_2keV,dEdx,,,,,41.11428337546175,0.0039586828276466585
+paper,colored_1800GeV_2keV,dEdx,,,,,41.11428337546175,0.004509228814451529
+paper,colored_1800GeV_2keV,dEdx,,,,,41.69999945630472,0.004509228814451529
+paper,colored_1800GeV_2keV,dEdx,,,,,41.69999945630472,0.0035916521521596806
+paper,colored_1800GeV_2keV,dEdx,,,,,42.28571332055803,0.0035916521521596806
+paper,colored_1800GeV_2keV,dEdx,,,,,42.28571332055803,0.0031197573417309455
+paper,colored_1800GeV_2keV,dEdx,,,,,42.871427184811346,0.0031197573417309455
+paper,colored_1800GeV_2keV,dEdx,,,,,42.871427184811346,0.0034867879108460295
+paper,colored_1800GeV_2keV,dEdx,,,,,43.45714104906466,0.0034867879108460295
+paper,colored_1800GeV_2keV,dEdx,,,,,43.45714104906466,0.0031459735946270688
+paper,colored_1800GeV_2keV,dEdx,,,,,44.042854913317974,0.0031459735946270688
+paper,colored_1800GeV_2keV,dEdx,,,,,44.042854913317974,0.0028313763647972003
+paper,colored_1800GeV_2keV,dEdx,,,,,44.62856877757129,0.0028313763647972003
+paper,colored_1800GeV_2keV,dEdx,,,,,44.62856877757129,0.002726510018761721
+paper,colored_1800GeV_2keV,dEdx,,,,,45.2142826418246,0.002726510018761721
+paper,colored_1800GeV_2keV,dEdx,,,,,45.2142826418246,0.002542996065480598
+paper,colored_1800GeV_2keV,dEdx,,,,,45.79999872266757,0.002542996065480598
+paper,colored_1800GeV_2keV,dEdx,,,,,45.79999872266757,0.0032770554286234528
+paper,colored_1800GeV_2keV,dEdx,,,,,46.38571258692088,0.0032770554286234528
+paper,colored_1800GeV_2keV,dEdx,,,,,46.38571258692088,0.0006816277021597057
+paper,colored_1800GeV_2keV,dEdx,,,,,46.971426451174196,0.0006816277021597057
+paper,colored_1800GeV_2keV,dEdx,,,,,46.971426451174196,4.392438461110929e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.00010000000829900506,9.73702171775329e-07
+paper,EW_800GeV_2keV,betagamma,,,,,0.00010000000829900506,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.00012589256071685428,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.00012589256071685428,9.73702171775329e-07
+paper,EW_800GeV_2keV,betagamma,,,,,0.00019952624780719924,9.73702171775329e-07
+paper,EW_800GeV_2keV,betagamma,,,,,0.00019952624780719924,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0002511886270994251,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0003162278375310729,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0003981072026012619,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0003981072026012619,9.436338304361521e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0005011872009763499,9.436338304361521e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0005011872009763499,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0006309574863844022,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,0.0006309574863844022,0.00015727226855958158
+paper,EW_800GeV_2keV,betagamma,,,,,0.0007943282976791578,0.00015727226855958158
+paper,EW_800GeV_2keV,betagamma,,,,,0.0007943282976791578,0.00018872681247462974
+paper,EW_800GeV_2keV,betagamma,,,,,0.0009999999336079925,0.00018872681247462974
+paper,EW_800GeV_2keV,betagamma,,,,,0.0009999999336079925,0.00012581784622568793
+paper,EW_800GeV_2keV,betagamma,,,,,0.0012589256933631108,0.00012581784622568793
+paper,EW_800GeV_2keV,betagamma,,,,,0.0012589256933631108,0.00018872681247462974
+paper,EW_800GeV_2keV,betagamma,,,,,0.001584893316099647,0.00018872681247462974
+paper,EW_800GeV_2keV,betagamma,,,,,0.001584893316099647,0.0002830902834161062
+paper,EW_800GeV_2keV,betagamma,,,,,0.0019952621800156016,0.0002830902834161062
+paper,EW_800GeV_2keV,betagamma,,,,,0.0019952621800156016,0.00025163554964539707
+paper,EW_800GeV_2keV,betagamma,,,,,0.0025118858957635442,0.00025163554964539707
+paper,EW_800GeV_2keV,betagamma,,,,,0.0025118858957635442,0.0005347255365486906
+paper,EW_800GeV_2keV,betagamma,,,,,0.0031622779029231163,0.0005347255365486906
+paper,EW_800GeV_2keV,betagamma,,,,,0.0031622779029231163,0.0004718170294874599
+paper,EW_800GeV_2keV,betagamma,,,,,0.003981071431311936,0.0004718170294874599
+paper,EW_800GeV_2keV,betagamma,,,,,0.003981071431311936,0.0007234527801341772
+paper,EW_800GeV_2keV,betagamma,,,,,0.0050118712610798056,0.0007234527801341772
+paper,EW_800GeV_2keV,betagamma,,,,,0.0050118712610798056,0.0008807250098821243
+paper,EW_800GeV_2keV,betagamma,,,,,0.0063095711722409124,0.0008807250098821243
+paper,EW_800GeV_2keV,betagamma,,,,,0.0063095711722409124,0.0010379967710265146
+paper,EW_800GeV_2keV,betagamma,,,,,0.00794327832933929,0.0010379967710265146
+paper,EW_800GeV_2keV,betagamma,,,,,0.00794327832933929,0.0011952690872844545
+paper,EW_800GeV_2keV,betagamma,,,,,0.010000002199236043,0.0011952690872844545
+paper,EW_800GeV_2keV,betagamma,,,,,0.010000002199236043,0.0014154506086991939
+paper,EW_800GeV_2keV,betagamma,,,,,0.012589255053022153,0.0014154506086991939
+paper,EW_800GeV_2keV,betagamma,,,,,0.012589255053022153,0.0021389031976420145
+paper,EW_800GeV_2keV,betagamma,,,,,0.015848930793450414,0.0021389031976420145
+paper,EW_800GeV_2keV,betagamma,,,,,0.015848930793450414,0.002579265790570917
+paper,EW_800GeV_2keV,betagamma,,,,,0.01995261881959256,0.002579265790570917
+paper,EW_800GeV_2keV,betagamma,,,,,0.01995261881959256,0.0035543520562575904
+paper,EW_800GeV_2keV,betagamma,,,,,0.025118855205328906,0.0035543520562575904
+paper,EW_800GeV_2keV,betagamma,,,,,0.025118855205328906,0.003931805420731505
+paper,EW_800GeV_2keV,betagamma,,,,,0.0316227605273904,0.003931805420731505
+paper,EW_800GeV_2keV,betagamma,,,,,0.0316227605273904,0.0051899851120952595
+paper,EW_800GeV_2keV,betagamma,,,,,0.03981072571154918,0.0051899851120952595
+paper,EW_800GeV_2keV,betagamma,,,,,0.03981072571154918,0.00597634688383394
+paper,EW_800GeV_2keV,betagamma,,,,,0.05011872696056888,0.00597634688383394
+paper,EW_800GeV_2keV,betagamma,,,,,0.05011872696056888,0.009153244254125632
+paper,EW_800GeV_2keV,betagamma,,,,,0.06309572978769762,0.009153244254125632
+paper,EW_800GeV_2keV,betagamma,,,,,0.06309572978769762,0.01223578152559354
+paper,EW_800GeV_2keV,betagamma,,,,,0.07943280603624027,0.01223578152559354
+paper,EW_800GeV_2keV,betagamma,,,,,0.07943280603624027,0.018400846880891105
+paper,EW_800GeV_2keV,betagamma,,,,,0.09999996348439424,0.018400846880891105
+paper,EW_800GeV_2keV,betagamma,,,,,0.09999996348439424,0.02723955823561496
+paper,EW_800GeV_2keV,betagamma,,,,,0.1258924768730671,0.02723955823561496
+paper,EW_800GeV_2keV,betagamma,,,,,0.1258924768730671,0.0425578771310226
+paper,EW_800GeV_2keV,betagamma,,,,,0.158489215205654,0.0425578771310226
+paper,EW_800GeV_2keV,betagamma,,,,,0.158489215205654,0.06460745215717567
+paper,EW_800GeV_2keV,betagamma,,,,,0.19952624532339203,0.06460745215717567
+paper,EW_800GeV_2keV,betagamma,,,,,0.19952624532339203,0.08046047200323768
+paper,EW_800GeV_2keV,betagamma,,,,,0.2511886239724975,0.08046047200323768
+paper,EW_800GeV_2keV,betagamma,,,,,0.2511886239724975,0.10659910181674213
+paper,EW_800GeV_2keV,betagamma,,,,,0.31622769581481,0.10659910181674213
+paper,EW_800GeV_2keV,betagamma,,,,,0.31622769581481,0.11770253053812661
+paper,EW_800GeV_2keV,betagamma,,,,,0.39810702419108407,0.11770253053812661
+paper,EW_800GeV_2keV,betagamma,,,,,0.39810702419108407,0.13056744299525463
+paper,EW_800GeV_2keV,betagamma,,,,,0.5011869763712755,0.13056744299525463
+paper,EW_800GeV_2keV,betagamma,,,,,0.5011869763712755,0.12153992969951045
+paper,EW_800GeV_2keV,betagamma,,,,,0.6309569287167756,0.12153992969951045
+paper,EW_800GeV_2keV,betagamma,,,,,0.6309569287167756,0.1041456335478797
+paper,EW_800GeV_2keV,betagamma,,,,,0.7943282877909423,0.1041456335478797
+paper,EW_800GeV_2keV,betagamma,,,,,0.7943282877909423,0.07042651984969218
+paper,EW_800GeV_2keV,betagamma,,,,,0.9999999211594687,0.07042651984969218
+paper,EW_800GeV_2keV,betagamma,,,,,0.9999999211594687,0.03906642000505133
+paper,EW_800GeV_2keV,betagamma,,,,,1.2589251291805101,0.03906642000505133
+paper,EW_800GeV_2keV,betagamma,,,,,1.2589251291805101,0.017362859519790583
+paper,EW_800GeV_2keV,betagamma,,,,,1.5848926058359363,0.017362859519790583
+paper,EW_800GeV_2keV,betagamma,,,,,1.5848926058359363,0.005378710299058945
+paper,EW_800GeV_2keV,betagamma,,,,,1.9952612858466974,0.005378710299058945
+paper,EW_800GeV_2keV,betagamma,,,,,1.9952612858466974,0.0011638147142991606
+paper,EW_800GeV_2keV,betagamma,,,,,2.5118847700717493,0.0011638147142991606
+paper,EW_800GeV_2keV,betagamma,,,,,2.5118847700717493,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,3.1622751079645766,3.1454446093961034e-05
+paper,EW_800GeV_2keV,betagamma,,,,,3.1622751079645766,9.73702171775329e-07
+paper,colored_1800GeV_2keV,betagamma,,,,,0.00010000000829900506,9.73702171775329e-07
+paper,colored_1800GeV_2keV,betagamma,,,,,0.00010000000829900506,2.2025464839658058e-05
+paper,colored_1800GeV_2keV,betagamma,,,,,0.00012589256071685428,2.2025464839658058e-05
+paper,colored_1800GeV_2keV,betagamma,,,,,0.00012589256071685428,8.810183101453282e-05
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0001584893552854288,8.810183101453282e-05
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0001584893552854288,2.2025464839658058e-05
+paper,colored_1800GeV_2keV,betagamma,,,,,0.00019952624780719924,2.2025464839658058e-05
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0002511886270994251,2.2025464839658058e-05
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0002511886270994251,0.00011012735087003737
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0003162278375310729,0.00011012735087003737
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0003162278375310729,0.00013215277672712662
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0003981072026012619,0.00013215277672712662
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0003981072026012619,0.00011012735087003737
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0005011872009763499,0.00011012735087003737
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0005011872009763499,0.00022025457674314822
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0006309574863844022,0.00022025457674314822
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0006309574863844022,0.0002863311041199778
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0007943282976791578,0.0002863311041199778
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0007943282976791578,0.00024228020700968087
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0009999999336079925,0.00024228020700968087
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0009999999336079925,0.00022025457674314822
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0012589256933631108,0.00022025457674314822
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0012589256933631108,0.00033038194062803985
+paper,colored_1800GeV_2keV,betagamma,,,,,0.001584893316099647,0.00033038194062803985
+paper,colored_1800GeV_2keV,betagamma,,,,,0.001584893316099647,0.0004405092617596181
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0019952621800156016,0.0004405092617596181
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0019952621800156016,0.0007929165864978345
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0025118858957635442,0.0007929165864978345
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0031622779029231163,0.0007929165864978345
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0031622779029231163,0.0009030435259625695
+paper,colored_1800GeV_2keV,betagamma,,,,,0.003981071431311936,0.0009030435259625695
+paper,colored_1800GeV_2keV,betagamma,,,,,0.003981071431311936,0.0009911454859380167
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0050118712610798056,0.0009911454859380167
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0050118712610798056,0.0016739345679004493
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0063095711722409124,0.0016739345679004493
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0063095711722409124,0.0021364691788854553
+paper,colored_1800GeV_2keV,betagamma,,,,,0.00794327832933929,0.0021364691788854553
+paper,colored_1800GeV_2keV,betagamma,,,,,0.00794327832933929,0.002687106926887802
+paper,colored_1800GeV_2keV,betagamma,,,,,0.010000002199236043,0.002687106926887802
+paper,colored_1800GeV_2keV,betagamma,,,,,0.010000002199236043,0.0030615398019010766
+paper,colored_1800GeV_2keV,betagamma,,,,,0.012589255053022153,0.0030615398019010766
+paper,colored_1800GeV_2keV,betagamma,,,,,0.012589255053022153,0.003612175879532509
+paper,colored_1800GeV_2keV,betagamma,,,,,0.015848930793450414,0.003612175879532509
+paper,colored_1800GeV_2keV,betagamma,,,,,0.015848930793450414,0.005198007034854437
+paper,colored_1800GeV_2keV,betagamma,,,,,0.01995261881959256,0.005198007034854437
+paper,colored_1800GeV_2keV,betagamma,,,,,0.01995261881959256,0.00616712676903905
+paper,colored_1800GeV_2keV,betagamma,,,,,0.025118855205328906,0.00616712676903905
+paper,colored_1800GeV_2keV,betagamma,,,,,0.025118855205328906,0.008567900251327733
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0316227605273904,0.008567900251327733
+paper,colored_1800GeV_2keV,betagamma,,,,,0.0316227605273904,0.011739568346893256
+paper,colored_1800GeV_2keV,betagamma,,,,,0.03981072571154918,0.011739568346893256
+paper,colored_1800GeV_2keV,betagamma,,,,,0.03981072571154918,0.014999332468942767
+paper,colored_1800GeV_2keV,betagamma,,,,,0.05011872696056888,0.014999332468942767
+paper,colored_1800GeV_2keV,betagamma,,,,,0.05011872696056888,0.02162899598747721
+paper,colored_1800GeV_2keV,betagamma,,,,,0.06309572978769762,0.02162899598747721
+paper,colored_1800GeV_2keV,betagamma,,,,,0.06309572978769762,0.03024094146024207
+paper,colored_1800GeV_2keV,betagamma,,,,,0.07943280603624027,0.03024094146024207
+paper,colored_1800GeV_2keV,betagamma,,,,,0.07943280603624027,0.04233293917011985
+paper,colored_1800GeV_2keV,betagamma,,,,,0.09999996348439424,0.04233293917011985
+paper,colored_1800GeV_2keV,betagamma,,,,,0.09999996348439424,0.056693509952292574
+paper,colored_1800GeV_2keV,betagamma,,,,,0.1258924768730671,0.056693509952292574
+paper,colored_1800GeV_2keV,betagamma,,,,,0.1258924768730671,0.0752829870559478
+paper,colored_1800GeV_2keV,betagamma,,,,,0.158489215205654,0.0752829870559478
+paper,colored_1800GeV_2keV,betagamma,,,,,0.158489215205654,0.09376237359722965
+paper,colored_1800GeV_2keV,betagamma,,,,,0.19952624532339203,0.09376237359722965
+paper,colored_1800GeV_2keV,betagamma,,,,,0.19952624532339203,0.11748380469004964
+paper,colored_1800GeV_2keV,betagamma,,,,,0.2511886239724975,0.11748380469004964
+paper,colored_1800GeV_2keV,betagamma,,,,,0.2511886239724975,0.1256992835767893
+paper,colored_1800GeV_2keV,betagamma,,,,,0.31622769581481,0.1256992835767893
+paper,colored_1800GeV_2keV,betagamma,,,,,0.31622769581481,0.12197693276727145
+paper,colored_1800GeV_2keV,betagamma,,,,,0.39810702419108407,0.12197693276727145
+paper,colored_1800GeV_2keV,betagamma,,,,,0.39810702419108407,0.10459884013152533
+paper,colored_1800GeV_2keV,betagamma,,,,,0.5011869763712755,0.10459884013152533
+paper,colored_1800GeV_2keV,betagamma,,,,,0.5011869763712755,0.07757363508168579
+paper,colored_1800GeV_2keV,betagamma,,,,,0.6309569287167756,0.07757363508168579
+paper,colored_1800GeV_2keV,betagamma,,,,,0.6309569287167756,0.04407293644305581
+paper,colored_1800GeV_2keV,betagamma,,,,,0.7943282877909423,0.04407293644305581
+paper,colored_1800GeV_2keV,betagamma,,,,,0.7943282877909423,0.017334033754783255
+paper,colored_1800GeV_2keV,betagamma,,,,,0.9999999211594687,0.017334033754783255
+paper,colored_1800GeV_2keV,betagamma,,,,,0.9999999211594687,0.005021806085819627
+paper,colored_1800GeV_2keV,betagamma,,,,,1.2589251291805101,0.005021806085819627
+paper,colored_1800GeV_2keV,betagamma,,,,,1.2589251291805101,0.0006387384862198562
+paper,colored_1800GeV_2keV,betagamma,,,,,1.5848926058359363,0.0006387384862198562
+paper,colored_1800GeV_2keV,betagamma,,,,,1.5848926058359363,9.73702171775329e-07

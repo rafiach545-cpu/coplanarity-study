@@ -1,7 +1,0 @@
-stage,N,note
-Raw generated Z+gamma+j events,10000,hardcoded constant; source run_card/proc_card not present in repo
-"Post-shower MET>200GeV & pT_gamma>0.5GeV (both, exact)",9139,zgamma_photons.csv row count
-Photons entering conversion sim,9139,all rows processed
-Successful conversions (valid conversion point),9139,"status==ok, 100%"
-Failed conversions,0,status==no_conversion_point
-Rows in final CSV,9139,1:1 with input

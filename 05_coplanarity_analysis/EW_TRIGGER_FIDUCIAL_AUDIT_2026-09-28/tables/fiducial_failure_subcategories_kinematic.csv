@@ -1,6 +1,0 @@
-category,count
-pass,94
-"propagation_failure (zero hits, quirk(s) never reached any layer)",71
-"geometric/barrel_failure (partial layer coverage, 0<hits<16)",18
-technical_exception,2
-"timing_failure (25ns cut, geometric OK)",1

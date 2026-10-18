@@ -1,5 +1,0 @@
-Quantity,Paper,Project,Statistical verdict,Explanation
-eps_trig (charge-conditional),0.24,0.216 (27/125),CONSISTENT (p=0.60),"Wilson 95% CI [0.153,0.296] contains paper value"
-"eps_trig (full-matched, corrected)",0.24,0.241 (101/419),CONSISTENT (p=0.95),"Prior 27/419=0.064 figure was a labeling error, corrected this audit"
-eps_fid,0.28,0.259 (7/27),CONSISTENT (p=1.00),
-eps_reco (paper-defined),0.35,0.714 (5/7),INCONCLUSIVE (p=0.056),N=7 too small for a confirmed verdict either way

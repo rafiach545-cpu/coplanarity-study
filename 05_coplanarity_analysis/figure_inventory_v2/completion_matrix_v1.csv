@@ -1,9 +1,0 @@
-category,paper_ref,status,evidence,method
-1. Core coplanarity methodology,"Sec IIIC, Eq.10-11",COMPLETE,"seeding_and_iterative_fit, select_reconstructed_plane, validated Eq.4/RK4 to 1e-12/4e-5","code-level, exhaustively tested this session and earlier"
-2. Signal benchmark reproduction,"Table I, Sec II","COMPLETE, WITH CAVEATS","colored N=7 (inconclusive), EW N=40 (eps_reco consistent, eps_trig/fid tension)","full cutflow independently recomputed, Table I cross-checked visually"
-3. Pile-up background,Sec IIID,COMPLETE AND FROZEN,"0/5000 at every mu, direct full-statistics, not inferred","5 mu points x n=5000, checkpointed runs"
-4. Converted-photon background,Sec IIID,COMPLETE (both conversion-only baseline AND paper-required mu=50 overlay),"1/9139 final, event 2555 forensically traced",14.8h overlay run + deterministic single-event replay
-5. Tables,Table I,COMPLETE (extraction + comparison),"2 independent transcriptions, 0 discrepancies, direct paper-vs-project comparison",400dpi PDF render + text extraction cross-check
-6. Figures,Fig 1-7,"PARTIAL: 1=exact(schematic), 2=approximate, 3=not achieved, 4=obsolete/needs regen, 5=approximate(2 products), 6=blocked, 7=blocked",see figure_reproduction_matrix_v2.csv,see individual figure audits
-7. Appendix/dE/dx,"App. A, Fig.7",NOT REPRODUCIBLE,no Bethe-Bloch/material code exists in repo,"repo-wide grep, zero real implementations found"
-8. Discovery reach,"Fig.6, Sec IV",NOT REPRODUCIBLE (2 points only),figure6_requirement_matrix.csv,"requires full mQ-Lambda grid, not authorized this session"

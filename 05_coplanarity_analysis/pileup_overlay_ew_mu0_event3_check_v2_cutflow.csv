@@ -1,2 +1,0 @@
-event,mu,truth_fiducial,n_pu_interactions,n_pu_particles_propagated,n_pu_hits_premerge,n_hits_combined_premerge,n_hits_combined_postmerge,n_candidates,passes_signal_region,ds,dw,per_layer_hit_counts
-3,0.0,True,0,0,0,16,16,1,False,0.017560434725833688,0.04434431922088474,"{1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 2, 8: 2}"

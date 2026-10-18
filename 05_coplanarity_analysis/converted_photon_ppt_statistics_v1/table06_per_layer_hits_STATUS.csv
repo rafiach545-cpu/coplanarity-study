@@ -1,2 +1,0 @@
-note
-"Full per-layer hit tables (all raw hits, not just the Sec IIIC winning candidate) are NOT AVAILABLE even after v4 -- v4 adds winner_layer_hit_counts (the SELECTED plane's per-layer multiplicity only), not a global per-layer table across all 9139 events' raw hits. Recovering the latter would require a further additive field (a per-layer Counter over ALL hits, not just the winner) -- not implemented in v4, flagged here as a genuine remaining gap rather than fabricated."

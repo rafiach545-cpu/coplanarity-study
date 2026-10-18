@@ -1,0 +1,14 @@
+{
+ "figure": "F7_fig7",
+ "source_csv": "F7_fig7_source.csv",
+ "source_csv_sha256": "fbe7d276642b0666f11fcc572ce8787e7e6a28e6f7e3595699c01846fa19d336",
+ "plot_reads_only_source_csv": true,
+ "selection": "see caption",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/F7_pixel_hits.csv": "e9cb95ffeef557b47ea2e80261ba1949fa818de2b40d6342fc69a472ddeb4789",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/paper_fig7_vector.json": "5ad27c9729db563b45a9ccfb3fd1c17d61ebf3dc49c94c9f2004da72db5eb462"
+ },
+ "script": "F7_dedx.py",
+ "script_sha256": "39ace7f4e513b491c740ad35d50283ee92abf839aec1f72b6e56c3d2b67708ad",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

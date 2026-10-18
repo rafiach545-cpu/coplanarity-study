@@ -783,3 +783,22 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
   - Ceiling failures among events fiducial at 10 keV: 0–1 at 15–20 keV, 0–3 at 25 keV.
   - Figure, reach and sensitivity rebuilt; the maxima are unchanged.
   - The caption now says "Λ = 15–25 keV computed; Λ > 25 keV not computed (step ceiling)".
+
+## D52 (2026-10-18) Figure 7, new report, ROOT CSVs, cleanup (user: "pehle 3 kaam kro or purani files ki safai ... har csv save ... delta s delta w ka answer")
+- Figure 7 (Appendix A; scripts/F7_dedx.py, S5_fig7_vector_extract.py):
+  - βγ = |p|/m at each pixel-layer crossing; dE/dx = PDG Eq. 34.12 most probable value, silicon with density effect, IBL 200 µm / 250 µm (paper does not state the thickness). Check: 1.11 MeV cm²/g at the minimum in 250 µm.
+  - Medians: ours βγ 0.66 / 0.42 (EW / colored), paper 0.35 / 0.22.
+  - The paper has 7–10% / 16–22% of its hits below βγ = 0.1; we find ≤ 2.3% in every selection (trigger or not, timing cut or not, all crossings).
+  - The paper's dE/dx histogram (19–47 MeV cm²/g) is not the PDG MPV of its own βγ histogram (which spans 1–47, median 6 / 13).
+- Report TABLE_I_REPRODUCTION_REPORT_2026-10-18.pdf (scripts/R_report_2026-10-18.py, 13 pages): adds
+  - Fig. 2 on a log scale with the time-step table (3.1);
+  - the reason for the Δs / Δw values from a reread of the paper (6.4);
+  - Figure 6 with the reach and sensitivity tables (8);
+  - Figure 7 (9);
+  - updated open points.
+- ROOT_CSV_2026-10-18/ (scripts/R_export_root_csv.py): every plotted number as one-header CSV (-999 = missing), a README with columns and units, and plot_examples.C, tested with ROOT (root-env): Fig. 6 contours and Table I.
+- Cleanup: 692 files (80 entries: old audit / pilot folders and loose files in 05_coplanarity_analysis that no active script uses, plus 12 superseded report PDFs and the *_SUPERSEDED docs).
+  - Zipped to /home/rafia/coplanarity_archive/coplanarity_study_ARCHIVE_2026-10-18.zip. Every file is verified by SHA-256 (0 mismatches). Manifest in docs/ARCHIVE_MANIFEST_2026-10-18.csv.
+  - Removed with git rm, so they also stay in the git history.
+  - Kept: the 10-09 report, 10-16_final_v2, 10-18, all data and logs, and every folder an active script uses.
+  - After the cleanup, the Fig. 6 grid is rebuilt identically (same checksum), and the report and ROOT export rebuild.

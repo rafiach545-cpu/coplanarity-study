@@ -1,8 +1,0 @@
-n_hits_premerge,n_hits_postmerge,geometric_fiducial,timing_ok,truth_fiducial,max_hit_t_ns,n_candidates,seed_found,passes_signal_region,ds,dw,best_candidate_passes_hit_multiplicity,n_layers_hit,best_candidate_n_layers_with_hit,best_candidate_n_layers_with_2plus,best_candidate_layer_hit_counts,event
-16,16,True,True,True,19.79149881683201,0,False,False,,,,8,,,,38
-16,16,True,True,True,9.26941112916074,0,False,False,,,,8,,,,169
-16,16,True,True,True,16.797560286828713,1,True,False,0.0104635895949586,0.2191740798862622,True,8,8.0,8.0,"{1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 2, 8: 2}",208
-16,16,True,True,True,18.04700751473494,1,True,False,0.0264397025871373,0.227409411771907,False,8,7.0,5.0,"{1: 2, 2: 2, 3: 2, 4: 1, 5: 0, 6: 1, 7: 2, 8: 2}",302
-16,16,True,True,True,16.000214610313243,1,True,False,0.016347170525318,0.4424567270715019,False,8,7.0,6.0,"{1: 2, 2: 2, 3: 2, 4: 2, 5: 1, 6: 0, 7: 2, 8: 2}",344
-16,16,True,True,True,16.316861722847264,1,True,False,0.0118633549228801,0.2328153376722898,True,8,8.0,8.0,"{1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 2, 8: 2}",369
-16,16,True,True,True,14.484567607705385,1,True,True,0.0093671750592033,0.2425297540111207,True,8,8.0,8.0,"{1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 2, 7: 2, 8: 2}",386

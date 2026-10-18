@@ -1,5 +1,0 @@
-term,paper_def,denominator
-epsilon_trig,"Fraction of matched events passing trigger requirement (Sec IIIB / Eq.12 discussion, p.7). Independent of Lambda.","matched sample (page 7, 'trigger efficiency')"
-epsilon_fid,"Likelihood each quirk intersects every layer at least once, in trigger-passing events, including 25ns timing cut",trigger-passing events
-epsilon_reco,"""efficiency of our algorithm in finding quirks which satisfy both the trigger and fiducial requirements"" (verbatim, p.7)","trigger-AND-fiducial-passing events (i.e. our truth_fiducial population) -- this is Sec IIIC's plane-found quantity (Delta_w<1cm), NOT the complete Sec IV final-cut pass rate"
-pileup_status,NOT mentioned anywhere in the eps_trig/eps_fid/eps_reco paragraph or Table I caption -- no overlay referenced for signal efficiency measurement,"INFERRED (not explicit): signal efficiencies in Table I appear to be measured WITHOUT pile-up overlay, consistent with our own project methodology"

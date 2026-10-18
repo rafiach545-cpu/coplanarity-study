@@ -1,2 +1,0 @@
-event,mu,truth_fiducial,n_raw_hard_hits,n_pu_interactions,n_pu_particles_propagated,n_raw_pileup_hits,n_hits_combined_premerge,n_hits_combined_postmerge,n_merged_hard_pileup_mixed,n_candidates,passes_signal_region,ds,dw,per_layer_hit_counts
-3,5.0,True,16,4,384,658,674,674,0,1,False,0.0192886448468781,0.18869560730873627,"{1: 85, 2: 88, 3: 89, 4: 90, 5: 85, 6: 85, 7: 78, 8: 74}"

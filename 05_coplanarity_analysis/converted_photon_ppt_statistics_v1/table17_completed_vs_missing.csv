@@ -1,7 +1,0 @@
-item,status
-Conversion-only full-statistics cutflow,COMPLETE (v3)
-Delta_s/Delta_w statistics,"COMPLETE (v3), independently verified"
-Hit-multiplicity pass flag,"IN PROGRESS (v4 rerun launched, PID 165371, ~4.93h projected)"
-"e-/e+ hit-origin split, per-event timing stats",IN PROGRESS (v4)
-Photon pT/eta/MET kinematics,COMPLETE (this task)
-Converted-photon + pile-up overlay,NOT STARTED (explicitly out of scope this task)

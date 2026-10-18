@@ -1,8 +1,0 @@
-limitation
-No production cross-section for colored quirk or pile-up -> no absolute fb/bin normalization
-"Pool size 20,000 events (paper: 125,000) with replacement -> reduced statistical independence"
-Converted-photon result has NO pile-up overlay -> not paper-equivalent
-"Pile-up hit-multiplicity pass = 0/172 at mu=50 -> statistically limited, Wilson 95% UL~=0.022, not proven exactly zero"
-"EW/colored N_truth_fiducial small (40/7) -> limited statistics, especially colored"
-Hit-multiplicity pass not recorded for converted-photon (requires rerun)
-Detector model omits endcap/TRT/ECAL/Bethe-Bloch

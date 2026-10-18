@@ -1,6 +1,0 @@
-{
-  "paper_wording_verbatim": "the pileup backgrounds are derived by taking the distribution from events that are allowed to have 1-hit per layer, weighted by the overall efficiency of passing the more stringent requirement in point 2 above",
-  "interpretation_A": "Denominator = Sec IIIC Event-Selection winner population (Delta_w<1cm, smallest Delta_s) -- i.e. our own 'plane_found' population. w_mult = N(hit_mult_pass)/N(plane_found) = 0/172 (mu=50 control sample, Wilson95 UL~0.0218).",
-  "interpretation_B": "Denominator = a LOOSER 'any candidate with >=1 hit/layer, no Delta_w cut' population, distinct from and possibly larger than interpretation A's population -- not distinguishable from the paper text alone, and not separately available in any stored project dataset without a further, un-run analysis pass.",
-  "resolution_status": "UNRESOLVED -- both interpretations remain defensible; project has only ever computed interpretation A (documented ASSUMPTION in the pileup-only freeze), not silently chosen without disclosure."
-}

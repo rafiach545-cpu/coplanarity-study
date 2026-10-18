@@ -1,2 +1,0 @@
-BLOCKED: environment lacks make/gcc/gfortran. See README.md.
-2026-09-21T14:53:57Z status=BLOCKED originals_untouched=true

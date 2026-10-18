@@ -1,2 +1,0 @@
-mu,event_i,seed_tuple,n_candidates,selected_plane,covered_layers,per_layer_hit_counts,delta_s,delta_w,multiplicity_pass,delta_w_pass,delta_s_pass,final_pass,failure_reason
-5.0,2006,"[90210777,5,2006]",1,True,"[1, 2, 3, 4, 5, 6, 7, 8]","{8: 2, 7: 2, 6: 1, 5: 1, 4: 1, 3: 1, 2: 1, 1: 1}",0.03691268883404399,0.5776853994486171,False,True,False,False,only 2/8 layers have >=2 hits (need >=7)

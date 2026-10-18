@@ -1,5 +1,0 @@
-stage,PID,events,wall_s,wall_h,s_per_event,events_per_hour,exit_code,projected_h,s_per_event_benchmark
-v3 (authoritative),95330,9139,17057,4.738,1.8672,1928.85,0,,
-"v4 (full diagnostics, additive)",165371,9139,IN PROGRESS,,,,pending,4.93,1.94
-v4 5-event regression test,N/A (inline),5,"<5 (unmeasured, sub-benchmark)",,,,0,,
-v4 50-event benchmark,N/A (inline),50,97.06,,1.94,,0,,
