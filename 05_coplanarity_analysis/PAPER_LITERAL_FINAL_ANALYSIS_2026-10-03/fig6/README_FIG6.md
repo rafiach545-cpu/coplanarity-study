@@ -1,6 +1,6 @@
 # Figure 6 of arXiv:1708.02243v2: reproduction settings and checks
 
-Status: 17 October 2026, 09:00. The run is complete for Λ = 0.1–10 keV at every mass point that can reach 3 events. Λ > 10 keV and Λ < 100 eV are not computed.
+Status: 18 October 2026. Computed for Λ = 0.1–25 keV at every mass point that can reach 3 events. The 15–25 keV band was added overnight on 18 October. Λ > 25 keV and Λ < 100 eV are not computed.
 
 Figure: `FINAL_FIGURES/F6_fig6/F6_fig6.png` (and .pdf). Numbers: `fig6/F6_N_grid.csv` (every grid point: k, n, ε, N with ±1σ), `fig6/F6_reach.csv`, `fig6/F6_failure_bound.csv`, `fig6/F6_ew_lo_ratio.csv`.
 
@@ -27,7 +27,7 @@ These quotes are from the v2 source, `quirks_prd_v2.tex`.
 | k/n | n = propagated events (trigger; colored: both charged). k = events in the signal region. k/n = ε_fid × ε_reco |
 | Pipeline | Same as Table I (P18/P20). Production integrator with 300 steps per period, B = 2 T, first crossing, Ref. [27] lengths, t < 25 ns, plane search and signal region as in the paper |
 | SCT z | Both settings with the same random draws: 1.16 mm (paper text; the same-smearing background is 0/9139) and none (reproduces Table I; the same-smearing background is 146/9139) |
-| Λ grid | 0.1, 0.2, 0.3, 0.5, 0.7, 1, 2, 3, 4, 5, 7, 10 keV |
+| Λ grid | 0.1, 0.2, 0.3, 0.5, 0.7, 1, 2, 3, 4, 5, 7, 10, 15, 20, 25 keV. The 15–25 keV points use the numba positions-only integrator, which is bitwise identical to the production integrator (validation: 396 rows, 0 differences) |
 | Points not propagated | EW 1000 (N_max 1.9) and colored 2400 (N_max 0.9 without f_ch): N < 3 even with ε_fid = ε_reco = 1. Colored 2100: with f_ch N_max = 1.15 < 3; it is run only for the line without f_ch |
 | Contour | log10 N interpolated linearly in m_Q and in the paper's Λ display coordinate (log below 1 keV, linear above), only between grid points with a measured N (k ≥ 1) or a bound. Points with k = 0 have no measured N, so no contour passes through them. They are marked: grey ✕ means the 95% UL on N is below 3; red ✕ means it is not resolved (UL ≥ 3) |
 | Paper curves | Extracted from the vector figures (`scripts/S4_fig6_vector_extract.py`). The y calibration is checked to be continuous at 1000 eV |
@@ -60,7 +60,7 @@ All maxima are at Λ = 4–5 keV (SCT z 1.16 mm, EW: 7 keV), as in the paper (4�
 
 ## What is not covered
 
-- **Λ > 10 keV.** This takes about 38 min per event, about 2 days in total. The paper's contours reach about 31–35 keV.
+- **Λ > 25 keV.** The integrator has a ceiling of 20 million steps. At 30–35 keV it removes 5–56% of the events that are fiducial at 10 keV, which would bias the efficiency strongly low (`fig6/F6_high_step_ceiling_scan.csv`). A larger ceiling needs about 5–7 GB per process. The paper's contours reach about 31–35 keV.
 - **Λ < 100 eV and m_Q below the sample range** (colored < 600 GeV, EW < 100 GeV).
 - **Low-Λ edges (≲ 0.7 keV).** 0 of 40–150 events pass there, and at the lightest masses the 95% UL on N is still ≥ 3. Resolving these edges needs larger samples.
 - **Cross-section normalisation.** The paper gives no σ. We use our matched σ (colored) and LO σ_B/σ_A × σ_matched (EW), with no K-factor and no tuning.
@@ -88,3 +88,13 @@ Main-figure changes (2026-10-17):
 - Maxima with ±1σ written in each panel.
 - Notes on the normalisation: LO, no K-factor, N_Q not applied, EW ε_trig = LO ratio.
 - Notes on the red ✕ regions, Λ > 10 keV and the annihilation worst case.
+
+## 15–25 keV band (18 October 2026; checks in `fig6/F6_high_a_checks.csv`)
+
+| Check | Result |
+|---|---|
+| Completeness | All 11 points complete (unique events = propagated events). No duplicates. Both lanes exited with code 0. The memory watchdog never had to act |
+| Step-ceiling failures among the events fiducial at 10 keV | 0–1 at 15–20 keV; 0–3 at 25 keV (≤ 13%, EW 100 GeV). Most failures are in events that are never fiducial |
+| Effect on the maxima | None. The maxima stay at 3–5 keV: colored 1702 / 1591 and EW 712 / 643 GeV (exclusion / discovery, no SCT z smearing, with the charge factor) |
+| Shape | Without SCT z smearing, the upper part of our contours follows the paper's up to 20–25 keV (EW reaches about 400 GeV at 20–22 keV; colored reaches about 1250–1450 GeV at 20 keV). With 1.16 mm the contours close at about 10–15 keV |
+| Physics trend | ε_reco falls above 10 keV, as the paper says, because hits merge. Example, EW 800 GeV with no SCT z smearing: k = 21, 12, 7 at 15, 20, 25 keV |

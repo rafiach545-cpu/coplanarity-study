@@ -765,3 +765,21 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
   - no file was opened from the original repo (audit hook);
   - validation passed;
   - the grid checksum is identical.
+
+## D51 (2026-10-18) Fig. 6 high band on the laptop: memory fix, step-ceiling scan, 15–25 keV run (user: "you start running here, work overnight")
+- Memory:
+  - one 15–35 keV event used > 5 GB (killed by the guard);
+  - fixes: F6_02 frees each trajectory before the next Λ, and a positions-only numba integrator (XONLY=1; the momenta are never read by the hit/crossing code; bitwise identical positions; full-pipeline validation PASSED again: 396 rows, 0 differences);
+  - peak per process is now 2.4 GB.
+- NWORKERS=1 runs in-process: a killed process exits, and its lane restarts it from the checkpoint.
+- Step-ceiling scan (fig6/F6_high_step_ceiling_scan.csv): the 20-million-step ceiling of simulate_quirk_hits removes, among the events fiducial at 10 keV,
+  - 0–4% at 15–20 keV;
+  - 0–13% at 25 keV;
+  - 5–56% at 30–35 keV.
+  So 30–35 keV would be strongly biased low. They are not run; they need a larger ceiling and about 5–7 GB per process. The ceiling and the physics are unchanged.
+- Run: band high_a = 15, 20, 25 keV, all 11 points. Two lanes of 1 process each, plus a memory watchdog (kills the largest process if MemAvailable < 700 MB). Started 2026-10-18 00:52.
+- 2026-10-18 02:26: the 15–25 keV run finished.
+  - 11 points complete, no duplicates, no watchdog action.
+  - Ceiling failures among events fiducial at 10 keV: 0–1 at 15–20 keV, 0–3 at 25 keV.
+  - Figure, reach and sensitivity rebuilt; the maxima are unchanged.
+  - The caption now says "Λ = 15–25 keV computed; Λ > 25 keV not computed (step ceiling)".

@@ -16,9 +16,10 @@ from scipy import stats
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = f"{HERE}/.."; LOG = f"{ROOT}/logs"; OUT = f"{ROOT}/fig6"
 LUMI = 300.0
 LAMS = (0.1, 0.2, 0.3, 0.5, 0.7, 1, 2, 3, 4, 5, 7, 10)
-HIGH = (15, 20, 25, 30, 35)                                                   # high band (15-35 keV): used when its checkpoints exist
+HIGH = {"high_a": (15, 20, 25), "high": (15, 20, 25, 30, 35)}                  # high-band checkpoints are used when they exist
 C = pd.read_csv(f"{OUT}/inputs/counts.csv")
-if any(os.path.exists(f"{LOG}/F6_{r.channel}_{r.mass_gev}gev_high_events.jsonl") for r in C.itertuples()): LAMS = LAMS + HIGH
+for _b in ("high", "high_a"):
+    if any(os.path.exists(f"{LOG}/F6_{r.channel}_{r.mass_gev}gev_{_b}_events.jsonl") for r in C.itertuples()): LAMS = tuple(sorted(set(LAMS) | set(HIGH[_b])))
 # ---- EW LO ratio from the MG5 log (order: for each mass, A then B)
 _MG = "/home/rafia/hep_tools/F6_EW_LO_ratio/mg5_run.log"
 if os.path.exists(_MG):                                                       # original machine: parse the MG5 log
@@ -35,7 +36,7 @@ else:                                                                         # 
 
 def load(tag):
     rows = []
-    for band in ("low", "mid", "high"):
+    for band in ("low", "mid", "high", "high_a"):
         f = f"{LOG}/F6_{tag}{'' if band == 'mid' else '_' + band}_events.jsonl"
         if os.path.exists(f): rows += [r for l in open(f) if l.strip() for r in json.loads(l)]
     return pd.DataFrame(rows)
@@ -123,9 +124,10 @@ def panel(ax, ch, sct):
             else: ax.plot(r.mass_gev, y, "o", ms=2.2, color=fu.INK2, zorder=4)
         elif r.status_with_f == "bound": ax.plot(r.mass_gev, y, "o", ms=2.2, color=fu.MUTED, mfc="none", zorder=4)
     mmin, mmax = g.mass_gev.min(), g.mass_gev.max()
-    if max(LAMS) <= 10:
-        ax.fill_between([x0, x1], Yd(10e3), Yd(35e3), color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
-        ax.text((x0 + x1) / 2, Yd(22e3), "Λ > 10 keV: not computed", ha="center", fontsize=8.5, color=fu.INK2, zorder=5)
+    if max(LAMS) < 35:
+        lt = max(LAMS)
+        ax.fill_between([x0, x1], Yd(lt * 1e3), Yd(35e3), color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
+        ax.text((x0 + x1) / 2, Yd((lt + 35) / 2 * 1e3), f"Λ > {lt:g} keV: not computed", ha="center", fontsize=8.5, color=fu.INK2, zorder=5)
     if mmin > x0: ax.fill_betweenx([Yd(3), Yd(max(LAMS) * 1e3)], x0, mmin, color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
     ax.fill_between([x0, x1], Yd(3), Yd(100), color="#e9e9e9", hatch="//", edgecolor="#c9c9c9", lw=0, zorder=0)
     ax.text(x1 - 0.02 * (x1 - x0), Yd(5), "Λ < 100 eV: not computed", ha="right", fontsize=8, color=fu.INK2, zorder=5)
@@ -146,7 +148,8 @@ NOTES = ("Normalisation: σ = MadGraph5 3.7.3 LO (0 + 1 jet, MLM-matched with Py
          "move the EW maximum outward by ~60–80 GeV. EW ε_fid and ε_reco: from the matched + shower sample of each mass; the LO sample at 800 GeV (D41, 3000 events) gives ε_fid 0.30 "
          "vs 0.31 here and k/n within ±13%, which moves the EW maximum by +5 GeV. Colored: ε_trig = matched count; the both-charged factor (~0.33) is included (thin orange: without it).\n"
          "Red ✕: at low Λ for colored 600–1200 GeV and EW 100–200 GeV our samples (40–70 events per mass) are too small; the paper's lower-left edge passes there and is not "
-         "tested here (larger samples needed). Λ > 10 keV: not computed (the maxima are at 3–5 keV, so the reach is unaffected; only the upper part of the shape is missing).\n"
+         "tested here (larger samples needed). Λ = 15–25 keV: computed (the integrator's 20-million-step ceiling removes ≤ 13% of the events fiducial at 10 keV there); Λ > 25 keV: not computed, "
+         "because that ceiling removes 5–56% of them at 30–35 keV (needs a larger ceiling and more memory). The maxima are at 3–5 keV and are unaffected.\n"
          "Annihilation is not simulated (as in the paper). Worst case (α = 0.05, annihilation chance at every second meeting) it lowers the signal near the maxima by ~17–24% (EW 4–5 keV) "
          "and ~17% (colored 5 keV), moving the maxima inward by ~30 GeV (colored) and ~25–40 GeV (EW).")
 def plot(_):
