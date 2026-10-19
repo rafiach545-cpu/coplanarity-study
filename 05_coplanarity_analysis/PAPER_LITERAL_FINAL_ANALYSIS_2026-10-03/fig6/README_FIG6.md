@@ -111,3 +111,5 @@ Main-figure changes (2026-10-17):
 | Masses outside the grid | Not needed: EW 1000 N ≤ 0.88 (×2 → 1.8); colored 2400 N_max 0.9 even with ε_fid = ε_reco = 1 |
 | Result (no SCT z smearing) | EW 792 / 701 GeV (paper 762 / 688): +4% / +2%. With the LO ratio: 712 / 643 (-7% / -7%) |
 | Code checks added | F6_03 stops if a checkpoint has fewer events than propagated (a partial file had given a wrong test value). counts.csv n_trigger_both_charged now uses abs(q) > 0.5 like F6_02/F6_03 (was abs(q) = 1; informational column only, the figure was already right) |
+
+Caption note (2026-10-20): the EW panels' boxes now state the trigger used ("ε_trig: matched count (paper)") and the LO-ratio alternative (712 / 643 GeV without SCT z smearing, 474 / 428 GeV with 1.16 mm), and the caption begins its trigger paragraph with "EW TRIGGER CHANGED (2026-10-19)" and the shift (+80 / +58 GeV). The value 0.178 in the earlier note was the EW 800 trigger count of the independent Table I sample (186/1045); the Fig. 6 sample gives 152/1024 = 0.148 (the two differ by 1.8σ).
