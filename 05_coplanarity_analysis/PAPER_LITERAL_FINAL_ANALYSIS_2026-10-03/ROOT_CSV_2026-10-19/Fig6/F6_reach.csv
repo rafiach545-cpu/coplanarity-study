@@ -1,0 +1,13 @@
+channel,sct,variant,contour,m_max_GeV,at_lambda_keV,m_max_lo,m_max_hi,paper_m_max_GeV,paper_at_lambda_keV
+colored,Z1160,charge factor included,exclusion,1497,4.0,1438,1558,1793,5.0
+colored,Z1160,charge factor included,discovery,1424,4.0,1368,1482,1707,5.0
+colored,Z1160,without charge factor,exclusion,1655,4.0,1592,1724,1793,5.0
+colored,Z1160,without charge factor,discovery,1586,4.0,1527,1651,1707,5.0
+colored,Z0,charge factor included,exclusion,1702,5.0,1651,1747,1793,5.0
+colored,Z0,charge factor included,discovery,1591,5.0,1538,1639,1707,5.0
+colored,Z0,without charge factor,exclusion,1893,5.0,1859,1929,1793,5.0
+colored,Z0,without charge factor,discovery,1820,5.0,1784,1852,1707,5.0
+EW,Z1160,charge factor included,exclusion,524,5.0,482,567,762,5.0
+EW,Z1160,charge factor included,discovery,473,7.0,440,514,688,4.0
+EW,Z0,charge factor included,exclusion,792,4.0,766,815,762,5.0
+EW,Z0,charge factor included,discovery,701,5.0,681,722,688,4.0

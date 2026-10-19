@@ -15,8 +15,8 @@ from scipy.interpolate import RegularGridInterpolator
 import fig_utils as fu
 G = pd.read_csv(f"{ROOT}/fig6/F6_N_grid.csv"); V = json.load(open(f"{ROOT}/tables/paper_fig6_vector.json"))
 C = pd.read_csv(f"{ROOT}/fig6/inputs/counts.csv"); LO = pd.read_csv(f"{ROOT}/fig6/F6_ew_lo_ratio.csv").set_index("mass_gev")
-# EW matched-count trigger / LO ratio, per mass
-EWMC = {r.mass_gev: (r.n_trigger / r.n_matched) / LO.ratio[r.mass_gev] for r in C[C.channel == "EW"].itertuples()}
+# EW LO-ratio trigger / matched-count trigger, per mass (alternative to the main matched-count trigger)
+EWLO = {r.mass_gev: LO.ratio[r.mass_gev] / (r.n_trigger / r.n_matched) for r in C[C.channel == "EW"].itertuples()}   # LO-ratio trigger / matched-count trigger
 # EW efficiency from the LO sample (D41, 800 GeV, 3000 events, no shower) instead of the matched sample: per-Lambda ratio of k/n at 800 GeV (1-5 keV;
 # 1 elsewhere), applied to all EW masses (approximation)
 _d41 = pd.DataFrame([r for l in open(f"{ROOT}/logs/D41_mg5_373_lo_events.jsonl") for r in json.loads(l)]); _n41 = _d41.event.nunique()
@@ -33,9 +33,9 @@ def surv(ch, lam):
 def scaled(g, ch, var):
     g = g.copy(); f = np.ones(len(g))
     if var.startswith("K"): f[:] = float(var[1:])
-    elif var == "EW matched trigger": f = g.mass_gev.map(EWMC).values
+    elif var == "EW LO-ratio trigger": f = g.mass_gev.map(EWLO).values
     elif var == "annihilation worst": f = np.array([surv(ch, l) for l in g.lambda_keV])
-    elif var == "EW LO-sample efficiency": f = np.array([LORAT.get(float(l), 1.0) for l in g.lambda_keV])
+    elif var == "EW fully LO": f = g.mass_gev.map(EWLO).values * np.array([LORAT.get(float(l), 1.0) for l in g.lambda_keV])   # LO trigger and LO efficiencies (800 GeV ratio)
     for c in ("N_with_f", "N_with_f_lo", "N_with_f_hi"): g[c] = g[c] * f
     return g
 def reach(g, col, thr):
@@ -56,13 +56,13 @@ def reach(g, col, thr):
                     if beyond is None or m[i] > beyond[0]: beyond = (m[i], lam)
     return (-beyond[0], beyond[1]) if beyond is not None else best
 fmt = lambda v: (round(v) if v > 0 else f"> {int(-v)}") if np.isfinite(v) else np.nan
-VARS = {"colored": ["K1", "K1.5", "K1.8", "K2", "annihilation worst"], "EW": ["K1", "K1.2", "K1.4", "K2", "EW matched trigger", "EW LO-sample efficiency", "annihilation worst"]}
+VARS = {"colored": ["K1", "K1.5", "K1.8", "K2", "annihilation worst"], "EW": ["K1", "K1.2", "K1.4", "K2", "EW LO-ratio trigger", "EW fully LO", "annihilation worst"]}
 rows = []
 for ch in ("colored", "EW"):
     for sct in ("Z0", "Z1160"):
         base = G[(G.channel == ch) & (G.sct == sct)]
         for var in VARS[ch]:
-            if var == "EW LO-sample efficiency" and sct != "Z0": continue          # D41 was run without SCT z smearing only
+            if var == "EW fully LO" and sct != "Z0": continue          # D41 was run without SCT z smearing only
             g = scaled(base, ch, var)
             for thr, nm in ((3, "exclusion"), (5, "discovery")):
                 c, lo, hi = reach(g, "N_with_f", thr), reach(g, "N_with_f_lo", thr), reach(g, "N_with_f_hi", thr)
@@ -70,7 +70,7 @@ for ch in ("colored", "EW"):
                                                            lo=fmt(lo[0]), hi=fmt(hi[0]), paper=round(max(pc["m_GeV"]))))
 R = pd.DataFrame(rows); R.to_csv(f"{ROOT}/fig6/F6_reach_sensitivity.csv", index=False); pd.set_option("display.width", 200); print(R.to_string(index=False))
 print("EW LO/matched k/n ratio at 800 GeV:", {k: round(v, 3) for k, v in LORAT.items()})
-print("EW matched-count / LO-ratio trigger factor per mass:", {k: round(v, 2) for k, v in EWMC.items()})
+print("EW LO-ratio / matched-count trigger factor per mass:", {k: round(v, 2) for k, v in EWLO.items()})
 # ---------------------------------------------------------------- figure (signal without SCT z smearing)
 cal = V["colored"]["calibration"]
 _al = np.polyfit([np.log10(v) for v, _ in cal["y_log_ticks"]], [p for _, p in cal["y_log_ticks"]], 1); _bl = np.polyfit([v for v, _ in cal["y_lin_ticks"]], [p for _, p in cal["y_lin_ticks"]], 1)
@@ -96,7 +96,12 @@ def plot(_):
                 r = R[(R.channel == ch) & (R.sct == "Z0") & (R.variant == var) & (R.contour == nm)].iloc[0]
                 ax.plot([], [], color=cols[k], ls=ls, lw=2.2 if var == "K1" else 1.4,
                         label=f"this work, σ × {var[1:]}{' (N_Q = 2 reading)' if var == 'K2' else ''}: " + (f"{r.m_max} ({r.lo}–{r.hi}) GeV" if str(r.m_max).isdigit() else f"{r.m_max} GeV"))
-            ax.fill_between([x0, x1], Yd(10e3), Yd(35e3), color="#ededed", lw=0, zorder=0); ax.text((x0 + x1) / 2, Yd(22e3), "Λ > 10 keV: not computed", ha="center", fontsize=8.5, color=fu.INK2)
+            if ch == "EW":                                                   # the alternative EW trigger (LO ratio, not stated in the paper)
+                mm, yy, zz = surface(scaled(base, ch, "EW LO-ratio trigger")); ax.contour(mm, yy, zz, levels=[np.log10(thr)], colors=[fu.MUTED], linestyles=[":"], linewidths=1.6)
+                r = R[(R.channel == ch) & (R.sct == "Z0") & (R.variant == "EW LO-ratio trigger") & (R.contour == nm)].iloc[0]
+                ax.plot([], [], color=fu.MUTED, ls=":", lw=1.6, label=f"alternative: LO-ratio trigger, σ × 1: {r.m_max} ({r.lo}–{r.hi}) GeV")
+            lmax = max(float(l) for l in base.lambda_keV.unique()) * 1e3
+            ax.fill_between([x0, x1], Yd(lmax), Yd(35e3), color="#ededed", lw=0, zorder=0, label=f"Λ > {lmax / 1e3:.0f} keV: not computed")
             ax.set_xlim(x0, x1); ax.set_ylim(Yd(50), Yd(35000)); tv = [100, 1000, 10000, 20000, 30000]; ax.set_yticks(Yd(tv)); ax.set_yticklabels(["10²", "10³", "10000", "20000", "30000"])
             ax.axhline(Yd(1000), color=fu.MUTED, lw=0.6); ax.set_xlabel("m$_Q$ (GeV)"); ax.set_ylabel("Λ (eV)"); ax.legend(fontsize=7.3, loc="upper right", frameon=True, framealpha=0.92)
             ax.set_title(f"{'colored' if ch == 'colored' else 'EW'}: {nm} ({thr} events), signal without SCT z smearing; paper max {int(max(P['m_GeV']))} GeV", fontsize=9.3, loc="left")
@@ -104,5 +109,5 @@ def plot(_):
     fig.tight_layout(); return fig
 fu.figure("F6_kfactor", R, plot,
           "Figure 6 contours (signal without SCT z smearing, charge factor included) with the expected number of events multiplied by a common factor K: colored K = 1.5, 1.8, "
-          "EW K = 1.2, 1.4, and K = 2 for both (the N_Q = 2 of the paper's panel titles read as a factor 2 on σ; not applied in the main figure). K = 1: our LO "
+          "EW K = 1.2, 1.4, and K = 2 for both; EW also the alternative trigger (LO ratio σ(QQ̄ + j, pT > 200)/σ(QQ̄) instead of the matched count, dotted grey) (the N_Q = 2 of the paper's panel titles read as a factor 2 on σ; not applied in the main figure). K = 1: our LO "
           "cross sections. This is a sensitivity study, not a fit. Grid N from fig6/F6_N_grid.csv; no new simulation.", [f"{ROOT}/fig6/F6_N_grid.csv"], "all grid points", os.path.abspath(__file__))

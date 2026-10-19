@@ -802,3 +802,12 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
   - Removed with git rm, so they also stay in the git history.
   - Kept: the 10-09 report, 10-16_final_v2, 10-18, all data and logs, and every folder an active script uses.
   - After the cleanup, the Fig. 6 grid is rebuilt identically (same checksum), and the report and ROOT export rebuild.
+
+## D53 (2026-10-19) Figure 6 EW trigger from the matched + shower sample (user: "papaer k closest approach ... han paper waly sy kro matched shower wala")
+- Question: the EW main line took ε_trig from the LO ratio σ(QQ̄ + j, pT > 200)/σ(QQ̄) and ε_fid, ε_reco from the matched + shower sample (two different samples).
+- Paper: one sample ("0 + 1 jet ... matched using Pythia8"), trigger pT(QQ̄) > 200 GeV; no LO ratio is stated (the 0.10 of Table I is reproduced by the LO ratio, as in arXiv:1911.02223).
+- Decision (user's choice): main EW ε_trig = N(pT(QQ̄) > 200)/N(matched) of the same sample, as for colored. The LO ratio stays as a labelled alternative (F6_05 variants "EW LO-ratio trigger", "EW fully LO"; column eps_trig_LO in F6_N_grid.csv).
+- EW 1000 GeV now has N_max 3.72 ≥ 3 and was run (logs/F6_EW1000.sh; low, mid, high_a; 190 events; 36 min). Max N = 0.88 (4 keV), so it does not move the contour; no mass outside the grid is needed.
+- Result (no SCT z smearing, with charge factor): EW 792 / 701 GeV (paper 762 / 688); with SCT z 1.16 mm 524 / 473. Colored unchanged 1702 / 1591. LO-ratio alternative 712 / 643.
+- Fixes found on the way: F6_03 asserts that every checkpoint is complete; counts.csv n_trigger_both_charged uses abs(q) > 0.5 (as F6_02/F6_03); F6_kfactor hatch moved from 10 to 25 keV.
+- New outputs (older versions kept): TABLE_I_REPRODUCTION_REPORT_2026-10-19.pdf (scripts/R_report_2026-10-19.py), ROOT_CSV_2026-10-19/.

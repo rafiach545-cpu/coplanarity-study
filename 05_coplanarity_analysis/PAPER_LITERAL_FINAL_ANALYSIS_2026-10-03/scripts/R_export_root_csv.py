@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Export every result needed to redraw the report's tables and Figures 2-7 with ROOT (2026-10-18) into ROOT_CSV_2026-10-18/.
+"""Export every result needed to redraw the report's tables and Figures 2-7 with ROOT (2026-10-19; EW trigger = matched count, the paper's method) into ROOT_CSV_2026-10-19/.
 Rules: one header line, comma separated, missing numbers written as -999, booleans as 0/1, string columns only where unavoidable (labels).
 Everything is read from the existing result files (no recomputation, except Figure 6 contour lines, which are traced from fig6/F6_N_grid.csv with the
 same interpolation as F6_03_contours.py). A README.txt lists every file, its columns, units and source."""
 import os, sys, json, shutil, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f"{HERE}/.."); sys.path.insert(0, HERE)
-OUT = f"{ROOT}/ROOT_CSV_2026-10-18"; T = f"{ROOT}/tables"; FIG = f"{ROOT}/FINAL_FIGURES"
+OUT = f"{ROOT}/ROOT_CSV_2026-10-19"; T = f"{ROOT}/tables"; FIG = f"{ROOT}/FINAL_FIGURES"
 README = []
 def save(df, rel, desc, cols, src):
     p = f"{OUT}/{rel}"; os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -93,10 +93,10 @@ for z in ("Z0", "Z1160"):
 G = pd.read_csv(f"{ROOT}/fig6/F6_N_grid.csv"); G["channel_id"] = np.where(G.channel == "colored", 1, 2); G["sctz_um"] = np.where(G.sct == "Z0", 0, 1160)
 st_map = {"computed": 1, "bound": 2, "missing": 0, "not run": 0}
 for c in ("status_with_f", "status_without_f"): G[c] = G[c].map(st_map)
-keep = ["channel_id", "mass_gev", "lambda_keV", "sctz_um", "sigma_fb", "eps_trig", "f_ch", "n_prop", "n_fid", "k", "n_integration_fail", "eps_fid", "eps_reco", "N_with_f", "N_with_f_lo",
+keep = ["channel_id", "mass_gev", "lambda_keV", "sctz_um", "sigma_fb", "eps_trig", "eps_trig_LO", "f_ch", "n_prop", "n_fid", "k", "n_integration_fail", "eps_fid", "eps_reco", "N_with_f", "N_with_f_lo",
         "N_with_f_hi", "N_without_f", "N_without_f_lo", "N_without_f_hi", "N_with_f_UL95_if_k0", "N_without_f_UL95_if_k0", "status_with_f", "status_without_f"]
 save(G[keep], "Fig6/fig6_grid.csv", "Figure 6 grid: expected signal events at 300 fb-1 for every (mass, Lambda, SCT z)",
-     dict(channel_id="1 colored, 2 EW", sigma_fb="matched cross section (fb)", eps_trig="colored: count; EW: LO ratio", f_ch="colored: fraction with both quirk-hadrons charged (EW 1)",
+     dict(channel_id="1 colored, 2 EW", sigma_fb="matched cross section (fb)", eps_trig="count N(pT(QQ) > 200) / N(matched) of the matched + shower sample (both channels)", eps_trig_LO="EW: LO ratio sigma(QQ+j, pT > 200) / sigma(QQ) (alternative); colored: = eps_trig", f_ch="colored: fraction with both quirk-hadrons charged (EW 1)",
           n_prop="propagated events", k="events in the signal region", N_with_f="300 fb-1 x sigma x eps_trig x f_ch x k/n", N_with_f_lo="N at the Wilson 68% lower bound of k/n",
           N_without_f="colored without f_ch", N_with_f_UL95_if_k0="95% upper limit on N when k = 0", status_with_f="1 computed, 2 bound (max possible N < 3, not propagated), 0 not available"),
      "fig6/F6_N_grid.csv")
@@ -144,7 +144,7 @@ save(p7[["var_id", "channel_id", "point", "x", "y"]], "Fig7/fig7_paper_curves.cs
 bg = pd.DataFrame([dict(sample=1, sctz_um=1160, n_events=9139, n_signal_region=0), dict(sample=1, sctz_um=0, n_events=9139, n_signal_region=146), dict(sample=2, sctz_um=1160, n_events=5000, n_signal_region=0)])
 save(bg, "Backgrounds/backgrounds_signal_region.csv", "Backgrounds in the signal region", dict(sample="1 = converted photon + pile-up (mu = 50), 2 = pile-up only"), "report Section 7")
 open(f"{OUT}/README.txt", "w").write(
-    "CSV files to redraw the Table I reproduction of arXiv:1708.02243 with ROOT (2026-10-18). One header line, comma separated, missing values = -999, booleans 0/1.\n"
+    "CSV files to redraw the Table I reproduction of arXiv:1708.02243 with ROOT (2026-10-19). One header line, comma separated, missing values = -999, booleans 0/1.\n"
     "ROOT: auto df = ROOT::RDF::FromCSV(\"Fig6/fig6_grid.csv\");  or  TTree t; t.ReadFile(\"file.csv\", \"\", ',');  (the header line gives the branch names)\n"
     "TGraph from two columns: TGraph g(\"file.csv\", \"%*lg,%lg,%lg\", \",\")  -- skip columns with %*lg.\n\n" + "\n".join(README))
 shutil.copy(f"{HERE}/ROOT_plot_examples.C", f"{OUT}/plot_examples.C")              # example macro (tested with ROOT)

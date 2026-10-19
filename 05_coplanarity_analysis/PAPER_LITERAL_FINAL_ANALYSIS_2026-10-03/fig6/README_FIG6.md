@@ -23,12 +23,12 @@ These quotes are from the v2 source, `quirks_prd_v2.tex`.
 |---|---|
 | Event samples | figure6_full_v1 generation (unchanged): MG5 3.7.3 + Pythia8, MLM matched (xqcut 30), nn23lo1, 2000 events per mass. Colored 600–2400 GeV, EW 100–1000 GeV |
 | N, colored | 300 fb⁻¹ × σ_matched × ε_trig × f_ch × (k/n). ε_trig = N(p_T(QQ̄) > 200)/N(matched). f_ch = fraction of triggered events with both quirk-hadrons charged (abs(q) > 0.5, as in Table I). A second line drops f_ch |
-| N, EW | 300 fb⁻¹ × σ_matched × (σ_B/σ_A) × (k/n). σ_B/σ_A is the LO ratio (A: pp → QQ̄; B: pp → QQ̄ + j with p_T(j) > 200 GeV, ickkw 0). This is the Table I trigger definition; at 800 GeV it reproduces 0.096 |
+| N, EW | 300 fb⁻¹ × σ_matched × ε_trig × (k/n), ε_trig = N(p_T(QQ̄) > 200)/N(matched) of the same matched + shower sample (since 2026-10-19; the paper's described method, so all efficiencies come from one sample). Alternative (sensitivity only): the LO ratio σ_B/σ_A (A: pp → QQ̄; B: pp → QQ̄ + j with p_T(j) > 200 GeV, ickkw 0), which reproduces Table I's 0.096 at 800 GeV but is not stated in the paper; it is 0.54–0.75 × the matched count |
 | k/n | n = propagated events (trigger; colored: both charged). k = events in the signal region. k/n = ε_fid × ε_reco |
 | Pipeline | Same as Table I (P18/P20). Production integrator with 300 steps per period, B = 2 T, first crossing, Ref. [27] lengths, t < 25 ns, plane search and signal region as in the paper |
 | SCT z | Both settings with the same random draws: 1.16 mm (paper text; the same-smearing background is 0/9139) and none (reproduces Table I; the same-smearing background is 146/9139) |
 | Λ grid | 0.1, 0.2, 0.3, 0.5, 0.7, 1, 2, 3, 4, 5, 7, 10, 15, 20, 25 keV. The 15–25 keV points use the numba positions-only integrator, which is bitwise identical to the production integrator (validation: 396 rows, 0 differences) |
-| Points not propagated | EW 1000 (N_max 1.9) and colored 2400 (N_max 0.9 without f_ch): N < 3 even with ε_fid = ε_reco = 1. Colored 2100: with f_ch N_max = 1.15 < 3; it is run only for the line without f_ch |
+| Points not propagated | Colored 2400 (N_max 0.9 without f_ch): N < 3 even with ε_fid = ε_reco = 1. Colored 2100: with f_ch N_max = 1.15 < 3; it is run only for the line without f_ch |
 | Contour | log10 N interpolated linearly in m_Q and in the paper's Λ display coordinate (log below 1 keV, linear above), only between grid points with a measured N (k ≥ 1) or a bound. Points with k = 0 have no measured N, so no contour passes through them. They are marked: grey ✕ means the 95% UL on N is below 3; red ✕ means it is not resolved (UL ≥ 3) |
 | Paper curves | Extracted from the vector figures (`scripts/S4_fig6_vector_extract.py`). The y calibration is checked to be continuous at 1000 eV |
 
@@ -51,9 +51,9 @@ These quotes are from the v2 source, `quirks_prd_v2.tex`.
 |---|---|---|
 | Paper, Fig. 6 | colored 1793, EW 762 GeV | colored 1707, EW 688 GeV |
 | Paper, abstract | – | colored 1600, EW 650 GeV |
-| No SCT z smearing, with the charge factor | colored 1702 (1651–1747), EW 712 (692–736) | colored 1591 (1538–1639), EW 643 (623–662) |
+| No SCT z smearing, with the charge factor | colored 1702 (1651–1747), EW 792 (766–815) | colored 1591 (1538–1639), EW 701 (681–722) |
 | No SCT z smearing, without the charge factor | colored 1893 (1859–1929) | colored 1820 (1784–1852) |
-| SCT z 1.16 mm (same for signal and background), with the charge factor | colored 1497 (1438–1558), EW 474 (438–517) | colored 1424 (1368–1482), EW 428 (391–464) |
+| SCT z 1.16 mm (same for signal and background), with the charge factor | colored 1497 (1438–1558), EW 524 (482–567) | colored 1424 (1368–1482), EW 473 (440–514) |
 | SCT z 1.16 mm, without the charge factor | colored 1655 (1592–1724) | colored 1586 (1527–1651) |
 
 All maxima are at Λ = 4–5 keV (SCT z 1.16 mm, EW: 7 keV), as in the paper (4–5 keV).
@@ -63,7 +63,7 @@ All maxima are at Λ = 4–5 keV (SCT z 1.16 mm, EW: 7 keV), as in the paper (4�
 - **Λ > 25 keV.** The integrator has a ceiling of 20 million steps. At 30–35 keV it removes 5–56% of the events that are fiducial at 10 keV, which would bias the efficiency strongly low (`fig6/F6_high_step_ceiling_scan.csv`). A larger ceiling needs about 5–7 GB per process. The paper's contours reach about 31–35 keV.
 - **Λ < 100 eV and m_Q below the sample range** (colored < 600 GeV, EW < 100 GeV).
 - **Low-Λ edges (≲ 0.7 keV).** 0 of 40–150 events pass there, and at the lightest masses the 95% UL on N is still ≥ 3. Resolving these edges needs larger samples.
-- **Cross-section normalisation.** The paper gives no σ. We use our matched σ (colored) and LO σ_B/σ_A × σ_matched (EW), with no K-factor and no tuning.
+- **Cross-section normalisation.** The paper gives no σ. We use our matched σ for both channels, with no K-factor and no tuning.
 
 ## Normalisation sensitivity (no new simulation; `scripts/F6_05_sensitivity.py`, `fig6/F6_reach_sensitivity.csv`, `FINAL_FIGURES/F6_kfactor/`)
 
@@ -72,16 +72,18 @@ Every grid N is multiplied by a common factor and the contours are redrawn. This
 | Variant | Colored exclusion / discovery (GeV) | EW exclusion / discovery (GeV) |
 |---|---|---|
 | Paper, Fig. 6 | 1793 / 1707 | 762 / 688 |
-| K = 1 (our LO σ) | 1702 / 1591 | 712 / 643 |
-| K = 1.2 (EW) | – | 745 / 667 |
-| K = 1.4 (EW) | – | 774 / 688 |
+| K = 1 (our LO σ) | 1702 / 1591 | 792 / 701 |
+| K = 1.2 (EW) | – | 824 / 730 |
+| K = 1.4 (EW) | – | 850 / 759 |
 | K = 1.5 (colored) | 1789 / 1679 | – |
 | K = 1.8 (colored) | 1817 / 1718 | – |
-| K = 2 ("N_Q = 2" read as ×2 on σ) | 1831 / 1741 | > 800 (not determined; EW 1000 not computed) / 745 |
-| EW ε_trig from the matched + shower count instead of the LO ratio (×1.3–1.9 per mass) | – | 792 / 701 |
-| Annihilation, worst case (α = 0.05, survival from D27 at the benchmark masses, applied to all masses) | 1672 / 1560 | 685 / 605 |
+| K = 2 ("N_Q = 2" read as ×2 on σ) | 1831 / 1741 | 910 / 824 |
+| EW ε_trig = LO ratio instead of the matched count (×0.54–0.75 per mass; reproduces Table I's 0.10) | – | 712 / 643 |
+| EW fully LO: LO-ratio trigger and ε_fid, ε_reco from the LO sample at 800 GeV (report Section 2.3) | – | 717 / 648 |
+| Annihilation, worst case (α = 0.05, survival from D27 at the benchmark masses, applied to all masses) | 1672 / 1560 | 758 / 671 |
 
-An overall factor of about 1.5 (colored) or 1.4 (EW) on the signal puts our maxima on the paper's curves. The paper gives no σ, so the source of this factor cannot be identified from the paper. A factor 2 overshoots both channels.
+Colored: an overall factor of about 1.5–1.7 on the signal puts our maxima on the paper's curves; the paper gives no σ, so its source cannot be identified. EW (paper's method): our maxima are already +4% / +2% from the paper's, so a factor > 1 overshoots. A factor 2 overshoots both channels.
+(Before 2026-10-19 the EW main line used the LO ratio: 712 / 643 GeV, now the "LO ratio" row.)
 
 Main-figure changes (2026-10-17):
 - Title wording.
@@ -95,6 +97,17 @@ Main-figure changes (2026-10-17):
 |---|---|
 | Completeness | All 11 points complete (unique events = propagated events). No duplicates. Both lanes exited with code 0. The memory watchdog never had to act |
 | Step-ceiling failures among the events fiducial at 10 keV | 0–1 at 15–20 keV; 0–3 at 25 keV (≤ 13%, EW 100 GeV). Most failures are in events that are never fiducial |
-| Effect on the maxima | None. The maxima stay at 3–5 keV: colored 1702 / 1591 and EW 712 / 643 GeV (exclusion / discovery, no SCT z smearing, with the charge factor) |
+| Effect on the maxima | None. The maxima stay at 3–5 keV: colored 1702 / 1591 and EW 712 / 643 GeV (EW with the LO-ratio trigger used until 2026-10-19) (exclusion / discovery, no SCT z smearing, with the charge factor) |
 | Shape | Without SCT z smearing, the upper part of our contours follows the paper's up to 20–25 keV (EW reaches about 400 GeV at 20–22 keV; colored reaches about 1250–1450 GeV at 20 keV). With 1.16 mm the contours close at about 10–15 keV |
 | Physics trend | ε_reco falls above 10 keV, as the paper says, because hits merge. Example, EW 800 GeV with no SCT z smearing: k = 21, 12, 7 at 15, 20, 25 keV |
+
+## EW trigger changed to the paper's method (19 October 2026)
+
+| Item | Result |
+|---|---|
+| Change | EW ε_trig = N(p_T(QQ̄) > 200)/N(matched) of the matched + shower sample (before: LO ratio). ε_fid, ε_reco unchanged (same sample). Colored unchanged |
+| Reason | The paper describes one sample (“0 + 1 jet ... matched using Pythia8”) and a p_T(QQ̄) > 200 GeV trigger; it does not state an LO ratio. Taking the trigger from LO and ε_fid, ε_reco from the matched sample mixed two samples |
+| EW 1000 GeV | N_max = 300 × 0.0645 fb × 190/988 = 3.72 ≥ 3, so it is now propagated (190 events, all 15 Λ). Best point 4 keV: k = 45, N = 0.88 < 3; it does not move the contour (EW 800 max N = 2.88 at 4 keV). Integration failures: 1–4 per Λ up to 15 keV, 15 at 20 keV and 43 at 25 keV (step ceiling), where N < 0.2 anyway |
+| Masses outside the grid | Not needed: EW 1000 N ≤ 0.88 (×2 → 1.8); colored 2400 N_max 0.9 even with ε_fid = ε_reco = 1 |
+| Result (no SCT z smearing) | EW 792 / 701 GeV (paper 762 / 688): +4% / +2%. With the LO ratio: 712 / 643 (-7% / -7%) |
+| Code checks added | F6_03 stops if a checkpoint has fewer events than propagated (a partial file had given a wrong test value). counts.csv n_trigger_both_charged now uses abs(q) > 0.5 like F6_02/F6_03 (was abs(q) = 1; informational column only, the figure was already right) |

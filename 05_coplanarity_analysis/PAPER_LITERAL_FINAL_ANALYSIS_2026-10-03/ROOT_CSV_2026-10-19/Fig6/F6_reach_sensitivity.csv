@@ -1,0 +1,47 @@
+channel,sct,variant,contour,m_max,lam_keV,lo,hi,paper
+colored,Z0,K1,exclusion,1702,5.0,1651,1747,1793
+colored,Z0,K1,discovery,1591,5.0,1538,1639,1707
+colored,Z0,K1.5,exclusion,1789,5.0,1741,1821,1793
+colored,Z0,K1.5,discovery,1679,5.0,1627,1725,1707
+colored,Z0,K1.8,exclusion,1817,5.0,1781,1846,1793
+colored,Z0,K1.8,discovery,1718,5.0,1668,1764,1707
+colored,Z0,K2,exclusion,1831,5.0,1802,1860,1793
+colored,Z0,K2,discovery,1741,5.0,1691,1786,1707
+colored,Z0,annihilation worst,exclusion,1672,3.0,1617,1721,1793
+colored,Z0,annihilation worst,discovery,1560,3.0,1502,1611,1707
+colored,Z1160,K1,exclusion,1497,4.0,1438,1558,1793
+colored,Z1160,K1,discovery,1424,4.0,1368,1482,1707
+colored,Z1160,K1.5,exclusion,1553,4.0,1493,1618,1793
+colored,Z1160,K1.5,discovery,1482,4.0,1423,1542,1707
+colored,Z1160,K1.8,exclusion,1578,4.0,1517,1645,1793
+colored,Z1160,K1.8,discovery,1507,4.0,1448,1569,1707
+colored,Z1160,K2,exclusion,1593,4.0,1531,1660,1793
+colored,Z1160,K2,discovery,1522,4.0,1463,1585,1707
+colored,Z1160,annihilation worst,exclusion,1479,4.0,1421,1539,1793
+colored,Z1160,annihilation worst,discovery,1407,4.0,1351,1464,1707
+EW,Z0,K1,exclusion,792,4.0,766,815,762
+EW,Z0,K1,discovery,701,5.0,681,722,688
+EW,Z0,K1.2,exclusion,824,4.0,801,845,762
+EW,Z0,K1.2,discovery,730,4.0,705,755,688
+EW,Z0,K1.4,exclusion,850,4.0,827,871,762
+EW,Z0,K1.4,discovery,759,4.0,731,784,688
+EW,Z0,K2,exclusion,910,4.0,888,932,762
+EW,Z0,K2,discovery,824,4.0,801,845,688
+EW,Z0,EW LO-ratio trigger,exclusion,712,5.0,692,736,762
+EW,Z0,EW LO-ratio trigger,discovery,643,5.0,623,662,688
+EW,Z0,EW fully LO,exclusion,717,5.0,697,736,762
+EW,Z0,EW fully LO,discovery,648,5.0,629,667,688
+EW,Z0,annihilation worst,exclusion,758,4.0,730,783,762
+EW,Z0,annihilation worst,discovery,671,3.0,645,696,688
+EW,Z1160,K1,exclusion,524,5.0,482,567,762
+EW,Z1160,K1,discovery,473,7.0,440,514,688
+EW,Z1160,K1.2,exclusion,542,5.0,500,586,762
+EW,Z1160,K1.2,discovery,490,5.0,455,533,688
+EW,Z1160,K1.4,exclusion,558,5.0,515,603,762
+EW,Z1160,K1.4,discovery,506,5.0,467,549,688
+EW,Z1160,K2,exclusion,594,5.0,551,659,762
+EW,Z1160,K2,discovery,542,5.0,500,586,688
+EW,Z1160,EW LO-ratio trigger,exclusion,474,7.0,438,517,762
+EW,Z1160,EW LO-ratio trigger,discovery,428,7.0,391,464,688
+EW,Z1160,annihilation worst,exclusion,495,5.0,459,538,762
+EW,Z1160,annihilation worst,discovery,450,7.0,417,485,688

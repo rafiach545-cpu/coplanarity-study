@@ -1,13 +1,13 @@
 {
  "figure": "F6_kfactor",
  "source_csv": "F6_kfactor_source.csv",
- "source_csv_sha256": "1f929d3442355c2fda8357311ba48c24c0de8b898e43b73578a6ee7b2e9a959e",
+ "source_csv_sha256": "b6cfdece4bc5691f879493ada70cad172e1d20aa6d4ec48fa918faf1b42dbee4",
  "plot_reads_only_source_csv": true,
  "selection": "all grid points",
  "upstream_sources": {
-  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../fig6/F6_N_grid.csv": "2754682313beb7bc9c075e59ada88af49ab8efeb9cec752a3ca8c51c25a9b09b"
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../fig6/F6_N_grid.csv": "9bb7f49b268e7fab12334206ecc4f7c17ce3b7b70e574e8d16d5fb5d736177d8"
  },
  "script": "F6_05_sensitivity.py",
- "script_sha256": "624d162cf90da98e7cad2434042217a5525b976c747e2a147dcfd0c0b1c26c30",
+ "script_sha256": "dfc75dd5d09d8b963a7c166207cccdeafa9c1cb572580e17aa10dd02e736b4ee",
  "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
 }

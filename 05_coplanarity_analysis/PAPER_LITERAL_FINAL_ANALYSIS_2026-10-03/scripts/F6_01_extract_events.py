@@ -23,7 +23,7 @@ for g in GEN.sort_values(["channel", "mass_gev"]).itertuples():
         else:
             q = {9000011: -1.0, -9000011: 1.0}; df["charge1"] = df.pdg1.map(q); df["charge2"] = df.pdg2.map(q)
         df.to_csv(f, index=False)
-    df = pd.read_csv(f); tr = df.trigger_proxy_pass.astype(str) == "True"; chg = (df.charge1.abs() == 1) & (df.charge2.abs() == 1)
+    df = pd.read_csv(f); tr = df.trigger_proxy_pass.astype(str) == "True"; chg = (df.charge1.abs() > 0.5) & (df.charge2.abs() > 0.5)   # as F6_02 and Table I (|q| = 2 hadrons are charged)
     rows.append(dict(channel=g.channel, mass_gev=int(g.mass_gev), n_generated=int(g.n_generated), n_matched=len(df), sigma_matched_fb=g.matched_xsec_pb * 1e3,
                      sigma_matched_err_fb=g.matched_xsec_err_pb * 1e3, n_trigger=int(tr.sum()), n_trigger_both_charged=int((tr & chg).sum())))
     print(rows[-1], flush=True)

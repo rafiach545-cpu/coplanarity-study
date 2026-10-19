@@ -1,0 +1,3 @@
+channel,mass_GeV,n_matched,n_trigger,n_trigger_both_charged,n_fid_2keV,eps_trig,eps_fid,paper_eps_trig,paper_eps_fid
+1,1800,873,207,68,22,0.23711340206185566,0.3235294117647059,0.24,0.28
+2,800,1045,186,186,62,0.17799043062200956,0.3333333333333333,0.1,0.28

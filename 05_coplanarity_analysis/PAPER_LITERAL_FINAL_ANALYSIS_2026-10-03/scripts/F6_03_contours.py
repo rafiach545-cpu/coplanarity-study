@@ -3,10 +3,12 @@
 Paper (Sec. IV, Fig. 6 caption): N = L sigma eps_trig eps_fid eps_reco, no background; 3 events = exclusion, 5 = discovery.
   colored: sigma = MLM-matched cross section of the point (MG5 3.7.3 + Pythia8, figure6_full_v1 generation); eps_trig = N(pT(QQ) > 200) / N(matched);
            f_ch = N(trigger, both quirk-hadrons charged |q| > 0.5) / N(trigger) (paper Sec. II: ~30%; included in the main line, also shown without);
-  EW:      eps_trig = sigma_B / sigma_A (LO, MG5 3.7.3: A = pp -> QQ, B = pp -> QQ + j with pT(j) > 200 GeV, ickkw 0; hep_tools/F6_EW_LO_ratio), as Table I;
+  EW:      eps_trig = N(pT(QQ) > 200) / N(matched) of the same matched + shower sample (the paper's described method: generation "with up to 1 jet ... matched
+           using Pythia8", trigger = pT(QQ) > 200 GeV cut; changed on 2026-10-19 from the LO ratio). The LO ratio sigma_B / sigma_A (A = pp -> QQ, B = pp -> QQ + j,
+           pT(j) > 200 GeV; reproduces the paper's Table I value 0.10, arXiv:1911.02223) is kept as column eps_trig_LO for the alternative in F6_05_sensitivity.py;
   eps_fid * eps_reco = k / n with n = propagated events (trigger [colored: and both charged]), k = events in the signal region (scripts/F6_02_grid.py).
   So N = L sigma eps_trig [f_ch] k / n. Uncertainty: binomial on k/n (Wilson 68% for the band); k = 0: 95% upper limit 1 - 0.05^(1/n).
-Points not propagated: N_max = L sigma eps_trig [f_ch] (eps_fid = eps_reco = 1) < 3 -> used as an upper bound (EW 1000; colored 2400; colored 2100 with f_ch).
+Points not propagated: N_max = L sigma eps_trig [f_ch] (eps_fid = eps_reco = 1) < 3 -> used as an upper bound (colored 2400; colored 2100 with f_ch).
 Contours: log10 N interpolated linearly in m_Q and in the paper's display coordinate of Lambda (log10 below 1 keV, linear above), on the computed grid only
 (0.1-10 keV; colored 600-2400 GeV, EW 100-1000 GeV). Grid points with k = 0 have no measured N: no contour is drawn through them; they are marked
 (grey x: 95% upper limit on N < 3; red x: upper limit >= 3, not resolved).
@@ -34,11 +36,13 @@ if os.path.exists(_MG):                                                       # 
 else:                                                                         # elsewhere: the table written from that log
     LO = pd.read_csv(f"{OUT}/F6_ew_lo_ratio.csv")
 
+NEV = {}                                                                     # events per (sample, band) checkpoint (completeness check)
 def load(tag):
     rows = []
     for band in ("low", "mid", "high", "high_a"):
         f = f"{LOG}/F6_{tag}{'' if band == 'mid' else '_' + band}_events.jsonl"
-        if os.path.exists(f): rows += [r for l in open(f) if l.strip() for r in json.loads(l)]
+        if os.path.exists(f):
+            new = [r for l in open(f) if l.strip() for r in json.loads(l)]; NEV[(tag, band)] = len({r["event"] for r in new}); rows += new
     return pd.DataFrame(rows)
 TR = lambda s: s.astype(str) == "True"
 recs = []
@@ -47,13 +51,16 @@ for r in C.itertuples():
     if r.channel == "colored":
         nch = int((tr & (ev.charge1.abs() > 0.5) & (ev.charge2.abs() > 0.5)).sum()); et = tr.sum() / len(ev); fch = nch / tr.sum(); n_prop = nch
     else:
-        et = float(LO.set_index("mass_gev").ratio[r.mass_gev]); fch = 1.0; n_prop = int(tr.sum())
+        et = tr.sum() / len(ev); fch = 1.0; n_prop = int(tr.sum())               # paper's method: trigger count on the matched + shower sample
     D = load(tag); pre = LUMI * r.sigma_matched_fb * et
+    bad = {b_: n_ for (t_, b_), n_ in NEV.items() if t_ == tag and n_ != n_prop}
+    assert not bad, f"{tag}: incomplete checkpoint(s) {bad}, expected {n_prop} events each (a run is still going?)"
     for lam in LAMS:
         x = D[np.isclose(D.lambda_keV.astype(float), lam)] if len(D) else D
         done = len(x) == n_prop and len(x) > 0
         for sct in ("Z0", "Z1160"):
-            base = dict(channel=r.channel, mass_gev=r.mass_gev, lambda_keV=lam, sct=sct, sigma_fb=r.sigma_matched_fb, eps_trig=et, f_ch=fch, n_prop=n_prop,
+            base = dict(channel=r.channel, mass_gev=r.mass_gev, lambda_keV=lam, sct=sct, sigma_fb=r.sigma_matched_fb, eps_trig=et,
+                        eps_trig_LO=float(LO.set_index("mass_gev").ratio[r.mass_gev]) if r.channel == "EW" else et, f_ch=fch, n_prop=n_prop,
                         L_sigma_eps_trig=pre)
             if done:
                 n_fid = int(TR(x.fid).sum()); k = int(TR(x[f"{sct}_final"]).sum()) if f"{sct}_final" in x else 0
@@ -143,10 +150,10 @@ def panel(ax, ch, sct):
         ax.text(0.98, 0.70, txt, transform=ax.transAxes, ha="right", va="top", fontsize=8, color=fu.INK, zorder=6,
                 bbox=dict(boxstyle="round,pad=0.35", fc=fu.SURFACE, ec=fu.SERIES[0], lw=1.0))
 NOTES = ("Normalisation: σ = MadGraph5 3.7.3 LO (0 + 1 jet, MLM-matched with Pythia8) for one quirk species, no K-factor; the paper gives no σ. The \"N_Q = 2\" of the paper's "
-         "panel titles is NOT applied (no factor 2 on σ). A factor of 1.5–1.7 (colored) and 1.3–1.4 (EW) on σ brings our maxima close to the paper's (sensitivity, not a fit; F6_kfactor).\n"
-         "EW trigger: ε_trig = σ(pp → QQ̄ + j, p_T(j) > 200 GeV) / σ(pp → QQ̄) at LO (0.096 at 800 GeV, = paper 0.10), NOT the matched + shower count (0.178 at 800 GeV), which would "
-         "move the EW maximum outward by ~60–80 GeV. EW ε_fid and ε_reco: from the matched + shower sample of each mass; the LO sample at 800 GeV (3000 events, report Section 2.3) gives ε_fid 0.30 "
-         "vs 0.31 here and k/n within ±13%, which moves the EW maximum by +5 GeV. Colored: ε_trig = matched count; the both-charged factor (~0.33) is included (thin orange: without it).\n"
+         "panel titles is NOT applied (no factor 2 on σ). Colored: a factor 1.5–1.7 on σ brings our maxima close to the paper's; EW: our maxima are already at the paper's (+2–4%), a factor > 1 would overshoot (sensitivity, not a fit; F6_kfactor).\n"
+         "Trigger (both channels, the paper's described method): ε_trig = N(p_T(QQ̄) > 200 GeV) / N(matched) of the same matched + shower sample that gives ε_fid and ε_reco (EW 0.148 at 800 GeV). "
+         "Alternative, not stated in the paper: the EW LO ratio σ(QQ̄ + j, p_T(j) > 200) / σ(QQ̄) (0.096 at 800 GeV, = Table I's 0.10) is lower by a factor 0.54–0.75 and gives EW 712 / 643 GeV "
+         "(exclusion / discovery, no SCT z smearing). Colored: the both-charged factor (~0.33) is included (thin orange: without it).\n"
          "Red ✕: at low Λ for colored 600–1200 GeV and EW 100–200 GeV our samples (40–70 events per mass) are too small; the paper's lower-left edge passes there and is not "
          "tested here (larger samples needed). Λ = 15–25 keV: computed (the integrator's 20-million-step ceiling removes ≤ 13% of the events fiducial at 10 keV there); Λ > 25 keV: not computed, "
          "because that ceiling removes 5–56% of them at 30–35 keV (needs a larger ceiling and more memory). The maxima are at 3–5 keV and are unaffected.\n"
@@ -174,9 +181,9 @@ def plot(_):
 SRC = G.copy()
 fu.figure("F6_fig6", SRC, plot,
           "Figure 6: contours of 3 (exclusion) and 5 (discovery) expected signal events at 300 fb⁻¹, no background, as in the paper. N = L σ ε_trig [f_ch] ε_fid ε_reco; colored: "
-          "matched σ, ε_trig by event count, f_ch = fraction with both quirk-hadrons charged (main line; thin orange: without it); EW: ε_trig = σ(QQ̄+j, pT > 200)/σ(QQ̄) at LO. "
+          "matched σ, ε_trig by event count, f_ch = fraction with both quirk-hadrons charged (main line; thin orange: without it); EW: ε_trig by event count as well (the paper's method; LO-ratio alternative in F6_kfactor). "
           "ε_fid ε_reco from the Table I pipeline on the 2000-event samples of each mass (first crossing). Left: SCT z 1.16 mm for signal (and background, which is then 0/9139); right: "
-          "signal without SCT z smearing (background with the same setting is not negligible). Contours interpolated in log N on the computed grid (Λ = 0.1–10 keV); not computed above "
-          "10 keV and outside the mass range of the samples (hatched). Paper curves, HSCP/monojet limits and d_cm lines extracted from the paper's vector figures.",
+          "signal without SCT z smearing (background with the same setting is not negligible). Contours interpolated in log N on the computed grid (Λ = 0.1–25 keV); not computed above "
+          "25 keV and outside the mass range of the samples (hatched). Paper curves, HSCP/monojet limits and d_cm lines extracted from the paper's vector figures.",
           [f"{OUT}/F6_N_grid.csv", f"{ROOT}/tables/paper_fig6_vector.json"], "all computed grid points", os.path.abspath(__file__))
 print("figure written")
