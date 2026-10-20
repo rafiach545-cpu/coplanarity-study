@@ -436,7 +436,9 @@ S += B(["<b>Paper:</b> contours of 3 (exclusion) and 5 (discovery) signal events
         "<b>This work:</b> the 13 generated samples of figure6_full_v1 (MG5 3.7.3 + Pythia8, MLM-matched, 2000 events per mass: colored 600–2400, EW 100–1000 GeV) through the Table I pipeline "
         "at Λ = 0.1–25 keV, SCT z none and 1.16 mm. Colored: matched σ, ε<sub>trig</sub> by count, both-charged factor f<sub>ch</sub> included; EW: ε<sub>trig</sub> by count as well "
         f"({EWT[800][0]}/{EWT[800][1]} = {EWT[800][0]/EWT[800][1]:.3f} at 800 GeV). All three efficiencies of a point therefore come from the same matched + shower sample, which is the "
-        "method the paper describes (“0 + 1 jet ... matched using Pythia8”, trigger p<sub>T</sub>(QQ̄) &gt; 200 GeV). LO σ, no K-factor, the “N<sub>Q</sub> = 2” of the paper's panel titles not applied.",
+        "method the paper describes (“0 + 1 jet ... matched using Pythia8”, trigger p<sub>T</sub>(QQ̄) &gt; 200 GeV). LO σ, no K-factor.",
+        "<b>“N<sub>Q</sub> = 2” not applied:</b> it appears only in the titles of the paper's Fig. 6 panels (“N<sub>Q</sub> = 2 Quirks”, arXiv v1 and v2) and is never defined or used in the text, "
+        "so it is not known whether it means a factor on σ (for example two quirk species) or only the two quirks of each pair. We therefore apply no factor; σ × 2 is shown below as a sensitivity row.",
         ETRIG_TXT,
         f"<b>Alternative EW trigger:</b> the LO ratio σ(QQ̄ + j, p<sub>T</sub>(j) &gt; 200)/σ(QQ̄) = {LOR[800]:.3f} at 800 GeV reproduces Table I's 0.10 (and arXiv:1911.02223 computes the "
         "trigger this way), but the paper does not state this method. It is shown below as a sensitivity row; it lowers EW ε<sub>trig</sub> by a factor "
