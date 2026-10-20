@@ -2,7 +2,7 @@
 """Figure 6 normalisation sensitivity (2026-10-17), no new simulation: every grid N from fig6/F6_N_grid.csv is rescaled and the contours redrawn.
 This is a sensitivity study, not a fit: it shows which overall factor on the signal would move our contours onto the paper's.
 Variants (applied to N with the charge factor; colored and EW):
-  K-factor on sigma: colored x1.5, x1.8; EW x1.2, x1.4 (requested); x2 for both = an N_Q = 2 reading of the paper's panel titles ("N_Q = 2 Quirks"), not applied in
+  K-factor on sigma: colored x1.5, x1.8; EW x0.8, x0.9 (with the matched trigger EW is above the paper at K = 1), x1.2, x1.4; x2 for both = an N_Q = 2 reading of the paper's panel titles ("N_Q = 2 Quirks"), not applied in
   the main figure;
   EW trigger: matched + shower count N(pT(QQ) > 200)/N(matched) of each sample instead of the LO ratio sigma_B/sigma_A;
   annihilation, worst case (not simulated in the paper or here): N x survival from tables/D27_annihilation_B.txt (alpha = 0.05, c_sigma = 1, benchmark masses
@@ -56,7 +56,8 @@ def reach(g, col, thr):
                     if beyond is None or m[i] > beyond[0]: beyond = (m[i], lam)
     return (-beyond[0], beyond[1]) if beyond is not None else best
 fmt = lambda v: (round(v) if v > 0 else f"> {int(-v)}") if np.isfinite(v) else np.nan
-VARS = {"colored": ["K1", "K1.5", "K1.8", "K2", "annihilation worst"], "EW": ["K1", "K1.2", "K1.4", "K2", "EW LO-ratio trigger", "EW fully LO", "annihilation worst"]}
+PLOTK = {"colored": ["K1", "K1.5", "K1.8", "K2"], "EW": ["K1", "K0.9", "K1.4", "K2"]}   # K values drawn (4 colours); all K values are in the csv
+VARS = {"colored": ["K1", "K1.5", "K1.8", "K2", "annihilation worst"], "EW": ["K1", "K0.8", "K0.9", "K1.2", "K1.4", "K2", "EW LO-ratio trigger", "EW fully LO", "annihilation worst"]}
 rows = []
 for ch in ("colored", "EW"):
     for sct in ("Z0", "Z1160"):
@@ -91,7 +92,7 @@ def plot(_):
         base = G[(G.channel == ch) & (G.sct == "Z0")]; x0, x1 = (500, 2500) if ch == "colored" else (0, 1200)
         for j, (thr, nm, ls) in enumerate(((3, "exclusion", "--"), (5, "discovery", "-"))):
             ax = axs[i, j]; P = V[ch]["curves"][nm]; ax.plot(P["m_GeV"], Yd(P["lambda_eV"]), color=fu.INK, ls=ls, lw=1.8, label=f"paper {nm}")
-            for k, var in enumerate([v for v in VARS[ch] if v.startswith("K")]):
+            for k, var in enumerate(PLOTK[ch]):
                 mm, yy, zz = surface(scaled(base, ch, var)); ax.contour(mm, yy, zz, levels=[np.log10(thr)], colors=[cols[k]], linestyles=[ls], linewidths=2.2 if var == "K1" else 1.4)
                 r = R[(R.channel == ch) & (R.sct == "Z0") & (R.variant == var) & (R.contour == nm)].iloc[0]
                 ax.plot([], [], color=cols[k], ls=ls, lw=2.2 if var == "K1" else 1.4,
@@ -109,5 +110,5 @@ def plot(_):
     fig.tight_layout(); return fig
 fu.figure("F6_kfactor", R, plot,
           "Figure 6 contours (signal without SCT z smearing, charge factor included) with the expected number of events multiplied by a common factor K: colored K = 1.5, 1.8, "
-          "EW K = 1.2, 1.4, and K = 2 for both; EW also the alternative trigger (LO ratio σ(QQ̄ + j, pT > 200)/σ(QQ̄) instead of the matched count, dotted grey) (the N_Q = 2 of the paper's panel titles read as a factor 2 on σ; not applied in the main figure). K = 1: our LO "
+          "EW K = 0.9, 1.4 (0.8 and 1.2 in the csv), and K = 2 for both; EW also the alternative trigger (LO ratio σ(QQ̄ + j, pT > 200)/σ(QQ̄) instead of the matched count, dotted grey) (the N_Q = 2 of the paper's panel titles read as a factor 2 on σ; not applied in the main figure). K = 1: our LO "
           "cross sections. This is a sensitivity study, not a fit. Grid N from fig6/F6_N_grid.csv; no new simulation.", [f"{ROOT}/fig6/F6_N_grid.csv"], "all grid points", os.path.abspath(__file__))

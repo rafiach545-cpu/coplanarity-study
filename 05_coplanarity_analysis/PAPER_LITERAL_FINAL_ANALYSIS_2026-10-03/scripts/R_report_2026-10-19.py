@@ -20,6 +20,16 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
 from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, Table, TableStyle, Image, PageBreak
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+# EW 800 GeV trigger count from the two independent matched + shower samples (identical MG5/Pythia cards, seeds 8002 and 9504): each is used inside its own
+# calculation (Table I: Table I sample; Fig. 6: Fig. 6 sample); the headline value compared with the paper's 0.10 is their combination
+ETR = dict(k1=186, n1=1045, k2=152, n2=1024)
+def _wilson(k, n, z=1.96):
+    p = k / n; d = 1 + z * z / n; c = (p + z * z / (2 * n)) / d; h = z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d; return c - h, c + h
+_k, _n = ETR["k1"] + ETR["k2"], ETR["n1"] + ETR["n2"]; _lo, _hi = _wilson(_k, _n)
+_z = (ETR["k1"] / ETR["n1"] - ETR["k2"] / ETR["n2"]) / np.sqrt(sum(p * (1 - p) / n for p, n in ((ETR["k1"] / ETR["n1"], ETR["n1"]), (ETR["k2"] / ETR["n2"], ETR["n2"]))))
+ETRIG_TXT = (f"EW ε<sub>trig</sub> (800 GeV, matched + shower): {ETR['k1']}/{ETR['n1']} = {ETR['k1']/ETR['n1']:.3f} (Table I sample) and {ETR['k2']}/{ETR['n2']} = {ETR['k2']/ETR['n2']:.3f} "
+             f"(Fig. 6 sample); the two samples are independent with identical generator settings (only the seed differs) and agree at {_z:.1f}σ. Combined: {_k}/{_n} = "
+             f"<b>{_k/_n:.3f}</b> (Wilson 95%: {_lo:.3f}–{_hi:.3f}), still far above the paper's 0.10. Each table uses its own sample, so that all efficiencies of a result come from one sample.")
 import R_data_2026_10_15 as R
 if not os.environ.get("D41_NMAX"): os.environ["D41_NMAX"] = str(R.d41()["n"])
 subprocess.run([sys.executable, f"{HERE}/F38_report_2026_10_15_figs.py"], check=True, env=os.environ, capture_output=True)
@@ -218,7 +228,7 @@ S += [Spacer(1, 4), P("<b>Trigger and fiducial efficiency</b>", "c"), grid(g, [2
       P("For the cross-section ratios the statistical error (±0.001) is smaller than the precision of the paper's value (0.10, two decimals), so these two cells use "
         "|Δ| ≤ max(2σ, 0.005); all other cells use the 2σ₀ rule of Section 1.", "m")]
 S += [P("How the two leading-order samples were made", "h3")] + B([
-    "<b>Why.</b> Our trigger efficiency for the EW benchmark (0.18) is far above the paper's 0.10. arXiv:1911.02223 (Appendix A) obtains a trigger efficiency of about 0.1 "
+    f"<b>Why.</b> Our trigger efficiency for the EW benchmark ({_k/_n:.3f}, both matched samples combined) is far above the paper's 0.10. arXiv:1911.02223 (Appendix A) obtains a trigger efficiency of about 0.1 "
     "as a leading-order cross-section ratio, σ(pp → QQ̄ + jet, p<sub>T</sub>(jet) &gt; 200 GeV) / σ(pp → QQ̄). The paper does not state how its value was obtained, "
     "so we computed the EW benchmark in this way.",
     f"<b>Generation.</b> MadGraph5_aMC@NLO 3.7.3, quirk model, pp at 13 TeV, PDF nn23lo1, m<sub>Q</sub> = 800 GeV. Sample A: pp → QQ̄, σ<sub>A</sub> = {lt['sA'][0]*1e3:.4f} fb. "
@@ -233,7 +243,7 @@ S += [P("How the two leading-order samples were made", "h3")] + B([
 above = [l for l in (1, 2, 3, 4, 5) if D41[l]["sr"] / D41[l]["fid"] - PAPER_R["EW2000"][l] > 2 * np.sqrt(PAPER_R["EW2000"][l] * (1 - PAPER_R["EW2000"][l]) / D41[l]["fid"])]
 S += [key(f"<b>Result.</b> Without shower the leading-order ratio gives ε<sub>trig</sub> = {lt['r']:.3f}, " + ("consistent with" if ok_lo else "different from") + " the paper's 0.10; "
           f"after the shower {NSH_ALL}/3000 events keep p<sub>T</sub>(QQ̄) &gt; 200 GeV and ε<sub>trig</sub> = {et_sh:.3f} (" + ("consistent" if ok_sh else "inconsistent") + "). "
-          f"So the paper's 0.10 corresponds to the leading-order ratio, not to our matched sample (0.18). "
+          f"So the paper's 0.10 corresponds to the leading-order ratio, not to our matched samples (combined {_k/_n:.3f}). " + ETRIG_TXT + " "
           f"ε<sub>reco</sub> is almost the same in all three samples ({D41[2]['sr']/D41[2]['fid']:.2f} / {SH[2]['sr']/SH[2]['fid']:.2f} at 2 keV, "
           f"{D41[4]['sr']/D41[4]['fid']:.2f} / {SH[4]['sr']/SH[4]['fid']:.2f} at 4 keV, LO / LO + shower) and is above the paper at Λ = {', '.join(map(str, above))} keV in the LO sample. "
           "With about 800–900 fiducial events the uncertainty is ±0.01–0.02, so this is not a statistical fluctuation, and it does not depend on how the events were generated. "
@@ -427,6 +437,7 @@ S += B(["<b>Paper:</b> contours of 3 (exclusion) and 5 (discovery) signal events
         "at Λ = 0.1–25 keV, SCT z none and 1.16 mm. Colored: matched σ, ε<sub>trig</sub> by count, both-charged factor f<sub>ch</sub> included; EW: ε<sub>trig</sub> by count as well "
         f"({EWT[800][0]}/{EWT[800][1]} = {EWT[800][0]/EWT[800][1]:.3f} at 800 GeV). All three efficiencies of a point therefore come from the same matched + shower sample, which is the "
         "method the paper describes (“0 + 1 jet ... matched using Pythia8”, trigger p<sub>T</sub>(QQ̄) &gt; 200 GeV). LO σ, no K-factor, the “N<sub>Q</sub> = 2” of the paper's panel titles not applied.",
+        ETRIG_TXT,
         f"<b>Alternative EW trigger:</b> the LO ratio σ(QQ̄ + j, p<sub>T</sub>(j) &gt; 200)/σ(QQ̄) = {LOR[800]:.3f} at 800 GeV reproduces Table I's 0.10 (and arXiv:1911.02223 computes the "
         "trigger this way), but the paper does not state this method. It is shown below as a sensitivity row; it lowers EW ε<sub>trig</sub> by a factor "
         f"{min(LOR[m] * EWT[m][1] / EWT[m][0] for m in EWT):.2f}–{max(LOR[m] * EWT[m][1] / EWT[m][0] for m in EWT):.2f} (100–1000 GeV).",
@@ -450,18 +461,24 @@ g = [H("Normalisation sensitivity (no SCT z smearing; not a fit)", "colored excl
 def rs(ch, var):
     q = RSE[(RSE.channel == ch) & (RSE.sct == "Z0") & (RSE.variant == var)].set_index("contour")
     return f"{q.loc['exclusion', 'm_max']} / {q.loc['discovery', 'm_max']}" if len(q) else "–"
-for var, lab in (("K1", "σ × 1 (our LO)"), ("K1.2", "σ × 1.2"), ("K1.4", "σ × 1.4"), ("K1.5", "σ × 1.5"), ("K1.8", "σ × 1.8"), ("K2", "σ × 2 (“N<sub>Q</sub> = 2” read as a factor 2)"),
+for var, lab in (("K1", "σ × 1 (our LO)"), ("K0.8", "σ × 0.8"), ("K0.9", "σ × 0.9"), ("K1.2", "σ × 1.2"), ("K1.4", "σ × 1.4"), ("K1.5", "σ × 1.5"), ("K1.8", "σ × 1.8"), ("K2", "σ × 2 (“N<sub>Q</sub> = 2” read as a factor 2)"),
                  ("EW LO-ratio trigger", f"EW ε<sub>trig</sub> = LO ratio ({LOR[800]:.3f} at 800 GeV) instead of the matched count"),
                  ("EW fully LO", "EW LO-ratio trigger and ε<sub>fid</sub>, ε<sub>reco</sub> from the LO sample at 800 GeV (Section 2.3)"),
                  ("annihilation worst", "annihilation, worst case")):
     g.append(C(lab, rs("colored", var), rs("EW", var)))
 S += [Spacer(1, 3), grid(g, [94, 40, 40]), Spacer(1, 2), img("F6_kfactor", 160),
+      key(f"<b>In one line.</b> Fig. 6 uses the paper's stated method throughout (matched + shower sample, p<sub>T</sub>(QQ̄) &gt; 200 GeV). With LO cross sections and no K-factor, "
+          f"the EW reach ({_m('EW', 'exclusion')} / {_m('EW', 'discovery')} GeV) lies slightly above the paper's figure, while the colored reach ({_m('colored', 'exclusion')} / {_m('colored', 'discovery')} GeV) "
+          f"lies below it and would need a factor ~1.5–1.7. Using the LO-ratio trigger instead gives EW {_s('EW', 'EW LO-ratio trigger', 'exclusion')} / {_s('EW', 'EW LO-ratio trigger', 'discovery')} GeV."),
       key("<b>Result.</b> With the signal SCT z setting that reproduces Table I (no smearing), our contours have the paper's shape: the low-Λ edge near 1 keV, the maximum reach at "
           f"Λ = 3–5 keV, and the upper part up to 20–25 keV. <b>EW</b> (all efficiencies from the matched + shower sample, as the paper describes): {_m('EW', 'exclusion')} / {_m('EW', 'discovery')} GeV, "
           f"{_d('EW', 'exclusion', 762):+.0f}% / {_d('EW', 'discovery', 688):+.0f}% from the paper's figure, without any factor on σ. With the LO-ratio trigger instead "
           f"(Table I's 0.10) it would be {_s('EW', 'EW LO-ratio trigger', 'exclusion')} / {_s('EW', 'EW LO-ratio trigger', 'discovery')} GeV. <b>Colored</b>: {_m('colored', 'exclusion')} / "
           f"{_m('colored', 'discovery')} GeV, {_d('colored', 'exclusion', 1793):+.0f}% / {_d('colored', 'discovery', 1707):+.0f}% from the figure (the abstract's 1600 GeV discovery agrees); "
-          "a factor 1.5–1.7 on σ would close the gap, and the paper gives no σ, so the origin cannot be identified. With the literal SCT z = 1.16 mm the reach is much lower "
+          f"a factor 1.5–1.7 on σ would close the gap. <b>The two channels therefore point in different directions:</b> EW needs no K-factor (K ≈ 0.85–0.9 would match the figure exactly; "
+          f"K = 0.9 gives {_s('EW', 'K0.9', 'exclusion')} / {_s('EW', 'K0.9', 'discovery')} GeV), colored needs ~1.5–1.7, so one common NLO K-factor cannot explain both. "
+          f"EW discovery ({_m('EW', 'discovery')} GeV) is now closer to the paper's figure (688) than to its abstract (650); colored discovery ({_m('colored', 'discovery')}) matches the abstract (1600). "
+          "The paper gives no σ, so the origin cannot be identified. With the literal SCT z = 1.16 mm the reach is much lower "
           f"(colored {_m('colored', 'discovery', 'Z1160')}, EW {_m('EW', 'discovery', 'Z1160')} GeV discovery).")]
 # 9 Figure 7
 F7H = pd.read_csv(f"{T}/F7_pixel_hits.csv"); V7 = json.load(open(f"{T}/paper_fig7_vector.json"))
@@ -508,7 +525,7 @@ S += [img("F7_fig7", 172), grid(g, [62, 14, 18, 22, 32, 26]),
 # 10 open + refs
 S += [P("10. Open points", "h2")] + B(["SCT z: the authors' stated resolution gives efficiencies far below Table I; only no smearing reproduces it.",
                                       "Signal Δw 2–5× the paper's.",
-                                      f"Fig. 6: colored maxima {_d('colored', 'discovery', 1707):+.0f}% to {_d('colored', 'exclusion', 1793):+.0f}% from the paper's figure (match its abstract), a factor 1.5–1.7 on σ would close the gap; EW (paper's method, matched trigger) within {max(abs(_d('EW', 'exclusion', 762)), abs(_d('EW', 'discovery', 688))):.0f}%. The paper gives no σ.",
+                                      f"Fig. 6: colored maxima {_d('colored', 'discovery', 1707):+.0f}% to {_d('colored', 'exclusion', 1793):+.0f}% from the paper's figure (colored discovery matches its abstract), a factor 1.5–1.7 on σ would close the gap; EW (paper's method) {_d('EW', 'discovery', 688):+.0f}% to {_d('EW', 'exclusion', 762):+.0f}% above the figure with no factor (K ≈ 0.85–0.9 would match). One common K-factor cannot explain both channels. The paper gives no σ.",
                                       "Fig. 6 EW trigger: the paper's described method (matched + shower count, used here) and the LO ratio that reproduces Table I's 0.10 differ by a factor 1.3–1.9; Fig. 6 favours the matched count, Table I the LO ratio.",
                                       "Fig. 6: Λ &gt; 25 keV not computed (integrator step ceiling); low-Λ edges at light masses not resolved (larger samples needed).",
                                       "Fig. 7: our pixel hits are faster than the paper's (median βγ about 2× higher); the paper's low-βγ tail is not reproduced; its dE/dx range (19–47 MeV cm²/g) is not consistent with its own βγ histogram.",

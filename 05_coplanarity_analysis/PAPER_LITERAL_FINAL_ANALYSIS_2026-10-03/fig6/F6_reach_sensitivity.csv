@@ -21,6 +21,10 @@ colored,Z1160,annihilation worst,exclusion,1479,4.0,1421,1539,1793
 colored,Z1160,annihilation worst,discovery,1407,4.0,1351,1464,1707
 EW,Z0,K1,exclusion,792,4.0,766,815,762
 EW,Z0,K1,discovery,701,5.0,681,722,688
+EW,Z0,K0.8,exclusion,750,4.0,722,775,762
+EW,Z0,K0.8,discovery,670,5.0,651,689,688
+EW,Z0,K0.9,exclusion,772,4.0,745,797,762
+EW,Z0,K0.9,discovery,686,5.0,667,705,688
 EW,Z0,K1.2,exclusion,824,4.0,801,845,762
 EW,Z0,K1.2,discovery,730,4.0,705,755,688
 EW,Z0,K1.4,exclusion,850,4.0,827,871,762
@@ -35,6 +39,10 @@ EW,Z0,annihilation worst,exclusion,758,4.0,730,783,762
 EW,Z0,annihilation worst,discovery,671,3.0,645,696,688
 EW,Z1160,K1,exclusion,524,5.0,482,567,762
 EW,Z1160,K1,discovery,473,7.0,440,514,688
+EW,Z1160,K0.8,exclusion,501,5.0,463,544,762
+EW,Z1160,K0.8,discovery,454,7.0,422,491,688
+EW,Z1160,K0.9,exclusion,513,5.0,473,556,762
+EW,Z1160,K0.9,discovery,464,7.0,431,503,688
 EW,Z1160,K1.2,exclusion,542,5.0,500,586,762
 EW,Z1160,K1.2,discovery,490,5.0,455,533,688
 EW,Z1160,K1.4,exclusion,558,5.0,515,603,762

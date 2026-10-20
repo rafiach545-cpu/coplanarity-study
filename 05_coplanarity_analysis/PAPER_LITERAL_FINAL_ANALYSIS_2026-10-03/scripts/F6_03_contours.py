@@ -161,12 +161,13 @@ _C = C.set_index(["channel", "mass_gev"]); _e8 = _C.loc[("EW", 800)]
 _lo = {c: lo_alt("Z0", c) for c in ("exclusion", "discovery")}
 _mn = {c: int(RCH[(RCH.channel == "EW") & (RCH.sct == "Z0") & (RCH.variant == "charge factor included") & (RCH.contour == c)].m_max_GeV.iloc[0]) for c in ("exclusion", "discovery")} if RCH is not None else {}
 EWTRIG = ("EW TRIGGER CHANGED (2026-10-19): ε_trig is now the matched + shower count N(p_T(QQ̄) > 200 GeV) / N(matched) of the same sample that gives ε_fid and ε_reco "
-          f"({int(_e8.n_trigger)}/{int(_e8.n_matched)} = {_e8.n_trigger / _e8.n_matched:.3f} at 800 GeV in this Fig. 6 sample; 186/1045 = 0.178 in the independent Table I sample), the method the paper "
+          f"({int(_e8.n_trigger)}/{int(_e8.n_matched)} = {_e8.n_trigger / _e8.n_matched:.3f} at 800 GeV in this Fig. 6 sample; 186/1045 = 0.178 in the independent Table I sample, same generator "
+          f"settings, 1.8σ apart; combined {186 + int(_e8.n_trigger)}/{1045 + int(_e8.n_matched)} = {(186 + _e8.n_trigger) / (1045 + _e8.n_matched):.3f}, vs the paper's 0.10), the method the paper "
           "describes. Before, it was the LO ratio σ(QQ̄ + j, p_T(j) > 200) / σ(QQ̄) (0.096 at 800 GeV, = Table I's 0.10; not stated in the paper), 0.54–0.75 × the matched count. "
           + (f"This moves the EW maximum outward from {_lo['exclusion']} / {_lo['discovery']} to {_mn['exclusion']} / {_mn['discovery']} GeV (exclusion / discovery, no SCT z smearing; "
              f"+{_mn['exclusion'] - _lo['exclusion']} / +{_mn['discovery'] - _lo['discovery']} GeV, as the earlier note's estimate of ~60–80 GeV). " if _lo["exclusion"] and _mn else "") )
 NOTES = ("Normalisation: σ = MadGraph5 3.7.3 LO (0 + 1 jet, MLM-matched with Pythia8) for one quirk species, no K-factor; the paper gives no σ. The \"N_Q = 2\" of the paper's "
-         "panel titles is NOT applied (no factor 2 on σ). Colored: a factor 1.5–1.7 on σ brings our maxima close to the paper's; EW: our maxima are already at the paper's (+2–4%), a factor > 1 would overshoot (sensitivity, not a fit; F6_kfactor).\n"
+         "panel titles is NOT applied (no factor 2 on σ). Colored: a factor 1.5–1.7 on σ brings our maxima close to the paper's; EW: our maxima are already slightly above the paper's (+2–4%; K ≈ 0.85–0.9 would match), so one common K-factor cannot explain both channels (sensitivity, not a fit; F6_kfactor).\n"
          + EWTRIG +
          "Colored: ε_trig = matched count (unchanged); the both-charged factor (~0.33) is included (thin orange: without it).\n"
          "Red ✕: at low Λ for colored 600–1200 GeV and EW 100–200 GeV our samples (40–70 events per mass) are too small; the paper's lower-left edge passes there and is not "

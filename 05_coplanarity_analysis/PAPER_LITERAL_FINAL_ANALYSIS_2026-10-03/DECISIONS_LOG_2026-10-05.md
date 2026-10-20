@@ -811,3 +811,9 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
 - Result (no SCT z smearing, with charge factor): EW 792 / 701 GeV (paper 762 / 688); with SCT z 1.16 mm 524 / 473. Colored unchanged 1702 / 1591. LO-ratio alternative 712 / 643.
 - Fixes found on the way: F6_03 asserts that every checkpoint is complete; counts.csv n_trigger_both_charged uses abs(q) > 0.5 (as F6_02/F6_03); F6_kfactor hatch moved from 10 to 25 keV.
 - New outputs (older versions kept): TABLE_I_REPRODUCTION_REPORT_2026-10-19.pdf (scripts/R_report_2026-10-19.py), ROOT_CSV_2026-10-19/.
+
+## D54 (2026-10-20) Consequences of the EW trigger change (review pasted by the user: "ye dekho")
+- K-factor: with the matched trigger, EW is above the paper's figure at K = 1 (792 / 701 vs 762 / 688); added EW K = 0.8, 0.9 (K = 0.9: 772 / 686). EW needs K ≈ 0.85–0.9, colored ~1.5–1.7: one common K-factor cannot explain both. Stated in the report Section 8, the open points, the Fig. 6 caption and README_FIG6.
+- Abstract: only colored discovery (1591) still matches the abstract (1600); EW discovery (701) is closer to the figure (688) than to the abstract (650). No text claims both match.
+- EW trigger 0.178 vs 0.148: run banners diffed, identical cards except iseed (8002 / 9504). Decision: each calculation keeps its own sample; the headline value compared with the paper is the combination 338/2069 = 0.163 (Wilson 95% 0.148–0.180), quoted the same way in the Table I section, Section 8 and the caption.
+- Report 2026-10-19 rebuilt (15 pages) with the one-line summary of Fig. 6 from the review.

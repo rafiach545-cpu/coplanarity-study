@@ -273,7 +273,7 @@ Fig6/F6_reach.csv  (12 rows)
     paper_m_max_GeV: 
     paper_at_lambda_keV: 
 
-Fig6/F6_reach_sensitivity.csv  (46 rows)
+Fig6/F6_reach_sensitivity.csv  (54 rows)
   maximum mass reach for the normalisation-sensitivity variants
   source: fig6/F6_reach_sensitivity.csv
     channel: 

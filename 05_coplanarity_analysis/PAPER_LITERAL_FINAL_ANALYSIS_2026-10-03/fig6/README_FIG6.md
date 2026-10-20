@@ -73,6 +73,8 @@ Every grid N is multiplied by a common factor and the contours are redrawn. This
 |---|---|---|
 | Paper, Fig. 6 | 1793 / 1707 | 762 / 688 |
 | K = 1 (our LO σ) | 1702 / 1591 | 792 / 701 |
+| K = 0.8 (EW) | – | 750 / 670 |
+| K = 0.9 (EW) | – | 772 / 686 |
 | K = 1.2 (EW) | – | 824 / 730 |
 | K = 1.4 (EW) | – | 850 / 759 |
 | K = 1.5 (colored) | 1789 / 1679 | – |
@@ -82,7 +84,7 @@ Every grid N is multiplied by a common factor and the contours are redrawn. This
 | EW fully LO: LO-ratio trigger and ε_fid, ε_reco from the LO sample at 800 GeV (report Section 2.3) | – | 717 / 648 |
 | Annihilation, worst case (α = 0.05, survival from D27 at the benchmark masses, applied to all masses) | 1672 / 1560 | 758 / 671 |
 
-Colored: an overall factor of about 1.5–1.7 on the signal puts our maxima on the paper's curves; the paper gives no σ, so its source cannot be identified. EW (paper's method): our maxima are already +4% / +2% from the paper's, so a factor > 1 overshoots. A factor 2 overshoots both channels.
+Colored: an overall factor of about 1.5–1.7 on the signal puts our maxima on the paper's curves; the paper gives no σ, so its source cannot be identified. EW (paper's method): our maxima are already +4% / +2% from the paper's (K ≈ 0.85–0.9 would match; K = 1 is within about 1σ), so a factor > 1 overshoots. The two channels point in different directions, so one common NLO K-factor cannot explain both. EW discovery (701) is now closer to the paper's figure (688) than to its abstract (650); colored discovery (1591) matches the abstract (1600). A factor 2 overshoots both channels.
 (Before 2026-10-19 the EW main line used the LO ratio: 712 / 643 GeV, now the "LO ratio" row.)
 
 Main-figure changes (2026-10-17):
@@ -113,3 +115,5 @@ Main-figure changes (2026-10-17):
 | Code checks added | F6_03 stops if a checkpoint has fewer events than propagated (a partial file had given a wrong test value). counts.csv n_trigger_both_charged now uses abs(q) > 0.5 like F6_02/F6_03 (was abs(q) = 1; informational column only, the figure was already right) |
 
 Caption note (2026-10-20): the EW panels' boxes now state the trigger used ("ε_trig: matched count (paper)") and the LO-ratio alternative (712 / 643 GeV without SCT z smearing, 474 / 428 GeV with 1.16 mm), and the caption begins its trigger paragraph with "EW TRIGGER CHANGED (2026-10-19)" and the shift (+80 / +58 GeV). The value 0.178 in the earlier note was the EW 800 trigger count of the independent Table I sample (186/1045); the Fig. 6 sample gives 152/1024 = 0.148 (the two differ by 1.8σ).
+
+EW trigger headline value (2026-10-20): the Table I sample (186/1045 = 0.178, seed 8002) and the Fig. 6 sample (152/1024 = 0.148, seed 9504) have identical MG5/Pythia cards (checked by diffing the run banners; only iseed differs) and agree at 1.8σ. Combined: 338/2069 = 0.163 (Wilson 95%: 0.148–0.180), quoted as the headline in the report's Table I section, Section 8 and the Fig. 6 caption. Each calculation keeps its own sample (all efficiencies of a result from one sample).
