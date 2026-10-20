@@ -817,3 +817,9 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
 - Abstract: only colored discovery (1591) still matches the abstract (1600); EW discovery (701) is closer to the figure (688) than to the abstract (650). No text claims both match.
 - EW trigger 0.178 vs 0.148: run banners diffed, identical cards except iseed (8002 / 9504). Decision: each calculation keeps its own sample; the headline value compared with the paper is the combination 338/2069 = 0.163 (Wilson 95% 0.148–0.180), quoted the same way in the Table I section, Section 8 and the caption.
 - Report 2026-10-19 rebuilt (15 pages) with the one-line summary of Fig. 6 from the review.
+
+## D55 (2026-10-20) Fig. 7: test of the paper's dE/dx definition (user's request, no simulation)
+- The paper's own βγ histogram (right panel) was converted to dE/dx with 4 definitions: PDG MPV (MeV cm²/g), Bethe mean (MeV cm²/g), Bethe mean × ρ (MeV/cm), MPV × ρ (MeV/cm); bins with βγ < 0.1 left out, as the paper states for its left panel (variant 0.05).
+- Criterion fixed before running: both samples, median within 15% and 10%/90% quantiles within 25% of the paper's dE/dx histogram.
+- Result: none passes (either βγ cut). The paper's histogram starts sharply at 18.9 (10% quantile 19.5–19.9); every conversion puts 33–82% of the hits below 18.9. Bethe mean in MeV/cm is closest in median (0.79 / 1.26) but not in range.
+- Report: the existing statement ("the paper does not give enough detail") stays; the test is report Section 9.1 (scripts/F7_02_dedx_definition_test.py, tables/F7_dedx_definition_test.csv, ROOT_CSV_2026-10-19/Fig7/fig7_dedx_definition_test.csv). Our dE/dx definition is unchanged.

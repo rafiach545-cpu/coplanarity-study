@@ -140,6 +140,12 @@ save(H.drop(columns=["sample"]), "Fig7/fig7_pixel_hits.csv", "Figure 7: every qu
      "tables/F7_pixel_hits.csv (main selection of the figure: triggered, fiducial_event, order 0, in_25ns)")
 p7 = pd.read_csv(f"{T}/paper_fig7_curves.csv"); p7["channel_id"] = np.where(p7["sample"].str.startswith("colored"), 1, 2); p7["var_id"] = np.where(p7.panel == "dEdx", 1, 2)
 save(p7[["var_id", "channel_id", "point", "x", "y"]], "Fig7/fig7_paper_curves.csv", "Paper Figure 7 step histograms (vector extraction)", dict(var_id="1 = dE/dx (MeV cm2/g), 2 = betagamma"), "tables/paper_fig7_curves.csv")
+dt = pd.read_csv(f"{T}/F7_dedx_definition_test.csv"); dt["channel_id"] = np.where(dt["sample"].str.startswith("colored"), 1, 2); dt["definition_id"] = dt.definition.str[0].astype(int)
+for c in ("sample_pass", "definition_pass"): dt[c] = dt[c].astype(int)
+save(dt[["channel_id", "bg_min", "definition_id", "frac_hits_left_out", "q10", "median", "q90", "frac_below_paper_min", "paper_min", "paper_q10", "paper_median", "paper_q90", "median_ratio",
+         "sample_pass", "definition_pass"]], "Fig7/fig7_dedx_definition_test.csv", "Paper's own betagamma histogram converted to dE/dx with four definitions, vs the paper's dE/dx histogram",
+     dict(definition_id="1 PDG MPV (MeV cm2/g), 2 Bethe mean (MeV cm2/g), 3 Bethe mean x rho (MeV/cm), 4 PDG MPV x rho (MeV/cm)", bg_min="betagamma bins below this left out",
+          definition_pass="both samples: median within 15%, 10%/90% quantiles within 25% of the paper's"), "tables/F7_dedx_definition_test.csv")
 # ------------------------------------------------------------------ backgrounds
 bg = pd.DataFrame([dict(sample=1, sctz_um=1160, n_events=9139, n_signal_region=0), dict(sample=1, sctz_um=0, n_events=9139, n_signal_region=146), dict(sample=2, sctz_um=1160, n_events=5000, n_signal_region=0)])
 save(bg, "Backgrounds/backgrounds_signal_region.csv", "Backgrounds in the signal region", dict(sample="1 = converted photon + pile-up (mu = 50), 2 = pile-up only"), "report Section 7")

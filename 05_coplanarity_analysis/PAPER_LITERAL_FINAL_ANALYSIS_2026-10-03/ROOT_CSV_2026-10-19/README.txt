@@ -321,6 +321,25 @@ Fig7/fig7_paper_curves.csv  (366 rows)
     x: 
     y: 
 
+Fig7/fig7_dedx_definition_test.csv  (16 rows)
+  Paper's own betagamma histogram converted to dE/dx with four definitions, vs the paper's dE/dx histogram
+  source: tables/F7_dedx_definition_test.csv
+    channel_id: 
+    bg_min: betagamma bins below this left out
+    definition_id: 1 PDG MPV (MeV cm2/g), 2 Bethe mean (MeV cm2/g), 3 Bethe mean x rho (MeV/cm), 4 PDG MPV x rho (MeV/cm)
+    frac_hits_left_out: 
+    q10: 
+    median: 
+    q90: 
+    frac_below_paper_min: 
+    paper_min: 
+    paper_q10: 
+    paper_median: 
+    paper_q90: 
+    median_ratio: 
+    sample_pass: 
+    definition_pass: both samples: median within 15%, 10%/90% quantiles within 25% of the paper's
+
 Backgrounds/backgrounds_signal_region.csv  (3 rows)
   Backgrounds in the signal region
   source: report Section 7

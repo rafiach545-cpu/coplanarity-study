@@ -524,13 +524,34 @@ S += [img("F7_fig7", 172), grid(g, [62, 14, 18, 22, 32, 26]),
           f"{PFB['EW_800GeV_2keV'][0]:.0%}–{PFB['EW_800GeV_2keV'][1]:.0%} (EW) and {PFB['colored_1800GeV_2keV'][0]:.0%}–{PFB['colored_1800GeV_2keV'][1]:.0%} (colored) of its hits below βγ = 0.1, the range given by the bin that contains 0.1)" "; we find at most a few % in any selection (with or without trigger, timing cut or first-crossing requirement). "
           "(2) Because our hits are faster, our dE/dx is lower. (3) The paper's dE/dx histogram lies at 19–47 MeV cm²/g for both samples, while the PDG most probable value of its own βγ histogram spans 1–47 with a median of about 6 (EW) "
           "and 13 (colored) MeV cm²/g; ours (median 3 and 6) lies in that range and is lower because our hits are faster. The paper does not give enough detail (formula, thickness, units, selection) to trace either point.")]
+# 9.1 which dE/dx definition would turn the paper's betagamma histogram into its dE/dx histogram (scripts/F7_02_dedx_definition_test.py; no simulation)
+DT = pd.read_csv(f"{T}/F7_dedx_definition_test.csv"); DT1 = DT[DT.bg_min == 0.1]
+S += [P("9.1 Test: which dE/dx definition does the paper use?", "h3"),
+      P("The paper's own βγ histogram (right panel) is converted to dE/dx with four definitions (silicon, density effect, |z| = 1; 50 points per βγ bin; bins below βγ = 0.1, "
+        "where the Bethe formula does not hold, left out: 7% (EW) and 16% (colored) of the paper's hits) and compared with the paper's dE/dx histogram (left panel). "
+        "<b>Criterion, fixed before the test:</b> for both samples, median within 15% of the paper's, and the 10% and 90% quantiles each within 25%.", "c")]
+g = [H("Definition", "EW 800: 10% / median / 90%", "colored 1800: 10% / median / 90%", "hits below 18.9 (EW / colored)", "passes")]; ex = []
+for i_, dn in enumerate(DT1.definition.unique(), 1):
+    e_ = DT1[(DT1.definition == dn) & (DT1["sample"] == "EW_800GeV_2keV")].iloc[0]; c_ = DT1[(DT1.definition == dn) & (DT1["sample"] == "colored_1800GeV_2keV")].iloc[0]
+    g.append(C(dn[2:].replace("cm2/g", "cm²/g").replace("x rho", "× ρ"), f"{e_.q10:.1f} / {e_["median"]:.1f} / {e_.q90:.1f}", f"{c_.q10:.1f} / {c_["median"]:.1f} / {c_.q90:.1f}",
+               f"{e_.frac_below_paper_min:.0%} / {c_.frac_below_paper_min:.0%}", "yes" if e_.definition_pass else "no"))
+    ex.append(("BACKGROUND", (4, i_), (4, i_), OKB if e_.definition_pass else BADB))
+_e, _c = DT1[DT1["sample"] == "EW_800GeV_2keV"].iloc[0], DT1[DT1["sample"] == "colored_1800GeV_2keV"].iloc[0]
+g.append(C("<b>paper's dE/dx histogram</b>", f"{_e.paper_q10:.1f} / {_e.paper_median:.1f} / {_e.paper_q90:.1f}", f"{_c.paper_q10:.1f} / {_c.paper_median:.1f} / {_c.paper_q90:.1f}", "0 (starts at 18.9)", ""))
+S += [grid(g, [52, 40, 40, 30, 14], ex + [("BACKGROUND", (0, len(g) - 1), (-1, len(g) - 1), KEYB)]),
+      key("<b>Result.</b> " + ("No definition passes." if not DT1.definition_pass.any() else "") + " The paper's dE/dx histogram is narrow and starts sharply at 18.9 (10% quantile 19.5–19.9), "
+          f"while every conversion of its own βγ histogram puts {DT1.frac_below_paper_min.min():.0%}–{DT1.frac_below_paper_min.max():.0%} of the hits below 18.9 and is several times broader. "
+          "The mean Bethe loss in MeV/cm comes closest in median (ratio "
+          f"{DT1[DT1.definition.str.startswith('3')].median_ratio.min():.2f} / {DT1[DT1.definition.str.startswith('3')].median_ratio.max():.2f}) but not in shape or range. "
+          "So none of the four standard definitions explains the left panel from the right one, the same holds with the βγ cut at 0.05, "
+          "and the statement above stands: the paper does not give enough detail to trace its dE/dx axis.")]
 # 10 open + refs
 S += [P("10. Open points", "h2")] + B(["SCT z: the authors' stated resolution gives efficiencies far below Table I; only no smearing reproduces it.",
                                       "Signal Δw 2–5× the paper's.",
                                       f"Fig. 6: colored maxima {_d('colored', 'discovery', 1707):+.0f}% to {_d('colored', 'exclusion', 1793):+.0f}% from the paper's figure (colored discovery matches its abstract), a factor 1.5–1.7 on σ would close the gap; EW (paper's method) {_d('EW', 'discovery', 688):+.0f}% to {_d('EW', 'exclusion', 762):+.0f}% above the figure with no factor (K ≈ 0.85–0.9 would match). One common K-factor cannot explain both channels. The paper gives no σ.",
                                       "Fig. 6 EW trigger: the paper's described method (matched + shower count, used here) and the LO ratio that reproduces Table I's 0.10 differ by a factor 1.3–1.9; Fig. 6 favours the matched count, Table I the LO ratio.",
                                       "Fig. 6: Λ &gt; 25 keV not computed (integrator step ceiling); low-Λ edges at light masses not resolved (larger samples needed).",
-                                      "Fig. 7: our pixel hits are faster than the paper's (median βγ about 2× higher); the paper's low-βγ tail is not reproduced; its dE/dx range (19–47 MeV cm²/g) is not consistent with its own βγ histogram.",
+                                      "Fig. 7: our pixel hits are faster than the paper's (median βγ about 2× higher); the paper's low-βγ tail is not reproduced; its dE/dx range (19–47 MeV cm²/g) is not reproduced from its own βγ histogram by any of four standard definitions (Section 9.1; MPV or mean, MeV cm²/g or MeV/cm); it is not consistent with its own βγ histogram.",
                                       "Paper's Fig. 2: unequal half-oscillations; L definition, charges and momenta of its event not given.",
                                       f"EW ε<sub>reco</sub> (no SCT z smearing) above the paper at Λ = {', '.join(map(str, above))} keV in the leading-order sample, and similar in the other two EW samples (Section 2.3); the paper gives no information to trace this."] + ([] if SH_DONE else [f"LO + shower sample: {NSH}/{NSH_ALL} events done."]))
 S += [P("References", "h2")] + [P(x, "c") for x in [
