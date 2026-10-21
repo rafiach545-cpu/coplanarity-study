@@ -48,10 +48,12 @@ cd ROOT_GENERATED_GRAPHS
 
 | Sample | Events | Our median (rad) | Paper's event (rad) |
 |---|---|---|---|
-| Colored | 22 | 1.89×10⁻⁴ | 0.91×10⁻⁴ |
-| EW | 62 | 5.10×10⁻⁴ | 3.53×10⁻⁴ |
+| Colored | 22 | 1.89×10⁻⁴ | 0.90×10⁻⁴ |
+| EW | 62 | 5.10×10⁻⁴ | 3.56×10⁻⁴ |
 
-Our medians are about 1.4× (EW) and 2.1× (colored) the paper's event. The paper's curve lies inside our 16–84% band at 85% (colored) and 89% (EW) of the r values. At r = 15 cm the colored paper event (0.091×10⁻³) is just below the band's lower edge (0.099×10⁻³).
+The paper's values are its curve interpolated linearly at r = 15.0 cm, as in the report (Section 6: 0.09 and 0.36 ×10⁻³ rad). The macro instead takes the digitised point nearest to 15 cm (r = 15.008 cm: 0.906×10⁻⁴ colored; r = 15.026 cm: 3.53×10⁻⁴ EW). It prints those values in `logs/fig3.log` and draws its panel-3 reference lines there, a difference of under 1%.
+
+Our medians are about 1.4× (EW) and 2.1× (colored) the paper's event. The paper's curve lies inside our 16–84% band at 85% (colored) and 89% (EW) of the r values. At r = 15 cm the colored paper event (0.090×10⁻³) is just below the band's lower edge (0.099×10⁻³).
 
 ### Figure 4: event displays in the plane frame (n₃, n₂)
 
