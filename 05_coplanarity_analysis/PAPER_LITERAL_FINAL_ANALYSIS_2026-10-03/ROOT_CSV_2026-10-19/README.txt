@@ -1,4 +1,5 @@
 CSV files to redraw the Table I reproduction of arXiv:1708.02243 with ROOT (2026-10-19). One header line, comma separated, missing values = -999, booleans 0/1.
+Text versions (contain words; TTree::ReadFile reads 0 entries, use the numeric twin): Fig2/fig2_initial_values.csv -> fig2_initial_values_numeric.csv, Fig2/fig2_meetings_detail.csv -> fig2_meetings_numeric.csv, Fig6/F6_reach.csv -> F6_reach_numeric.csv, Fig6/F6_reach_sensitivity.csv -> F6_reach_sensitivity_numeric.csv.
 ROOT: auto df = ROOT::RDF::FromCSV("Fig6/fig6_grid.csv");  or  TTree t; t.ReadFile("file.csv", "", ',');  (the header line gives the branch names)
 TGraph from two columns: TGraph g("file.csv", "%*lg,%lg,%lg", ",")  -- skip columns with %*lg.
 
@@ -126,6 +127,32 @@ Fig2/fig2_meetings_detail.csv  (12 rows)
     r_L_zero_between_cm: 
     b_cm: 
     b_over_inv_m: 
+
+Fig2/fig2_initial_values_numeric.csv  (2 rows)
+  Figure 2 initial values, numeric (event_id 1 = ours with the paper's kinematics, 2 = ours event no. 8; vectors split into x, y, z)
+  source: tables/fig2_final/fig2_initial_values.csv
+    event_id: 
+    m_GeV: 
+    Lambda_keV: 
+    B_T: 
+    q1: charge of quirk 1 (e)
+    q2: charge of quirk 2 (e)
+    p1_lab_GeV_x: 
+    p1_lab_GeV_y: 
+    p1_lab_GeV_z: 
+    p2_lab_GeV_x: 
+    p2_lab_GeV_y: 
+    p2_lab_GeV_z: 
+    E1_GeV: 
+    E2_GeV: 
+    beta_cm_x: 
+    beta_cm_y: 
+    beta_cm_z: 
+    beta_cm_T: 
+    v_star: 
+    gamma_star: 
+    p_star_GeV: 
+    dmax_pred_cm: 
 
 Fig2/fig2_logscale_four_step_sizes.csv  (616682 rows)
   Figure 2 on a log scale: event with the paper's kinematics at 4 integration step sizes
@@ -260,7 +287,7 @@ Fig6/fig6_paper_curves.csv  (573 rows)
     lambda_eV: 
 
 Fig6/F6_reach.csv  (12 rows)
-  maximum mass reach (main variants)
+  maximum mass reach (main variants), text columns (for reading; ROOT: use F6_reach_numeric.csv)
   source: fig6/F6_reach.csv
     channel: 
     sct: 
@@ -274,7 +301,7 @@ Fig6/F6_reach.csv  (12 rows)
     paper_at_lambda_keV: 
 
 Fig6/F6_reach_sensitivity.csv  (54 rows)
-  maximum mass reach for the normalisation-sensitivity variants
+  maximum mass reach, sensitivity variants, text columns (for reading; ROOT: use F6_reach_sensitivity_numeric.csv)
   source: fig6/F6_reach_sensitivity.csv
     channel: 
     sct: 
@@ -296,6 +323,35 @@ Fig6/F6_ew_lo_ratio.csv  (6 rows)
     sigma_B_err_fb: 
     ratio: 
     ratio_err: 
+
+Fig6/F6_reach_numeric.csv  (12 rows)
+  Maximum mass reach of the main Fig. 6 contours (numeric)
+  source: fig6/F6_reach.csv
+    channel_id: 1 colored, 2 EW
+    sctz_um: signal SCT z smearing (um)
+    charge_factor: 1 with the both-charged factor (EW always 1), 0 without
+    n_events: 3 exclusion, 5 discovery
+    m_max_GeV: 
+    at_lambda_keV: 
+    m_max_lo: reach at the Wilson 68% lower bound of k/n
+    m_max_hi: reach at the upper bound
+    paper_m_max_GeV: 
+    paper_at_lambda_keV: 
+
+Fig6/F6_reach_sensitivity_numeric.csv  (54 rows)
+  Maximum mass reach for the normalisation-sensitivity variants (numeric; charge factor included)
+  source: fig6/F6_reach_sensitivity.csv
+    channel_id: 
+    sctz_um: signal SCT z smearing (um)
+    variant_id: 1-8 = sigma x K (K column: 0.8, 0.9, 1, 1.2, 1.4, 1.5, 1.8, 2); 9 = EW LO-ratio trigger instead of the matched count; 10 = EW fully LO (LO trigger and LO-sample efficiencies); 11 = annihilation worst case
+    K: 
+    n_events: 
+    m_max_GeV: 
+    not_determined: 1 if the reach was not determined (m_max = -999)
+    at_lambda_keV: 
+    m_max_lo: 
+    m_max_hi: 
+    paper_m_max_GeV: 
 
 Fig7/fig7_pixel_hits.csv  (12487 rows)
   Figure 7: every quirk hit on the 4 pixel layers, Lambda = 2 keV (EW 800 GeV, colored 1800 GeV)

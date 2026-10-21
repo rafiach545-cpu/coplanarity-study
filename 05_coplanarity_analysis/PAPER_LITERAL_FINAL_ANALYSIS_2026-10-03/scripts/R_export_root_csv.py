@@ -63,6 +63,16 @@ save(md.drop(columns=["event"]), "Fig2/fig2_meetings_numeric.csv", "Figure 2 per
 for f in ("fig2_paper_L.csv", "fig2_paper_d.csv", "fig2_ours_constructed.csv", "fig2_ours_key8.csv", "fig2_initial_values.csv", "fig2_meetings_detail.csv"):
     save(pd.read_csv(f"{T}/fig2_final/{f}"), f"Fig2/{f}", "Figure 2 (see tables/fig2_final/README.txt)", dict(r_cm="transverse radius of the CM (cm)", d_cm="quirk separation in the CM frame (cm)",
          L_1e12_hbar="|L| (1e12 hbar)"), f"tables/fig2_final/{f}")
+iv = pd.read_csv(f"{T}/fig2_final/fig2_initial_values.csv"); ivn = pd.DataFrame(dict(event_id=range(1, len(iv) + 1)))   # numeric version (vectors split into components)
+for c in iv.columns:
+    if c in ("event", "source"): continue
+    if c == "charges":
+        q = iv[c].str.replace("−", "-").str.split(","); ivn["q1"] = q.str[0].map(lambda t: eval(t.strip().lstrip("+"))); ivn["q2"] = q.str[1].map(lambda t: eval(t.strip().lstrip("+")))
+    elif iv[c].dtype == object:
+        v = iv[c].str.split(","); ivn[[f"{c}_x", f"{c}_y", f"{c}_z"]] = pd.DataFrame([[float(t) for t in r] for r in v])
+    else: ivn[c] = iv[c].values
+save(ivn, "Fig2/fig2_initial_values_numeric.csv", "Figure 2 initial values, numeric (event_id 1 = ours with the paper's kinematics, 2 = ours event no. 8; vectors split into x, y, z)",
+     dict(q1="charge of quirk 1 (e)", q2="charge of quirk 2 (e)"), "tables/fig2_final/fig2_initial_values.csv")
 st = pd.read_csv(f"{T}/fig2_final/fig2_ours_constructed_steps.csv")
 save(st, "Fig2/fig2_logscale_four_step_sizes.csv", "Figure 2 on a log scale: event with the paper's kinematics at 4 integration step sizes",
      dict(steps_per_period="RK4 steps per oscillation", L_signed_hbar="L projected on its maximum direction (hbar); plot |L|"), "tables/fig2_final/fig2_ours_constructed_steps.csv")
@@ -130,8 +140,28 @@ pc = pd.read_csv(f"{T}/paper_fig6_curves.csv"); pc["channel_id"] = np.where(pc.p
 names = sorted(pc.curve.unique()); pc["curve_id"] = pc.curve.map({n: i for i, n in enumerate(names)})
 save(pc[["channel_id", "curve_id", "point", "m_GeV", "lambda_eV"]], "Fig6/fig6_paper_curves.csv", "Paper Figure 6 curves (vector extraction): " + ", ".join(f"{i} = {n}" for i, n in enumerate(names)),
      dict(curve_id="see description"), "tables/paper_fig6_curves.csv")
-for f, d in (("F6_reach.csv", "maximum mass reach (main variants)"), ("F6_reach_sensitivity.csv", "maximum mass reach for the normalisation-sensitivity variants"), ("F6_ew_lo_ratio.csv", "EW LO cross sections and trigger ratio")):
+for f, d in (("F6_reach.csv", "maximum mass reach (main variants), text columns (for reading; ROOT: use F6_reach_numeric.csv)"),
+             ("F6_reach_sensitivity.csv", "maximum mass reach, sensitivity variants, text columns (for reading; ROOT: use F6_reach_sensitivity_numeric.csv)"),
+             ("F6_ew_lo_ratio.csv", "EW LO cross sections and trigger ratio")):
     save(pd.read_csv(f"{ROOT}/fig6/{f}"), f"Fig6/{f}", d, {}, f"fig6/{f}")
+# numeric versions of the reach tables (TTree::ReadFile cannot read text columns)
+CHID = {"colored": 1, "EW": 2}; SCTUM = {"Z0": 0, "Z1160": 1160}; NEV = {"exclusion": 3, "discovery": 5}
+rc = pd.read_csv(f"{ROOT}/fig6/F6_reach.csv")
+rc = pd.DataFrame(dict(channel_id=rc.channel.map(CHID), sctz_um=rc.sct.map(SCTUM), charge_factor=(rc.variant == "charge factor included").astype(int), n_events=rc.contour.map(NEV),
+                       m_max_GeV=rc.m_max_GeV, at_lambda_keV=rc.at_lambda_keV, m_max_lo=rc.m_max_lo, m_max_hi=rc.m_max_hi, paper_m_max_GeV=rc.paper_m_max_GeV, paper_at_lambda_keV=rc.paper_at_lambda_keV))
+save(rc, "Fig6/F6_reach_numeric.csv", "Maximum mass reach of the main Fig. 6 contours (numeric)",
+     dict(channel_id="1 colored, 2 EW", sctz_um="signal SCT z smearing (um)", charge_factor="1 with the both-charged factor (EW always 1), 0 without", n_events="3 exclusion, 5 discovery",
+          m_max_lo="reach at the Wilson 68% lower bound of k/n", m_max_hi="reach at the upper bound"), "fig6/F6_reach.csv")
+rs = pd.read_csv(f"{ROOT}/fig6/F6_reach_sensitivity.csv")
+VAR = {"K0.8": 1, "K0.9": 2, "K1": 3, "K1.2": 4, "K1.4": 5, "K1.5": 6, "K1.8": 7, "K2": 8, "EW LO-ratio trigger": 9, "EW fully LO": 10, "annihilation worst": 11}
+assert set(rs.variant) <= set(VAR), set(rs.variant) - set(VAR)
+mm = pd.to_numeric(rs.m_max, errors="coerce")
+rs = pd.DataFrame(dict(channel_id=rs.variant.map(lambda v: 0) + rs.channel.map(CHID), sctz_um=rs.sct.map(SCTUM), variant_id=rs.variant.map(VAR),
+                       K=rs.variant.map(lambda v: float(v[1:]) if v.startswith("K") else -999), n_events=rs.contour.map(NEV), m_max_GeV=mm,
+                       not_determined=mm.isna().astype(int), at_lambda_keV=rs.lam_keV, m_max_lo=pd.to_numeric(rs.lo, errors="coerce"), m_max_hi=pd.to_numeric(rs.hi, errors="coerce"), paper_m_max_GeV=rs.paper))
+save(rs, "Fig6/F6_reach_sensitivity_numeric.csv", "Maximum mass reach for the normalisation-sensitivity variants (numeric; charge factor included)",
+     dict(variant_id="1-8 = sigma x K (K column: 0.8, 0.9, 1, 1.2, 1.4, 1.5, 1.8, 2); 9 = EW LO-ratio trigger instead of the matched count; 10 = EW fully LO (LO trigger and LO-sample efficiencies); "
+                     "11 = annihilation worst case", not_determined="1 if the reach was not determined (m_max = -999)", sctz_um="signal SCT z smearing (um)"), "fig6/F6_reach_sensitivity.csv")
 # ------------------------------------------------------------------ Figure 7
 H = pd.read_csv(f"{T}/F7_pixel_hits.csv"); H["channel_id"] = np.where(H["sample"].str.startswith("colored"), 1, 2)
 save(H.drop(columns=["sample"]), "Fig7/fig7_pixel_hits.csv", "Figure 7: every quirk hit on the 4 pixel layers, Lambda = 2 keV (EW 800 GeV, colored 1800 GeV)",
@@ -151,6 +181,8 @@ bg = pd.DataFrame([dict(sample=1, sctz_um=1160, n_events=9139, n_signal_region=0
 save(bg, "Backgrounds/backgrounds_signal_region.csv", "Backgrounds in the signal region", dict(sample="1 = converted photon + pile-up (mu = 50), 2 = pile-up only"), "report Section 7")
 open(f"{OUT}/README.txt", "w").write(
     "CSV files to redraw the Table I reproduction of arXiv:1708.02243 with ROOT (2026-10-19). One header line, comma separated, missing values = -999, booleans 0/1.\n"
+    "Text versions (contain words; TTree::ReadFile reads 0 entries, use the numeric twin): Fig2/fig2_initial_values.csv -> fig2_initial_values_numeric.csv, "
+    "Fig2/fig2_meetings_detail.csv -> fig2_meetings_numeric.csv, Fig6/F6_reach.csv -> F6_reach_numeric.csv, Fig6/F6_reach_sensitivity.csv -> F6_reach_sensitivity_numeric.csv.\n"
     "ROOT: auto df = ROOT::RDF::FromCSV(\"Fig6/fig6_grid.csv\");  or  TTree t; t.ReadFile(\"file.csv\", \"\", ',');  (the header line gives the branch names)\n"
     "TGraph from two columns: TGraph g(\"file.csv\", \"%*lg,%lg,%lg\", \",\")  -- skip columns with %*lg.\n\n" + "\n".join(README))
 shutil.copy(f"{HERE}/ROOT_plot_examples.C", f"{OUT}/plot_examples.C")              # example macro (tested with ROOT)
