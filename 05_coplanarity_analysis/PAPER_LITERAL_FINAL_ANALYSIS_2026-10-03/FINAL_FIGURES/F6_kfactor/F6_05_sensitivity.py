@@ -86,6 +86,12 @@ def surface(g):
     f = RegularGridInterpolator((ms, ys), Z, bounds_error=False, fill_value=np.nan)
     mm, yy = np.meshgrid(np.linspace(ms[0], ms[-1], 400), np.linspace(ys[0], ys[-1], 400), indexing="ij"); return mm, yy, f(np.column_stack([mm.ravel(), yy.ravel()])).reshape(mm.shape)
 SRC = []
+LINES = []                                                                   # traced contour lines of this figure -> fig6/F6_kfactor_lines.csv
+_yg = np.concatenate([10 ** np.linspace(1, 3, 2000), np.linspace(1000, 40000, 4000)[1:]])
+def inv_y(y): return np.interp(y, Yd(_yg)[::-1], _yg[::-1]) if Yd(_yg)[0] > Yd(_yg)[-1] else np.interp(y, Yd(_yg), _yg)
+def keep(cs, ch, var, thr):
+    for sid, seg in enumerate(cs.allsegs[0]):
+        LINES.extend(dict(channel=ch, variant=var, n_events=thr, segment=sid, point=k, mass_GeV=x, lambda_eV=float(inv_y(y))) for k, (x, y) in enumerate(seg))
 def plot(_):
     fig, axs = plt.subplots(2, 2, figsize=(12.5, 10.5)); cols = [fu.SERIES[0], fu.SERIES[1], fu.SERIES[3], fu.SERIES[6]]
     for i, ch in enumerate(("colored", "EW")):
@@ -93,12 +99,13 @@ def plot(_):
         for j, (thr, nm, ls) in enumerate(((3, "exclusion", "--"), (5, "discovery", "-"))):
             ax = axs[i, j]; P = V[ch]["curves"][nm]; ax.plot(P["m_GeV"], Yd(P["lambda_eV"]), color=fu.INK, ls=ls, lw=1.8, label=f"paper {nm}")
             for k, var in enumerate(PLOTK[ch]):
-                mm, yy, zz = surface(scaled(base, ch, var)); ax.contour(mm, yy, zz, levels=[np.log10(thr)], colors=[cols[k]], linestyles=[ls], linewidths=2.2 if var == "K1" else 1.4)
+                mm, yy, zz = surface(scaled(base, ch, var)); cs_ = ax.contour(mm, yy, zz, levels=[np.log10(thr)], colors=[cols[k]], linestyles=[ls], linewidths=2.2 if var == "K1" else 1.4); keep(cs_, ch, var, thr)
                 r = R[(R.channel == ch) & (R.sct == "Z0") & (R.variant == var) & (R.contour == nm)].iloc[0]
                 ax.plot([], [], color=cols[k], ls=ls, lw=2.2 if var == "K1" else 1.4,
                         label=f"this work, σ × {var[1:]}{' (N_Q = 2 reading)' if var == 'K2' else ''}: " + (f"{r.m_max} ({r.lo}–{r.hi}) GeV" if str(r.m_max).isdigit() else f"{r.m_max} GeV"))
             if ch == "EW":                                                   # the alternative EW trigger (LO ratio, not stated in the paper)
-                mm, yy, zz = surface(scaled(base, ch, "EW LO-ratio trigger")); ax.contour(mm, yy, zz, levels=[np.log10(thr)], colors=[fu.MUTED], linestyles=[":"], linewidths=1.6)
+                mm, yy, zz = surface(scaled(base, ch, "EW LO-ratio trigger")); cs_ = ax.contour(mm, yy, zz, levels=[np.log10(thr)], colors=[fu.MUTED], linestyles=[":"], linewidths=1.6)
+                keep(cs_, ch, "EW LO-ratio trigger", thr)
                 r = R[(R.channel == ch) & (R.sct == "Z0") & (R.variant == "EW LO-ratio trigger") & (R.contour == nm)].iloc[0]
                 ax.plot([], [], color=fu.MUTED, ls=":", lw=1.6, label=f"alternative: LO-ratio trigger, σ × 1: {r.m_max} ({r.lo}–{r.hi}) GeV")
             lmax = max(float(l) for l in base.lambda_keV.unique()) * 1e3
@@ -112,3 +119,5 @@ fu.figure("F6_kfactor", R, plot,
           "Figure 6 contours (signal without SCT z smearing, charge factor included) with the expected number of events multiplied by a common factor K: colored K = 1.5, 1.8, "
           "EW K = 0.9, 1.4 (0.8 and 1.2 in the csv), and K = 2 for both; EW also the alternative trigger (LO ratio σ(QQ̄ + j, pT > 200)/σ(QQ̄) instead of the matched count, dotted grey) (the N_Q = 2 of the paper's panel titles read as a factor 2 on σ; not applied in the main figure). K = 1: our LO "
           "cross sections. This is a sensitivity study, not a fit. Grid N from fig6/F6_N_grid.csv; no new simulation.", [f"{ROOT}/fig6/F6_N_grid.csv"], "all grid points", os.path.abspath(__file__))
+
+pd.DataFrame(LINES).to_csv(f"{ROOT}/fig6/F6_kfactor_lines.csv", index=False); print("F6_kfactor lines:", len(LINES), "points")
