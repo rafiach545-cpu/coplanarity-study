@@ -1,0 +1,18 @@
+Processing macros/fig7.C+...
+Info in <TUnixSystem::ACLiC>: creating shared library /home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/ROOT_GENERATED_GRAPHS/./macros/fig7_C.so
+read Fig7/fig7_pixel_hits.csv                                   12487 rows, 11 columns
+read Fig7/fig7_paper_curves.csv                                   366 rows, 5 columns
+Fig7 dE/dx colored 1800 GeV main                       N =   158 hits, median 6.158
+Fig7 dE/dx colored 1800 GeV all events, all crossings  N =  2567 hits, median 5.731
+Fig7 dE/dx colored 1800 GeV paper: 48 bins, sum of fractions 1.000, bin width 0.586 MeV cm2/g, median 22.664
+Fig7 dE/dx EW 800 GeV main                       N =   376 hits, median 3.058
+Fig7 dE/dx EW 800 GeV all events, all crossings  N =  8457 hits, median 3.316
+Fig7 dE/dx EW 800 GeV paper: 48 bins, sum of fractions 1.000, bin width 0.586 MeV cm2/g, median 20.907
+Fig7 betagamma colored 1800 GeV main                       N =   160 hits, median 0.418, fraction below 0.1: 0.013
+Fig7 betagamma colored 1800 GeV all events, all crossings  N =  2626 hits, median 0.433, fraction below 0.1: 0.022
+Fig7 betagamma colored 1800 GeV paper: 42 bins, sum of fractions 1.000, bin width 0.1 decade, median 0.224
+Fig7 betagamma EW 800 GeV main                       N =   376 hits, median 0.658, fraction below 0.1: 0.000
+Fig7 betagamma EW 800 GeV all events, all crossings  N =  8558 hits, median 0.616, fraction below 0.1: 0.012
+Fig7 betagamma EW 800 GeV paper: 43 bins, sum of fractions 1.000, bin width 0.1 decade, median 0.355
+Info in <TCanvas::Print>: pdf file Fig7/fig7_dedx_betagamma.pdf has been created
+Info in <TCanvas::Print>: png file Fig7/fig7_dedx_betagamma.png has been created

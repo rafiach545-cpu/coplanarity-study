@@ -1,0 +1,12 @@
+Processing macros/fig4.C+...
+Info in <TUnixSystem::ACLiC>: creating shared library /home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/ROOT_GENERATED_GRAPHS/./macros/fig4_C.so
+read Fig4/fig4_hits_Z0.csv                                       3231 rows, 12 columns
+Fig4 Z0 colored 1.8 TeV, #Lambda = 2 keV: event 212 (median Delta_s, 5 of 8), 16 hits, Delta_s = 38.2 um, Delta_w = 0.3519 cm; 1600 layer points
+Fig4 Z0 EW 800 GeV, #Lambda = 4 keV: event 270 (median Delta_s, 26 of 50), 15 hits, Delta_s = 44.5 um, Delta_w = 0.1002 cm; 1600 layer points
+Info in <TCanvas::Print>: pdf file Fig4/fig4_event_display_Z0.pdf has been created
+Info in <TCanvas::Print>: png file Fig4/fig4_event_display_Z0.png has been created
+Info in <TCanvas::Print>: pdf file Fig4/fig4_event_display_Z1160.pdf has been created
+Info in <TCanvas::Print>: png file Fig4/fig4_event_display_Z1160.png has been created
+read Fig4/fig4_hits_Z1160.csv                                    3232 rows, 12 columns
+Fig4 Z1160 colored 1.8 TeV, #Lambda = 2 keV: event 201 (median Delta_s, 1 of 1), 16 hits, Delta_s = 52.2 um, Delta_w = 0.4700 cm; 1600 layer points
+Fig4 Z1160 EW 800 GeV, #Lambda = 4 keV: event 301 (median Delta_s, 6 of 10), 16 hits, Delta_s = 73.0 um, Delta_w = 0.0791 cm; 1600 layer points

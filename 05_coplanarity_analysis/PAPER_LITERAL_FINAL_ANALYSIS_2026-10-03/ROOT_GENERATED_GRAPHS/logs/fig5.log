@@ -1,0 +1,24 @@
+Processing macros/fig5.C+...
+Info in <TUnixSystem::ACLiC>: creating shared library /home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/ROOT_GENERATED_GRAPHS/./macros/fig5_C.so
+read Fig5/fig5_Z0.csv                                             451 rows, 7 columns
+Fig5 Z0 colored                      ds: N =    8, median 0.003774 cm, below the cut 8 (100.0%), paper bins 17
+Fig5 Z0 EW                           ds: N =   50, median 0.004414 cm, below the cut 50 (100.0%), paper bins 17
+Fig5 Z0 converted #gamma + pile-up   ds: N =  285, median 0.009716 cm, below the cut 146 (51.2%), paper bins 15
+Fig5 Z0 colored                      dw: N =    8, median 0.4821 cm, below the cut 8 (100.0%), paper bins 21
+Fig5 Z0 EW                           dw: N =   50, median 0.09665 cm, below the cut 50 (100.0%), paper bins 23
+Fig5 Z0 converted #gamma + pile-up   dw: N =  285, median 0.4379 cm, below the cut 285 (100.0%), paper bins 15
+Fig5 Z0: all paper bins lie on our 0.1-decade grid
+Info in <TCanvas::Print>: pdf file Fig5/fig5_ds_dw_Z0.pdf has been created
+Info in <TCanvas::Print>: png file Fig5/fig5_ds_dw_Z0.png has been created
+Info in <TCanvas::Print>: pdf file Fig5/fig5_ds_dw_Z1160.pdf has been created
+Info in <TCanvas::Print>: png file Fig5/fig5_ds_dw_Z1160.png has been created
+read Fig5/fig5_Z1160.csv                                          315 rows, 7 columns
+Fig5 Z1160 colored                      ds: N =    4, median 0.01598 cm, below the cut 1 (25.0%), paper bins 17
+Fig5 Z1160 EW                           ds: N =   24, median 0.01101 cm, below the cut 10 (41.7%), paper bins 17
+Fig5 Z1160 converted #gamma + pile-up   ds: N =   48, median 0.02217 cm, below the cut 0 (0.0%), paper bins 15
+Fig5 Z1160 pile-up only                 ds: N =  109, median 0.03166 cm, below the cut 8 (7.3%), paper bins 14
+Fig5 Z1160 colored                      dw: N =    4, median 0.5496 cm, below the cut 4 (100.0%), paper bins 21
+Fig5 Z1160 EW                           dw: N =   24, median 0.09241 cm, below the cut 24 (100.0%), paper bins 23
+Fig5 Z1160 converted #gamma + pile-up   dw: N =   48, median 0.3502 cm, below the cut 48 (100.0%), paper bins 15
+Fig5 Z1160 pile-up only                 dw: N =  109, median 0.7777 cm, below the cut 109 (100.0%), paper bins 8
+Fig5 Z1160: all paper bins lie on our 0.1-decade grid

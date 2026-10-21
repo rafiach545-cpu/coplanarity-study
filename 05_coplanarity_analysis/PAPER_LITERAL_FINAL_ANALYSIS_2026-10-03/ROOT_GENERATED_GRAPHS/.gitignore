@@ -1,0 +1,4 @@
+# ROOT ACLiC build products
+macros/*_C.so
+macros/*_C.d
+macros/*_C_ACLiC_dict_rdict.pcm

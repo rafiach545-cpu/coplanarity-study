@@ -1,0 +1,8 @@
+Processing macros/fig3.C+...
+Info in <TUnixSystem::ACLiC>: creating shared library /home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/ROOT_GENERATED_GRAPHS/./macros/fig3_C.so
+read Fig3/fig3_ours_per_event.csv                               12575 rows, 4 columns
+read Fig3/fig3_paper.csv                                          397 rows, 3 columns
+Fig3 colored 1.8 TeV, #Lambda = 2 keV: 22 events, median over events at r = 15 cm 0.000189 rad (per-event medians: median 0.000187 rad); paper's event at r = 15 cm: 9.06e-05 rad
+Fig3 EW 800 GeV, #Lambda = 2 keV: 62 events, median over events at r = 15 cm 0.00051 rad (per-event medians: median 0.000524 rad); paper's event at r = 15 cm: 0.000353 rad
+Info in <TCanvas::Print>: pdf file Fig3/fig3_dphi_vs_r.pdf has been created
+Info in <TCanvas::Print>: png file Fig3/fig3_dphi_vs_r.png has been created
