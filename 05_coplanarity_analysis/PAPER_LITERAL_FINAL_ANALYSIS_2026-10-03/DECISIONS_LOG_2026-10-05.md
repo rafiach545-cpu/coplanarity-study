@@ -823,3 +823,13 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
 - Criterion fixed before running: both samples, median within 15% and 10%/90% quantiles within 25% of the paper's dE/dx histogram.
 - Result: none passes (either βγ cut). The paper's histogram starts sharply at 18.9 (10% quantile 19.5–19.9); every conversion puts 33–82% of the hits below 18.9. Bethe mean in MeV/cm is closest in median (0.79 / 1.26) but not in range.
 - Report: the existing statement ("the paper does not give enough detail") stays; the test is report Section 9.1 (scripts/F7_02_dedx_definition_test.py, tables/F7_dedx_definition_test.csv, ROOT_CSV_2026-10-19/Fig7/fig7_dedx_definition_test.csv). Our dE/dx definition is unchanged.
+
+## D56 (2026-10-21) Final check before submission (user: "final check krlo report ko")
+- Report 2026-10-19 re-read page by page and its numbers recomputed. Found and corrected in a new version, TABLE_I_REPRODUCTION_REPORT_2026-10-21.pdf (scripts/R_report_2026-10-21.py); the 2026-10-19 PDF is unchanged:
+  - Sec. 3.1: "at least 500×" was wrong; the paper's 1.94×10^11 ħ at meeting 2 against our largest residual 4.2×10^8 ħ gives about 460× (now computed in the script).
+  - Sec. 3: the paper's first-half change appears as +0.64 (meeting table, from its curve's first point 0.008) and +0.65 (half-oscillation table, from 0); note added.
+  - Fig. 6: its embedded caption printed at ~4 pt and carried change-log wording; the report shows the figure without it (cropped copy report_pdf/F6_fig6_report_2026-10-21.png) plus a readable caption. The full caption stays in FINAL_FIGURES/F6_fig6.
+  - Open points, Fig. 7: removed "it is not consistent with its own βγ histogram" (stronger than the test shows; the test covers four definitions only).
+  - References: ROOT_CSV_FIGURES_2026-10-21/ and ROOT_GENERATED_GRAPHS/ added; date 21 October 2026.
+- ROOT READMEs: the paper's Fig. 5 medians were bin centres (e.g. converted γ Δs 0.028 cm); they are now the report's within-bin interpolation (0.031 cm), and the Fig. 7 paper dE/dx medians are now the report's 22.4 / 20.7 (the log prints the bin centres, 22.7 / 20.9). No plot changed.
+- Checked and consistent: Table I decisions and products, cut-flows, Q1 numbers, Fig. 6 reach / K-factor statements, Fig. 7 tables. All 12 ROOT graphs render; no errors in the logs.

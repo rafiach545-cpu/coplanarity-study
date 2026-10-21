@@ -124,12 +124,12 @@ The vertical lines are the cuts Δs < 0.01 cm and Δw < 1 cm. Pile-up only was n
 - **dE/dx panel:** fraction **per unit dE/dx**. The paper's bins are 0.586 MeV cm²/g wide and ours are 2, so fractions per bin cannot be compared.
 - **βγ panel:** fraction per 0.1 decade for both, since the bins are the same.
 
-**Medians**
+**Medians.** The paper's values are weighted medians of its histograms, as in the report (Section 9.1). `logs/fig7.log` prints the centre of the median bin instead (dE/dx 22.7 / 20.9).
 
 | | Ours, main (colored / EW) | Paper (colored / EW) |
 |---|---|---|
 | βγ | 0.418 / 0.658 | 0.224 / 0.355 |
-| dE/dx (MeV cm²/g) | 6.16 / 3.06 | 22.7 / 20.9 |
+| dE/dx (MeV cm²/g) | 6.16 / 3.06 | 22.4 / 20.7 |
 
 ## Validation
 
@@ -152,7 +152,7 @@ The vertical lines are the cuts Δs < 0.01 cm and Δw < 1 cm. Pile-up only was n
 
    | | Below the cut (Δs < 0.01 cm) | Median Δs |
    |---|---|---|
-   | Paper | 6.9% | ≈ 0.028 cm |
+   | Paper | 6.9% | ≈ 0.031 cm |
    | Ours, no smearing | 51% (146 of 285) | 0.0097 cm |
    | Ours, 1.16 mm | 0% | 0.022 cm |
 

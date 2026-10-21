@@ -77,37 +77,37 @@ The paper uses one smearing setting and does not say which. We show both of ours
 
 ## Results and differences from the paper
 
-**Δs: fraction below the cut (Δs < 0.01 cm) and median Δs**
+**Δs: fraction below the cut (Δs < 0.01 cm) and median Δs.** The paper's medians are interpolated in log Δ within the bin where its cumulative fraction reaches 0.5, as in the report (Section 6).
 
 | Sample | Paper | Ours, no smearing | Ours, SCT z 1.16 mm |
 |---|---|---|---|
-| Colored | 90%, 0.0035 cm | 8/8 (100%), 0.0038 cm | 1/4 (25%), 0.016 cm |
+| Colored | 90%, 0.0032 cm | 8/8 (100%), 0.0038 cm | 1/4 (25%), 0.016 cm |
 | EW | 92%, 0.0028 cm | 50/50 (100%), 0.0044 cm | 10/24 (42%), 0.011 cm |
-| Converted γ | 6.9%, 0.028 cm | 146/285 (51%), 0.0097 cm | 0/48 (0%), 0.022 cm |
-| Pile-up | 0.2%, 0.056 cm | not simulated | 8/109 (7.3%), 0.032 cm |
+| Converted γ | 6.9%, 0.031 cm | 146/285 (51%), 0.0097 cm | 0/48 (0%), 0.022 cm |
+| Pile-up | 0.2%, 0.057 cm | not simulated | 8/109 (7.3%), 0.032 cm |
 
 **Δw: median Δw (all samples satisfy Δw < 1 cm by selection)**
 
 | Sample | Paper | Ours, no smearing | Ours, SCT z 1.16 mm |
 |---|---|---|---|
-| Colored | 0.089 cm | 0.48 cm | 0.55 cm |
-| EW | 0.045 cm | 0.097 cm | 0.092 cm |
-| Converted γ | 0.14 cm | 0.44 cm | 0.35 cm |
-| Pile-up | 0.56 cm | not simulated | 0.78 cm |
+| Colored | 0.092 cm | 0.48 cm | 0.55 cm |
+| EW | 0.048 cm | 0.097 cm | 0.092 cm |
+| Converted γ | 0.16 cm | 0.44 cm | 0.35 cm |
+| Pile-up | 0.52 cm | not simulated | 0.78 cm |
 
 **What smearing does**
-- **Without SCT z smearing,** our signal Δs agrees with the paper: the medians are within about 10–60%, and nearly all events are below the cut.
+- **Without SCT z smearing,** our signal Δs agrees with the paper: the medians are within about 20–60%, and nearly all events are below the cut.
 - **With 1.16 mm smearing,** our signal Δs moves above the paper's (median 0.011–0.016 cm), and only 25–42% of the signal passes the cut. This is the same conclusion as the report: only no smearing reproduces the paper's signal.
 
 **Converted photons**
-- With 1.16 mm smearing, ours (median 0.022 cm) is close to the paper's (0.028 cm), and none pass the cut (paper: 6.9%).
+- With 1.16 mm smearing, ours (median 0.022 cm) is close to the paper's (0.031 cm), and none pass the cut (paper: 6.9%).
 - Without smearing on the background, ours moves down to a median of 0.0097 cm, and 51% pass the cut.
 - So the paper's signal matches our unsmeared case, while the paper's converted-photon distribution matches our smeared case. No single smearing setting reproduces both.
 
 **Δw**
 - Our signal Δw is wider than the paper's: EW about 2×, and colored 5–6× (based on only 4–8 events).
-- Our converted photons are wider too (0.35–0.44 vs 0.14 cm).
-- Pile-up with smearing is shifted up (0.78 vs 0.56 cm). Our pile-up selection includes Δw < 1 cm, so its distribution ends at 1 cm.
+- Our converted photons are wider too (0.35–0.44 vs 0.16 cm).
+- Pile-up with smearing is shifted up (0.78 vs 0.52 cm). Our pile-up selection includes Δw < 1 cm, so its distribution ends at 1 cm.
 
 **Small samples:** the colored signal has 4 (smeared) and 8 (unsmeared) events, and EW has 24 and 50. The shapes of the colored histograms are therefore only indicative.
 
