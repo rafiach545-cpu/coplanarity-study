@@ -1,0 +1,15 @@
+{
+ "figure": "F6_fig6_partB_noSCT",
+ "source_csv": "F6_fig6_partB_noSCT_source.csv",
+ "source_csv_sha256": "e03b3a2d258f0905cc9d966092eb1c2c073454cafc706cd4e848700d99ae71c8",
+ "plot_reads_only_source_csv": true,
+ "selection": "grid points with SCT z = Z0",
+ "upstream_sources": {
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../fig6/F6_N_grid.csv": "9bb7f49b268e7fab12334206ecc4f7c17ce3b7b70e574e8d16d5fb5d736177d8",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../fig6/F6_reach.csv": "18516782c3464d30f286ce1b07714070ea2f9172a33bd49d6473d44079ec9d6c",
+  "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts/../tables/paper_fig6_vector.json": "5d4ecf9868da53746e23c6dbbc3c556f7fbcc85938b8fe4a1d50e4547a6542e3"
+ },
+ "script": "F6_07_partA_partB_figs.py",
+ "script_sha256": "a7c862c4044d296c253320e8585268f186c1be47331a3d3e07d5d36c30aa58d8",
+ "palette": "dataviz reference palette (fixed order); validator not run (node unavailable); secondary encoding used"
+}

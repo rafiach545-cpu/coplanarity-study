@@ -1,0 +1,5 @@
+rk4_steps_per_oscillation,L_meeting2_1e8hbar,L_meeting2_signed_1e8hbar,L_meeting4_1e8hbar,L_meeting4_signed_1e8hbar,L_meetings_1_3_1e8hbar
+3000,4.215,4.215,1.322,1.322,6430.0
+10000,0.05897,-0.05897,0.2371,-0.2371,6430.0
+30000,0.5498,0.5498,0.5772,0.5772,6430.0
+100000,0.05453,0.05453,0.02103,0.02103,6430.0

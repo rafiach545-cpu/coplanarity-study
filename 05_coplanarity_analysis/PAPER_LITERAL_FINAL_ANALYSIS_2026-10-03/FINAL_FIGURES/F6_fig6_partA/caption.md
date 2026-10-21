@@ -1,0 +1,1 @@
+Figure 6 with the paper's literal method only: N = L σ ε_trig [f_ch] ε_fid ε_reco at L = 300 fb⁻¹, signal SCT z = 1.16 mm, ε_trig = N(p_T(QQ̄) > 200 GeV) / N(matched), LO σ of the MLM-matched 0 + 1 jet sample, no K-factor, no N_Q factor; colored includes the both-charged factor f_ch. Same grid and reach as F6_fig6 (left column).

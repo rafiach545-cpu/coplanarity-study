@@ -1,0 +1,1 @@
+Figure 6 with signal SCT z smearing switched off (deviation tested in Part B); otherwise as F6_fig6_partA. Thin orange: colored without the both-charged factor. Same grid and reach as F6_fig6 (right column).
