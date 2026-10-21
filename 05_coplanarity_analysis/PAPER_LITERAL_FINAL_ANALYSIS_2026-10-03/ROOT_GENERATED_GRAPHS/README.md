@@ -72,6 +72,8 @@ The EW sample is at Λ = 4 keV, as in the report.
 
 ### Figure 5: Δs and Δw of signal and backgrounds
 
+**Paper-layout version (2026-10-21):** `Fig5/paper_style_4plots/` holds four plots (Δs and Δw, each without and with smearing, all samples on one plot), made by `macros/fig5_paper_style.C`. Details and differences from the paper are in that folder's README. The panels described below are unchanged.
+
 **Selection.** Events after the plane and hit-multiplicity cuts, before the Δs cut.
 
 **Normalisation.** Ours is a histogram of the events, normalised to unit sum. Values outside the range go into the first or last bin, as in the report.

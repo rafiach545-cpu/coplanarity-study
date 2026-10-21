@@ -1,0 +1,34 @@
+Processing macros/fig5_paper_style.C+...
+Info in <TUnixSystem::ACLiC>: creating shared library /home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/ROOT_GENERATED_GRAPHS/./macros/fig5_paper_style_C.so
+read Fig5/fig5_Z0.csv                                             451 rows, 7 columns
+read Fig5/fig5_Z1160.csv                                          315 rows, 7 columns
+Fig5 Z0 ds Colored Quirk                 : N =   8, outside the drawn range 0, below the cut 8 (100.0%), largest bin fraction 0.375; paper bins 17
+Fig5 Z0 ds EW Quirk                      : N =  50, outside the drawn range 0, below the cut 50 (100.0%), largest bin fraction 0.220; paper bins 17
+Fig5 Z0 ds Pileup                        : no events (not simulated in this case)
+Fig5 Z0 ds Converted #gamma (+ pile-up #mu = 50): N = 285, outside the drawn range 0, below the cut 146 (51.2%), largest bin fraction 0.232; paper bins 15
+Info in <TCanvas::Print>: pdf file Fig5/paper_style_4plots/fig5_ds_without_smearing.pdf has been created
+Info in <TCanvas::Print>: png file Fig5/paper_style_4plots/fig5_ds_without_smearing.png has been created
+Info in <TCanvas::Print>: pdf file Fig5/paper_style_4plots/fig5_dw_without_smearing.pdf has been created
+Info in <TCanvas::Print>: png file Fig5/paper_style_4plots/fig5_dw_without_smearing.png has been created
+Info in <TCanvas::Print>: pdf file Fig5/paper_style_4plots/fig5_ds_with_smearing.pdf has been created
+Info in <TCanvas::Print>: png file Fig5/paper_style_4plots/fig5_ds_with_smearing.png has been created
+Info in <TCanvas::Print>: pdf file Fig5/paper_style_4plots/fig5_dw_with_smearing.pdf has been created
+Info in <TCanvas::Print>: png file Fig5/paper_style_4plots/fig5_dw_with_smearing.png has been created
+read Fig5/fig5_Z0.csv                                             451 rows, 7 columns
+read Fig5/fig5_Z1160.csv                                          315 rows, 7 columns
+Fig5 Z0 dw Colored Quirk                 : N =   8, outside the drawn range 0, below the cut 8 (100.0%), largest bin fraction 0.375; paper bins 21
+Fig5 Z0 dw EW Quirk                      : N =  50, outside the drawn range 0, below the cut 50 (100.0%), largest bin fraction 0.200; paper bins 23
+Fig5 Z0 dw Pileup                        : no events (not simulated in this case)
+Fig5 Z0 dw Converted #gamma (+ pile-up #mu = 50): N = 285, outside the drawn range 0, below the cut 285 (100.0%), largest bin fraction 0.460; paper bins 15
+read Fig5/fig5_Z1160.csv                                          315 rows, 7 columns
+read Fig5/fig5_Z1160.csv                                          315 rows, 7 columns
+Fig5 Z1160 ds Colored Quirk                 : N =   4, outside the drawn range 0, below the cut 1 (25.0%), largest bin fraction 0.250; paper bins 17
+Fig5 Z1160 ds EW Quirk                      : N =  24, outside the drawn range 0, below the cut 10 (41.7%), largest bin fraction 0.208; paper bins 17
+Fig5 Z1160 ds Pileup                        : N = 109, outside the drawn range 1, below the cut 8 (7.3%), largest bin fraction 0.321; paper bins 14
+Fig5 Z1160 ds Converted #gamma (+ pile-up #mu = 50): N =  48, outside the drawn range 0, below the cut 0 (0.0%), largest bin fraction 0.479; paper bins 15
+read Fig5/fig5_Z1160.csv                                          315 rows, 7 columns
+read Fig5/fig5_Z1160.csv                                          315 rows, 7 columns
+Fig5 Z1160 dw Colored Quirk                 : N =   4, outside the drawn range 0, below the cut 4 (100.0%), largest bin fraction 0.250; paper bins 21
+Fig5 Z1160 dw EW Quirk                      : N =  24, outside the drawn range 0, below the cut 24 (100.0%), largest bin fraction 0.167; paper bins 23
+Fig5 Z1160 dw Pileup                        : N = 109, outside the drawn range 0, below the cut 109 (100.0%), largest bin fraction 0.459; paper bins 8
+Fig5 Z1160 dw Converted #gamma (+ pile-up #mu = 50): N =  48, outside the drawn range 0, below the cut 48 (100.0%), largest bin fraction 0.375; paper bins 15
