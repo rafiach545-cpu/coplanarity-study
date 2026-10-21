@@ -1,0 +1,32 @@
+Processing macros/fig2.C+...
+Info in <TUnixSystem::ACLiC>: creating shared library /home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/ROOT_GENERATED_GRAPHS/./macros/fig2_C.so
+read Fig2/fig2_report_figure.csv                                18444 rows, 4 columns
+Fig2 Paper (arXiv:1708.02243, Fig. 2)               |L|:  129 points, max 0.6655 1e12 hbar
+Fig2 Paper (arXiv:1708.02243, Fig. 2)               d  :  153 points, max 3.5562 cm
+Fig2 This work: event with the paper's kinematics   |L|: 4313 points, max 0.6433 1e12 hbar
+Fig2 This work: event with the paper's kinematics   d  : 4313 points, max 3.6070 cm
+Fig2 This work: one event of our sample (no. 8)     |L|: 4768 points, max 0.8622 1e12 hbar
+Fig2 This work: one event of our sample (no. 8)     d  : 4768 points, max 4.1907 cm
+Info in <TCanvas::Print>: pdf file Fig2/fig2_L_and_d_vs_r.pdf has been created
+Info in <TCanvas::Print>: png file Fig2/fig2_L_and_d_vs_r.png has been created
+Info in <TCanvas::Print>: pdf file Fig2/fig2_log_scale.pdf has been created
+Info in <TCanvas::Print>: png file Fig2/fig2_log_scale.png has been created
+Info in <TCanvas::Print>: pdf file Fig2/fig2_appendixA_d_L_vs_g.pdf has been created
+Info in <TCanvas::Print>: png file Fig2/fig2_appendixA_d_L_vs_g.png has been created
+read Fig2/fig2_log_scale_four_step_sizes.csv                   616811 rows, 5 columns
+Fig2 log paper   :    129 points, smallest |L| for 2.0 < r < 2.6 cm: 7.02e+10 hbar at r = 2.582 cm; largest |L| 6.655e+11 hbar
+Fig2 log 100000  : 431245 points, smallest |L| for 2.0 < r < 2.6 cm: 5.45e+06 hbar at r = 2.328 cm; largest |L| 6.435e+11 hbar
+Fig2 log 30000   : 129374 points, smallest |L| for 2.0 < r < 2.6 cm: 5.50e+07 hbar at r = 2.328 cm; largest |L| 6.435e+11 hbar
+Fig2 log 10000   :  43125 points, smallest |L| for 2.0 < r < 2.6 cm: 8.64e+04 hbar at r = 2.325 cm; largest |L| 6.436e+11 hbar
+Fig2 log 3000    :  12938 points, smallest |L| for 2.0 < r < 2.6 cm: 4.22e+08 hbar at r = 2.327 cm; largest |L| 6.434e+11 hbar
+read Fig2/appendixA_d_L_vs_g.csv                                12938 rows, 3 columns
+Fig2 appendix A: g = 1 (point at g = 1.0001): d = 0.0015 cm
+Fig2 appendix A: g = 2 (point at g = 1.9998): d = 0.0043 cm
+Fig2 appendix A: g = 3 (point at g = 2.9999): d = 0.0002 cm
+Fig2 appendix A: g = 4 (point at g = 4.0000): d = 0.0017 cm
+Fig2 appendix A: max d (cm) = 3.6070
+Fig2 appendix A: g = 1 (point at g = 1.0001): |L| = 0.6434 1e12 hbar
+Fig2 appendix A: g = 2 (point at g = 1.9998): |L| = 0.0004 1e12 hbar
+Fig2 appendix A: g = 3 (point at g = 2.9999): |L| = 0.6430 1e12 hbar
+Fig2 appendix A: g = 4 (point at g = 4.0000): |L| = 0.0001 1e12 hbar
+Fig2 appendix A: max |L| (1e12 hbar) = 0.6434

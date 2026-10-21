@@ -1,6 +1,6 @@
-# ROOT-generated graphs, Figures 3–7
+# ROOT-generated graphs, Figures 2–7
 
-These are the Figures 3–7 of the arXiv:1708.02243 reproduction, drawn with CERN ROOT from the CSV files in `../ROOT_CSV_FIGURES_2026-10-21/`. No other plotting tool was used. Every plotted point is read from those CSVs by the macros in `macros/`. Figure 2 was not touched.
+These are the Figures 2–7 of the arXiv:1708.02243 reproduction, drawn with CERN ROOT from the CSV files in `../ROOT_CSV_FIGURES_2026-10-21/`. No other plotting tool was used. Every plotted point is read from those CSVs by the macros in `macros/`. Figure 2 was added on 2026-10-21 (`macros/fig2.C`), at the user's request; the report's own Fig. 2 files (`FINAL_FIGURES/F39`, `F41`, `F42`, `tables/fig2_final/`) were not changed.
 
 - ROOT 6.40.04 (conda env `/home/rafia/miniconda3/envs/root-env`).
 - The macros are compiled with ACLiC (`.C+`) and run in batch mode.
@@ -24,12 +24,47 @@ cd ROOT_GENERATED_GRAPHS
 
 | Figure | CSV files used | Macro | Output (`.pdf`, `.png`, `.root`) |
 |---|---|---|---|
+| 2 | `Fig2/fig2_report_figure.csv`, `Fig2/fig2_log_scale_four_step_sizes.csv`, `Fig2/appendixA_d_L_vs_g.csv` | `macros/fig2.C` | `Fig2/fig2_L_and_d_vs_r`, `Fig2/fig2_log_scale`, `Fig2/fig2_appendixA_d_L_vs_g` |
 | 3 | `Fig3/fig3_ours_per_event.csv`, `Fig3/fig3_paper.csv` | `macros/fig3.C` | `Fig3/fig3_dphi_vs_r` |
 | 4 | `Fig4/fig4_hits_Z0.csv`, `Fig4/fig4_hits_Z1160.csv` | `macros/fig4.C` | `Fig4/fig4_event_display_Z0`, `Fig4/fig4_event_display_Z1160` |
 | 5 | `Fig5/fig5_Z0.csv`, `Fig5/fig5_Z1160.csv` | `macros/fig5.C` | `Fig5/fig5_ds_dw_Z0`, `Fig5/fig5_ds_dw_Z1160` |
 | 6 | `Fig6/fig6_our_contours.csv`, `fig6_paper_curves.csv`, `fig6_grid.csv`, `F6_reach_numeric.csv` | `macros/fig6.C` | `Fig6/fig6_contours` |
 | 6, K-factor sensitivity | `Fig6/fig6_kfactor_lines.csv`, `F6_reach_sensitivity_numeric.csv`, `fig6_paper_curves.csv` | `macros/fig6.C` | `Fig6/fig6_kfactor_sensitivity` |
 | 7 | `Fig7/fig7_pixel_hits.csv`, `Fig7/fig7_paper_curves.csv` | `macros/fig7.C` | `Fig7/fig7_dedx_betagamma` |
+
+### Figure 2: |L| and d of a colored quirk pair (m_Q = 1800 GeV, Λ = 2 keV, B = 2 T)
+
+These are the three Fig. 2 figures of the report, redrawn in ROOT from the same data:
+
+| Output | Report figure | What is drawn |
+|---|---|---|
+| `fig2_L_and_d_vs_r` | F39 (Sec. 3) | \|L\| (top row, 10¹² ħ) and d (bottom row, cm) vs r for the paper's event, our event with the paper's kinematics, and our event no. 8 |
+| `fig2_log_scale` | F42 (Sec. 3.1) | \|L\| in ħ on a log scale at 3,000 / 10,000 / 30,000 / 100,000 RK4 steps per oscillation, with the paper's curve dotted; right: zoom on meeting 2 |
+| `fig2_appendixA_d_L_vs_g` | F41, panels (b) and (c) | d and \|L\| vs g (time in units of half an oscillation), event with the paper's kinematics |
+
+**Differences from the report's matplotlib versions (look only, same data)**
+- **F39:** draws d on a second y axis. Here \|L\| and d are in separate pads, both as solid lines.
+- **F42:** shows 3,000 and 100,000 steps in the left panel. Here the left panel has all four step sizes and one legend; the finest step is drawn widest so every curve stays visible.
+- **F41 panel (a):** a conceptual sketch with no data, so it is not redrawn.
+
+**Checks printed in `logs/fig2.log` (agree with the report)**
+
+| Quantity | Value | Report |
+|---|---|---|
+| Peak \|L\| | paper 0.666, ours 0.643, event no. 8 0.862 (10¹² ħ) | as in Sec. 3 |
+| d max | 3.556 / 3.607 / 4.191 cm | as in Sec. 3 |
+| Smallest \|L\| near meeting 2, 3,000 steps | 4.2×10⁸ ħ | 4.2×10⁸ ħ |
+| … 30,000 steps | 5.5×10⁷ ħ | 5.5×10⁷ ħ |
+| … 100,000 steps | 5.5×10⁶ ħ | 5.5×10⁶ ħ |
+| … 10,000 steps | 8.6×10⁴ ħ | the report gives 5.9×10⁶ ħ at the meeting and says that at this step size L crosses zero; the 8.6×10⁴ ħ is the sampled point closest to that crossing |
+| Largest \|L\| at odd meetings | 6.43×10¹¹ ħ for every step size | 6.43×10¹¹ ħ |
+| Appendix A, \|L\| at g = 1, 2, 3, 4 | 0.643, 0.0004, 0.643, 0.0001 (10¹² ħ) | 0.64 at odd g, ≈ 0 at even g |
+
+**Two corrections to the CSV README (`../ROOT_CSV_FIGURES_2026-10-21/README.txt`, left unchanged)**
+- In `fig2_report_figure.csv`, \|L\| is in **10¹² ħ**, not ħ (e.g. the paper's peak is 0.666).
+- In `fig2_log_scale_four_step_sizes.csv`, the paper rows have `steps_per_period` = **0**, not -999, and `d_cm` = -999.
+
+The macro uses the values as they are.
 
 ### Figure 3: rotation Δφ of the velocity plane vs r (B = 2 T, Λ = 2 keV)
 
@@ -138,9 +173,9 @@ The vertical lines are the cuts Δs < 0.01 cm and Δw < 1 cm. Pile-up only was n
 | Check | Result |
 |---|---|
 | ROOT works | `root-config --version` = 6.40.04; `root -l -b -q` exits 0 |
-| Every macro in batch mode | `./run_all.sh`: fig3–fig7 exit 0 (`logs/run_all.log`) |
+| Every macro in batch mode | `./run_all.sh`: fig3–fig7 exit 0 (`logs/run_all.log`); fig2 (added later) run alone with `root -l -b -q "macros/fig2.C+"`: exit 0 (`logs/fig2.log`) |
 | Errors or warnings in the logs | none (`grep -i "error\|warning" logs/fig*.log` is empty) |
-| Output files | 24 files (8 figures × pdf/png/root), all non-empty (14–119 kB) |
+| Output files | 24 files (8 figures × pdf/png/root), all non-empty (14–119 kB); Fig. 2: 9 files (3 figures × pdf/png/root), all non-empty (35 kB – 13.7 MB) |
 | ROOT files complete | Fig. 5: 6 / 8 pads, 12 / 16 histograms, each normalised to 1 |
 | Data from the CSVs | every macro prints the rows read and the derived numbers. Fig. 3 quantiles cross-checked with pandas (same). Fig. 4 events, Fig. 5 counts (e.g. 146 converted photons below the Δs cut without smearing, as in the report), Fig. 6 reach and Fig. 7 hit counts and medians all agree with the report |
 | Units | Fig. 3: ours rad → 10⁻³ rad, paper already 10⁻³ rad; Fig. 5: cm for both; Fig. 6: eV and GeV for both; Fig. 7: MeV cm²/g and βγ for both |
