@@ -60,16 +60,20 @@ ANNI = rep(cut("# 4 annihilation", "# 5 repeated crossings"), [
     ('g.append(C(f"{n_:,}", sci(abs(l2)), sci(abs(l4)),', 'g.append(C(f"{n_:,}", f"{abs(l2)/1e8:.3g}", f"{abs(l4)/1e8:.3g}",'),
     ('P("4.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")', 'P("B6.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")'),
     ("Table I assumes no annihilation.", "Part A, like the paper, assumes no annihilation.")])
-REPEAT = rep(cut("# 5 repeated crossings", "# 6 Figures 3-5"), [('P("5. Quirks crossing the same layer more than once", "h2")', 'P("A10. Quirks crossing the same layer more than once", "h2")'),
+REPEAT = rep(cut("# 5 repeated crossings", "# 6 Figures 3-5"), [
+    ('C("EW 800 GeV, 4 keV", f"{e[\'multi_cross\']} / {e[\'fid\']}", es(e["multi_cross"], e["fid"]))', 'C("EW 800 GeV, 4 keV (earlier EW sample)", f"{OLDE[\'multi_cross\']} / {OLDE[\'fid\']}", es(OLDE["multi_cross"], OLDE["fid"]))'),('P("5. Quirks crossing the same layer more than once", "h2")', 'P("A10. Quirks crossing the same layer more than once", "h2")'),
                                                                ("Table I above uses the first crossing only.", "Part A uses the first crossing only, as the paper implies.")])
 FIG3 = rep(cut("# 6 Figures 3-5", 'S += [P("Figure 4: hits of one signal event", "h3")]'),
            [('S += [P("6. Figures 3, 4, 5", "h2"), P("Figure 3: turning of the quirks\' plane", "h3"),', 'S += [P("A4. Figure 3: turning of the quirks\' plane", "h2"),')])
 FIG7 = rep(cut("# 9 Figure 7", "# 10 open + refs"), [('P("9. Figure 7: dE/dx and βγ of the pixel hits (Appendix A)", "h2")', 'P("A9. Figure 7: dE/dx and βγ of the pixel hits (paper\'s Appendix A)", "h2")'),
                                                     ('P("9.1 Test: which dE/dx definition does the paper use?", "h3")', 'P("A9.1 Test: which dE/dx definition does the paper use?", "h3")')])
 LO = rep(cut("lt, lt2, lc = LT[", "# 3 Figure 2"), [
-    ('lt, lt2, lc = LT[', 'S += [P("B2. LO-ratio trigger (EW)", "h2"), P("Why tested: our EW ε<sub>trig</sub> (0.18, matched count) is far above the paper\'s 0.10; arXiv:1911.02223 obtains about 0.1 '
+    ('lt, lt2, lc = LT[', 'S += [P("B2. LO-ratio trigger (EW)", "h2"), P(f"Why tested: our EW ε<sub>trig</sub> ({e[\'trig\']/e[\'matched\']:.3f}, matched count) is far above the paper\'s 0.10; arXiv:1911.02223 obtains about 0.1 '
                           'as a leading-order cross-section ratio. Two leading-order samples were made for the EW benchmark; everything else as in Part A but without SCT z smearing.", "b")]\nlt, lt2, lc = LT['),
-    ("all other cells use the 2σ₀ rule of Section 1.", "all other cells use the 2σ₀ rule of the Formulas section.")])
+    ("all other cells use the 2σ₀ rule of Section 1.", "all other cells use the 2σ₀ rule of the Formulas section."),
+    ('({ETR["k1"]/ETR["n1"]:.2f}) is far above', '({ETR["k1"]/ETR["n1"]:.3f}) is far above'),
+    ("not to our matched sample ({ETR['k1']/ETR['n1']:.2f})", "not to our matched sample ({ETR['k1']/ETR['n1']:.3f})"),
+    ("[P(f\"{e['trig']}/{e['matched']} = {es(e['trig'], e['matched'])}\", \"c\"), dt]", "[P(f\"{e['trig']}/{e['matched']} = {es(e['trig'], e['matched'], 3)}\", \"c\"), dt]")])
 out = tpl
 for k, v in (("#<<HEAD>>", HEAD), ("#<<FIG2>>", FIG2), ("#<<FIG3>>", FIG3), ("#<<FIG7>>", FIG7), ("#<<REPEAT>>", REPEAT), ("#<<ANNI>>", ANNI), ("#<<LO>>", LO)):
     assert out.count(k) == 1, k; out = out.replace(k, v)

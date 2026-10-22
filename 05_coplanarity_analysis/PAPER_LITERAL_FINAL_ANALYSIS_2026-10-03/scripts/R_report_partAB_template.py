@@ -15,6 +15,20 @@ No number is recomputed differently from R_report_2026-10-21_v2.py: the Fig. 2, 
 # ---------------------------------------------------------------- common inputs of the new structure
 GEN = {s: json.load(open(f"{R.EV}/generation/{v['tag']}/generation_stats.json")) for s, v in R.SAM.items()}
 SIG = {s: GEN[s]["matched_xsec_pb"] * 1e3 for s in GEN}                          # matched LO cross section (fb) of the Table I samples
+# EW 800 GeV (user's decision 2026-10-22): every EW Table I / Table II number comes from the Fig. 6 sample at 800 GeV (eps_trig = 152/1024 = 0.148), so one sample
+# gives all EW efficiencies and Table I, Table II and Fig. 6 use the same eps_trig (scripts/F43_ew800_fig6_sample.py -> tables/EW800_fig6_sample_lambda_scan.csv)
+EWF = pd.read_csv(f"{R.L_}/tables/EW800_fig6_sample_lambda_scan.csv")
+OLDE = dict(e)                                                                    # earlier EW production sample (seed 8002): only Figs. 3-5 and Section A10 (no eps_trig there)
+_f4 = EWF[(EWF.lambda_keV == 4) & (EWF.sct == "Z0")].iloc[0]
+e.update(matched=int(_f4.matched), trig=int(_f4.triggered), charged=int(_f4.triggered), fid=int(_f4.fid))
+SIG["EW2000"] = float(_f4.sigma_matched_fb)
+for _r in EWF.itertuples():
+    _mk = (LS["sample"] == "EW2000") & (LS.lambda_keV == _r.lambda_keV) & (LS.sct == _r.sct) & (LS["mode"] == "FIRST")
+    assert _mk.sum() == 1; LS.loc[_mk, "k_ge2"] = _r.sr; LS.loc[_mk, "n_fid"] = _r.fid
+EWERR = [str(int(r.lambda_keV)) for r in EWF[EWF.sct == "Z0"].itertuples() if r.n_integration_fail > 0]
+ETR = dict(k1=e["trig"], n1=e["matched"])
+ETRIG_TXT = (f"EW 800 GeV: ε<sub>trig</sub> = {e['trig']}/{e['matched']} = {e['trig']/e['matched']:.3f} ± {np.sqrt(e['trig']/e['matched']*(1-e['trig']/e['matched'])/e['matched']):.3f}. "
+             "Table I, Table II and Fig. 6 take all EW efficiencies (ε<sub>trig</sub>, ε<sub>fid</sub>, ε<sub>reco</sub>) from this one MLM-matched + shower sample.")
 LUMI = 300.0
 LAMS = {"COL2000": (1, 2, 3, 5, 10), "EW2000": (1, 2, 3, 4, 5)}
 NAME = {"COL2000": "colored 1800 GeV", "EW2000": "EW 800 GeV"}
@@ -35,6 +49,11 @@ def rs(ch, var, sct):
     return f"{q.loc['exclusion', 'm_max']} / {q.loc['discovery', 'm_max']}" if len(q) else "–"
 st["part"] = ParagraphStyle("part", fontName="DVB", fontSize=14, leading=18, textColor=colors.white, backColor=ACC, borderPadding=(5, 6, 5, 6), spaceBefore=6, spaceAfter=8)
 def bad1(s_, sct): return [str(l) for l in LAMS[s_] if not dec(int(lsr(s_, l, sct).k_ge2), int(lsr(s_, l, sct).n_fid), float(lsr(s_, l, sct).paper_reco))]
+def verdict2(s_, sct):                                                             # verdict with the direction of each inconsistency
+    b_ = bad1(s_, sct)
+    if not b_: return verdict(s_, sct)
+    hi = [l for l in b_ if er(s_, int(l), sct) > float(lsr(s_, int(l), sct).paper_reco)]; lo = [l for l in b_ if l not in hi]
+    return verdict(s_, sct) + " (" + "; ".join(x for x in ((f"ours higher than the paper at {', '.join(hi)} keV" if hi else ""), (f"ours lower at {', '.join(lo)} keV" if lo else "")) if x) + ")"
 def verdict(s_, sct):
     b_ = bad1(s_, sct)
     if not b_: return "consistent with the paper at every Λ"
@@ -57,7 +76,7 @@ S = [P("Reproduction of arXiv:1708.02243: Table I and Figures 2–7", "h1"),
 S += [box("Summary", B([
     "<b>How this report is organised.</b> <b>Part A</b> uses only the method written in the paper. <b>Part B</b> collects the changes we tried ourselves "
     "(our additional study), each with the reason. <b>Table II</b> (after Part B) lists the expected numbers of signal and background events.",
-    f"<b>Part A, Table I.</b> Trigger efficiency: colored {c['trig']/c['matched']:.2f} (paper 0.24, agrees), EW {e['trig']/e['matched']:.2f} (paper 0.10, does not agree). "
+    f"<b>Part A, Table I.</b> Trigger efficiency: colored {c['trig']/c['matched']:.3f} (paper 0.24, agrees), EW {e['trig']/e['matched']:.3f} (paper 0.10, does not agree). "
     "Fiducial efficiency: agrees for both. Reconstruction efficiency with the paper's SCT z resolution of 1.16 mm: far below the paper "
     f"(colored 2 keV: {er('COL2000', 2, 'Z1160'):.2f} vs 0.35; EW 4 keV: {er('EW2000', 4, 'Z1160'):.2f} vs 0.72).",
     f"<b>Part A, Figure 6.</b> Largest mass reached (exclusion / discovery): colored {_m('colored', 'exclusion', 'Z1160')} / {_m('colored', 'discovery', 'Z1160')} GeV "
@@ -116,7 +135,9 @@ g += [C("Pixel layers (4)", "hit moved to the centre of its pixel:  x<sub>meas</
       C("Neighbouring pixels", "hits in adjacent pixels of one layer merged into one hit", "—")]
 S += [Spacer(1, 3), grid(g, [32, 92, 50]),
       P("From the paper (Sec. III A) and its Ref. [27]. Pixel rounding gives an RMS error p/√12 (14 µm for 50 µm, 115 µm for 400 µm). One common z<sub>0</sub> per event is our reading "
-        "of “a uniform, gaussian smearing … to the z-coordinates of all the hits”. The same smearing is applied to signal and background. σ<sub>z</sub> = 0 is tested in Part B.", "m")]
+        "of “a uniform, gaussian smearing … to the z-coordinates of all the hits”. The same smearing is applied to signal and background. σ<sub>z</sub> = 0 is tested in Part B. "
+        f"<b>EW 800 GeV sample:</b> all EW efficiencies (Table I, Table II, Fig. 6) come from one MLM-matched + shower sample with ε<sub>trig</sub> = {e['trig']}/{e['matched']} = {e['trig']/e['matched']:.3f}. "
+        "Figs. 3–5 and Section A10, where ε<sub>trig</sub> does not enter, use an earlier EW sample with identical generator settings (different random seed).", "m")]
 
 # A2 Table I
 S += [P("A2. Table I (SCT z = 1.16 mm)", "h2")]
@@ -126,18 +147,20 @@ def tableA(s):
            "ε<sub>reco</sub> = N(signal region) / N(fiducial), SCT z 1.16 mm", "paper ε<sub>reco</sub>", "decision")]; ex = []
     for i, lam in enumerate(LAMS[s], 1):
         r1 = lsr(s, lam, "Z1160"); k1, n1 = int(r1.k_ge2), int(r1.n_fid); p = float(r1.paper_reco); d1, b1 = cell(k1, n1, p)
-        g.append(C(str(lam), f"{tk}/{tn} = {es(tk, tn)}", f"{n1}/{n_trig} = {es(n1, n_trig)}", f"<b>{k1}/{n1} = {es(k1, n1)}</b>", f"{p:.3g}", d1)); ex.append(("BACKGROUND", (5, i), (5, i), b1))
+        g.append(C(str(lam), f"{tk}/{tn} = {es(tk, tn, 3)}", f"{n1}/{n_trig} = {es(n1, n_trig)}", f"<b>{k1}/{n1} = {es(k1, n1)}</b>", f"{p:.3g}", d1)); ex.append(("BACKGROUND", (5, i), (5, i), b1))
     dt, bt = cell(tk, tn, pv["trig"]); df, bf = cell(C_["fid"], n_trig, pv["fid"])
     g.append(C("paper", f"{pv['trig']:.2f}", f"{pv['fid']:.2f}", "see column", "", ""))
     g.append(C("dec.", dt, df, "", "", "")); j = len(g) - 1; ex += [("BACKGROUND", (1, j), (1, j), bt), ("BACKGROUND", (2, j), (2, j), bf)]
     return [P(f"<b>{NAME[s][0].upper() + NAME[s][1:]}</b> (2000 events generated, {tn} after matching)", "c"), grid(g, [13, 36, 36, 41, 16, 32], ex)]
 S += tableA("COL2000") + [Spacer(1, 3)] + tableA("EW2000")
-S += [P("ε<sub>fid</sub> is recomputed at every Λ. EW at 3 keV: 61 instead of 62 because one event (no. 127) could not be integrated at 3 keV; like every such failure it is counted as not "
-        "fiducial. For k = 0 the one-sided 95% upper limit is given. Decision cells give |Δ| = |ε − ε<sub>paper</sub>| and 2σ₀.", "m"),
+S += [P("ε<sub>fid</sub> is recomputed at every Λ. Events that could not be integrated (solver step limit) are counted as not fiducial "
+        f"(EW: one event at Λ = {', '.join(EWERR)} keV). For k = 0 the one-sided 95% upper limit is given. Decision cells give |Δ| = |ε − ε<sub>paper</sub>| and 2σ₀.", "m"),
       key(f"<b>What we learn.</b> With the paper's method: colored ε<sub>reco</sub> is {verdict('COL2000', 'Z1160')}; EW ε<sub>reco</sub> is {verdict('EW2000', 'Z1160')}. "
-          f"Where events pass, our values are {LOWER} times lower than the paper's. ε<sub>trig</sub> agrees for colored and is too high for EW ({e['trig']/e['matched']:.2f} vs 0.10); ε<sub>fid</sub> agrees for both.")]
+          f"Where events pass, our values are {LOWER} times lower than the paper's. ε<sub>trig</sub> agrees for colored and is too high for EW ({e['trig']/e['matched']:.3f} vs 0.10); ε<sub>fid</sub> agrees for both.")]
 PE = {"Z0": pd.read_csv(f"{T}/lambda_scan_per_event.csv"), "Z1160": pd.read_csv(f"{T}/lambda_scan_z1160_per_event.csv")}
 def flow(s_, lam, sct):
+    if s_ == "EW2000":                                                            # EW: the Fig. 6 sample at 800 GeV
+        r = EWF[(EWF.lambda_keV == lam) & (EWF.sct == sct)].iloc[0]; return dict(fid=int(r.fid), plane=int(r.plane), mult=int(r.mult), sr=int(r.sr))
     x = PE[sct]; x = x[(x["sample"] == s_) & (x.lambda_keV == lam) & (x["mode"] == "FIRST") & (x.sct == sct)]; f = x[x.fid.astype(str) == "True"]
     tr = lambda c_: f[c_].astype(str) == "True"
     o = dict(fid=len(f), plane=int(tr("plane").sum()), mult=int((tr("plane") & tr("mult")).sum()), sr=int(tr("final").sum()))
@@ -228,14 +251,14 @@ S += [Spacer(1, 3), grid(g, [62, 28, 28, 28, 28], [("BACKGROUND", (0, 1), (-1, 2
 S += [key(f"<b>What Part A shows.</b> With only the paper's stated settings we reproduce the trigger efficiency for colored quirks, the fiducial efficiencies, the flat planes "
           "(Figs. 3 and 4), and a background-free signal region."
           f" We do not reproduce the reconstruction efficiency ({LOWER} times lower), the EW trigger efficiency "
-          f"({e['trig']/e['matched']:.2f} vs 0.10), Figure 2 after the first meeting and Figure 7. Because ε<sub>reco</sub> is low, the Figure 6 reach is also lower than the paper's.")]
+          f"({e['trig']/e['matched']:.3f} vs 0.10), Figure 2 after the first meeting and Figure 7. Because ε<sub>reco</sub> is low, the Figure 6 reach is also lower than the paper's.")]
 
 # ================================================================ PART B
 S += [PageBreak(), P("PART B — Deviations we tested (our additional study)", "part"),
       P("Each deviation changes Part A in one respect. They are not part of the paper's method; they show which change would bring our numbers closer to the paper's.", "b")]
 g = [H("Deviation", "Why we tested it (one line)", "Section")]
 g += [C("<b>No SCT z smearing</b> (σ<sub>z</sub> = 0, signal and background)", "With the paper's 1.16 mm our ε<sub>reco</sub> is far below Table I; we checked whether a better z resolution reproduces the paper.", "B1"),
-      C("<b>LO-ratio trigger</b>", "Our EW ε<sub>trig</sub> (0.18) is far above the paper's 0.10; arXiv:1911.02223 computes the trigger as an LO cross-section ratio, so we tried that.", "B2"),
+      C("<b>LO-ratio trigger</b>", f"Our EW ε<sub>trig</sub> ({e['trig']/e['matched']:.3f}) is far above the paper's 0.10; arXiv:1911.02223 computes the trigger as an LO cross-section ratio, so we tried that.", "B2"),
       C("<b>σ scaling (K-factor)</b>", "The paper gives no cross sections; scaling σ shows how much the Fig. 6 reach depends on the normalisation.", "B3"),
       C("<b>N<sub>Q</sub> = 2</b>", "The paper's Fig. 6 titles say “N<sub>Q</sub> = 2 Quirks” without a definition; we tried reading it as a factor 2 on σ.", "B4"),
       C("<b>Colored without f<sub>ch</sub></b>", "The paper quotes ~30% for both quirk-hadrons charged but does not say whether this factor enters Fig. 6.", "B5"),
@@ -252,11 +275,11 @@ def tableB1(s):
         d0, b0 = cell(k0, n0, p); g.append(C(str(lam), f"<b>{k0}/{n0} = {es(k0, n0)}</b>", f"{p:.3g}", d0, f"{k1}/{n1} = {es(k1, n1)}")); ex.append(("BACKGROUND", (3, i), (3, i), b0))
     return [P(f"<b>{NAME[s][0].upper() + NAME[s][1:]}</b>", "c"), grid(g, [16, 48, 22, 40, 48], ex)]
 S += tableB1("COL2000") + [Spacer(1, 3)] + tableB1("EW2000")
-S += [key(f"<b>What we learn.</b> Without SCT z smearing: colored ε<sub>reco</sub> is {verdict('COL2000', 'Z0')}; EW ε<sub>reco</sub> is {verdict('EW2000', 'Z0')} "
-          "(at 1 and 2 keV ours is higher than the paper's). So the paper's Table I is reproduced only if the SCT z position is measured much better than 1.16 mm.")]
+S += [key(f"<b>What we learn.</b> Without SCT z smearing: colored ε<sub>reco</sub> is {verdict('COL2000', 'Z0')}; EW ε<sub>reco</sub> is {verdict2('EW2000', 'Z0')}. "
+          "So the paper's Table I is reproduced only if the SCT z position is measured much better than 1.16 mm.")]
 S += [P("Cut-flow without SCT z smearing", "h3")] + cutflow("COL2000", "Z0") + [Spacer(1, 3)] + cutflow("EW2000", "Z0")
-S += [Spacer(1, 3), img("F38_lambda", 150),
-      P("ε<sub>reco</sub> vs Λ: the paper, our production samples with SCT z none and 1.16 mm, and the EW leading-order sample (Section B2), all with simple binomial σ.", "m")]
+S += [Spacer(1, 3), img("F43_lambda", 150),
+      P("ε<sub>reco</sub> vs Λ: the paper, this work without SCT z smearing and with SCT z 1.16 mm, and the EW leading-order sample (Section B2), all with simple binomial σ.", "m")]
 S += [P("Figures 4 and 5 without SCT z smearing", "h3")]
 g = [H("Fig. 4 example event", "Δs (plane thickness)", "Δw (strip width)", "match with the paper")]
 g.append(C("Paper (colored)", "83 µm", "0.074 cm", "—"))
@@ -356,7 +379,7 @@ S += [grid(g, [30, 12, 20, 22, 24, 22, 24, 20], ex),
       key("<b>What Table II shows.</b> With SCT z 1.16 mm on both, the background is zero (upper limit &lt; 0.2–1 event), but the signal is also small: at most "
           f"{max(LUMI * SIG[s_] * int(lsr(s_, l, 'Z1160').k_ge2) / CNT[s_]['matched'] for s_ in LAMS for l in LAMS[s_]):.1f} events at these benchmarks. "
           f"Without SCT z smearing on both, the signal is {GAIN} times larger, but the converted-photon background (10 or 48 events) is then larger than the signal. "
-          "At these benchmark masses (1800 and 800 GeV) the signal is below or near the 3-event exclusion level in both settings, consistent with Figure 6, where these masses lie at or beyond the reach (Figure 6 uses its own samples, e.g. EW 800 GeV ε<sub>trig</sub> = 0.148 instead of 0.178).")]
+          "At these benchmark masses (1800 and 800 GeV) the signal is below or near the 3-event exclusion level in both settings, consistent with Figure 6, where these masses lie at or beyond the reach.")]
 pd.DataFrame(tab2).to_csv(f"{R.L_}/tables/table_II_expected_events.csv", index=False)
 
 # ================================================================ cuts, open points, conclusion, remarks
@@ -374,7 +397,7 @@ S += B(["<b>What they measure.</b> Δs is the thickness of the plane through the
         "the SCT z resolution decides whether the signal passes it."])
 S += [P("Open points (what is still unclear)", "h2")] + B([
     "<b>SCT z resolution.</b> With the stated 1.16 mm our ε<sub>reco</sub> is far below Table I; only no SCT z smearing reproduces it, and then the converted-photon background is not zero.",
-    f"<b>EW trigger efficiency.</b> Our matched count gives {e['trig']/e['matched']:.2f} (Fig. 6 sample: {ETR['k2']/ETR['n2']:.2f}); the paper's 0.10 is reproduced only by an LO cross-section ratio, which the paper does not mention.",
+    f"<b>EW trigger efficiency.</b> Our matched count gives {e['trig']/e['matched']:.3f}; the paper's 0.10 is reproduced only by an LO cross-section ratio, which the paper does not mention.",
     "<b>Cross sections.</b> The paper gives no signal σ and no K-factor; “N<sub>Q</sub> = 2” is not defined.",
     "<b>Converted-photon normalisation.</b> Our σ after MET &gt; 200 GeV is 0.211 pb, the paper's ~1 pb (factor 4.7, not explained); the 1% conversion probability is derived from the paper's own numbers.",
     "<b>Pile-up.</b> No absolute normalisation is given in the paper; our rate of planes with hits in ≥ 4 of 8 layers is about 6× the paper's.",

@@ -1,0 +1,1 @@
+ε_reco vs Λ, first crossing, simple binomial σ: paper (black), this work without SCT z smearing and with SCT z 1.16 mm, EW leading-order sample (no SCT z smearing). Colored: Table I production sample; EW: the Fig. 6 sample at 800 GeV (ε_trig = 152/1024).

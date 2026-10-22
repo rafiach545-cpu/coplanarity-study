@@ -877,3 +877,20 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
   - At the meetings, |L| is computed from the impact parameter b (|L| = b p* / ħc), so the even-meeting residual (1–5 × 10^8 ħ) is visible.
   - The same tables are written as CSV to L_VALUES_CSV_2026-10-21/.
 - Numbers that were previously hard-coded are now computed in the script: εreco paper/ours = 3–8× (k > 0), the signal gain without smearing = 3–9×, and the annihilation worst-case shift = 17–34 GeV.
+
+## D61 (2026-10-22) EW ε_trig = 0.148 everywhere: EW Table I taken from the Fig. 6 sample (user's decision)
+- **Request.** "Table I mein bhi 0.148 karo har jagah". The user chose "Poora EW Fig. 6 sample se": all three EW efficiencies come from one sample, so no sample mixing.
+- **Data.** scripts/F43_ew800_fig6_sample.py reads the stored Fig. 6 checkpoints for EW 800 GeV (logs/F6_EW_800gev_events.jsonl; same Table I pipeline, first crossing, no new simulation). It writes tables/EW800_fig6_sample_lambda_scan.csv and checks every count against fig6/F6_N_grid.csv.
+- **What the sample gives.** matched 1024; triggered 152 (ε_trig 0.148 ± 0.011); σ 0.2341 fb; fiducial 46–48 per Λ; one event failed integration at Λ = 1–4.
+- **Effect on the report** (TABLE_I_REPRODUCTION_REPORT_2026-10-21_partAB.pdf, rebuilt):
+  - EW Table I, cut-flows, B1, the B2 production column, Table II, the summary and the open points now use this sample. ε_trig is shown as 0.148 (3 decimals).
+  - "0.178" and "186/1045" no longer appear anywhere in the report.
+  - New figure F43_lambda (replaces F38_lambda in B1): EW points from this sample.
+- **EW εreco changes.**
+  - SCT z 1.16 mm: 0.02 / 0.13 / 0.12 / 0.15 / 0.13 at Λ = 1–5. Consistent at 1 keV, inconsistent at 2–5 keV, as before.
+  - No SCT z smearing: 0.11 / 0.60 / 0.77 / 0.88 / 0.74. Now inconsistent (above the paper) at 2 and 4 keV; before it was inconsistent at 1 and 2 keV.
+- **Unchanged.**
+  - Colored: unchanged.
+  - Figs. 3–5 and Section A10 still use the earlier EW sample (seed 8002); ε_trig does not enter there, and Settings A1 says so.
+  - Fig. 6: unchanged; it already used this sample.
+- **Not updated.** ROOT_CSV_FIGURES_2026-10-21, ROOT_GENERATED_GRAPHS and the earlier report PDFs still carry the old EW Table I sample.
