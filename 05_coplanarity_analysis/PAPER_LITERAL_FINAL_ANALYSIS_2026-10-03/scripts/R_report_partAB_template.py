@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """TABLE_I_REPRODUCTION_REPORT_2026-10-21_partAB.pdf (user's request of 2026-10-21): the report restructured into
   Part A, the paper's literal method only (LO 0 + 1 jet MLM-matched, SCT z = 1.16 mm for signal and background, eps_trig = matched count with pT(QQ) > 200 GeV,
-          no K-factor, no N_Q factor): Table I, Figs. 2-7 and Fig. 6 with the paper's numbers alongside; no K-factor or LO-ratio statements in Part A or the summary;
-  Part B, deviations we tested (our additional study): no SCT z smearing, LO-ratio trigger, sigma scaling (K-factor), N_Q = 2, colored without f_ch, annihilation,
+          no K-factor, no N_Q factor): Table I, Figs. 2-7 and Fig. 6 with the paper's numbers alongside; no K-factor statements in Part A or the summary; the LO-ratio trigger is not used anywhere (user, 2026-10-22);
+  Part B, deviations we tested (our additional study): no SCT z smearing, sigma scaling (K-factor), N_Q = 2, colored without f_ch, annihilation,
           each with one line on why it was tested;
   Table II: expected events at 300 fb-1 for every signal benchmark and background, with each cross section, for SCT z = 1.16 mm on signal AND background and for
           no SCT z smearing on signal AND background;
@@ -249,11 +249,10 @@ S += [PageBreak(), P("PART B — Deviations we tested (our additional study)", "
       P("Each deviation changes Part A in one respect. They are not part of the paper's method; they show which change would bring our numbers closer to the paper's.", "b")]
 g = [H("Deviation", "Why we tested it (one line)", "Section")]
 g += [C("<b>No SCT z smearing</b> (σ<sub>z</sub> = 0, signal and background)", "With the paper's 1.16 mm our ε<sub>reco</sub> is far below Table I; we checked whether a better z resolution reproduces the paper.", "B1"),
-      C("<b>LO-ratio trigger</b>", f"Our EW ε<sub>trig</sub> ({e['trig']/e['matched']:.3f}) is far above the paper's 0.10; arXiv:1911.02223 computes the trigger as an LO cross-section ratio, so we tried that.", "B2"),
-      C("<b>σ scaling (K-factor)</b>", "The paper gives no cross sections; scaling σ shows how much the Fig. 6 reach depends on the normalisation.", "B3"),
-      C("<b>N<sub>Q</sub> = 2</b>", "The paper's Fig. 6 titles say “N<sub>Q</sub> = 2 Quirks” without a definition; we tried reading it as a factor 2 on σ.", "B4"),
-      C("<b>Colored without f<sub>ch</sub></b>", "The paper quotes ~30% for both quirk-hadrons charged but does not say whether this factor enters Fig. 6.", "B5"),
-      C("<b>Annihilation</b>", "Our |L| returns to zero at every second meeting, so the quirks might annihilate; we estimated a worst case.", "B6")]
+      C("<b>σ scaling (K-factor)</b>", "The paper gives no cross sections; scaling σ shows how much the Fig. 6 reach depends on the normalisation.", "B2"),
+      C("<b>N<sub>Q</sub> = 2</b>", "The paper's Fig. 6 titles say “N<sub>Q</sub> = 2 Quirks” without a definition; we tried reading it as a factor 2 on σ.", "B3"),
+      C("<b>Colored without f<sub>ch</sub></b>", "The paper quotes ~30% for both quirk-hadrons charged but does not say whether this factor enters Fig. 6.", "B4"),
+      C("<b>Annihilation</b>", "Our |L| returns to zero at every second meeting, so the quirks might annihilate; we estimated a worst case.", "B5")]
 S += [grid(g, [48, 112, 14])]
 
 # B1 no SCT z smearing
@@ -269,8 +268,6 @@ S += tableB1("COL2000") + [Spacer(1, 3)] + tableB1("EW2000")
 S += [key(f"<b>What we learn.</b> Without SCT z smearing: colored ε<sub>reco</sub> is {verdict('COL2000', 'Z0')}; EW ε<sub>reco</sub> is {verdict('EW2000', 'Z0')} "
           "(at 1 and 2 keV ours is higher than the paper's). So the paper's Table I is reproduced only if the SCT z position is measured much better than 1.16 mm.")]
 S += [P("Cut-flow without SCT z smearing", "h3")] + cutflow("COL2000", "Z0") + [Spacer(1, 3)] + cutflow("EW2000", "Z0")
-S += [Spacer(1, 3), img("F38_lambda", 150),
-      P("ε<sub>reco</sub> vs Λ: the paper, our production samples with SCT z none and 1.16 mm, and the EW leading-order sample (Section B2), all with simple binomial σ.", "m")]
 S += [P("Figures 4 and 5 without SCT z smearing", "h3")]
 g = [H("Fig. 4 example event", "Δs (plane thickness)", "Δw (strip width)", "match with the paper")]
 g.append(C("Paper (colored)", "83 µm", "0.074 cm", "—"))
@@ -297,33 +294,20 @@ g.append(C("this work, SCT z 1.16 mm (Part A)", *[rr("Z1160", "charge factor inc
 S += [grid(g, [62, 28, 28, 28, 28], [("BACKGROUND", (0, 1), (-1, 1), KEYB)]),
       P("Without SCT z smearing the converted-photon background is not zero (above), so these contours, drawn without background as in the paper, are optimistic.", "m")]
 
-# B2 LO-ratio trigger
-#<<LO>>
-g = [H("Figure 6 with the LO-ratio trigger (GeV)", "SCT z 1.16 mm: EW excl. / disc.", "no SCT z smearing: EW excl. / disc.")]
-g += [C("EW ε<sub>trig</sub> = matched count (Part A)", rs("EW", "K1", "Z1160"), rs("EW", "K1", "Z0")),
-      C(f"EW ε<sub>trig</sub> = LO ratio ({LOR[800]:.3f} at 800 GeV)", rs("EW", "EW LO-ratio trigger", "Z1160"), rs("EW", "EW LO-ratio trigger", "Z0")),
-      C("LO-ratio trigger and ε<sub>fid</sub>, ε<sub>reco</sub> from the LO sample at 800 GeV", rs("EW", "EW fully LO", "Z1160"), rs("EW", "EW fully LO", "Z0")),
-      C("paper, Fig. 6", "762 / 688", "762 / 688")]
-S += [Spacer(1, 3), grid(g, [90, 42, 42]),
-      P(f"The LO ratio lowers EW ε<sub>trig</sub> by a factor {min(LOR[m] * EWT[m][1] / EWT[m][0] for m in EWT):.2f}–{max(LOR[m] * EWT[m][1] / EWT[m][0] for m in EWT):.2f} (100–1000 GeV). "
-        "The paper does not state this method.", "m")]
-
 # B3-B6 normalisation deviations
 def sens(rows):
     g = [H("Variant", "SCT z 1.16 mm: colored excl. / disc.", "SCT z 1.16 mm: EW excl. / disc.", "no smearing: colored excl. / disc.", "no smearing: EW excl. / disc.")]
     for var, lab in rows: g.append(C(lab, rs("colored", var, "Z1160"), rs("EW", var, "Z1160"), rs("colored", var, "Z0"), rs("EW", var, "Z0")))
     g.append(C("paper, Fig. 6", "1793 / 1707", "762 / 688", "1793 / 1707", "762 / 688")); return grid(g, [54, 30, 30, 30, 30], [("BACKGROUND", (0, 1), (-1, 1), KEYB)])
-S += [P("B3. σ scaling (K-factor)", "h2"),
+S += [P("B2. σ scaling (K-factor)", "h2"),
       P("All cross sections multiplied by K (largest mass reached in GeV; not a fit). K = 1 is Part A (left) and B1 (right).", "b"),
       sens([("K1", "σ × 1 (our LO)"), ("K0.8", "σ × 0.8"), ("K0.9", "σ × 0.9"), ("K1.2", "σ × 1.2"), ("K1.4", "σ × 1.4"), ("K1.5", "σ × 1.5"), ("K1.8", "σ × 1.8"), ("K2", "σ × 2")]),
-      Spacer(1, 2), img("F6_kfactor", 150),
-      P("Figure: no SCT z smearing, σ × K. Dotted grey (EW): LO-ratio trigger (B2).", "m"),
       key("<b>What we learn.</b> Without SCT z smearing, EW matches the paper's figure with K ≈ 0.85–0.9, while colored needs K ≈ 1.5–1.7, so one common NLO K-factor cannot explain "
           "both. With SCT z 1.16 mm even σ × 2 stays below the paper. The paper gives no σ, so the origin cannot be identified.")]
-S += [P("B4. N<sub>Q</sub> = 2 read as a factor 2 on σ", "h2"),
+S += [P("B3. N<sub>Q</sub> = 2 read as a factor 2 on σ", "h2"),
       P("“N<sub>Q</sub> = 2” appears only in the titles of the paper's Fig. 6 panels (arXiv v1 and v2) and is never defined or used in the text. It could mean two quirk species "
         "(a factor 2 on σ) or only the two quirks of each pair (no factor). The row σ × 2 of the table above is this reading.", "b")]
-S += [P("B5. Colored without the both-charged factor f<sub>ch</sub>", "h2")]
+S += [P("B4. Colored without the both-charged factor f<sub>ch</sub>", "h2")]
 g = [H("Colored, largest mass reached (GeV), ±1σ", "SCT z 1.16 mm: excl.", "SCT z 1.16 mm: disc.", "no smearing: excl.", "no smearing: disc.")]
 g += [C("with f<sub>ch</sub> (Part A, B1)", rr("Z1160", "charge factor included", "colored", "exclusion"), rr("Z1160", "charge factor included", "colored", "discovery"),
         rr("Z0", "charge factor included", "colored", "exclusion"), rr("Z0", "charge factor included", "colored", "discovery")),
@@ -388,7 +372,7 @@ S += B(["<b>What they measure.</b> Δs is the thickness of the plane through the
         "the SCT z resolution decides whether the signal passes it."])
 S += [P("Open points (what is still unclear)", "h2")] + B([
     "<b>SCT z resolution.</b> With the stated 1.16 mm our ε<sub>reco</sub> is far below Table I; only no SCT z smearing reproduces it, and then the converted-photon background is not zero.",
-    f"<b>EW trigger efficiency.</b> Our matched count gives {e['trig']/e['matched']:.3f} (Table I sample) and {F6T['EW2000'][0]/F6T['EW2000'][1]:.3f} (Fig. 6 sample); the paper's 0.10 is reproduced only by an LO cross-section ratio, which the paper does not mention.",
+    f"<b>EW trigger efficiency.</b> Our matched count gives {e['trig']/e['matched']:.3f} (Table I sample) and {F6T['EW2000'][0]/F6T['EW2000'][1]:.3f} (Fig. 6 sample); the paper's 0.10 is not reproduced, and the paper does not say how it was obtained.",
     "<b>Cross sections.</b> The paper gives no signal σ and no K-factor; “N<sub>Q</sub> = 2” is not defined.",
     "<b>Converted-photon normalisation.</b> Our σ after MET &gt; 200 GeV is 0.211 pb, the paper's ~1 pb (factor 4.7, not explained); the 1% conversion probability is derived from the paper's own numbers.",
     "<b>Pile-up.</b> No absolute normalisation is given in the paper; our rate of planes with hits in ≥ 4 of 8 layers is about 6× the paper's.",
@@ -405,9 +389,9 @@ S += [P("Conclusion", "h2")] + B([
     f"<b>Our additional study (Part B).</b> Without SCT z smearing the signal numbers come close to the paper (Table I mostly consistent; reach colored {_m('colored', 'exclusion', 'Z0')} / "
     f"{_m('colored', 'discovery', 'Z0')} GeV, EW {_m('EW', 'exclusion', 'Z0')} / {_m('EW', 'discovery', 'Z0')} GeV), but the converted-photon background becomes 10–48 events at 300 fb⁻¹. "
     "No single setting reproduces both the paper's signal efficiency and its zero background.",
-    "<b>EW trigger.</b> The paper's 0.10 matches an LO cross-section ratio, not the matched + shower count of the method it describes.",
+    f"<b>EW trigger.</b> The matched + shower count of the method the paper describes gives {e['trig']/e['matched']:.3f}, not the paper's 0.10; the paper does not say how its value was obtained.",
     "<b>Figure 2.</b> With the paper's own equation, |L| returns to zero at every second meeting (also shown analytically in arXiv:2002.07503); the paper's curve does not. "
-    f"L ≈ 0 does not by itself mean annihilation; a worst-case estimate lowers the reach by only {ANN} GeV (Section B6).",
+    f"L ≈ 0 does not by itself mean annihilation; a worst-case estimate lowers the reach by only {ANN} GeV (Section B5).",
     "<b>Expected events (Table II).</b> At the two benchmark masses the expected signal is a few events or less in both settings."])
 S += [P("Final remarks on the paper", "h2")] + B([
     "The idea of the paper is clear and works in our simulation: quirk pairs leave hits on a thin plane (Δs of tens of µm before SCT z smearing), random hits rarely do, and the contours of Figure 6 have the paper's shape.",
@@ -419,7 +403,7 @@ S += [P("Final remarks on the paper", "h2")] + B([
 S += [P("References", "h2")] + [P(x, "c") for x in [
     "Paper: S. Knapen, H. K. Lou, M. Papucci, J. Setford, Phys. Rev. D 96, 115015 (2017), arXiv:1708.02243.   [27] ATLAS, ATL-PHYS-PUB-2009-002.",
     "J. Li, T. Li, J. Pei, W. Zhang, “The quirk trajectory”, arXiv:2002.07503 (Eqs. II.11–II.14, A.4–A.5; Sec. VI, App. D).",
-    "J. Li, T. Li, J. Pei, W. Zhang, arXiv:1911.02223 (EW trigger 0.1 as an LO ratio, App. A).   J. Li et al., arXiv:2108.06748.   J. L. Feng et al., arXiv:2404.13814.",
+    "J. Li et al., arXiv:2108.06748.   J. L. Feng et al., arXiv:2404.13814.",
     "Particle Data Group, C. Patrignani et al. (2016), Passage of particles through matter, Eq. 34.12 (most probable energy loss) and Table 34.4 (silicon).",
     "HSCP and monojet limits in Fig. 6: M. Farina, M. Low, private communication to the paper's authors (related: arXiv:1703.00912); taken here from the paper's figure."]]
 S += [P("Data and scripts: R_data_2026_10_15.py (all numbers), R_report_2026-10-21_partAB.py, F38–F42, F6 (F6_07 for the Part A / Part B split), F7 figures; Table II as "

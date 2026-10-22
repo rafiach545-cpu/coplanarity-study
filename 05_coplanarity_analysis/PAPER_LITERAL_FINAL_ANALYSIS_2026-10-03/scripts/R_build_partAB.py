@@ -53,12 +53,12 @@ FIG2 = rep(cut("# 3 Figure 2", "# 4 annihilation"), [
      '                   L_meeting4_signed_1e8hbar=l4 / 1e8, L_meetings_1_3_1e8hbar=6430.0) for n_, l2, l4 in LR]).to_csv(f"{_LD}/L_residual_vs_step_size_1e8hbar.csv", index=False)'),
     ('P("3.1 Is L exactly zero? Fig. 2 on a log scale", "h3")', 'P("A3.1 Is L exactly zero? Fig. 2 on a log scale", "h3")')])
 ANNI = rep(cut("# 4 annihilation", "# 5 repeated crossings"), [
-    ('S += [P("4. Does L = 0 mean the quirks annihilate?", "h2"),', 'S += [P("B6. Annihilation: does L = 0 mean the quirks annihilate?", "h2"),\n      P("Why tested: our |L| returns to zero at every second meeting (Section A3), so the quirks might annihilate; the paper assumes they do not.", "b"),'),
-    ('P("4.1 Classical L ≈ 0 is not a collision", "h3")', 'P("B6.1 Classical L ≈ 0 is not a collision", "h3")'),
+    ('S += [P("4. Does L = 0 mean the quirks annihilate?", "h2"),', 'S += [P("B5. Annihilation: does L = 0 mean the quirks annihilate?", "h2"),\n      P("Why tested: our |L| returns to zero at every second meeting (Section A3), so the quirks might annihilate; the paper assumes they do not.", "b"),'),
+    ('P("4.1 Classical L ≈ 0 is not a collision", "h3")', 'P("B5.1 Classical L ≈ 0 is not a collision", "h3")'),
     ('g = [H("time steps per oscillation", "|L| at meeting 2 (ħ)", "|L| at meeting 4 (ħ)", "b = |L| / p (cm)", "b / (1/m<sub>Q</sub>)")]',
      'g = [H("time steps per oscillation", "|L| at meeting 2 (10⁸ ħ)", "|L| at meeting 4 (10⁸ ħ)", "b = |L| / p (cm)", "b / (1/m<sub>Q</sub>)")]'),
     ('g.append(C(f"{n_:,}", sci(abs(l2)), sci(abs(l4)),', 'g.append(C(f"{n_:,}", f"{abs(l2)/1e8:.3g}", f"{abs(l4)/1e8:.3g}",'),
-    ('P("4.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")', 'P("B6.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")'),
+    ('P("4.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")', 'P("B5.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")'),
     ("Table I assumes no annihilation.", "Part A, like the paper, assumes no annihilation.")])
 REPEAT = rep(cut("# 5 repeated crossings", "# 6 Figures 3-5"), [('P("5. Quirks crossing the same layer more than once", "h2")', 'P("A10. Quirks crossing the same layer more than once", "h2")'),
                                                                ("Table I above uses the first crossing only.", "Part A uses the first crossing only, as the paper implies.")])
@@ -74,6 +74,6 @@ LO = rep(cut("lt, lt2, lc = LT[", "# 3 Figure 2"), [
     ("not to our matched sample ({ETR['k1']/ETR['n1']:.2f})", "not to our matched sample ({ETR['k1']/ETR['n1']:.3f})"),
     ("[P(f\"{e['trig']}/{e['matched']} = {es(e['trig'], e['matched'])}\", \"c\"), dt]", "[P(f\"{e['trig']}/{e['matched']} = {es(e['trig'], e['matched'], 3)}\", \"c\"), dt]")])
 out = tpl
-for k, v in (("#<<HEAD>>", HEAD), ("#<<FIG2>>", FIG2), ("#<<FIG3>>", FIG3), ("#<<FIG7>>", FIG7), ("#<<REPEAT>>", REPEAT), ("#<<ANNI>>", ANNI), ("#<<LO>>", LO)):
+for k, v in (("#<<HEAD>>", HEAD), ("#<<FIG2>>", FIG2), ("#<<FIG3>>", FIG3), ("#<<FIG7>>", FIG7), ("#<<REPEAT>>", REPEAT), ("#<<ANNI>>", ANNI)):   # LO-ratio block (B2) removed on 2026-10-22
     assert out.count(k) == 1, k; out = out.replace(k, v)
 open(f"{HERE}/R_report_2026-10-21_partAB.py", "w").write(out); print("wrote R_report_2026-10-21_partAB.py", len(out.splitlines()), "lines")

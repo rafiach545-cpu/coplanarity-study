@@ -913,3 +913,15 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
   - The report uses F38_lambda again (Table I samples).
   - F43_lambda (D61) is no longer used; it is kept on disk, not deleted.
   - ROOT_GENERATED_GRAPHS and ROOT_CSV_FIGURES_2026-10-21 already follow this rule: Figs. 3–5 from the Table I samples, Figs. 6–7 from the Fig. 6 samples.
+
+## D63 (2026-10-22) LO-ratio trigger removed from the report (user's request)
+- **Request:** "lo trigger eff wala hmara paper ni krra tu iska result table sb hta do zikr mat kro".
+- **Removed from TABLE_I_REPRODUCTION_REPORT_2026-10-21_partAB.pdf (now 17 pages):**
+  - the whole section B2 (two EW leading-order samples, their ε_reco / ε_trig / ε_fid tables, σ_B/σ_A, result box);
+  - the Fig. 6 LO-ratio rows and the Part B list row;
+  - the open-point and conclusion statements that the paper's 0.10 matches an LO ratio. Both now say that the paper's 0.10 is not reproduced and that the paper does not say how it was obtained;
+  - the reference arXiv:1911.02223.
+- **Figures dropped from the report, not changed (the user does not want graphs changed):** F38_lambda (it contains the LO-sample curve) and F6_kfactor (it contains the LO-ratio line). Their numbers remain in the B1 and B2 tables.
+- **Renumbered:** Part B is now B1 no SCT z smearing, B2 σ scaling, B3 N_Q = 2, B4 colored without f_ch, B5 annihilation.
+- **Leading-order generation:** "LO" still appears only for the leading-order generation (LO 0 + 1 jet), which is part of the paper's method.
+- **Kept on disk, not part of the report:** the LO samples, their scripts and tables, and the LO-ratio entries in F6_reach_sensitivity.csv, ROOT_GENERATED_GRAPHS/Fig6/fig6_kfactor_sensitivity and the ROOT CSVs.
