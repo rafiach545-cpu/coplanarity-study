@@ -129,20 +129,19 @@ def learn():
 # ---------------------------------------------------------------- common inputs of the new structure
 GEN = {s: json.load(open(f"{R.EV}/generation/{v['tag']}/generation_stats.json")) for s, v in R.SAM.items()}
 SIG = {s: GEN[s]["matched_xsec_pb"] * 1e3 for s in GEN}                          # matched LO cross section (fb) of the Table I samples
-# EW 800 GeV (user's decision 2026-10-22): every EW Table I / Table II number comes from the Fig. 6 sample at 800 GeV (eps_trig = 152/1024 = 0.148), so one sample
-# gives all EW efficiencies and Table I, Table II and Fig. 6 use the same eps_trig (scripts/F43_ew800_fig6_sample.py -> tables/EW800_fig6_sample_lambda_scan.csv)
-EWF = pd.read_csv(f"{R.L_}/tables/EW800_fig6_sample_lambda_scan.csv")
-OLDE = dict(e)                                                                    # earlier EW production sample (seed 8002): only Figs. 3-5 and Section A10 (no eps_trig there)
-_f4 = EWF[(EWF.lambda_keV == 4) & (EWF.sct == "Z0")].iloc[0]
-e.update(matched=int(_f4.matched), trig=int(_f4.triggered), charged=int(_f4.triggered), fid=int(_f4.fid))
-SIG["EW2000"] = float(_f4.sigma_matched_fb)
-for _r in EWF.itertuples():
-    _mk = (LS["sample"] == "EW2000") & (LS.lambda_keV == _r.lambda_keV) & (LS.sct == _r.sct) & (LS["mode"] == "FIRST")
-    assert _mk.sum() == 1; LS.loc[_mk, "k_ge2"] = _r.sr; LS.loc[_mk, "n_fid"] = _r.fid
-EWERR = [str(int(r.lambda_keV)) for r in EWF[EWF.sct == "Z0"].itertuples() if r.n_integration_fail > 0]
-ETR = dict(k1=e["trig"], n1=e["matched"])
-ETRIG_TXT = (f"EW 800 GeV: ε<sub>trig</sub> = {e['trig']}/{e['matched']} = {e['trig']/e['matched']:.3f} ± {np.sqrt(e['trig']/e['matched']*(1-e['trig']/e['matched'])/e['matched']):.3f}. "
-             "Table I, Table II and Fig. 6 take all EW efficiencies (ε<sub>trig</sub>, ε<sub>fid</sub>, ε<sub>reco</sub>) from this one MLM-matched + shower sample.")
+# one sample rule for both channels (user's decision 2026-10-22): Table I / Table II use the Table I production samples (colored seed 8001, EW seed 8002);
+# Fig. 6 uses its own sample at every mass (colored 1800 GeV seed 9404, EW 800 GeV seed 9504); each result takes all its efficiencies from one sample
+_FC = pd.read_csv(f"{R.L_}/fig6/inputs/counts.csv").set_index(["channel", "mass_gev"])
+F6T = {"COL2000": (int(_FC.loc[("colored", 1800)].n_trigger), int(_FC.loc[("colored", 1800)].n_matched)), "EW2000": (int(_FC.loc[("EW", 800)].n_trigger), int(_FC.loc[("EW", 800)].n_matched))}
+def _zz(k1, n1, k2, n2): p1, p2 = k1 / n1, k2 / n2; return abs(p1 - p2) / np.sqrt(p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2)
+ZT = {s_: _zz(CNT[s_]["trig"], CNT[s_]["matched"], *F6T[s_]) for s_ in F6T}
+SAMPLE_TXT = (f"<b>Samples (the same rule for both channels).</b> Table I, Table II and the other Part A sections use the Table I production samples: colored 1800 GeV (seed 8001), "
+              f"ε<sub>trig</sub> = {c['trig']}/{c['matched']} = {c['trig']/c['matched']:.3f}; EW 800 GeV (seed 8002), ε<sub>trig</sub> = {e['trig']}/{e['matched']} = {e['trig']/e['matched']:.3f}. "
+              f"Figure 6 uses its own sample at every mass (same generator settings, other seeds); at the benchmark masses these give ε<sub>trig</sub> = {F6T['COL2000'][0]}/{F6T['COL2000'][1]} = "
+              f"{F6T['COL2000'][0]/F6T['COL2000'][1]:.3f} (colored) and {F6T['EW2000'][0]}/{F6T['EW2000'][1]} = {F6T['EW2000'][0]/F6T['EW2000'][1]:.3f} (EW). Each result takes all its efficiencies "
+              f"from one sample. The two samples of a channel differ by {ZT['COL2000']:.1f}σ (colored) and {ZT['EW2000']:.1f}σ (EW), i.e. only by statistics.")
+ETRIG_TXT = (f"<b>Samples:</b> as stated in Settings A1. Figure 6 uses its own sample at every mass; at the benchmark masses ε<sub>trig</sub> = {F6T['COL2000'][0]/F6T['COL2000'][1]:.3f} (colored) "
+             f"and {F6T['EW2000'][0]/F6T['EW2000'][1]:.3f} (EW), against {c['trig']/c['matched']:.3f} and {e['trig']/e['matched']:.3f} in the Table I samples (statistical differences, {ZT['COL2000']:.1f}σ and {ZT['EW2000']:.1f}σ).")
 LUMI = 300.0
 LAMS = {"COL2000": (1, 2, 3, 5, 10), "EW2000": (1, 2, 3, 4, 5)}
 NAME = {"COL2000": "colored 1800 GeV", "EW2000": "EW 800 GeV"}
@@ -163,11 +162,6 @@ def rs(ch, var, sct):
     return f"{q.loc['exclusion', 'm_max']} / {q.loc['discovery', 'm_max']}" if len(q) else "–"
 st["part"] = ParagraphStyle("part", fontName="DVB", fontSize=14, leading=18, textColor=colors.white, backColor=ACC, borderPadding=(5, 6, 5, 6), spaceBefore=6, spaceAfter=8)
 def bad1(s_, sct): return [str(l) for l in LAMS[s_] if not dec(int(lsr(s_, l, sct).k_ge2), int(lsr(s_, l, sct).n_fid), float(lsr(s_, l, sct).paper_reco))]
-def verdict2(s_, sct):                                                             # verdict with the direction of each inconsistency
-    b_ = bad1(s_, sct)
-    if not b_: return verdict(s_, sct)
-    hi = [l for l in b_ if er(s_, int(l), sct) > float(lsr(s_, int(l), sct).paper_reco)]; lo = [l for l in b_ if l not in hi]
-    return verdict(s_, sct) + " (" + "; ".join(x for x in ((f"ours higher than the paper at {', '.join(hi)} keV" if hi else ""), (f"ours lower at {', '.join(lo)} keV" if lo else "")) if x) + ")"
 def verdict(s_, sct):
     b_ = bad1(s_, sct)
     if not b_: return "consistent with the paper at every Λ"
@@ -249,9 +243,8 @@ g += [C("Pixel layers (4)", "hit moved to the centre of its pixel:  x<sub>meas</
       C("Neighbouring pixels", "hits in adjacent pixels of one layer merged into one hit", "—")]
 S += [Spacer(1, 3), grid(g, [32, 92, 50]),
       P("From the paper (Sec. III A) and its Ref. [27]. Pixel rounding gives an RMS error p/√12 (14 µm for 50 µm, 115 µm for 400 µm). One common z<sub>0</sub> per event is our reading "
-        "of “a uniform, gaussian smearing … to the z-coordinates of all the hits”. The same smearing is applied to signal and background. σ<sub>z</sub> = 0 is tested in Part B. "
-        f"<b>EW 800 GeV sample:</b> all EW efficiencies (Table I, Table II, Fig. 6) come from one MLM-matched + shower sample with ε<sub>trig</sub> = {e['trig']}/{e['matched']} = {e['trig']/e['matched']:.3f}. "
-        "Figs. 3–5 and Section A10, where ε<sub>trig</sub> does not enter, use an earlier EW sample with identical generator settings (different random seed).", "m")]
+        "of “a uniform, gaussian smearing … to the z-coordinates of all the hits”. The same smearing is applied to signal and background. σ<sub>z</sub> = 0 is tested in Part B.", "m"),
+      P(SAMPLE_TXT, "c")]
 
 # A2 Table I
 S += [P("A2. Table I (SCT z = 1.16 mm)", "h2")]
@@ -267,14 +260,12 @@ def tableA(s):
     g.append(C("dec.", dt, df, "", "", "")); j = len(g) - 1; ex += [("BACKGROUND", (1, j), (1, j), bt), ("BACKGROUND", (2, j), (2, j), bf)]
     return [P(f"<b>{NAME[s][0].upper() + NAME[s][1:]}</b> (2000 events generated, {tn} after matching)", "c"), grid(g, [13, 36, 36, 41, 16, 32], ex)]
 S += tableA("COL2000") + [Spacer(1, 3)] + tableA("EW2000")
-S += [P("ε<sub>fid</sub> is recomputed at every Λ. Events that could not be integrated (solver step limit) are counted as not fiducial "
-        f"(EW: one event at Λ = {', '.join(EWERR)} keV). For k = 0 the one-sided 95% upper limit is given. Decision cells give |Δ| = |ε − ε<sub>paper</sub>| and 2σ₀.", "m"),
+S += [P("ε<sub>fid</sub> is recomputed at every Λ. EW at 3 keV: 61 instead of 62 because one event (no. 127) could not be integrated at 3 keV; like every such failure it is counted as not "
+        "fiducial. For k = 0 the one-sided 95% upper limit is given. Decision cells give |Δ| = |ε − ε<sub>paper</sub>| and 2σ₀.", "m"),
       key(f"<b>What we learn.</b> With the paper's method: colored ε<sub>reco</sub> is {verdict('COL2000', 'Z1160')}; EW ε<sub>reco</sub> is {verdict('EW2000', 'Z1160')}. "
           f"Where events pass, our values are {LOWER} times lower than the paper's. ε<sub>trig</sub> agrees for colored and is too high for EW ({e['trig']/e['matched']:.3f} vs 0.10); ε<sub>fid</sub> agrees for both.")]
 PE = {"Z0": pd.read_csv(f"{T}/lambda_scan_per_event.csv"), "Z1160": pd.read_csv(f"{T}/lambda_scan_z1160_per_event.csv")}
 def flow(s_, lam, sct):
-    if s_ == "EW2000":                                                            # EW: the Fig. 6 sample at 800 GeV
-        r = EWF[(EWF.lambda_keV == lam) & (EWF.sct == sct)].iloc[0]; return dict(fid=int(r.fid), plane=int(r.plane), mult=int(r.mult), sr=int(r.sr))
     x = PE[sct]; x = x[(x["sample"] == s_) & (x.lambda_keV == lam) & (x["mode"] == "FIRST") & (x.sct == sct)]; f = x[x.fid.astype(str) == "True"]
     tr = lambda c_: f[c_].astype(str) == "True"
     o = dict(fid=len(f), plane=int(tr("plane").sum()), mult=int((tr("plane") & tr("mult")).sum()), sr=int(tr("final").sum()))
@@ -517,7 +508,7 @@ S += [grid(g, [52, 40, 40, 30, 14], ex + [("BACKGROUND", (0, len(g) - 1), (-1, l
 # 5 repeated crossings
 S += [P("A10. Quirks crossing the same layer more than once", "h2")]
 g = [H("Sample (fiducial events, all crossings within 25 ns)", "events with &gt; 2 hits on at least one layer", "fraction ± σ")]
-g += [C("Colored 1800 GeV, 2 keV", f"{c['multi_cross']} / {c['fid']}", es(c["multi_cross"], c["fid"])), C("EW 800 GeV, 4 keV (earlier EW sample)", f"{OLDE['multi_cross']} / {OLDE['fid']}", es(OLDE["multi_cross"], OLDE["fid"]))]
+g += [C("Colored 1800 GeV, 2 keV", f"{c['multi_cross']} / {c['fid']}", es(c["multi_cross"], c["fid"])), C("EW 800 GeV, 4 keV", f"{e['multi_cross']} / {e['fid']}", es(e["multi_cross"], e["fid"]))]
 S += [grid(g, [78, 54, 42]), P("These are results of our simulation. The paper says each quirk “will most likely intersect each layer only once”. arXiv:2002.07503 (Sec. VI, Table I and "
                                  "Appendix D, Table II) also finds repeated crossings, more often at larger Λ and larger m/p<sub>T</sub>, with 4–8 hits on some layers at Λ = 2 keV; its percentages "
                                  "(~10%) are for other masses and the CMS tracker and are not directly comparable. Part A uses the first crossing only, as the paper implies.", "m")]
@@ -550,11 +541,11 @@ def tableB1(s):
         d0, b0 = cell(k0, n0, p); g.append(C(str(lam), f"<b>{k0}/{n0} = {es(k0, n0)}</b>", f"{p:.3g}", d0, f"{k1}/{n1} = {es(k1, n1)}")); ex.append(("BACKGROUND", (3, i), (3, i), b0))
     return [P(f"<b>{NAME[s][0].upper() + NAME[s][1:]}</b>", "c"), grid(g, [16, 48, 22, 40, 48], ex)]
 S += tableB1("COL2000") + [Spacer(1, 3)] + tableB1("EW2000")
-S += [key(f"<b>What we learn.</b> Without SCT z smearing: colored ε<sub>reco</sub> is {verdict('COL2000', 'Z0')}; EW ε<sub>reco</sub> is {verdict2('EW2000', 'Z0')}. "
-          "So the paper's Table I is reproduced only if the SCT z position is measured much better than 1.16 mm.")]
+S += [key(f"<b>What we learn.</b> Without SCT z smearing: colored ε<sub>reco</sub> is {verdict('COL2000', 'Z0')}; EW ε<sub>reco</sub> is {verdict('EW2000', 'Z0')} "
+          "(at 1 and 2 keV ours is higher than the paper's). So the paper's Table I is reproduced only if the SCT z position is measured much better than 1.16 mm.")]
 S += [P("Cut-flow without SCT z smearing", "h3")] + cutflow("COL2000", "Z0") + [Spacer(1, 3)] + cutflow("EW2000", "Z0")
-S += [Spacer(1, 3), img("F43_lambda", 150),
-      P("ε<sub>reco</sub> vs Λ: the paper, this work without SCT z smearing and with SCT z 1.16 mm, and the EW leading-order sample (Section B2), all with simple binomial σ.", "m")]
+S += [Spacer(1, 3), img("F38_lambda", 150),
+      P("ε<sub>reco</sub> vs Λ: the paper, our production samples with SCT z none and 1.16 mm, and the EW leading-order sample (Section B2), all with simple binomial σ.", "m")]
 S += [P("Figures 4 and 5 without SCT z smearing", "h3")]
 g = [H("Fig. 4 example event", "Δs (plane thickness)", "Δw (strip width)", "match with the paper")]
 g.append(C("Paper (colored)", "83 µm", "0.074 cm", "—"))
@@ -734,7 +725,7 @@ S += [grid(g, [30, 12, 20, 22, 24, 22, 24, 20], ex),
       key("<b>What Table II shows.</b> With SCT z 1.16 mm on both, the background is zero (upper limit &lt; 0.2–1 event), but the signal is also small: at most "
           f"{max(LUMI * SIG[s_] * int(lsr(s_, l, 'Z1160').k_ge2) / CNT[s_]['matched'] for s_ in LAMS for l in LAMS[s_]):.1f} events at these benchmarks. "
           f"Without SCT z smearing on both, the signal is {GAIN} times larger, but the converted-photon background (10 or 48 events) is then larger than the signal. "
-          "At these benchmark masses (1800 and 800 GeV) the signal is below or near the 3-event exclusion level in both settings, consistent with Figure 6, where these masses lie at or beyond the reach.")]
+          "At these benchmark masses (1800 and 800 GeV) the signal is below or near the 3-event exclusion level in both settings, consistent with Figure 6, where these masses lie at or beyond the reach (Figure 6 uses its own samples; see Settings A1).")]
 pd.DataFrame(tab2).to_csv(f"{R.L_}/tables/table_II_expected_events.csv", index=False)
 
 # ================================================================ cuts, open points, conclusion, remarks
@@ -752,7 +743,7 @@ S += B(["<b>What they measure.</b> Δs is the thickness of the plane through the
         "the SCT z resolution decides whether the signal passes it."])
 S += [P("Open points (what is still unclear)", "h2")] + B([
     "<b>SCT z resolution.</b> With the stated 1.16 mm our ε<sub>reco</sub> is far below Table I; only no SCT z smearing reproduces it, and then the converted-photon background is not zero.",
-    f"<b>EW trigger efficiency.</b> Our matched count gives {e['trig']/e['matched']:.3f}; the paper's 0.10 is reproduced only by an LO cross-section ratio, which the paper does not mention.",
+    f"<b>EW trigger efficiency.</b> Our matched count gives {e['trig']/e['matched']:.3f} (Table I sample) and {F6T['EW2000'][0]/F6T['EW2000'][1]:.3f} (Fig. 6 sample); the paper's 0.10 is reproduced only by an LO cross-section ratio, which the paper does not mention.",
     "<b>Cross sections.</b> The paper gives no signal σ and no K-factor; “N<sub>Q</sub> = 2” is not defined.",
     "<b>Converted-photon normalisation.</b> Our σ after MET &gt; 200 GeV is 0.211 pb, the paper's ~1 pb (factor 4.7, not explained); the 1% conversion probability is derived from the paper's own numbers.",
     "<b>Pile-up.</b> No absolute normalisation is given in the paper; our rate of planes with hits in ≥ 4 of 8 layers is about 6× the paper's.",

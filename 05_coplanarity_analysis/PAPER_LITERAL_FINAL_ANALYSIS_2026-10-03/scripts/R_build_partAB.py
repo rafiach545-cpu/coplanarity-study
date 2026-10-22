@@ -60,8 +60,7 @@ ANNI = rep(cut("# 4 annihilation", "# 5 repeated crossings"), [
     ('g.append(C(f"{n_:,}", sci(abs(l2)), sci(abs(l4)),', 'g.append(C(f"{n_:,}", f"{abs(l2)/1e8:.3g}", f"{abs(l4)/1e8:.3g}",'),
     ('P("4.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")', 'P("B6.2 Even if L returns exactly to its production value, annihilation is not certain", "h3")'),
     ("Table I assumes no annihilation.", "Part A, like the paper, assumes no annihilation.")])
-REPEAT = rep(cut("# 5 repeated crossings", "# 6 Figures 3-5"), [
-    ('C("EW 800 GeV, 4 keV", f"{e[\'multi_cross\']} / {e[\'fid\']}", es(e["multi_cross"], e["fid"]))', 'C("EW 800 GeV, 4 keV (earlier EW sample)", f"{OLDE[\'multi_cross\']} / {OLDE[\'fid\']}", es(OLDE["multi_cross"], OLDE["fid"]))'),('P("5. Quirks crossing the same layer more than once", "h2")', 'P("A10. Quirks crossing the same layer more than once", "h2")'),
+REPEAT = rep(cut("# 5 repeated crossings", "# 6 Figures 3-5"), [('P("5. Quirks crossing the same layer more than once", "h2")', 'P("A10. Quirks crossing the same layer more than once", "h2")'),
                                                                ("Table I above uses the first crossing only.", "Part A uses the first crossing only, as the paper implies.")])
 FIG3 = rep(cut("# 6 Figures 3-5", 'S += [P("Figure 4: hits of one signal event", "h3")]'),
            [('S += [P("6. Figures 3, 4, 5", "h2"), P("Figure 3: turning of the quirks\' plane", "h3"),', 'S += [P("A4. Figure 3: turning of the quirks\' plane", "h2"),')])

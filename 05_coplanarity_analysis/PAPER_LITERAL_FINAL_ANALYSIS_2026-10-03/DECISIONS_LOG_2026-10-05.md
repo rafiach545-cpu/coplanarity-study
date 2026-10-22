@@ -894,3 +894,22 @@ showered run after the main run reaches 3000 events. To rebuild after D41 finish
   - Figs. 3–5 and Section A10 still use the earlier EW sample (seed 8002); ε_trig does not enter there, and Settings A1 says so.
   - Fig. 6: unchanged; it already used this sample.
 - **Not updated.** ROOT_CSV_FIGURES_2026-10-21, ROOT_GENERATED_GRAPHS and the earlier report PDFs still carry the old EW Table I sample.
+
+## D62 (2026-10-22) One sample rule for both channels: the colored rule (replaces D61)
+- Request: "sary results m consistency dikhao ... jo method color k seeds k liye choose kia woi value ak rkho".
+  - Colored already used two samples: Table I with seed 8001 (207/873 = 0.237), Fig. 6 with seed 9404 (227/854 = 0.266).
+  - After D61, EW used the Fig. 6 sample everywhere, so the two channels followed different rules.
+  - The user chose "Colored wala rule dono par".
+- Rule for both channels:
+  - Table I, Table II and the other Part A sections use the Table I production samples: colored seed 8001, ε_trig 0.237; EW seed 8002, ε_trig 0.178.
+  - Fig. 6 uses its own sample at every mass: at the benchmark masses colored 0.266 and EW 0.148.
+  - Each result takes all of its efficiencies from one sample.
+  - The two samples of a channel differ by 1.4σ (colored) and 1.8σ (EW).
+- Report TABLE_I_REPRODUCTION_REPORT_2026-10-21_partAB.pdf rebuilt from the pre-D61 template (git 589f403), plus three changes:
+  - the rule is stated once, in Settings A1 (A8 and B2 point to it, with both values);
+  - ε_trig is shown with 3 decimals;
+  - the EW trigger open point gives both values.
+- Graphs: no change was needed.
+  - The report uses F38_lambda again (Table I samples).
+  - F43_lambda (D61) is no longer used; it is kept on disk, not deleted.
+  - ROOT_GENERATED_GRAPHS and ROOT_CSV_FIGURES_2026-10-21 already follow this rule: Figs. 3–5 from the Table I samples, Figs. 6–7 from the Fig. 6 samples.
