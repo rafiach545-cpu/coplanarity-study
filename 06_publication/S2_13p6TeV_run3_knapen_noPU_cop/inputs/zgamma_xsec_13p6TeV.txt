@@ -1,0 +1,4 @@
+ebeam_GeV 6800.0
+sigma_generated_pb 0.25205262
+n_events_after_MET 9130
+sigma_after_MET_pb 0.23012404206

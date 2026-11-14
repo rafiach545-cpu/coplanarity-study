@@ -47,6 +47,8 @@ Publication plan (whiteboard, 2026-11-03), step 1b: the stage 1 analysis at the 
 | 9 | `S2_09_background_summary.py` | `S2_background_13p6TeV.csv`, `S2_reach_with_background.csv` |
 | 10 | `S2_10_compare_13_vs_13p6.py` (factor by factor, kinematics, reach variants, bootstrap) | `S2_compare_*.csv`, `logs/S2_10_compare.log` |
 | 11 | `S2_11_uncertainties.py` (statistical uncertainty budget, reach toys with all statistical sources, permutation test 13 vs 13.6 TeV) | `S2_unc_*.csv`, `logs/S2_11_uncertainties.log` |
+| 12 | `S2_12_expected_bands.py` (expected exclusion band: n_obs ~ Poisson(b), CLs s95(n_obs, b), reach at the 2.3/16/50/84/97.7% quantiles; Poisson only) | `S2_expected_bands.csv`, `logs/S2_12_expected_bands.log` |
+| 13 | `S2_13_production_and_pt.py` (why ε_trig depends on mass: MG5 subprocess cross sections and the initial state of every matched HepMC event; pT(QQ̄) median, quartiles and ε_trig per mass point and initial state) | `S2_production_channels.csv`, `S2_pair_pt.csv`, `S2_pair_pt_hist.csv`, `logs/S2_13_production_and_pt.log` |
 
 ## Checks
 

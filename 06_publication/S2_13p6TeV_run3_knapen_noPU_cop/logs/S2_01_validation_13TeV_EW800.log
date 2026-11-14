@@ -1,0 +1,1 @@
+{'tag': 'EW_800gev', 'channel': 'EW', 'mass_gev': 800, 'seed': 9504, 'ebeam_gev': 6500.0, 'n_generated': 2000, 'n_matched': 1024, 'matched_xsec_pb': 0.0002341, 'matched_xsec_err_pb': 5.158e-06, 'wall_s': 154.2, 'status': 'ok', 'exit_code': 0}

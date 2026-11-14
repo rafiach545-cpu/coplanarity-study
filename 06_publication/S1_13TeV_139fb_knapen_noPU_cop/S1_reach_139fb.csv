@@ -1,0 +1,9 @@
+channel,sct,contour,lumi_fb,m_max_GeV,at_lambda_keV,m_max_lo,m_max_hi,m_max_300fb,N_max_at_lowest_mass
+colored,Z1160,exclusion,139.0,1388,4.0,1332,1445,1497,450.1
+colored,Z1160,discovery,139.0,1316,4.0,1262,1370,1424,450.1
+colored,Z0,exclusion,139.0,1535,5.0,1488,1584,1702,2850.9
+colored,Z0,discovery,139.0,1452,5.0,1419,1484,1591,2850.9
+EW,Z1160,exclusion,139.0,451,7.0,419,487,524,231.2
+EW,Z1160,discovery,139.0,408,7.0,357,441,473,231.2
+EW,Z0,exclusion,139.0,666,5.0,646,685,792,1965.3
+EW,Z0,discovery,139.0,597,5.0,579,615,701,1965.3

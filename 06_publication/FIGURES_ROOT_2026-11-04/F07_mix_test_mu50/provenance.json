@@ -1,0 +1,34 @@
+{
+ "figure": "F07_mix_test_mu50",
+ "script": "make_figures_root.py (ROOT 6.40.04)",
+ "data": {
+  "mix_test_mu50.csv": "ff7dc2bc0bf8f9f11038b3bc3e87f7b57503cb01d5d8c3c0cf28164cb651cbdf"
+ },
+ "data_prepared_by": "prepare_data.py",
+ "upstream_sources": {
+  "05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/fig6/inputs/counts.csv": "7ab9c94c090a5e5f145b1c70a7a36f4dfb603ea07c2d54db882e298174fc5ca2",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/inputs/counts.csv": "961d4d63d1caccd33a3b440c5fb407747cdf80cee2b323b0250367f7b2f4d64b",
+  "06_publication/S1_13TeV_139fb_knapen_noPU_cop/S1_N_grid_139fb.csv": "40fa3abdb2374bb9cec0c1187a4e91f649b59df09eb8966771701c8c70cb32df",
+  "05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/fig6/F6_N_grid.csv": "9bb7f49b268e7fab12334206ecc4f7c17ce3b7b70e574e8d16d5fb5d736177d8",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_N_grid_300fb.csv": "4053db06730c49a6acd4d2d003e9abd8db4ba7a682112bbf2b1268afd25e35b9",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_background_13p6TeV.csv": "2371927ed2a5f8db7768316ff821cfde6dcf07c80d14086d9709f260f8992862",
+  "06_publication/S1_13TeV_139fb_knapen_noPU_cop/S1_reach_139fb.csv": "443b01b2d262072ff1f6ea71e7af4aa6a6521bb5993682716de4ed9e0b75bd95",
+  "05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/fig6/F6_reach.csv": "18516782c3464d30f286ce1b07714070ea2f9172a33bd49d6473d44079ec9d6c",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_reach.csv": "471a73e46b4963610b985a7ca23056d3fde2f8127a29fef7c5abbbd7b1facd19",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_reach_with_background.csv": "bb0073ce6c54b61d04700f6d51e9ba27b3149c96d50133195d20c3bfc75cd966",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_compare_reach.csv": "c3181f8955c0cf3f0a353d68c644e41906cc9409f621ad28537093af664e696e",
+  "06_publication/S1_13TeV_139fb_knapen_noPU_cop/S1_background_139fb.csv": "2c31d89ccb3ae7246948076ac2188a2ebd8bdbd579409d7d53a2a19dc77b09c3",
+  "06_publication/S1_13TeV_139fb_knapen_noPU_cop/S1_background_run2.csv": "81030e58cc2abd418382f49ccaa358413571dc56589c8798730e5c01a5d1bcda",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/logs/bkg_13TeV/P17b_mu50_seed20261104": "183 chunk files",
+  "05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/logs/P10_chunks_B_Z0_REF34": "183 chunk files",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/logs/bkg_ph13_pu13p6/P17b_mu50": "183 chunk files",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/logs/bkg_ph13p6_pu13/P17b_mu50": "183 chunk files",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/logs/bkg_13p6TeV/P17b_mu50": "183 chunk files",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_compare_factors.csv": "184f9ab3e3ee3d50221bcebf9ea830e42f9417fd2f166ed24dcbb67b1a0eefe9",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_compare_bootstrap.csv": "56e38465b467fa63127b692e0beaa83f324c80b939479566f60330e661d72873",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_unc_budget.csv": "ac0378dc5615cb6c82240c9fbc17fdf467492ea5150898fd7336d900c5bb4b24",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_unc_reach.csv": "aa34908080b71fd309651ce7d9e609e34c9742196b576b05f0abb34cd9ffb533",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_unc_consistency_mass.csv": "a095f1556ac46496c50b4dea145b325c7e3915e9ccb635f14395b2d3eeab2f67",
+  "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_unc_consistency.csv": "67df215b800766536601b872b9ebd7c3a221c59a561c6e7787af5d29b348d5e7"
+ }
+}

@@ -1,0 +1,46 @@
+sigma_gamma x 1% = 2.3012 fb
+             process   sct  mu    n  plane  mult  sr  N_bkg_300fb  b_used_300fb  s_excl_300fb  s_disc_300fb  N_bkg_332fb  b_used_332fb  s_excl_332fb  s_disc_332fb  N_bkg_355fb  b_used_355fb  s_excl_355fb  s_disc_355fb  prob_per_event  prob_UL95
+conversion + pile-up Z1160   0 9130   1872     0   0       0.0000        0.2265        2.9957        5.0000       0.0000        0.2506        2.9957        5.0000       0.0000        0.2680        2.9957        5.0000             NaN        NaN
+conversion + pile-up Z1160  20 9130   1930    21   0       0.0000        0.2265        2.9957        5.0000       0.0000        0.2506        2.9957        5.0000       0.0000        0.2680        2.9957        5.0000             NaN        NaN
+conversion + pile-up Z1160  50 9130   2114    54   0       0.0000        0.2265        2.9957        5.0000       0.0000        0.2506        2.9957        5.0000       0.0000        0.2680        2.9957        5.0000             NaN        NaN
+conversion + pile-up Z1160  60 9130   2223    62   1       0.0756        0.0756        2.9957        5.0000       0.0837        0.0837        2.9957        5.0000       0.0895        0.0895        2.9957        5.0000             NaN        NaN
+conversion + pile-up    Z0   0 9130   4073     3   3       0.2268        0.2268        2.9957        5.3476       0.2510        0.2510        2.9957        5.4970       0.2684        0.2684        2.9957        5.5992             NaN        NaN
+conversion + pile-up    Z0  20 9130   4082   165 110       8.3177        8.3177        7.2738       18.1609       9.2050        9.2050        7.6593       18.9261       9.8427        9.8427        8.1728       19.4528             NaN        NaN
+conversion + pile-up    Z0  50 9130   4195   334 196      14.8207       14.8207        9.5529       23.0729      16.4016       16.4016        9.4621       24.0868      17.5378       17.5378       10.4396       24.7850             NaN        NaN
+conversion + pile-up    Z0  60 9130   4236   368 200      15.1232       15.1232        9.3759       23.2710      16.7363       16.7363       10.0868       24.2950      17.8957       17.8957       10.2223       25.0001             NaN        NaN
+        pile-up only Z1160  20 5000     12     0   0          NaN           NaN           NaN           NaN          NaN           NaN           NaN           NaN          NaN           NaN           NaN           NaN             0.0     0.0006
+        pile-up only Z1160  50 5000    101     0   0          NaN           NaN           NaN           NaN          NaN           NaN           NaN           NaN          NaN           NaN           NaN           NaN             0.0     0.0006
+        pile-up only Z1160  60 5000    183     0   0          NaN           NaN           NaN           NaN          NaN           NaN           NaN           NaN          NaN           NaN           NaN           NaN             0.0     0.0006
+channel   sct  mu  lumi_fb   contour  N_bkg  s_required  m_max_GeV  at_lambda_keV  m_max_lo  m_max_hi
+     EW    Z0   0    300.0 discovery  0.227        5.35        724            4.0       707       740
+     EW    Z0  20    300.0 discovery  8.318       18.16        577            4.0       560       593
+     EW    Z0  50    300.0 discovery 14.821       23.07        545            4.0       528       561
+     EW    Z0  60    300.0 discovery 15.123       23.27        544            4.0       527       560
+     EW    Z0   0    300.0 exclusion  0.227        3.00        795            5.0       775       816
+     EW    Z0  20    300.0 exclusion  8.318        7.27        687            4.0       671       703
+     EW    Z0  50    300.0 exclusion 14.821        9.55        655            4.0       640       670
+     EW    Z0  60    300.0 exclusion 15.123        9.38        657            4.0       642       673
+     EW Z1160   0    300.0 discovery  0.000        5.00        456           10.0       416       536
+     EW Z1160  20    300.0 discovery  0.000        5.00        456           10.0       416       536
+     EW Z1160  50    300.0 discovery  0.000        5.00        456           10.0       416       536
+     EW Z1160  60    300.0 discovery  0.076        5.00        456           10.0       416       536
+     EW Z1160   0    300.0 exclusion  0.000        3.00        563            4.0       459       622
+     EW Z1160  20    300.0 exclusion  0.000        3.00        563            4.0       459       622
+     EW Z1160  50    300.0 exclusion  0.000        3.00        563            4.0       459       622
+     EW Z1160  60    300.0 exclusion  0.076        3.00        563            4.0       459       622
+colored    Z0   0    300.0 discovery  0.227        5.35       1647            4.0      1604      1690
+colored    Z0  20    300.0 discovery  8.318       18.16       1446            4.0      1419      1472
+colored    Z0  50    300.0 discovery 14.821       23.07       1416            4.0      1390      1441
+colored    Z0  60    300.0 discovery 15.123       23.27       1414            4.0      1389      1440
+colored    Z0   0    300.0 exclusion  0.227        3.00       1764            5.0      1718      1804
+colored    Z0  20    300.0 exclusion  8.318        7.27       1590            4.0      1546      1630
+colored    Z0  50    300.0 exclusion 14.821        9.55       1539            4.0      1497      1579
+colored    Z0  60    300.0 exclusion 15.123        9.38       1542            4.0      1499      1583
+colored Z1160   0    300.0 discovery  0.000        5.00       1329            5.0      1191      1457
+colored Z1160  20    300.0 discovery  0.000        5.00       1329            5.0      1191      1457
+colored Z1160  50    300.0 discovery  0.000        5.00       1329            5.0      1191      1457
+colored Z1160  60    300.0 discovery  0.076        5.00       1329            5.0      1191      1457
+colored Z1160   0    300.0 exclusion  0.000        3.00       1445            5.0      1299      1549
+colored Z1160  20    300.0 exclusion  0.000        3.00       1445            5.0      1299      1549
+colored Z1160  50    300.0 exclusion  0.000        3.00       1445            5.0      1299      1549
+colored Z1160  60    300.0 exclusion  0.076        3.00       1445            5.0      1299      1549

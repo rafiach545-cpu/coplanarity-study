@@ -30,3 +30,7 @@ docs/minbias_pool_gen*.log
 05_coplanarity_analysis/EW_PAPER_REPRODUCTION_AUDIT_2026-10-02/paper_source/
 FIG6_HIGH_BAND_BUNDLE_*.tar.gz
 05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/logs/*_pilot*_fast_events.jsonl
+
+# 2026-11-14: 06_publication raw outputs kept locally, not pushed (regenerable; 3.4 GB)
+06_publication/**/displays_*.jsonl
+06_publication/**/minbias_pool_*.csv

@@ -1,0 +1,28 @@
+{'tag': 'EW_100gev', 'channel': 'EW', 'mass_gev': 100, 'seed': 9500, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 1413, 'matched_xsec_pb': 1.252, 'matched_xsec_err_pb': 0.01858, 'wall_s': 111.1, 'status': 'ok', 'exit_code': 0}
+{'tag': 'EW_400gev', 'channel': 'EW', 'mass_gev': 400, 'seed': 9502, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 1149, 'matched_xsec_pb': 0.007225, 'matched_xsec_err_pb': 0.0001421, 'wall_s': 128.8, 'status': 'ok', 'exit_code': 0}
+{'tag': 'EW_600gev', 'channel': 'EW', 'mass_gev': 600, 'seed': 9503, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 1086, 'matched_xsec_pb': 0.001173, 'matched_xsec_err_pb': 2.436e-05, 'wall_s': 136.8, 'status': 'ok', 'exit_code': 0}
+{'tag': 'EW_800gev', 'channel': 'EW', 'mass_gev': 800, 'seed': 9504, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 1027, 'matched_xsec_pb': 0.0002738, 'matched_xsec_err_pb': 6.035e-06, 'wall_s': 140.9, 'status': 'ok', 'exit_code': 0}
+{'tag': 'colored_600gev', 'channel': 'colored', 'mass_gev': 600, 'seed': 9400, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 759, 'matched_xsec_pb': 0.9673, 'matched_xsec_err_pb': 0.02803, 'wall_s': 64.5, 'status': 'ok', 'exit_code': 0}
+{'tag': 'colored_900gev', 'channel': 'colored', 'mass_gev': 900, 'seed': 9401, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 798, 'matched_xsec_pb': 0.08669, 'matched_xsec_err_pb': 0.002434, 'wall_s': 64.8, 'status': 'ok', 'exit_code': 0}
+{'tag': 'EW_200gev', 'channel': 'EW', 'mass_gev': 200, 'seed': 9501, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 1264, 'matched_xsec_pb': 0.1092, 'matched_xsec_err_pb': 0.001891, 'wall_s': 101.3, 'status': 'ok', 'exit_code': 0}
+{'tag': 'EW_1000gev', 'channel': 'EW', 'mass_gev': 1000, 'seed': 9505, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 1052, 'matched_xsec_pb': 8.234e-05, 'matched_xsec_err_pb': 1.772e-06, 'wall_s': 119.2, 'status': 'ok', 'exit_code': 0}
+{'tag': 'colored_1800gev', 'channel': 'colored', 'mass_gev': 1800, 'seed': 9404, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 840, 'matched_xsec_pb': 0.0004396, 'matched_xsec_err_pb': 1.182e-05, 'wall_s': 63.6, 'status': 'ok', 'exit_code': 0}
+{'tag': 'colored_1200gev', 'channel': 'colored', 'mass_gev': 1200, 'seed': 9402, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 764, 'matched_xsec_pb': 0.01128, 'matched_xsec_err_pb': 0.0003241, 'wall_s': 60.1, 'status': 'ok', 'exit_code': 0}
+{'tag': 'colored_1500gev', 'channel': 'colored', 'mass_gev': 1500, 'seed': 9403, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 798, 'matched_xsec_pb': 0.002087, 'matched_xsec_err_pb': 5.818e-05, 'wall_s': 57.9, 'status': 'ok', 'exit_code': 0}
+{'tag': 'colored_2100gev', 'channel': 'colored', 'mass_gev': 2100, 'seed': 9405, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 829, 'matched_xsec_pb': 9.51e-05, 'matched_xsec_err_pb': 2.578e-06, 'wall_s': 48.8, 'status': 'ok', 'exit_code': 0}
+{'tag': 'colored_2400gev', 'channel': 'colored', 'mass_gev': 2400, 'seed': 9406, 'ebeam_gev': 6800.0, 'n_generated': 2000, 'n_matched': 859, 'matched_xsec_pb': 2.261e-05, 'matched_xsec_err_pb': 6.005e-07, 'wall_s': 44.1, 'status': 'ok', 'exit_code': 0}
+            tag channel  mass_gev  seed  ebeam_gev  n_generated  n_matched  matched_xsec_pb  matched_xsec_err_pb  wall_s status  exit_code
+      EW_100gev      EW       100  9500     6800.0         2000       1413         1.252000         1.858000e-02   111.1     ok          0
+      EW_200gev      EW       200  9501     6800.0         2000       1264         0.109200         1.891000e-03   101.3     ok          0
+      EW_400gev      EW       400  9502     6800.0         2000       1149         0.007225         1.421000e-04   128.8     ok          0
+      EW_600gev      EW       600  9503     6800.0         2000       1086         0.001173         2.436000e-05   136.8     ok          0
+      EW_800gev      EW       800  9504     6800.0         2000       1027         0.000274         6.035000e-06   140.9     ok          0
+     EW_1000gev      EW      1000  9505     6800.0         2000       1052         0.000082         1.772000e-06   119.2     ok          0
+ colored_600gev colored       600  9400     6800.0         2000        759         0.967300         2.803000e-02    64.5     ok          0
+ colored_900gev colored       900  9401     6800.0         2000        798         0.086690         2.434000e-03    64.8     ok          0
+colored_1200gev colored      1200  9402     6800.0         2000        764         0.011280         3.241000e-04    60.1     ok          0
+colored_1500gev colored      1500  9403     6800.0         2000        798         0.002087         5.818000e-05    57.9     ok          0
+colored_1800gev colored      1800  9404     6800.0         2000        840         0.000440         1.182000e-05    63.6     ok          0
+colored_2100gev colored      2100  9405     6800.0         2000        829         0.000095         2.578000e-06    48.8     ok          0
+colored_2400gev colored      2400  9406     6800.0         2000        859         0.000023         6.005000e-07    44.1     ok          0
+GEN_EXIT=0

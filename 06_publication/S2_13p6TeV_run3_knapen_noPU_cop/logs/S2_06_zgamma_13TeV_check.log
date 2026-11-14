@@ -1,0 +1,5 @@
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 851
+13TeV_check sigma (pb) 0.2316301 photons after MET > 200 GeV 9149 sigma after MET (pb) 0.21191837848999998
+ZGAMMA_EXIT=0

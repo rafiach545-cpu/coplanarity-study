@@ -29,6 +29,9 @@ These are new figures for stage 1 (13 TeV) and stage 2 (13.6 TeV). The figures o
 | F11_expected_events | expected signal events N at the best Λ of every mass point, 13 TeV 139 fb⁻¹ vs 13.6 TeV 332 fb⁻¹, with N = 3 / 5 and the μ = 50 σ_z = 0 requirement | expected_events.csv |
 | F12_pulls_13_vs_13p6 | permutation-test pulls of the selection efficiency per mass point, χ² and mean pull per channel | unc_consistency_mass.csv, unc_consistency.csv |
 | F13_reach_uncertainty | maximum reach with k/n-only and total statistical 16–84% bands, 13 vs 13.6 TeV | unc_reach.csv |
+| F14_expected_band | expected 95% CLs exclusion band ("Brazil band", n_obs ~ Poisson(b)) vs pile-up, sigma_z = 0, 13.6 TeV 332 fb^-1; drawn by `make_F14_expected_band.py` (helpers of make_figures_root.py, F01–F13 not redrawn) | expected_bands.csv, unc_reach.csv |
+| F15_production_and_pair_pt | production channel (gg, qq̄, qg from the Pythia8 status-21 partons) and pT(QQ̄) median and ε_trig per mass point, 13 and 13.6 TeV; drawn by `make_F15_production_pt.py` (F01–F14 not redrawn) | production_channels.csv, pair_pt.csv |
+| F16_grid_k_colored_13p6TeV | test figure: colored 13.6 TeV 332 fb^-1 (one panel of Fig. 4) with k written at every grid point (× for k = 0), Λ linear in keV, σ_z = 1.16 mm and 0, zoom strip 0–0.8 keV; Fig. 4 contours; drawn by `make_F16_grid_k.py` (F01–F15 not redrawn) | grid_k_13p6TeV.csv, contours.csv |
 
 ## Colours
 

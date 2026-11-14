@@ -49,7 +49,7 @@ NFIG = [0]
 def fig(name, w=174, head=None):
     p = f"{FIG}/{name}/{name}.png"; iw, ih = ImageReader(p).getSize(); cap = open(f"{FIG}/{name}/caption.md").read().strip()
     NFIG[0] += 1; cap = re.sub(r"^\*\*Fig\. \d+\.\*\*", f"**Figure {NFIG[0]}.**", cap)                 # numbered in report order; file tag kept
-    cap = cap.replace("**", "").replace("σ_z", "σ<sub>z</sub>").replace("ε_trig", "ε<sub>trig</sub>").replace("f_ch", "f<sub>ch</sub>").replace("m_Q", "m<sub>Q</sub>").replace("CL_s", "CL<sub>s</sub>").replace("s_req", "s<sub>req</sub>")
+    cap = cap.replace("**", "").replace("σ_z", "σ<sub>z</sub>").replace("ε_trig", "ε<sub>trig</sub>").replace("f_ch", "f<sub>ch</sub>").replace("m_Q", "m<sub>Q</sub>").replace("CL_s", "CL<sub>s</sub>").replace("s_req", "s<sub>req</sub>").replace("n_obs", "n<sub>obs</sub>")
     cap = cap.replace("(3,1)_{2/3}", "(3,1)<sub>2/3</sub>").replace("(1,1)_1", "(1,1)<sub>1</sub>").replace("σ_γ", "σ<sub>γ</sub>").replace("fb⁻¹", "fb<super>−1</super>")
     return KeepTogether(([head] if head else []) + [Image(p, width=w * mm, height=w * mm * ih / iw), P(cap + f' <font color="#5b6770">[{name}]</font>', "cap")])
 def s95(b):                                                                  # 95% CLs signal, n_obs = round(b) (as S1/S2 summaries)
@@ -59,7 +59,7 @@ fb = "fb<super>−1</super>"; f0 = lambda x: "–" if pd.isna(x) else f"{x:.0f}"
 R = pd.read_csv(f"{D}/reach_summary.csv"); BV = pd.read_csv(f"{D}/background_vs_mu.csv"); TB = pd.read_csv(f"{D}/background_13p6TeV_thresholds.csv")
 X = pd.read_csv(f"{D}/xsec_and_trigger.csv"); MX = pd.read_csv(f"{D}/mix_test_mu50.csv"); BT = pd.read_csv(f"{D}/bootstrap.csv"); RV = pd.read_csv(f"{D}/reach_variants.csv")
 FA = pd.read_csv(f"{D}/factors_13_vs_13p6.csv"); EV = pd.read_csv(f"{D}/expected_events.csv");
-UB, UR, UM, US = (pd.read_csv(f"{D}/unc_{f}.csv") for f in ("budget", "reach", "consistency_mass", "consistency")); S1B = pd.read_csv(f"{S1}/S1_background_run2.csv")
+UB, UR, UM, US = (pd.read_csv(f"{D}/unc_{f}.csv") for f in ("budget", "reach", "consistency_mass", "consistency")); S1B = pd.read_csv(f"{S1}/S1_background_run2.csv"); BD = pd.read_csv(f"{D}/expected_bands.csv"); PCH = pd.read_csv(f"{D}/production_channels.csv"); PPT = pd.read_csv(f"{D}/pair_pt.csv"); GK = pd.read_csv(f"{D}/grid_k_13p6TeV.csv")
 XS = {l.split()[0]: float(l.split()[1]) for l in open(f"{S2}/inputs/zgamma_xsec_13p6TeV.txt")}
 def rch(scen, ch, sct, cn):
     r = R[(R.scenario == scen) & (R.channel == ch) & (R.sct == sct) & (R.contour == cn)]
@@ -117,6 +117,8 @@ jz = lambda ch, sct: J.xs((ch, sct), level=("channel", "sct"))
 RVx = RV[RV.lumi_fb == 332]
 shift = [r.expected_13TeVeff_x_13p6sigma - R[(R.scenario == "13TeV_139fb") & (R.channel == r.channel) & (R.sct == r.sct) & (R.contour == r.contour)].m_max.iloc[0] for r in RVx.itertuples()]
 
+def bdr(ch, sct, mu): return BD[(BD.channel == ch) & (BD.sct == sct) & (BD["mu"] == mu)].iloc[0]
+def bdw(ch, mu): r = bdr(ch, "Z0", mu); return (r.reach_m1 - r.reach_p1) / 2      # half width of the expected +-1 sigma band, sigma_z = 0
 # ---- 0. plain-language summary
 c12 = lambda ch, sct, cn: R[(R.scenario == "13TeV_139fb") & (R.channel == ch) & (R.sct == sct) & (R.contour == cn)].m_max.iloc[0]
 E += [P("In simple words", "h2")]
@@ -139,7 +141,9 @@ E += B(["<b>What we did.</b> We ran the same quirk search twice: once at the Run
         f"<b>How sure are we.</b> Every number now has a statistical ±1σ (Sect. 5.4). The largest part comes from the small number of selected events k "
         f"({urng('Z1160')} on N at σ<sub>z</sub> = 1.16 mm, {urng('Z0')} at σ<sub>z</sub> = 0); σ, ε<sub>trig</sub> and f<sub>ch</sub> add only {gen_rng}. On the reach this is "
         f"{cv(ur(13.6,'colored','Z1160','exclusion'))} GeV (colored, 1.16 mm) and {cv(ur(13.6,'colored','Z0','exclusion'))} GeV (colored, σ<sub>z</sub> = 0). "
-        f"The test 'are the 13 and 13.6 TeV selection efficiencies the same?' passes for all four channels (p = {US[US.test.str.startswith('selection')].p_chi2.min():.2f}–{US[US.test.str.startswith('selection')].p_chi2.max():.2f}).",
+        f"The test 'are the 13 and 13.6 TeV selection efficiencies the same?' passes for all four channels (p = {US[US.test.str.startswith('selection')].p_chi2.min():.2f}–{US[US.test.str.startswith('selection')].p_chi2.max():.2f}). "
+        f"This ±1σ is the uncertainty of our simulation, not the 'Brazil band' of experiments (how much the observed limit can move because the data count fluctuates); "
+        f"that band is given separately in Sect. 5.5: zero width at σ<sub>z</sub> = 1.16 mm (no background), about ±{bdw('colored', 50):.0f} GeV (colored) and ±{bdw('EW', 50):.0f} GeV (EW) at σ<sub>z</sub> = 0, μ = 50.",
         "<b>Biggest limitation.</b> Too few simulated events near the reach limit (k = 0–9 passing events per point for colored, σ<sub>z</sub> = 1.16 mm). "
         "5–10 times larger samples there would remove the fluctuation question (Sect. 6, open points)."])
 
@@ -333,6 +337,90 @@ E += [key(f"<b>Conclusion 5.4.</b> The selection efficiency agrees between 13 an
           f"p = {et_e.p_signed_two:.2f}, higher at 13.6 TeV as a harder recoil would give). Each energy uses its own measured ε<sub>trig</sub>, so this does not bias N; "
           f"it is a point to check with the larger samples. The reach uncertainty is dominated by k/n: {z0rng} GeV for σ<sub>z</sub> = 0 and {pm(ur(13.6, 'colored', 'Z1160', 'exclusion'))} GeV for colored σ<sub>z</sub> = 1.16 mm (exclusion).")]
 
+# ---- 5.5 expected exclusion band (Brazil band)
+E += [PageBreak(), fig("F14_expected_band", 165, head=P("5.5 Expected exclusion band (\u201cBrazil band\u201d): how much the limit can move with the data", "h3"))]
+E += [P("Experiments draw a green (±1σ) and yellow (±2σ) band around the expected limit. It answers a different question from Sect. 5.4: if there is no signal, how far can "
+        "the observed limit move because the number of observed events n<sub>obs</sub> fluctuates around the background b? We compute it the standard way: n<sub>obs</sub> ~ Poisson(b), "
+        "for each n<sub>obs</sub> the 95% CL<sub>s</sub> signal s<sub>95</sub>(n<sub>obs</sub>, b) (same formula as in the main result, which uses n<sub>obs</sub> = round(b)), and the reach for that "
+        "s<sub>95</sub> with the central signal prediction. Band edges = n<sub>obs</sub> at the 2.3, 16, 50, 84 and 97.7% points of Poisson(b). More observed events give a weaker limit, "
+        "so the lower reach edge belongs to the upper n<sub>obs</sub> quantile. The signal MC uncertainty of Sect. 5.4 is not included (shown separately as the blue points in the figure).")]
+rows_e = []
+for r in BD.itertuples():
+    rows_e.append(Cc(r.channel, SCTN[r.sct], "–" if r.mu < 0 else int(r.mu), r.b_source.replace("S2_09 count ", "photons ").replace("95% UL of ", "95% UL, "), f"{r.b:.2f}", "/".join(str(int(getattr(r, f"n_obs_{q}"))) for q in ("m2", "m1", "med", "p1", "p2")),
+                     *[f"{getattr(r, f'reach_{q}'):.0f}" for q in ("p2", "p1", "med", "m1", "m2")], f"{r.nominal_reach:.0f}"))
+E += [grid([H("Channel", "SCT σ<sub>z</sub>", "μ", "b from", "b", "n<sub>obs</sub> quantiles", "reach −2σ", "−1σ", "median", "+1σ", "+2σ", "main result")] + rows_e,
+           [16, 12, 7, 30, 11, 22, 12, 10, 14, 10, 10, 13])]
+E += [P(f"13.6 TeV, 332 {fb}, exclusion reach in GeV; b in events; n<sub>obs</sub> at the 2.3/16/50/84/97.7% points of Poisson(b). −σ columns: the lower edge of the band (more events observed than expected); +σ: upper edge. "
+        "σ<sub>z</sub> = 1.16 mm: the main result uses b = 0 (no converted photon passes up to μ = 50), so n<sub>obs</sub> = 0 always and the band has zero width. "
+        "The rows with the 95% upper limit b<sub>UL</sub> = 0.25 events (0 of 9130 photons; 1 of 9130 at μ = 60 gives 0.08) are a conservative illustration: "
+        "n<sub>obs</sub> = 0 in 78% of experiments, so the median and the −1σ side do not move and only the lower edges drop (n<sub>obs</sub> = 1 or 2). "
+        "σ<sub>z</sub> = 0, μ = 0 has b = 0.25 from 3 of 9130 photons and behaves the same way.", "m")]
+z50c, z50e = bdr("colored", "Z0", 50), bdr("EW", "Z0", 50)
+E += [key(f"<b>Conclusion 5.5.</b> Where there is no background (σ<sub>z</sub> = 1.16 mm) the expected band has zero width: all the uncertainty is the simulation statistics of Sect. 5.4. "
+          f"With pile-up at σ<sub>z</sub> = 0 the background is 9–17 events and the band is wide: at μ = 50 the ±1σ band is {z50c.reach_p1:.0f}–{z50c.reach_m1:.0f} GeV (colored) and "
+          f"{z50e.reach_p1:.0f}–{z50e.reach_m1:.0f} GeV (EW), i.e. ±{bdw('colored', 50):.0f} and ±{bdw('EW', 50):.0f} GeV, as large as or larger than the MC uncertainty there "
+          f"({pmt(ur(13.6, 'colored', 'Z0', 'exclusion', 50), 'all')} and {pmt(ur(13.6, 'EW', 'Z0', 'exclusion', 50), 'all')} GeV). Our quoted reach (n<sub>obs</sub> = round(b)) equals the median of the band in every row. "
+          "Even the +2σ edge with pile-up stays below the σ<sub>z</sub> = 0 reach without pile-up, so the pile-up loss is not a statistical effect.")]
+
+# ---- 5.6 production channel and pair pT: why eps_trig depends on mass differently for colored and EW
+E += [PageBreak(), fig("F15_production_and_pair_pt", 160, head=P("5.6 Why ε<sub>trig</sub> rises with mass for EW but not for colored quirks", "h3"))]
+E += [P("The trigger asks pT(QQ̄) > 200 GeV, i.e. hard extra radiation. Two checks on the existing samples, without new simulation: (1) which initial state produced each event "
+        "(gg, qq̄ or qg), from the MG5 subprocess cross sections and, for the events the analysis uses, from the two incoming partons of the hard process in the HepMC file; "
+        "(2) the pT(QQ̄) distribution per mass point and per initial state.")]
+def pq(E, ch, m, prod="all"): return PPT[(PPT.sqrt_s_TeV == E) & (PPT.channel == ch) & (PPT.mass_gev == m) & (PPT.production == prod)]
+rows_p = []
+for ch in ("colored", "EW"):
+    for m in sorted(PCH[PCH.channel == ch].mass_gev.unique()):
+        a, b = (PCH[(PCH.sqrt_s_TeV == E) & (PCH.channel == ch) & (PCH.mass_gev == m)].iloc[0] for E in (13.0, 13.6))
+        fr = lambda r, k="matched": "/".join(f"{100 * r[f'{k}_frac_{x}']:.0f}" for x in ("gg", "qqbar", "qg"))
+        e = lambda E, prod="all": "–" if pq(E, ch, m, prod).empty else f"{pq(E, ch, m, prod).eps_trig.iloc[0]:.2f}"
+        md = lambda E: f"{pq(E, ch, m).pt_median.iloc[0]:.0f}"
+        rows_p.append(Cc(ch, m, fr(a), fr(b), fr(b, "prematch"), f"{md(13.0)} / {md(13.6)}", f"{e(13.0)} / {e(13.6)}", e(13.6, "gg"), e(13.6, "qqbar"), e(13.6, "qg")))
+E += [grid([H("Channel", "m<sub>Q</sub>", "13 TeV: gg/qq̄/qg [%]", "13.6 TeV: gg/qq̄/qg [%]", "13.6 TeV before matching [%]", "median pT(QQ̄) 13 / 13.6", "ε<sub>trig</sub> 13 / 13.6",
+                "ε<sub>trig</sub> gg", "ε<sub>trig</sub> qq̄", "ε<sub>trig</sub> qg")] + rows_p, [15, 11, 23, 23, 22, 21, 19, 13, 13, 13])]
+E += [P("Matched events (as used by the analysis), initial state from the Pythia8 status-21 partons; 'before matching': MG5 subprocess cross sections "
+        "(P0 + P1 directories, results.html), which agree in trend. Median pT in GeV (standard error 2–10 GeV). ε<sub>trig</sub> per initial state at 13.6 TeV; Wilson errors in S2_pair_pt.csv.", "m")]
+cq = PPT[(PPT.channel == "colored") & (PPT.sqrt_s_TeV == 13.6)]; cm = PCH[(PCH.channel == "colored") & (PCH.sqrt_s_TeV == 13.6)].sort_values("mass_gev")
+ew = PPT[(PPT.channel == "EW") & (PPT.production == "all")]
+rg = lambda d, c="eps_trig", f=".2f": f"{d[c].min():{f}}–{d[c].max():{f}}"
+E += [key(f"<b>Conclusion 5.6.</b> Colored: gg and qg events are hard (ε<sub>trig</sub> {rg(cq[cq.production == 'gg'])} and {rg(cq[cq.production == 'qg'])}, median pT "
+          f"{rg(cq[cq.production == 'gg'], 'pt_median', '.0f')} GeV), qq̄ events are soft (ε<sub>trig</sub> {rg(cq[cq.production == 'qqbar'])}, median {rg(cq[cq.production == 'qqbar'], 'pt_median', '.0f')} GeV). "
+          f"Each of them rises a little with mass, but the qq̄ share grows from {100 * cm.matched_frac_qqbar.iloc[0]:.0f}% at 600 GeV to {100 * cm.matched_frac_qqbar.iloc[-1]:.0f}% at 2400 GeV "
+          f"(gg falls from {100 * cm.matched_frac_gg.iloc[0]:.0f}% to {100 * cm.matched_frac_gg.iloc[-1]:.0f}%), at both energies. The two effects cancel, so the overall median pT "
+          f"({rg(cq[cq.production == 'all'], 'pt_median', '.0f')} GeV) and ε<sub>trig</sub> ({rg(cq[cq.production == 'all'])}) stay flat. EW quirks are made only from qq̄ (≈ 90%) and qg, "
+          f"so there is no such mix change, and the median pT ({rg(ew, 'pt_median', '.0f')} GeV) and ε<sub>trig</sub> ({rg(ew)}) rise with mass. "
+          "13 and 13.6 TeV show the same pattern. This explains the trigger pattern from the samples themselves; it also means a small random change of the gg share at one "
+          "mass point moves the colored ε<sub>trig</sub>, part of the extra scatter seen in Sect. 5.4.")]
+
+# ---- 5.7 k at every grid point (test figure)
+E += [PageBreak(), fig("F16_grid_k_colored_13p6TeV", 160, head=P("5.7 On how few events does the contour stand? k at every grid point (colored, 13.6 TeV)", "h3"))]
+def bracket(ch, sct, thr):                                                   # per Lambda: the two neighbouring k > 0 mass points with N >= thr > N (as the reach algorithm)
+    g = GK[(GK.channel == ch) & (GK.sct == sct)]; out = []
+    for lam, d in g.groupby("lambda_keV"):
+        d = d.sort_values("mass_gev").reset_index(drop=True)
+        for i in range(len(d) - 1):
+            a, b = d.iloc[i], d.iloc[i + 1]
+            if a.k > 0 and b.k > 0 and a.N_332fb >= thr > b.N_332fb: out.append(dict(lam=lam, m_in=a.mass_gev, k_in=int(a.k), m_out=b.mass_gev, k_out=int(b.k)))
+    return pd.DataFrame(out)
+def per_event(ch, m):                                                        # expected events carried by one passing event, 332 fb^-1
+    r = GK[(GK.channel == ch) & (GK.mass_gev == m) & (GK.k > 0)].iloc[0]; return r.N_332fb / r.k
+rows_k = []
+for sct in ("Z1160", "Z0"):
+    for thr, cn in ((3, "N = 3 (exclusion)"), (5, "N = 5 (discovery)")):
+        b = bracket("colored", sct, thr)
+        rows_k.append(Cc(SCTN[sct], cn, len(b), f"{b.k_in.min()}–{b.k_in.max()} (median {b.k_in.median():.0f})", f"{b.k_out.min()}–{b.k_out.max()} (median {b.k_out.median():.0f})",
+                         ", ".join(sorted({f"{int(x)}–{int(y)}" for x, y in zip(b.m_in, b.m_out)}))))
+E += [grid([H("SCT σ<sub>z</sub>", "contour", "Λ columns crossed", "k at the inner point (N ≥ threshold)", "k at the outer point", "mass interval [GeV]")] + rows_k, [18, 28, 18, 38, 34, 38])]
+pe = {m: per_event("colored", m) for m in (1200, 1500, 1800)}
+E += [P(f"Inner / outer point: the two neighbouring grid points (k > 0) between which the contour is interpolated, one Λ column at a time, as in the reach algorithm "
+        f"(k = 0 points are left out). One passing event is worth {pe[1200]:.1f}, {pe[1500]:.1f} and {pe[1800]:.1f} expected events at 1200, 1500 and 1800 GeV (332 {fb}).", "m")]
+bz, b0 = bracket("colored", "Z1160", 3), bracket("colored", "Z0", 3)
+E += [key(f"<b>Conclusion 5.7.</b> At σ<sub>z</sub> = 1.16 mm the colored N = 3 contour stands on k = {bz.k_in.min()}–{bz.k_in.max()} passing events at the inner point and "
+          f"{bz.k_out.min()}–{bz.k_out.max()} at the outer point: one event more or less changes N by {pe[1200]:.1f} at 1200 GeV and {pe[1500]:.1f} at 1500 GeV, comparable to the whole step from N = 3 to N = 5 (ΔN = 2). "
+          f"Many points beyond the contour have k = 0 or 1. At σ<sub>z</sub> = 0 the same events give k = {b0.k_in.min()}–{b0.k_in.max()} (inner) and {b0.k_out.min()}–{b0.k_out.max()} (outer), "
+          "so that contour is much better determined. This is why the colored σ<sub>z</sub> = 1.16 mm reach carries the largest statistical uncertainty (Sect. 5.4) "
+          "and why larger samples near 1200–2100 GeV are the most useful next step.")]
+
 # ---- 6. overview
 E += [PageBreak(), fig("F08_reach_summary", 160, head=P("6. Overview", "h2"))]
 sc = [("13TeV_139fb", f"13 TeV, 139 {fb}"), ("13p6TeV_332fb", f"13.6 TeV, 332 {fb}"), ("13p6TeV_332fb_mu50", f"13.6 TeV, 332 {fb}, μ = 50"), ("13p6TeV_332fb_pooled_eff", "13.6 TeV, 332, pooled ε")]
@@ -356,7 +444,7 @@ E += B(["Sample size is the largest limitation: colored σ<sub>z</sub> = 1.16 mm
         "Signal efficiencies with pile-up overlaid (here, as in the paper, without).",
         "Next stages of the plan (not started): ATLAS-like and CMS-like detectors, GNN, HL-LHC."])
 E += [P("Files", "h3")]
-E += [P("Stage folders: 06_publication/S1_13TeV_139fb_knapen_noPU_cop, 06_publication/S2_13p6TeV_run3_knapen_noPU_cop (scripts S2_01–S2_10, README). Figures: "
+E += [P("Stage folders: 06_publication/S1_13TeV_139fb_knapen_noPU_cop, 06_publication/S2_13p6TeV_run3_knapen_noPU_cop (scripts S2_01–S2_13, README). Figures: "
         "06_publication/FIGURES_ROOT_2026-11-04 (prepare_data.py → data/*.csv; make_figures_root.py, ROOT 6.40 → Fxx/*.pdf, .png, .root, .C, caption.md, provenance.json with "
         "sha256 of every input). This report: 06_publication/REPORT_2026-11-04/make_report.py.", "m")]
 def foot(c, d):

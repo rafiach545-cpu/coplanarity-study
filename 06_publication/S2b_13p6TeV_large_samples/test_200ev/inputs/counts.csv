@@ -1,0 +1,3 @@
+channel,mass_gev,n_chunks,n_generated,n_matched,sigma_matched_fb,sigma_matched_err_fb,n_trigger,n_trigger_both_charged
+EW,550,1,200,111,1.763,0.1129,15,15
+colored,1350,1,200,82,4.998,0.4249,17,5

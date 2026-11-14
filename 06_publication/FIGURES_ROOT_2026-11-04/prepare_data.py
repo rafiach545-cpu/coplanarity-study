@@ -123,4 +123,11 @@ EV = pd.DataFrame(ev); EV.loc[EV.scenario == "13p6TeV_332fb", "pre_N"] *= 332.0 
 EV.to_csv(f"{D}/expected_events.csv", index=False)
 # ---- D9: statistical uncertainties (S2_11_uncertainties.py): budget, reach toys, 13 vs 13.6 TeV consistency
 for f in ("budget", "reach", "consistency_mass", "consistency"): rd(f"{S2}/S2_unc_{f}.csv").to_csv(f"{D}/unc_{f}.csv", index=False)
+# ---- D10: expected exclusion bands, n_obs ~ Poisson(b) (S2_12_expected_bands.py)
+rd(f"{S2}/S2_expected_bands.csv").to_csv(f"{D}/expected_bands.csv", index=False)
+# ---- D11: production channels and pair pT (S2_13_production_and_pt.py)
+for f in ("production_channels", "pair_pt"): rd(f"{S2}/S2_{f}.csv").to_csv(f"{D}/{f}.csv", index=False)
+# ---- D12: k and n of every 13.6 TeV grid point (S2_N_grid_300fb.csv); N also at 332 fb^-1 (N is linear in L, k and n do not depend on L)
+G12 = rd(f"{S2}/S2_N_grid_300fb.csv")[["channel", "mass_gev", "lambda_keV", "sct", "status_with_f", "n_prop", "k", "N_with_f"]].rename(columns={"N_with_f": "N_300fb"})
+G12["N_332fb"] = G12.N_300fb * 332.0 / 300.0; G12.to_csv(f"{D}/grid_k_13p6TeV.csv", index=False)
 json.dump(SRC, open(f"{D}/sources.json", "w"), indent=1); print("prepared:", sorted(os.listdir(D)))

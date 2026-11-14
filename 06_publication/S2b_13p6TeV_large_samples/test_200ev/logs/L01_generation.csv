@@ -1,0 +1,3 @@
+tag,channel,mass_gev,chunk,seed,n_generated,n_matched,matched_xsec_pb,matched_xsec_err_pb,wall_s,status,exit_code
+colored_1350gev_c00,colored,1350,0,754000,200,82,0.004998,0.0004249,14.2,ok,0
+EW_550gev_c00,EW,550,0,822000,200,111,0.001763,0.0001129,42.3,ok,0

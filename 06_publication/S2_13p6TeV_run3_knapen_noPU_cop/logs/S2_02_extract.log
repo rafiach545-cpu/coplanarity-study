@@ -1,0 +1,41 @@
+{'channel': 'EW', 'mass_gev': 100, 'n_generated': 2000, 'n_matched': 1413, 'sigma_matched_fb': 1252.0, 'sigma_matched_err_fb': 18.58, 'n_trigger': 47, 'n_trigger_both_charged': 47}
+{'channel': 'EW', 'mass_gev': 200, 'n_generated': 2000, 'n_matched': 1264, 'sigma_matched_fb': 109.2, 'sigma_matched_err_fb': 1.891, 'n_trigger': 94, 'n_trigger_both_charged': 94}
+{'channel': 'EW', 'mass_gev': 400, 'n_generated': 2000, 'n_matched': 1149, 'sigma_matched_fb': 7.225, 'sigma_matched_err_fb': 0.1421, 'n_trigger': 135, 'n_trigger_both_charged': 135}
+{'channel': 'EW', 'mass_gev': 600, 'n_generated': 2000, 'n_matched': 1086, 'sigma_matched_fb': 1.173, 'sigma_matched_err_fb': 0.02436, 'n_trigger': 159, 'n_trigger_both_charged': 159}
+{'channel': 'EW', 'mass_gev': 800, 'n_generated': 2000, 'n_matched': 1027, 'sigma_matched_fb': 0.2738, 'sigma_matched_err_fb': 0.0060349999999999996, 'n_trigger': 174, 'n_trigger_both_charged': 174}
+{'channel': 'EW', 'mass_gev': 1000, 'n_generated': 2000, 'n_matched': 1052, 'sigma_matched_fb': 0.08234, 'sigma_matched_err_fb': 0.001772, 'n_trigger': 192, 'n_trigger_both_charged': 192}
+{'channel': 'colored', 'mass_gev': 600, 'n_generated': 2000, 'n_matched': 759, 'sigma_matched_fb': 967.3000000000001, 'sigma_matched_err_fb': 28.03, 'n_trigger': 160, 'n_trigger_both_charged': 44}
+{'channel': 'colored', 'mass_gev': 900, 'n_generated': 2000, 'n_matched': 798, 'sigma_matched_fb': 86.69, 'sigma_matched_err_fb': 2.434, 'n_trigger': 214, 'n_trigger_both_charged': 68}
+{'channel': 'colored', 'mass_gev': 1200, 'n_generated': 2000, 'n_matched': 764, 'sigma_matched_fb': 11.28, 'sigma_matched_err_fb': 0.3241, 'n_trigger': 220, 'n_trigger_both_charged': 85}
+{'channel': 'colored', 'mass_gev': 1500, 'n_generated': 2000, 'n_matched': 798, 'sigma_matched_fb': 2.0869999999999997, 'sigma_matched_err_fb': 0.05818, 'n_trigger': 226, 'n_trigger_both_charged': 64}
+{'channel': 'colored', 'mass_gev': 1800, 'n_generated': 2000, 'n_matched': 840, 'sigma_matched_fb': 0.4396, 'sigma_matched_err_fb': 0.01182, 'n_trigger': 197, 'n_trigger_both_charged': 66}
+{'channel': 'colored', 'mass_gev': 2100, 'n_generated': 2000, 'n_matched': 829, 'sigma_matched_fb': 0.09509999999999999, 'sigma_matched_err_fb': 0.002578, 'n_trigger': 189, 'n_trigger_both_charged': 54}
+{'channel': 'colored', 'mass_gev': 2400, 'n_generated': 2000, 'n_matched': 859, 'sigma_matched_fb': 0.022609999999999998, 'sigma_matched_err_fb': 0.0006005, 'n_trigger': 188, 'n_trigger_both_charged': 58}
+    channel  mass_gev  n_generated  n_matched  sigma_matched_fb  sigma_matched_err_fb  n_trigger  n_trigger_both_charged
+0        EW       100         2000       1413        1252.00000             18.580000         47                      47
+1        EW       200         2000       1264         109.20000              1.891000         94                      94
+2        EW       400         2000       1149           7.22500              0.142100        135                     135
+3        EW       600         2000       1086           1.17300              0.024360        159                     159
+4        EW       800         2000       1027           0.27380              0.006035        174                     174
+5        EW      1000         2000       1052           0.08234              0.001772        192                     192
+6   colored       600         2000        759         967.30000             28.030000        160                      44
+7   colored       900         2000        798          86.69000              2.434000        214                      68
+8   colored      1200         2000        764          11.28000              0.324100        220                      85
+9   colored      1500         2000        798           2.08700              0.058180        226                      64
+10  colored      1800         2000        840           0.43960              0.011820        197                      66
+11  colored      2100         2000        829           0.09510              0.002578        189                      54
+12  colored      2400         2000        859           0.02261              0.000601        188                      58
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
