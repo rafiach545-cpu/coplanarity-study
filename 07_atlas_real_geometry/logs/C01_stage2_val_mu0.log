@@ -1,0 +1,6 @@
+C01 stage2 mu=0.0 material=True sct=Z0 photons=200 chunks to run 4 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/runs/C01_stage2_val_mu0
+  chunk 50 (1/4) 12s
+  chunk 0 (2/4) 12s
+  chunk 100 (3/4) 12s
+  chunk 150 (4/4) 12s
+C01_EXIT=0

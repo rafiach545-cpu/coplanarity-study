@@ -1,0 +1,223 @@
+C01 atlas mu=0.0 material=True sct=both photons=9130 chunks to run 183 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/runs/C01_atlas_mu0
+  chunk 100 (1/183) 15s
+  chunk 50 (2/183) 15s
+  chunk 0 (3/183) 15s
+  chunk 150 (4/183) 15s
+  chunk 200 (5/183) 16s
+  chunk 250 (6/183) 16s
+  chunk 300 (7/183) 17s
+  chunk 450 (8/183) 17s
+  chunk 400 (9/183) 17s
+  chunk 500 (10/183) 17s
+  chunk 350 (11/183) 17s
+  chunk 550 (12/183) 17s
+  chunk 600 (13/183) 18s
+  chunk 650 (14/183) 18s
+  chunk 700 (15/183) 18s
+  chunk 750 (16/183) 18s
+  chunk 800 (17/183) 18s
+  chunk 850 (18/183) 19s
+  chunk 900 (19/183) 19s
+  chunk 950 (20/183) 19s
+  chunk 1000 (21/183) 19s
+  chunk 1050 (22/183) 20s
+  chunk 1100 (23/183) 20s
+  chunk 1200 (24/183) 20s
+  chunk 1150 (25/183) 20s
+  chunk 1250 (26/183) 20s
+  chunk 1300 (27/183) 20s
+  chunk 1350 (28/183) 21s
+  chunk 1400 (29/183) 21s
+  chunk 1450 (30/183) 22s
+  chunk 1500 (31/183) 22s
+  chunk 1550 (32/183) 22s
+  chunk 1600 (33/183) 22s
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/C01_conversion_bkg.py", line 112, in chunk_job
+    for i in range(start, min(start + CHUNK, len(PH), A.first or 10 ** 9)): rows += event(i)
+                                                                                    ^^^^^^^^
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/C01_conversion_bkg.py", line 97, in event
+    res, w = cop07.analyse(merged, (0.0, 0.0, z0), ELS)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/../sim/cop07.py", line 193, in analyse
+    cands, by = reconstruct(hits, origin, els, kind_of)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/../sim/cop07.py", line 186, in reconstruct
+    cands = seeding_and_iterative_fit(hbl, {k: make(k) for k in range(1, 9)})
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/../sim/cop07.py", line 113, in seeding_and_iterative_fit
+    p8, p7 = (_pairs(hbl.get(k, []), dlong[k].vec, dphi_max, dlong_max) for k in (8, 7))
+    ^^^^^^
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/../sim/cop07.py", line 113, in <genexpr>
+    p8, p7 = (_pairs(hbl.get(k, []), dlong[k].vec, dphi_max, dlong_max) for k in (8, 7))
+                                     ^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'vec'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/C01_conversion_bkg.py", line 133, in <module>
+    main()
+  File "/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/C01_conversion_bkg.py", line 126, in main
+    for k, (start, rows) in enumerate(pool.imap_unordered(chunk_job, todo), 1):
+  File "/home/rafia/miniconda3/envs/hep/lib/python3.11/multiprocessing/pool.py", line 873, in next
+    raise value
+AttributeError: 'function' object has no attribute 'vec'
+C01 atlas mu=0.0 material=True sct=both photons=9130 chunks to run 150 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/runs/C01_atlas_mu0
+  chunk 1650 (1/150) 17s
+  chunk 1700 (2/150) 17s
+  chunk 1750 (3/150) 17s
+  chunk 1800 (4/150) 17s
+  chunk 1850 (5/150) 18s
+  chunk 2050 (6/150) 18s
+  chunk 2100 (7/150) 18s
+  chunk 1900 (8/150) 19s
+  chunk 2150 (9/150) 19s
+  chunk 1950 (10/150) 19s
+  chunk 2200 (11/150) 19s
+  chunk 2000 (12/150) 19s
+  chunk 2250 (13/150) 19s
+  chunk 2300 (14/150) 20s
+  chunk 2350 (15/150) 20s
+  chunk 2400 (16/150) 20s
+  chunk 2550 (17/150) 21s
+  chunk 2450 (18/150) 21s
+  chunk 2500 (19/150) 21s
+  chunk 2600 (20/150) 21s
+  chunk 2650 (21/150) 21s
+  chunk 2750 (22/150) 22s
+  chunk 2700 (23/150) 22s
+  chunk 2900 (24/150) 22s
+  chunk 2800 (25/150) 22s
+  chunk 2850 (26/150) 22s
+  chunk 2950 (27/150) 23s
+  chunk 3000 (28/150) 23s
+  chunk 3050 (29/150) 23s
+  chunk 3150 (30/150) 24s
+  chunk 3100 (31/150) 24s
+  chunk 3200 (32/150) 24s
+  chunk 3250 (33/150) 24s
+  chunk 3300 (34/150) 24s
+  chunk 3350 (35/150) 24s
+  chunk 3450 (36/150) 25s
+  chunk 3400 (37/150) 25s
+  chunk 3550 (38/150) 26s
+  chunk 3500 (39/150) 26s
+  chunk 3600 (40/150) 26s
+  chunk 3650 (41/150) 26s
+  chunk 3700 (42/150) 26s
+  chunk 3750 (43/150) 27s
+  chunk 3800 (44/150) 27s
+  chunk 3850 (45/150) 27s
+  chunk 3900 (46/150) 27s
+  chunk 3950 (47/150) 27s
+  chunk 4000 (48/150) 28s
+  chunk 4050 (49/150) 28s
+  chunk 4100 (50/150) 28s
+  chunk 4150 (51/150) 28s
+  chunk 4200 (52/150) 29s
+  chunk 4300 (53/150) 29s
+  chunk 4250 (54/150) 29s
+  chunk 4350 (55/150) 29s
+  chunk 4400 (56/150) 30s
+  chunk 4450 (57/150) 30s
+  chunk 4500 (58/150) 30s
+  chunk 4600 (59/150) 30s
+  chunk 4550 (60/150) 30s
+  chunk 4650 (61/150) 31s
+  chunk 4750 (62/150) 31s
+  chunk 4700 (63/150) 31s
+  chunk 4800 (64/150) 31s
+  chunk 4850 (65/150) 31s
+  chunk 4950 (66/150) 31s
+  chunk 5000 (67/150) 31s
+  chunk 4900 (68/150) 31s
+  chunk 5050 (69/150) 32s
+  chunk 5150 (70/150) 32s
+  chunk 5100 (71/150) 32s
+  chunk 5200 (72/150) 32s
+  chunk 5250 (73/150) 32s
+  chunk 5400 (74/150) 33s
+  chunk 5350 (75/150) 33s
+  chunk 5300 (76/150) 33s
+  chunk 5450 (77/150) 34s
+  chunk 5500 (78/150) 34s
+  chunk 5550 (79/150) 34s
+  chunk 5650 (80/150) 34s
+  chunk 5600 (81/150) 34s
+  chunk 5700 (82/150) 35s
+  chunk 5800 (83/150) 35s
+  chunk 5750 (84/150) 35s
+  chunk 5950 (85/150) 35s
+  chunk 5850 (86/150) 35s
+  chunk 5900 (87/150) 35s
+  chunk 6000 (88/150) 36s
+  chunk 6050 (89/150) 36s
+  chunk 6150 (90/150) 36s
+  chunk 6100 (91/150) 37s
+  chunk 6200 (92/150) 37s
+  chunk 6250 (93/150) 37s
+  chunk 6350 (94/150) 37s
+  chunk 6300 (95/150) 37s
+  chunk 6400 (96/150) 37s
+  chunk 6450 (97/150) 37s
+  chunk 6500 (98/150) 38s
+  chunk 6600 (99/150) 38s
+  chunk 6550 (100/150) 38s
+  chunk 6650 (101/150) 39s
+  chunk 6750 (102/150) 39s
+  chunk 6700 (103/150) 39s
+  chunk 6800 (104/150) 39s
+  chunk 6850 (105/150) 39s
+  chunk 6900 (106/150) 40s
+  chunk 6950 (107/150) 40s
+  chunk 7000 (108/150) 40s
+  chunk 7150 (109/150) 40s
+  chunk 7100 (110/150) 40s
+  chunk 7050 (111/150) 40s
+  chunk 7200 (112/150) 40s
+  chunk 7250 (113/150) 41s
+  chunk 7300 (114/150) 42s
+  chunk 7500 (115/150) 42s
+  chunk 7400 (116/150) 42s
+  chunk 7450 (117/150) 42s
+  chunk 7350 (118/150) 42s
+  chunk 7550 (119/150) 42s
+  chunk 7600 (120/150) 42s
+  chunk 7650 (121/150) 43s
+  chunk 7700 (122/150) 43s
+  chunk 7750 (123/150) 44s
+  chunk 7850 (124/150) 44s
+  chunk 7800 (125/150) 44s
+  chunk 7900 (126/150) 44s
+  chunk 8000 (127/150) 44s
+  chunk 7950 (128/150) 44s
+  chunk 8050 (129/150) 44s
+  chunk 8100 (130/150) 45s
+  chunk 8150 (131/150) 45s
+  chunk 8250 (132/150) 45s
+  chunk 8200 (133/150) 46s
+  chunk 8300 (134/150) 46s
+  chunk 8400 (135/150) 46s
+  chunk 8350 (136/150) 46s
+  chunk 8450 (137/150) 46s
+  chunk 8500 (138/150) 47s
+  chunk 8550 (139/150) 47s
+  chunk 8600 (140/150) 47s
+  chunk 8650 (141/150) 48s
+  chunk 8750 (142/150) 48s
+  chunk 8800 (143/150) 48s
+  chunk 8700 (144/150) 48s
+  chunk 8850 (145/150) 48s
+  chunk 9100 (146/150) 49s
+  chunk 8900 (147/150) 49s
+  chunk 8950 (148/150) 49s
+  chunk 9050 (149/150) 49s
+  chunk 9000 (150/150) 49s
+C01_EXIT=0

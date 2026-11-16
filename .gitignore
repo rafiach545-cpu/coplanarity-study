@@ -34,3 +34,6 @@ FIG6_HIGH_BAND_BUNDLE_*.tar.gz
 # 2026-11-14: 06_publication raw outputs kept locally, not pushed (regenerable; 3.4 GB)
 06_publication/**/displays_*.jsonl
 06_publication/**/minbias_pool_*.csv
+# 2026-11-15: third-party reference papers for 07 (local copies; REFERENCES.md and MD5SUMS_pdf.txt are tracked)
+07_atlas_real_geometry/references/pdf/
+07_atlas_real_geometry/references/text/

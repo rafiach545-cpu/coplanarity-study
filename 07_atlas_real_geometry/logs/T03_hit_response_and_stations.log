@@ -1,0 +1,7 @@
+(a) pixel disk: max |dr| = 200.0 um (<= 200), max r-phi error scaled to r_ref = 25.0 um (<= 25; angular pitch 50 um / r_ref)
+(b) SCT disk: std(dr) = 1162.1 um (1160), std(r dphi) = 33.94 um (34), means 1.55 / 0.104 um
+(c) resmear: Z1160 -> Z0 max diff 7.1e-15 cm, Z0 -> Z1160 max diff 7.1e-15 cm
+(d) disk pixel merging: neighbours -> 1 cluster (count 2), 3 pixels apart -> 2 clusters
+(e) synthetic pairs (pT 1 TeV, 1 cm apart in theta at the 8th station, SCT r-phi 34 um), eta 0-2.4: same 8-station sequence 38 -> final selection passed: 38/38; different sequences (boundaries, an element just missed) 11 -> passed 5/11
+(f) barrel station list for |eta| <= 1.0: 21/21 equal to the 8 barrel layers
+T03_PASS

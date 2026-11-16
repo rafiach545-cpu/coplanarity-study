@@ -1,0 +1,36 @@
+element,region,name,r_mm,r_min_mm,r_max_mm,z_mm,half_z_mm,ring_dz_mm,res_rphi_um,res_long_um,long_dir,pitch,tilt_deg,n_units,status,ref,location,note
+pixel,barrel,IBL,33.25,,,,330.15,,10,60,z,50x250 um,14,14 staves x 20 modules,VERIFIED,R1;R2,"R1 Table 1 (radius, pitch, resolution); R2 Table 1 (active |z| stave length 330.15 mm, stave tilt 14 deg, 14 staves, 20 modules per stave)","CONFLICT: R2 Table 1 gives 'Center of the sensor radius 33.5 mm'; R1 gives 33.25 mm. 33.25 kept (same as Stages 1-2)."
+pixel,barrel,PIX1,50.5,,,,400.5,,10,115,z,50x400 um,20,22 staves x 13 modules (286),VERIFIED,R1;R3,"R1 Table 1; R3 Table 4.3 + caption ('active barrel length is 801 mm', staves tilted at 20 deg), Table 4.1 (10 x 115 um)",radius is an average value (staves tilted) - R3 Table 4.3 caption
+pixel,barrel,PIX2,88.5,,,,400.5,,10,115,z,50x400 um,20,38 staves x 13 modules (494),VERIFIED,R1;R3,same as PIX1,
+pixel,barrel,PIX3,122.5,,,,400.5,,10,115,z,50x400 um,20,52 staves x 13 modules (676),VERIFIED,R1;R3,same as PIX1,
+sct,barrel,SCT1,299,,,,749,,17,580,z,80 um; 40 mrad stereo,11.00,384 modules,VERIFIED,R1;R3,"R3 Table 4.5 (active radius 299 mm in brackets, active length 1498 mm, tilt 11.00 deg, 384 modules); R3 Table 4.1 and module table (17 um R-phi, 580 um z from the 40 mrad stereo angle)",half_z = 1498/2
+sct,barrel,SCT2,371,,,,749,,17,580,z,80 um; 40 mrad stereo,11.00,480 modules,VERIFIED,R1;R3,same as SCT1,
+sct,barrel,SCT3,443,,,,749,,17,580,z,80 um; 40 mrad stereo,11.25,576 modules,VERIFIED,R1;R3,same as SCT1,
+sct,barrel,SCT4,514,,,,749,,17,580,z,80 um; 40 mrad stereo,11.25,672 modules,VERIFIED,R1;R3,same as SCT1,
+pixel,endcap,PIXD1,,88.8,149.6,495,,,10,115,r,50x400 um,,8 sectors x 6 modules (48) per side,VERIFIED,R1;R3,"R1 Table 1 (|z| 495, 580, 650); R3 Table 4.3 (z, sectors, modules) + caption ('inner and outer active radii of each disk are respectively 88.8 and 149.6 mm'); R3 Table 4.1 (10 R-phi x 115 R)",both sides (+z and -z); z is an average value (R3 Table 4.3 caption)
+pixel,endcap,PIXD2,,88.8,149.6,580,,,10,115,r,50x400 um,,48 modules per side,VERIFIED,R1;R3,same as PIXD1,
+pixel,endcap,PIXD3,,88.8,149.6,650,,,10,115,r,50x400 um,,48 modules per side,VERIFIED,R1;R3,same as PIXD1,
+sct,endcap_ring,SCTD1_outer,,438.77,560.00,853.8,,-15.25,17,580,r,radial strips (161.5 urad),,52 modules,VERIFIED,R3,"R3 Table 4.6 (disk |z|, rings per disk, displacement of module centres by 15.25 mm); R3 SCT module table (ring radii)","ring_dz: inner and outer module centres displaced towards the IP by 15.25 mm (disks 1-8); middle away by 15.25 mm; disk 9 away by 15.25 mm"
+sct,endcap_ring,SCTD1_middle,,337.60,455.30,853.8,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,disk 1 has no inner ring (R3 Table 4.6)
+sct,endcap_ring,SCTD2_outer,,438.77,560.00,934.0,,-15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD2_middle,,337.60,455.30,934.0,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD2_inner,,275.00,334.10,934.0,,-15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD3_outer,,438.77,560.00,1091.5,,-15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD3_middle,,337.60,455.30,1091.5,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD3_inner,,275.00,334.10,1091.5,,-15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD4_outer,,438.77,560.00,1299.9,,-15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD4_middle,,337.60,455.30,1299.9,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD4_inner,,275.00,334.10,1299.9,,-15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD5_outer,,438.77,560.00,1399.7,,-15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD5_middle,,337.60,455.30,1399.7,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD5_inner,,275.00,334.10,1399.7,,-15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD6_outer,,438.77,560.00,1771.4,,-15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD6_middle,,337.60,455.30,1771.4,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD6_inner,,275.00,334.10,1771.4,,-15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD7_outer,,438.77,560.00,2115.2,,-15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,disk 7 has no inner ring
+sct,endcap_ring,SCTD7_middle,,337.60,455.30,2115.2,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,same,
+sct,endcap_ring,SCTD8_outer,,438.77,560.00,2505.0,,-15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,disk 8 has no inner ring
+sct,endcap_ring,SCTD8_shortmiddle,,402.82,455.30,2505.0,,+15.25,17,580,r,radial strips,,40 modules,VERIFIED,R3,"same; 'short-middle end-cap: radius 402.82 - 455.30 mm' (disk 8 middle modules have one sensor, R3 Table 4.6)",
+sct,endcap_ring,SCTD9_outer,,438.77,560.00,2720.2,,+15.25,17,580,r,radial strips,,52 modules,VERIFIED,R3,same,disk 9 has only outer modules; displaced away from the IP
+beampipe,passive,BP,23.5,,,,,,,,,,,,VERIFIED,R6;R2,"R6 Sec. 2: 0.8-mm-thick beryllium pipe, inner radius 23.5 mm, outer 24.3 mm (|z| < 30 mm) to 28.2 mm (|z| > 311 mm); R2 Sec. 2.1",material in atlas_run2_id_material.csv
+field,solenoid,B,,,,,,,,,,,,,VERIFIED,R4;R1,"R4 Sec. 2.1: 1.998 T at the IP, ~1.8 T at z = 1.7 m, ~0.9 T at the end of the ID cavity (Fig. 2.9); R1 Sec. 2.1: 2 T axial",Stages 1-2 use a uniform 2 T (as Ref. [34] App. A)

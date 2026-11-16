@@ -1,0 +1,15 @@
+events compared: 200 (new run 200, Stage 2 rows 9130)
+  n_conv_hits_raw      differing events: 0
+  n_pu_interactions    differing events: 0
+  n_pu_hits_raw        differing events: 0
+  n_hits_merged        differing events: 0
+  n_candidates         differing events: 0
+  best_layers          differing events: 0
+  plane                differing events: 0   (Stage 2 True: 88, new True: 88)
+  mult                 differing events: 0   (Stage 2 True: 0, new True: 0)
+  dw_pass              differing events: 0   (Stage 2 True: 88, new True: 88)
+  ds_pass              differing events: 0   (Stage 2 True: 88, new True: 88)
+  final                differing events: 0   (Stage 2 True: 0, new True: 0)
+  ds                   max |difference| 3.3e-08 cm (max relative 3.3e-03), NaN mismatches 0
+  dw                   max |difference| 1.3e-11 cm (max relative 2.8e-10), NaN mismatches 0
+T05_PASS

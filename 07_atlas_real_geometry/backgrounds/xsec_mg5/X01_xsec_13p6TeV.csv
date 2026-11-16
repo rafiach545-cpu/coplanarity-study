@@ -1,0 +1,4 @@
+process,mg5_process,sqrt_s_TeV,cuts,sigma_pb,sigma_err_pb,order,N_at_332fb,source
+Z(nunu)+j,"p p > z j, z > vl vl~",13.6,"misset > 200 GeV, ptj > 20 GeV, |eta_j| < 5",10.79,0.081,LO parton level,3.58e6,X01_xsec_mg5.sh (this folder); log /home/rafia/hep_tools/07_bkg_xsec_runs/zvvj.log
+W(lnu)+j,"p p > w+ j, w+ > l+ vl ; p p > w- j, w- > l- vl~ (l = e, mu, tau)",13.6,"misset > 200 GeV (neutrino only), ptj > 20 GeV, |eta_j| < 5",12.24,0.081,LO parton level,4.06e6,"X01_xsec_mg5.sh; log /home/rafia/hep_tools/07_bkg_xsec_runs/wlvj.log; upper bound: misset counts only the neutrino, the charged lepton must also be lost to pass a MET trigger"
+Z(nunu)+gamma+j,"p p > z a j, z > vl vl~",13.6,"misset > 200 GeV at parton level, then post-shower MET > 200 GeV",0.2301,,LO + Pythia8,7.64e4,06_publication/S2_13p6TeV_run3_knapen_noPU_cop/inputs/zgamma_xsec_13p6TeV.txt (sigma_after_MET_pb) - the background already tested

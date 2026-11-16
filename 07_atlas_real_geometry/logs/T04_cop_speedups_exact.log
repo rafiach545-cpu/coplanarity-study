@@ -1,0 +1,18 @@
+   mu 20 event 0: hits 4671, candidates 1; time new 0.2 s, reference 14.5 s (cumulative)
+   mu 20 event 1: hits 4037, candidates 0; time new 0.3 s, reference 22.1 s (cumulative)
+   mu 20 event 2: hits 4780, candidates 1; time new 0.5 s, reference 37.3 s (cumulative)
+   mu 20 event 3: hits 8124, candidates 1; time new 0.6 s, reference 192.2 s (cumulative)
+   mu 20 event 4: hits 4918, candidates 0; time new 0.7 s, reference 208.8 s (cumulative)
+   mu 20 event 5: hits 6028, candidates 0; time new 0.8 s, reference 239.0 s (cumulative)
+   mu 20 event 6: hits 4644, candidates 1; time new 0.8 s, reference 251.6 s (cumulative)
+   mu 20 event 7: hits 3952, candidates 0; time new 0.9 s, reference 256.9 s (cumulative)
+   mu 20 event 8: hits 5926, candidates 1; time new 0.9 s, reference 286.1 s (cumulative)
+   mu 20 event 9: hits 7911, candidates 0; time new 1.2 s, reference 379.4 s (cumulative)
+   mu 20 event 10: hits 5687, candidates 1; time new 1.2 s, reference 402.7 s (cumulative)
+   mu 20 event 11: hits 7258, candidates 1; time new 1.4 s, reference 468.4 s (cumulative)
+   mu 50 event 0: hits 12855, candidates 1; time new 2.0 s, reference 1152.5 s (cumulative)
+   mu 50 event 1: hits 10343, candidates 1; time new 2.4 s, reference 1395.4 s (cumulative)
+   mu 50 event 2: hits 14898, candidates 2; time new 3.1 s, reference 2335.2 s (cumulative)
+   mu 50 event 3: hits 18132, candidates 3; time new 4.8 s, reference 4865.4 s (cumulative)
+T04: 32 reconstructions compared, 35 reference candidates; identical: True; time new 4.8 s vs reference 4865.4 s
+T04_PASS

@@ -1,0 +1,6 @@
+(a) pile-up first crossings (Stage 2 constant) vs find_helix_layer_crossings: 100819 hits, layer-set mismatches 0, max |dx| 5.4e-09 cm, max |dt| 9.2e-10 ns
+(b) electrons vs Stage 2 track34 (material on/off): 125612 crossings, sequence mismatches 0, max |d(x,y,z,t)| 1.3e-08
+(c) propagate (barrel + disks) vs vectorised Boris + trajectory_crossings: 2380 crossings (705 on disks), mismatches 0, max |dx| 2.7e-03 cm
+(d) SCT disk material at normal incidence: E after = 4.814988 GeV, expected 4.814988 GeV (x/X0 = 0.0375)
+T02_PASS
+T02done

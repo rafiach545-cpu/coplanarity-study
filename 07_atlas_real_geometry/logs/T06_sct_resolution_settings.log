@@ -1,0 +1,25 @@
+(a) barrel Z0   : std r-phi   34.01 um (expect 34), std long     0.00 um (expect 0); means +0.07 / +0.00 um -> ok
+(b) barrel Z0   : identical to the pre-D4 formula (5000 hits): True
+(a) barrel Z1160: std r-phi   34.01 um (expect 34), std long  1155.47 um (expect 1160); means +0.07 / -0.44 um -> ok
+(b) barrel Z1160: identical to the pre-D4 formula (5000 hits): True
+(a) barrel A580 : std r-phi   17.00 um (expect 17), std long   577.74 um (expect 580); means +0.03 / -0.22 um -> ok
+(a) disk   Z0   : std r-phi   34.03 um (expect 34), std long     0.00 um (expect 0); means -0.18 / -0.00 um -> ok
+(b) disk   Z0   : identical to the pre-D4 formula (5000 hits): True
+(a) disk   Z1160: std r-phi   34.03 um (expect 34), std long  1155.03 um (expect 1160); means -0.18 / -8.26 um -> ok
+(b) disk   Z1160: identical to the pre-D4 formula (5000 hits): True
+(a) disk   A580 : std r-phi   17.01 um (expect 17), std long   577.51 um (expect 580); means -0.09 / -4.13 um -> ok
+(c) barrel resmear Z0    -> Z1160: max diff to direct 0.0e+00 cm -> ok
+(c) barrel resmear Z0    -> A580 : max diff to direct 0.0e+00 cm -> ok
+(c) barrel resmear Z1160 -> Z0   : max diff to direct 0.0e+00 cm -> ok
+(c) barrel resmear Z1160 -> A580 : max diff to direct 0.0e+00 cm -> ok
+(c) barrel resmear A580  -> Z0   : max diff to direct 0.0e+00 cm -> ok
+(c) barrel resmear A580  -> Z1160: max diff to direct 0.0e+00 cm -> ok
+(c) disk   resmear Z0    -> Z1160: max diff to direct 7.1e-15 cm -> ok
+(c) disk   resmear Z0    -> A580 : max diff to direct 0.0e+00 cm -> ok
+(c) disk   resmear Z1160 -> Z0   : max diff to direct 7.1e-15 cm -> ok
+(c) disk   resmear Z1160 -> A580 : max diff to direct 0.0e+00 cm -> ok
+(c) disk   resmear A580  -> Z0   : max diff to direct 0.0e+00 cm -> ok
+(c) disk   resmear A580  -> Z1160: max diff to direct 0.0e+00 cm -> ok
+(d) keys survive overlay (barrel + disk SCT): True
+T06: {'a': np.True_, 'b': True, 'c': np.True_, 'd': True}
+T06_PASS

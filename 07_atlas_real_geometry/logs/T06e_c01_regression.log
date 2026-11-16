@@ -1,0 +1,7 @@
+C01 atlas mu=20.0 material=True sct=both photons=100 chunks to run 2 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/runs/C01_atlas_T06e_mu20
+  chunk 0 (1/2) 46s
+  chunk 50 (2/2) 48s
+C01_EXIT=0
+chunk 000000: 294 rows, identical to production: True
+chunk 000050: 300 rows, identical to production: True
+T06e_PASS

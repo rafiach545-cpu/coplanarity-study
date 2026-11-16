@@ -1,0 +1,15 @@
+3d02eba44b7f9f02cca47d215e67bbbc  pdf/JINST3_S08003_ch2_Magnets.pdf
+2d0e5a7fedf2fb7ba99a6d35974e8bb9  pdf/JINST3_S08003_ch4_InnerDetector.pdf
+1e4aa9579ce692d819b4bc83323b658f  pdf/PDG2024_list_KS.pdf
+6bbb1f7f5edb7b17659680f3f7050204  pdf/PDG2024_list_Lambda.pdf
+fde1e2c484d8713a167cda828e2c0b7f  pdf/PDG2024_list_eta.pdf
+64a1748e67452c1c26ca25863a382040  pdf/PDG2024_list_pi0.pdf
+7c993659847ef017f15c0439238a2dad  pdf/PDG2024_passage_of_particles.pdf
+b5d1a4a6292c9a685def206e48552c5b  pdf/arXiv_1404.7473_SCT_operation.pdf
+31aa435f607eed86c30f04b949e9ebc0  pdf/arXiv_1612.00850_ref34_simplified_detector.pdf
+2b4a0d3df4f8459a6647dbd9031a5d99  pdf/arXiv_1707.02826_ID_material_Run2.pdf
+20bbf395632e2df69f336a432ceef2b7  pdf/arXiv_1708.02243v2_Knapen.pdf
+b7d526907032ee92efafa26f9b55997e  pdf/arXiv_1803.00844_IBL.pdf
+e5c28eec578d88796acecc2d38897d14  pdf/arXiv_1908.00005_ATLAS_egamma_Run2.pdf
+78776bdbea8b4c099dc3b86eff07d935  pdf/arXiv_2007.07624_ID_alignment_Run2.pdf
+6f984fec84d9a428758cc8b6ce4843b9  pdf/arXiv_2102.10874_ATLAS_monojet.pdf
