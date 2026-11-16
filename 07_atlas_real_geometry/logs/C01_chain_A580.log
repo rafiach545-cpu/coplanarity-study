@@ -1,2 +1,324 @@
 C01 atlas mu=0.0 material=True sct=A580 photons=9130 chunks to run 0 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/runs/C01_atlas_A580_mu0
 C01_EXIT=0
+C01 atlas mu=20.0 material=True sct=A580 photons=9130 chunks to run 70 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/runs/C01_atlas_A580_mu20
+  chunk 5900 (1/70) 100s
+  chunk 6000 (2/70) 109s
+  chunk 5750 (3/70) 110s
+  chunk 5850 (4/70) 110s
+  chunk 5800 (5/70) 111s
+  chunk 5950 (6/70) 112s
+  chunk 6100 (7/70) 112s
+  chunk 6050 (8/70) 113s
+  chunk 5600 (9/70) 115s
+  chunk 5700 (10/70) 115s
+  chunk 6350 (11/70) 595s
+  chunk 6250 (12/70) 597s
+  chunk 6300 (13/70) 597s
+  chunk 6150 (14/70) 604s
+  chunk 6400 (15/70) 612s
+  chunk 6450 (16/70) 612s
+  chunk 6200 (17/70) 614s
+  chunk 6500 (18/70) 618s
+  chunk 6600 (19/70) 623s
+  chunk 6550 (20/70) 623s
+  chunk 6650 (21/70) 688s
+  chunk 6800 (22/70) 693s
+  chunk 6700 (23/70) 697s
+  chunk 6750 (24/70) 698s
+  chunk 6850 (25/70) 701s
+  chunk 6900 (26/70) 706s
+  chunk 7000 (27/70) 709s
+  chunk 6950 (28/70) 715s
+  chunk 7050 (29/70) 722s
+  chunk 7100 (30/70) 723s
+  chunk 7200 (31/70) 768s
+  chunk 7150 (32/70) 768s
+  chunk 7350 (33/70) 774s
+  chunk 7300 (34/70) 775s
+  chunk 7250 (35/70) 779s
+  chunk 7400 (36/70) 781s
+  chunk 7450 (37/70) 790s
+  chunk 7500 (38/70) 797s
+  chunk 7600 (39/70) 810s
+  chunk 7550 (40/70) 813s
+  chunk 7650 (41/70) 872s
+  chunk 7700 (42/70) 873s
+  chunk 7750 (43/70) 894s
+  chunk 7900 (44/70) 894s
+  chunk 7850 (45/70) 905s
+  chunk 7950 (46/70) 906s
+  chunk 7800 (47/70) 911s
+  chunk 8000 (48/70) 925s
+  chunk 8050 (49/70) 946s
+  chunk 8100 (50/70) 955s
+  chunk 8200 (51/70) 973s
+  chunk 8150 (52/70) 989s
+  chunk 8250 (53/70) 991s
+  chunk 8300 (54/70) 994s
+  chunk 8350 (55/70) 1012s
+  chunk 8400 (56/70) 1021s
+  chunk 8450 (57/70) 1022s
+  chunk 8500 (58/70) 1027s
+  chunk 8550 (59/70) 1053s
+  chunk 8600 (60/70) 1071s
+  chunk 8650 (61/70) 1089s
+  chunk 8800 (62/70) 1094s
+  chunk 8700 (63/70) 1096s
+  chunk 8750 (64/70) 1101s
+  chunk 8850 (65/70) 1103s
+  chunk 8900 (66/70) 1111s
+  chunk 9000 (67/70) 1113s
+  chunk 8950 (68/70) 1115s
+  chunk 9100 (69/70) 1116s
+  chunk 9050 (70/70) 1127s
+C01_EXIT=0
+C01 atlas mu=50.0 material=True sct=A580 photons=9130 chunks to run 183 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/runs/C01_atlas_A580_mu50
+  chunk 150 (1/183) 691s
+  chunk 200 (2/183) 725s
+  chunk 400 (3/183) 733s
+  chunk 100 (4/183) 741s
+  chunk 350 (5/183) 772s
+  chunk 450 (6/183) 786s
+  chunk 250 (7/183) 798s
+  chunk 0 (8/183) 838s
+  chunk 50 (9/183) 844s
+  chunk 300 (10/183) 844s
+  chunk 550 (11/183) 1273s
+  chunk 500 (12/183) 1359s
+  chunk 650 (13/183) 1359s
+  chunk 750 (14/183) 1372s
+  chunk 700 (15/183) 1420s
+  chunk 600 (16/183) 1446s
+  chunk 800 (17/183) 1469s
+  chunk 850 (18/183) 1500s
+  chunk 900 (19/183) 1624s
+  chunk 950 (20/183) 1677s
+  chunk 1100 (21/183) 1917s
+  chunk 1050 (22/183) 1940s
+  chunk 1000 (23/183) 1947s
+  chunk 1200 (24/183) 2005s
+  chunk 1250 (25/183) 2017s
+  chunk 1150 (26/183) 2034s
+  chunk 1350 (27/183) 2070s
+  chunk 1300 (28/183) 2120s
+  chunk 1400 (29/183) 2210s
+  chunk 1450 (30/183) 2271s
+  chunk 1550 (31/183) 2450s
+  chunk 1500 (32/183) 2483s
+  chunk 1600 (33/183) 2502s
+  chunk 1750 (34/183) 2554s
+  chunk 1650 (35/183) 2588s
+  chunk 1700 (36/183) 2633s
+  chunk 1850 (37/183) 2729s
+  chunk 1800 (38/183) 2732s
+  chunk 1900 (39/183) 2735s
+  chunk 1950 (40/183) 2975s
+  chunk 2050 (41/183) 2990s
+  chunk 2000 (42/183) 3001s
+  chunk 2150 (43/183) 3004s
+  chunk 2100 (44/183) 3131s
+  chunk 2300 (45/183) 3253s
+  chunk 2350 (46/183) 3260s
+  chunk 2200 (47/183) 3267s
+  chunk 2250 (48/183) 3282s
+  chunk 2400 (49/183) 3307s
+  chunk 2550 (50/183) 3523s
+  chunk 2600 (51/183) 3548s
+  chunk 2450 (52/183) 3618s
+  chunk 2500 (53/183) 3642s
+  chunk 2650 (54/183) 3702s
+  chunk 2850 (55/183) 3801s
+  chunk 2800 (56/183) 3810s
+  chunk 2700 (57/183) 3818s
+  chunk 2750 (58/183) 3830s
+  chunk 2900 (59/183) 3970s
+  chunk 3000 (60/183) 4043s
+  chunk 2950 (61/183) 4113s
+  chunk 3100 (62/183) 4165s
+  chunk 3050 (63/183) 4204s
+  chunk 3150 (64/183) 4249s
+  chunk 3200 (65/183) 4370s
+  chunk 3350 (66/183) 4421s
+  chunk 3250 (67/183) 4427s
+  chunk 3300 (68/183) 4440s
+  chunk 3400 (69/183) 4479s
+  chunk 3500 (70/183) 4634s
+  chunk 3450 (71/183) 4658s
+  chunk 3550 (72/183) 4675s
+  chunk 3600 (73/183) 4756s
+  chunk 3650 (74/183) 4829s
+  chunk 3750 (75/183) 4982s
+  chunk 3900 (76/183) 5019s
+  chunk 3700 (77/183) 5057s
+  chunk 3850 (78/183) 5075s
+  chunk 3800 (79/183) 5118s
+  chunk 3950 (80/183) 5199s
+  chunk 4050 (81/183) 5223s
+  chunk 4000 (82/183) 5245s
+  chunk 4100 (83/183) 5274s
+  chunk 4150 (84/183) 5386s
+  chunk 4350 (85/183) 5581s
+  chunk 4250 (86/183) 5592s
+  chunk 4300 (87/183) 5605s
+  chunk 4200 (88/183) 5632s
+  chunk 4400 (89/183) 5675s
+  chunk 4450 (90/183) 5709s
+  chunk 4600 (91/183) 5743s
+  chunk 4500 (92/183) 5768s
+  chunk 4550 (93/183) 5891s
+  chunk 4650 (94/183) 6063s
+  chunk 4800 (95/183) 6109s
+  chunk 4700 (96/183) 6119s
+  chunk 4850 (97/183) 6131s
+  chunk 5000 (98/183) 6197s
+  chunk 4950 (99/183) 6293s
+  chunk 4750 (100/183) 6295s
+  chunk 4900 (101/183) 6336s
+  chunk 5050 (102/183) 6340s
+  chunk 5100 (103/183) 6386s
+  chunk 5250 (104/183) 6679s
+  chunk 5350 (105/183) 6697s
+  chunk 5300 (106/183) 6707s
+  chunk 5150 (107/183) 6707s
+  chunk 5200 (108/183) 6776s
+  chunk 5550 (109/183) 6853s
+  chunk 5400 (110/183) 6860s
+  chunk 5450 (111/183) 6880s
+  chunk 5500 (112/183) 6906s
+  chunk 5600 (113/183) 6956s
+  chunk 5800 (114/183) 7232s
+  chunk 5700 (115/183) 7237s
+  chunk 5650 (116/183) 7256s
+  chunk 5900 (117/183) 7307s
+  chunk 5750 (118/183) 7337s
+  chunk 5950 (119/183) 7338s
+  chunk 5850 (120/183) 7365s
+  chunk 6000 (121/183) 7367s
+  chunk 6050 (122/183) 7435s
+  chunk 6100 (123/183) 7600s
+  chunk 6200 (124/183) 7735s
+  chunk 6300 (125/183) 7782s
+  chunk 6150 (126/183) 7787s
+  chunk 6400 (127/183) 7871s
+  chunk 6350 (128/183) 7880s
+  chunk 6250 (129/183) 7886s
+  chunk 6450 (130/183) 7990s
+  chunk 6500 (131/183) 8039s
+  chunk 6550 (132/183) 8049s
+  chunk 6650 (133/183) 8226s
+  chunk 6600 (134/183) 8278s
+  chunk 6750 (135/183) 8344s
+  chunk 6700 (136/183) 8357s
+  chunk 6800 (137/183) 8407s
+  chunk 6850 (138/183) 8451s
+  chunk 6900 (139/183) 8527s
+  chunk 7000 (140/183) 8588s
+  chunk 7050 (141/183) 8613s
+  chunk 6950 (142/183) 8677s
+  chunk 7100 (143/183) 8786s
+  chunk 7150 (144/183) 8831s
+  chunk 7300 (145/183) 8894s
+  chunk 7200 (146/183) 8911s
+  chunk 7250 (147/183) 8946s
+  chunk 7350 (148/183) 8978s
+  chunk 7400 (149/183) 9020s
+  chunk 7500 (150/183) 9165s
+  chunk 7450 (151/183) 9216s
+  chunk 7550 (152/183) 9277s
+  chunk 7600 (153/183) 9285s
+  chunk 7650 (154/183) 9377s
+  chunk 7700 (155/183) 9437s
+  chunk 7850 (156/183) 9445s
+  chunk 7750 (157/183) 9478s
+  chunk 7800 (158/183) 9530s
+  chunk 7900 (159/183) 9588s
+  chunk 7950 (160/183) 9696s
+  chunk 8100 (161/183) 9835s
+  chunk 8000 (162/183) 9866s
+  chunk 8050 (163/183) 9941s
+  chunk 8250 (164/183) 9954s
+  chunk 8150 (165/183) 9981s
+  chunk 8300 (166/183) 10019s
+  chunk 8200 (167/183) 10032s
+  chunk 8350 (168/183) 10109s
+  chunk 8400 (169/183) 10226s
+  chunk 8450 (170/183) 10264s
+  chunk 8500 (171/183) 10364s
+  chunk 8550 (172/183) 10446s
+  chunk 8800 (173/183) 10555s
+  chunk 8650 (174/183) 10568s
+  chunk 8700 (175/183) 10578s
+  chunk 8600 (176/183) 10588s
+  chunk 8850 (177/183) 10589s
+  chunk 8750 (178/183) 10601s
+  chunk 8900 (179/183) 10703s
+  chunk 8950 (180/183) 10713s
+  chunk 9000 (181/183) 10733s
+  chunk 9100 (182/183) 10737s
+  chunk 9050 (183/183) 10773s
+C01_EXIT=0
+               run  region           region_elements  sct  n_photons  mean_p_conv  planes  plane_and_mult  final  N_bkg_332fb  N_UL95_332fb_if_zero
+C01_atlas_A580_mu0       0                        BP A580       9130     0.003996    4992               1      0          0.0              0.100325
+C01_atlas_A580_mu0       1      L1_IBL,SCTD6_inner_A A580       9013     0.028603    5185               0      0          0.0              0.727372
+C01_atlas_A580_mu0       2 L2_PixelB0,SCTD7_middle_A A580       8953     0.050211    5519               0      0          0.0              1.285443
+                run  region           region_elements  sct  n_photons  mean_p_conv  planes  plane_and_mult  final  N_bkg_332fb  N_UL95_332fb_if_zero
+C01_atlas_A580_mu20       0                        BP A580       9130     0.003996    5551             326      3     0.077295                   NaN
+C01_atlas_A580_mu20       1      L1_IBL,SCTD6_inner_A A580       9013     0.028603    5703              57      0     0.000000              0.727372
+C01_atlas_A580_mu20       2 L2_PixelB0,SCTD7_middle_A A580       8953     0.050211    5990               8      0     0.000000              1.285443
+                run  region           region_elements  sct  n_photons  mean_p_conv  planes  plane_and_mult  final  N_bkg_332fb  N_UL95_332fb_if_zero
+C01_atlas_A580_mu50       0                        BP A580       9130     0.003996    7423             647      4     0.101894                   NaN
+C01_atlas_A580_mu50       1      L1_IBL,SCTD6_inner_A A580       9013     0.028603    7441             232      1     0.234391                   NaN
+C01_atlas_A580_mu50       2 L2_PixelB0,SCTD7_middle_A A580       8953     0.050211    7554              38      0     0.000000              1.285443
+/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/S02_conversion_breakdown.py:23: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  T = S[(S.part == "all")].groupby(["run", "sct"]).apply(lambda g: pd.Series(dict(N_total=g.N_332fb.sum(), N_stat=np.sqrt((g.N_stat ** 2).sum()))))
+           run  region sct         part  final  final_abs_eta_lt_1   N_332fb   N_stat
+ C01_atlas_mu0       0  Z0          all     10                   5  0.343467 0.122187
+ C01_atlas_mu0       0  Z0  barrel-like      5                   5  0.090812 0.040894
+ C01_atlas_mu0       0  Z0 with end-cap      5                   0  0.252655 0.115140
+ C01_atlas_mu0       1  Z0          all      0                   0  0.000000 0.000000
+ C01_atlas_mu0       1  Z0  barrel-like      0                   0  0.000000 0.000000
+ C01_atlas_mu0       1  Z0 with end-cap      0                   0  0.000000 0.000000
+ C01_atlas_mu0       2  Z0          all      0                   0  0.000000 0.000000
+ C01_atlas_mu0       2  Z0  barrel-like      0                   0  0.000000 0.000000
+ C01_atlas_mu0       2  Z0 with end-cap      0                   0  0.000000 0.000000
+C01_atlas_mu20       0  Z0          all    332                  77 11.499930 0.683751
+C01_atlas_mu20       0  Z0  barrel-like    113                  77  2.350666 0.223939
+C01_atlas_mu20       0  Z0 with end-cap    219                   0  9.149264 0.646039
+C01_atlas_mu20       1  Z0          all     39                   5 13.277612 2.255966
+C01_atlas_mu20       1  Z0  barrel-like      7                   5  1.197421 0.457936
+C01_atlas_mu20       1  Z0 with end-cap     32                   0 12.080190 2.208999
+C01_atlas_mu20       2  Z0          all      3                   0  2.251952 1.312981
+C01_atlas_mu20       2  Z0  barrel-like      0                   0  0.000000 0.000000
+C01_atlas_mu20       2  Z0 with end-cap      3                   0  2.251952 1.312981
+C01_atlas_mu50       0  Z0          all    517                 123 17.617404 0.842693
+C01_atlas_mu50       0  Z0  barrel-like    181                 123  3.725325 0.280245
+C01_atlas_mu50       0  Z0 with end-cap    336                   0 13.892079 0.794729
+C01_atlas_mu50       1  Z0          all    162                  28 47.340406 3.968029
+C01_atlas_mu50       1  Z0  barrel-like     42                  28  7.287792 1.136259
+C01_atlas_mu50       1  Z0 with end-cap    120                   0 40.052614 3.801864
+C01_atlas_mu50       2  Z0          all      8                   2  4.217757 1.644947
+C01_atlas_mu50       2  Z0  barrel-like      4                   2  1.400277 0.702353
+C01_atlas_mu50       2  Z0 with end-cap      4                   0  2.817479 1.487464
+C01_atlas_mu60       0  Z0          all    531                 145 17.438780 0.820060
+C01_atlas_mu60       0  Z0  barrel-like    203                 145  4.146724 0.294887
+C01_atlas_mu60       0  Z0 with end-cap    328                   0 13.292055 0.765206
+C01_atlas_mu60       1  Z0          all    174                  44 50.040383 4.106392
+C01_atlas_mu60       1  Z0  barrel-like     61                  44 10.501696 1.358612
+C01_atlas_mu60       1  Z0 with end-cap    113                   0 39.538686 3.875129
+C01_atlas_mu60       2  Z0          all     16                   6  7.097814 1.928548
+C01_atlas_mu60       2  Z0  barrel-like      9                   6  2.784366 0.939927
+C01_atlas_mu60       2  Z0 with end-cap      7                   0  4.313448 1.683994
+                             N_total    N_stat
+run                 sct                       
+C01_atlas_A580_mu0  A580    0.000000  0.000000
+C01_atlas_A580_mu20 A580    0.077295  0.044796
+C01_atlas_A580_mu50 A580    0.336284  0.240135
+C01_atlas_mu0       Z0      0.343467  0.122187
+                    Z1160   0.000000  0.000000
+C01_atlas_mu20      Z0     27.029493  2.698299
+                    Z1160   0.000000  0.000000
+C01_atlas_mu50      Z0     69.175567  4.377355
+                    Z1160   0.000000  0.000000
+C01_atlas_mu60      Z0     74.576976  4.610233
+                    Z1160   0.000000  0.000000
+C01_A580_CHAIN_EXIT=0

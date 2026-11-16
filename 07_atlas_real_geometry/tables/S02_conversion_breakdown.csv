@@ -71,3 +71,30 @@ C01_atlas_mu60,2,Z0,with end-cap,7,0,4.313448170896667,1.6839935089439866
 C01_atlas_mu60,2,Z1160,all,0,0,0.0,0.0
 C01_atlas_mu60,2,Z1160,barrel-like,0,0,0.0,0.0
 C01_atlas_mu60,2,Z1160,with end-cap,0,0,0.0,0.0
+C01_atlas_A580_mu0,0,A580,all,0,0,0.0,0.0
+C01_atlas_A580_mu0,0,A580,barrel-like,0,0,0.0,0.0
+C01_atlas_A580_mu0,0,A580,with end-cap,0,0,0.0,0.0
+C01_atlas_A580_mu0,1,A580,all,0,0,0.0,0.0
+C01_atlas_A580_mu0,1,A580,barrel-like,0,0,0.0,0.0
+C01_atlas_A580_mu0,1,A580,with end-cap,0,0,0.0,0.0
+C01_atlas_A580_mu0,2,A580,all,0,0,0.0,0.0
+C01_atlas_A580_mu0,2,A580,barrel-like,0,0,0.0,0.0
+C01_atlas_A580_mu0,2,A580,with end-cap,0,0,0.0,0.0
+C01_atlas_A580_mu20,0,A580,all,3,0,0.07729521610936559,0.04479649365299366
+C01_atlas_A580_mu20,0,A580,barrel-like,1,0,0.022828606029117494,0.022828606029117494
+C01_atlas_A580_mu20,0,A580,with end-cap,2,0,0.054466610080248085,0.03854323014966495
+C01_atlas_A580_mu20,1,A580,all,0,0,0.0,0.0
+C01_atlas_A580_mu20,1,A580,barrel-like,0,0,0.0,0.0
+C01_atlas_A580_mu20,1,A580,with end-cap,0,0,0.0,0.0
+C01_atlas_A580_mu20,2,A580,all,0,0,0.0,0.0
+C01_atlas_A580_mu20,2,A580,barrel-like,0,0,0.0,0.0
+C01_atlas_A580_mu20,2,A580,with end-cap,0,0,0.0,0.0
+C01_atlas_A580_mu50,0,A580,all,4,1,0.10189350478029421,0.05221050511612793
+C01_atlas_A580_mu50,0,A580,barrel-like,1,1,0.01609157861768498,0.01609157861768498
+C01_atlas_A580_mu50,0,A580,with end-cap,3,0,0.08580192616260923,0.04966888303628424
+C01_atlas_A580_mu50,1,A580,all,1,0,0.2343907484228712,0.2343907484228712
+C01_atlas_A580_mu50,1,A580,barrel-like,0,0,0.0,0.0
+C01_atlas_A580_mu50,1,A580,with end-cap,1,0,0.2343907484228712,0.2343907484228712
+C01_atlas_A580_mu50,2,A580,all,0,0,0.0,0.0
+C01_atlas_A580_mu50,2,A580,barrel-like,0,0,0.0,0.0
+C01_atlas_A580_mu50,2,A580,with end-cap,0,0,0.0,0.0

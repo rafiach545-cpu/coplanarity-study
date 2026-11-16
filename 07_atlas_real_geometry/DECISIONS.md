@@ -88,3 +88,4 @@ Chosen by expected size and by how much existing code each step reuses:
   - T06 (a)–(d): widths 17 / 580 µm, Z0 / Z1160 bit for bit as before, resmear between all settings exact.
   - T06 (e): C01 production rows reproduced exactly.
   - T03 rerun: PASS.
+- **Results (2026-11-16):** C01 background with A580: 0 / 0.08 ± 0.04 / 0.34 ± 0.24 events (332 fb⁻¹) at μ = 0 / 20 / 50. μ = 60 was not run for A580 (user decision, 2026-11-16).

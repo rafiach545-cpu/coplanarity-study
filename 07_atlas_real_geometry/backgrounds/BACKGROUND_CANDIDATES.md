@@ -95,6 +95,17 @@ Tables: `../tables/M01_conversion_summary.csv`, `../tables/M01_conversion_per_ph
 
 **SCT z = 1.16 mm:** 0 passing events in every region and every μ (95% UL per region: 0.10 / 0.73 / 1.29). As in Stage 2, the 1.16 mm longitudinal resolution removes this background.
 
+**SCT A580 (ATLAS intrinsic 17 µm R-φ / 580 µm long, D4; 2026-11-16):** 332 fb⁻¹, all regions summed (S02):
+
+| μ | events passing | N (332 fb⁻¹) | Z0 | Z1160 |
+|---|---|---|---|---|
+| 0 | 0 | 0 (95% UL per region as for Z1160) | 0.34 ± 0.12 | 0 |
+| 20 | 3 (beam pipe; 1 barrel-like, 2 with end-cap) | 0.08 ± 0.04 | 27.0 ± 2.7 | 0 |
+| 50 | 5 (4 beam pipe, 1 IBL with end-cap) | 0.34 ± 0.24 | 69.2 ± 4.4 | 0 |
+| 60 | not run (dropped by the user, 2026-11-16) | – | 74.6 ± 4.6 | 0 |
+
+A580 lies between Z0 and Z1160, as expected, and much closer to Z1160: the 580 µm longitudinal resolution already removes > 99% of the Z0 background. The A580 numbers rest on 3–5 events, so their errors are 50–70%.
+
 **Checks and where the increase comes from** (S02):
 
 - **Barrel-like part agrees with Stage 2.** Beam-pipe conversions whose 8 winner stations are all barrel layers: 113 / 181 / 203 events at μ = 20 / 50 / 60. Stage 2 (same photons, barrel only) has 110 / 196 / 200. Their weight is 2.35 / 3.7 / 4.1 events. Stage 2 gives 9.2 / 16.4 / 16.7 at a flat 1%. The ratio of about 0.25 is the material probability at central η (M01: 0.27% for \|η\| < 1.8).
@@ -110,4 +121,4 @@ Tables: `../tables/M01_conversion_summary.csv`, `../tables/M01_conversion_per_ph
 
 - The disk-pair cut \|Δr\| < 2 cm is the end-cap analogue of the paper's \|Δz\| < 2 cm (D1). The paper has no end-cap rule, so this choice drives the end-cap number and should be varied.
 - Conversions beyond the second silicon element are not simulated. They have fewer than 8 stations left after the conversion, so their contribution should be small, but this is not yet checked.
-- The signal has not yet been rerun through the 07 geometry. The end-caps may also raise the signal acceptance, so the reach cannot be judged from the background alone.
+- The signal has not yet been rerun through the 07 geometry (the G01 code is verified against Stage 2 by T07, PASS on 2949 rows; the atlas run is next). The end-caps may also raise the signal acceptance, so the reach cannot be judged from the background alone.
