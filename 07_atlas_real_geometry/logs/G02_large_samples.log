@@ -1,0 +1,19 @@
+[      0s] G02 steps ['gen', 'ext'] points [('EW', 100), ('EW', 200), ('EW', 400), ('EW', 600), ('EW', 800), ('EW', 1000), ('colored', 600), ('colored', 900), ('colored', 1200), ('colored', 1500), ('colored', 1800), ('colored', 2100), ('colored', 2400)] nev 10000 runs /home/rafia/hep_tools/07_large_runs
+{'tag': 'EW_100gev_c04', 'channel': 'EW', 'mass_gev': 100, 'chunk': 4, 'seed': 804004, 'n_generated': 2000, 'n_matched': 1388, 'matched_xsec_pb': 1.226, 'matched_xsec_err_pb': 0.01862, 'wall_s': 264.2, 'status': 'ok', 'exit_code': 0}
+[    266s] gen 1/65 EW_100gev_c04 ok matched 1388 264.2s
+{'tag': 'EW_100gev_c03', 'channel': 'EW', 'mass_gev': 100, 'chunk': 3, 'seed': 804003, 'n_generated': 2000, 'n_matched': 1356, 'matched_xsec_pb': 1.2, 'matched_xsec_err_pb': 0.01886, 'wall_s': 264.4, 'status': 'ok', 'exit_code': 0}
+[    266s] gen 2/65 EW_100gev_c03 ok matched 1356 264.4s
+{'tag': 'EW_100gev_c01', 'channel': 'EW', 'mass_gev': 100, 'chunk': 1, 'seed': 804001, 'n_generated': 2000, 'n_matched': 1369, 'matched_xsec_pb': 1.218, 'matched_xsec_err_pb': 0.01894, 'wall_s': 264.7, 'status': 'ok', 'exit_code': 0}
+[    266s] gen 3/65 EW_100gev_c01 ok matched 1369 264.7s
+{'tag': 'EW_100gev_c00', 'channel': 'EW', 'mass_gev': 100, 'chunk': 0, 'seed': 804000, 'n_generated': 2000, 'n_matched': 1396, 'matched_xsec_pb': 1.238, 'matched_xsec_err_pb': 0.01854, 'wall_s': 267.1, 'status': 'ok', 'exit_code': 0}
+[    269s] gen 4/65 EW_100gev_c00 ok matched 1396 267.1s
+{'tag': 'EW_100gev_c02', 'channel': 'EW', 'mass_gev': 100, 'chunk': 2, 'seed': 804002, 'n_generated': 2000, 'n_matched': 1402, 'matched_xsec_pb': 1.248, 'matched_xsec_err_pb': 0.01863, 'wall_s': 268.4, 'status': 'ok', 'exit_code': 0}
+[    270s] gen 5/65 EW_100gev_c02 ok matched 1402 268.4s
+{'tag': 'EW_200gev_c00', 'channel': 'EW', 'mass_gev': 200, 'chunk': 0, 'seed': 808000, 'n_generated': 2000, 'n_matched': 1244, 'matched_xsec_pb': 0.1072, 'matched_xsec_err_pb': 0.001903, 'wall_s': 268.6, 'status': 'ok', 'exit_code': 0}
+[    270s] gen 6/65 EW_200gev_c00 ok matched 1244 268.6s
+{'tag': 'EW_200gev_c02', 'channel': 'EW', 'mass_gev': 200, 'chunk': 2, 'seed': 808002, 'n_generated': 2000, 'n_matched': 1246, 'matched_xsec_pb': 0.1072, 'matched_xsec_err_pb': 0.001912, 'wall_s': 291.7, 'status': 'ok', 'exit_code': 0}
+[    293s] gen 7/65 EW_200gev_c02 ok matched 1246 291.7s
+{'tag': 'EW_200gev_c01', 'channel': 'EW', 'mass_gev': 200, 'chunk': 1, 'seed': 808001, 'n_generated': 2000, 'n_matched': 1245, 'matched_xsec_pb': 0.1072, 'matched_xsec_err_pb': 0.001908, 'wall_s': 305.4, 'status': 'ok', 'exit_code': 0}
+[    307s] gen 8/65 EW_200gev_c01 ok matched 1245 305.4s
+{'tag': 'EW_200gev_c04', 'channel': 'EW', 'mass_gev': 200, 'chunk': 4, 'seed': 808004, 'n_generated': 2000, 'n_matched': 1268, 'matched_xsec_pb': 0.1092, 'matched_xsec_err_pb': 0.001906, 'wall_s': 168.4, 'status': 'ok', 'exit_code': 0}
+[    435s] gen 9/65 EW_200gev_c04 ok matched 1268 168.4s

@@ -4,10 +4,10 @@ directory and seed) so that the chunks can run on many cores at once. Process di
 (/home/rafia/hep_tools/S2_13p6TeV_runs/<template>, same cards, ebeam 6800, hep env first in PATH as S2_01); only the quirk mass (param_card: mqc for
 colored, mqe for EW), nevents and iseed change. Seed of a chunk: 700000 + 1000 * (0 colored / 1 EW) ... see seed() (never equal to a Stage 2 seed).
 Usage: L01_generate.py <channel> <mass> <n_chunks> <events_per_chunk> [n_parallel] [first_chunk]. Output: /home/rafia/hep_tools/S2b_large_runs/<tag>_c<chunk>/,
-logs/L01_generation.csv (one row per chunk, appended). Resumable: chunks with checkpoints_DONE_generation.txt are skipped."""
+logs/L01_generation.csv (one row per chunk, appended). Env (2026-11-16, other machines): S2_TEMPLATES (process dirs), HEP_BIN, S2B_RUNS. Resumable: chunks with checkpoints_DONE_generation.txt are skipped."""
 import os, re, sys, time, subprocess, multiprocessing as mp, pandas as pd
-HERE = os.path.dirname(os.path.abspath(__file__)); SRC = "/home/rafia/hep_tools/S2_13p6TeV_runs"; RUNS = os.environ.get("S2B_RUNS", "/home/rafia/hep_tools/S2b_large_runs")
-HEP_BIN = "/home/rafia/miniconda3/envs/hep/bin"; TEMPLATE = {"colored": "colored_1200gev", "EW": "EW_400gev"}; PDG = {"colored": "1000006", "EW": "9000011"}
+HERE = os.path.dirname(os.path.abspath(__file__)); SRC = os.environ.get("S2_TEMPLATES", "/home/rafia/hep_tools/S2_13p6TeV_runs"); RUNS = os.environ.get("S2B_RUNS", "/home/rafia/hep_tools/S2b_large_runs")
+HEP_BIN = os.environ.get("HEP_BIN", "/home/rafia/miniconda3/envs/hep/bin"); TEMPLATE = {"colored": "colored_1200gev", "EW": "EW_400gev"}; PDG = {"colored": "1000006", "EW": "9000011"}
 def seed(ch, m, c): return 700000 + 100000 * (ch == "EW") + 40 * m + c        # c < 40; unique per (channel, mass, chunk)
 def edit(path, pat):
     txt = open(path).read()

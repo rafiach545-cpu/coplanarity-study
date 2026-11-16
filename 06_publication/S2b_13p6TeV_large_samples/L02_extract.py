@@ -2,14 +2,14 @@
 """Stage 2b, step 2: matched events of every generated chunk -> quirk four-momenta, charges, trigger flag. Same parser, charge assignment and trigger
 (pT(QQ) > 200 GeV) as S2_02_extract.py. Events of all chunks of a mass point are concatenated; event_id = 100000 + running index (the per-event seeds of the
 propagation, SeedSequence([6, mass, event_id]), then never coincide with those of the Stage 2 samples, which use 0, 1, 2, ...).
-Usage: L02_extract.py <channel> <mass>. Output: inputs/<channel>_<mass>gev_events.csv, inputs/counts.csv (one row per mass point, rewritten)."""
+Usage: L02_extract.py <channel> <mass>. Output: inputs/<channel>_<mass>gev_events.csv, inputs/counts.csv (one row per mass point, rewritten). Env (2026-11-16): COPLANARITY_BASE, S2B_RUNS, L02_OUT (output dir), PYTHIA8DATA."""
 import os, sys, glob, ast, pandas as pd, numpy as np
 os.environ.setdefault("PYTHIA8DATA", "/home/rafia/miniconda3/envs/hep/share/Pythia8/xmldoc")
-HERE = os.path.dirname(os.path.abspath(__file__)); BASE = "/home/rafia/coplanarity_study"; RUNS = os.environ.get("S2B_RUNS", "/home/rafia/hep_tools/S2b_large_runs")
+HERE = os.path.dirname(os.path.abspath(__file__)); BASE = os.environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study"); RUNS = os.environ.get("S2B_RUNS", "/home/rafia/hep_tools/S2b_large_runs")
 sys.path.insert(0, f"{BASE}/05_coplanarity_analysis/madgraph_pilot_v1"); sys.path.insert(0, f"{BASE}/01_signal_generation")
 from extract_pilot_data import parse_hepmc
 from extract_quirk_momenta import _make_rhadron_charge_lookup
-OUT = f"{HERE}/inputs"; os.makedirs(OUT, exist_ok=True); OFFSET = 100000
+OUT = os.environ.get("L02_OUT", f"{HERE}/inputs"); os.makedirs(OUT, exist_ok=True); OFFSET = 100000
 ch, m = sys.argv[1], int(sys.argv[2]); tag = f"{ch}_{m}gev"; parts = []; gen = []
 for d in sorted(glob.glob(f"{RUNS}/{tag}_c[0-9][0-9]")):
     done = f"{d}/checkpoints_DONE_generation.txt"

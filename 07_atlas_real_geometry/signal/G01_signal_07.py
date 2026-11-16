@@ -16,16 +16,21 @@ New (07):
     is exactly the F6_02 one (all 16 first crossings inside the lengths, t < 25 ns), checked by T07;
   - reconstruction cop07.analyse (paper algorithm on stations; final = plane, multiplicity at_least_2, Delta_s < 0.01 cm, Delta_w < 1 cm).
 Also stored: fid_stage2 (the F6_02 barrel rule on the same trajectory) and per setting whether the winner plane uses an end-cap element.
-Usage: G01_signal_07.py <geom stage2|atlas> <tag> <band mid|low|high_a> [--nmax N] [--workers K]
+Usage: G01_signal_07.py <geom stage2|atlas> <tag> <band mid|low|high_a> [--nmax N] [--workers K] [--input CSV] [--out DIR]
+Per-event seeds use the event_id column when the input has one (large samples, L02: 100000 + index), else the row index (Stage 2).
+Env COPLANARITY_BASE: the repository root (default /home/rafia/coplanarity_study).
 Output: runs/<geom>/G01_<tag>_<band>.jsonl (one line per event: list of rows per Lambda; append-only, resumable)."""
 import os, sys, json, time, math, argparse, importlib.util, multiprocessing as mp, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = f"{HERE}/.."; sys.path.insert(0, f"{ROOT}/sim")
-S2 = "/home/rafia/coplanarity_study/06_publication/S2_13p6TeV_run3_knapen_noPU_cop"
-REP = "/home/rafia/coplanarity_study/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts"
+BASE = os.environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study")   # env var for running on another machine (2026-11-16, as P4)
+S2 = f"{BASE}/06_publication/S2_13p6TeV_run3_knapen_noPU_cop"
+REP = f"{BASE}/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts"
 NS, CM = 6.582119569e-16, 1.973269804e-14                                # as P18_all_crossings
 SETTINGS = ("Z0", "Z1160", "A580")
 ap = argparse.ArgumentParser(); ap.add_argument("geom", choices=["stage2", "atlas"]); ap.add_argument("tag"); ap.add_argument("band", choices=["mid", "low", "high_a"])
-ap.add_argument("--nmax", type=int, default=0); ap.add_argument("--workers", type=int, default=4); A = ap.parse_args()
+ap.add_argument("--nmax", type=int, default=0); ap.add_argument("--workers", type=int, default=4)
+ap.add_argument("--input", default="", help="events csv (default: the Stage 2 file inputs/<tag>_events.csv)")
+ap.add_argument("--out", default="", help="output directory (default: runs/<geom>)"); A = ap.parse_args()
 os.environ["FAST"] = "1"; os.environ["XONLY"] = "1"; os.environ["BAND"] = A.band; os.environ.pop("LAMS", None)
 _argv = sys.argv; sys.argv = [f"{REP}/F6_02_grid.py", A.tag]
 spec = importlib.util.spec_from_file_location("f6grid", f"{REP}/F6_02_grid.py"); F = importlib.util.module_from_spec(spec); sys.modules["f6grid"] = F
@@ -99,12 +104,13 @@ def job(a):
 
 
 if __name__ == "__main__":
-    ev = pd.read_csv(f"{S2}/inputs/{F.TAG}_events.csv"); sel = ev.trigger_proxy_pass.astype(str) == "True"
+    ev = pd.read_csv(A.input or f"{S2}/inputs/{F.TAG}_events.csv"); sel = ev.trigger_proxy_pass.astype(str) == "True"
     if F.CH == "colored": sel &= (ev.charge1.abs() > 0.5) & (ev.charge2.abs() > 0.5)
     ev = ev[sel].reset_index(drop=True)
     if A.nmax: ev = ev.iloc[:A.nmax]
-    jobs = [(i, (r.px1, r.py1, r.pz1, r.E1), (r.px2, r.py2, r.pz2, r.E2), float(r.charge1), float(r.charge2)) for i, r in enumerate(ev.itertuples())]
-    outd = f"{HERE}/runs/{A.geom}"; os.makedirs(outd, exist_ok=True); LOG = f"{outd}/G01_{F.TAG}_{A.band}{f'_n{A.nmax}' if A.nmax else ''}.jsonl"
+    ids = ev.event_id.astype(int).tolist() if "event_id" in ev else list(range(len(ev)))   # large samples (L02): event_id = 100000 + index
+    jobs = [(ids[i], (r.px1, r.py1, r.pz1, r.E1), (r.px2, r.py2, r.pz2, r.E2), float(r.charge1), float(r.charge2)) for i, r in enumerate(ev.itertuples())]
+    outd = A.out or f"{HERE}/runs/{A.geom}"; os.makedirs(outd, exist_ok=True); LOG = f"{outd}/G01_{F.TAG}_{A.band}{f'_n{A.nmax}' if A.nmax else ''}.jsonl"
     done = {json.loads(l)[0]["event"] for l in open(LOG) if l.strip()} if os.path.exists(LOG) else set()
     todo = [j for j in jobs if j[0] not in done]
     print(f"G01 {A.geom} {F.TAG} band {A.band} Lambda {F.LAMS} keV: events {len(jobs)}, done {len(done)}, to run {len(todo)} -> {LOG}", flush=True)

@@ -36,3 +36,11 @@ Written before any 07 signal result, so the run can be compared with it.
   - A580 should lie between Z0 and Z1160 for both signal and background.
   - The Z0 background is 3–4 times the Stage 2 one (C01), so the Z0 gain over Z1160 in reach shrinks.
   - Z1160 keeps zero background, so its reach changes only through k/n.
+
+## Expectation written before the large-sample generation (G02, 2026-11-16)
+
+10 000 generated events per mass point (5 chunks × 2000, L01 unchanged, new seeds) for the 13 Stage 2 points, then G01 atlas with the three SCT settings.
+- **Cross sections:** equal to Stage 2 (`counts.csv`, 2000 events) within the combined MC errors (the cards differ only in nevents and iseed).
+- **Trigger-pass events** (colored: both quirk-hadrons charged) ≈ 5 × Stage 2: EW 100/200/400/600/800/1000 GeV: 235 / 470 / 675 / 795 / 870 / 960; colored 600/900/1200/1500/1800/2100/2400 GeV: 220 / 340 / 425 / 320 / 330 / 270 / 290, each within ≈ 3 binomial σ.
+- **ε_fid, ε_reco** in the barrel-only rule (fid_stage2, stored by G01): equal to Stage 2 within the Stage 2 statistical errors; their errors shrink by ≈ √5.
+- **CPU:** generation ≈ 1–2.5 min per chunk (65 chunks); G01 ≈ 5 s (mid), 0.2 s (low), 20 s (high_a) per event at the barrel timing, somewhat more with the end-cap elements: ≈ 45 CPU hours.

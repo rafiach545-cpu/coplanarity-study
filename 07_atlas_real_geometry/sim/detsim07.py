@@ -16,7 +16,7 @@ most-probable ionisation 0.28 MeV per mm Si-equivalent, t_eff = t / |cos(inciden
 mass in kinetic energy; no multiple scattering.
 Units: cm, GeV, ns."""
 import os, sys, math, numpy as np, pandas as pd
-HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = f"{HERE}/.."; BASE = "/home/rafia/coplanarity_study"
+HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = f"{HERE}/.."; BASE = os.environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study")
 SCR = f"{BASE}/05_coplanarity_analysis/PAPER_LITERAL_FINAL_ANALYSIS_2026-10-03/scripts"
 for p in (SCR, f"{BASE}/04_detector_sim", f"{BASE}/05_coplanarity_analysis", f"{BASE}/02_backgrounds/pileup", f"{BASE}/02_backgrounds/photon_conversion"):
     if p not in sys.path: sys.path.insert(0, p)
