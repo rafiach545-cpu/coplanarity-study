@@ -1,0 +1,4 @@
+run,region,region_elements,sct,n_photons,mean_p_conv,planes,plane_and_mult,final,N_bkg_332fb,N_UL95_332fb_if_zero,pass_prob_per_event,pass_prob_UL95_if_zero
+C01_atlas_pooltest_seed20261117_mu50,0,BP,Z0,9130,0.003996308286990182,8167,818,527,18.27589576964012,,0.05772179627601314,
+C01_atlas_pooltest_seed20261117_mu50,1,"L1_IBL,SCTD6_inner_A",Z0,9013,0.028602541400734035,8169,381,159,50.115974391866665,,0.017641184955064906,
+C01_atlas_pooltest_seed20261117_mu50,2,"L2_PixelB0,SCTD7_middle_A",Z0,8953,0.050211132223009165,8273,77,14,8.925016468094942,,0.001563721657544957,
