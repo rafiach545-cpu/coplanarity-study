@@ -11,7 +11,7 @@ exec(_src[_src.index("def segs("):_src.index("def grid4(")])                 # s
 CON = [dict(r, scenario=r["setup"]) for r in csv.DictReader(open(f"{TB}/X02_contours_332fb.csv"))]
 GP = [dict(scenario="S2_Run3_ATLAS", channel=r["channel"], sct=r["sct"], mass_gev=r["mass_gev"], lambda_eV=float(r["lambda_keV"]) * 1e3, k=int(float(r["k"])))
       for r in csv.DictReader(open(f"{TB}/X02_N_grid_S2_Run3_ATLAS_300fb.csv"))]
-SCT = {"Z0": "#sigma_{long}^{SCT} = 0", "A580": "SCT 17 #mum / 580 #mum (ATLAS)", "Z1160": "SCT 34 #mum / 1.16 mm (Knapen)"}; SETS = ("Z0", "A580", "Z1160")
+SCT = {"Z0": "#sigma_{long}^{SCT} = 0 (best case)", "A580": "SCT 17 #mum / 580 #mum (ATLAS)", "Z1160": "SCT 34 #mum / 1.16 mm (Knapen)"}; SETS = ("A580", "Z1160", "Z0")
 COL = {"S2_Run3_ATLAS": E136, "S1_Run3_Ideal": E13}
 def save(c, name, caption, inputs):
     d = f"{OUT}/{name}"; os.makedirs(d, exist_ok=True)
@@ -46,7 +46,7 @@ save(c, "X02_contours_ideal_vs_atlas_332fb", """**X02.** Expected reach at √s 
 N = L σ ε_trig f_ch k/n (σ, n_matched, n_trigger, both-charged from signal/inputs_large/counts.csv and the event files; k/n with Wilson 68% band, dotted for N = 3).
 Orange: Stage 1 · Run 3 · Ideal (G01 stage2 geometry = the 8 barrel layers of Knapen et al.) and blue: Stage 2 · Run 3 · ATLAS (G01 atlas: barrel + end-caps, 8 ATLAS-like stations, D1),
 both on the same 10 000-generated-event samples (server runs signal/runs/large_ideal, large_atlas, all bands Λ = 0.1–25 keV). Grey: Stage 1 · Run 3 · Ideal with 2000 generated events (06 S2,
-barrel; no A580 setting there). Columns: SCT σ_long = 0, ATLAS 17 µm / 580 µm, Knapen 34 µm / 1.16 mm. Dots: grid points (filled: k_ATLAS > 0).
+barrel; no A580 setting there). Columns: ATLAS 17 µm / 580 µm (headline), Knapen 34 µm / 1.16 mm, SCT σ_long = 0 (best case, perfect SCT z). Dots: grid points (filled: k_ATLAS > 0).
 Contour method of 06 (log10 N on the grid, linear interpolation). Source: tables/X02_contours_332fb.csv, tables/X02_N_grid_S2_Run3_ATLAS_300fb.csv.""",
      ["X02_contours_332fb.csv", "X02_N_grid_S2_Run3_ATLAS_300fb.csv"])
 print("make_figures_X02: done")

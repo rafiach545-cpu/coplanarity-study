@@ -1,2 +1,2 @@
-T11: 585 computed rows of 585; checks {'a': np.True_, 'b': True, 'c': True, 'd': True, 'e': True}
+T11: 630 computed rows of 630; checks {'a': np.True_, 'b': True, 'c': True, 'd': True, 'e': True}
 T11_PASS

@@ -149,11 +149,14 @@ if __name__ == "__main__":
     B = pd.DataFrame(B); rows = []
     for b in B.itertuples():
         for L in LUMIS:
-            Nb = b.N_bkg_332fb * L / 332.0; bu = Nb if b.n_final else b.N_UL95_332fb_if_zero * L / 332.0
-            B.loc[b.Index, f"N_bkg_{L:g}fb"] = Nb; B.loc[b.Index, f"b_used_{L:g}fb"] = bu; B.loc[b.Index, f"s_excl_{L:g}fb"] = s95(bu); B.loc[b.Index, f"s_disc_{L:g}fb"] = s5(Nb)
+            # 2026-11-17 (user): the background value is the central MC estimate (b = 0 when no MC photon passes); the MC 95% upper limit is used only
+            # for the systematic variant "UL if 0 passed (systematic)". Columns b_used / s_excl / s_disc are the central ones; *_UL the variant.
+            Nb = b.N_bkg_332fb * L / 332.0; bul = Nb if b.n_final else b.N_UL95_332fb_if_zero * L / 332.0
+            B.loc[b.Index, f"N_bkg_{L:g}fb"] = Nb; B.loc[b.Index, f"b_used_{L:g}fb"] = Nb; B.loc[b.Index, f"s_excl_{L:g}fb"] = s95(Nb); B.loc[b.Index, f"s_disc_{L:g}fb"] = s5(Nb)
+            B.loc[b.Index, f"b_UL_{L:g}fb"] = bul; B.loc[b.Index, f"s_excl_UL_{L:g}fb"] = s95(bul)
             for ch in ("colored", "EW"):
-                rows += reach_rows(G, ch, b.sct, L, s95(bu), s5(Nb), dict(variant="b_used = UL if 0 passed", mu=b.mu, N_bkg=round(Nb, 3), b_used=round(bu, 3)))
                 rows += reach_rows(G, ch, b.sct, L, s95(Nb), s5(Nb), dict(variant="central b", mu=b.mu, N_bkg=round(Nb, 3), b_used=round(Nb, 3)))
+                rows += reach_rows(G, ch, b.sct, L, s95(bul), s5(Nb), dict(variant="UL if 0 passed (systematic)", mu=b.mu, N_bkg=round(Nb, 3), b_used=round(bul, 3)))
     B.to_csv(f"{T}/R01_background.csv", index=False); print(B.round(3).to_string(index=False))
     RB = pd.DataFrame(rows).sort_values(["variant", "channel", "sct", "lumi_fb", "contour", "mu"]); RB.to_csv(f"{T}/R01_reach_with_background.csv", index=False)
     print(RB[RB.lumi_fb == 332].to_string(index=False)); print("R01_EXIT=0")

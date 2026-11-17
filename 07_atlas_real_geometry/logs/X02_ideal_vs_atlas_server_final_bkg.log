@@ -1,0 +1,4 @@
+EW_1200gev: no runs in /home/rafia/coplanarity_study/07_atlas_real_geometry/signal/runs/large_atlas -> not in the grid
+S1_Run3_Ideal {'computed': 585}
+S2_Run3_ATLAS {'computed': 585}
+X02: wrote X02_N_grid_ideal_300fb.csv, X02_N_grid_atlas_300fb.csv, X02_reach_332fb.csv, X02_contours_332fb.csv, X02_mcnemar_per_point.csv, X02_mcnemar_per_lambda.csv, X02_crossings_mass.csv, X02_crossings_lambda.csv

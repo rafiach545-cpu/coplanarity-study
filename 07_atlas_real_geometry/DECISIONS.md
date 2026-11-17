@@ -123,4 +123,6 @@ Chosen by expected size and by how much existing code each step reuses:
   - `n_fid_stage2` → `n_fid_barrel_rule` (in the raw jsonl files the field is still `fid_stage2`);
   - `m_max_stage2_GeV` → `m_max_S1_Run3_Ideal_2k_GeV`;
   - X02 setups `ideal` / `atlas` / `stage2` → `S1_Run3_Ideal` / `S2_Run3_ATLAS` / `S1_Run3_Ideal_2k`.
+- **Background value (2026-11-17, decided by the user):** the reach uses the central MC background, with b = 0 when no MC photon passes. The MC 95% upper limit (1.29 events ATLAS, 0.25 events Ideal) is only a systematic variant. The earlier D5 rule ("b = UL if 0 passed") made the A580 μ = 0 reach lower than the μ = 20 reach, which is unphysical. Implemented in R01 (columns `b_used` / `s_excl` = central, `b_UL` / `s_excl_UL` = variant) and in X08 (variants "central b" and "UL if 0 passed (systematic)").
+- **Headline setting (2026-11-17, decided by the user):** A580 (realistic SCT). Z0 is shown only as the best case (perfect SCT z), always with its background. Each geometry is compared with its own background; the Ideal A580 background was run with C01 stage2 at μ = 0/20/50 (`backgrounds/C01_chain_stage2_A580.sh`).
 

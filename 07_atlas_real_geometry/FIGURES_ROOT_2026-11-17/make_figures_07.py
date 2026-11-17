@@ -7,8 +7,8 @@ import os
 _src = open(os.path.abspath(f"{os.path.dirname(os.path.abspath(__file__))}/../../06_publication/FIGURES_ROOT_2026-11-04/make_figures_root.py")).read()
 exec(_src[:_src.index("# ---------- contour figures")])
 SZ = {"Z0": C("#6250d6"), "A580": C("#2a78d6"), "Z1160": C("#1baf7a")}       # identity: SCT setting (06 slots 7, 1, 3); Stage 1 · Run 3 · Ideal (2k) = MUTED grey
-SCT = {"Z0": "#sigma_{long}^{SCT} = 0", "A580": "SCT 17 #mum / 580 #mum (ATLAS)", "Z1160": "SCT 34 #mum / 1.16 mm (Knapen)"}
-SETS = ("Z0", "A580", "Z1160"); MU3 = {0: MU[0], 20: MU[20], 50: MU[50], 60: MU[60]}
+SCT = {"Z0": "#sigma_{long}^{SCT} = 0 (best case)", "A580": "SCT 17 #mum / 580 #mum (ATLAS)", "Z1160": "SCT 34 #mum / 1.16 mm (Knapen)"}
+SETS = ("A580", "Z1160", "Z0"); MU3 = {0: MU[0], 20: MU[20], 50: MU[50], 60: MU[60]}
 def save(c, name, caption, inputs):
     d = f"{HERE}/{name}"; os.makedirs(d, exist_ok=True)
     st.SetPaperSize(c.GetWw() / 100.0, c.GetWh() / 100.0); c.Print(f"{d}/{name}.pdf", "pdf Portrait")
@@ -96,13 +96,13 @@ S2_N_grid_300fb.csv via data/efficiency_vs_lambda.csv.""")
 def d4(ch, m):
     """k / n (selected / propagated)"""
     o = {}
-    for sct, sh in (("Z0", 0.97), ("A580", 1.0), ("Z1160", 1.03)):
+    for sct, sh in (("A580", 1.0), ("Z1160", 1.03), ("Z0", 0.97)):
         xs, ys, el, eh = eser("S2_Run3_ATLAS_10k", ch, m, sct, "kn"); g = gerr([x * sh for x in xs], ys, el, eh, SZ[sct], 20, size=1.1); g.Draw("P"); o[sct] = g
     for sct, mk_ in (("Z0", 24), ("Z1160", 26)):
         xs, ys, el, eh = eser("S1_Run3_Ideal_2k", ch, m, sct, "kn"); g = gerr(xs, ys, el, eh, MUTED, mk_, size=1.1); g.Draw("P"); o["s2" + sct] = g
     return o
 eff4("G04_selection_efficiency", "Stage 2 #upoint Run 3 #upoint ATLAS (13.6 TeV): selection efficiency k/n, 10k samples", d4,
-     lambda o: [(o["Z0"], SCT["Z0"], "p"), (o["A580"], SCT["A580"], "p"), (o["Z1160"], SCT["Z1160"], "p"),
+     lambda o: [(o["A580"], SCT["A580"], "p"), (o["Z1160"], SCT["Z1160"], "p"), (o["Z0"], SCT["Z0"], "p"),
                 (o["s2Z0"], "S1#upointRun 3#upointIdeal (2k): #sigma_{z} = 0", "p"), (o["s2Z1160"], "S1#upointRun 3#upointIdeal (2k): #sigma_{z} = 1.16 mm", "p")],
      """**G04.** Fraction k/n of propagated events that pass the full coplanarity selection (fiducial, plane, multiplicity, Δs < 0.01 cm, Δw < 1 cm) vs Λ, for the three SCT
 settings of D4 (Stage 2 · Run 3 · ATLAS, 10k samples) and for Stage 1 · Run 3 · Ideal (grey, open; 2000 generated). Wilson 68% errors; ATLAS markers shifted by ±3% in Λ.
@@ -125,12 +125,12 @@ for i, (ch, sct) in enumerate([(a, b) for a in ("colored", "EW") for b in SETS])
     for k_, v_ in n.items(): LE.setdefault(sct, {}).setdefault(k_, v_)
     if len(pts) > len(LE.get("pts", [])): LE["pts"] = pts
     text(0.15, 0.94, f"#bf{{{CH[ch]}}}, {SCT[sct]}", 0.042); p.RedrawAxis()
-E = [(LE[s]["exclusion"], f"S2 #upoint Run 3 #upoint ATLAS {SCT[s]}: N = 3", "l") for s in SETS if LE.get(s, {}).get("exclusion")] + [(LE.get("Z0", {}).get("discovery"), "S2 #upoint Run 3 #upoint ATLAS: N = 5 (solid)", "l"), (LE.get("Z0", {}).get("band"), "S2 #upoint Run 3 #upoint ATLAS: N = 3, #pm 1#sigma (Wilson)", "l")]
+E = [(LE[s]["exclusion"], f"S2 #upoint Run 3 #upoint ATLAS {SCT[s]}: N = 3", "l") for s in SETS if LE.get(s, {}).get("exclusion")] + [(LE.get("A580", {}).get("discovery"), "S2 #upoint Run 3 #upoint ATLAS: N = 5 (solid)", "l"), (LE.get("A580", {}).get("band"), "S2 #upoint Run 3 #upoint ATLAS: N = 3, #pm 1#sigma (Wilson)", "l")]
 E += [(LE.get("s2e"), "S1 #upoint Run 3 #upoint Ideal (2k): N = 3", "l"), (LE.get("s2d"), "S1 #upoint Run 3 #upoint Ideal (2k): N = 5", "l")] + [(g_, l_, "p") for g_, l_ in zip(LE.get("pts", []), ("grid point, k > 0", "grid point, k = 0"))]
 bot.cd(); legend(0.03, 0.05, 0.99, 0.95, [e for e in E if e[0]], ncol=3, size=0.2)
 save(c, "G05_reach_zero_background_332fb", """**G05.** Expected reach of the coplanarity search, Stage 2 · Run 3 · ATLAS (ATLAS inner detector: barrel and end-caps, 8 ATLAS-like stations), √s = 13.6 TeV,
 332 fb⁻¹, no pile-up, zero background. Contours N = 3 (exclusion, dashed) and N = 5 (discovery, solid), N = L σ ε_trig f_ch k/n; dotted: N = 3 for the ±1σ Wilson band on
-k/n. Columns: SCT σ_long = 0, the ATLAS intrinsic 17 µm / 580 µm (D4, A580), Knapen 34 µm / 1.16 mm. Grey: Stage 1 · Run 3 · Ideal (Knapen barrel geometry, 2000 generated events,
+k/n. Columns: the ATLAS intrinsic 17 µm / 580 µm (D4, A580; the realistic, headline setting), Knapen 34 µm / 1.16 mm, and SCT σ_long = 0 (best case, perfect SCT z; with pile-up its background is large, see G07). Grey: Stage 1 · Run 3 · Ideal (Knapen barrel geometry, 2000 generated events,
 same method). Source: tables/R01_N_grid_300fb.csv (× 332/300), 06 S2_N_grid_300fb.csv via data/contours.csv, data/grid_points.csv.""", ["contours.csv", "grid_points.csv"])
 
 # ---------- G06: reach with the converted-photon background vs pile-up (A580 and Z0)
@@ -146,7 +146,10 @@ for name, sct, mus in (("G06_reach_pileup_A580", "A580", (0, 20, 50)), ("G07_rea
         for mu in mus:
             for xs, ys in segs(f"S2_Run3_ATLAS_332fb_mu{mu}", ch, sct, cn):
                 g = graph(xs, ys, MU3[mu], 3, 2 if cn == "exclusion" else 1); g.Draw("L"); gs.setdefault(mu, g)
-        if not LE: LE = [(gs[mu], f"#mu = {mu}" + (" (no pile-up)" if mu == 0 else ""), "l") for mu in mus if mu in gs] + ([(ref[0], "zero background (G05)", "l")] if ref else [])
+            if cn == "exclusion":                                                 # systematic variant: b = MC 95% UL where no MC photon passed
+                for xs, ys in segs(f"S2_Run3_ATLAS_332fb_mu{mu}_UL", ch, sct, cn):
+                    g = graph(xs, ys, MU3[mu], 1, 3); g.Draw("L"); gs.setdefault("UL", g)
+        if not LE: LE = [(gs[mu], f"#mu = {mu}" + (" (no pile-up)" if mu == 0 else ""), "l") for mu in mus if mu in gs] + ([(ref[0], "zero background (G05)", "l")] if ref else []) + ([(gs["UL"], "b = MC 95% UL (systematic)", "l")] if "UL" in gs else [])
         s = "s_excl_332fb" if cn == "exclusion" else "s_disc_332fb"
         text(0.14, 0.94, f"#bf{{{CH[ch]}}}, {'exclusion (95% CL_{s})' if cn == 'exclusion' else 'discovery'}", 0.045)
         text(0.93, 0.20, "s_{req}: " + " / ".join(f"{fl(TH[sct + str(m)][s]):.1f}" for m in mus) + "  (#mu = " + "/".join(str(m) for m in mus) + ")", 0.034, 31, INK2)
@@ -155,9 +158,10 @@ for name, sct, mus in (("G06_reach_pileup_A580", "A580", (0, 20, 50)), ("G07_rea
     save(c, name, f"""**{name[:3]}.** Reach with the converted-photon background (C01: Z(νν̄)γ+j photons, conversion probability from the ATLAS material M01, full simulation
 through the Stage 2 · Run 3 · ATLAS geometry with pile-up), {SCT[sct].replace('#mu', 'µ').replace('#sigma_{long}^{SCT}', 'σ_long')}, √s = 13.6 TeV, 332 fb⁻¹. Blue ramp: μ = {", ".join(str(m) for m in mus)} (light to dark); the contour is the
 signal count s_req for 95% CL_s exclusion (top, dashed; n_obs = round(b_used)) or discovery (bottom, solid; max(5, Asimov Z = 5)), printed in each panel.
-b_used = central background if any photon passed, else the 95% upper limit (largest per-region limit). Grey: zero background. Signal efficiencies without pile-up.
-Settings with the same s_req give identical contours, drawn on top of each other (the last drawn, darker one is visible); s_req is not monotonic in μ because
-μ = 0 with no passing photon uses the upper limit b = 1.29 events (n_obs = 1), while small central values (b < 0.5) round to n_obs = 0.
+b = the central MC background estimate (b = 0 when no MC photon passes). Thin dotted (where present): the systematic variant with b = the MC 95% upper limit
+when no photon passed (largest per-region limit, 1.29 events). Grey: zero background. Signal efficiencies without pile-up. Settings with the same s_req give
+identical contours, drawn on top of each other (the last drawn, darker one is visible). Only Z(νν̄)γ conversions are simulated; Z(νν̄)+jets (47× larger σ) is
+estimated, not simulated.
 Source: tables/R01_N_grid_300fb.csv, tables/R01_background.csv via data/contours.csv, data/background_thresholds.csv.""", ["contours.csv", "background_thresholds.csv"])
 
 # ---------- G08: background vs pile-up
@@ -184,10 +188,10 @@ S2_background_13p6TeV.csv via data/background_vs_mu.csv.""", ["background_vs_mu.
 # ---------- G09: maximum reach summary
 RS = read("reach_summary.csv")
 c = ROOT.TCanvas("G09", "", 1800, 1700); c.Divide(1, 2, 0.002, 0.002); KEEP.append(c)
-ROWS = [("S1_Run3_Ideal_2k_332fb", "Z1160", "zero background", "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 1.16 mm"), ("S1_Run3_Ideal_2k_332fb", "Z0", "zero background", "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 0"),
-        ("S2_Run3_ATLAS_332fb", "Z1160", "zero background", "S2 #upoint Run 3 #upoint ATLAS, Knapen 34 #mum / 1.16 mm"), ("S2_Run3_ATLAS_332fb", "A580", "zero background", "S2 #upoint Run 3 #upoint ATLAS, ATLAS 17 #mum / 580 #mum"),
-        ("S2_Run3_ATLAS_332fb", "Z0", "zero background", "S2 #upoint Run 3 #upoint ATLAS, #sigma_{long} = 0"), ("S2_Run3_ATLAS_332fb_mu50", "A580", "b_used = UL if 0 passed", "S2 #upoint Run 3 #upoint ATLAS, A580, #mu = 50"),
-        ("S2_Run3_ATLAS_332fb_mu50", "Z0", "b_used = UL if 0 passed", "S2 #upoint Run 3 #upoint ATLAS, #sigma_{long} = 0, #mu = 50"), ("S1_Run3_Ideal_2k_332fb_mu50", "Z0", "b_used = UL if 0 passed", "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 0, #mu = 50")]
+ROWS = [("X08_S2_Run3_ATLAS_mu0", "A580", "central b", "ATLAS, SCT 17 / 580 #mum, #mu = 0"), ("X08_S1_Run3_Ideal_mu0", "A580", "central b", "Ideal, SCT 17 / 580 #mum, #mu = 0"),
+        ("X08_S2_Run3_ATLAS_mu50", "A580", "central b", "ATLAS, SCT 17 / 580 #mum, #mu = 50"), ("X08_S1_Run3_Ideal_mu50", "A580", "central b", "Ideal, SCT 17 / 580 #mum, #mu = 50"),
+        ("X08_S2_Run3_ATLAS_mu0", "Z0", "central b", "ATLAS, #sigma_{long} = 0 (best case), #mu = 0"), ("X08_S1_Run3_Ideal_mu0", "Z0", "central b", "Ideal, #sigma_{long} = 0 (best case), #mu = 0"),
+        ("X08_S2_Run3_ATLAS_mu50", "Z0", "central b", "ATLAS, #sigma_{long} = 0 (best case), #mu = 50"), ("X08_S1_Run3_Ideal_mu50", "Z0", "central b", "Ideal, #sigma_{long} = 0 (best case), #mu = 50")]
 for j, ch in enumerate(("colored", "EW")):
     p = c.cd(j + 1); p.SetLeftMargin(0.36); p.SetRightMargin(0.04); p.SetTopMargin(0.09); p.SetBottomMargin(0.13); n = len(ROWS)
     h = frame(p, XR[ch][0] if ch == "EW" else 900, 0, 1050 if ch == "EW" else 2400, n, "maximum reach m_{Q} [GeV] (332 fb^{-1})", ""); h.GetYaxis().SetLabelSize(0); h.GetYaxis().SetNdivisions(0); h.GetXaxis().SetNdivisions(505); h.GetXaxis().SetTitleSize(0.042); h.GetXaxis().SetLabelSize(0.04)
@@ -196,12 +200,19 @@ for j, ch in enumerate(("colored", "EW")):
         for cn, mk_, dy in (("exclusion", 20, 0.15), ("discovery", 24, -0.15)):
             r = [x for x in RS if x["scenario"] == sc and x["channel"] == ch and x["sct"] == sct and x["contour"] == cn and x["variant"] == var]
             if not r or not math.isfinite(fl(r[0]["m_max"])): continue
-            m, lo, hi = fl(r[0]["m_max"]), fl(r[0]["lo"]), fl(r[0]["hi"]); col = MUTED if sc.startswith("S1_") else SZ[sct]
+            m, lo, hi = fl(r[0]["m_max"]), fl(r[0]["lo"]), fl(r[0]["hi"]); col = MUTED if "S1_" in sc else SZ[sct]
             g = gerr([m], [y + dy], [0], [0], col, mk_, [m - lo] if math.isfinite(lo) else [0], [hi - m] if math.isfinite(hi) else [0]); g.Draw("P")
+            u = [x for x in RS if x["scenario"] == sc and x["channel"] == ch and x["sct"] == sct and x["contour"] == cn and x["variant"] == "UL if 0 passed (systematic)"]
+            if cn == "exclusion" and u and math.isfinite(fl(u[0]["m_max"])) and abs(fl(u[0]["m_max"]) - m) >= 1:   # systematic variant: b = MC 95% UL
+                gu = gerr([fl(u[0]["m_max"])], [y + dy], [0], [0], col, 23, size=1.0); gu.Draw("P")
     text(0.37, 0.945, f"#bf{{{CH[ch]}}}", 0.05); text(0.96, 0.945, "#bullet excl.   #circ disc.", 0.036, 31, INK2); p.RedrawAxis()
 save(c, "G09_reach_summary", """**G09.** Maximum mass reach at 332 fb⁻¹, 13.6 TeV (filled: exclusion, N = 3 or 95% CL_s with background; open: discovery). Horizontal bars: reach of the ±1σ Wilson
-band on k/n. Stage 2 · Run 3 · ATLAS (10k samples) for the three SCT settings, zero background and with the μ = 50 converted-photon background; grey: Stage 1 · Run 3 · Ideal (2k).
-Source: tables/R01_reach.csv, tables/R01_reach_with_background.csv, 06 S2_reach*.csv via data/reach_summary.csv.""", ["reach_summary.csv"])
+band on k/n. Coloured: ATLAS Run 2 ID (Stage 2 · Run 3 · ATLAS); grey: Ideal (Stage 1 · Run 3 · Ideal), both with the same 10k-generated events and each with ITS OWN
+converted-photon background (ATLAS: C01 with end-caps and material conversion; Ideal: barrel only, flat 1% conversion, 06 S2 conventions; X08). Top: the ATLAS
+intrinsic SCT resolution 17 µm / 580 µm (headline, realistic); bottom: σ_long = 0 (best case, perfect SCT z). μ = 0 and 50. Exclusion
+uses the central MC background (b = 0 when no MC photon passes); small down-triangles: the systematic variant with b = the MC 95% upper limit when no photon passed
+(ATLAS UL 1.29 events, Ideal UL 0.25 events). Only Z(νν̄)γ conversions are simulated; Z(νν̄)+jets (47× larger σ) is estimated, not simulated.
+Source: tables/X08_reach_with_background.csv via data/reach_summary.csv.""", ["reach_summary.csv"])
 
 # ---------- G10: conversion probability from the material
 MC = read("material_conversion_vs_eta.csv")

@@ -77,6 +77,8 @@ SCEN = [("S2_Run3_ATLAS_332fb", scaled(G, 332.0), {}, ("Z0", "A580", "Z1160")), 
 for mu in (0, 20, 50, 60):
     th = {r.sct: (r.s_excl_332fb, r.s_disc_332fb) for r in BK[BK.mu == mu].itertuples()}
     SCEN.append((f"S2_Run3_ATLAS_332fb_mu{mu}", scaled(G, 332.0), th, tuple(th)))
+    thu = {r.sct: (r.s_excl_UL_332fb, r.s_disc_332fb) for r in BK[(BK.mu == mu) & (BK.n_final == 0)].itertuples()}   # systematic variant: b = MC 95% UL when 0 passed
+    if thu: SCEN.append((f"S2_Run3_ATLAS_332fb_mu{mu}_UL", scaled(G, 332.0), thu, tuple(thu)))
 crow, grow = [], []
 for name, g0, th, scts in SCEN:
     for ch in ("colored", "EW"):
@@ -95,6 +97,9 @@ pd.DataFrame(crow).to_csv(f"{D}/contours.csv", index=False); pd.DataFrame(grow).
 rr = []
 for r in rd(f"{T}/R01_reach.csv").itertuples(): rr.append(dict(scenario=f"S2_Run3_ATLAS_{r.lumi_fb:g}fb", channel=r.channel, sct=r.sct, contour=r.contour, mu=np.nan, variant="zero background", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
 for r in rd(f"{T}/R01_reach_with_background.csv").itertuples(): rr.append(dict(scenario=f"S2_Run3_ATLAS_{r.lumi_fb:g}fb_mu{r.mu}", channel=r.channel, sct=r.sct, contour=r.contour, mu=r.mu, variant=r.variant, m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
+if os.path.exists(f"{T}/X08_reach_with_background.csv"):                       # 2026-11-17: Ideal (10k) and ATLAS, each with its own background (X08)
+    for r in rd(f"{T}/X08_reach_with_background.csv").itertuples():
+        if r.setup in ("S1_Run3_Ideal", "S2_Run3_ATLAS"): rr.append(dict(scenario=f"X08_{r.setup}_mu{r.mu}", channel=r.channel, sct=r.sct, contour=r.contour, mu=r.mu, variant=r.variant, m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
 for r in rd(f"{S2}/S2_reach.csv").itertuples(): rr.append(dict(scenario=f"S1_Run3_Ideal_2k_{r.lumi_fb:g}fb", channel=r.channel, sct=r.sct, contour=r.contour, mu=np.nan, variant="zero background", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=3.0 if r.contour == "exclusion" else 5.0))
 for r in rd(f"{S2}/S2_reach_with_background.csv").itertuples(): rr.append(dict(scenario=f"S1_Run3_Ideal_2k_{r.lumi_fb:g}fb_mu{r.mu}", channel=r.channel, sct=r.sct, contour=r.contour, mu=r.mu, variant="b_used = UL if 0 passed", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
 pd.DataFrame(rr).to_csv(f"{D}/reach_summary.csv", index=False)
@@ -107,7 +112,7 @@ for r in BK.itertuples(): brow.append(dict(sample="S2_Run3_ATLAS", sct=r.sct, mu
 S2B = rd(f"{S2}/S2_background_13p6TeV.csv")
 for r in S2B[S2B.process.str.startswith("conversion")].itertuples(): brow.append(dict(sample="S1_Run3_Ideal_2k", sct=r.sct, mu=r.mu, part="all", final=r.sr, N_332fb=r.N_bkg_332fb, N_stat=r.N_bkg_332fb / np.sqrt(r.sr) if r.sr else np.nan))
 pd.DataFrame(brow).to_csv(f"{D}/background_vs_mu.csv", index=False)
-pd.DataFrame([dict(sct=r.sct, mu=r.mu, N_bkg_332fb=r.N_bkg_332fb, b_used_332fb=r.b_used_332fb, s_excl_332fb=r.s_excl_332fb, s_disc_332fb=r.s_disc_332fb) for r in BK.itertuples()]).to_csv(f"{D}/background_thresholds.csv", index=False)
+pd.DataFrame([dict(sct=r.sct, mu=r.mu, N_bkg_332fb=r.N_bkg_332fb, b_used_332fb=r.b_used_332fb, s_excl_332fb=r.s_excl_332fb, s_disc_332fb=r.s_disc_332fb, b_UL_332fb=r.b_UL_332fb, s_excl_UL_332fb=r.s_excl_UL_332fb) for r in BK.itertuples()]).to_csv(f"{D}/background_thresholds.csv", index=False)
 
 # ---- D7: conversion probability from the material (M01) vs |eta|, nominal and variants
 M = rd(f"{T}/M01_conversion_per_photon.csv"); EB = np.linspace(0, 2.5, 11); mrow = []

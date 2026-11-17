@@ -4,7 +4,7 @@
 void G02_quirk_velocity_beta()
 {
 //=========Macro generated from canvas: G02/
-//=========  (Tue Nov 17 12:16:23 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 16:37:36 2026) by ROOT version 6.40.04
    TCanvas *G02 = new TCanvas("G02", "", 0, 0, 1700, 700);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);

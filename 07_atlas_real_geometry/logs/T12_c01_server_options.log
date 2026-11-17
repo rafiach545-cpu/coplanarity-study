@@ -1,0 +1,11 @@
+C01_EXIT=0
+C01_EXIT=0
+C01_EXIT=0
+runs/C01_atlas_T12a_mu20 chunk 000000: 294 rows, identical: True
+runs/C01_atlas_T12a_mu20 chunk 000050: 300 rows, identical: True
+runs/C01_stage2_T12b_mu20 chunk 000000: 50 rows, identical: True
+runs/C01_stage2_T12b_mu20 chunk 000050: 50 rows, identical: True
+S01 S01_C01_atlas_A580_mu50.csv: identical earlier columns: True
+S01 S01_C01_stage2_A580_mu50.csv: identical earlier columns: True
+pile-up only: 20 rows, all PU_ONLY with 0 conversion hits: True; planes 11, final 0
+T12_PASS

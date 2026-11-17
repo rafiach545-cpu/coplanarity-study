@@ -6,7 +6,7 @@ All numbers below are read from saved files; the source of each table is given i
 
 | channel | computed |
 |---|---|
-| EW | 90 |
+| EW | 105 |
 | colored | 105 |
 
 Λ values computed (keV): 0.1, 0.2, 0.3, 0.5, 0.7, 1, 2, 3, 4, 5, 7, 10, 15, 20, 25. All bands complete.
@@ -61,6 +61,7 @@ Largest |pull| of ε_trig between the 10k samples and S1_Run3_Ideal_2k: 2.72 (Wi
 | EW | 600 | 812 | 0.722 | 0.291 | 0.562 | 0.129 | 0.075 | 0.590 | 0.352 | 0.296 | 0.050 |
 | EW | 800 | 891 | 0.690 | 0.260 | 0.549 | 0.154 | 0.083 | 0.533 | 0.224 | 0.201 | 0.023 |
 | EW | 1000 | 965 | 0.735 | 0.330 | 0.578 | 0.169 | 0.098 | 0.558 | 0.219 | 0.177 | 0.052 |
+| EW | 1200 | 963 | 0.675 | 0.285 | 0.549 | 0.127 | 0.072 | 0.525 |  |  |  |
 | colored | 600 | 299 | 0.796 | 0.398 | 0.632 | 0.197 | 0.137 | 0.441 | 0.364 | 0.250 | 0.091 |
 | colored | 900 | 337 | 0.822 | 0.409 | 0.697 | 0.208 | 0.113 | 0.400 | 0.544 | 0.426 | 0.132 |
 | colored | 1200 | 339 | 0.717 | 0.389 | 0.569 | 0.162 | 0.097 | 0.291 | 0.412 | 0.341 | 0.024 |
@@ -73,21 +74,21 @@ Largest |pull| of ε_trig between the 10k samples and S1_Run3_Ideal_2k: 2.72 (Wi
 
 | channel | lambda_keV | n | fail | n_s2 | fail_s2 | rate | rate_S1_Run3_Ideal_2k |
 |---|---|---|---|---|---|---|---|
-| EW | 0.1 | 3943 | 34 | 801 | 12 | 0.86% | 1.50% |
-| EW | 0.2 | 3943 | 34 | 801 | 12 | 0.86% | 1.50% |
-| EW | 0.3 | 3943 | 33 | 801 | 8 | 0.84% | 1.00% |
-| EW | 0.5 | 3943 | 33 | 801 | 9 | 0.84% | 1.12% |
-| EW | 0.7 | 3943 | 31 | 801 | 5 | 0.79% | 0.62% |
-| EW | 1.0 | 3943 | 33 | 801 | 9 | 0.84% | 1.12% |
-| EW | 2.0 | 3943 | 33 | 801 | 9 | 0.84% | 1.12% |
-| EW | 3.0 | 3943 | 39 | 801 | 6 | 0.99% | 0.75% |
-| EW | 4.0 | 3943 | 33 | 801 | 9 | 0.84% | 1.12% |
-| EW | 5.0 | 3943 | 22 | 801 | 9 | 0.56% | 1.12% |
-| EW | 7.0 | 3943 | 34 | 801 | 11 | 0.86% | 1.37% |
-| EW | 10.0 | 3943 | 32 | 801 | 10 | 0.81% | 1.25% |
-| EW | 15.0 | 3943 | 127 | 801 | 27 | 3.22% | 3.37% |
-| EW | 20.0 | 3943 | 343 | 801 | 79 | 8.70% | 9.86% |
-| EW | 25.0 | 3943 | 806 | 801 | 178 | 20.44% | 22.22% |
+| EW | 0.1 | 4906 | 43 | 801 | 12 | 0.88% | 1.50% |
+| EW | 0.2 | 4906 | 43 | 801 | 12 | 0.88% | 1.50% |
+| EW | 0.3 | 4906 | 37 | 801 | 8 | 0.75% | 1.00% |
+| EW | 0.5 | 4906 | 40 | 801 | 9 | 0.82% | 1.12% |
+| EW | 0.7 | 4906 | 40 | 801 | 5 | 0.82% | 0.62% |
+| EW | 1.0 | 4906 | 40 | 801 | 9 | 0.82% | 1.12% |
+| EW | 2.0 | 4906 | 40 | 801 | 9 | 0.82% | 1.12% |
+| EW | 3.0 | 4906 | 47 | 801 | 6 | 0.96% | 0.75% |
+| EW | 4.0 | 4906 | 40 | 801 | 9 | 0.82% | 1.12% |
+| EW | 5.0 | 4906 | 29 | 801 | 9 | 0.59% | 1.12% |
+| EW | 7.0 | 4906 | 42 | 801 | 11 | 0.86% | 1.37% |
+| EW | 10.0 | 4906 | 40 | 801 | 10 | 0.82% | 1.25% |
+| EW | 15.0 | 4906 | 146 | 801 | 27 | 2.98% | 3.37% |
+| EW | 20.0 | 4906 | 406 | 801 | 79 | 8.28% | 9.86% |
+| EW | 25.0 | 4906 | 974 | 801 | 178 | 19.85% | 22.22% |
 | colored | 0.1 | 2303 | 24 | 439 | 7 | 1.04% | 1.59% |
 | colored | 0.2 | 2303 | 24 | 439 | 7 | 1.04% | 1.59% |
 | colored | 0.3 | 2303 | 23 | 439 | 4 | 1.00% | 0.91% |
@@ -104,7 +105,7 @@ Largest |pull| of ε_trig between the 10k samples and S1_Run3_Ideal_2k: 2.72 (Wi
 | colored | 20.0 | 2303 | 130 | 439 | 17 | 5.64% | 3.87% |
 | colored | 25.0 | 2303 | 361 | 439 | 66 | 15.68% | 15.03% |
 
-Overall S2_Run3_ATLAS rate: 2.60% (2439 of 93690 event-Λ pairs); S1_Run3_Ideal_2k on the same Λ: 2.85%.
+Overall S2_Run3_ATLAS rate: 2.57% (2779 of 108135 event-Λ pairs); S1_Run3_Ideal_2k on the same Λ: 2.85%.
 
 ## 6. Zero-background reach, 332 fb⁻¹ (tables/R01_reach.csv); S1_Run3_Ideal_2k = 06 S2_reach.csv
 
@@ -116,81 +117,81 @@ Overall S2_Run3_ATLAS rate: 2.60% (2439 of 93690 event-Λ pairs); S1_Run3_Ideal_
 | colored | A580 | discovery | 1618 | 1599 | 1636 | 4.0 |  | 0.07 | False |
 | colored | Z1160 | exclusion | 1612 | 1584 | 1640 | 5.0 | 1468 | 0.03 | False |
 | colored | Z1160 | discovery | 1529 | 1504 | 1554 | 4.0 | 1352 | 0.03 | False |
-| EW | Z0 | exclusion | 994 | 988 | 999 | 4.0 | 809 | 2.9 | False |
-| EW | Z0 | discovery | 900 | 894 | 905 | 4.0 | 743 | 2.9 | False |
-| EW | A580 | exclusion | 767 | 754 | 781 | 5.0 |  | 0.85 | False |
-| EW | A580 | discovery | 681 | 666 | 694 | 5.0 |  | 0.85 | False |
-| EW | Z1160 | exclusion | 671 | 651 | 690 | 5.0 | 589 | 0.49 | False |
-| EW | Z1160 | discovery | 588 | 570 | 605 | 5.0 | 465 | 0.49 | False |
+| EW | Z0 | exclusion | 994 | 988 | 999 | 4.0 | 809 | 0.92 | False |
+| EW | Z0 | discovery | 900 | 894 | 905 | 4.0 | 743 | 0.92 | False |
+| EW | A580 | exclusion | 767 | 754 | 781 | 5.0 |  | 0.23 | False |
+| EW | A580 | discovery | 681 | 666 | 694 | 5.0 |  | 0.23 | False |
+| EW | Z1160 | exclusion | 671 | 651 | 690 | 5.0 | 589 | 0.12 | False |
+| EW | Z1160 | discovery | 588 | 570 | 605 | 5.0 | 465 | 0.12 | False |
 
-Rows with reach_beyond_grid = True (N ≥ threshold already at the highest grid mass, so the true reach is ≥ the grid edge and the quoted value is a lower bound): EW Z0 355 fb⁻¹ exclusion.
+Rows with reach_beyond_grid = True (N ≥ threshold already at the highest grid mass, so the true reach is ≥ the grid edge and the quoted value is a lower bound): none.
 
 Other luminosities (300 and 355 fb⁻¹) are in tables/R01_reach.csv.
 
 ## 7. Converted-photon background (tables/R01_background.csv; 332 fb⁻¹)
 
-| sct | mu | n_final | N_bkg_332fb | N_UL95_332fb_if_zero | source | N_bkg_300fb | b_used_300fb | s_excl_300fb | s_disc_300fb | b_used_332fb | s_excl_332fb | s_disc_332fb | N_bkg_355fb | b_used_355fb | s_excl_355fb | s_disc_355fb |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Z0 | 0 | 10 | 0.3435 |  | S01_C01_atlas_mu0.csv | 0.3104 | 0.3104 | 2.996 | 5.831 | 0.3435 | 2.996 | 6.001 | 0.3673 | 0.3673 | 2.996 | 6.117 |
-| Z0 | 20 | 374 | 27.03 |  | S01_C01_atlas_mu20.csv | 24.42 | 24.42 | 11.18 | 28.6 | 27.03 | 11.99 | 29.89 | 28.9 | 28.9 | 12.43 | 30.78 |
-| Z0 | 50 | 687 | 69.18 |  | S01_C01_atlas_mu50.csv | 62.51 | 62.51 | 17.65 | 43.51 | 69.18 | 17.96 | 45.57 | 73.97 | 73.97 | 18.66 | 46.99 |
-| Z0 | 60 | 721 | 74.58 |  | S01_C01_atlas_mu60.csv | 67.39 | 67.39 | 17.59 | 45.03 | 74.58 | 19.02 | 47.17 | 79.74 | 79.74 | 19.47 | 48.65 |
-| Z1160 | 0 | 0 | 0 | 1.285 | S01_C01_atlas_mu0.csv | 0 | 1.162 | 4.052 | 5 | 1.285 | 4.009 | 5 | 0 | 1.374 | 3.98 | 5 |
-| Z1160 | 20 | 0 | 0 | 1.285 | S01_C01_atlas_mu20.csv | 0 | 1.162 | 4.052 | 5 | 1.285 | 4.009 | 5 | 0 | 1.374 | 3.98 | 5 |
-| Z1160 | 50 | 0 | 0 | 1.285 | S01_C01_atlas_mu50.csv | 0 | 1.162 | 4.052 | 5 | 1.285 | 4.009 | 5 | 0 | 1.374 | 3.98 | 5 |
-| Z1160 | 60 | 0 | 0 | 1.285 | S01_C01_atlas_mu60.csv | 0 | 1.162 | 4.052 | 5 | 1.285 | 4.009 | 5 | 0 | 1.374 | 3.98 | 5 |
-| A580 | 0 | 0 | 0 | 1.285 | S01_C01_atlas_A580_mu0.csv | 0 | 1.162 | 4.052 | 5 | 1.285 | 4.009 | 5 | 0 | 1.374 | 3.98 | 5 |
-| A580 | 20 | 3 | 0.0773 |  | S01_C01_atlas_A580_mu20.csv | 0.06985 | 0.06985 | 2.996 | 5 | 0.0773 | 2.996 | 5 | 0.08265 | 0.08265 | 2.996 | 5 |
-| A580 | 50 | 5 | 0.3363 |  | S01_C01_atlas_A580_mu50.csv | 0.3039 | 0.3039 | 2.996 | 5.796 | 0.3363 | 2.996 | 5.965 | 0.3596 | 0.3596 | 2.996 | 6.08 |
+| sct | mu | n_final | N_bkg_332fb | N_UL95_332fb_if_zero | source | N_bkg_300fb | b_used_300fb | s_excl_300fb | s_disc_300fb | b_UL_300fb | s_excl_UL_300fb | b_used_332fb | s_excl_332fb | s_disc_332fb | b_UL_332fb | s_excl_UL_332fb | N_bkg_355fb | b_used_355fb | s_excl_355fb | s_disc_355fb | b_UL_355fb | s_excl_UL_355fb |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Z0 | 0 | 10 | 0.3435 |  | S01_C01_atlas_mu0.csv | 0.3104 | 0.3104 | 2.996 | 5.831 | 0.3104 | 2.996 | 0.3435 | 2.996 | 6.001 | 0.3435 | 2.996 | 0.3673 | 0.3673 | 2.996 | 6.117 | 0.3673 | 2.996 |
+| Z0 | 20 | 374 | 27.03 |  | S01_C01_atlas_mu20.csv | 24.42 | 24.42 | 11.18 | 28.6 | 24.42 | 11.18 | 27.03 | 11.99 | 29.89 | 27.03 | 11.99 | 28.9 | 28.9 | 12.43 | 30.78 | 28.9 | 12.43 |
+| Z0 | 50 | 687 | 69.18 |  | S01_C01_atlas_mu50.csv | 62.51 | 62.51 | 17.65 | 43.51 | 62.51 | 17.65 | 69.18 | 17.96 | 45.57 | 69.18 | 17.96 | 73.97 | 73.97 | 18.66 | 46.99 | 73.97 | 18.66 |
+| Z0 | 60 | 721 | 74.58 |  | S01_C01_atlas_mu60.csv | 67.39 | 67.39 | 17.59 | 45.03 | 67.39 | 17.59 | 74.58 | 19.02 | 47.17 | 74.58 | 19.02 | 79.74 | 79.74 | 19.47 | 48.65 | 79.74 | 19.47 |
+| Z1160 | 0 | 0 | 0 | 1.285 | S01_C01_atlas_mu0.csv | 0 | 0 | 2.996 | 5 | 1.162 | 4.052 | 0 | 2.996 | 5 | 1.285 | 4.009 | 0 | 0 | 2.996 | 5 | 1.374 | 3.98 |
+| Z1160 | 20 | 0 | 0 | 1.285 | S01_C01_atlas_mu20.csv | 0 | 0 | 2.996 | 5 | 1.162 | 4.052 | 0 | 2.996 | 5 | 1.285 | 4.009 | 0 | 0 | 2.996 | 5 | 1.374 | 3.98 |
+| Z1160 | 50 | 0 | 0 | 1.285 | S01_C01_atlas_mu50.csv | 0 | 0 | 2.996 | 5 | 1.162 | 4.052 | 0 | 2.996 | 5 | 1.285 | 4.009 | 0 | 0 | 2.996 | 5 | 1.374 | 3.98 |
+| Z1160 | 60 | 0 | 0 | 1.285 | S01_C01_atlas_mu60.csv | 0 | 0 | 2.996 | 5 | 1.162 | 4.052 | 0 | 2.996 | 5 | 1.285 | 4.009 | 0 | 0 | 2.996 | 5 | 1.374 | 3.98 |
+| A580 | 0 | 0 | 0 | 1.285 | S01_C01_atlas_A580_mu0.csv | 0 | 0 | 2.996 | 5 | 1.162 | 4.052 | 0 | 2.996 | 5 | 1.285 | 4.009 | 0 | 0 | 2.996 | 5 | 1.374 | 3.98 |
+| A580 | 20 | 3 | 0.0773 |  | S01_C01_atlas_A580_mu20.csv | 0.06985 | 0.06985 | 2.996 | 5 | 0.06985 | 2.996 | 0.0773 | 2.996 | 5 | 0.0773 | 2.996 | 0.08265 | 0.08265 | 2.996 | 5 | 0.08265 | 2.996 |
+| A580 | 50 | 5 | 0.3363 |  | S01_C01_atlas_A580_mu50.csv | 0.3039 | 0.3039 | 2.996 | 5.796 | 0.3039 | 2.996 | 0.3363 | 2.996 | 5.965 | 0.3363 | 2.996 | 0.3596 | 0.3596 | 2.996 | 6.08 | 0.3596 | 2.996 |
 
 ## 8. Reach with background, 332 fb⁻¹ (tables/R01_reach_with_background.csv)
 
 | channel | sct | contour | variant | mu | b_used | N_bkg | s_required | m_max_GeV | m_max_lo | m_max_hi | at_lambda_keV | reach_beyond_grid |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| EW | A580 | discovery | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 5.00 | 681 | 666 | 694 | 5.0 | False |
-| EW | A580 | discovery | b_used = UL if 0 passed | 20 | 0.077 | 0.077 | 5.00 | 681 | 666 | 694 | 5.0 | False |
-| EW | A580 | discovery | b_used = UL if 0 passed | 50 | 0.336 | 0.336 | 5.96 | 651 | 636 | 665 | 5.0 | False |
-| EW | A580 | exclusion | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 4.01 | 718 | 704 | 732 | 5.0 | False |
-| EW | A580 | exclusion | b_used = UL if 0 passed | 20 | 0.077 | 0.077 | 3.00 | 768 | 754 | 781 | 5.0 | False |
-| EW | A580 | exclusion | b_used = UL if 0 passed | 50 | 0.336 | 0.336 | 3.00 | 768 | 754 | 781 | 5.0 | False |
-| EW | Z0 | discovery | b_used = UL if 0 passed | 0 | 0.343 | 0.343 | 6.00 | 866 | 861 | 871 | 4.0 | False |
-| EW | Z0 | discovery | b_used = UL if 0 passed | 20 | 27.029 | 27.029 | 29.89 | 613 | 609 | 618 | 4.0 | False |
-| EW | Z0 | discovery | b_used = UL if 0 passed | 50 | 69.176 | 69.176 | 45.57 | 557 | 553 | 561 | 4.0 | False |
-| EW | Z0 | discovery | b_used = UL if 0 passed | 60 | 74.577 | 74.577 | 47.17 | 553 | 549 | 557 | 4.0 | False |
-| EW | Z0 | exclusion | b_used = UL if 0 passed | 0 | 0.343 | 0.343 | 3.00 | 994 | 989 | 999 | 4.0 | False |
-| EW | Z0 | exclusion | b_used = UL if 0 passed | 20 | 27.029 | 27.029 | 11.99 | 750 | 745 | 755 | 4.0 | False |
-| EW | Z0 | exclusion | b_used = UL if 0 passed | 50 | 69.176 | 69.176 | 17.96 | 690 | 685 | 694 | 4.0 | False |
-| EW | Z0 | exclusion | b_used = UL if 0 passed | 60 | 74.577 | 74.577 | 19.02 | 681 | 676 | 686 | 4.0 | False |
-| EW | Z1160 | discovery | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
-| EW | Z1160 | discovery | b_used = UL if 0 passed | 20 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
-| EW | Z1160 | discovery | b_used = UL if 0 passed | 50 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
-| EW | Z1160 | discovery | b_used = UL if 0 passed | 60 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
-| EW | Z1160 | exclusion | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
-| EW | Z1160 | exclusion | b_used = UL if 0 passed | 20 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
-| EW | Z1160 | exclusion | b_used = UL if 0 passed | 50 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
-| EW | Z1160 | exclusion | b_used = UL if 0 passed | 60 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
-| colored | A580 | discovery | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 5.00 | 1618 | 1599 | 1636 | 4.0 | False |
-| colored | A580 | discovery | b_used = UL if 0 passed | 20 | 0.077 | 0.077 | 5.00 | 1618 | 1599 | 1636 | 4.0 | False |
-| colored | A580 | discovery | b_used = UL if 0 passed | 50 | 0.336 | 0.336 | 5.96 | 1591 | 1573 | 1610 | 4.0 | False |
-| colored | A580 | exclusion | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 4.01 | 1650 | 1631 | 1669 | 4.0 | False |
-| colored | A580 | exclusion | b_used = UL if 0 passed | 20 | 0.077 | 0.077 | 3.00 | 1697 | 1674 | 1719 | 5.0 | False |
-| colored | A580 | exclusion | b_used = UL if 0 passed | 50 | 0.336 | 0.336 | 3.00 | 1697 | 1674 | 1719 | 5.0 | False |
-| colored | Z0 | discovery | b_used = UL if 0 passed | 0 | 0.343 | 0.343 | 6.00 | 1749 | 1739 | 1759 | 5.0 | False |
-| colored | Z0 | discovery | b_used = UL if 0 passed | 20 | 27.029 | 27.029 | 29.89 | 1517 | 1510 | 1524 | 4.0 | False |
-| colored | Z0 | discovery | b_used = UL if 0 passed | 50 | 69.176 | 69.176 | 45.57 | 1447 | 1439 | 1455 | 4.0 | False |
-| colored | Z0 | discovery | b_used = UL if 0 passed | 60 | 74.577 | 74.577 | 47.17 | 1441 | 1433 | 1449 | 4.0 | False |
-| colored | Z0 | exclusion | b_used = UL if 0 passed | 0 | 0.343 | 0.343 | 3.00 | 1871 | 1857 | 1885 | 5.0 | False |
-| colored | Z0 | exclusion | b_used = UL if 0 passed | 20 | 27.029 | 27.029 | 11.99 | 1647 | 1638 | 1655 | 4.0 | False |
-| colored | Z0 | exclusion | b_used = UL if 0 passed | 50 | 69.176 | 69.176 | 17.96 | 1589 | 1581 | 1597 | 4.0 | False |
-| colored | Z0 | exclusion | b_used = UL if 0 passed | 60 | 74.577 | 74.577 | 19.02 | 1581 | 1573 | 1589 | 4.0 | False |
-| colored | Z1160 | discovery | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
-| colored | Z1160 | discovery | b_used = UL if 0 passed | 20 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
-| colored | Z1160 | discovery | b_used = UL if 0 passed | 50 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
-| colored | Z1160 | discovery | b_used = UL if 0 passed | 60 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
-| colored | Z1160 | exclusion | b_used = UL if 0 passed | 0 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
-| colored | Z1160 | exclusion | b_used = UL if 0 passed | 20 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
-| colored | Z1160 | exclusion | b_used = UL if 0 passed | 50 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
-| colored | Z1160 | exclusion | b_used = UL if 0 passed | 60 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
+| EW | A580 | discovery | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 5.00 | 681 | 666 | 694 | 5.0 | False |
+| EW | A580 | discovery | UL if 0 passed (systematic) | 20 | 0.077 | 0.077 | 5.00 | 681 | 666 | 694 | 5.0 | False |
+| EW | A580 | discovery | UL if 0 passed (systematic) | 50 | 0.336 | 0.336 | 5.96 | 651 | 636 | 665 | 5.0 | False |
+| EW | A580 | exclusion | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 4.01 | 718 | 704 | 732 | 5.0 | False |
+| EW | A580 | exclusion | UL if 0 passed (systematic) | 20 | 0.077 | 0.077 | 3.00 | 768 | 754 | 781 | 5.0 | False |
+| EW | A580 | exclusion | UL if 0 passed (systematic) | 50 | 0.336 | 0.336 | 3.00 | 768 | 754 | 781 | 5.0 | False |
+| EW | Z0 | discovery | UL if 0 passed (systematic) | 0 | 0.343 | 0.343 | 6.00 | 866 | 861 | 871 | 4.0 | False |
+| EW | Z0 | discovery | UL if 0 passed (systematic) | 20 | 27.029 | 27.029 | 29.89 | 613 | 609 | 618 | 4.0 | False |
+| EW | Z0 | discovery | UL if 0 passed (systematic) | 50 | 69.176 | 69.176 | 45.57 | 557 | 553 | 561 | 4.0 | False |
+| EW | Z0 | discovery | UL if 0 passed (systematic) | 60 | 74.577 | 74.577 | 47.17 | 553 | 549 | 557 | 4.0 | False |
+| EW | Z0 | exclusion | UL if 0 passed (systematic) | 0 | 0.343 | 0.343 | 3.00 | 994 | 989 | 999 | 4.0 | False |
+| EW | Z0 | exclusion | UL if 0 passed (systematic) | 20 | 27.029 | 27.029 | 11.99 | 750 | 745 | 755 | 4.0 | False |
+| EW | Z0 | exclusion | UL if 0 passed (systematic) | 50 | 69.176 | 69.176 | 17.96 | 690 | 685 | 694 | 4.0 | False |
+| EW | Z0 | exclusion | UL if 0 passed (systematic) | 60 | 74.577 | 74.577 | 19.02 | 681 | 676 | 686 | 4.0 | False |
+| EW | Z1160 | discovery | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
+| EW | Z1160 | discovery | UL if 0 passed (systematic) | 20 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
+| EW | Z1160 | discovery | UL if 0 passed (systematic) | 50 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
+| EW | Z1160 | discovery | UL if 0 passed (systematic) | 60 | 1.285 | 0.000 | 5.00 | 588 | 570 | 605 | 5.0 | False |
+| EW | Z1160 | exclusion | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
+| EW | Z1160 | exclusion | UL if 0 passed (systematic) | 20 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
+| EW | Z1160 | exclusion | UL if 0 passed (systematic) | 50 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
+| EW | Z1160 | exclusion | UL if 0 passed (systematic) | 60 | 1.285 | 0.000 | 4.01 | 623 | 602 | 642 | 5.0 | False |
+| colored | A580 | discovery | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 5.00 | 1618 | 1599 | 1636 | 4.0 | False |
+| colored | A580 | discovery | UL if 0 passed (systematic) | 20 | 0.077 | 0.077 | 5.00 | 1618 | 1599 | 1636 | 4.0 | False |
+| colored | A580 | discovery | UL if 0 passed (systematic) | 50 | 0.336 | 0.336 | 5.96 | 1591 | 1573 | 1610 | 4.0 | False |
+| colored | A580 | exclusion | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 4.01 | 1650 | 1631 | 1669 | 4.0 | False |
+| colored | A580 | exclusion | UL if 0 passed (systematic) | 20 | 0.077 | 0.077 | 3.00 | 1697 | 1674 | 1719 | 5.0 | False |
+| colored | A580 | exclusion | UL if 0 passed (systematic) | 50 | 0.336 | 0.336 | 3.00 | 1697 | 1674 | 1719 | 5.0 | False |
+| colored | Z0 | discovery | UL if 0 passed (systematic) | 0 | 0.343 | 0.343 | 6.00 | 1749 | 1739 | 1759 | 5.0 | False |
+| colored | Z0 | discovery | UL if 0 passed (systematic) | 20 | 27.029 | 27.029 | 29.89 | 1517 | 1510 | 1524 | 4.0 | False |
+| colored | Z0 | discovery | UL if 0 passed (systematic) | 50 | 69.176 | 69.176 | 45.57 | 1447 | 1439 | 1455 | 4.0 | False |
+| colored | Z0 | discovery | UL if 0 passed (systematic) | 60 | 74.577 | 74.577 | 47.17 | 1441 | 1433 | 1449 | 4.0 | False |
+| colored | Z0 | exclusion | UL if 0 passed (systematic) | 0 | 0.343 | 0.343 | 3.00 | 1871 | 1857 | 1885 | 5.0 | False |
+| colored | Z0 | exclusion | UL if 0 passed (systematic) | 20 | 27.029 | 27.029 | 11.99 | 1647 | 1638 | 1655 | 4.0 | False |
+| colored | Z0 | exclusion | UL if 0 passed (systematic) | 50 | 69.176 | 69.176 | 17.96 | 1589 | 1581 | 1597 | 4.0 | False |
+| colored | Z0 | exclusion | UL if 0 passed (systematic) | 60 | 74.577 | 74.577 | 19.02 | 1581 | 1573 | 1589 | 4.0 | False |
+| colored | Z1160 | discovery | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
+| colored | Z1160 | discovery | UL if 0 passed (systematic) | 20 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
+| colored | Z1160 | discovery | UL if 0 passed (systematic) | 50 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
+| colored | Z1160 | discovery | UL if 0 passed (systematic) | 60 | 1.285 | 0.000 | 5.00 | 1529 | 1504 | 1554 | 4.0 | False |
+| colored | Z1160 | exclusion | UL if 0 passed (systematic) | 0 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
+| colored | Z1160 | exclusion | UL if 0 passed (systematic) | 20 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
+| colored | Z1160 | exclusion | UL if 0 passed (systematic) | 50 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
+| colored | Z1160 | exclusion | UL if 0 passed (systematic) | 60 | 1.285 | 0.000 | 4.01 | 1564 | 1537 | 1591 | 5.0 | False |
 | EW | A580 | discovery | central b | 0 | 0.000 | 0.000 | 5.00 | 681 | 666 | 694 | 5.0 | False |
 | EW | A580 | discovery | central b | 20 | 0.077 | 0.077 | 5.00 | 681 | 666 | 694 | 5.0 | False |
 | EW | A580 | discovery | central b | 50 | 0.336 | 0.336 | 5.96 | 651 | 636 | 665 | 5.0 | False |
