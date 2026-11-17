@@ -1,0 +1,39 @@
+Z01 chunk {'chunk': 0, 'seed': 271000, 'n_generated': 10000, 'sigma_generated_pb': 0.25127186999999995, 'n_after_MET': 9128}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 923
+Z01 chunk {'chunk': 1, 'seed': 271001, 'n_generated': 10000, 'sigma_generated_pb': 0.25274928, 'n_after_MET': 9077}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 943
+Z01 chunk {'chunk': 2, 'seed': 271002, 'n_generated': 10000, 'sigma_generated_pb': 0.25026098, 'n_after_MET': 9057}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 891
+Z01 chunk {'chunk': 3, 'seed': 271003, 'n_generated': 10000, 'sigma_generated_pb': 0.25194081, 'n_after_MET': 9109}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 915
+Z01 chunk {'chunk': 4, 'seed': 271004, 'n_generated': 10000, 'sigma_generated_pb': 0.25077178, 'n_after_MET': 9085}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 900
+Z01 chunk {'chunk': 5, 'seed': 271005, 'n_generated': 10000, 'sigma_generated_pb': 0.24960387, 'n_after_MET': 9100}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 947
+Z01 chunk {'chunk': 6, 'seed': 271006, 'n_generated': 10000, 'sigma_generated_pb': 0.24926428999999997, 'n_after_MET': 9053}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 866
+Z01 chunk {'chunk': 7, 'seed': 271007, 'n_generated': 10000, 'sigma_generated_pb': 0.25037289999999995, 'n_after_MET': 9134}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 848
+Z01 chunk {'chunk': 8, 'seed': 271008, 'n_generated': 10000, 'sigma_generated_pb': 0.24994544000000002, 'n_after_MET': 9152}
+Events with no final-state photon found: 0
+Events with pT_gamma < 0.5 GeV despite generation-level ptgmin cut (expected ~0, confirms the cut holds post-shower): 0
+Events with MET < 200 GeV despite generation-level misset cut (a real, non-negligible effect from secondary neutrinos, NOT expected to be ~0 -- measured 861/10000 historically): 915
+Z01 chunk {'chunk': 9, 'seed': 271009, 'n_generated': 10000, 'sigma_generated_pb': 0.25126155, 'n_after_MET': 9085}
+Z01: chunks [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], generated 100000, photons after MET 90980, sigma 0.25074 pb (production 0.25205 pb)
+Z01_EXIT=0

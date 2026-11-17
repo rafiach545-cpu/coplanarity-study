@@ -54,6 +54,8 @@ A580 background (events at 332 fb⁻¹, central values; MC passing photons in br
 | 20 | 0.077 (3) | 0.42 (5) |
 | 50 | 0.34 (5) | 0.33 (4) |
 
+- **Every passing A580 photon passes because of pile-up hits** (§7, "What the background is made of"). The "5" at ATLAS μ = 50 is 5 photon–region rows from 4 distinct photons. At μ = 0 the same photons pass Δs and Δw but fail the hit-multiplicity cut. One or two pile-up hits in the winning plane complete it.
+- **These numbers cover Zγ conversions only.** Pile-up can complete a near-miss two-track object from any MET-triggered event, and it can also make planes on its own. A factorised estimate is planned (`backgrounds/PILEUP_FACTORISATION_PLAN.md`).
 - In every case the A580 background is below one event, and the exclusion needs 3.0 signal events.
 - The discovery needs max(5, Asimov Z = 5) signal events: 5.0–6.4.
 - **Systematic variant: b = MC 95% upper limit when no photon passed.**
@@ -240,7 +242,43 @@ Background at 332 fb⁻¹, central values (`tables/X08_background_used.csv`):
 | Z1160 | ATLAS | 0 (UL 1.29) | 0 | 0 | 0 |
 | Z1160 | Ideal | 0 (UL 0.25) | 0 | 0 | 0.08 |
 
+**What the background is made of (2026-11-17, `compare/X10_pileup_completion.py`, `tables/X10_pileup_completion.csv`).** The conversion pair supplies the plane, and pile-up supplies the missing hits.
+- **A580.** None of the passing photons passes at μ = 0.
+  - ATLAS: all passing photons (3 at μ = 20; 5 rows / 4 photons at μ = 50) are "near-misses" at μ = 0. That means a plane with Δw < 1 cm and Δs < 0.01 cm, but only 14 hits on 8 stations, while the multiplicity cut needs 15 (7 stations with 2 hits). At μ = 20/50 the winning plane has 13–14 conversion hits plus 1–2 pile-up hits.
+  - Ideal: 5 of 5 (μ = 20) and 3 of 4 (μ = 50) are near-misses at μ = 0. All have 1–2 pile-up hits in the plane.
+- **Z0.** At μ = 50, 679 of 687 passing photons are near-misses at μ = 0, 7 already pass at μ = 0, and 685 have at least one pile-up hit in the winning plane.
+- **Completion probability per near-miss** (one pile-up overlay each):
+
+  | setting | near-misses at μ = 0 | μ = 20 | μ = 50 |
+  |---|---|---|---|
+  | ATLAS A580 | 470 | 3/470 = 0.6% | 5/470 = 1.1% |
+  | ATLAS Z0 | 20 046 | 1.8% | 3.4% |
+  | Ideal A580 | 122 | 4.1% | 2.5% |
+
+- **Why only 215 of about 690 photons pass in both pool runs.** Which near-miss gets completed depends on where the pile-up hits fall, so it changes with the pool. The photon is still needed, because it provides the coplanar pair.
+- **Consequence.** The background is (near-miss two-track objects per triggered event) × (completion probability by pile-up), plus planes made from pile-up alone.
+  - Any MET-triggered event (about 10⁷ at 332 fb⁻¹: Z(νν̄)+jets, W+jets, Zγ) can contribute, not only Zγ conversions. Examples are π⁰/η conversions, Dalitz pairs and K_S decays.
+  - The pile-up-only rate in the ATLAS geometry is not measured yet. The only measurement is Ideal Z1160: 0 of 5 000 events.
+  - The numbers in the table above are therefore the Zγ part only. Below one event in total requires the per-event rate to be below about 10⁻⁷. The plan is in `backgrounds/PILEUP_FACTORISATION_PLAN.md`.
+
 **Method.** Exclusion: 95% CL_s with n_obs = round(b). Discovery: max(5, Asimov Z = 5), using the central b. The reach tables for both geometries and both variants (central b; UL as systematic) are in `tables/X08_reach_with_background.csv` and in the headline section above.
+
+**Pool test (2026-11-17, `compare/X09_pool_test.py`, `tables/X09_pool_test_by_region.csv`).** ATLAS Z0 at μ = 50 was rerun on the server with a new 20k minimum-bias pool (seed 20261117). Photons, per-photon seeds and conversion points were the same as in production (laptop, pool seed 20260916). Errors on the difference are paired, photon by photon.
+
+| region | passing photons, production → test | N production | N test | difference (paired) |
+|---|---|---|---|---|
+| beam pipe | 517 → 527 | 17.6 ± 0.8 | 18.3 ± 0.9 | +0.7 ± 0.9 (0.7σ) |
+| IBL (+ SCT disk 6 inner) | 162 → 159 | 47.3 ± 4.0 | 50.1 ± 4.3 | +2.8 ± 5.6 (0.5σ) |
+| Pixel B0 (+ SCT disk 7 middle) | 8 → 14 | 4.2 ± 1.6 | 8.9 ± 2.5 | +4.7 ± 3.0 (1.6σ) |
+| **total** | **687 → 700** | **69.2 ± 4.4** | **77.3 ± 5.1** | **+8.1 ± 6.5 (1.3σ)** |
+
+- Passing photons change by only 2%, but N changes by 12%. Two things cause this:
+  - Pixel B0 has the largest conversion probability per photon (mean p_conv 0.06–0.08), and its passing photons go from 8 to 14. This gives 4.7 of the 8.1 events.
+  - In the IBL region, fewer photons pass (159 vs 162), but the passing photons carry larger weights (mean p_conv 0.037 vs 0.034). This gives +2.8 events.
+- Only 215 of the about 690 passing photons pass in both runs. At μ = 50, whether a given photon passes is decided mainly by the pile-up overlay, not by the photon. The paired error (6.5) is therefore almost the unpaired one (6.7), and the test cannot separate a pool effect from MC statistics.
+- The test also changes the machine (laptop vs server, §9). The difference therefore contains both the pool and the machine floating point.
+- **Result.** The difference is consistent with statistics (1.3σ), so the 20k pool (each event reused about 23 times at μ = 50) is adequate, and no 125k pool was run. As a conservative choice, the observed difference is kept as a **pool systematic of about 12% on the Z0 background at μ = 50**. The background-aware reach tables do not yet include it.
+- **Server pool.** The server's default pool, regenerated with seed 20260916, has sha256 `94e81e1f…`, not the laptop's `52b465f5…`. It is a different but statistically equivalent pool (same seed and code, machine floating point in Pythia). Server background runs that use the default pool therefore use a different pool from the laptop production runs. Exact equality would need the laptop pool copied (`~/minbias_pool_20000_13p6TeV.csv.gz`).
 
 **History.** Before 2026-11-17 the UL was used as b when no photon passed. That made the ATLAS A580 reach at μ = 0 lower than at μ = 20, which is unphysical; it is now only the systematic variant.
 
@@ -284,9 +322,9 @@ The same events, seeds and code were run on the laptop (stopped on 2026-11-17 af
 
 ## 10. Open points
 
-1. **Backgrounds not simulated:** Z(νν̄)+jets (47× larger σ) and W(ℓν)+jets, plus the sources B1–B7 of `BACKGROUND_CANDIDATES.md`. A plan is in `backgrounds/ZJETS_PLAN.md`. Pile-up-only background is not yet run in the ATLAS geometry (server commands: `backgrounds/SERVER_BACKGROUND_RUNS.md`).
+1. **Backgrounds not simulated:** Z(νν̄)+jets (47× larger σ) and W(ℓν)+jets, plus the sources B1–B7 of `BACKGROUND_CANDIDATES.md`. A plan is in `backgrounds/ZJETS_PLAN.md`. **Pile-up as a background in its own right (priority):** passing photons are near-misses completed by pile-up hits (§7). The pile-up-only fake-plane rate and the completion probability must be measured to about 10⁻⁷ per triggered event; the plan is in `backgrounds/PILEUP_FACTORISATION_PLAN.md`.
 2. **Top edge of the contour (Λ > 25 keV):** see §6 (b). Integration failures limit the high-Λ region.
-3. **Background MC statistics:** A580 rests on 3–5 passing photons (errors 58–71%). The upper limit when none pass is 1.29 (ATLAS) / 0.25 (Ideal) events. 100k Zγ photons are planned (`backgrounds/SERVER_BACKGROUND_RUNS.md`).
+3. **Background MC statistics:** A580 rests on 3–5 passing photons (errors 58–71%). The upper limit when none pass is 1.29 (ATLAS) / 0.25 (Ideal) events. 100k Zγ photons are planned (`backgrounds/SERVER_BACKGROUND_RUNS.md`). The pool test (§7) gives a conservative pool systematic of about 12% on the Z0 background at μ = 50 (+8.1 ± 6.5 events, 1.3σ); a 125k pool was not needed.
 4. **Forward material:** M01 matches R12 at low |η| (20% conversion) but gives 38% at |η| ≈ 2.3, where R12 states up to about 65%. The end-cap background may be underestimated, most for Z0.
 5. **Quirk material effects** (dE/dx, multiple scattering) are not in the integrator, for either geometry. A Highland estimate (`GEOMETRY_COMPARISON.md` §8.1, `tables/X07*`):
    - The RMS displacement over the 8 measurements is about 12–13 µm for the forward (ATLAS-only) events and 4–5 µm in the barrel (median, initial momentum).

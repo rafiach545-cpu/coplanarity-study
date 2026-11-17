@@ -54,6 +54,8 @@ sha256sum $S2/inputs/minbias_pool_20000_13p6TeV.csv      # must be 52b465f5...12
 
 Runs on the laptop have shown that floating-point results can differ between machines (RESULTS §9). If (2) does not reproduce the checksum, use (1).
 
+**Observed on the server (2026-11-17).** Option (2) gave sha256 `94e81e1f…`, not `52b465f5…`: same seed and code, different machine floating point inside Pythia. The pool test (c) shows the two pools are statistically equivalent (RESULTS §7). Runs that use this default pool are valid, but they do not use the exact laptop pool. Use (1) whenever a run must match the laptop production row by row.
+
 ## Runtime estimates
 
 The estimates use the measured laptop cost per photon per worker, assuming one server core is about as fast as one laptop core (uncertainty about ×2 either way). 100k generated events give about 91 300 photons after MET > 200 GeV.
@@ -75,6 +77,7 @@ The estimates use the measured laptop cost per photon per worker, assuming one s
 
 - Chunk 0 was run as a test on 2026-11-17: 5.0 min, σ = 0.2513 pb (production 0.2521 pb), 9 128 photons after MET (production 9 130).
 - The script resumes and skips chunk 0.
+- **Done 2026-11-17:** 10 chunks, 100 000 generated, 90 980 photons after MET, σ = 0.25074 pb (event-weighted mean; chunk spread 0.2493–0.2527 pb), `logs/Z01_zgamma_large.log`.
 
 ```bash
 cd ~/coplanarity_study/07_atlas_real_geometry
@@ -139,6 +142,8 @@ $P S01_conversion_summary.py runs/C01_atlas_pooltest_seed20261117_mu50 runs/C01_
 **Comparison.** Production Z0 at μ = 50 is 69.2 ± 4.4 events (687 passing photons, `tables/S01_C01_atlas_mu50.csv`).
 - Agreement within about ±9 events (2σ of the two MC errors combined) means the 20k pool (each event reused about 23 times at μ = 50) is adequate.
 - A larger difference is a pool systematic.
+
+**Result (2026-11-17, `compare/X09_pool_test.py`).** Test 77.3 ± 5.1 vs production 69.2 ± 4.4. The paired difference is +8.1 ± 6.5 (1.3σ), within the criterion, so the 125k pool was not run. Most of the difference is in Pixel B0 (8 → 14 passing photons, +4.7 events). It is kept as a conservative ~12% pool systematic on Z0 at μ = 50.
 
 The pool files are inputs, not results. Do not commit them; commit only the `runs/C01_atlas_pooltest*` folders and the S01 tables.
 
