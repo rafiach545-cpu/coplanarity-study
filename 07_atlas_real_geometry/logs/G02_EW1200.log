@@ -1,0 +1,14 @@
+[      0s] G02 steps ['gen', 'ext'] points [('EW', 1200)] nev 10000 runs /home/rafia/hep_tools/07_large_runs
+{'tag': 'EW_1200gev_c04', 'channel': 'EW', 'mass_gev': 1200, 'chunk': 4, 'seed': 848004, 'n_generated': 2000, 'n_matched': 1021, 'matched_xsec_pb': 2.661e-05, 'matched_xsec_err_pb': 5.923e-07, 'wall_s': 134.4, 'status': 'ok', 'exit_code': 0}
+[    135s] gen 1/5 EW_1200gev_c04 ok matched 1021 134.4s
+{'tag': 'EW_1200gev_c03', 'channel': 'EW', 'mass_gev': 1200, 'chunk': 3, 'seed': 848003, 'n_generated': 2000, 'n_matched': 1010, 'matched_xsec_pb': 2.643e-05, 'matched_xsec_err_pb': 5.913e-07, 'wall_s': 147.3, 'status': 'ok', 'exit_code': 0}
+[    148s] gen 2/5 EW_1200gev_c03 ok matched 1010 147.3s
+{'tag': 'EW_1200gev_c00', 'channel': 'EW', 'mass_gev': 1200, 'chunk': 0, 'seed': 848000, 'n_generated': 2000, 'n_matched': 988, 'matched_xsec_pb': 2.576e-05, 'matched_xsec_err_pb': 5.883e-07, 'wall_s': 147.4, 'status': 'ok', 'exit_code': 0}
+[    148s] gen 3/5 EW_1200gev_c00 ok matched 988 147.4s
+{'tag': 'EW_1200gev_c01', 'channel': 'EW', 'mass_gev': 1200, 'chunk': 1, 'seed': 848001, 'n_generated': 2000, 'n_matched': 1006, 'matched_xsec_pb': 2.613e-05, 'matched_xsec_err_pb': 5.917e-07, 'wall_s': 147.6, 'status': 'ok', 'exit_code': 0}
+[    148s] gen 4/5 EW_1200gev_c01 ok matched 1006 147.6s
+{'tag': 'EW_1200gev_c02', 'channel': 'EW', 'mass_gev': 1200, 'chunk': 2, 'seed': 848002, 'n_generated': 2000, 'n_matched': 1003, 'matched_xsec_pb': 2.624e-05, 'matched_xsec_err_pb': 5.9e-07, 'wall_s': 162.8, 'status': 'ok', 'exit_code': 0}
+[    164s] gen 5/5 EW_1200gev_c02 ok matched 1003 162.8s
+[    164s] generation done, failed: []
+[    198s] extracted EW 1200 {'channel': 'EW', 'mass_gev': 1200, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 5028, 'sigma_matched_fb': np.float64(0.026234000000000004), 'sigma_matched_err_fb': np.float64(0.00026417878491657
+[    198s] G02_EXIT=0
