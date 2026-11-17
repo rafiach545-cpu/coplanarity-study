@@ -4,14 +4,14 @@
 void G08_background_vs_pileup()
 {
 //=========Macro generated from canvas: G08/
-//=========  (Tue Nov 17 11:56:11 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 12:16:25 2026) by ROOT version 6.40.04
    TCanvas *G08 = new TCanvas("G08", "", 0, 0, 1500, 900);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
    gStyle->SetOptTitle(0);
    G08->SetHighLightColor(2);
    TColor::SetPalette(57, nullptr);
-   G08->Range(-12.31765,-2.727532,65.32941,2.868869);
+   G08->Range(-12.31765,-3.1375,65.32941,5.6125);
    G08->SetFillColor(0);
    G08->SetFillStyle(1001);
    G08->SetBorderMode(0);
@@ -26,7 +26,7 @@ void G08_background_vs_pileup()
    
    TH1F *hframe__55 = new TH1F("hframe", "", 1000, -3, 63);
    hframe__55->SetMinimum(0.01);
-   hframe__55->SetMaximum(300);
+   hframe__55->SetMaximum(100000);
    hframe__55->SetDirectory(nullptr);
    hframe__55->SetStats(0);
    hframe__55->SetFillColor(0);
@@ -137,44 +137,44 @@ void G08_background_vs_pileup()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   TLegend *leg = new TLegend(0.4, 0.15, 0.97, 0.47, nullptr, "brNDC");
+   TLegend *leg = new TLegend(0.15, 0.62, 0.72, 0.93, nullptr, "brNDC");
    leg->SetBorderSize(0);
-   leg->SetTextSize(0.032);
+   leg->SetTextSize(0.03);
    leg->SetLineColor(1);
    leg->SetLineStyle(1);
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(0);
-   TLegendEntry *legentry = leg->AddEntry("Graph","07, #sigma_{long} = 0: all","p");
+   TLegendEntry *legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS, #sigma_{long} = 0: all","p");
    legentry->SetMarkerColor(TColor::GetColor("#6250d6"));
    legentry->SetMarkerStyle(20);
    legentry->SetMarkerSize(1.3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07, #sigma_{long} = 0: barrel-like planes","p");
+   legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS, #sigma_{long} = 0: barrel-like planes","p");
    legentry->SetMarkerColor(TColor::GetColor("#6250d6"));
    legentry->SetMarkerStyle(24);
    legentry->SetMarkerSize(1.3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07, #sigma_{long} = 0: planes with an end-cap element","p");
+   legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS, #sigma_{long} = 0: planes with an end-cap element","p");
    legentry->SetMarkerColor(TColor::GetColor("#6250d6"));
    legentry->SetMarkerStyle(26);
    legentry->SetMarkerSize(1.3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07, A580 (17 / 580 #mum): all","p");
+   legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS, A580 (17 / 580 #mum): all","p");
    legentry->SetMarkerColor(TColor::GetColor("#2a78d6"));
    legentry->SetMarkerSize(1.3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07, A580: 95% UL, 0 passed","p");
+   legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS, A580: 95% UL, 0 passed","p");
    legentry->SetMarkerColor(TColor::GetColor("#2a78d6"));
    legentry->SetMarkerStyle(23);
    legentry->SetMarkerSize(1.3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07, Z1160: 95% UL, 0 passed (every #mu)","p");
+   legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS, Z1160: 95% UL, 0 passed (every #mu)","p");
    legentry->SetMarkerColor(TColor::GetColor("#1baf7a"));
    legentry->SetMarkerStyle(23);
    legentry->SetMarkerSize(1.3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2, #sigma_{z} = 0 (flat 1% conversion)","p");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (2k), #sigma_{z} = 0 (flat 1% conversion)","p");
    legentry->SetMarkerColor(TColor::GetColor("#898781"));
    legentry->SetMarkerStyle(25);
    legentry->SetMarkerSize(1.3);
@@ -183,7 +183,7 @@ void G08_background_vs_pileup()
    
    TH1F *hframe_copy__56 = new TH1F("hframe_copy", "", 1000, -3, 63);
    hframe_copy__56->SetMinimum(0.01);
-   hframe_copy__56->SetMaximum(300);
+   hframe_copy__56->SetMaximum(100000);
    hframe_copy__56->SetDirectory(nullptr);
    hframe_copy__56->SetStats(0);
    hframe_copy__56->SetFillColor(0);

@@ -13,7 +13,7 @@ for f in sorted(glob.glob(f"{HERE}/D01_runs/D01_*.jsonl")):
         ec_hits = [sum(1 for n in h if not n.startswith("L")) for h in qh]
         for k, s in enumerate(SET):
             sa, si = d["server_atlas"].get(f"{s}_final"), d["server_ideal"].get(f"{s}_final")
-            grp = "atlas_only" if (sa and not si) else ("both" if (sa and si) else "other")
+            grp = "S2_Run3_ATLAS_only" if (sa and not si) else ("both" if (sa and si) else "other")
             if grp == "other": continue
             st = pl[k]["stations"] if r.get("fid") and k < len(pl) and pl[k]["stations"] else None
             nE = sum(1 for x in st for n in x if not n.startswith("L")) if st else None

@@ -20,7 +20,7 @@ def wilson(k, n, cl=0.6827):
 
 # ---- D1: cross sections, trigger efficiency, charge fraction: 07 large samples and Stage 2
 rows = []
-for sample, f in (("07_10k", f"{ROOT}/signal/inputs_large/counts.csv"), ("stage2_2k", f"{S2}/inputs/counts.csv")):
+for sample, f in (("S2_Run3_ATLAS_10k", f"{ROOT}/signal/inputs_large/counts.csv"), ("S1_Run3_Ideal_2k", f"{S2}/inputs/counts.csv")):
     for r in rd(f).itertuples():
         lo, hi = wilson(r.n_trigger, r.n_matched); flo, fhi = wilson(r.n_trigger_both_charged, r.n_trigger)
         rows.append(dict(sample=sample, channel=r.channel, mass_gev=r.mass_gev, n_generated=r.n_generated, sigma_fb=r.sigma_matched_fb, sigma_err_fb=r.sigma_matched_err_fb,
@@ -44,14 +44,14 @@ pd.DataFrame(brow).to_csv(f"{D}/beta_summary.csv", index=False); pd.DataFrame(hr
 
 # ---- D3: efficiencies vs Lambda (07: station fiducial rule and the barrel rule on the same trajectories; Stage 2 for comparison)
 G = rd(f"{T}/R01_N_grid_300fb.csv"); G2 = rd(f"{S2}/S2_N_grid_300fb.csv"); erow = []
-for g, src in ((G, "07_10k"), (G2, "stage2_2k")):
+for g, src in ((G, "S2_Run3_ATLAS_10k"), (G2, "S1_Run3_Ideal_2k")):
     for r in g[g.status == "computed"].itertuples():
         n = int(r.n_prop); f_lo, f_hi = wilson(r.n_fid, n); k_lo, k_hi = wilson(r.k, n)
         d = dict(sample=src, channel=r.channel, mass_gev=r.mass_gev, lambda_keV=r.lambda_keV, sct=r.sct, n_prop=n, n_fid=int(r.n_fid), eps_fid=r.n_fid / n, eps_fid_lo=f_lo,
                  eps_fid_hi=f_hi, k=int(r.k), kn=r.k / n, kn_lo=k_lo, kn_hi=k_hi, eps_reco=r.eps_reco, N_300fb=r.N_with_f)
-        if src == "07_10k":
-            s_lo, s_hi = wilson(r.n_fid_stage2, n)
-            d.update(n_fid_stage2=int(r.n_fid_stage2), eps_fid_stage2=r.n_fid_stage2 / n, eps_fid_stage2_lo=s_lo, eps_fid_stage2_hi=s_hi, k_endcap=int(r.k_endcap),
+        if src == "S2_Run3_ATLAS_10k":
+            s_lo, s_hi = wilson(r.n_fid_barrel_rule, n)
+            d.update(n_fid_barrel_rule=int(r.n_fid_barrel_rule), eps_fid_barrel_rule=r.n_fid_barrel_rule / n, eps_fid_barrel_rule_lo=s_lo, eps_fid_barrel_rule_hi=s_hi, k_endcap=int(r.k_endcap),
                      frac_endcap=r.k_endcap / r.k if r.k else np.nan)
         erow.append(d)
 pd.DataFrame(erow).to_csv(f"{D}/efficiency_vs_lambda.csv", index=False)
@@ -73,10 +73,10 @@ def lines(g, col, thr):
 def scaled(G, L):
     g = G.copy(); g[["N_with_f", "N_with_f_lo", "N_with_f_hi"]] *= L / 300.0; return g
 BK = rd(f"{T}/R01_background.csv")
-SCEN = [("07_332fb", scaled(G, 332.0), {}, ("Z0", "A580", "Z1160")), ("stage2_332fb", scaled(G2, 332.0), {}, ("Z0", "Z1160"))]
+SCEN = [("S2_Run3_ATLAS_332fb", scaled(G, 332.0), {}, ("Z0", "A580", "Z1160")), ("S1_Run3_Ideal_2k_332fb", scaled(G2, 332.0), {}, ("Z0", "Z1160"))]
 for mu in (0, 20, 50, 60):
     th = {r.sct: (r.s_excl_332fb, r.s_disc_332fb) for r in BK[BK.mu == mu].itertuples()}
-    SCEN.append((f"07_332fb_mu{mu}", scaled(G, 332.0), th, tuple(th)))
+    SCEN.append((f"S2_Run3_ATLAS_332fb_mu{mu}", scaled(G, 332.0), th, tuple(th)))
 crow, grow = [], []
 for name, g0, th, scts in SCEN:
     for ch in ("colored", "EW"):
@@ -86,26 +86,26 @@ for name, g0, th, scts in SCEN:
                 for band, col in (("central", "N_with_f"), ("lo", "N_with_f_lo"), ("hi", "N_with_f_hi")):
                     for s, seg in enumerate(lines(g, col, t)):
                         for x, yv in seg: crow.append(dict(scenario=name, channel=ch, sct=sct, contour=cn, threshold=round(t, 3), band=band, segment=s, mass_gev=x, lambda_eV=10 ** yv))
-            if name in ("07_332fb", "stage2_332fb"):
+            if name in ("S2_Run3_ATLAS_332fb", "S1_Run3_Ideal_2k_332fb"):
                 for r in g.itertuples():
                     if r.status_with_f == "computed": grow.append(dict(scenario=name, channel=ch, sct=sct, mass_gev=r.mass_gev, lambda_eV=r.lambda_keV * 1e3, k=int(r.k), n_prop=int(r.n_prop), N=r.N_with_f))
 pd.DataFrame(crow).to_csv(f"{D}/contours.csv", index=False); pd.DataFrame(grow).to_csv(f"{D}/grid_points.csv", index=False)
 
 # ---- D5: maximum reach, all scenarios (07 zero background, 07 with background, Stage 2)
 rr = []
-for r in rd(f"{T}/R01_reach.csv").itertuples(): rr.append(dict(scenario=f"07_{r.lumi_fb:g}fb", channel=r.channel, sct=r.sct, contour=r.contour, mu=np.nan, variant="zero background", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
-for r in rd(f"{T}/R01_reach_with_background.csv").itertuples(): rr.append(dict(scenario=f"07_{r.lumi_fb:g}fb_mu{r.mu}", channel=r.channel, sct=r.sct, contour=r.contour, mu=r.mu, variant=r.variant, m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
-for r in rd(f"{S2}/S2_reach.csv").itertuples(): rr.append(dict(scenario=f"stage2_{r.lumi_fb:g}fb", channel=r.channel, sct=r.sct, contour=r.contour, mu=np.nan, variant="zero background", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=3.0 if r.contour == "exclusion" else 5.0))
-for r in rd(f"{S2}/S2_reach_with_background.csv").itertuples(): rr.append(dict(scenario=f"stage2_{r.lumi_fb:g}fb_mu{r.mu}", channel=r.channel, sct=r.sct, contour=r.contour, mu=r.mu, variant="b_used = UL if 0 passed", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
+for r in rd(f"{T}/R01_reach.csv").itertuples(): rr.append(dict(scenario=f"S2_Run3_ATLAS_{r.lumi_fb:g}fb", channel=r.channel, sct=r.sct, contour=r.contour, mu=np.nan, variant="zero background", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
+for r in rd(f"{T}/R01_reach_with_background.csv").itertuples(): rr.append(dict(scenario=f"S2_Run3_ATLAS_{r.lumi_fb:g}fb_mu{r.mu}", channel=r.channel, sct=r.sct, contour=r.contour, mu=r.mu, variant=r.variant, m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
+for r in rd(f"{S2}/S2_reach.csv").itertuples(): rr.append(dict(scenario=f"S1_Run3_Ideal_2k_{r.lumi_fb:g}fb", channel=r.channel, sct=r.sct, contour=r.contour, mu=np.nan, variant="zero background", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=3.0 if r.contour == "exclusion" else 5.0))
+for r in rd(f"{S2}/S2_reach_with_background.csv").itertuples(): rr.append(dict(scenario=f"S1_Run3_Ideal_2k_{r.lumi_fb:g}fb_mu{r.mu}", channel=r.channel, sct=r.sct, contour=r.contour, mu=r.mu, variant="b_used = UL if 0 passed", m_max=r.m_max_GeV, lo=r.m_max_lo, hi=r.m_max_hi, at_lambda_keV=r.at_lambda_keV, s_required=r.s_required))
 pd.DataFrame(rr).to_csv(f"{D}/reach_summary.csv", index=False)
 
 # ---- D6: background vs pile-up (07 C01 per setting with the barrel-like / end-cap split of S02; Stage 2 converted photons for comparison)
 S02 = rd(f"{T}/S02_conversion_breakdown.csv"); brow = []
 for (run, sct, part), x in S02.groupby(["run", "sct", "part"]):
-    mu = int(run.split("mu")[-1]); brow.append(dict(sample="07", sct=sct, mu=mu, part=part, final=int(x.final.sum()), N_332fb=x.N_332fb.sum(), N_stat=float(np.sqrt((x.N_stat ** 2).sum()))))
-for r in BK.itertuples(): brow.append(dict(sample="07", sct=r.sct, mu=r.mu, part="UL95 if 0 passed", final=r.n_final, N_332fb=r.N_UL95_332fb_if_zero, N_stat=np.nan))
+    mu = int(run.split("mu")[-1]); brow.append(dict(sample="S2_Run3_ATLAS", sct=sct, mu=mu, part=part, final=int(x.final.sum()), N_332fb=x.N_332fb.sum(), N_stat=float(np.sqrt((x.N_stat ** 2).sum()))))
+for r in BK.itertuples(): brow.append(dict(sample="S2_Run3_ATLAS", sct=r.sct, mu=r.mu, part="UL95 if 0 passed", final=r.n_final, N_332fb=r.N_UL95_332fb_if_zero, N_stat=np.nan))
 S2B = rd(f"{S2}/S2_background_13p6TeV.csv")
-for r in S2B[S2B.process.str.startswith("conversion")].itertuples(): brow.append(dict(sample="stage2", sct=r.sct, mu=r.mu, part="all", final=r.sr, N_332fb=r.N_bkg_332fb, N_stat=r.N_bkg_332fb / np.sqrt(r.sr) if r.sr else np.nan))
+for r in S2B[S2B.process.str.startswith("conversion")].itertuples(): brow.append(dict(sample="S1_Run3_Ideal_2k", sct=r.sct, mu=r.mu, part="all", final=r.sr, N_332fb=r.N_bkg_332fb, N_stat=r.N_bkg_332fb / np.sqrt(r.sr) if r.sr else np.nan))
 pd.DataFrame(brow).to_csv(f"{D}/background_vs_mu.csv", index=False)
 pd.DataFrame([dict(sct=r.sct, mu=r.mu, N_bkg_332fb=r.N_bkg_332fb, b_used_332fb=r.b_used_332fb, s_excl_332fb=r.s_excl_332fb, s_disc_332fb=r.s_disc_332fb) for r in BK.itertuples()]).to_csv(f"{D}/background_thresholds.csv", index=False)
 

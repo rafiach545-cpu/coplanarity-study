@@ -1,4 +1,4 @@
-sqrt_s_TeV,lumi_fb,channel,mass_gev,lambda_keV,sct,sigma_fb,eps_trig,f_ch,n_prop,L_sigma_eps_trig,status,status_with_f,status_without_f,n_fid,k,n_integration_fail,eps_fid,eps_reco,N_with_f,N_with_f_lo,N_with_f_hi,N_with_f_UL95_if_k0,n_fid_stage2,k_endcap
+sqrt_s_TeV,lumi_fb,channel,mass_gev,lambda_keV,sct,sigma_fb,eps_trig,f_ch,n_prop,L_sigma_eps_trig,status,status_with_f,status_without_f,n_fid,k,n_integration_fail,eps_fid,eps_reco,N_with_f,N_with_f_lo,N_with_f_hi,N_with_f_UL95_if_k0,n_fid_barrel_rule,k_endcap
 13.6,300.0,EW,100,0.1,Z0,1226.0,0.031254521776877445,1.0,216,11495.413109535524,computed,computed,computed,77,0,2,0.35648148148148145,0.0,0.0,0.0,52.97654387821367,158.33089522431246,77,0
 13.6,300.0,EW,100,0.1,A580,1226.0,0.031254521776877445,1.0,216,11495.413109535524,computed,computed,computed,77,0,2,0.35648148148148145,0.0,0.0,0.0,52.97654387821367,158.33089522431246,77,0
 13.6,300.0,EW,100,0.1,Z1160,1226.0,0.031254521776877445,1.0,216,11495.413109535524,computed,computed,computed,77,0,2,0.35648148148148145,0.0,0.0,0.0,52.97654387821367,158.33089522431246,77,0

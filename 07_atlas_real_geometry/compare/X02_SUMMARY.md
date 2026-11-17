@@ -1,4 +1,6 @@
-# Ideal vs ATLAS geometry on the 10k samples (2026-11-17)
+# Stage 1 · Run 3 · Ideal vs Stage 2 · Run 3 · ATLAS on the same 10k samples (2026-11-17)
+
+Naming follows the simulation matrix (see `RESULTS_07_LARGE_SAMPLES.md`). Here, "ideal" = Stage 1 · Run 3 · Ideal (tag `S1_Run3_Ideal`, 10k, `signal/runs/large_ideal`), "ATLAS" = Stage 2 · Run 3 · ATLAS (`S2_Run3_ATLAS`, `signal/runs/large_atlas`), and "2k" = Stage 1 · Run 3 · Ideal with 2000 events (`S1_Run3_Ideal_2k`, folder `06_publication/S2_13p6TeV_run3_knapen_noPU_cop`, called "Stage 2" in older files).
 
 This document compares the server runs (pulled in commit aa9b62a) of the ideal and ATLAS geometries on the same 10k-generated events. All values below come from the files in `tables/`; scripts and logs are listed at the end.
 
@@ -30,20 +32,20 @@ Comparison: `compare/X01_laptop_vs_server_atlas.py` and `X01b_difference_classes
 
 ## 2. N and reach, 332 fb⁻¹
 
-**Method.** N = L σ ε_trig f_ch k/n, using the Stage 2 method unchanged (`reach/R01_reach_07.py`, T09).
+**Method.** N = L σ ε_trig f_ch k/n, using the method of 06 S2 unchanged (`reach/R01_reach_07.py`, T09).
 
 - For colored, ε_trig f_ch = (triggered and both charged) / matched.
 - k/n has a Wilson 68% band.
 - All 585 grid rows of both setups are computed, for Λ = 0.1–25 keV.
 
 **Tables:**
-- `tables/X02_N_grid_{ideal,atlas}_300fb.csv`: N at 300 fb⁻¹, the R01 reference luminosity;
+- `tables/X02_N_grid_{S1_Run3_Ideal,S2_Run3_ATLAS}_300fb.csv`: N at 300 fb⁻¹, the R01 reference luminosity;
 - `tables/X02_reach_332fb.csv`: the reach;
 - `tables/X02_contours_332fb.csv`: the contour lines.
 
 **Reach at 332 fb⁻¹.** Each cell gives exclusion / discovery in GeV, with the ±1σ Wilson range in brackets.
 
-| channel | SCT | ideal (10k) | ATLAS (10k) | Stage 2 (2k, barrel) |
+| channel | SCT | S1 · Run 3 · Ideal (10k) | S2 · Run 3 · ATLAS (10k) | S1 · Run 3 · Ideal (2k, 06 S2) |
 |---|---|---|---|---|
 | colored | Z0 | 1734 [1717, 1752] / 1659 | 1871 [1857, 1885] / 1777 | 1785 [1738, –] / 1681 |
 | colored | A580 | 1590 [1564, 1618] / 1515 | 1697 [1674, 1719] / 1618 | — |
@@ -52,7 +54,7 @@ Comparison: `compare/X01_laptop_vs_server_atlas.py` and `X01b_difference_classes
 | EW | A580 | 631 [607, 653] / 560 | 767 [754, 781] / 681 | — |
 | EW | Z1160 | 565 / 500 | 671 [651, 690] / 588 | 589 / 465 |
 
-- Ideal (10k) agrees with Stage 2 (2k) within the Stage 2 Wilson bands. This is the expected check, since ideal uses the same geometry as Stage 2.
+- Ideal (10k) agrees with the 2k sample within the 2k Wilson bands. This is the expected check, since both use the same geometry.
 - ATLAS is higher than ideal by about 100–140 GeV (colored) and about 90–170 GeV (EW).
 
 Figure: `compare/FIGURES_X02/X02_contours_ideal_vs_atlas_332fb/` (ROOT; pdf, png, root, C, caption, provenance).
@@ -63,13 +65,13 @@ Tables: `tables/X02_mcnemar_per_point.csv` (per mass and Λ) and `tables/X02_mcn
 
 The test compares the same events in both geometries, one pair per event:
 
-- **b** = events that pass in ideal only;
-- **c** = events that pass in ATLAS only.
+- **b** = events that pass in ideal only (column `b_S1_only`);
+- **c** = events that pass in ATLAS only (column `c_S2_only`).
 
 The test is an exact binomial test on b and c, with the Holm correction applied within each quantity (195 tests).
 
 - **b = 0 in every test**, for fid and for all three selections. Every event selected in ideal is also selected in ATLAS. For the 9 489 ideal-selected Z0 rows, Δs and Δw are bit-identical in ATLAS, and none of their planes uses an end-cap element.
-  - **Why b = 0:** the barrel radii of the ideal geometry are the ATLAS radii; heavy quirks do not feel the material; the seeds are the same. Therefore ATLAS = ideal + extra events whose planes use end-cap stations.
+  - **Why b = 0:** both geometries use the same 8 barrel layers (structure from Knapen et al.; radii and lengths from ATLAS documentation, R1–R3; see `GEOMETRY_COMPARISON.md`); heavy quirks do not feel the material; the seeds are the same. Therefore ATLAS = ideal + extra events whose planes use end-cap stations.
 - **Significant differences after the Holm correction:**
   - fid: 195 of 195 tests;
   - Z0_final: 119;
@@ -77,7 +79,7 @@ The test is an exact binomial test on b and c, with the Holm correction applied 
   - Z1160_final: 46.
   - In every one of them ATLAS is higher.
 - **Tests that are not significant** are at the edges, where k is small: Λ ≤ 0.3 keV and Λ = 25 keV, the heaviest points, Z1160.
-- **Summed per Λ:** k_ATLAS / k_ideal ≈ 1.7–2.4 for Λ between 1 and 15 keV (Z0 EW: 2.1–2.4). See the column `ratio_k_atlas_over_ideal`.
+- **Summed per Λ:** k_ATLAS / k_ideal ≈ 1.7–2.4 for Λ between 1 and 15 keV (Z0 EW: 2.1–2.4). See the column `ratio_k_S2_over_S1`.
 
 ## 4. Where the contours cross between grid points
 

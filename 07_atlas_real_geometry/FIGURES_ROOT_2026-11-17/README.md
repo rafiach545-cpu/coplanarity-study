@@ -2,6 +2,15 @@
 
 These figures are new. Existing figures in 06 are not changed. All are drawn with ROOT 6.40, using the style and helpers of `06_publication/FIGURES_ROOT_2026-11-04/make_figures_root.py`, executed unchanged.
 
+## Naming
+
+The figures use the simulation-matrix names (2026-11-17):
+
+- **S2 · Run 3 · ATLAS** = Stage 2 · Run 3 · ATLAS: this folder, 10k samples.
+- **S1 · Run 3 · Ideal (2k)** = Stage 1 · Run 3 · Ideal with 2000 events: 06 S2, called "Stage 2" in older figures.
+
+Data tags in `data/`: `S2_Run3_ATLAS_*` and `S1_Run3_Ideal_2k*`.
+
 ## Rebuilding
 
 ```

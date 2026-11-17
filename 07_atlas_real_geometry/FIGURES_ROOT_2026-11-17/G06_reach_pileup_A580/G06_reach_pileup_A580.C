@@ -4,7 +4,7 @@
 void G06_reach_pileup_A580()
 {
 //=========Macro generated from canvas: G06_reach_pileup_A580/G06_reach_pileup_A580
-//=========  (Tue Nov 17 11:56:10 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 12:16:25 2026) by ROOT version 6.40.04
    TCanvas *G06_reach_pileup_A580 = new TCanvas("G06_reach_pileup_A580", "G06_reach_pileup_A580", 0, 0, 1600, 1450);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
@@ -38,7 +38,7 @@ void G06_reach_pileup_A580()
    hd__28->SetRightMargin(0.04);
    hd__28->SetTopMargin(0.07);
    hd__28->SetBottomMargin(0.14);
-   TLatex *tex = new TLatex(0.5, 0.45, "#sqrt{s} = 13.6 TeV, ATLAS Run 2 ID, 332 fb^{-1}, converted-photon background vs pile-up: SCT 17 #mum / 580 #mum (ATLAS)");
+   TLatex *tex = new TLatex(0.5, 0.45, "S2 #upoint Run 3 #upoint ATLAS, 332 fb^{-1}, #gamma-conversion background vs #mu: SCT 17 #mum / 580 #mum (ATLAS)");
    tex->SetTextAlign(22);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);

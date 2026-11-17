@@ -4,7 +4,7 @@
 void G01_cross_sections_trigger()
 {
 //=========Macro generated from canvas: G01/
-//=========  (Tue Nov 17 11:56:09 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 12:16:22 2026) by ROOT version 6.40.04
    TCanvas *G01 = new TCanvas("G01", "", 0, 0, 1800, 650);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
@@ -130,21 +130,21 @@ void G01_cross_sections_trigger()
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(0);
-   TLegendEntry *legentry = leg->AddEntry("Graph","colored, 10k generated (07)","p");
+   TLegendEntry *legentry = leg->AddEntry("Graph","colored, 10k generated","p");
    legentry->SetMarkerColor(TColor::GetColor("#2a78d6"));
    legentry->SetMarkerStyle(20);
    legentry->SetMarkerSize(1.2);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","colored, 2k generated (Stage 2)","p");
+   legentry = leg->AddEntry("Graph","colored, 2k (S1#upointRun 3#upointIdeal)","p");
    legentry->SetMarkerColor(TColor::GetColor("#898781"));
    legentry->SetMarkerStyle(24);
    legentry->SetMarkerSize(1.2);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","EW, 10k generated (07)","p");
+   legentry = leg->AddEntry("Graph","EW, 10k generated","p");
    legentry->SetMarkerColor(TColor::GetColor("#2a78d6"));
    legentry->SetMarkerSize(1.2);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","EW, 2k generated (Stage 2)","p");
+   legentry = leg->AddEntry("Graph","EW, 2k (S1#upointRun 3#upointIdeal)","p");
    legentry->SetMarkerColor(TColor::GetColor("#898781"));
    legentry->SetMarkerStyle(25);
    legentry->SetMarkerSize(1.2);

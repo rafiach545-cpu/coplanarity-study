@@ -1,4 +1,4 @@
-channel,sct,lumi_fb,contour,s_required,m_max_GeV,at_lambda_keV,m_max_lo,m_max_hi,N_max_at_highest_mass,N_max_at_highest_mass_used,reach_beyond_grid,m_max_stage2_GeV
+channel,sct,lumi_fb,contour,s_required,m_max_GeV,at_lambda_keV,m_max_lo,m_max_hi,N_max_at_highest_mass,N_max_at_highest_mass_used,reach_beyond_grid,m_max_S1_Run3_Ideal_2k_GeV
 colored,Z0,300.0,exclusion,3.0,1851,5.0,1836,1864,0.19,0.19,False,1764.0
 colored,Z0,300.0,discovery,5.0,1761,5.0,1751,1771,0.19,0.19,False,1660.0
 colored,Z0,332.0,exclusion,3.0,1871,5.0,1857,1885,0.21,0.21,False,1785.0

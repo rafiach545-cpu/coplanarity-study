@@ -1,7 +1,7 @@
 sct,False,True,group
-A580,0,2606,ATLAS only
-A580,2715,0,selected in ideal and ATLAS
-Z0,0,11036,ATLAS only
-Z0,9489,0,selected in ideal and ATLAS
-Z1160,0,1414,ATLAS only
-Z1160,1511,0,selected in ideal and ATLAS
+A580,0,2606,S2_Run3_ATLAS only
+A580,2715,0,selected in S1_Run3_Ideal and S2_Run3_ATLAS
+Z0,0,11036,S2_Run3_ATLAS only
+Z0,9489,0,selected in S1_Run3_Ideal and S2_Run3_ATLAS
+Z1160,0,1414,S2_Run3_ATLAS only
+Z1160,1511,0,selected in S1_Run3_Ideal and S2_Run3_ATLAS

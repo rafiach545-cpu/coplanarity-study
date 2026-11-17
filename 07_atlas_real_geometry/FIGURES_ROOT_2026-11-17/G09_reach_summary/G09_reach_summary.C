@@ -4,8 +4,8 @@
 void G09_reach_summary()
 {
 //=========Macro generated from canvas: G09/
-//=========  (Tue Nov 17 11:56:11 2026) by ROOT version 6.40.04
-   TCanvas *G09 = new TCanvas("G09", "", 0, 0, 1800, 1000);
+//=========  (Tue Nov 17 12:16:26 2026) by ROOT version 6.40.04
+   TCanvas *G09 = new TCanvas("G09", "", 0, 0, 1800, 1700);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
    gStyle->SetOptTitle(0);
@@ -24,20 +24,19 @@ void G09_reach_summary()
    G09->SetBottomMargin(0.14);
    
 // ------------>Primitives in pad: G09_1
-   TPad *G09_1__42 = new TPad("G09_1", "G09_1", 0.002, 0.002, 0.498, 0.998);
+   TPad *G09_1__42 = new TPad("G09_1", "G09_1", 0.002, 0.502, 0.998, 0.998);
    G09_1__42->Draw();
    G09_1__42->cd();
-   G09_1__42->Range(-288.6791,-1.435897,2541.509,8.820513);
+   G09_1__42->Range(-8.940697e-05,-1.333333,2500,8.923077);
    G09_1__42->SetFillColor(0);
    G09_1__42->SetFillStyle(1001);
    G09_1__42->SetBorderMode(0);
    G09_1__42->SetBorderSize(2);
    G09_1__42->SetTickx(1);
    G09_1__42->SetTicky(1);
-   G09_1__42->SetLeftMargin(0.42);
-   G09_1__42->SetRightMargin(0.05);
-   G09_1__42->SetTopMargin(0.08);
-   G09_1__42->SetBottomMargin(0.14);
+   G09_1__42->SetLeftMargin(0.36);
+   G09_1__42->SetRightMargin(0.04);
+   G09_1__42->SetBottomMargin(0.13);
    
    TH1F *hframe__57 = new TH1F("hframe", "", 1000, 900, 2400);
    hframe__57->SetMinimum(0);
@@ -72,7 +71,7 @@ void G09_reach_summary()
    hframe__57->GetZaxis()->SetTitleOffset(1);
    hframe__57->GetZaxis()->SetTitleFont(42);
    hframe__57->Draw(" ");
-   TLatex *tex = new TLatex(870, 7.5, "Stage 2, #sigma_{z} = 1.16 mm");
+   TLatex *tex = new TLatex(870, 7.5, "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 1.16 mm");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -103,7 +102,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(870, 6.5, "Stage 2, #sigma_{z} = 0");
+   tex = new TLatex(870, 6.5, "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 0");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -134,7 +133,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(870, 5.5, "07, Knapen 34 #mum / 1.16 mm");
+   tex = new TLatex(870, 5.5, "S2 #upoint Run 3 #upoint ATLAS, Knapen 34 #mum / 1.16 mm");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -165,7 +164,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(870, 4.5, "07, ATLAS 17 #mum / 580 #mum");
+   tex = new TLatex(870, 4.5, "S2 #upoint Run 3 #upoint ATLAS, ATLAS 17 #mum / 580 #mum");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -196,7 +195,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(870, 3.5, "07, #sigma_{long} = 0");
+   tex = new TLatex(870, 3.5, "S2 #upoint Run 3 #upoint ATLAS, #sigma_{long} = 0");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -227,7 +226,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(870, 2.5, "07, A580, #mu = 50");
+   tex = new TLatex(870, 2.5, "S2 #upoint Run 3 #upoint ATLAS, A580, #mu = 50");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -258,7 +257,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(870, 1.5, "07, #sigma_{long} = 0, #mu = 50");
+   tex = new TLatex(870, 1.5, "S2 #upoint Run 3 #upoint ATLAS, #sigma_{long} = 0, #mu = 50");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -289,7 +288,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(870, 0.5, "Stage 2, #sigma_{z} = 0, #mu = 50");
+   tex = new TLatex(870, 0.5, "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 0, #mu = 50");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -320,14 +319,13 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(0.43, 0.95, "#bf{colored (3,1)_{2/3}}");
+   tex = new TLatex(0.37, 0.945, "#bf{colored (3,1)_{2/3}}");
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
-   tex->SetTextSize(0.045);
    tex->SetLineWidth(2);
    tex->SetNDC();
    tex->Draw();
-   tex = new TLatex(0.95, 0.95, "#bullet excl.   #circ disc.");
+   tex = new TLatex(0.96, 0.945, "#bullet excl.   #circ disc.");
    tex->SetTextAlign(31);
    tex->SetTextColor(TColor::GetColor("#52514e"));
    tex->SetTextFont(42);
@@ -373,20 +371,19 @@ void G09_reach_summary()
    G09->cd();
    
 // ------------>Primitives in pad: G09_2
-   TPad *G09_2__43 = new TPad("G09_2", "G09_2", 0.502, 0.002, 0.998, 0.998);
+   TPad *G09_2__43 = new TPad("G09_2", "G09_2", 0.002, 0.002, 0.998, 0.498);
    G09_2__43->Draw();
    G09_2__43->cd();
-   G09_2__43->Range(-652.8301,-1.435897,1139.623,8.820513);
+   G09_2__43->Range(-470.0001,-1.333333,1113.333,8.923077);
    G09_2__43->SetFillColor(0);
    G09_2__43->SetFillStyle(1001);
    G09_2__43->SetBorderMode(0);
    G09_2__43->SetBorderSize(2);
    G09_2__43->SetTickx(1);
    G09_2__43->SetTicky(1);
-   G09_2__43->SetLeftMargin(0.42);
-   G09_2__43->SetRightMargin(0.05);
-   G09_2__43->SetTopMargin(0.08);
-   G09_2__43->SetBottomMargin(0.14);
+   G09_2__43->SetLeftMargin(0.36);
+   G09_2__43->SetRightMargin(0.04);
+   G09_2__43->SetBottomMargin(0.13);
    
    TH1F *hframe__59 = new TH1F("hframe", "", 1000, 100, 1050);
    hframe__59->SetMinimum(0);
@@ -421,7 +418,7 @@ void G09_reach_summary()
    hframe__59->GetZaxis()->SetTitleOffset(1);
    hframe__59->GetZaxis()->SetTitleFont(42);
    hframe__59->Draw(" ");
-   tex = new TLatex(81, 7.5, "Stage 2, #sigma_{z} = 1.16 mm");
+   tex = new TLatex(81, 7.5, "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 1.16 mm");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -452,7 +449,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(81, 6.5, "Stage 2, #sigma_{z} = 0");
+   tex = new TLatex(81, 6.5, "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 0");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -483,7 +480,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(81, 5.5, "07, Knapen 34 #mum / 1.16 mm");
+   tex = new TLatex(81, 5.5, "S2 #upoint Run 3 #upoint ATLAS, Knapen 34 #mum / 1.16 mm");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -514,7 +511,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(81, 4.5, "07, ATLAS 17 #mum / 580 #mum");
+   tex = new TLatex(81, 4.5, "S2 #upoint Run 3 #upoint ATLAS, ATLAS 17 #mum / 580 #mum");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -545,7 +542,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(81, 3.5, "07, #sigma_{long} = 0");
+   tex = new TLatex(81, 3.5, "S2 #upoint Run 3 #upoint ATLAS, #sigma_{long} = 0");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -576,7 +573,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(81, 2.5, "07, A580, #mu = 50");
+   tex = new TLatex(81, 2.5, "S2 #upoint Run 3 #upoint ATLAS, A580, #mu = 50");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -607,7 +604,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(81, 1.5, "07, #sigma_{long} = 0, #mu = 50");
+   tex = new TLatex(81, 1.5, "S2 #upoint Run 3 #upoint ATLAS, #sigma_{long} = 0, #mu = 50");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -638,7 +635,7 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(81, 0.5, "Stage 2, #sigma_{z} = 0, #mu = 50");
+   tex = new TLatex(81, 0.5, "S1 #upoint Run 3 #upoint Ideal (2k), #sigma_{z} = 0, #mu = 50");
    tex->SetTextAlign(32);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -669,14 +666,13 @@ void G09_reach_summary()
    grae->SetMarkerStyle(24);
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
-   tex = new TLatex(0.43, 0.95, "#bf{EW (1,1)_{1}}");
+   tex = new TLatex(0.37, 0.945, "#bf{EW (1,1)_{1}}");
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
-   tex->SetTextSize(0.045);
    tex->SetLineWidth(2);
    tex->SetNDC();
    tex->Draw();
-   tex = new TLatex(0.95, 0.95, "#bullet excl.   #circ disc.");
+   tex = new TLatex(0.96, 0.945, "#bullet excl.   #circ disc.");
    tex->SetTextAlign(31);
    tex->SetTextColor(TColor::GetColor("#52514e"));
    tex->SetTextFont(42);

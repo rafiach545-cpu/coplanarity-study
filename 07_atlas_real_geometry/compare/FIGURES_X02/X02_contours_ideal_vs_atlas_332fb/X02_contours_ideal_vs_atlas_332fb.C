@@ -4,7 +4,7 @@
 void X02_contours_ideal_vs_atlas_332fb()
 {
 //=========Macro generated from canvas: X02/
-//=========  (Tue Nov 17 11:18:25 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 12:14:29 2026) by ROOT version 6.40.04
    TCanvas *X02 = new TCanvas("X02", "", 0, 0, 1800, 1200);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
@@ -38,7 +38,7 @@ void X02_contours_ideal_vs_atlas_332fb()
    hd__0->SetRightMargin(0.04);
    hd__0->SetTopMargin(0.07);
    hd__0->SetBottomMargin(0.14);
-   TLatex *tex = new TLatex(0.5, 0.45, "#sqrt{s} = 13.6 TeV, 332 fb^{-1}, zero background, same 10k-generated events: ideal vs ATLAS geometry");
+   TLatex *tex = new TLatex(0.5, 0.45, "Stage 2 #upoint Run 3 #upoint ATLAS vs Stage 1 #upoint Run 3 #upoint Ideal: 13.6 TeV, 332 fb^{-1}, zero background, same 10k events");
    tex->SetTextAlign(22);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -7432,30 +7432,30 @@ void X02_contours_ideal_vs_atlas_332fb()
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(0);
-   TLegendEntry *legentry = leg->AddEntry("Graph","ATLAS geometry (barrel + end-caps): N = 3","l");
+   TLegendEntry *legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS (10k): N = 3","l");
    legentry->SetLineColor(TColor::GetColor("#2a78d6"));
    legentry->SetLineStyle(2);
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","ATLAS geometry (barrel + end-caps): N = 5","l");
+   legentry = leg->AddEntry("Graph","S2#upointRun 3#upointATLAS (10k): N = 5","l");
    legentry->SetLineColor(TColor::GetColor("#2a78d6"));
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","ideal (8 barrel layers, Stage 2 geometry): N = 3","l");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (10k): N = 3","l");
    legentry->SetLineColor(TColor::GetColor("#eb6834"));
    legentry->SetLineStyle(2);
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","ideal (8 barrel layers, Stage 2 geometry): N = 5","l");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (10k): N = 5","l");
    legentry->SetLineColor(TColor::GetColor("#eb6834"));
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2 (2k generated, barrel): N = 3","l");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (2k, 06): N = 3","l");
    legentry->SetLineColor(TColor::GetColor("#898781"));
    legentry->SetLineStyle(2);
    legentry->SetLineWidth(2);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2 (2k generated, barrel): N = 5","l");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (2k, 06): N = 5","l");
    legentry->SetLineColor(TColor::GetColor("#898781"));
    legentry->SetLineWidth(2);
    legentry->SetTextFont(42);

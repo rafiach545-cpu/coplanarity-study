@@ -1,0 +1,8 @@
+{
+ "figure": "GEO4_3d_ideal",
+ "script": "FIGURES_GEOMETRY_2026-11-17/make_geometry_3d.py (matplotlib 3.11.1)",
+ "data": {
+  "tables/X06_geometry_elements.csv": "aef9c0280823381033f35c9b06de62fe5ed4d531c86c1f7f3b7adbebb6c636af",
+  "geometry/atlas_run2_id_geometry.csv": "91d327989335a075a9f9b12ae4a304bec6b4b7d90be6c7e234afe3fcd57bf06e"
+ }
+}

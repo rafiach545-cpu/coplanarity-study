@@ -14,5 +14,5 @@ for f in sorted(glob.glob(f"{R}/signal/runs/large_atlas/G01_*.jsonl")):
             if r.get(f"{s}_final"):
                 rows.append(dict(file=os.path.basename(f), sct=s, both=bool(I[k].get(f"{s}_final")), endcap=bool(r.get(f"{s}_endcap"))))
 D = pd.DataFrame(rows); S = D.groupby(["sct", "both", "endcap"]).size().unstack(fill_value=0).reset_index()
-S["group"] = S.both.map({True: "selected in ideal and ATLAS", False: "ATLAS only"}); S = S.drop(columns="both"); S.to_csv(f"{R}/tables/X05_endcap_flag_full.csv", index=False)
+S["group"] = S.both.map({True: "selected in S1_Run3_Ideal and S2_Run3_ATLAS", False: "S2_Run3_ATLAS only"}); S = S.drop(columns="both"); S.to_csv(f"{R}/tables/X05_endcap_flag_full.csv", index=False)
 print(S.to_string(index=False))

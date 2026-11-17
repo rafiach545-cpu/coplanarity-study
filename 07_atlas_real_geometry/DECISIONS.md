@@ -105,3 +105,22 @@ Chosen by expected size and by how much existing code each step reuses:
 - **Server runs are the result (2026-11-17, user):** the large samples were propagated on the server in the atlas and stage2 (ideal) geometries; all 07 tables and figures are built from `signal/runs/large_atlas`. The laptop G02 propagation was stopped. Its rows are not bit-identical to the server rows: 2.6% of rows differ in a discrete field, with no net direction. Each machine reproduces itself exactly, so the cause is floating-point arithmetic, which differs between machines. The difference is taken as a numerical-reproducibility systematic: ≤ 4 GeV on m_max (X01c).
 - **EW 1200 GeV added (2026-11-17, user):** for ATLAS Z0, N at the highest EW mass (1000 GeV) is 2.90, just below 3, so the EW reach sits at the grid edge. The same G02 gen/ext was used, with seeds 848000–848004. `R01_reach_07.py` uses a point only when all its band files exist (`with_runs`).
 
+## D6 (2026-11-17, decided by the user): names from the simulation matrix
+
+| Stage | Run | Geometry | √s | L | Where |
+|---|---|---|---|---|---|
+| 0 | Paper | Ideal | 13 TeV | 300 fb⁻¹ | `05_coplanarity_analysis` |
+| 1 | Run 2 | Ideal | 13 TeV | 139 fb⁻¹ | `06_publication/S1_13TeV_139fb_knapen_noPU_cop` |
+| 1 | Run 3 | Ideal | 13.6 TeV | 332 fb⁻¹ | `06_publication/S2_13p6TeV_run3_knapen_noPU_cop` (2k); `signal/runs/large_ideal` (10k) |
+| 2 | Run 2 | ATLAS | 13 TeV | 139 fb⁻¹ | not done |
+| 2 | Run 3 | ATLAS | 13.6 TeV | 332 fb⁻¹ | this folder, `signal/runs/large_atlas` |
+| 2 | Run 2 / Run 3 | CMS | 13 / 13.6 TeV | 139 / 332 fb⁻¹ | not done |
+
+- **What changed:** docs, table columns and labels, and the 07 figures (G01–G10, X02) now use these names. Text uses "Stage 2 · Run 3 · ATLAS"; figure legends use "S2 · Run 3 · ATLAS"; tags in tables and files are `S2_Run3_ATLAS`, `S1_Run3_Ideal`, `S1_Run3_Ideal_2k`.
+- **What did not change:** folder names and the frozen 06 graphs (user choice).
+- **Older entries:** in the entries above (D1–D5), "Stage 2" means Stage 1 · Run 3 · Ideal (2k), and "07" means Stage 2 · Run 3 · ATLAS.
+- **Renamed table columns:**
+  - `n_fid_stage2` → `n_fid_barrel_rule` (in the raw jsonl files the field is still `fid_stage2`);
+  - `m_max_stage2_GeV` → `m_max_S1_Run3_Ideal_2k_GeV`;
+  - X02 setups `ideal` / `atlas` / `stage2` → `S1_Run3_Ideal` / `S2_Run3_ATLAS` / `S1_Run3_Ideal_2k`.
+

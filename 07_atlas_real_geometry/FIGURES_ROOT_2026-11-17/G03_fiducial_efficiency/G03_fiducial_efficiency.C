@@ -4,7 +4,7 @@
 void G03_fiducial_efficiency()
 {
 //=========Macro generated from canvas: G03_fiducial_efficiency/G03_fiducial_efficiency
-//=========  (Tue Nov 17 11:56:09 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 12:16:23 2026) by ROOT version 6.40.04
    TCanvas *G03_fiducial_efficiency = new TCanvas("G03_fiducial_efficiency", "G03_fiducial_efficiency", 0, 0, 1600, 1450);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
@@ -38,7 +38,7 @@ void G03_fiducial_efficiency()
    hd__5->SetRightMargin(0.04);
    hd__5->SetTopMargin(0.07);
    hd__5->SetBottomMargin(0.14);
-   TLatex *tex = new TLatex(0.5, 0.45, "#sqrt{s} = 13.6 TeV, ATLAS Run 2 ID: fiducial efficiency, 10k samples");
+   TLatex *tex = new TLatex(0.5, 0.45, "Stage 2 #upoint Run 3 #upoint ATLAS (13.6 TeV): fiducial efficiency, 10k samples");
    tex->SetTextAlign(22);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -1427,17 +1427,17 @@ void G03_fiducial_efficiency()
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(0);
-   TLegendEntry *legentry = leg->AddEntry("Graph","07: 8 stations, |#eta| < 2.5 (D1)","p");
+   TLegendEntry *legentry = leg->AddEntry("Graph","ATLAS geometry: 8 stations, |#eta| < 2.5 (D1)","p");
    legentry->SetMarkerColor(TColor::GetColor("#2a78d6"));
    legentry->SetMarkerStyle(20);
    legentry->SetMarkerSize(1.1);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07 trajectories, barrel rule","p");
+   legentry = leg->AddEntry("Graph","same trajectories, ideal barrel rule","p");
    legentry->SetMarkerColor(TColor::GetColor("#eb6834"));
    legentry->SetMarkerStyle(25);
    legentry->SetMarkerSize(1.1);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2 (2k, barrel)","p");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (2k)","p");
    legentry->SetMarkerColor(TColor::GetColor("#898781"));
    legentry->SetMarkerStyle(24);
    legentry->SetMarkerSize(1.1);

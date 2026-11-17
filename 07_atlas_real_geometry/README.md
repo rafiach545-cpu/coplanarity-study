@@ -2,6 +2,8 @@
 
 Stage B of the publication plan: replace the 8 infinitely thin barrel layers of the reproduction (Knapen et al., arXiv:1708.02243) with the ATLAS Run 2 Inner Detector. This means end-caps, material, timing, efficiency and field, all taken from published references. The same detector is then used for new background processes. GNN work is not part of this folder.
 
+**Name in the simulation matrix (2026-11-17):** this folder is **Stage 2 · Run 3 · ATLAS** (13.6 TeV, 332 fb⁻¹). Its reference is **Stage 1 · Run 3 · Ideal**: the 2k sample in `06_publication/S2_13p6TeV_run3_knapen_noPU_cop`, called "Stage 2" in older files, and the 10k sample in `signal/runs/large_ideal`. Tags: `S2_Run3_ATLAS`, `S1_Run3_Ideal`, `S1_Run3_Ideal_2k`. The full matrix is in `RESULTS_07_LARGE_SAMPLES.md`.
+
 **Rule:** every number comes from a saved reference. `references/REFERENCES.md` lists each paper, its local file, and which number is taken from which table or section. The CSVs repeat the reference ID on every row and mark the value VERIFIED, DERIVED or CONFLICT.
 
 ## Folders

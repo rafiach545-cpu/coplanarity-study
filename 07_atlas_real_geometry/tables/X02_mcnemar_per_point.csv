@@ -1,4 +1,4 @@
-channel,mass_gev,lambda_keV,quantity,n,k_ideal,k_atlas,both,b_ideal_only,c_atlas_only,p_mcnemar,p_holm,diff_k_over_n
+channel,mass_gev,lambda_keV,quantity,n,k_S1_Run3_Ideal,k_S2_Run3_ATLAS,both,b_S1_only,c_S2_only,p_mcnemar,p_holm,diff_k_over_n
 EW,100,0.1,fid,216,77,165,77,0,88,6.462348535570529e-27,4.782137916322191e-25,0.4074074074074074
 EW,100,0.1,Z0_final,216,0,0,0,0,0,1.0,1.0,0.0
 EW,100,0.1,A580_final,216,0,0,0,0,0,1.0,1.0,0.0

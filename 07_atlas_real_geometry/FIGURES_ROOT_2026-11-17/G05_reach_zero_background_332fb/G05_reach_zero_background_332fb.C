@@ -4,7 +4,7 @@
 void G05_reach_zero_background_332fb()
 {
 //=========Macro generated from canvas: G05/
-//=========  (Tue Nov 17 11:56:10 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 12:16:24 2026) by ROOT version 6.40.04
    TCanvas *G05 = new TCanvas("G05", "", 0, 0, 1800, 1200);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
@@ -38,7 +38,7 @@ void G05_reach_zero_background_332fb()
    hd__19->SetRightMargin(0.04);
    hd__19->SetTopMargin(0.07);
    hd__19->SetBottomMargin(0.14);
-   TLatex *tex = new TLatex(0.5, 0.45, "#sqrt{s} = 13.6 TeV, ATLAS Run 2 inner detector (barrel + end-caps), 332 fb^{-1}, no pile-up, zero background: 07 vs Stage 2");
+   TLatex *tex = new TLatex(0.5, 0.45, "S2 #upoint Run 3 #upoint ATLAS vs S1 #upoint Run 3 #upoint Ideal (2k): #sqrt{s} = 13.6 TeV, 332 fb^{-1}, no pile-up, zero background");
    tex->SetTextAlign(22);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -4822,44 +4822,44 @@ void G05_reach_zero_background_332fb()
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(0);
-   TLegendEntry *legentry = leg->AddEntry("Graph","07 #sigma_{long}^{SCT} = 0: N = 3","l");
+   TLegendEntry *legentry = leg->AddEntry("Graph","S2 #upoint Run 3 #upoint ATLAS #sigma_{long}^{SCT} = 0: N = 3","l");
    legentry->SetLineColor(TColor::GetColor("#6250d6"));
    legentry->SetLineStyle(2);
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07 SCT 17 #mum / 580 #mum (ATLAS): N = 3","l");
+   legentry = leg->AddEntry("Graph","S2 #upoint Run 3 #upoint ATLAS SCT 17 #mum / 580 #mum (ATLAS): N = 3","l");
    legentry->SetLineColor(TColor::GetColor("#2a78d6"));
    legentry->SetLineStyle(2);
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07 SCT 34 #mum / 1.16 mm (Knapen): N = 3","l");
+   legentry = leg->AddEntry("Graph","S2 #upoint Run 3 #upoint ATLAS SCT 34 #mum / 1.16 mm (Knapen): N = 3","l");
    legentry->SetLineColor(TColor::GetColor("#1baf7a"));
    legentry->SetLineStyle(2);
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07: N = 5 (solid)","l");
+   legentry = leg->AddEntry("Graph","S2 #upoint Run 3 #upoint ATLAS: N = 5 (solid)","l");
    legentry->SetLineColor(TColor::GetColor("#6250d6"));
    legentry->SetLineWidth(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07: N = 3, #pm 1#sigma (Wilson)","l");
+   legentry = leg->AddEntry("Graph","S2 #upoint Run 3 #upoint ATLAS: N = 3, #pm 1#sigma (Wilson)","l");
    legentry->SetLineColor(TColor::GetColor("#6250d6"));
    legentry->SetLineStyle(3);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2 (barrel, 2k): N = 3","l");
+   legentry = leg->AddEntry("Graph","S1 #upoint Run 3 #upoint Ideal (2k): N = 3","l");
    legentry->SetLineColor(TColor::GetColor("#898781"));
    legentry->SetLineStyle(2);
    legentry->SetLineWidth(2);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2: N = 5","l");
+   legentry = leg->AddEntry("Graph","S1 #upoint Run 3 #upoint Ideal (2k): N = 5","l");
    legentry->SetLineColor(TColor::GetColor("#898781"));
    legentry->SetLineWidth(2);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07 grid point, k > 0","p");
+   legentry = leg->AddEntry("Graph","grid point, k > 0","p");
    legentry->SetMarkerColor(TColor::GetColor("#52514e"));
    legentry->SetMarkerStyle(20);
    legentry->SetMarkerSize(0.55);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07 grid point, k = 0","p");
+   legentry = leg->AddEntry("Graph","grid point, k = 0","p");
    legentry->SetMarkerColor(TColor::GetColor("#898781"));
    legentry->SetMarkerStyle(5);
    legentry->SetMarkerSize(0.9);

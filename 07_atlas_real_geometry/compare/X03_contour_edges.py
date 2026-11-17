@@ -5,8 +5,8 @@ and Stage 2 (S2_N_grid_300fb.csv x 332/300), per channel, SCT and threshold (3, 
 A non-empty edge means the contour is open there (it leaves the grid). Writes tables/X03_contour_edges.csv."""
 import os, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.abspath(f"{HERE}/.."); T = f"{R}/tables"
-G = {"atlas": pd.read_csv(f"{T}/X02_N_grid_atlas_300fb.csv"), "ideal": pd.read_csv(f"{T}/X02_N_grid_ideal_300fb.csv"),
-     "stage2": pd.read_csv(f"{os.path.abspath(f'{R}/..')}/06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_N_grid_300fb.csv")}
+G = {"S2_Run3_ATLAS": pd.read_csv(f"{T}/X02_N_grid_S2_Run3_ATLAS_300fb.csv"), "S1_Run3_Ideal": pd.read_csv(f"{T}/X02_N_grid_S1_Run3_Ideal_300fb.csv"),
+     "S1_Run3_Ideal_2k": pd.read_csv(f"{os.path.abspath(f'{R}/..')}/06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_N_grid_300fb.csv")}
 rows = []
 for nm, g in G.items():
     g = g.copy(); g["N"] = g.N_with_f * 332.0 / 300.0; ok = (g.status_with_f == "bound") | ((g.status_with_f == "computed") & (g.k > 0))

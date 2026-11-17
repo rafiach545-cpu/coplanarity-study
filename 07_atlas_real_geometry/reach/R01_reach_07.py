@@ -76,7 +76,7 @@ def grid(C, inputs_dir, loader, settings, strict):
                                 eps_fid=n_fid / n_prop, eps_reco=k / n_fid if n_fid else np.nan, N_with_f=pre * fch * k / n_prop, N_with_f_lo=pre * fch * lo, N_with_f_hi=pre * fch * hi,
                                 N_with_f_UL95_if_k0=pre * fch * ul if k == 0 else np.nan)
                     if "fid_stage2" in x:                                      # 07 only: barrel rule on the same trajectories, end-cap use of the winner plane
-                        base.update(n_fid_stage2=int(TR(x.fid_stage2).sum()), k_endcap=int((TR(x[f"{sct}_final"]) & TR(x[f"{sct}_endcap"])).sum()))
+                        base.update(n_fid_barrel_rule=int(TR(x.fid_stage2).sum()), k_endcap=int((TR(x[f"{sct}_final"]) & TR(x[f"{sct}_endcap"])).sum()))
                 else:
                     base.update(status="not run", status_with_f="bound" if pre * fch < 3 else "missing", status_without_f="bound" if pre < 3 else "missing", N_with_f=pre * fch)
                 recs.append(base)
@@ -134,7 +134,7 @@ if __name__ == "__main__":
             for L in LUMIS:
                 for r in reach_rows(G, ch, sct, L, 3.0, 5.0, {}):
                     s = S2R[(S2R.channel == ch) & (S2R.sct == sct) & (S2R.lumi_fb == L) & (S2R.contour == r["contour"])]
-                    r["m_max_stage2_GeV"] = s.m_max_GeV.iloc[0] if len(s) else np.nan; rows.append(r)
+                    r["m_max_S1_Run3_Ideal_2k_GeV"] = s.m_max_GeV.iloc[0] if len(s) else np.nan; rows.append(r)
     R = pd.DataFrame(rows); R.to_csv(f"{T}/R01_reach.csv", index=False); pd.set_option("display.width", 250); print(R[R.lumi_fb == 332].to_string(index=False))
     # background (C01 + S01, 332 fb^-1)
     B = []

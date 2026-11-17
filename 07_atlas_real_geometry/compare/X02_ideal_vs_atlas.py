@@ -5,7 +5,7 @@
 1. Grid N(m, Lambda) for both with the Stage 2 method unchanged (reach/R01_reach_07.py grid(), strict: every band complete; T09 PASS):
    N = L sigma eps_trig f_ch k/n_prop, i.e. L sigma (n_prop / n_matched) (k / n_prop); n_prop = n_trigger (EW) or n_trigger and both charged (colored);
    sigma, n_matched from signal/inputs_large/counts.csv and the event files; Wilson 68% interval on k/n; k = 0 -> status bound/computed as Stage 2.
-   -> tables/X02_N_grid_{ideal,atlas}_300fb.csv (300 fb^-1 as R01; scaled to 332 fb^-1 below).
+   -> tables/X02_N_grid_{S1_Run3_Ideal,S2_Run3_ATLAS}_300fb.csv (300 fb^-1 as R01; scaled to 332 fb^-1 below).
 2. Reach at 332 fb^-1 (N = 3 / 5, Stage 2 reach() unchanged) for ideal, ATLAS and Stage 2 (2k) -> tables/X02_reach_332fb.csv.
 3. Contour lines (06 method, T10) -> tables/X02_contours_332fb.csv.
 4. Paired event-by-event comparison per (channel, mass, Lambda, SCT) and summed over masses per (channel, Lambda, SCT): McNemar exact test on the discordant pairs
@@ -19,18 +19,18 @@ from scipy import stats
 from scipy.interpolate import RegularGridInterpolator
 import contourpy
 HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.abspath(f"{HERE}/.."); BASE = os.path.abspath(f"{R}/.."); T = f"{R}/tables"; INP = f"{R}/signal/inputs_large"
-S2 = f"{BASE}/06_publication/S2_13p6TeV_run3_knapen_noPU_cop"; L = 332.0; SET = ("Z0", "A580", "Z1160"); RUNS = {"ideal": f"{R}/signal/runs/large_ideal", "atlas": f"{R}/signal/runs/large_atlas"}
+S2 = f"{BASE}/06_publication/S2_13p6TeV_run3_knapen_noPU_cop"; L = 332.0; SET = ("Z0", "A580", "Z1160"); RUNS = {"S1_Run3_Ideal": f"{R}/signal/runs/large_ideal", "S2_Run3_ATLAS": f"{R}/signal/runs/large_atlas"}
 spec = importlib.util.spec_from_file_location("R01", f"{R}/reach/R01_reach_07.py"); R01 = importlib.util.module_from_spec(spec); spec.loader.exec_module(R01)
 src = open(f"{R}/FIGURES_ROOT_2026-11-17/prepare_data_07.py").read(); exec(src[src.index("def zgrid"):src.index("BK = rd(")])   # zgrid, lines, scaled (T10)
-C, NOTES = R01.with_runs(pd.read_csv(f"{INP}/counts.csv"), RUNS["atlas"]); assert len(R01.with_runs(C, RUNS["ideal"])[0]) == len(C); print("\n".join(NOTES))
+C, NOTES = R01.with_runs(pd.read_csv(f"{INP}/counts.csv"), RUNS["S2_Run3_ATLAS"]); assert len(R01.with_runs(C, RUNS["S1_Run3_Ideal"])[0]) == len(C); print("\n".join(NOTES))
 
 # 1. grids
 G = {}
 for nm, d in RUNS.items():
     g, notes = R01.grid(C, INP, lambda tag, d=d: R01.load_07(tag, d), SET, strict=True); assert not notes, notes
     g.to_csv(f"{T}/X02_N_grid_{nm}_300fb.csv", index=False); G[nm] = g
-G["stage2"] = pd.read_csv(f"{S2}/S2_N_grid_300fb.csv")
-for nm in ("ideal", "atlas"): print(nm, G[nm].status_with_f.value_counts().to_dict())
+G["S1_Run3_Ideal_2k"] = pd.read_csv(f"{S2}/S2_N_grid_300fb.csv")
+for nm in ("S1_Run3_Ideal", "S2_Run3_ATLAS"): print(nm, G[nm].status_with_f.value_counts().to_dict())
 
 # 2. reach
 rows = []
@@ -70,22 +70,22 @@ pp = []
 for r in C.itertuples():
     tag = f"{r.channel}_{r.mass_gev}gev"
     for band in ("low", "mid", "high_a"):
-        a, s = load("ideal", tag, band), load("atlas", tag, band); assert set(a) == set(s), f"{tag} {band}: different (event, Lambda) sets"
+        a, s = load("S1_Run3_Ideal", tag, band), load("S2_Run3_ATLAS", tag, band); assert set(a) == set(s), f"{tag} {band}: different (event, Lambda) sets"
         for lam in sorted({k[1] for k in a}):
             ks = [k for k in a if k[1] == lam]
             for q in ("fid",) + tuple(f"{x}_final" for x in SET):
                 i = np.array([bool(a[k].get(q)) for k in ks]); t = np.array([bool(s[k].get(q)) for k in ks])
-                pp.append(dict(channel=r.channel, mass_gev=r.mass_gev, lambda_keV=lam, quantity=q, n=len(ks), k_ideal=int(i.sum()), k_atlas=int(t.sum()),
-                               both=int((i & t).sum()), b_ideal_only=int((i & ~t).sum()), c_atlas_only=int((~i & t).sum())))
-P = pd.DataFrame(pp); P["p_mcnemar"] = [mcn(b, c) for b, c in zip(P.b_ideal_only, P.c_atlas_only)]
+                pp.append(dict(channel=r.channel, mass_gev=r.mass_gev, lambda_keV=lam, quantity=q, n=len(ks), k_S1_Run3_Ideal=int(i.sum()), k_S2_Run3_ATLAS=int(t.sum()),
+                               both=int((i & t).sum()), b_S1_only=int((i & ~t).sum()), c_S2_only=int((~i & t).sum())))
+P = pd.DataFrame(pp); P["p_mcnemar"] = [mcn(b, c) for b, c in zip(P.b_S1_only, P.c_S2_only)]
 P["p_holm"] = np.nan
 for q, x in P.groupby("quantity"): P.loc[x.index, "p_holm"] = holm(x.p_mcnemar.values)
-P["diff_k_over_n"] = (P.k_atlas - P.k_ideal) / P.n; P.to_csv(f"{T}/X02_mcnemar_per_point.csv", index=False)
-A = P.groupby(["channel", "lambda_keV", "quantity"]).agg(n=("n", "sum"), k_ideal=("k_ideal", "sum"), k_atlas=("k_atlas", "sum"), b_ideal_only=("b_ideal_only", "sum"),
-                                                         c_atlas_only=("c_atlas_only", "sum")).reset_index()
-A["p_mcnemar"] = [mcn(b, c) for b, c in zip(A.b_ideal_only, A.c_atlas_only)]; A["p_holm"] = np.nan
+P["diff_k_over_n"] = (P.k_S2_Run3_ATLAS - P.k_S1_Run3_Ideal) / P.n; P.to_csv(f"{T}/X02_mcnemar_per_point.csv", index=False)
+A = P.groupby(["channel", "lambda_keV", "quantity"]).agg(n=("n", "sum"), k_S1_Run3_Ideal=("k_S1_Run3_Ideal", "sum"), k_S2_Run3_ATLAS=("k_S2_Run3_ATLAS", "sum"), b_S1_only=("b_S1_only", "sum"),
+                                                         c_S2_only=("c_S2_only", "sum")).reset_index()
+A["p_mcnemar"] = [mcn(b, c) for b, c in zip(A.b_S1_only, A.c_S2_only)]; A["p_holm"] = np.nan
 for q, x in A.groupby("quantity"): A.loc[x.index, "p_holm"] = holm(x.p_mcnemar.values)
-A["ratio_k_atlas_over_ideal"] = A.k_atlas / A.k_ideal.replace(0, np.nan); A.to_csv(f"{T}/X02_mcnemar_per_lambda.csv", index=False)
+A["ratio_k_S2_over_S1"] = A.k_S2_Run3_ATLAS / A.k_S1_Run3_Ideal.replace(0, np.nan); A.to_csv(f"{T}/X02_mcnemar_per_lambda.csv", index=False)
 
 # 5. crossings
 cm, clam = [], []

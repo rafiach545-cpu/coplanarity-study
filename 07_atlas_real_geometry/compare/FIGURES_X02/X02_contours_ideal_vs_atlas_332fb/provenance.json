@@ -2,8 +2,8 @@
  "figure": "X02_contours_ideal_vs_atlas_332fb",
  "script": "compare/make_figures_X02.py (ROOT 6.40.04)",
  "data": {
-  "X02_contours_332fb.csv": "de5c71848089dc1dea6be8e0d3a9e7805a92a4efdb7b17e95b1ab0e6c5e5154e",
-  "X02_N_grid_atlas_300fb.csv": "d9db66999b3b6c6e2061295b5e0b2b8b953b007ab107289a9aa0251d7edb414d"
+  "X02_contours_332fb.csv": "90cc3d387b1f550f74c13fe9d0bf9e5fc40f81487f8039f70cddbf9948420dc8",
+  "X02_N_grid_S2_Run3_ATLAS_300fb.csv": "686d2603b1571c9f8207bc20a9c027a9c5185e4701cc316a54773e2fdae005e6"
  },
  "data_prepared_by": "compare/X02_ideal_vs_atlas.py"
 }

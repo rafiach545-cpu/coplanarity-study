@@ -1,0 +1,13 @@
+channel,sct,contour,"MS, conservative p_min","MS, initial p",no MS (as simulated)
+EW,A580,discovery,653.0,672.0,681.0
+EW,A580,exclusion,740.0,759.0,767.0
+EW,Z0,discovery,883.0,894.0,900.0
+EW,Z0,exclusion,977.0,988.0,994.0
+EW,Z1160,discovery,566.0,580.0,588.0
+EW,Z1160,exclusion,646.0,662.0,671.0
+colored,A580,discovery,1589.0,1611.0,1618.0
+colored,A580,exclusion,1665.0,1689.0,1697.0
+colored,Z0,discovery,1762.0,1773.0,1777.0
+colored,Z0,exclusion,1851.0,1866.0,1871.0
+colored,Z1160,discovery,1499.0,1521.0,1529.0
+colored,Z1160,exclusion,1580.0,1603.0,1612.0

@@ -21,7 +21,7 @@ for r in C.itertuples():
                 if abs(x["lambda_keV"] - LAM) < 1e-9: rr[x["event"]] = x
         for grp, sel in (("propagated", lambda x: True), ("fid", lambda x: x.get("fid")), ("Z0_final", lambda x: x.get("Z0_final")), ("A580_final", lambda x: x.get("A580_final"))):
             ids = [e for e, x in rr.items() if sel(x)]; v = me.loc[ids].values
-            rows.append(dict(channel=r.channel, mass_gev=r.mass_gev, geometry=d.replace("large_", ""), group=grp, n=len(v),
+            rows.append(dict(channel=r.channel, mass_gev=r.mass_gev, geometry={"large_ideal": "S1_Run3_Ideal", "large_atlas": "S2_Run3_ATLAS"}[d], group=grp, n=len(v),
                              **({f"q{q}": float(np.quantile(v, q / 100)) for q in (50, 90, 99, 100)} if len(v) else {}), frac_maxeta_gt_1p2=float((v > 1.2).mean()) if len(v) else np.nan))
 D = pd.DataFrame(rows); D.to_csv(f"{R}/tables/X04_eta_acceptance.csv", index=False); pd.set_option("display.width", 250)
 print(D[D.group != "propagated"].pivot_table(index=["channel", "mass_gev"], columns=["group", "geometry"], values="q90").round(2).to_string())

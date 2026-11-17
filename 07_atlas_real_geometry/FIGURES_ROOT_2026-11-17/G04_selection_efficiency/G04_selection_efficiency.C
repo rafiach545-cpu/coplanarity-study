@@ -4,7 +4,7 @@
 void G04_selection_efficiency()
 {
 //=========Macro generated from canvas: G04_selection_efficiency/G04_selection_efficiency
-//=========  (Tue Nov 17 11:56:09 2026) by ROOT version 6.40.04
+//=========  (Tue Nov 17 12:16:23 2026) by ROOT version 6.40.04
    TCanvas *G04_selection_efficiency = new TCanvas("G04_selection_efficiency", "G04_selection_efficiency", 0, 0, 1600, 1450);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
@@ -38,7 +38,7 @@ void G04_selection_efficiency()
    hd__12->SetRightMargin(0.04);
    hd__12->SetTopMargin(0.07);
    hd__12->SetBottomMargin(0.14);
-   TLatex *tex = new TLatex(0.5, 0.45, "#sqrt{s} = 13.6 TeV, ATLAS Run 2 ID: selection efficiency k/n, 10k samples");
+   TLatex *tex = new TLatex(0.5, 0.45, "Stage 2 #upoint Run 3 #upoint ATLAS (13.6 TeV): selection efficiency k/n, 10k samples");
    tex->SetTextAlign(22);
    tex->SetTextColor(TColor::GetColor("#0b0b0b"));
    tex->SetTextFont(42);
@@ -1523,27 +1523,27 @@ void G04_selection_efficiency()
    leg->SetLineWidth(1);
    leg->SetFillColor(0);
    leg->SetFillStyle(0);
-   TLegendEntry *legentry = leg->AddEntry("Graph","07: #sigma_{long}^{SCT} = 0","p");
+   TLegendEntry *legentry = leg->AddEntry("Graph","#sigma_{long}^{SCT} = 0","p");
    legentry->SetMarkerColor(TColor::GetColor("#6250d6"));
    legentry->SetMarkerStyle(20);
    legentry->SetMarkerSize(1.1);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07: SCT 17 #mum / 580 #mum (ATLAS)","p");
+   legentry = leg->AddEntry("Graph","SCT 17 #mum / 580 #mum (ATLAS)","p");
    legentry->SetMarkerColor(TColor::GetColor("#2a78d6"));
    legentry->SetMarkerStyle(20);
    legentry->SetMarkerSize(1.1);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","07: SCT 34 #mum / 1.16 mm (Knapen)","p");
+   legentry = leg->AddEntry("Graph","SCT 34 #mum / 1.16 mm (Knapen)","p");
    legentry->SetMarkerColor(TColor::GetColor("#1baf7a"));
    legentry->SetMarkerStyle(20);
    legentry->SetMarkerSize(1.1);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2: #sigma_{z} = 0","p");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (2k): #sigma_{z} = 0","p");
    legentry->SetMarkerColor(TColor::GetColor("#898781"));
    legentry->SetMarkerStyle(24);
    legentry->SetMarkerSize(1.1);
    legentry->SetTextFont(42);
-   legentry = leg->AddEntry("Graph","Stage 2: #sigma_{z} = 1.16 mm","p");
+   legentry = leg->AddEntry("Graph","S1#upointRun 3#upointIdeal (2k): #sigma_{z} = 1.16 mm","p");
    legentry->SetMarkerColor(TColor::GetColor("#898781"));
    legentry->SetMarkerStyle(26);
    legentry->SetMarkerSize(1.1);

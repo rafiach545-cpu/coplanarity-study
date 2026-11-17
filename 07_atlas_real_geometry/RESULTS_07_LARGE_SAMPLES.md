@@ -1,24 +1,39 @@
-# 07 — Quirk reach with the ATLAS Run 2 inner detector, 10k signal samples
+# Stage 2 · Run 3 · ATLAS — quirk reach with the ATLAS inner detector at 13.6 TeV, 332 fb⁻¹, 10k signal samples (folder 07)
 
-**Status, 2026-11-17: final for the 13 Stage 2 mass points.**
+**Status, 2026-11-17: final for the 13 mass points of Stage 1 · Run 3 · Ideal.**
 
 - All three Λ bands (0.1–25 keV) were propagated on the server, in two runs on the same events:
   - `signal/runs/large_atlas`: G01 atlas geometry;
-  - `signal/runs/large_ideal`: G01 stage2 geometry, the 8 barrel layers of Stage 2.
+  - `signal/runs/large_ideal`: G01 stage2 geometry, the 8 barrel layers of Stage 1 · Run 3 · Ideal.
 - Every table and figure below is rebuilt from the server ATLAS runs (`reach/R00_postprocess.sh server_final`).
 - The earlier laptop propagation is kept only for the reproducibility check in §9. It is in `signal/runs/atlas_large_laptop_INTERIM_2026-11-17`; it is superseded and not used for any result.
 - EW 1200 GeV was generated on 2026-11-17 to close the EW reach (§6). Its propagation on the server is pending, so it is not in the grid yet.
 
-All numbers are read from saved files. The full tables are in `tables/R02_results_summary.md` (written by `reach/R02_results_summary.py`). The ideal vs ATLAS comparison is in `compare/X02_SUMMARY.md`.
+All numbers are read from saved files. The full tables are in `tables/R02_results_summary.md` (written by `reach/R02_results_summary.py`). The Stage 1 · Run 3 · Ideal vs Stage 2 · Run 3 · ATLAS comparison is in `compare/X02_SUMMARY.md`.
+
+**Naming (simulation matrix, 2026-11-17).**
+
+| Name | Geometry | √s | L | Here |
+|---|---|---|---|---|
+| Stage 0 · Paper · Ideal | Knapen et al. (R10) barrel | 13 TeV | 300 fb⁻¹ | `05_coplanarity_analysis` |
+| Stage 1 · Run 2 · Ideal | same | 13 TeV | 139 fb⁻¹ | `06_publication/S1_13TeV_139fb_knapen_noPU_cop` |
+| Stage 1 · Run 3 · Ideal | same | 13.6 TeV | 332 fb⁻¹ | 2k: `06_publication/S2_13p6TeV_run3_knapen_noPU_cop`; 10k: `signal/runs/large_ideal` |
+| Stage 2 · Run 3 · ATLAS | ATLAS ID, barrel + end-caps | 13.6 TeV | 332 fb⁻¹ | `signal/runs/large_atlas` (this document) |
+| Stage 2 · Run 2 · ATLAS, Stage 2 · Run 2/3 · CMS | — | — | — | not done |
+
+- Tables and files use the short tags `S1_Run3_Ideal`, `S1_Run3_Ideal_2k` and `S2_Run3_ATLAS`.
+- In older files, "Stage 2" (and folder names with `S2_`) means Stage 1 · Run 3 · Ideal with 2k events. Folder names are unchanged.
+- "Ideal" and "ATLAS" below are short for Stage 1 · Run 3 · Ideal and Stage 2 · Run 3 · ATLAS.
+
 
 ## 1. What was done
 
 | Step | Script | Output | Check |
 |---|---|---|---|
-| 10 000 generated events per mass point (EW 100–1000 GeV, colored 600–2400 GeV; EW 1200 added), Stage 2 MG5/Pythia cards, new seeds | `signal/G02_large_samples.py` (L01 and L02 of 06, unchanged) | `signal/inputs_large/` | σ and ε_trig agree with Stage 2 (largest pull 2.7σ) |
-| Propagation, ATLAS geometry (barrel + end-caps, 8 ATLAS-like stations, D1) and ideal geometry, 3 SCT settings (D4) | `signal/G01_signal_07.py` atlas / stage2 (server) | `signal/runs/large_atlas`, `large_ideal` | T07, T08 |
-| Grid N(m, Λ), reach, reach with background | `reach/R01_reach_07.py` (Stage 2 method unchanged) | `tables/R01_*.csv` | T09 (reproduces S2 tables exactly), T11 (independent recount, 585/585 rows) |
-| Ideal vs ATLAS: grids, reach, McNemar, crossings | `compare/X02_ideal_vs_atlas.py` | `tables/X02_*.csv` | the X02 ATLAS grid equals the R01 grid |
+| 10 000 generated events per mass point (EW 100–1000 GeV, colored 600–2400 GeV; EW 1200 added), the MG5/Pythia cards of 06 S2, new seeds | `signal/G02_large_samples.py` (L01 and L02 of 06, unchanged) | `signal/inputs_large/` | σ and ε_trig agree with 06 S2 (largest pull 2.7σ) |
+| Propagation, ATLAS geometry (barrel + end-caps, 8 ATLAS-like stations, D1) and ideal geometry (Stage 1 · Run 3 · Ideal), 3 SCT settings (D4) | `signal/G01_signal_07.py` atlas / stage2 (server) | `signal/runs/large_atlas`, `large_ideal` | T07, T08 |
+| Grid N(m, Λ), reach, reach with background | `reach/R01_reach_07.py` (method of 06 S2 unchanged) | `tables/R01_*.csv` | T09 (reproduces S2 tables exactly), T11 (independent recount, 585/585 rows) |
+| Ideal vs ATLAS (S1 · Run 3 · Ideal vs S2 · Run 3 · ATLAS): grids, reach, McNemar, crossings | `compare/X02_ideal_vs_atlas.py` | `tables/X02_*.csv` | the X02 ATLAS grid equals the R01 grid |
 | End-cap gain checks | `compare/D01_endcap_gain.py`, `X04`, `X05` | `tables/D01_*`, `X04_*`, `X05_*` | — |
 | Contour edges | `compare/X03_contour_edges.py` | `tables/X03_contour_edges.csv` | — |
 | Laptop vs server reproducibility | `compare/X01*.py` | `tables/X01*.csv` | — |
@@ -26,7 +41,7 @@ All numbers are read from saved files. The full tables are in `tables/R02_result
 
 SCT settings (D4) set the SCT resolution in the long direction (barrel z, disk R):
 
-- **Z0:** σ_long = 0, as Stage 2 "σ_z = 0";
+- **Z0:** σ_long = 0, as 06 S2 "σ_z = 0";
 - **A580:** the ATLAS intrinsic resolution, 17 µm × 580 µm (R3 Table 4.1; main setting);
 - **Z1160:** the Knapen et al. (R10) value, 34 µm × 1.16 mm.
 
@@ -34,7 +49,7 @@ SCT settings (D4) set the SCT resolution in the long direction (barrel z, disk R
 
 ε_trig is computed over matched events. For colored, f_ch is the fraction of triggered events with both quirks charged.
 
-| channel | m (GeV) | σ (fb) | n_matched | n_trigger | ε_trig | f_ch | ε_trig Stage 2 |
+| channel | m (GeV) | σ (fb) | n_matched | n_trigger | ε_trig | f_ch | ε_trig S1 · Run 3 · Ideal (2k) |
 |---|---|---|---|---|---|---|---|
 | EW | 100 | 1226 | 6911 | 216 | 0.031 | 1 | 0.033 |
 | EW | 400 | 7.097 | 5637 | 646 | 0.115 | 1 | 0.117 |
@@ -49,7 +64,7 @@ All points are in `tables/R02_results_summary.md` §2. Figures: G01, and G02 for
 ## 3. Detector model relevant to the end-cap gain
 
 **Geometry (R1–R3).**
-- Ideal: the 8 barrel layers of Knapen et al. (R10, R11), with no end-caps. Their radii are the ATLAS radii, and the half-lengths are those of Stage 2.
+- Ideal: 8 barrel layers, no end-caps. Knapen et al. (R10) define the 8-layer Pixel+SCT structure; the numerical layer radii and lengths of our simplified cylindrical implementation are taken from ATLAS detector documentation (R1 Table 1 radii, R2 IBL length, R3 active lengths). Full element-by-element comparison: `GEOMETRY_COMPARISON.md`.
 - ATLAS: the same 8 barrel layers, plus 3 + 3 pixel disks (|z| = 49.5–65 cm, r = 8.9–15.0 cm) and 9 + 9 SCT disks with their rings (|z| = 83.9–273.5 cm, r = 27.5–56.0 cm). In the code, the barrel elements of both geometries are identical.
 
 **η acceptance.**
@@ -68,7 +83,7 @@ All points are in `tables/R02_results_summary.md` §2. Figures: G01, and G02 for
 - Pixel disks are quantised: radial pitch 400 µm (σ = 400/√12 = 115 µm), r-φ pitch 50 µm at the disk's mean radius.
 
 **Material.**
-- There is no multiple scattering and no energy loss for the quirks: the quirk integrator of Stage 2 is used unchanged (README "to do": dE/dx in the integrator).
+- There is no multiple scattering and no energy loss for the quirks: the quirk integrator of Stages 0–1 is used unchanged (README "to do": dE/dx in the integrator).
 - Disk material, x/X0 per crossing, enters only the electron tracks of the background: bremsstrahlung and ionisation, no multiple scattering.
   - SCT disk: 3.75% (R3 Sec. 4.10), counted per ring crossing.
   - Pixel disk: 3.57%, the per-layer pixel barrel value of R3, used for lack of a disk value.
@@ -79,7 +94,7 @@ All points are in `tables/R02_results_summary.md` §2. Figures: G01, and G02 for
 - Every hit gets a station 1–8: the number of pixel (SCT) elements crossed by the straight line PV → hit, plus 1. This is the k-th measurement along the track, as ATLAS counts measurements on barrel layers and disks alike (R14).
 - The paper's algorithm then runs on stations 1–8 exactly as on layers 1–8, with barrel and disk hits in the same fit.
 
-## 4. Check of the end-cap gain ("ATLAS > ideal")
+## 4. Check of the end-cap gain ("Stage 2 · Run 3 · ATLAS > Stage 1 · Run 3 · Ideal")
 
 **(a) Paired comparison on the same events** (`tables/X02_mcnemar_*.csv`; McNemar exact test, Holm correction).
 - No event selected in ideal is lost in ATLAS: b = 0 in all 195 (mass, Λ) tests, for fid and for all three selections.
@@ -118,7 +133,7 @@ D01 reran the extra events on the laptop and recorded the element of every stati
 
 Values are exclusion (N = 3) / discovery (N = 5) in GeV. Brackets give the ±1σ Wilson range of the exclusion reach.
 
-| channel | SCT | ATLAS (10k) | ideal (10k) | Stage 2 (2k, barrel) |
+| channel | SCT | S2 · Run 3 · ATLAS (10k) | S1 · Run 3 · Ideal (10k) | S1 · Run 3 · Ideal (2k, 06 S2) |
 |---|---|---|---|---|
 | colored | Z0 | 1871 [1857, 1885] / 1777 | 1734 [1717, 1752] / 1659 | 1785 / 1681 |
 | colored | A580 | 1697 [1674, 1719] / 1618 | 1590 [1564, 1618] / 1515 | — |
@@ -127,7 +142,7 @@ Values are exclusion (N = 3) / discovery (N = 5) in GeV. Brackets give the ±1σ
 | EW | A580 | 767 [754, 781] / 681 | 631 [607, 653] / 560 | — |
 | EW | Z1160 | 671 [651, 690] / 588 | 565 [541, 593] / 500 | 589 / 465 |
 
-- Ideal (10k) agrees with Stage 2 (2k) within the Stage 2 Wilson bands. This is the expected check, because the geometry is the same.
+- S1 · Run 3 · Ideal with 10k events agrees with the 2k sample (06 S2) within the 2k Wilson bands. This is the expected check, because the geometry is the same.
 - ATLAS exceeds ideal by about 100–140 GeV (colored) and about 90–170 GeV (EW). This is the end-cap gain of §4.
 - The reach is at its maximum at Λ = 4–5 keV.
 
@@ -144,11 +159,11 @@ Values are exclusion (N = 3) / discovery (N = 5) in GeV. Brackets give the ±1σ
 |---|---|
 | bottom (Λ = 0.1 keV) | closed everywhere |
 | right (highest mass) | closed everywhere, but EW Z0 ATLAS only barely (next paragraph) |
-| left (EW 100 / colored 600 GeV) | open everywhere, including Stage 2: the region starts at the lowest generated mass |
-| top (Λ = 25 keV) | open for Z0 in both channels: N(25 keV) ≥ 3 for EW 100–400 GeV and colored 600–1500 GeV (ATLAS; ideal similar). Also open for colored A580 (600, 900 GeV) and colored Z1160 (600 GeV). Closed for EW A580 and EW Z1160. Stage 2 is also open at the top for Z0. |
+| left (EW 100 / colored 600 GeV) | open everywhere, including the 2k sample of 06 S2: the region starts at the lowest generated mass |
+| top (Λ = 25 keV) | open for Z0 in both channels: N(25 keV) ≥ 3 for EW 100–400 GeV and colored 600–1500 GeV (ATLAS; ideal similar). Also open for colored A580 (600, 900 GeV) and colored Z1160 (600 GeV). Closed for EW A580 and EW Z1160. The 2k sample (06 S2) is also open at the top for Z0. |
 
 - **EW Z0 ATLAS:** N(1000 GeV) = 2.90 at Λ = 4 keV, with a Wilson high value of 2.98, just below 3. The exclusion reach of 994 GeV therefore sits at the grid edge. At 355 fb⁻¹ the flag `reach_beyond_grid` is True. EW 1200 GeV was generated for this reason. The expected N there is about 1 (σ ε_trig is 3 times smaller than at 1000 GeV), which would close the region.
-- **The top edge:** closing it needs Λ points above 25 keV. Above 15 keV, the integration failures grow (EW: 3.2% at 15 keV, 8.7% at 20 keV, 20.4% at 25 keV; Stage 2: 3.4%, 9.9%, 22.2%). They count as not fiducial, so N at the top edge is underestimated by up to about 20%. Larger Λ would first need the integrator step limit to be raised.
+- **The top edge:** closing it needs Λ points above 25 keV. Above 15 keV, the integration failures grow (EW: 3.2% at 15 keV, 8.7% at 20 keV, 20.4% at 25 keV; 2k sample, 06 S2: 3.4%, 9.9%, 22.2%). They count as not fiducial, so N at the top edge is underestimated by up to about 20%. Larger Λ would first need the integrator step limit to be raised.
 
 ## 7. Converted-photon background and pile-up (figures G06–G08)
 
@@ -174,9 +189,9 @@ Reach with background (exclusion / discovery in GeV). b is the 95% upper limit i
 
 ## 8. Integration failures
 
-The integrator cannot reach its minimum number of steps per period ("MIN_STEPS_PER_PERIOD not reached"). These events count as not fiducial, as in Stage 2.
+The integrator cannot reach its minimum number of steps per period ("MIN_STEPS_PER_PERIOD not reached"). These events count as not fiducial, as in 06 S2.
 
-| | 07 (ATLAS) | Stage 2 |
+| | S2 · Run 3 · ATLAS | S1 · Run 3 · Ideal (2k, 06 S2) |
 |---|---|---|
 | Λ ≤ 10 keV | about 0.8% | about 1% |
 | Λ = 15 / 20 / 25 keV (EW) | 3.2 / 8.7 / 20.4% | 3.4 / 9.9 / 22.2% |
@@ -216,7 +231,12 @@ The same events, seeds and code were run on the laptop (stopped on 2026-11-17 af
 2. **Top edge of the contour (Λ > 25 keV):** see §6 (b). Integration failures limit the high-Λ region.
 3. **Background MC statistics:** A580 rests on 3 (μ = 20) and 5 (μ = 50) passing photons. The upper limit when none pass is 1.29 events. More C01 events are planned.
 4. **Forward material:** M01 matches R12 at low |η| (20% conversion) but gives 38% at |η| ≈ 2.3, where R12 states up to about 65%. The end-cap background may be underestimated, most for Z0.
-5. **Quirk material effects** (dE/dx, multiple scattering) are not in the integrator for barrel or end-caps. The end-cap planes have more material per crossing at large |η| (3.75% X0 / |cos θ| per SCT disk). Their effect on Δs is not yet estimated.
+5. **Quirk material effects** (dE/dx, multiple scattering) are not in the integrator, for either geometry. A Highland estimate (`GEOMETRY_COMPARISON.md` §8.1, `tables/X07*`):
+   - The RMS displacement over the 8 measurements is about 12–13 µm for the forward (ATLAS-only) events and 4–5 µm in the barrel (median, initial momentum).
+   - The Δs cut survival is 93–96% and 97–99.6% respectively.
+   - The reach changes by −4 to −9 GeV with the initial momentum, and by −11 to −32 GeV with the conservative turning-point momentum.
+   - The ATLAS gain is unaffected in substance. A full treatment inside the integrator is still to do.
+   - The background acceptance (C01) is the full ATLAS one, including the end-caps (§8.2 there).
 6. **Not yet included** (README "to do"): module tilts and gaps, field map, SCT timing, hit efficiency and noise.
 
 ## 11. Tests
@@ -229,9 +249,9 @@ All pass; logs in `logs/`.
 | T02 | propagation |
 | T03 | end-cap response and stations |
 | T04 | exact speed-ups |
-| T05 | Stage 2 background reproduced event by event |
+| T05 | 06 S2 background reproduced event by event |
 | T06, T06e | SCT settings, C01 regression |
-| T07 | Stage 2 signal reproduced |
+| T07 | 06 S2 signal reproduced |
 | T08 | event_id seeds |
 | T09 | reach code reproduces the S2 tables exactly |
 | T10 | contour code reproduces the 06 contours exactly |

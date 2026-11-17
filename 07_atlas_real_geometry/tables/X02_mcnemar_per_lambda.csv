@@ -1,4 +1,4 @@
-channel,lambda_keV,quantity,n,k_ideal,k_atlas,b_ideal_only,c_atlas_only,p_mcnemar,p_holm,ratio_k_atlas_over_ideal
+channel,lambda_keV,quantity,n,k_S1_Run3_Ideal,k_S2_Run3_ATLAS,b_S1_only,c_S2_only,p_mcnemar,p_holm,ratio_k_S2_over_S1
 EW,0.1,A580_final,3943,0,0,0,0,1.0,1.0,
 EW,0.1,Z0_final,3943,1,1,0,0,1.0,1.0,1.0
 EW,0.1,Z1160_final,3943,0,0,0,0,1.0,1.0,
