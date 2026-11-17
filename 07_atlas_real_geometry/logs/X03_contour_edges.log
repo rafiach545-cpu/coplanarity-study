@@ -1,0 +1,33 @@
+ setup channel   sct  threshold  lambda_max_keV  mass_max_gev  closed         top_25keV bottom_lowest_lambda                        left_lowest_mass right_highest_mass  N_max_at_top
+ atlas      EW  A580        3.0            25.0          1000   False                                                          0.7 1 2 3 4 5 7 10 20                             1.25
+ atlas      EW  A580        5.0            25.0          1000   False                                                          0.7 1 2 3 4 5 7 10 20                             1.25
+ atlas      EW    Z0        3.0            25.0          1000   False       100 200 400                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           117.79
+ atlas      EW    Z0        5.0            25.0          1000   False       100 200 400                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           117.79
+ atlas      EW Z1160        3.0            25.0          1000   False                                                             0.7 1 2 3 4 5 7 10                             0.84
+ atlas      EW Z1160        5.0            25.0          1000   False                                                             0.7 1 2 3 4 5 7 10                             0.84
+ atlas colored  A580        3.0            25.0          2400   False           600 900                          0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           168.17
+ atlas colored  A580        5.0            25.0          2400   False           600 900                          0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           168.17
+ atlas colored    Z0        3.0            25.0          2400   False 600 900 1200 1500                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                          1093.13
+ atlas colored    Z0        5.0            25.0          2400   False      600 900 1200                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                          1093.13
+ atlas colored Z1160        3.0            25.0          2400   False               600                                  0.7 1 2 3 4 5 7 10 15 20 25                           168.17
+ atlas colored Z1160        5.0            25.0          2400   False               600                                  0.7 1 2 3 4 5 7 10 15 20 25                           168.17
+ ideal      EW  A580        3.0            25.0          1000   False                                                          0.7 1 2 3 4 5 7 10 20                             1.25
+ ideal      EW  A580        5.0            25.0          1000   False                                                          0.7 1 2 3 4 5 7 10 20                             1.25
+ ideal      EW    Z0        3.0            25.0          1000   False       100 200 400                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           117.79
+ ideal      EW    Z0        5.0            25.0          1000   False           100 200                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           117.79
+ ideal      EW Z1160        3.0            25.0          1000   False                                                             0.7 1 2 3 4 5 7 10                             0.42
+ ideal      EW Z1160        5.0            25.0          1000   False                                                             0.7 1 2 3 4 5 7 10                             0.42
+ ideal colored  A580        3.0            25.0          2400   False           600 900                          0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           168.17
+ ideal colored  A580        5.0            25.0          2400   False           600 900                          0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           168.17
+ ideal colored    Z0        3.0            25.0          2400   False      600 900 1200                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           672.70
+ ideal colored    Z0        5.0            25.0          2400   False      600 900 1200                      0.2 0.3 0.5 0.7 1 2 3 4 5 7 10 15 20 25                           672.70
+ ideal colored Z1160        3.0            25.0          2400   False               600                                      1 2 3 4 5 7 10 15 20 25                           168.17
+ ideal colored Z1160        5.0            25.0          2400   False               600                                      1 2 3 4 5 7 10 15 20 25                           168.17
+stage2      EW    Z0        3.0            25.0          1000   False           200 400                                 0.5 0.7 1 2 3 4 5 7 10 15 20                            28.68
+stage2      EW    Z0        5.0            25.0          1000   False           200 400                                 0.5 0.7 1 2 3 4 5 7 10 15 20                            28.68
+stage2      EW Z1160        3.0            25.0          1000   False                                                                        3 4 5 7                             0.09
+stage2      EW Z1160        5.0            25.0          1000   False                                                                        3 4 5 7                             0.09
+stage2 colored    Z0        3.0            25.0          2400   False          900 1200                                           2 3 4 5 7 10 15 20                            36.07
+stage2 colored    Z0        5.0            25.0          2400   False          900 1200                                           2 3 4 5 7 10 15 20                            36.07
+stage2 colored Z1160        3.0            25.0          2400   False                                                                   2 3 4 5 7 10                              NaN
+stage2 colored Z1160        5.0            25.0          2400   False                                                                   2 3 4 5 7 10                              NaN

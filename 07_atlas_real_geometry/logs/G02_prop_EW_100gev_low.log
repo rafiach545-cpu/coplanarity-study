@@ -1,0 +1,23 @@
+G01 atlas EW_100gev band low Lambda (0.1, 0.2, 0.3, 0.5, 0.7) keV: events 216, done 0, to run 216 -> /home/rafia/coplanarity_study/07_atlas_real_geometry/signal/runs/atlas_large/G01_EW_100gev_low.jsonl
+  10/216
+  20/216
+  30/216
+  40/216
+  50/216
+  60/216
+  70/216
+  80/216
+  90/216
+  100/216
+  110/216
+  120/216
+  130/216
+  140/216
+  150/216
+  160/216
+  170/216
+  180/216
+  190/216
+  200/216
+  210/216
+G01_DONE EW_100gev low

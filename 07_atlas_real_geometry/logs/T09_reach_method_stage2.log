@@ -1,0 +1,5 @@
+(a) grid: 390 rows x 23 columns, differing columns []
+(b) zero-background reach: 24 rows, differing 0
+(c) reach with background: 96 of 96 rows compared, differing 0
+T09: {'a': True, 'b': True, 'c': True}
+T09_PASS

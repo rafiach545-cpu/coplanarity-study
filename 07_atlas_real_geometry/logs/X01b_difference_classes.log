@@ -1,0 +1,34 @@
+                         file  rows  identical  float_only  discrete  max_rel_float  d_fid  flip_fid  d_Z0_final  flip_Z0_final  d_A580_final  flip_A580_final  d_Z1160_final  flip_Z1160_final
+     G01_EW_1000gev_low.jsonl  4825       4725          83        17   1.708210e-02     -2        12           0              0             0                0              0                 0
+     G01_EW_1000gev_mid.jsonl  6755       2644        3952       159   1.757341e+02      2        34          -5             47            -9               21             -4                18
+   G01_EW_100gev_high_a.jsonl   648        236         352        60   2.338668e+01     -1        15           0              2             2                2              0                 0
+      G01_EW_100gev_low.jsonl  1080        977         100         3   1.360582e-04     -1         3           0              0             0                0              0                 0
+      G01_EW_100gev_mid.jsonl  1512        329        1079       104   4.669435e+01     -2        20           4             38             2               14             -2                10
+   G01_EW_200gev_high_a.jsonl  1239        392         739       108   3.710657e+01    -12        22          -1             15             0                4              0                 0
+      G01_EW_200gev_low.jsonl  2065       1907         142        16   3.778782e-03     -5        11           0              0             0                0              0                 0
+      G01_EW_200gev_mid.jsonl  2891        768        1933       190   1.369210e+02     -4        36           1             57            -4               24             -5                17
+   G01_EW_400gev_high_a.jsonl  1938        624        1115       199   2.056433e+01      3        61          -4             20             2                8             -1                 1
+      G01_EW_400gev_low.jsonl  3230       3079         131        20   1.351872e-03      0         8           0              0             0                0              0                 0
+      G01_EW_400gev_mid.jsonl  4522       1507        2837       178   2.043202e+01     12        28          12             44            -2               20             -4                22
+   G01_EW_600gev_high_a.jsonl  2436        838        1382       216   7.530825e+01      8        66           5             23             1                3              0                 2
+      G01_EW_600gev_low.jsonl  4060       3927         121        12   4.747357e-04      0         6           1              1             0                0              0                 0
+      G01_EW_600gev_mid.jsonl  5684       2061        3403       220   1.809543e+02      0        36          11             71             5               21              6                20
+   G01_EW_800gev_high_a.jsonl   942        286         581        75   5.924734e+01     10        26           1              9             1                3              1                 1
+      G01_EW_800gev_low.jsonl  4455       4342          95        18   1.197906e-03      2         8           1              1             0                0              0                 0
+      G01_EW_800gev_mid.jsonl  6237       2545        3526       166   4.953343e+01      1        33          12             50            10               18              1                15
+G01_colored_1200gev_low.jsonl  1695       1656          27        12   1.416592e-03      1        11          -1              1             0                0              0                 0
+G01_colored_1200gev_mid.jsonl  2373        931        1392        50   8.739809e+00      2        10           4             14            -1                5              1                 3
+G01_colored_1500gev_low.jsonl  1790       1744          40         6   1.449698e-04      0         4           0              0             0                0              0                 0
+G01_colored_1500gev_mid.jsonl  2506       1139        1325        42   2.089164e+01     -2        14          -5             19             1               11              2                 6
+G01_colored_1800gev_low.jsonl  1570       1558          10         2   1.376875e-06     -1         1           0              0             0                0              0                 0
+G01_colored_1800gev_mid.jsonl  2198       1289         881        28   3.262351e+01      1         3           0              2             0                2              1                 1
+G01_colored_2100gev_low.jsonl  1705       1676          26         3   1.069588e-04      2         2           0              0             0                0              0                 0
+G01_colored_2100gev_mid.jsonl  2387       1484         872        31   9.331121e+00     -1        11          -3             11            -1                5             -1                 3
+G01_colored_2400gev_low.jsonl  1575       1562           9         4   9.182236e-08      2         2           0              0             0                0              0                 0
+G01_colored_2400gev_mid.jsonl  2205       1399         781        25   5.463509e+00      3         3           1              7             0                4              0                 2
+ G01_colored_600gev_low.jsonl  1495       1428          58         9   4.196991e-06     -1         5           1              1             0                0              0                 0
+ G01_colored_600gev_mid.jsonl  2093        658        1350        85   2.369909e+01     -5        25          -3             33            -3               13             -1                 7
+ G01_colored_900gev_low.jsonl  1685       1634          44         7   1.967475e-06      4         4           0              0             0                0              0                 0
+ G01_colored_900gev_mid.jsonl  2359        700        1614        45   2.432786e+01     -4         6          -1             13            -5                7             -2                 6
+total rows 82155: identical 50045, float only 30000, discrete 2110; largest relative float difference 1.81e+02
+flips (laptop != server): {'fid': 526, 'Z0_final': 479, 'A580_final': 185, 'Z1160_final': 134}  net (laptop - server): {'fid': 12, 'Z0_final': 31, 'A580_final': -1, 'Z1160_final': -8}

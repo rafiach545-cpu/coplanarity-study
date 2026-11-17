@@ -1,0 +1,2 @@
+{'channel': 'EW', 'mass_gev': 400, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 5637, 'sigma_matched_fb': np.float64(7.097), 'sigma_matched_err_fb': np.float64(0.06353155751278255), 'n_trigger': 646, 'n_trigger_both_charged': 646}
+L02_EXIT=0

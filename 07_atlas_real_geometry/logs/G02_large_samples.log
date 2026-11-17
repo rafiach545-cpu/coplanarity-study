@@ -17,3 +17,162 @@
 [    307s] gen 8/65 EW_200gev_c01 ok matched 1245 305.4s
 {'tag': 'EW_200gev_c04', 'channel': 'EW', 'mass_gev': 200, 'chunk': 4, 'seed': 808004, 'n_generated': 2000, 'n_matched': 1268, 'matched_xsec_pb': 0.1092, 'matched_xsec_err_pb': 0.001906, 'wall_s': 168.4, 'status': 'ok', 'exit_code': 0}
 [    435s] gen 9/65 EW_200gev_c04 ok matched 1268 168.4s
+{'tag': 'EW_200gev_c03', 'channel': 'EW', 'mass_gev': 200, 'chunk': 3, 'seed': 808003, 'n_generated': 2000, 'n_matched': 1248, 'matched_xsec_pb': 0.1078, 'matched_xsec_err_pb': 0.001904, 'wall_s': 196.0, 'status': 'ok', 'exit_code': 0}
+[    463s] gen 10/65 EW_200gev_c03 ok matched 1248 196.0s
+{'tag': 'EW_400gev_c00', 'channel': 'EW', 'mass_gev': 400, 'chunk': 0, 'seed': 816000, 'n_generated': 2000, 'n_matched': 1101, 'matched_xsec_pb': 0.006886, 'matched_xsec_err_pb': 0.0001412, 'wall_s': 209.5, 'status': 'ok', 'exit_code': 0}
+[    476s] gen 11/65 EW_400gev_c00 ok matched 1101 209.5s
+{'tag': 'EW_400gev_c01', 'channel': 'EW', 'mass_gev': 400, 'chunk': 1, 'seed': 816001, 'n_generated': 2000, 'n_matched': 1106, 'matched_xsec_pb': 0.006956, 'matched_xsec_err_pb': 0.0001423, 'wall_s': 214.9, 'status': 'ok', 'exit_code': 0}
+[    484s] gen 12/65 EW_400gev_c01 ok matched 1106 214.9s
+{'tag': 'EW_400gev_c02', 'channel': 'EW', 'mass_gev': 400, 'chunk': 2, 'seed': 816002, 'n_generated': 2000, 'n_matched': 1126, 'matched_xsec_pb': 0.007124, 'matched_xsec_err_pb': 0.0001425, 'wall_s': 213.7, 'status': 'ok', 'exit_code': 0}
+[    484s] gen 13/65 EW_400gev_c02 ok matched 1126 213.7s
+{'tag': 'EW_400gev_c03', 'channel': 'EW', 'mass_gev': 400, 'chunk': 3, 'seed': 816003, 'n_generated': 2000, 'n_matched': 1131, 'matched_xsec_pb': 0.007109, 'matched_xsec_err_pb': 0.0001425, 'wall_s': 214.2, 'status': 'ok', 'exit_code': 0}
+[    485s] gen 14/65 EW_400gev_c03 ok matched 1131 214.2s
+{'tag': 'EW_600gev_c00', 'channel': 'EW', 'mass_gev': 600, 'chunk': 0, 'seed': 824000, 'n_generated': 2000, 'n_matched': 1044, 'matched_xsec_pb': 0.00113, 'matched_xsec_err_pb': 2.448e-05, 'wall_s': 201.4, 'status': 'ok', 'exit_code': 0}
+[    509s] gen 15/65 EW_600gev_c00 ok matched 1044 201.4s
+{'tag': 'EW_400gev_c04', 'channel': 'EW', 'mass_gev': 400, 'chunk': 4, 'seed': 816004, 'n_generated': 2000, 'n_matched': 1173, 'matched_xsec_pb': 0.00741, 'matched_xsec_err_pb': 0.0001418, 'wall_s': 217.0, 'status': 'ok', 'exit_code': 0}
+[    511s] gen 16/65 EW_400gev_c04 ok matched 1173 217.0s
+{'tag': 'EW_600gev_c01', 'channel': 'EW', 'mass_gev': 600, 'chunk': 1, 'seed': 824001, 'n_generated': 2000, 'n_matched': 1062, 'matched_xsec_pb': 0.001152, 'matched_xsec_err_pb': 2.453e-05, 'wall_s': 223.0, 'status': 'ok', 'exit_code': 0}
+[    659s] gen 17/65 EW_600gev_c01 ok matched 1062 223.0s
+{'tag': 'EW_600gev_c02', 'channel': 'EW', 'mass_gev': 600, 'chunk': 2, 'seed': 824002, 'n_generated': 2000, 'n_matched': 1091, 'matched_xsec_pb': 0.001174, 'matched_xsec_err_pb': 2.433e-05, 'wall_s': 205.6, 'status': 'ok', 'exit_code': 0}
+[    669s] gen 18/65 EW_600gev_c02 ok matched 1091 205.6s
+{'tag': 'EW_600gev_c03', 'channel': 'EW', 'mass_gev': 600, 'chunk': 3, 'seed': 824003, 'n_generated': 2000, 'n_matched': 1075, 'matched_xsec_pb': 0.001157, 'matched_xsec_err_pb': 2.442e-05, 'wall_s': 213.0, 'status': 'ok', 'exit_code': 0}
+[    690s] gen 19/65 EW_600gev_c03 ok matched 1075 213.0s
+{'tag': 'EW_600gev_c04', 'channel': 'EW', 'mass_gev': 600, 'chunk': 4, 'seed': 824004, 'n_generated': 2000, 'n_matched': 1056, 'matched_xsec_pb': 0.001138, 'matched_xsec_err_pb': 2.458e-05, 'wall_s': 206.2, 'status': 'ok', 'exit_code': 0}
+[    691s] gen 20/65 EW_600gev_c04 ok matched 1056 206.2s
+{'tag': 'EW_800gev_c01', 'channel': 'EW', 'mass_gev': 800, 'chunk': 1, 'seed': 832001, 'n_generated': 2000, 'n_matched': 1026, 'matched_xsec_pb': 0.0002727, 'matched_xsec_err_pb': 6.038e-06, 'wall_s': 207.5, 'status': 'ok', 'exit_code': 0}
+[    693s] gen 21/65 EW_800gev_c01 ok matched 1026 207.5s
+{'tag': 'EW_800gev_c00', 'channel': 'EW', 'mass_gev': 800, 'chunk': 0, 'seed': 832000, 'n_generated': 2000, 'n_matched': 1037, 'matched_xsec_pb': 0.0002738, 'matched_xsec_err_pb': 5.975e-06, 'wall_s': 214.4, 'status': 'ok', 'exit_code': 0}
+[    699s] gen 22/65 EW_800gev_c00 ok matched 1037 214.4s
+{'tag': 'EW_800gev_c02', 'channel': 'EW', 'mass_gev': 800, 'chunk': 2, 'seed': 832002, 'n_generated': 2000, 'n_matched': 1085, 'matched_xsec_pb': 0.000286, 'matched_xsec_err_pb': 5.974e-06, 'wall_s': 203.0, 'status': 'ok', 'exit_code': 0}
+[    712s] gen 23/65 EW_800gev_c02 ok matched 1085 203.0s
+{'tag': 'EW_800gev_c03', 'channel': 'EW', 'mass_gev': 800, 'chunk': 3, 'seed': 832003, 'n_generated': 2000, 'n_matched': 1071, 'matched_xsec_pb': 0.0002835, 'matched_xsec_err_pb': 5.967e-06, 'wall_s': 220.1, 'status': 'ok', 'exit_code': 0}
+[    731s] gen 24/65 EW_800gev_c03 ok matched 1071 220.1s
+{'tag': 'colored_600gev_c00', 'channel': 'colored', 'mass_gev': 600, 'chunk': 0, 'seed': 724000, 'n_generated': 2000, 'n_matched': 765, 'matched_xsec_pb': 0.9712, 'matched_xsec_err_pb': 0.02786, 'wall_s': 101.9, 'status': 'ok', 'exit_code': 0}
+[    815s] gen 25/65 colored_600gev_c00 ok matched 765 101.9s
+{'tag': 'colored_600gev_c01', 'channel': 'colored', 'mass_gev': 600, 'chunk': 1, 'seed': 724001, 'n_generated': 2000, 'n_matched': 749, 'matched_xsec_pb': 0.9461, 'matched_xsec_err_pb': 0.02769, 'wall_s': 97.5, 'status': 'ok', 'exit_code': 0}
+[    829s] gen 26/65 colored_600gev_c01 ok matched 749 97.5s
+{'tag': 'EW_800gev_c04', 'channel': 'EW', 'mass_gev': 800, 'chunk': 4, 'seed': 832004, 'n_generated': 2000, 'n_matched': 1088, 'matched_xsec_pb': 0.0002879, 'matched_xsec_err_pb': 6.066e-06, 'wall_s': 182.5, 'status': 'ok', 'exit_code': 0}
+[    842s] gen 27/65 EW_800gev_c04 ok matched 1088 182.5s
+{'tag': 'EW_1000gev_c00', 'channel': 'EW', 'mass_gev': 1000, 'chunk': 0, 'seed': 840000, 'n_generated': 2000, 'n_matched': 1065, 'matched_xsec_pb': 8.297e-05, 'matched_xsec_err_pb': 1.768e-06, 'wall_s': 175.4, 'status': 'ok', 'exit_code': 0}
+[    844s] gen 28/65 EW_1000gev_c00 ok matched 1065 175.4s
+{'tag': 'EW_1000gev_c02', 'channel': 'EW', 'mass_gev': 1000, 'chunk': 2, 'seed': 840002, 'n_generated': 2000, 'n_matched': 1024, 'matched_xsec_pb': 8.002e-05, 'matched_xsec_err_pb': 1.776e-06, 'wall_s': 183.1, 'status': 'ok', 'exit_code': 0}
+[    874s] gen 29/65 EW_1000gev_c02 ok matched 1024 183.1s
+{'tag': 'EW_1000gev_c03', 'channel': 'EW', 'mass_gev': 1000, 'chunk': 3, 'seed': 840003, 'n_generated': 2000, 'n_matched': 1017, 'matched_xsec_pb': 7.972e-05, 'matched_xsec_err_pb': 1.774e-06, 'wall_s': 184.7, 'status': 'ok', 'exit_code': 0}
+[    878s] gen 30/65 EW_1000gev_c03 ok matched 1017 184.7s
+{'tag': 'EW_1000gev_c04', 'channel': 'EW', 'mass_gev': 1000, 'chunk': 4, 'seed': 840004, 'n_generated': 2000, 'n_matched': 984, 'matched_xsec_pb': 7.664e-05, 'matched_xsec_err_pb': 1.768e-06, 'wall_s': 180.5, 'status': 'ok', 'exit_code': 0}
+[    880s] gen 31/65 EW_1000gev_c04 ok matched 984 180.5s
+{'tag': 'EW_1000gev_c01', 'channel': 'EW', 'mass_gev': 1000, 'chunk': 1, 'seed': 840001, 'n_generated': 2000, 'n_matched': 1014, 'matched_xsec_pb': 7.995e-05, 'matched_xsec_err_pb': 1.782e-06, 'wall_s': 191.0, 'status': 'ok', 'exit_code': 0}
+[    881s] gen 32/65 EW_1000gev_c01 ok matched 1014 191.0s
+{'tag': 'colored_600gev_c02', 'channel': 'colored', 'mass_gev': 600, 'chunk': 2, 'seed': 724002, 'n_generated': 2000, 'n_matched': 771, 'matched_xsec_pb': 0.984, 'matched_xsec_err_pb': 0.02814, 'wall_s': 94.8, 'status': 'ok', 'exit_code': 0}
+[    910s] gen 33/65 colored_600gev_c02 ok matched 771 94.8s
+{'tag': 'colored_600gev_c03', 'channel': 'colored', 'mass_gev': 600, 'chunk': 3, 'seed': 724003, 'n_generated': 2000, 'n_matched': 778, 'matched_xsec_pb': 0.9825, 'matched_xsec_err_pb': 0.02791, 'wall_s': 97.0, 'status': 'ok', 'exit_code': 0}
+[    926s] gen 34/65 colored_600gev_c03 ok matched 778 97.0s
+{'tag': 'colored_600gev_c04', 'channel': 'colored', 'mass_gev': 600, 'chunk': 4, 'seed': 724004, 'n_generated': 2000, 'n_matched': 743, 'matched_xsec_pb': 0.936, 'matched_xsec_err_pb': 0.02744, 'wall_s': 97.3, 'status': 'ok', 'exit_code': 0}
+[    939s] gen 35/65 colored_600gev_c04 ok matched 743 97.3s
+{'tag': 'colored_900gev_c00', 'channel': 'colored', 'mass_gev': 900, 'chunk': 0, 'seed': 736000, 'n_generated': 2000, 'n_matched': 767, 'matched_xsec_pb': 0.08273, 'matched_xsec_err_pb': 0.00239, 'wall_s': 94.8, 'status': 'ok', 'exit_code': 0}
+[    940s] gen 36/65 colored_900gev_c00 ok matched 767 94.8s
+{'tag': 'colored_900gev_c01', 'channel': 'colored', 'mass_gev': 900, 'chunk': 1, 'seed': 736001, 'n_generated': 2000, 'n_matched': 744, 'matched_xsec_pb': 0.08068, 'matched_xsec_err_pb': 0.002375, 'wall_s': 93.1, 'status': 'ok', 'exit_code': 0}
+[    967s] gen 37/65 colored_900gev_c01 ok matched 744 93.1s
+{'tag': 'colored_900gev_c02', 'channel': 'colored', 'mass_gev': 900, 'chunk': 2, 'seed': 736002, 'n_generated': 2000, 'n_matched': 761, 'matched_xsec_pb': 0.08203, 'matched_xsec_err_pb': 0.002364, 'wall_s': 95.4, 'status': 'ok', 'exit_code': 0}
+[    973s] gen 38/65 colored_900gev_c02 ok matched 761 95.4s
+{'tag': 'colored_900gev_c03', 'channel': 'colored', 'mass_gev': 900, 'chunk': 3, 'seed': 736003, 'n_generated': 2000, 'n_matched': 767, 'matched_xsec_pb': 0.08293, 'matched_xsec_err_pb': 0.002387, 'wall_s': 94.8, 'status': 'ok', 'exit_code': 0}
+[    975s] gen 39/65 colored_900gev_c03 ok matched 767 94.8s
+{'tag': 'colored_900gev_c04', 'channel': 'colored', 'mass_gev': 900, 'chunk': 4, 'seed': 736004, 'n_generated': 2000, 'n_matched': 748, 'matched_xsec_pb': 0.07991, 'matched_xsec_err_pb': 0.002346, 'wall_s': 94.5, 'status': 'ok', 'exit_code': 0}
+[    976s] gen 40/65 colored_900gev_c04 ok matched 748 94.5s
+{'tag': 'colored_1200gev_c00', 'channel': 'colored', 'mass_gev': 1200, 'chunk': 0, 'seed': 748000, 'n_generated': 2000, 'n_matched': 812, 'matched_xsec_pb': 0.01206, 'matched_xsec_err_pb': 0.0003305, 'wall_s': 116.6, 'status': 'ok', 'exit_code': 0}
+[   1027s] gen 41/65 colored_1200gev_c00 ok matched 812 116.6s
+{'tag': 'colored_1200gev_c01', 'channel': 'colored', 'mass_gev': 1200, 'chunk': 1, 'seed': 748001, 'n_generated': 2000, 'n_matched': 806, 'matched_xsec_pb': 0.0119, 'matched_xsec_err_pb': 0.000328, 'wall_s': 118.4, 'status': 'ok', 'exit_code': 0}
+[   1045s] gen 42/65 colored_1200gev_c01 ok matched 806 118.4s
+{'tag': 'colored_1200gev_c02', 'channel': 'colored', 'mass_gev': 1200, 'chunk': 2, 'seed': 748002, 'n_generated': 2000, 'n_matched': 797, 'matched_xsec_pb': 0.01183, 'matched_xsec_err_pb': 0.0003295, 'wall_s': 119.4, 'status': 'ok', 'exit_code': 0}
+[   1059s] gen 43/65 colored_1200gev_c02 ok matched 797 119.4s
+{'tag': 'colored_1200gev_c03', 'channel': 'colored', 'mass_gev': 1200, 'chunk': 3, 'seed': 748003, 'n_generated': 2000, 'n_matched': 783, 'matched_xsec_pb': 0.0116, 'matched_xsec_err_pb': 0.0003276, 'wall_s': 120.5, 'status': 'ok', 'exit_code': 0}
+[   1060s] gen 44/65 colored_1200gev_c03 ok matched 783 120.5s
+{'tag': 'colored_1500gev_c00', 'channel': 'colored', 'mass_gev': 1500, 'chunk': 0, 'seed': 760000, 'n_generated': 2000, 'n_matched': 828, 'matched_xsec_pb': 0.002154, 'matched_xsec_err_pb': 5.904e-05, 'wall_s': 95.7, 'status': 'ok', 'exit_code': 0}
+[   1069s] gen 45/65 colored_1500gev_c00 ok matched 828 95.7s
+{'tag': 'colored_1500gev_c01', 'channel': 'colored', 'mass_gev': 1500, 'chunk': 1, 'seed': 760001, 'n_generated': 2000, 'n_matched': 788, 'matched_xsec_pb': 0.002048, 'matched_xsec_err_pb': 5.759e-05, 'wall_s': 95.2, 'status': 'ok', 'exit_code': 0}
+[   1070s] gen 46/65 colored_1500gev_c01 ok matched 788 95.2s
+{'tag': 'colored_1500gev_c02', 'channel': 'colored', 'mass_gev': 1500, 'chunk': 2, 'seed': 760002, 'n_generated': 2000, 'n_matched': 828, 'matched_xsec_pb': 0.002147, 'matched_xsec_err_pb': 5.798e-05, 'wall_s': 96.9, 'status': 'ok', 'exit_code': 0}
+[   1073s] gen 47/65 colored_1500gev_c02 ok matched 828 96.9s
+{'tag': 'colored_1200gev_c04', 'channel': 'colored', 'mass_gev': 1200, 'chunk': 4, 'seed': 748004, 'n_generated': 2000, 'n_matched': 762, 'matched_xsec_pb': 0.01127, 'matched_xsec_err_pb': 0.0003249, 'wall_s': 121.4, 'status': 'ok', 'exit_code': 0}
+[   1089s] gen 48/65 colored_1200gev_c04 ok matched 762 121.4s
+{'tag': 'colored_1500gev_c03', 'channel': 'colored', 'mass_gev': 1500, 'chunk': 3, 'seed': 760003, 'n_generated': 2000, 'n_matched': 795, 'matched_xsec_pb': 0.002056, 'matched_xsec_err_pb': 5.742e-05, 'wall_s': 93.4, 'status': 'ok', 'exit_code': 0}
+[   1121s] gen 49/65 colored_1500gev_c03 ok matched 795 93.4s
+{'tag': 'colored_1500gev_c04', 'channel': 'colored', 'mass_gev': 1500, 'chunk': 4, 'seed': 760004, 'n_generated': 2000, 'n_matched': 823, 'matched_xsec_pb': 0.002142, 'matched_xsec_err_pb': 5.798e-05, 'wall_s': 99.9, 'status': 'ok', 'exit_code': 0}
+[   1145s] gen 50/65 colored_1500gev_c04 ok matched 823 99.9s
+{'tag': 'colored_1800gev_c01', 'channel': 'colored', 'mass_gev': 1800, 'chunk': 1, 'seed': 772001, 'n_generated': 2000, 'n_matched': 816, 'matched_xsec_pb': 0.0004242, 'matched_xsec_err_pb': 1.162e-05, 'wall_s': 97.1, 'status': 'ok', 'exit_code': 0}
+[   1158s] gen 51/65 colored_1800gev_c01 ok matched 816 97.1s
+{'tag': 'colored_1800gev_c00', 'channel': 'colored', 'mass_gev': 1800, 'chunk': 0, 'seed': 772000, 'n_generated': 2000, 'n_matched': 855, 'matched_xsec_pb': 0.0004473, 'matched_xsec_err_pb': 1.177e-05, 'wall_s': 99.6, 'status': 'ok', 'exit_code': 0}
+[   1159s] gen 52/65 colored_1800gev_c00 ok matched 855 99.6s
+{'tag': 'colored_1800gev_c02', 'channel': 'colored', 'mass_gev': 1800, 'chunk': 2, 'seed': 772002, 'n_generated': 2000, 'n_matched': 828, 'matched_xsec_pb': 0.0004358, 'matched_xsec_err_pb': 1.175e-05, 'wall_s': 98.1, 'status': 'ok', 'exit_code': 0}
+[   1168s] gen 53/65 colored_1800gev_c02 ok matched 828 98.1s
+{'tag': 'colored_1800gev_c03', 'channel': 'colored', 'mass_gev': 1800, 'chunk': 3, 'seed': 772003, 'n_generated': 2000, 'n_matched': 840, 'matched_xsec_pb': 0.0004413, 'matched_xsec_err_pb': 1.183e-05, 'wall_s': 98.0, 'status': 'ok', 'exit_code': 0}
+[   1169s] gen 54/65 colored_1800gev_c03 ok matched 840 98.0s
+{'tag': 'colored_1800gev_c04', 'channel': 'colored', 'mass_gev': 1800, 'chunk': 4, 'seed': 772004, 'n_generated': 2000, 'n_matched': 807, 'matched_xsec_pb': 0.0004255, 'matched_xsec_err_pb': 1.176e-05, 'wall_s': 95.9, 'status': 'ok', 'exit_code': 0}
+[   1169s] gen 55/65 colored_1800gev_c04 ok matched 807 95.9s
+{'tag': 'colored_2100gev_c00', 'channel': 'colored', 'mass_gev': 2100, 'chunk': 0, 'seed': 784000, 'n_generated': 2000, 'n_matched': 880, 'matched_xsec_pb': 0.0001008, 'matched_xsec_err_pb': 2.583e-06, 'wall_s': 93.6, 'status': 'ok', 'exit_code': 0}
+[   1183s] gen 56/65 colored_2100gev_c00 ok matched 880 93.6s
+{'tag': 'colored_2100gev_c01', 'channel': 'colored', 'mass_gev': 2100, 'chunk': 1, 'seed': 784001, 'n_generated': 2000, 'n_matched': 851, 'matched_xsec_pb': 9.753e-05, 'matched_xsec_err_pb': 2.578e-06, 'wall_s': 88.9, 'status': 'ok', 'exit_code': 0}
+[   1210s] gen 57/65 colored_2100gev_c01 ok matched 851 88.9s
+{'tag': 'colored_2100gev_c02', 'channel': 'colored', 'mass_gev': 2100, 'chunk': 2, 'seed': 784002, 'n_generated': 2000, 'n_matched': 826, 'matched_xsec_pb': 9.459e-05, 'matched_xsec_err_pb': 2.585e-06, 'wall_s': 87.6, 'status': 'ok', 'exit_code': 0}
+[   1233s] gen 58/65 colored_2100gev_c02 ok matched 826 87.6s
+{'tag': 'colored_2100gev_c03', 'channel': 'colored', 'mass_gev': 2100, 'chunk': 3, 'seed': 784003, 'n_generated': 2000, 'n_matched': 817, 'matched_xsec_pb': 9.304e-05, 'matched_xsec_err_pb': 2.562e-06, 'wall_s': 92.9, 'status': 'ok', 'exit_code': 0}
+[   1251s] gen 59/65 colored_2100gev_c03 ok matched 817 92.9s
+{'tag': 'colored_2100gev_c04', 'channel': 'colored', 'mass_gev': 2100, 'chunk': 4, 'seed': 784004, 'n_generated': 2000, 'n_matched': 862, 'matched_xsec_pb': 9.88e-05, 'matched_xsec_err_pb': 2.583e-06, 'wall_s': 94.3, 'status': 'ok', 'exit_code': 0}
+[   1253s] gen 60/65 colored_2100gev_c04 ok matched 862 94.3s
+{'tag': 'colored_2400gev_c00', 'channel': 'colored', 'mass_gev': 2400, 'chunk': 0, 'seed': 796000, 'n_generated': 2000, 'n_matched': 857, 'matched_xsec_pb': 2.261e-05, 'matched_xsec_err_pb': 5.932e-07, 'wall_s': 89.6, 'status': 'ok', 'exit_code': 0}
+[   1258s] gen 61/65 colored_2400gev_c00 ok matched 857 89.6s
+{'tag': 'colored_2400gev_c02', 'channel': 'colored', 'mass_gev': 2400, 'chunk': 2, 'seed': 796002, 'n_generated': 2000, 'n_matched': 925, 'matched_xsec_pb': 2.406e-05, 'matched_xsec_err_pb': 5.913e-07, 'wall_s': 89.9, 'status': 'ok', 'exit_code': 0}
+[   1259s] gen 62/65 colored_2400gev_c02 ok matched 925 89.9s
+{'tag': 'colored_2400gev_c01', 'channel': 'colored', 'mass_gev': 2400, 'chunk': 1, 'seed': 796001, 'n_generated': 2000, 'n_matched': 900, 'matched_xsec_pb': 2.354e-05, 'matched_xsec_err_pb': 6.027e-07, 'wall_s': 90.4, 'status': 'ok', 'exit_code': 0}
+[   1259s] gen 63/65 colored_2400gev_c01 ok matched 900 90.4s
+{'tag': 'colored_2400gev_c03', 'channel': 'colored', 'mass_gev': 2400, 'chunk': 3, 'seed': 796003, 'n_generated': 2000, 'n_matched': 932, 'matched_xsec_pb': 2.455e-05, 'matched_xsec_err_pb': 6.001e-07, 'wall_s': 84.9, 'status': 'ok', 'exit_code': 0}
+[   1268s] gen 64/65 colored_2400gev_c03 ok matched 932 84.9s
+{'tag': 'colored_2400gev_c04', 'channel': 'colored', 'mass_gev': 2400, 'chunk': 4, 'seed': 796004, 'n_generated': 2000, 'n_matched': 873, 'matched_xsec_pb': 2.27e-05, 'matched_xsec_err_pb': 5.861e-07, 'wall_s': 70.0, 'status': 'ok', 'exit_code': 0}
+[   1280s] gen 65/65 colored_2400gev_c04 ok matched 873 70.0s
+[   1281s] generation done, failed: []
+[   1305s] extracted EW 100 {'channel': 'EW', 'mass_gev': 100, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 6911, 'sigma_matched_fb': np.float64(1226.0), 'sigma_matched_err_fb': np.float64(8.37122715018533), 'n_trigger': 21
+[   1327s] extracted EW 200 {'channel': 'EW', 'mass_gev': 200, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 6251, 'sigma_matched_fb': np.float64(107.72000000000001), 'sigma_matched_err_fb': np.float64(0.8526586421306009), '
+[   1347s] extracted EW 400 {'channel': 'EW', 'mass_gev': 400, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 5637, 'sigma_matched_fb': np.float64(7.097), 'sigma_matched_err_fb': np.float64(0.06353155751278255), 'n_trigger': 
+[   1365s] extracted EW 600 {'channel': 'EW', 'mass_gev': 600, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 5328, 'sigma_matched_fb': np.float64(1.1502), 'sigma_matched_err_fb': np.float64(0.010942491489601441), 'n_trigger'
+[   1382s] extracted EW 800 {'channel': 'EW', 'mass_gev': 800, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 5307, 'sigma_matched_fb': np.float64(0.28078000000000003), 'sigma_matched_err_fb': np.float64(0.002685130834801165)
+[   1400s] extracted EW 1000 {'channel': 'EW', 'mass_gev': 1000, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 5104, 'sigma_matched_fb': np.float64(0.07986), 'sigma_matched_err_fb': np.float64(0.0007931815429017495), 'n_trigg
+[   1415s] extracted colored 600  PYTHIA Error in ProcessLevel::init: no process switched on
+[   1430s] extracted colored 900  PYTHIA Error in ProcessLevel::init: no process switched on
+[   1446s] extracted colored 1200  PYTHIA Error in ProcessLevel::init: no process switched on
+[   1462s] extracted colored 1500  PYTHIA Error in ProcessLevel::init: no process switched on
+[   1475s] extracted colored 1800  PYTHIA Error in ProcessLevel::init: no process switched on
+[   1489s] extracted colored 2100  PYTHIA Error in ProcessLevel::init: no process switched on
+[   1502s] extracted colored 2400  PYTHIA Error in ProcessLevel::init: no process switched on
+[   1502s] G02_EXIT=0
+[      0s] G02 steps ['prop'] points [('EW', 100), ('EW', 200), ('EW', 400), ('EW', 600), ('EW', 800), ('EW', 1000), ('colored', 600), ('colored', 900), ('colored', 1200), ('colored', 1500), ('colored', 1800), ('colored', 2100), ('colored', 2400)] nev 10000 runs /home/rafia/hep_tools/07_large_runs
+[   1278s] propagated EW_100gev mid exit 0
+[   3009s] propagated EW_200gev mid exit 0
+[   4905s] propagated EW_400gev mid exit 0
+[   7107s] propagated EW_600gev mid exit 0
+[   9249s] propagated EW_800gev mid exit 0
+[  11549s] propagated EW_1000gev mid exit 0
+[  12224s] propagated colored_600gev mid exit 0
+[  12947s] propagated colored_900gev mid exit 0
+[  13639s] propagated colored_1200gev mid exit 0
+[  14403s] propagated colored_1500gev mid exit 0
+[  15173s] propagated colored_1800gev mid exit 0
+[  16000s] propagated colored_2100gev mid exit 0
+[  16816s] propagated colored_2400gev mid exit 0
+[  16821s] propagated EW_100gev low exit 0
+[  16828s] propagated EW_200gev low exit 0
+[  16839s] propagated EW_400gev low exit 0
+[  16852s] propagated EW_600gev low exit 0
+[  16866s] propagated EW_800gev low exit 0
+[  16881s] propagated EW_1000gev low exit 0
+[  16887s] propagated colored_600gev low exit 0
+[  16893s] propagated colored_900gev low exit 0
+[  16899s] propagated colored_1200gev low exit 0
+[  16905s] propagated colored_1500gev low exit 0
+[  16910s] propagated colored_1800gev low exit 0
+[  16916s] propagated colored_2100gev low exit 0
+[  16921s] propagated colored_2400gev low exit 0
+[  20825s] propagated EW_100gev high_a exit 0
+[  28036s] propagated EW_200gev high_a exit 0
+[  38858s] propagated EW_400gev high_a exit 0
+[  52631s] propagated EW_600gev high_a exit 0
+stopped by user request Tue Nov 17 11:13:51 CST 2026

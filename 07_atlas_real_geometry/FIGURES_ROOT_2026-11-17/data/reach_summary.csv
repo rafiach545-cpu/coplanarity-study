@@ -1,0 +1,421 @@
+scenario,channel,sct,contour,mu,variant,m_max,lo,hi,at_lambda_keV,s_required
+07_300fb,colored,Z0,exclusion,,zero background,1851,1836,1864,5.0,3.0
+07_300fb,colored,Z0,discovery,,zero background,1761,1751,1771,5.0,5.0
+07_332fb,colored,Z0,exclusion,,zero background,1871,1857,1885,5.0,3.0
+07_332fb,colored,Z0,discovery,,zero background,1777,1766,1787,5.0,5.0
+07_355fb,colored,Z0,exclusion,,zero background,1884,1870,1898,5.0,3.0
+07_355fb,colored,Z0,discovery,,zero background,1787,1776,1797,5.0,5.0
+07_300fb,colored,A580,exclusion,,zero background,1679,1659,1701,5.0,3.0
+07_300fb,colored,A580,discovery,,zero background,1602,1584,1621,4.0,5.0
+07_332fb,colored,A580,exclusion,,zero background,1697,1674,1719,5.0,3.0
+07_332fb,colored,A580,discovery,,zero background,1618,1599,1636,4.0,5.0
+07_355fb,colored,A580,exclusion,,zero background,1708,1685,1730,5.0,3.0
+07_355fb,colored,A580,discovery,,zero background,1627,1609,1646,4.0,5.0
+07_300fb,colored,Z1160,exclusion,,zero background,1595,1567,1623,5.0,3.0
+07_300fb,colored,Z1160,discovery,,zero background,1513,1487,1538,4.0,5.0
+07_332fb,colored,Z1160,exclusion,,zero background,1612,1584,1640,5.0,3.0
+07_332fb,colored,Z1160,discovery,,zero background,1529,1504,1554,4.0,5.0
+07_355fb,colored,Z1160,exclusion,,zero background,1623,1595,1652,5.0,3.0
+07_355fb,colored,Z1160,discovery,,zero background,1539,1514,1565,4.0,5.0
+07_300fb,EW,Z0,exclusion,,zero background,975,970,980,4.0,3.0
+07_300fb,EW,Z0,discovery,,zero background,881,875,886,4.0,5.0
+07_332fb,EW,Z0,exclusion,,zero background,994,988,999,4.0,3.0
+07_332fb,EW,Z0,discovery,,zero background,900,894,905,4.0,5.0
+07_355fb,EW,Z0,exclusion,,zero background,991,998,996,3.0,3.0
+07_355fb,EW,Z0,discovery,,zero background,912,907,917,4.0,5.0
+07_300fb,EW,A580,exclusion,,zero background,750,736,764,5.0,3.0
+07_300fb,EW,A580,discovery,,zero background,663,649,677,5.0,5.0
+07_332fb,EW,A580,exclusion,,zero background,767,754,781,5.0,3.0
+07_332fb,EW,A580,discovery,,zero background,681,666,694,5.0,5.0
+07_355fb,EW,A580,exclusion,,zero background,779,765,792,5.0,3.0
+07_355fb,EW,A580,discovery,,zero background,692,678,706,5.0,5.0
+07_300fb,EW,Z1160,exclusion,,zero background,654,634,673,5.0,3.0
+07_300fb,EW,Z1160,discovery,,zero background,573,555,590,5.0,5.0
+07_332fb,EW,Z1160,exclusion,,zero background,671,651,690,5.0,3.0
+07_332fb,EW,Z1160,discovery,,zero background,588,570,605,5.0,5.0
+07_355fb,EW,Z1160,exclusion,,zero background,682,663,701,5.0,3.0
+07_355fb,EW,Z1160,discovery,,zero background,597,579,617,5.0,5.0
+07_300fb_mu0,EW,A580,discovery,0.0,b_used = UL if 0 passed,663,649,677,5.0,5.0
+07_300fb_mu20,EW,A580,discovery,20.0,b_used = UL if 0 passed,663,649,677,5.0,5.0
+07_300fb_mu50,EW,A580,discovery,50.0,b_used = UL if 0 passed,638,623,652,5.0,5.8
+07_300fb_mu0,EW,A580,exclusion,0.0,b_used = UL if 0 passed,699,685,713,5.0,4.05
+07_300fb_mu20,EW,A580,exclusion,20.0,b_used = UL if 0 passed,750,737,764,5.0,3.0
+07_300fb_mu50,EW,A580,exclusion,50.0,b_used = UL if 0 passed,750,737,764,5.0,3.0
+07_332fb_mu0,EW,A580,discovery,0.0,b_used = UL if 0 passed,681,666,694,5.0,5.0
+07_332fb_mu20,EW,A580,discovery,20.0,b_used = UL if 0 passed,681,666,694,5.0,5.0
+07_332fb_mu50,EW,A580,discovery,50.0,b_used = UL if 0 passed,651,636,665,5.0,5.96
+07_332fb_mu0,EW,A580,exclusion,0.0,b_used = UL if 0 passed,718,704,732,5.0,4.01
+07_332fb_mu20,EW,A580,exclusion,20.0,b_used = UL if 0 passed,768,754,781,5.0,3.0
+07_332fb_mu50,EW,A580,exclusion,50.0,b_used = UL if 0 passed,768,754,781,5.0,3.0
+07_355fb_mu0,EW,A580,discovery,0.0,b_used = UL if 0 passed,692,678,706,5.0,5.0
+07_355fb_mu20,EW,A580,discovery,20.0,b_used = UL if 0 passed,692,678,706,5.0,5.0
+07_355fb_mu50,EW,A580,discovery,50.0,b_used = UL if 0 passed,659,644,673,5.0,6.08
+07_355fb_mu0,EW,A580,exclusion,0.0,b_used = UL if 0 passed,731,717,744,5.0,3.98
+07_355fb_mu20,EW,A580,exclusion,20.0,b_used = UL if 0 passed,779,765,792,5.0,3.0
+07_355fb_mu50,EW,A580,exclusion,50.0,b_used = UL if 0 passed,779,765,792,5.0,3.0
+07_300fb_mu0,EW,Z0,discovery,0.0,b_used = UL if 0 passed,853,847,858,4.0,5.83
+07_300fb_mu20,EW,Z0,discovery,20.0,b_used = UL if 0 passed,605,600,609,4.0,28.6
+07_300fb_mu50,EW,Z0,discovery,50.0,b_used = UL if 0 passed,550,546,554,4.0,43.51
+07_300fb_mu60,EW,Z0,discovery,60.0,b_used = UL if 0 passed,546,541,550,4.0,45.03
+07_300fb_mu0,EW,Z0,exclusion,0.0,b_used = UL if 0 passed,975,970,980,4.0,3.0
+07_300fb_mu20,EW,Z0,exclusion,20.0,b_used = UL if 0 passed,745,741,750,4.0,11.18
+07_300fb_mu50,EW,Z0,exclusion,50.0,b_used = UL if 0 passed,677,672,682,4.0,17.65
+07_300fb_mu60,EW,Z0,exclusion,60.0,b_used = UL if 0 passed,678,673,682,4.0,17.59
+07_332fb_mu0,EW,Z0,discovery,0.0,b_used = UL if 0 passed,866,861,871,4.0,6.0
+07_332fb_mu20,EW,Z0,discovery,20.0,b_used = UL if 0 passed,613,609,618,4.0,29.89
+07_332fb_mu50,EW,Z0,discovery,50.0,b_used = UL if 0 passed,557,553,561,4.0,45.57
+07_332fb_mu60,EW,Z0,discovery,60.0,b_used = UL if 0 passed,553,549,557,4.0,47.17
+07_332fb_mu0,EW,Z0,exclusion,0.0,b_used = UL if 0 passed,994,989,999,4.0,3.0
+07_332fb_mu20,EW,Z0,exclusion,20.0,b_used = UL if 0 passed,750,745,755,4.0,11.99
+07_332fb_mu50,EW,Z0,exclusion,50.0,b_used = UL if 0 passed,690,685,694,4.0,17.96
+07_332fb_mu60,EW,Z0,exclusion,60.0,b_used = UL if 0 passed,681,676,686,4.0,19.02
+07_355fb_mu0,EW,Z0,discovery,0.0,b_used = UL if 0 passed,875,869,880,4.0,6.12
+07_355fb_mu20,EW,Z0,discovery,20.0,b_used = UL if 0 passed,619,614,624,4.0,30.78
+07_355fb_mu50,EW,Z0,discovery,50.0,b_used = UL if 0 passed,562,558,566,4.0,46.99
+07_355fb_mu60,EW,Z0,discovery,60.0,b_used = UL if 0 passed,557,553,561,4.0,48.65
+07_355fb_mu0,EW,Z0,exclusion,0.0,b_used = UL if 0 passed,991,998,997,3.0,3.0
+07_355fb_mu20,EW,Z0,exclusion,20.0,b_used = UL if 0 passed,755,750,759,4.0,12.43
+07_355fb_mu50,EW,Z0,exclusion,50.0,b_used = UL if 0 passed,694,689,698,4.0,18.66
+07_355fb_mu60,EW,Z0,exclusion,60.0,b_used = UL if 0 passed,688,683,692,4.0,19.47
+07_300fb_mu0,EW,Z1160,discovery,0.0,b_used = UL if 0 passed,573,555,590,5.0,5.0
+07_300fb_mu20,EW,Z1160,discovery,20.0,b_used = UL if 0 passed,573,555,590,5.0,5.0
+07_300fb_mu50,EW,Z1160,discovery,50.0,b_used = UL if 0 passed,573,555,590,5.0,5.0
+07_300fb_mu60,EW,Z1160,discovery,60.0,b_used = UL if 0 passed,573,555,590,5.0,5.0
+07_300fb_mu0,EW,Z1160,exclusion,0.0,b_used = UL if 0 passed,604,586,624,5.0,4.05
+07_300fb_mu20,EW,Z1160,exclusion,20.0,b_used = UL if 0 passed,604,586,624,5.0,4.05
+07_300fb_mu50,EW,Z1160,exclusion,50.0,b_used = UL if 0 passed,604,586,624,5.0,4.05
+07_300fb_mu60,EW,Z1160,exclusion,60.0,b_used = UL if 0 passed,604,586,624,5.0,4.05
+07_332fb_mu0,EW,Z1160,discovery,0.0,b_used = UL if 0 passed,588,570,605,5.0,5.0
+07_332fb_mu20,EW,Z1160,discovery,20.0,b_used = UL if 0 passed,588,570,605,5.0,5.0
+07_332fb_mu50,EW,Z1160,discovery,50.0,b_used = UL if 0 passed,588,570,605,5.0,5.0
+07_332fb_mu60,EW,Z1160,discovery,60.0,b_used = UL if 0 passed,588,570,605,5.0,5.0
+07_332fb_mu0,EW,Z1160,exclusion,0.0,b_used = UL if 0 passed,623,602,642,5.0,4.01
+07_332fb_mu20,EW,Z1160,exclusion,20.0,b_used = UL if 0 passed,623,602,642,5.0,4.01
+07_332fb_mu50,EW,Z1160,exclusion,50.0,b_used = UL if 0 passed,623,602,642,5.0,4.01
+07_332fb_mu60,EW,Z1160,exclusion,60.0,b_used = UL if 0 passed,623,602,642,5.0,4.01
+07_355fb_mu0,EW,Z1160,discovery,0.0,b_used = UL if 0 passed,597,579,617,5.0,5.0
+07_355fb_mu20,EW,Z1160,discovery,20.0,b_used = UL if 0 passed,597,579,617,5.0,5.0
+07_355fb_mu50,EW,Z1160,discovery,50.0,b_used = UL if 0 passed,597,579,617,5.0,5.0
+07_355fb_mu60,EW,Z1160,discovery,60.0,b_used = UL if 0 passed,597,579,617,5.0,5.0
+07_355fb_mu0,EW,Z1160,exclusion,0.0,b_used = UL if 0 passed,635,615,654,5.0,3.98
+07_355fb_mu20,EW,Z1160,exclusion,20.0,b_used = UL if 0 passed,635,615,654,5.0,3.98
+07_355fb_mu50,EW,Z1160,exclusion,50.0,b_used = UL if 0 passed,635,615,654,5.0,3.98
+07_355fb_mu60,EW,Z1160,exclusion,60.0,b_used = UL if 0 passed,635,615,654,5.0,3.98
+07_300fb_mu0,colored,A580,discovery,0.0,b_used = UL if 0 passed,1602,1584,1621,4.0,5.0
+07_300fb_mu20,colored,A580,discovery,20.0,b_used = UL if 0 passed,1602,1584,1621,4.0,5.0
+07_300fb_mu50,colored,A580,discovery,50.0,b_used = UL if 0 passed,1581,1563,1599,4.0,5.8
+07_300fb_mu0,colored,A580,exclusion,0.0,b_used = UL if 0 passed,1634,1615,1653,4.0,4.05
+07_300fb_mu20,colored,A580,exclusion,20.0,b_used = UL if 0 passed,1679,1659,1702,5.0,3.0
+07_300fb_mu50,colored,A580,exclusion,50.0,b_used = UL if 0 passed,1679,1659,1702,5.0,3.0
+07_332fb_mu0,colored,A580,discovery,0.0,b_used = UL if 0 passed,1618,1599,1636,4.0,5.0
+07_332fb_mu20,colored,A580,discovery,20.0,b_used = UL if 0 passed,1618,1599,1636,4.0,5.0
+07_332fb_mu50,colored,A580,discovery,50.0,b_used = UL if 0 passed,1591,1573,1610,4.0,5.96
+07_332fb_mu0,colored,A580,exclusion,0.0,b_used = UL if 0 passed,1650,1631,1669,4.0,4.01
+07_332fb_mu20,colored,A580,exclusion,20.0,b_used = UL if 0 passed,1697,1674,1719,5.0,3.0
+07_332fb_mu50,colored,A580,exclusion,50.0,b_used = UL if 0 passed,1697,1674,1719,5.0,3.0
+07_355fb_mu0,colored,A580,discovery,0.0,b_used = UL if 0 passed,1627,1609,1646,4.0,5.0
+07_355fb_mu20,colored,A580,discovery,20.0,b_used = UL if 0 passed,1627,1609,1646,4.0,5.0
+07_355fb_mu50,colored,A580,discovery,50.0,b_used = UL if 0 passed,1598,1580,1617,4.0,6.08
+07_355fb_mu0,colored,A580,exclusion,0.0,b_used = UL if 0 passed,1661,1642,1682,4.0,3.98
+07_355fb_mu20,colored,A580,exclusion,20.0,b_used = UL if 0 passed,1708,1686,1730,5.0,3.0
+07_355fb_mu50,colored,A580,exclusion,50.0,b_used = UL if 0 passed,1708,1686,1730,5.0,3.0
+07_300fb_mu0,colored,Z0,discovery,0.0,b_used = UL if 0 passed,1738,1728,1748,5.0,5.83
+07_300fb_mu20,colored,Z0,discovery,20.0,b_used = UL if 0 passed,1509,1502,1515,4.0,28.6
+07_300fb_mu50,colored,Z0,discovery,50.0,b_used = UL if 0 passed,1438,1429,1446,4.0,43.51
+07_300fb_mu60,colored,Z0,discovery,60.0,b_used = UL if 0 passed,1432,1423,1440,4.0,45.03
+07_300fb_mu0,colored,Z0,exclusion,0.0,b_used = UL if 0 passed,1851,1837,1865,5.0,3.0
+07_300fb_mu20,colored,Z0,exclusion,20.0,b_used = UL if 0 passed,1642,1633,1651,4.0,11.18
+07_300fb_mu50,colored,Z0,exclusion,50.0,b_used = UL if 0 passed,1577,1569,1585,4.0,17.65
+07_300fb_mu60,colored,Z0,exclusion,60.0,b_used = UL if 0 passed,1578,1570,1585,4.0,17.59
+07_332fb_mu0,colored,Z0,discovery,0.0,b_used = UL if 0 passed,1749,1739,1759,5.0,6.0
+07_332fb_mu20,colored,Z0,discovery,20.0,b_used = UL if 0 passed,1517,1510,1524,4.0,29.89
+07_332fb_mu50,colored,Z0,discovery,50.0,b_used = UL if 0 passed,1447,1439,1455,4.0,45.57
+07_332fb_mu60,colored,Z0,discovery,60.0,b_used = UL if 0 passed,1441,1433,1449,4.0,47.17
+07_332fb_mu0,colored,Z0,exclusion,0.0,b_used = UL if 0 passed,1871,1857,1885,5.0,3.0
+07_332fb_mu20,colored,Z0,exclusion,20.0,b_used = UL if 0 passed,1647,1638,1655,4.0,11.99
+07_332fb_mu50,colored,Z0,exclusion,50.0,b_used = UL if 0 passed,1589,1581,1597,4.0,17.96
+07_332fb_mu60,colored,Z0,exclusion,60.0,b_used = UL if 0 passed,1581,1573,1589,4.0,19.02
+07_355fb_mu0,colored,Z0,discovery,0.0,b_used = UL if 0 passed,1756,1746,1766,5.0,6.12
+07_355fb_mu20,colored,Z0,discovery,20.0,b_used = UL if 0 passed,1522,1515,1529,4.0,30.78
+07_355fb_mu50,colored,Z0,discovery,50.0,b_used = UL if 0 passed,1454,1445,1462,4.0,46.99
+07_355fb_mu60,colored,Z0,discovery,60.0,b_used = UL if 0 passed,1448,1439,1456,4.0,48.65
+07_355fb_mu0,colored,Z0,exclusion,0.0,b_used = UL if 0 passed,1885,1870,1898,5.0,3.0
+07_355fb_mu20,colored,Z0,exclusion,20.0,b_used = UL if 0 passed,1651,1642,1659,4.0,12.43
+07_355fb_mu50,colored,Z0,exclusion,50.0,b_used = UL if 0 passed,1593,1585,1601,4.0,18.66
+07_355fb_mu60,colored,Z0,exclusion,60.0,b_used = UL if 0 passed,1587,1579,1595,4.0,19.47
+07_300fb_mu0,colored,Z1160,discovery,0.0,b_used = UL if 0 passed,1513,1487,1538,4.0,5.0
+07_300fb_mu20,colored,Z1160,discovery,20.0,b_used = UL if 0 passed,1513,1487,1538,4.0,5.0
+07_300fb_mu50,colored,Z1160,discovery,50.0,b_used = UL if 0 passed,1513,1487,1538,4.0,5.0
+07_300fb_mu60,colored,Z1160,discovery,60.0,b_used = UL if 0 passed,1513,1487,1538,4.0,5.0
+07_300fb_mu0,colored,Z1160,exclusion,0.0,b_used = UL if 0 passed,1545,1520,1573,4.0,4.05
+07_300fb_mu20,colored,Z1160,exclusion,20.0,b_used = UL if 0 passed,1545,1520,1573,4.0,4.05
+07_300fb_mu50,colored,Z1160,exclusion,50.0,b_used = UL if 0 passed,1545,1520,1573,4.0,4.05
+07_300fb_mu60,colored,Z1160,exclusion,60.0,b_used = UL if 0 passed,1545,1520,1573,4.0,4.05
+07_332fb_mu0,colored,Z1160,discovery,0.0,b_used = UL if 0 passed,1529,1504,1554,4.0,5.0
+07_332fb_mu20,colored,Z1160,discovery,20.0,b_used = UL if 0 passed,1529,1504,1554,4.0,5.0
+07_332fb_mu50,colored,Z1160,discovery,50.0,b_used = UL if 0 passed,1529,1504,1554,4.0,5.0
+07_332fb_mu60,colored,Z1160,discovery,60.0,b_used = UL if 0 passed,1529,1504,1554,4.0,5.0
+07_332fb_mu0,colored,Z1160,exclusion,0.0,b_used = UL if 0 passed,1564,1537,1591,5.0,4.01
+07_332fb_mu20,colored,Z1160,exclusion,20.0,b_used = UL if 0 passed,1564,1537,1591,5.0,4.01
+07_332fb_mu50,colored,Z1160,exclusion,50.0,b_used = UL if 0 passed,1564,1537,1591,5.0,4.01
+07_332fb_mu60,colored,Z1160,exclusion,60.0,b_used = UL if 0 passed,1564,1537,1591,5.0,4.01
+07_355fb_mu0,colored,Z1160,discovery,0.0,b_used = UL if 0 passed,1539,1514,1565,4.0,5.0
+07_355fb_mu20,colored,Z1160,discovery,20.0,b_used = UL if 0 passed,1539,1514,1565,4.0,5.0
+07_355fb_mu50,colored,Z1160,discovery,50.0,b_used = UL if 0 passed,1539,1514,1565,4.0,5.0
+07_355fb_mu60,colored,Z1160,discovery,60.0,b_used = UL if 0 passed,1539,1514,1565,4.0,5.0
+07_355fb_mu0,colored,Z1160,exclusion,0.0,b_used = UL if 0 passed,1576,1548,1604,5.0,3.98
+07_355fb_mu20,colored,Z1160,exclusion,20.0,b_used = UL if 0 passed,1576,1548,1604,5.0,3.98
+07_355fb_mu50,colored,Z1160,exclusion,50.0,b_used = UL if 0 passed,1576,1548,1604,5.0,3.98
+07_355fb_mu60,colored,Z1160,exclusion,60.0,b_used = UL if 0 passed,1576,1548,1604,5.0,3.98
+07_300fb_mu0,EW,A580,discovery,0.0,central b,663,649,677,5.0,5.0
+07_300fb_mu20,EW,A580,discovery,20.0,central b,663,649,677,5.0,5.0
+07_300fb_mu50,EW,A580,discovery,50.0,central b,638,623,652,5.0,5.8
+07_300fb_mu0,EW,A580,exclusion,0.0,central b,750,737,764,5.0,3.0
+07_300fb_mu20,EW,A580,exclusion,20.0,central b,750,737,764,5.0,3.0
+07_300fb_mu50,EW,A580,exclusion,50.0,central b,750,737,764,5.0,3.0
+07_332fb_mu0,EW,A580,discovery,0.0,central b,681,666,694,5.0,5.0
+07_332fb_mu20,EW,A580,discovery,20.0,central b,681,666,694,5.0,5.0
+07_332fb_mu50,EW,A580,discovery,50.0,central b,651,636,665,5.0,5.96
+07_332fb_mu0,EW,A580,exclusion,0.0,central b,768,754,781,5.0,3.0
+07_332fb_mu20,EW,A580,exclusion,20.0,central b,768,754,781,5.0,3.0
+07_332fb_mu50,EW,A580,exclusion,50.0,central b,768,754,781,5.0,3.0
+07_355fb_mu0,EW,A580,discovery,0.0,central b,692,678,706,5.0,5.0
+07_355fb_mu20,EW,A580,discovery,20.0,central b,692,678,706,5.0,5.0
+07_355fb_mu50,EW,A580,discovery,50.0,central b,659,644,673,5.0,6.08
+07_355fb_mu0,EW,A580,exclusion,0.0,central b,779,765,792,5.0,3.0
+07_355fb_mu20,EW,A580,exclusion,20.0,central b,779,765,792,5.0,3.0
+07_355fb_mu50,EW,A580,exclusion,50.0,central b,779,765,792,5.0,3.0
+07_300fb_mu0,EW,Z0,discovery,0.0,central b,853,847,858,4.0,5.83
+07_300fb_mu20,EW,Z0,discovery,20.0,central b,605,600,609,4.0,28.6
+07_300fb_mu50,EW,Z0,discovery,50.0,central b,550,546,554,4.0,43.51
+07_300fb_mu60,EW,Z0,discovery,60.0,central b,546,541,550,4.0,45.03
+07_300fb_mu0,EW,Z0,exclusion,0.0,central b,975,970,980,4.0,3.0
+07_300fb_mu20,EW,Z0,exclusion,20.0,central b,745,741,750,4.0,11.18
+07_300fb_mu50,EW,Z0,exclusion,50.0,central b,677,672,682,4.0,17.65
+07_300fb_mu60,EW,Z0,exclusion,60.0,central b,678,673,682,4.0,17.59
+07_332fb_mu0,EW,Z0,discovery,0.0,central b,866,861,871,4.0,6.0
+07_332fb_mu20,EW,Z0,discovery,20.0,central b,613,609,618,4.0,29.89
+07_332fb_mu50,EW,Z0,discovery,50.0,central b,557,553,561,4.0,45.57
+07_332fb_mu60,EW,Z0,discovery,60.0,central b,553,549,557,4.0,47.17
+07_332fb_mu0,EW,Z0,exclusion,0.0,central b,994,989,999,4.0,3.0
+07_332fb_mu20,EW,Z0,exclusion,20.0,central b,750,745,755,4.0,11.99
+07_332fb_mu50,EW,Z0,exclusion,50.0,central b,690,685,694,4.0,17.96
+07_332fb_mu60,EW,Z0,exclusion,60.0,central b,681,676,686,4.0,19.02
+07_355fb_mu0,EW,Z0,discovery,0.0,central b,875,869,880,4.0,6.12
+07_355fb_mu20,EW,Z0,discovery,20.0,central b,619,614,624,4.0,30.78
+07_355fb_mu50,EW,Z0,discovery,50.0,central b,562,558,566,4.0,46.99
+07_355fb_mu60,EW,Z0,discovery,60.0,central b,557,553,561,4.0,48.65
+07_355fb_mu0,EW,Z0,exclusion,0.0,central b,991,998,997,3.0,3.0
+07_355fb_mu20,EW,Z0,exclusion,20.0,central b,755,750,759,4.0,12.43
+07_355fb_mu50,EW,Z0,exclusion,50.0,central b,694,689,698,4.0,18.66
+07_355fb_mu60,EW,Z0,exclusion,60.0,central b,688,683,692,4.0,19.47
+07_300fb_mu0,EW,Z1160,discovery,0.0,central b,573,555,590,5.0,5.0
+07_300fb_mu20,EW,Z1160,discovery,20.0,central b,573,555,590,5.0,5.0
+07_300fb_mu50,EW,Z1160,discovery,50.0,central b,573,555,590,5.0,5.0
+07_300fb_mu60,EW,Z1160,discovery,60.0,central b,573,555,590,5.0,5.0
+07_300fb_mu0,EW,Z1160,exclusion,0.0,central b,654,635,673,5.0,3.0
+07_300fb_mu20,EW,Z1160,exclusion,20.0,central b,654,635,673,5.0,3.0
+07_300fb_mu50,EW,Z1160,exclusion,50.0,central b,654,635,673,5.0,3.0
+07_300fb_mu60,EW,Z1160,exclusion,60.0,central b,654,635,673,5.0,3.0
+07_332fb_mu0,EW,Z1160,discovery,0.0,central b,588,570,605,5.0,5.0
+07_332fb_mu20,EW,Z1160,discovery,20.0,central b,588,570,605,5.0,5.0
+07_332fb_mu50,EW,Z1160,discovery,50.0,central b,588,570,605,5.0,5.0
+07_332fb_mu60,EW,Z1160,discovery,60.0,central b,588,570,605,5.0,5.0
+07_332fb_mu0,EW,Z1160,exclusion,0.0,central b,671,652,690,5.0,3.0
+07_332fb_mu20,EW,Z1160,exclusion,20.0,central b,671,652,690,5.0,3.0
+07_332fb_mu50,EW,Z1160,exclusion,50.0,central b,671,652,690,5.0,3.0
+07_332fb_mu60,EW,Z1160,exclusion,60.0,central b,671,652,690,5.0,3.0
+07_355fb_mu0,EW,Z1160,discovery,0.0,central b,597,579,617,5.0,5.0
+07_355fb_mu20,EW,Z1160,discovery,20.0,central b,597,579,617,5.0,5.0
+07_355fb_mu50,EW,Z1160,discovery,50.0,central b,597,579,617,5.0,5.0
+07_355fb_mu60,EW,Z1160,discovery,60.0,central b,597,579,617,5.0,5.0
+07_355fb_mu0,EW,Z1160,exclusion,0.0,central b,682,663,701,5.0,3.0
+07_355fb_mu20,EW,Z1160,exclusion,20.0,central b,682,663,701,5.0,3.0
+07_355fb_mu50,EW,Z1160,exclusion,50.0,central b,682,663,701,5.0,3.0
+07_355fb_mu60,EW,Z1160,exclusion,60.0,central b,682,663,701,5.0,3.0
+07_300fb_mu0,colored,A580,discovery,0.0,central b,1602,1584,1621,4.0,5.0
+07_300fb_mu20,colored,A580,discovery,20.0,central b,1602,1584,1621,4.0,5.0
+07_300fb_mu50,colored,A580,discovery,50.0,central b,1581,1563,1599,4.0,5.8
+07_300fb_mu0,colored,A580,exclusion,0.0,central b,1679,1659,1702,5.0,3.0
+07_300fb_mu20,colored,A580,exclusion,20.0,central b,1679,1659,1702,5.0,3.0
+07_300fb_mu50,colored,A580,exclusion,50.0,central b,1679,1659,1702,5.0,3.0
+07_332fb_mu0,colored,A580,discovery,0.0,central b,1618,1599,1636,4.0,5.0
+07_332fb_mu20,colored,A580,discovery,20.0,central b,1618,1599,1636,4.0,5.0
+07_332fb_mu50,colored,A580,discovery,50.0,central b,1591,1573,1610,4.0,5.96
+07_332fb_mu0,colored,A580,exclusion,0.0,central b,1697,1674,1719,5.0,3.0
+07_332fb_mu20,colored,A580,exclusion,20.0,central b,1697,1674,1719,5.0,3.0
+07_332fb_mu50,colored,A580,exclusion,50.0,central b,1697,1674,1719,5.0,3.0
+07_355fb_mu0,colored,A580,discovery,0.0,central b,1627,1609,1646,4.0,5.0
+07_355fb_mu20,colored,A580,discovery,20.0,central b,1627,1609,1646,4.0,5.0
+07_355fb_mu50,colored,A580,discovery,50.0,central b,1598,1580,1617,4.0,6.08
+07_355fb_mu0,colored,A580,exclusion,0.0,central b,1708,1686,1730,5.0,3.0
+07_355fb_mu20,colored,A580,exclusion,20.0,central b,1708,1686,1730,5.0,3.0
+07_355fb_mu50,colored,A580,exclusion,50.0,central b,1708,1686,1730,5.0,3.0
+07_300fb_mu0,colored,Z0,discovery,0.0,central b,1738,1728,1748,5.0,5.83
+07_300fb_mu20,colored,Z0,discovery,20.0,central b,1509,1502,1515,4.0,28.6
+07_300fb_mu50,colored,Z0,discovery,50.0,central b,1438,1429,1446,4.0,43.51
+07_300fb_mu60,colored,Z0,discovery,60.0,central b,1432,1423,1440,4.0,45.03
+07_300fb_mu0,colored,Z0,exclusion,0.0,central b,1851,1837,1865,5.0,3.0
+07_300fb_mu20,colored,Z0,exclusion,20.0,central b,1642,1633,1651,4.0,11.18
+07_300fb_mu50,colored,Z0,exclusion,50.0,central b,1577,1569,1585,4.0,17.65
+07_300fb_mu60,colored,Z0,exclusion,60.0,central b,1578,1570,1585,4.0,17.59
+07_332fb_mu0,colored,Z0,discovery,0.0,central b,1749,1739,1759,5.0,6.0
+07_332fb_mu20,colored,Z0,discovery,20.0,central b,1517,1510,1524,4.0,29.89
+07_332fb_mu50,colored,Z0,discovery,50.0,central b,1447,1439,1455,4.0,45.57
+07_332fb_mu60,colored,Z0,discovery,60.0,central b,1441,1433,1449,4.0,47.17
+07_332fb_mu0,colored,Z0,exclusion,0.0,central b,1871,1857,1885,5.0,3.0
+07_332fb_mu20,colored,Z0,exclusion,20.0,central b,1647,1638,1655,4.0,11.99
+07_332fb_mu50,colored,Z0,exclusion,50.0,central b,1589,1581,1597,4.0,17.96
+07_332fb_mu60,colored,Z0,exclusion,60.0,central b,1581,1573,1589,4.0,19.02
+07_355fb_mu0,colored,Z0,discovery,0.0,central b,1756,1746,1766,5.0,6.12
+07_355fb_mu20,colored,Z0,discovery,20.0,central b,1522,1515,1529,4.0,30.78
+07_355fb_mu50,colored,Z0,discovery,50.0,central b,1454,1445,1462,4.0,46.99
+07_355fb_mu60,colored,Z0,discovery,60.0,central b,1448,1439,1456,4.0,48.65
+07_355fb_mu0,colored,Z0,exclusion,0.0,central b,1885,1870,1898,5.0,3.0
+07_355fb_mu20,colored,Z0,exclusion,20.0,central b,1651,1642,1659,4.0,12.43
+07_355fb_mu50,colored,Z0,exclusion,50.0,central b,1593,1585,1601,4.0,18.66
+07_355fb_mu60,colored,Z0,exclusion,60.0,central b,1587,1579,1595,4.0,19.47
+07_300fb_mu0,colored,Z1160,discovery,0.0,central b,1513,1487,1538,4.0,5.0
+07_300fb_mu20,colored,Z1160,discovery,20.0,central b,1513,1487,1538,4.0,5.0
+07_300fb_mu50,colored,Z1160,discovery,50.0,central b,1513,1487,1538,4.0,5.0
+07_300fb_mu60,colored,Z1160,discovery,60.0,central b,1513,1487,1538,4.0,5.0
+07_300fb_mu0,colored,Z1160,exclusion,0.0,central b,1595,1567,1623,5.0,3.0
+07_300fb_mu20,colored,Z1160,exclusion,20.0,central b,1595,1567,1623,5.0,3.0
+07_300fb_mu50,colored,Z1160,exclusion,50.0,central b,1595,1567,1623,5.0,3.0
+07_300fb_mu60,colored,Z1160,exclusion,60.0,central b,1595,1567,1623,5.0,3.0
+07_332fb_mu0,colored,Z1160,discovery,0.0,central b,1529,1504,1554,4.0,5.0
+07_332fb_mu20,colored,Z1160,discovery,20.0,central b,1529,1504,1554,4.0,5.0
+07_332fb_mu50,colored,Z1160,discovery,50.0,central b,1529,1504,1554,4.0,5.0
+07_332fb_mu60,colored,Z1160,discovery,60.0,central b,1529,1504,1554,4.0,5.0
+07_332fb_mu0,colored,Z1160,exclusion,0.0,central b,1612,1584,1641,5.0,3.0
+07_332fb_mu20,colored,Z1160,exclusion,20.0,central b,1612,1584,1641,5.0,3.0
+07_332fb_mu50,colored,Z1160,exclusion,50.0,central b,1612,1584,1641,5.0,3.0
+07_332fb_mu60,colored,Z1160,exclusion,60.0,central b,1612,1584,1641,5.0,3.0
+07_355fb_mu0,colored,Z1160,discovery,0.0,central b,1539,1514,1565,4.0,5.0
+07_355fb_mu20,colored,Z1160,discovery,20.0,central b,1539,1514,1565,4.0,5.0
+07_355fb_mu50,colored,Z1160,discovery,50.0,central b,1539,1514,1565,4.0,5.0
+07_355fb_mu60,colored,Z1160,discovery,60.0,central b,1539,1514,1565,4.0,5.0
+07_355fb_mu0,colored,Z1160,exclusion,0.0,central b,1623,1595,1652,5.0,3.0
+07_355fb_mu20,colored,Z1160,exclusion,20.0,central b,1623,1595,1652,5.0,3.0
+07_355fb_mu50,colored,Z1160,exclusion,50.0,central b,1623,1595,1652,5.0,3.0
+07_355fb_mu60,colored,Z1160,exclusion,60.0,central b,1623,1595,1652,5.0,3.0
+stage2_300fb,colored,Z1160,exclusion,,zero background,1445,1299,1548,5.0,3.0
+stage2_300fb,colored,Z1160,discovery,,zero background,1329,1191,1457,5.0,5.0
+stage2_332fb,colored,Z1160,exclusion,,zero background,1468,1324,1564,5.0,3.0
+stage2_332fb,colored,Z1160,discovery,,zero background,1352,1199,1478,5.0,5.0
+stage2_355fb,colored,Z1160,exclusion,,zero background,1483,1341,1575,5.0,3.0
+stage2_355fb,colored,Z1160,discovery,,zero background,1368,1213,1492,5.0,5.0
+stage2_300fb,colored,Z0,exclusion,,zero background,1764,1717,1804,5.0,3.0
+stage2_300fb,colored,Z0,discovery,,zero background,1660,1616,1704,5.0,5.0
+stage2_332fb,colored,Z0,exclusion,,zero background,1785,1738,1817,5.0,3.0
+stage2_332fb,colored,Z0,discovery,,zero background,1681,1635,1724,5.0,5.0
+stage2_355fb,colored,Z0,exclusion,,zero background,1798,1752,1826,5.0,3.0
+stage2_355fb,colored,Z0,discovery,,zero background,1694,1648,1738,5.0,5.0
+stage2_300fb,EW,Z1160,exclusion,,zero background,563,459,622,4.0,3.0
+stage2_300fb,EW,Z1160,discovery,,zero background,456,416,536,10.0,5.0
+stage2_332fb,EW,Z1160,exclusion,,zero background,589,467,633,4.0,3.0
+stage2_332fb,EW,Z1160,discovery,,zero background,465,425,557,10.0,5.0
+stage2_355fb,EW,Z1160,exclusion,,zero background,602,485,641,7.0,3.0
+stage2_355fb,EW,Z1160,discovery,,zero background,475,430,570,4.0,5.0
+stage2_300fb,EW,Z0,exclusion,,zero background,795,775,816,5.0,3.0
+stage2_300fb,EW,Z0,discovery,,zero background,732,715,748,4.0,5.0
+stage2_332fb,EW,Z0,exclusion,,zero background,809,788,831,5.0,3.0
+stage2_332fb,EW,Z0,discovery,,zero background,743,727,760,4.0,5.0
+stage2_355fb,EW,Z0,exclusion,,zero background,819,797,841,5.0,3.0
+stage2_355fb,EW,Z0,discovery,,zero background,751,734,769,4.0,5.0
+stage2_300fb_mu0,EW,Z0,discovery,0.0,b_used = UL if 0 passed,724,707,740,4.0,5.35
+stage2_300fb_mu20,EW,Z0,discovery,20.0,b_used = UL if 0 passed,577,560,593,4.0,18.16
+stage2_300fb_mu50,EW,Z0,discovery,50.0,b_used = UL if 0 passed,545,528,561,4.0,23.07
+stage2_300fb_mu60,EW,Z0,discovery,60.0,b_used = UL if 0 passed,544,527,560,4.0,23.27
+stage2_300fb_mu0,EW,Z0,exclusion,0.0,b_used = UL if 0 passed,795,775,816,5.0,3.0
+stage2_300fb_mu20,EW,Z0,exclusion,20.0,b_used = UL if 0 passed,687,671,703,4.0,7.27
+stage2_300fb_mu50,EW,Z0,exclusion,50.0,b_used = UL if 0 passed,655,640,670,4.0,9.55
+stage2_300fb_mu60,EW,Z0,exclusion,60.0,b_used = UL if 0 passed,657,642,673,4.0,9.38
+stage2_332fb_mu0,EW,Z0,discovery,0.0,b_used = UL if 0 passed,732,716,749,4.0,5.5
+stage2_332fb_mu20,EW,Z0,discovery,20.0,b_used = UL if 0 passed,585,568,600,4.0,18.93
+stage2_332fb_mu50,EW,Z0,discovery,50.0,b_used = UL if 0 passed,553,536,569,4.0,24.09
+stage2_332fb_mu60,EW,Z0,discovery,60.0,b_used = UL if 0 passed,552,535,568,4.0,24.29
+stage2_332fb_mu0,EW,Z0,exclusion,0.0,b_used = UL if 0 passed,809,788,831,5.0,3.0
+stage2_332fb_mu20,EW,Z0,exclusion,20.0,b_used = UL if 0 passed,693,677,709,4.0,7.66
+stage2_332fb_mu50,EW,Z0,exclusion,50.0,b_used = UL if 0 passed,668,652,684,4.0,9.46
+stage2_332fb_mu60,EW,Z0,exclusion,60.0,b_used = UL if 0 passed,661,645,676,4.0,10.09
+stage2_355fb_mu0,EW,Z0,discovery,0.0,b_used = UL if 0 passed,738,721,755,4.0,5.6
+stage2_355fb_mu20,EW,Z0,discovery,20.0,b_used = UL if 0 passed,590,573,605,4.0,19.45
+stage2_355fb_mu50,EW,Z0,discovery,50.0,b_used = UL if 0 passed,558,541,574,4.0,24.79
+stage2_355fb_mu60,EW,Z0,discovery,60.0,b_used = UL if 0 passed,557,540,573,4.0,25.0
+stage2_355fb_mu0,EW,Z0,exclusion,0.0,b_used = UL if 0 passed,819,797,841,5.0,3.0
+stage2_355fb_mu20,EW,Z0,exclusion,20.0,b_used = UL if 0 passed,693,677,709,4.0,8.17
+stage2_355fb_mu50,EW,Z0,exclusion,50.0,b_used = UL if 0 passed,664,649,680,4.0,10.44
+stage2_355fb_mu60,EW,Z0,exclusion,60.0,b_used = UL if 0 passed,667,651,682,4.0,10.22
+stage2_300fb_mu0,EW,Z1160,discovery,0.0,b_used = UL if 0 passed,456,416,536,10.0,5.0
+stage2_300fb_mu20,EW,Z1160,discovery,20.0,b_used = UL if 0 passed,456,416,536,10.0,5.0
+stage2_300fb_mu50,EW,Z1160,discovery,50.0,b_used = UL if 0 passed,456,416,536,10.0,5.0
+stage2_300fb_mu60,EW,Z1160,discovery,60.0,b_used = UL if 0 passed,456,416,536,10.0,5.0
+stage2_300fb_mu0,EW,Z1160,exclusion,0.0,b_used = UL if 0 passed,563,459,622,4.0,3.0
+stage2_300fb_mu20,EW,Z1160,exclusion,20.0,b_used = UL if 0 passed,563,459,622,4.0,3.0
+stage2_300fb_mu50,EW,Z1160,exclusion,50.0,b_used = UL if 0 passed,563,459,622,4.0,3.0
+stage2_300fb_mu60,EW,Z1160,exclusion,60.0,b_used = UL if 0 passed,563,459,622,4.0,3.0
+stage2_332fb_mu0,EW,Z1160,discovery,0.0,b_used = UL if 0 passed,465,425,557,10.0,5.0
+stage2_332fb_mu20,EW,Z1160,discovery,20.0,b_used = UL if 0 passed,465,425,557,10.0,5.0
+stage2_332fb_mu50,EW,Z1160,discovery,50.0,b_used = UL if 0 passed,465,425,557,10.0,5.0
+stage2_332fb_mu60,EW,Z1160,discovery,60.0,b_used = UL if 0 passed,465,425,557,10.0,5.0
+stage2_332fb_mu0,EW,Z1160,exclusion,0.0,b_used = UL if 0 passed,589,467,633,4.0,3.0
+stage2_332fb_mu20,EW,Z1160,exclusion,20.0,b_used = UL if 0 passed,589,467,633,4.0,3.0
+stage2_332fb_mu50,EW,Z1160,exclusion,50.0,b_used = UL if 0 passed,589,467,633,4.0,3.0
+stage2_332fb_mu60,EW,Z1160,exclusion,60.0,b_used = UL if 0 passed,589,467,633,4.0,3.0
+stage2_355fb_mu0,EW,Z1160,discovery,0.0,b_used = UL if 0 passed,475,430,570,4.0,5.0
+stage2_355fb_mu20,EW,Z1160,discovery,20.0,b_used = UL if 0 passed,475,430,570,4.0,5.0
+stage2_355fb_mu50,EW,Z1160,discovery,50.0,b_used = UL if 0 passed,475,430,570,4.0,5.0
+stage2_355fb_mu60,EW,Z1160,discovery,60.0,b_used = UL if 0 passed,475,430,570,4.0,5.0
+stage2_355fb_mu0,EW,Z1160,exclusion,0.0,b_used = UL if 0 passed,603,485,641,7.0,3.0
+stage2_355fb_mu20,EW,Z1160,exclusion,20.0,b_used = UL if 0 passed,603,485,641,7.0,3.0
+stage2_355fb_mu50,EW,Z1160,exclusion,50.0,b_used = UL if 0 passed,603,485,641,7.0,3.0
+stage2_355fb_mu60,EW,Z1160,exclusion,60.0,b_used = UL if 0 passed,603,485,641,7.0,3.0
+stage2_300fb_mu0,colored,Z0,discovery,0.0,b_used = UL if 0 passed,1647,1604,1690,4.0,5.35
+stage2_300fb_mu20,colored,Z0,discovery,20.0,b_used = UL if 0 passed,1446,1419,1472,4.0,18.16
+stage2_300fb_mu50,colored,Z0,discovery,50.0,b_used = UL if 0 passed,1416,1390,1441,4.0,23.07
+stage2_300fb_mu60,colored,Z0,discovery,60.0,b_used = UL if 0 passed,1414,1389,1440,4.0,23.27
+stage2_300fb_mu0,colored,Z0,exclusion,0.0,b_used = UL if 0 passed,1764,1718,1804,5.0,3.0
+stage2_300fb_mu20,colored,Z0,exclusion,20.0,b_used = UL if 0 passed,1590,1546,1630,4.0,7.27
+stage2_300fb_mu50,colored,Z0,exclusion,50.0,b_used = UL if 0 passed,1539,1497,1579,4.0,9.55
+stage2_300fb_mu60,colored,Z0,exclusion,60.0,b_used = UL if 0 passed,1542,1499,1583,4.0,9.38
+stage2_332fb_mu0,colored,Z0,discovery,0.0,b_used = UL if 0 passed,1661,1617,1705,5.0,5.5
+stage2_332fb_mu20,colored,Z0,discovery,20.0,b_used = UL if 0 passed,1453,1426,1480,4.0,18.93
+stage2_332fb_mu50,colored,Z0,discovery,50.0,b_used = UL if 0 passed,1423,1397,1448,4.0,24.09
+stage2_332fb_mu60,colored,Z0,discovery,60.0,b_used = UL if 0 passed,1422,1396,1447,4.0,24.29
+stage2_332fb_mu0,colored,Z0,exclusion,0.0,b_used = UL if 0 passed,1785,1738,1817,5.0,3.0
+stage2_332fb_mu20,colored,Z0,exclusion,20.0,b_used = UL if 0 passed,1599,1556,1640,4.0,7.66
+stage2_332fb_mu50,colored,Z0,exclusion,50.0,b_used = UL if 0 passed,1560,1516,1600,4.0,9.46
+stage2_332fb_mu60,colored,Z0,exclusion,60.0,b_used = UL if 0 passed,1548,1504,1588,4.0,10.09
+stage2_355fb_mu0,colored,Z0,discovery,0.0,b_used = UL if 0 passed,1671,1626,1715,5.0,5.6
+stage2_355fb_mu20,colored,Z0,discovery,20.0,b_used = UL if 0 passed,1458,1431,1485,4.0,19.45
+stage2_355fb_mu50,colored,Z0,discovery,50.0,b_used = UL if 0 passed,1428,1402,1453,4.0,24.79
+stage2_355fb_mu60,colored,Z0,discovery,60.0,b_used = UL if 0 passed,1427,1401,1452,4.0,25.0
+stage2_355fb_mu0,colored,Z0,exclusion,0.0,b_used = UL if 0 passed,1798,1752,1826,5.0,3.0
+stage2_355fb_mu20,colored,Z0,exclusion,20.0,b_used = UL if 0 passed,1599,1556,1640,4.0,8.17
+stage2_355fb_mu50,colored,Z0,exclusion,50.0,b_used = UL if 0 passed,1554,1510,1594,4.0,10.44
+stage2_355fb_mu60,colored,Z0,exclusion,60.0,b_used = UL if 0 passed,1558,1514,1598,4.0,10.22
+stage2_300fb_mu0,colored,Z1160,discovery,0.0,b_used = UL if 0 passed,1329,1191,1457,5.0,5.0
+stage2_300fb_mu20,colored,Z1160,discovery,20.0,b_used = UL if 0 passed,1329,1191,1457,5.0,5.0
+stage2_300fb_mu50,colored,Z1160,discovery,50.0,b_used = UL if 0 passed,1329,1191,1457,5.0,5.0
+stage2_300fb_mu60,colored,Z1160,discovery,60.0,b_used = UL if 0 passed,1329,1191,1457,5.0,5.0
+stage2_300fb_mu0,colored,Z1160,exclusion,0.0,b_used = UL if 0 passed,1445,1299,1549,5.0,3.0
+stage2_300fb_mu20,colored,Z1160,exclusion,20.0,b_used = UL if 0 passed,1445,1299,1549,5.0,3.0
+stage2_300fb_mu50,colored,Z1160,exclusion,50.0,b_used = UL if 0 passed,1445,1299,1549,5.0,3.0
+stage2_300fb_mu60,colored,Z1160,exclusion,60.0,b_used = UL if 0 passed,1445,1299,1549,5.0,3.0
+stage2_332fb_mu0,colored,Z1160,discovery,0.0,b_used = UL if 0 passed,1352,1199,1478,5.0,5.0
+stage2_332fb_mu20,colored,Z1160,discovery,20.0,b_used = UL if 0 passed,1352,1199,1478,5.0,5.0
+stage2_332fb_mu50,colored,Z1160,discovery,50.0,b_used = UL if 0 passed,1352,1199,1478,5.0,5.0
+stage2_332fb_mu60,colored,Z1160,discovery,60.0,b_used = UL if 0 passed,1352,1199,1478,5.0,5.0
+stage2_332fb_mu0,colored,Z1160,exclusion,0.0,b_used = UL if 0 passed,1468,1324,1565,5.0,3.0
+stage2_332fb_mu20,colored,Z1160,exclusion,20.0,b_used = UL if 0 passed,1468,1324,1565,5.0,3.0
+stage2_332fb_mu50,colored,Z1160,exclusion,50.0,b_used = UL if 0 passed,1468,1324,1565,5.0,3.0
+stage2_332fb_mu60,colored,Z1160,exclusion,60.0,b_used = UL if 0 passed,1468,1324,1565,5.0,3.0
+stage2_355fb_mu0,colored,Z1160,discovery,0.0,b_used = UL if 0 passed,1368,1213,1492,5.0,5.0
+stage2_355fb_mu20,colored,Z1160,discovery,20.0,b_used = UL if 0 passed,1368,1213,1492,5.0,5.0
+stage2_355fb_mu50,colored,Z1160,discovery,50.0,b_used = UL if 0 passed,1368,1213,1492,5.0,5.0
+stage2_355fb_mu60,colored,Z1160,discovery,60.0,b_used = UL if 0 passed,1368,1213,1492,5.0,5.0
+stage2_355fb_mu0,colored,Z1160,exclusion,0.0,b_used = UL if 0 passed,1484,1341,1575,5.0,3.0
+stage2_355fb_mu20,colored,Z1160,exclusion,20.0,b_used = UL if 0 passed,1484,1341,1575,5.0,3.0
+stage2_355fb_mu50,colored,Z1160,exclusion,50.0,b_used = UL if 0 passed,1484,1341,1575,5.0,3.0
+stage2_355fb_mu60,colored,Z1160,exclusion,60.0,b_used = UL if 0 passed,1484,1341,1575,5.0,3.0

@@ -13,9 +13,13 @@ Stage B of the publication plan: replace the 8 infinitely thin barrel layers of 
 | `sim/` | `detsim07.py` (elements, helix propagation through barrel + disks, electron material effects, hit response incl. end-caps, pixel merging, pile-up sampling); `cop07.py` (paper COP on 8 per-hit stations, D1) |
 | `tests/` | T01 geometry coverage (R3 space points, module counts); T02 propagation vs Stage 2 helix / electron code and an independent Boris integrator; T03 end-cap hit response, re-smearing, disk merging, station COP on synthetic planes; T04 COP speed-ups give exactly the plain-loop candidates; T05 stage2 configuration reproduces the Stage 2 background event by event. Logs in `logs/` |
 | `tables/` | test and step outputs (`T01_coverage_vs_eta.csv`, `M01_conversion_*.csv`) |
-| `DECISIONS.md` | D1–D3 with reasons and references |
+| `DECISIONS.md` | D1–D5 with reasons and references |
 | `backgrounds/` | `M01_conversion_probability.py` (D2); `BACKGROUND_CANDIDATES.md` (which processes can reach the signal region and why, with numbers); `xsec_mg5/` with the MG5 cross sections of Z(νν̄)+j and W(ℓν)+j at 13.6 TeV (`X01_*`); `logs/` |
 | `signal/` | `SIGNAL_REDO.md`: which parts of the signal must be recomputed (no new cross sections or generation; propagation, reconstruction and reach yes) |
+| `reach/` | `R01_reach_07.py` (Stage 2 reach method), `R02_results_summary.py` (all numbers in one file), `R00_postprocess.sh` (R01 → plot data → figures → T11, T09 → R02), `R00_wait_final.sh` |
+| `FIGURES_ROOT_2026-11-17/` | ROOT figures G01–G10 of the large-sample study, with data and provenance (own README) |
+| `RESULTS_07_LARGE_SAMPLES.md` | results of the large-sample study: samples, end-cap gain checks, reach, contour edges, background, reproducibility, open points, tests |
+| `compare/` | ideal vs ATLAS (X02), laptop vs server (X01), contour edges (X03), η acceptance (X04), end-cap flags (X05), end-cap plane composition (D01); `X02_SUMMARY.md`; figure X02 |
 
 ## Status
 
@@ -27,7 +31,8 @@ Stage B of the publication plan: replace the 8 infinitely thin barrel layers of 
 | Geometry code + test T01 | done, T01_PASS |
 | Background candidates + MG5 σ (Z(νν̄)+j 10.8 pb, W(ℓν)+j ≤ 12.2 pb) | done (LO, parton level) |
 | Module tilts and gaps, field map, dE/dx in the integrator, SCT 01X timing, hit efficiency and noise | to do |
-| New signal propagation and reach; background simulation B01–B04 | to do |
+| Large signal samples (10k generated per point) through the 07 geometry; reach; ROOT figures | **done (2026-11-17), from the server runs** `signal/runs/large_atlas` and `large_ideal` (all Λ 0.1–25 keV): `RESULTS_07_LARGE_SAMPLES.md`, `compare/X02_SUMMARY.md` (ideal vs ATLAS, McNemar, crossings), `tables/R01_*`, `R02_results_summary.md`, `X0*`, `D01_*`, `FIGURES_ROOT_2026-11-17/` (G01–G10), `compare/FIGURES_X02/`; tests T08–T11 PASS. Laptop runs superseded (`signal/runs/atlas_large_laptop_INTERIM_2026-11-17`, kept for the reproducibility check). EW 1200 GeV generated, propagation pending |
+| Other backgrounds B02–B04; more C01 events (lower upper limit) | to do |
 | Decisions D1 (ATLAS-like stations, R14), D2 (conversion from material), D3 (background order) | done, `DECISIONS.md` |
 | M01: conversion probability of the Z+γ photons from the material | done: before the IBL 0.40% (all) / 0.27% (\|η\| < 1.8) vs flat 1%; IBL 2.8% / 2.2%; `tables/M01_*`, `backgrounds/logs/M01_*` |
 | Detector simulation + station COP (`sim/`) and tests T01–T07 | done: all PASS (`logs/T0*.log`); T06 SCT settings D4, T06e C01 regression, T07 G01 signal reproduces Stage 2 on 2949 (event, Λ) rows of 6 samples |

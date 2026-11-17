@@ -1,0 +1,9 @@
+{
+ "figure": "X02_contours_ideal_vs_atlas_332fb",
+ "script": "compare/make_figures_X02.py (ROOT 6.40.04)",
+ "data": {
+  "X02_contours_332fb.csv": "de5c71848089dc1dea6be8e0d3a9e7805a92a4efdb7b17e95b1ab0e6c5e5154e",
+  "X02_N_grid_atlas_300fb.csv": "d9db66999b3b6c6e2061295b5e0b2b8b953b007ab107289a9aa0251d7edb414d"
+ },
+ "data_prepared_by": "compare/X02_ideal_vs_atlas.py"
+}

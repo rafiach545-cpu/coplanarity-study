@@ -1,0 +1,4 @@
+{'channel': 'colored', 'mass_gev': 1200, 'n_chunks': 5, 'n_generated': 10000, 'n_matched': 3960, 'sigma_matched_fb': np.float64(11.732000000000001), 'sigma_matched_err_fb': np.float64(0.1467332641223523), 'n_trigger': 1093, 'n_trigger_both_charged': 339}
+L02_EXIT=0
+ PYTHIA Error in ProcessLevel::init: no process switched on
+ PYTHIA Abort from Pythia::init: processLevel initialization failed
