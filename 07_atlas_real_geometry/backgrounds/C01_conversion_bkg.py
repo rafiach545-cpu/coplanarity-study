@@ -95,7 +95,7 @@ def event(i):
         else:                                                                         # elements crossed before / at the conversion are not hit
             before = {n for n, *_ in regs[:k + 1]}; els_pair = [e for e in ELS if e["name"] not in before]
         raw = [] if A.pileup_only else pair_hits(np.array(cp, float), p, i, gS2, els_pair, scts[0])
-        merged0, ms = D.overlay(raw, pu)
+        merged0, ms = D.overlay(raw, pu, adjacency=A.merge_adj)
         for sct in scts:
             merged = merged0 if sct == scts[0] else D.resmear(merged0, sct)
             res, w = cop07.analyse(merged, (0.0, 0.0, z0), ELS)
@@ -108,6 +108,7 @@ def event(i):
             rows.append(dict(base, status="ok", region=k, region_element=nm, conv_r_cm=float(math.hypot(cp[0], cp[1])), conv_z_cm=float(cp[2]),
                              p_conv=pk, sct=sct, n_conv_hits_raw=len(raw), n_pu_interactions=st["n_pu_interactions"], n_pu_hits_raw=len(pu),
                              n_hits_merged=len(merged), **res, winner_conv_hits=anc["conv"], winner_pileup_hits=anc["pileup"], winner_mixed_hits=anc["mixed"]))
+            if A.merge_adj is not None: rows[-1]["merge_adj"] = A.merge_adj
     return rows
 
 
@@ -122,6 +123,7 @@ def main():
     ap.add_argument("--material", default="on", choices=["on", "off"]); ap.add_argument("--sct", default="both", choices=["Z0", "Z1160", "A580", "both"])
     ap.add_argument("--first", type=int, default=0); ap.add_argument("--workers", type=int, default=10); ap.add_argument("--tag", default="")
     ap.add_argument("--photons", default=PHF, help="photon csv (default: the 9130 Stage 2 photons)"); ap.add_argument("--pool", default=POOLF, help="minimum-bias pool csv (.csv, .csv.gz, .csv.xz)")
+    ap.add_argument("--merge-adj", type=float, default=None, help="pixel merging adjacency in pixel-index units (sensitivity test 2026-11-17; default: production = 1)")
     ap.add_argument("--pileup-only", action="store_true", help="no photon pair: pile-up hits only (fake planes from pile-up alone)")
     a = ap.parse_args(); a.material = a.material == "on"
     n = len(pd.read_csv(a.photons)); n = min(n, a.first) if a.first else n

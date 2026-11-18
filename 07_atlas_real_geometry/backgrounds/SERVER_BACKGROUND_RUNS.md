@@ -171,3 +171,33 @@ $P S01_conversion_summary.py runs/C01_atlas_PUonly_A580_mu20 runs/C01_atlas_PUon
 With 0 passing events the upper limit is 1.5 × 10⁻⁴ per event. The T12 test run (20 events, μ = 50, Z0) gave 11 planes and 0 passing events.
 
 **How to use the result.** This probability multiplies the number of triggered events. Every MET-triggered event (Z(νν̄)+jets, W+jets, Zγ; about 10⁷ at 332 fb⁻¹, `BACKGROUND_CANDIDATES.md` A) carries pile-up. Even 0 passing out of 20 000 therefore does not prove the background is below one event. Factorising the rate (plane rate × multiplicity × Δs/Δw pass fractions) would be needed; this is a step for later.
+
+## (e) Sensitivity test: pixel-merge distance, μ = 50, 9 130 photons (server)
+
+**What it measures.** The background with pixel merging at adjacency 0, 1 and 2, for Z0 and A580, in both geometries. Adjacency is the merge distance in pixel-index units; production uses 1 (touching pixels).
+- Pixel indices are integers. A distance of 0.5 pixel (−50%) therefore merges only hits in the same pixel, which is adjacency 0. A distance of 1.5 pixels (+50%) merges exactly what adjacency 1 merges.
+- So adjacency 0 (−50% and −100%) and adjacency 2 (+100%) are the variants that change anything.
+- The multiplicity threshold (14 / 15 / 16) is applied afterwards by `compare/X11_merge_mult_sensitivity.py`. Test T13 checks that this after-the-fact threshold reproduces the stored `mult` on every row.
+
+**Pool and reference.** Each variant is compared with the **server** adjacency 1 run, so that machine floating point (RESULTS §9) cancels. Use the laptop pool (option (1) above) so that the pool is also identical.
+
+```bash
+POOLL=$S2/inputs/minbias_pool_20000_13p6TeV.csv        # unpacked laptop pool, sha256 52b465f5...126b
+for sct in Z0 A580; do for a in 0 1 2; do
+  setsid nohup $P C01_conversion_bkg.py atlas 50 --sct $sct --merge-adj $a --pool $POOLL --tag sens_${sct}_a$a --workers 40 \
+        > ../logs/C01_atlas_sens_${sct}_a${a}_mu50.log 2>&1 < /dev/null &
+done; done
+# Ideal (cheap): one job, run one after another
+setsid nohup bash -c "for sct in Z0 A580; do for a in 0 1 2; do $P C01_conversion_bkg.py stage2 50 --sct \$sct --merge-adj \$a --pool $POOLL --tag sens_\${sct}_a\$a --workers 40; done; done" \
+      > ../logs/C01_stage2_sens_mu50.log 2>&1 < /dev/null &
+# when all show C01_EXIT=0:
+git add runs/C01_*_sens_*_mu50 ../logs/C01_*sens*.log
+git commit -m "07: C01 merge-adjacency sensitivity (0/1/2), Z0 and A580, mu = 50, ATLAS and Ideal" && git push
+```
+
+| Job (40 workers) | Estimated time |
+|---|---|
+| ATLAS, each of 6 runs (Z0 / A580 × adjacency 0 / 1 / 2) | ≈ 45 min (≈ 0.7 h if all six share 160 cores: about 4 at a time) |
+| Ideal, 6 runs one after another | ≈ 6 × 8 min ≈ 50 min |
+
+The whole of (e) takes about 1.5–2 h on 160 cores (uncertainty about ×2). After pulling, `compare/X11_merge_mult_sensitivity.py` adds the variants to `tables/X11_background_sensitivity.csv`.

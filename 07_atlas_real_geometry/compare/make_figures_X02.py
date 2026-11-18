@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""07 X02 figure (ROOT, 2026-11-17): N = 3 / N = 5 contours at 332 fb^-1, ideal (Stage 2 barrel geometry) vs ATLAS geometry on the same 10k-generated events,
-with the Stage 2 (2k) contour for reference. Contour lines from tables/X02_contours_332fb.csv (compare/X02_ideal_vs_atlas.py, 06 contour method, T10);
+"""07 X02 figure (ROOT, 2026-11-17): N = 3 / N = 5 contours at 332 fb^-1, Stage 1 · Run 3 · Ideal (Knapen barrel geometry) vs Stage 2 · Run 3 · ATLAS on the same 10k-generated events,
+with the Stage 1 · Run 3 · Ideal (2k) contour for reference. Contour lines from tables/X02_contours_332fb.csv (compare/X02_ideal_vs_atlas.py, 06 contour method, T10);
 grid nodes from tables/X02_N_grid_S2_Run3_ATLAS_300fb.csv. Style and helpers of 06_publication/FIGURES_ROOT_2026-11-04/make_figures_root.py, executed unchanged.
 Run with /home/rafia/miniconda3/envs/root-env/bin/python. Output: compare/FIGURES_X02/X02_contours_ideal_vs_atlas_332fb/."""
 import os

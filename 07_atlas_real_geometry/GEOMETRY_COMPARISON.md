@@ -171,7 +171,7 @@ The fixed cut removes only the thin band 2.50–2.54, so the acceptance is set a
 | End-caps (6 pixel disks, 44 SCT ring surfaces) | **ATLAS only** |
 | Fiducial rule | different: 8 barrel layers vs 8 stations with \|η\| < 2.5 |
 | η acceptance | about \|η\| < 1.2 vs \|η\| < 2.5 |
-| SCT setting A580 (ATLAS intrinsic 17 µm × 580 µm) | added in Stage 2 (D4); the barrel response is the same code |
+| SCT setting A580 (ATLAS intrinsic 17 µm × 580 µm) | added in Stage 2 · Run 3 · ATLAS (D4); the barrel response is the same code |
 | Material values | different sources (2009 figure vs Run-2 papers); they affect only the electron background and the conversion probability |
 | Beam pipe | Stage 1: r = 2.35 cm, flat 1% conversion. Stage 2: inner r = 23.5 mm (R6), 0.227% X0 + layer-by-layer conversion |
 | Field, timing, integrator, seeds, coplanarity algorithm | same |
@@ -193,7 +193,7 @@ Earlier files said that the ideal radii are "the ATLAS radii" and that the half-
 
 **Background (C01, converted photons).** The material enters in two places:
 1. **Where the photon converts.** The probability is computed layer by layer, P = 1 − exp(−7t/9) (R7), with t taken from the x/X0 of §4 (M01).
-2. **The e⁺e⁻ tracks.** They lose energy by bremsstrahlung and ionisation at every element crossed: barrel layers, and also the disks in Stage 2. This is the model of R11, App. A, as in Stages 0–1.
+2. **The e⁺e⁻ tracks.** They lose energy by bremsstrahlung and ionisation at every element crossed: barrel layers, and also the disks in Stage 2 · Run 3 · ATLAS. This is the model of R11, App. A, as in Stages 0–1.
 
 ### 8.1 Multiple-scattering estimate for the quirks (2026-11-17)
 

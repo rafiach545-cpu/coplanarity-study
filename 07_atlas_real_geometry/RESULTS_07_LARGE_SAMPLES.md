@@ -282,6 +282,50 @@ Background at 332 fb⁻¹, central values (`tables/X08_background_used.csv`):
 
 **History.** Before 2026-11-17 the UL was used as b when no photon passed. That made the ATLAS A580 reach at μ = 0 lower than at μ = 20, which is unphysical; it is now only the systematic variant.
 
+### 7.1 Sensitivity to pixel merging and to the multiplicity threshold (2026-11-18)
+
+**Why.** The background photons are one hit short of the multiplicity cut (14 hits where 15 are needed, §7). Two choices decide whether that hit is missing:
+- the pixel-merge distance, because close e⁺e⁻ hits merge into one pixel cluster;
+- the threshold itself.
+
+**Variants.**
+- **Merge adjacency a**, in pixel-index units; production is a = 1 (touching pixels). Pixel indices are integers. A distance of −50% (0.5 pixel) therefore merges only hits in the same pixel, which is a = 0, and +50% (1.5 pixels) merges exactly what a = 1 merges. The variants are a = 0 and a = 2 (+100%).
+- **Threshold T**, the total hits on the 8 stations. T = 15 is the paper's rule and production. T = 14 is one hit looser. T = 16 needs all 8 stations with 2 hits.
+
+**Method.** `compare/X11_merge_mult_sensitivity.py`, `tables/X11_*.csv`.
+- T is applied after the fact to the same winning plane. Test T13 checks that this reproduces the stored multiplicity on all 90 418 background rows.
+- Test T13 also checks that a = 1 reproduces production row by row (C01 and G01).
+
+**Background, nominal merging** (events at 332 fb⁻¹; Zγ conversions, 9 130 photons):
+
+| setting | μ | T = 14 | T = 15 (production) | T = 16 |
+|---|---|---|---|---|
+| ATLAS Z0 | 0 | 48.5 ± 1.4 | 0.34 ± 0.12 | 0 |
+| ATLAS Z0 | 50 | 172 ± 7 | 69.2 ± 4.4 | 7.5 ± 1.3 |
+| ATLAS A580 | 0 | 0.39 ± 0.10 | 0 | 0 |
+| ATLAS A580 | 50 | 1.22 ± 0.45 | 0.34 ± 0.24 | 0 |
+| Ideal A580 | 50 | 1.09 ± 0.30 | 0.33 ± 0.17 | 0 |
+
+- The A580 rows will be replaced by the 100k-photon runs when they arrive.
+- The background with merge adjacency 0 and 2 needs the server runs of `backgrounds/SERVER_BACKGROUND_RUNS.md` (e) and is not yet available.
+
+**Signal** (all triggered events, Λ = 1–10 keV, both geometries; k relative to a = 1, T = 15; `signal/runs/sens_merge`, figure `FIGURES_SIGNAL_2026-11-18/S05`):
+
+| sample | setting | T = 14 | T = 16 | a = 0 | a = 2 | a = 2, T = 16 |
+|---|---|---|---|---|---|---|
+| EW 800 GeV | A580, ATLAS / Ideal | 1.10 / 1.09 | 0.81 / 0.81 | 1.21 / 1.21 | 0.84 / 0.81 | 0.66 / 0.69 |
+| EW 800 GeV | Z0, ATLAS / Ideal | 1.04 / 1.04 | 0.87 / 0.88 | 1.08 / 1.08 | 0.93 / 0.92 | 0.79 / 0.80 |
+| colored 1800 GeV | A580, ATLAS / Ideal | 1.08 / 1.09 | 0.83 / 0.87 | 1.16 / 1.16 | 0.84 / 0.84 | 0.69 / 0.73 |
+| colored 1800 GeV | Z0, ATLAS / Ideal | 1.04 / 1.04 | 0.89 / 0.88 | 1.07 / 1.07 | 0.91 / 0.91 | 0.82 / 0.81 |
+
+**Conclusions.**
+1. The background is not robust against a looser threshold.
+   - T = 14 makes Z0 large even without pile-up (0.34 → 48.5 events at μ = 0).
+   - For A580 it raises the background about 3.6 times, but it stays near one event (1.2 at μ = 50).
+2. T = 16 removes the A580 background (0 at every μ) and cuts Z0 at μ = 50 by 9 times. The signal loses 13–19% (A580) or 11–13% (Z0).
+3. The signal changes by at most about ±20% for a = 0 or 2 and by −19% to +10% for T. The changes are the same in both geometries (ATLAS / Ideal within the errors), so the end-cap gain does not depend on these choices.
+4. This is a 1-hit-sensitive selection. The merge distance and the threshold must be quoted with the result. The A580 conclusion "background below about one event" holds for T = 14–16; the Z0 conclusion holds only for T ≥ 15.
+
 ## 8. Integration failures
 
 The integrator cannot reach its minimum number of steps per period ("MIN_STEPS_PER_PERIOD not reached"). These events count as not fiducial, as in 06 S2.

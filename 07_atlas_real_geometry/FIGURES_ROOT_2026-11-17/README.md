@@ -38,21 +38,21 @@ This runs R01 reach, then `prepare_data_07.py` (writes `data/`), `make_figures_0
 
 | Figure | Content | Data |
 |---|---|---|
-| G01 | σ, trigger efficiency, f_ch vs m_Q: 07 10k samples vs Stage 2 2k | `xsec_and_trigger.csv` |
+| G01 | σ, trigger efficiency, f_ch vs m_Q: Stage 2 · Run 3 · ATLAS 10k vs Stage 1 · Run 3 · Ideal 2k | `xsec_and_trigger.csv` |
 | G02 | quirk velocity β = \|p\|/E and β_T = p_T/E | `beta_summary.csv`, `beta_hist.csv` |
-| G03 | fiducial efficiency vs Λ: 07 rule, barrel rule on 07 trajectories, Stage 2 | `efficiency_vs_lambda.csv` |
-| G04 | selection efficiency k/n vs Λ for Z0 / A580 / Z1160, and Stage 2 | `efficiency_vs_lambda.csv` |
-| G05 | reach contours, zero background, 332 fb⁻¹, 3 SCT settings × 2 channels, with Stage 2 | `contours.csv`, `grid_points.csv` |
+| G03 | fiducial efficiency vs Λ: 07 rule, barrel rule on Stage 2 · Run 3 · ATLAS trajectories, Stage 1 · Run 3 · Ideal (2k) | `efficiency_vs_lambda.csv` |
+| G04 | selection efficiency k/n vs Λ for Z0 / A580 / Z1160, and Stage 1 · Run 3 · Ideal (2k) | `efficiency_vs_lambda.csv` |
+| G05 | reach contours, zero background, 332 fb⁻¹, 3 SCT settings × 2 channels, with Stage 1 · Run 3 · Ideal (2k) | `contours.csv`, `grid_points.csv` |
 | G06 | reach with the converted-photon background vs μ, A580 | `contours.csv`, `background_thresholds.csv` |
 | G07 | the same for Z0 (σ_long = 0) | `contours.csv`, `background_thresholds.csv` |
-| G08 | converted-photon background vs μ (barrel-like / end-cap parts, upper limits, Stage 2) | `background_vs_mu.csv` |
+| G08 | converted-photon background vs μ (barrel-like / end-cap parts, upper limits, Stage 1 · Run 3 · Ideal) | `background_vs_mu.csv` |
 | G09 | maximum reach summary | `reach_summary.csv` |
 | G10 | conversion probability vs \|η\| from the material (M01), with variants | `material_conversion_vs_eta.csv` |
 
 ## Checks
 
 - **T10:** the contour code reproduces the 06 contour lines exactly.
-- **T09:** the reach code reproduces the Stage 2 tables exactly.
+- **T09:** the reach code reproduces the Stage 1 · Run 3 · Ideal (2k, 06 S2) tables exactly.
 - **T11:** the grid is recounted independently from the raw files.
 
 ## Layout note

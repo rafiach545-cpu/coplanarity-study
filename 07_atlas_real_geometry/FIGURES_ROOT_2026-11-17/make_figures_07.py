@@ -25,7 +25,7 @@ def gerr(xs, ys, *a, **k):                                                 # emp
 def mk(n, xs, ys): g = ROOT.TGraph(n, array.array("d", xs), array.array("d", ys)); KEEP.append(g); return g
 HDR = "Stage 2 #upoint Run 3 #upoint ATLAS: #sqrt{s} = 13.6 TeV, ATLAS inner detector (barrel + end-caps)"
 
-# ---------- G01: cross section, trigger efficiency, charge fraction (07 10k vs Stage 2 2k)
+# ---------- G01: cross section, trigger efficiency, charge fraction (Stage 2 · Run 3 · ATLAS 10k vs Stage 1 · Run 3 · Ideal 2k)
 X = read("xsec_and_trigger.csv")
 def ser(ch, s, key):
     rows = sorted([r for r in X if r["channel"] == ch and r["sample"] == s], key=lambda r: fl(r["mass_gev"])); return [fl(r["mass_gev"]) for r in rows], rows
@@ -91,7 +91,7 @@ eff4("G03_fiducial_efficiency", "Stage 2 #upoint Run 3 #upoint ATLAS (13.6 TeV):
                 (o[("eps_fid", "S1_Run3_Ideal_2k")], "S1#upointRun 3#upointIdeal (2k)", "p")],
      """**G03.** Fiducial efficiency vs Λ for four mass points, 13.6 TeV. Blue: the Stage 2 · Run 3 · ATLAS rule (each quirk's true hits within 25 ns cover the 8 ATLAS-like stations of D1, barrel or
 end-cap, and the line PV → station-8 hit has |η| < 2.5). Orange: the ideal-geometry barrel rule (all 8 barrel layers crossed inside their length, t < 25 ns) on the same 07
-trajectories. Grey: Stage 1 · Run 3 · Ideal (2000 generated events). Wilson 68% errors; markers shifted by ±3% in Λ for visibility. Source: tables/R01_N_grid_300fb.csv, Stage 2
+trajectories. Grey: Stage 1 · Run 3 · Ideal (2000 generated events). Wilson 68% errors; markers shifted by ±3% in Λ for visibility. Source: tables/R01_N_grid_300fb.csv, Stage 1 · Run 3 · Ideal (2k)
 S2_N_grid_300fb.csv via data/efficiency_vs_lambda.csv.""")
 def d4(ch, m):
     """k / n (selected / propagated)"""
@@ -108,7 +108,7 @@ eff4("G04_selection_efficiency", "Stage 2 #upoint Run 3 #upoint ATLAS (13.6 TeV)
 settings of D4 (Stage 2 · Run 3 · ATLAS, 10k samples) and for Stage 1 · Run 3 · Ideal (grey, open; 2000 generated). Wilson 68% errors; ATLAS markers shifted by ±3% in Λ.
 Source: data/efficiency_vs_lambda.csv.""")
 
-# ---------- G05: reach contours, zero background, 332 fb^-1 (07, three settings) vs Stage 2
+# ---------- G05: reach contours, zero background, 332 fb^-1 (Stage 2 · Run 3 · ATLAS, three settings) vs Stage 1 · Run 3 · Ideal
 CON = read("contours.csv"); GP = read("grid_points.csv")
 exec(_src[_src.index("def segs("):_src.index("def grid4(")])                 # segs, draw_contours, draw_points of 06, unchanged
 c = ROOT.TCanvas("G05", "", 1800, 1200); hd = ROOT.TPad("hd", "", 0, 0.95, 1, 1); top = ROOT.TPad("top", "", 0, 0.09, 1, 0.95); bot = ROOT.TPad("bot", "", 0, 0, 1, 0.09)
@@ -182,7 +182,7 @@ legend(0.15, 0.62, 0.72, 0.93, LE, size=0.03); c.RedrawAxis()
 save(c, "G08_background_vs_pileup", """**G08.** Expected converted-photon background in the signal region at 332 fb⁻¹ vs pile-up μ, 13.6 TeV (C01, Z(νν̄)γ+j, 9130 photons after MET > 200 GeV,
 conversion probability from the ATLAS material M01). Violet: SCT σ_long = 0, split into planes on barrel layers only and planes with at least one end-cap element. Blue:
 the ATLAS intrinsic SCT resolution (A580, D4; μ = 0, 20, 50). Triangles: 95% upper limit where no photon passed (largest per-region limit); Z1160 has no passing photon at any μ.
-Grey: Stage 1 · Run 3 · Ideal (barrel, flat 1% conversion). Errors: MC statistics. Source: tables/S02_conversion_breakdown.csv, tables/R01_background.csv, Stage 2
+Grey: Stage 1 · Run 3 · Ideal (barrel, flat 1% conversion). Errors: MC statistics. Source: tables/S02_conversion_breakdown.csv, tables/R01_background.csv, Stage 1 · Run 3 · Ideal
 S2_background_13p6TeV.csv via data/background_vs_mu.csv.""", ["background_vs_mu.csv"])
 
 # ---------- G09: maximum reach summary

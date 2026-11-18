@@ -245,8 +245,11 @@ def resmear(hits, sct):
     return out
 
 
-def _merge_disk_pixels(hits):
-    """Neighbour merging on a pixel disk: connected components of hits with |d idx_phi| <= 1 and |d idx_r| <= 1 (same element)."""
+MERGE_ADJ = float(os.environ.get("MERGE_ADJ", "1"))   # 2026-11-17 sensitivity test: pixel merging adjacency in pixel-index units (1 = touching pixels, production)
+
+
+def _merge_disk_pixels(hits, adjacency=1):
+    """Neighbour merging on a pixel disk: connected components of hits with |d idx_phi| <= adjacency and |d idx_r| <= adjacency (same element)."""
     from collections import defaultdict
     by = defaultdict(list); out = []
     for h in hits: by[h["layer"]].append(h)
@@ -254,7 +257,7 @@ def _merge_disk_pixels(hits):
         n = len(hs); adj = [[] for _ in range(n)]
         for i in range(n):
             for j in range(i + 1, n):
-                if abs(hs[i]["idx_rphi"] - hs[j]["idx_rphi"]) <= 1 and abs(hs[i]["idx_z"] - hs[j]["idx_z"]) <= 1: adj[i].append(j); adj[j].append(i)
+                if abs(hs[i]["idx_rphi"] - hs[j]["idx_rphi"]) <= adjacency and abs(hs[i]["idx_z"] - hs[j]["idx_z"]) <= adjacency: adj[i].append(j); adj[j].append(i)
         seen = [False] * n
         for i in range(n):
             if seen[i]: continue
@@ -271,14 +274,21 @@ def _merge_disk_pixels(hits):
     return out
 
 
-def overlay(raw_hard, raw_pu):
+def overlay(raw_hard, raw_pu, adjacency=None):
     """Single merge pass over hard + pile-up hits. Barrel hits: the frozen Stage 2 overlay_and_merge (identical call in the stage2 config);
-    disk pixel hits: _merge_disk_pixels; disk SCT hits pass through (as barrel SCT)."""
+    disk pixel hits: _merge_disk_pixels; disk SCT hits pass through (as barrel SCT).
+    adjacency (2026-11-17, sensitivity test; default MERGE_ADJ = 1 = production): pixel-index distance for merging. For adjacency != 1 the barrel
+    merge is the same single pass as overlay_and_merge (same function, same order), only with merge_neighboring_pixel_hits(adjacency=...)."""
+    adj = MERGE_ADJ if adjacency is None else float(adjacency)
     hb = [h for h in raw_hard if h.get("kind", "barrel") == "barrel"]; pb = [h for h in raw_pu if h.get("kind", "barrel") == "barrel"]
-    merged, st = overlay_and_merge(hb, pb)
+    if adj == 1.0:
+        merged, st = overlay_and_merge(hb, pb)
+    else:
+        merged = merge_neighboring_pixel_hits(list(hb) + list(pb), adjacency=adj)
+        st = {"n_raw_hard_hits": len(hb), "n_raw_pileup_hits": len(pb), "n_hits_premerge_combined": len(hb) + len(pb), "n_hits_postmerge_combined": len(merged)}
     disk = [h for h in raw_hard + raw_pu if h.get("kind") == "disk"]
     if disk:
-        merged = merged + _merge_disk_pixels([h for h in disk if h["is_pixel"]]) + \
+        merged = merged + _merge_disk_pixels([h for h in disk if h["is_pixel"]], adj) + \
                  [{**h, "merged_count": 1, "source_quirk_indices": [h["quirk_index"]]} for h in disk if not h["is_pixel"]]
     return merged, st
 

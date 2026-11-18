@@ -1,0 +1,138 @@
+        setup  sct  mu  merge_adj     source  photons  threshold  n_pass  N_bkg_332fb    err  n_plane_ds  ratio_to_reference
+S2_Run3_ATLAS   Z0   0          1 production     9130         14    1428      48.5333 1.4107       20056            141.3040
+S2_Run3_ATLAS   Z0   0          1 production     9130         15      10       0.3435 0.1222       20056              1.0000
+S2_Run3_ATLAS   Z0   0          1 production     9130         16       0       0.0000 0.0000       20056              0.0000
+S2_Run3_ATLAS   Z0  20          1 production     9130         14    1576     122.7753 5.5455       19749              4.5423
+S2_Run3_ATLAS   Z0  20          1 production     9130         15     374      27.0295 2.6983       19749              1.0000
+S2_Run3_ATLAS   Z0  20          1 production     9130         16      22       1.3111 0.4415       19749              0.0485
+S2_Run3_ATLAS   Z0  50          1 production     9130         14    1562     171.9395 7.0922       19301              2.4856
+S2_Run3_ATLAS   Z0  50          1 production     9130         15     687      69.1756 4.3774       19301              1.0000
+S2_Run3_ATLAS   Z0  50          1 production     9130         16      97       7.5211 1.2743       19301              0.1087
+S2_Run3_ATLAS A580   0          1 production     9130         14      15       0.3906 0.1042         470                 NaN
+S2_Run3_ATLAS A580   0          1 production     9130         15       0       0.0000 0.0000         470                 NaN
+S2_Run3_ATLAS A580   0          1 production     9130         16       0       0.0000 0.0000         470                 NaN
+S2_Run3_ATLAS A580  20          1 production     9130         14      17       0.8320 0.3342         536             10.7635
+S2_Run3_ATLAS A580  20          1 production     9130         15       3       0.0773 0.0448         536              1.0000
+S2_Run3_ATLAS A580  20          1 production     9130         16       0       0.0000 0.0000         536              0.0000
+S2_Run3_ATLAS A580  50          1 production     9130         14      17       1.2205 0.4462         913              3.6293
+S2_Run3_ATLAS A580  50          1 production     9130         15       5       0.3363 0.2401         913              1.0000
+S2_Run3_ATLAS A580  50          1 production     9130         16       0       0.0000 0.0000         913              0.0000
+S1_Run3_Ideal A580   0          1 production     9130         14       5       0.4184 0.1871         122                 NaN
+S1_Run3_Ideal A580   0          1 production     9130         15       0       0.0000 0.0000         122                 NaN
+S1_Run3_Ideal A580   0          1 production     9130         16       0       0.0000 0.0000         122                 NaN
+S1_Run3_Ideal A580  20          1 production     9130         14       7       0.5858 0.2214         104              1.4000
+S1_Run3_Ideal A580  20          1 production     9130         15       5       0.4184 0.1871         104              1.0000
+S1_Run3_Ideal A580  20          1 production     9130         16       1       0.0837 0.0837         104              0.2000
+S1_Run3_Ideal A580  50          1 production     9130         14      13       1.0879 0.3017          91              3.2500
+S1_Run3_Ideal A580  50          1 production     9130         15       4       0.3347 0.1674          91              1.0000
+S1_Run3_Ideal A580  50          1 production     9130         16       0       0.0000 0.0000          91              0.0000
+        setup          sample   sct  merge_adj  threshold lambda_keV  n_events  n_fid    k  eps_reco  ratio_to_reference
+S2_Run3_ATLAS       EW_800gev    Z0          0         14        all       891   4079 2905    0.7122              1.1067
+S2_Run3_ATLAS       EW_800gev    Z0          0         15        all       891   4079 2824    0.6923              1.0758
+S2_Run3_ATLAS       EW_800gev    Z0          0         16        all       891   4079 2552    0.6256              0.9722
+S2_Run3_ATLAS       EW_800gev    Z0          1         14        all       891   4079 2743    0.6725              1.0450
+S2_Run3_ATLAS       EW_800gev    Z0          1         15        all       891   4079 2625    0.6435              1.0000
+S2_Run3_ATLAS       EW_800gev    Z0          1         16        all       891   4079 2280    0.5590              0.8686
+S2_Run3_ATLAS       EW_800gev    Z0          2         14        all       891   4079 2589    0.6347              0.9863
+S2_Run3_ATLAS       EW_800gev    Z0          2         15        all       891   4079 2434    0.5967              0.9272
+S2_Run3_ATLAS       EW_800gev    Z0          2         16        all       891   4079 2069    0.5072              0.7882
+S2_Run3_ATLAS       EW_800gev Z1160          0         14        all       891   4079  545    0.1336              1.4193
+S2_Run3_ATLAS       EW_800gev Z1160          0         15        all       891   4079  513    0.1258              1.3359
+S2_Run3_ATLAS       EW_800gev Z1160          0         16        all       891   4079  431    0.1057              1.1224
+S2_Run3_ATLAS       EW_800gev Z1160          1         14        all       891   4079  441    0.1081              1.1484
+S2_Run3_ATLAS       EW_800gev Z1160          1         15        all       891   4079  384    0.0941              1.0000
+S2_Run3_ATLAS       EW_800gev Z1160          1         16        all       891   4079  302    0.0740              0.7865
+S2_Run3_ATLAS       EW_800gev Z1160          2         14        all       891   4079  358    0.0878              0.9323
+S2_Run3_ATLAS       EW_800gev Z1160          2         15        all       891   4079  299    0.0733              0.7786
+S2_Run3_ATLAS       EW_800gev Z1160          2         16        all       891   4079  226    0.0554              0.5885
+S2_Run3_ATLAS       EW_800gev  A580          0         14        all       891   4079  947    0.2322              1.2644
+S2_Run3_ATLAS       EW_800gev  A580          0         15        all       891   4079  906    0.2221              1.2096
+S2_Run3_ATLAS       EW_800gev  A580          0         16        all       891   4079  787    0.1929              1.0507
+S2_Run3_ATLAS       EW_800gev  A580          1         14        all       891   4079  821    0.2013              1.0961
+S2_Run3_ATLAS       EW_800gev  A580          1         15        all       891   4079  749    0.1836              1.0000
+S2_Run3_ATLAS       EW_800gev  A580          1         16        all       891   4079  610    0.1495              0.8144
+S2_Run3_ATLAS       EW_800gev  A580          2         14        all       891   4079  709    0.1738              0.9466
+S2_Run3_ATLAS       EW_800gev  A580          2         15        all       891   4079  629    0.1542              0.8398
+S2_Run3_ATLAS       EW_800gev  A580          2         16        all       891   4079  496    0.1216              0.6622
+S2_Run3_ATLAS colored_1800gev    Z0          0         14        all       314   1010  689    0.6822              1.0885
+S2_Run3_ATLAS colored_1800gev    Z0          0         15        all       314   1010  677    0.6703              1.0695
+S2_Run3_ATLAS colored_1800gev    Z0          0         16        all       314   1010  625    0.6188              0.9874
+S2_Run3_ATLAS colored_1800gev    Z0          1         14        all       314   1010  659    0.6525              1.0411
+S2_Run3_ATLAS colored_1800gev    Z0          1         15        all       314   1010  633    0.6267              1.0000
+S2_Run3_ATLAS colored_1800gev    Z0          1         16        all       314   1010  565    0.5594              0.8926
+S2_Run3_ATLAS colored_1800gev    Z0          2         14        all       314   1010  615    0.6089              0.9716
+S2_Run3_ATLAS colored_1800gev    Z0          2         15        all       314   1010  579    0.5733              0.9147
+S2_Run3_ATLAS colored_1800gev    Z0          2         16        all       314   1010  516    0.5109              0.8152
+S2_Run3_ATLAS colored_1800gev Z1160          0         14        all       314   1010  152    0.1505              1.2667
+S2_Run3_ATLAS colored_1800gev Z1160          0         15        all       314   1010  147    0.1455              1.2250
+S2_Run3_ATLAS colored_1800gev Z1160          0         16        all       314   1010  127    0.1257              1.0583
+S2_Run3_ATLAS colored_1800gev Z1160          1         14        all       314   1010  128    0.1267              1.0667
+S2_Run3_ATLAS colored_1800gev Z1160          1         15        all       314   1010  120    0.1188              1.0000
+S2_Run3_ATLAS colored_1800gev Z1160          1         16        all       314   1010   95    0.0941              0.7917
+S2_Run3_ATLAS colored_1800gev Z1160          2         14        all       314   1010  105    0.1040              0.8750
+S2_Run3_ATLAS colored_1800gev Z1160          2         15        all       314   1010   91    0.0901              0.7583
+S2_Run3_ATLAS colored_1800gev Z1160          2         16        all       314   1010   72    0.0713              0.6000
+S2_Run3_ATLAS colored_1800gev  A580          0         14        all       314   1010  270    0.2673              1.2108
+S2_Run3_ATLAS colored_1800gev  A580          0         15        all       314   1010  258    0.2554              1.1570
+S2_Run3_ATLAS colored_1800gev  A580          0         16        all       314   1010  229    0.2267              1.0269
+S2_Run3_ATLAS colored_1800gev  A580          1         14        all       314   1010  241    0.2386              1.0807
+S2_Run3_ATLAS colored_1800gev  A580          1         15        all       314   1010  223    0.2208              1.0000
+S2_Run3_ATLAS colored_1800gev  A580          1         16        all       314   1010  186    0.1842              0.8341
+S2_Run3_ATLAS colored_1800gev  A580          2         14        all       314   1010  208    0.2059              0.9327
+S2_Run3_ATLAS colored_1800gev  A580          2         15        all       314   1010  187    0.1851              0.8386
+S2_Run3_ATLAS colored_1800gev  A580          2         16        all       314   1010  153    0.1515              0.6861
+S1_Run3_Ideal       EW_800gev    Z0          0         14        all       891   1624 1134    0.6983              1.1150
+S1_Run3_Ideal       EW_800gev    Z0          0         15        all       891   1624 1100    0.6773              1.0816
+S1_Run3_Ideal       EW_800gev    Z0          0         16        all       891   1624 1011    0.6225              0.9941
+S1_Run3_Ideal       EW_800gev    Z0          1         14        all       891   1624 1061    0.6533              1.0433
+S1_Run3_Ideal       EW_800gev    Z0          1         15        all       891   1624 1017    0.6262              1.0000
+S1_Run3_Ideal       EW_800gev    Z0          1         16        all       891   1624  892    0.5493              0.8771
+S1_Run3_Ideal       EW_800gev    Z0          2         14        all       891   1624  994    0.6121              0.9774
+S1_Run3_Ideal       EW_800gev    Z0          2         15        all       891   1624  931    0.5733              0.9154
+S1_Run3_Ideal       EW_800gev    Z0          2         16        all       891   1624  817    0.5031              0.8033
+S1_Run3_Ideal       EW_800gev Z1160          0         14        all       891   1624  253    0.1558              1.3978
+S1_Run3_Ideal       EW_800gev Z1160          0         15        all       891   1624  239    0.1472              1.3204
+S1_Run3_Ideal       EW_800gev Z1160          0         16        all       891   1624  198    0.1219              1.0939
+S1_Run3_Ideal       EW_800gev Z1160          1         14        all       891   1624  206    0.1268              1.1381
+S1_Run3_Ideal       EW_800gev Z1160          1         15        all       891   1624  181    0.1115              1.0000
+S1_Run3_Ideal       EW_800gev Z1160          1         16        all       891   1624  135    0.0831              0.7459
+S1_Run3_Ideal       EW_800gev Z1160          2         14        all       891   1624  160    0.0985              0.8840
+S1_Run3_Ideal       EW_800gev Z1160          2         15        all       891   1624  133    0.0819              0.7348
+S1_Run3_Ideal       EW_800gev Z1160          2         16        all       891   1624  106    0.0653              0.5856
+S1_Run3_Ideal       EW_800gev  A580          0         14        all       891   1624  410    0.2525              1.2654
+S1_Run3_Ideal       EW_800gev  A580          0         15        all       891   1624  393    0.2420              1.2130
+S1_Run3_Ideal       EW_800gev  A580          0         16        all       891   1624  347    0.2137              1.0710
+S1_Run3_Ideal       EW_800gev  A580          1         14        all       891   1624  353    0.2174              1.0895
+S1_Run3_Ideal       EW_800gev  A580          1         15        all       891   1624  324    0.1995              1.0000
+S1_Run3_Ideal       EW_800gev  A580          1         16        all       891   1624  264    0.1626              0.8148
+S1_Run3_Ideal       EW_800gev  A580          2         14        all       891   1624  299    0.1841              0.9228
+S1_Run3_Ideal       EW_800gev  A580          2         15        all       891   1624  264    0.1626              0.8148
+S1_Run3_Ideal       EW_800gev  A580          2         16        all       891   1624  222    0.1367              0.6852
+S1_Run3_Ideal colored_1800gev    Z0          0         14        all       314    505  317    0.6277              1.0893
+S1_Run3_Ideal colored_1800gev    Z0          0         15        all       314    505  311    0.6158              1.0687
+S1_Run3_Ideal colored_1800gev    Z0          0         16        all       314    505  284    0.5624              0.9759
+S1_Run3_Ideal colored_1800gev    Z0          1         14        all       314    505  303    0.6000              1.0412
+S1_Run3_Ideal colored_1800gev    Z0          1         15        all       314    505  291    0.5762              1.0000
+S1_Run3_Ideal colored_1800gev    Z0          1         16        all       314    505  256    0.5069              0.8797
+S1_Run3_Ideal colored_1800gev    Z0          2         14        all       314    505  282    0.5584              0.9691
+S1_Run3_Ideal colored_1800gev    Z0          2         15        all       314    505  265    0.5248              0.9107
+S1_Run3_Ideal colored_1800gev    Z0          2         16        all       314    505  235    0.4653              0.8076
+S1_Run3_Ideal colored_1800gev Z1160          0         14        all       314    505   71    0.1406              1.3148
+S1_Run3_Ideal colored_1800gev Z1160          0         15        all       314    505   67    0.1327              1.2407
+S1_Run3_Ideal colored_1800gev Z1160          0         16        all       314    505   60    0.1188              1.1111
+S1_Run3_Ideal colored_1800gev Z1160          1         14        all       314    505   58    0.1149              1.0741
+S1_Run3_Ideal colored_1800gev Z1160          1         15        all       314    505   54    0.1069              1.0000
+S1_Run3_Ideal colored_1800gev Z1160          1         16        all       314    505   45    0.0891              0.8333
+S1_Run3_Ideal colored_1800gev Z1160          2         14        all       314    505   46    0.0911              0.8519
+S1_Run3_Ideal colored_1800gev Z1160          2         15        all       314    505   40    0.0792              0.7407
+S1_Run3_Ideal colored_1800gev Z1160          2         16        all       314    505   34    0.0673              0.6296
+S1_Run3_Ideal colored_1800gev  A580          0         14        all       314    505  136    0.2693              1.2143
+S1_Run3_Ideal colored_1800gev  A580          0         15        all       314    505  130    0.2574              1.1607
+S1_Run3_Ideal colored_1800gev  A580          0         16        all       314    505  119    0.2356              1.0625
+S1_Run3_Ideal colored_1800gev  A580          1         14        all       314    505  122    0.2416              1.0893
+S1_Run3_Ideal colored_1800gev  A580          1         15        all       314    505  112    0.2218              1.0000
+S1_Run3_Ideal colored_1800gev  A580          1         16        all       314    505   97    0.1921              0.8661
+S1_Run3_Ideal colored_1800gev  A580          2         14        all       314    505  105    0.2079              0.9375
+S1_Run3_Ideal colored_1800gev  A580          2         15        all       314    505   94    0.1861              0.8393
+S1_Run3_Ideal colored_1800gev  A580          2         16        all       314    505   82    0.1624              0.7321
+X11_EXIT=0

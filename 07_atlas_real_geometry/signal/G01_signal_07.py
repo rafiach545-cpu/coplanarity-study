@@ -59,6 +59,16 @@ def crossings(x, t):
     return out
 
 
+SENS_ADJ = [float(x) for x in os.environ.get("G01_SENS_ADJ", "").split(",") if x.strip()]
+
+
+def station_counts(w):
+    """(stations with >= 1 hit, stations with >= 2 hits) of the winning plane; multiplicity threshold T (total hits) <=> n1 == 8 and n2 >= T - 8."""
+    if not w: return 0, 0
+    from collections import Counter
+    c = Counter(w["layers"]); return sum(1 for k in range(1, 9) if c.get(k, 0) >= 1), sum(1 for k in range(1, 9) if c.get(k, 0) >= 2)
+
+
 def job(a):
     i, P1, P2, c1, c2 = a
     rng = np.random.default_rng(np.random.SeedSequence([6, int(F.MQ), i])); z0 = rng.normal(0.0, F.p4.R["beamspot_cm"])
@@ -99,6 +109,9 @@ def job(a):
             merged, _st = D.overlay(raw, []); res, w = cop07.analyse(merged, origin, ELS)
             row.update({f"{sct}_plane": res["plane"], f"{sct}_mult": res["mult"], f"{sct}_final": res["final"], f"{sct}_ds": res["ds"],
                         f"{sct}_dw": res["dw"], f"{sct}_endcap": bool(w is not None and ("SCTD" in res["winner_stations"] or "PixD" in res["winner_stations"]))})
+            for adj in SENS_ADJ:                                                       # 2026-11-17 sensitivity test (env G01_SENS_ADJ, e.g. "0,1,2"); same raw hits
+                mg, _ = D.overlay(raw, [], adjacency=adj); rs, ww = cop07.analyse(mg, origin, ELS); n1, n2 = station_counts(ww)
+                row.update({f"{sct}_a{adj:g}_plane": rs["plane"], f"{sct}_a{adj:g}_ds": rs["ds"], f"{sct}_a{adj:g}_dw": rs["dw"], f"{sct}_a{adj:g}_n1": n1, f"{sct}_a{adj:g}_n2": n2})
         row["t_s"] = round(time.time() - t0, 2); out.append(row)
     return out
 

@@ -1,0 +1,16 @@
+{
+ "figure": "S02_fig5_ds_dw_A580",
+ "script": "make_signal_figures.py (ROOT 6.40.04)",
+ "data": {
+  "ds_dw.csv": "51f4ce47aba120fc6ef4b327e77142fd35db816d72882381785e6b2ec73245c0"
+ },
+ "data_prepared_by": "prepare_signal_data.py",
+ "upstream_sources": {
+  "signal/inputs_large/counts.csv": "c3eae1230615cbaa5560ffc683de4aed54cc817181639ca8ee8726a417d12edf",
+  "signal/runs/large_atlas/G01_colored_1800gev_mid.jsonl": "493bf086fe1abdf9ae637b419bdaf52ee81aa1926800519d22878ab93963afe2",
+  "signal/runs/large_atlas/G01_EW_800gev_mid.jsonl": "1b61f6c3b2fc1af97a5b118a6b65ddcc3d2cf76f06da782ad9f92dfc23e85539",
+  "signal/runs/large_ideal/G01_colored_1800gev_mid.jsonl": "3dd746afad454f54f490f667a85eec1e6c57063f98d890684b4d2a35403f9c10",
+  "signal/runs/large_ideal/G01_EW_800gev_mid.jsonl": "a9d85d2150f896ec6dda4080cf3bd4f772879840468776f2dfc61aa60efa8d60",
+  "tables/X11_signal_sensitivity.csv": "a5f2791f7c0654f75fc2c47667ee625c8873c3dcdeadefe644c66dbdef9f68e0"
+ }
+}

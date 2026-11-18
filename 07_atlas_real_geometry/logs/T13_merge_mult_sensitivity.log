@@ -1,0 +1,12 @@
+C01_EXIT=0
+G01_DONE EW_800gev mid
+G01_DONE EW_800gev mid
+(a) C01_atlas_mu50: 54192 rows, mult recomputed from winner_layers (T = 15) identical: True
+(a) C01_atlas_A580_mu50: 27096 rows, mult recomputed from winner_layers (T = 15) identical: True
+(a) C01_stage2_A580_mu50: 9130 rows, mult recomputed from winner_layers (T = 15) identical: True
+(b) C01 --merge-adj 1 chunk 000000: 294 rows identical to production: True
+(b) C01 --merge-adj 1 chunk 000050: 300 rows identical to production: True
+(c) G01: 84 (event, Lambda) rows; option leaves production fields unchanged and a1 = production on 111 fiducial settings: True
+(d) synthetic merged-hit counts at adjacency 0/1/2, 1 and 2 indices apart: [[2, 1, 1], [2, 2, 1]] (expected [[2, 1, 1], [2, 2, 1]]): True
+T13_PASS
+EXIT 0
