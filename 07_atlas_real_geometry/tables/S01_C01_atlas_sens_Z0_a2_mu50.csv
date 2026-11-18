@@ -1,0 +1,4 @@
+run,region,region_elements,sct,n_photons,mean_p_conv,planes,plane_and_mult,final,N_bkg_332fb,N_UL95_332fb_if_zero,pass_prob_per_event,pass_prob_UL95_if_zero
+C01_atlas_sens_Z0_a2_mu50,0,BP,Z0,9130,0.003996308286990182,8092,752,464,15.953984928745697,,0.05082146768893757,
+C01_atlas_sens_Z0_a2_mu50,1,"L1_IBL,SCTD6_inner_A",Z0,9013,0.028602541400734035,8120,327,116,34.57332291063009,,0.012870298457783202,
+C01_atlas_sens_Z0_a2_mu50,2,"L2_PixelB0,SCTD7_middle_A",Z0,8953,0.050211132223009165,8228,41,4,2.7497994898520943,,0.0004467776164414163,
