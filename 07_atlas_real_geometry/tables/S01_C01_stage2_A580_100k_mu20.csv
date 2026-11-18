@@ -1,0 +1,2 @@
+run,region,region_elements,sct,n_photons,mean_p_conv,planes,plane_and_mult,final,N_bkg_332fb,N_UL95_332fb_if_zero,pass_prob_per_event,pass_prob_UL95_if_zero
+C01_stage2_A580_100k_mu20,0,BP,A580,90980,0.01,32480,1899,11,0.09157180996039999,,0.00012090569355902396,
