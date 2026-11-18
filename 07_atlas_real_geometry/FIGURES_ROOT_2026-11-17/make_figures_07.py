@@ -159,7 +159,7 @@ for name, sct, mus in (("G06_reach_pileup_A580", "A580", (0, 20, 50)), ("G07_rea
 through the Stage 2 · Run 3 · ATLAS geometry with pile-up), {SCT[sct].replace('#mu', 'µ').replace('#sigma_{long}^{SCT}', 'σ_long')}, √s = 13.6 TeV, 332 fb⁻¹. Blue ramp: μ = {", ".join(str(m) for m in mus)} (light to dark); the contour is the
 signal count s_req for 95% CL_s exclusion (top, dashed; n_obs = round(b_used)) or discovery (bottom, solid; max(5, Asimov Z = 5)), printed in each panel.
 b = the central MC background estimate (b = 0 when no MC photon passes). Thin dotted (where present): the systematic variant with b = the MC 95% upper limit
-when no photon passed (largest per-region limit, 1.29 events). Grey: zero background. Signal efficiencies without pile-up. Settings with the same s_req give
+when no photon passed (largest per-region limit: A580 0.13 events, 90 980 photons; Z1160 1.29 events, 9 130 photons). Grey: zero background. Signal efficiencies without pile-up. Settings with the same s_req give
 identical contours, drawn on top of each other (the last drawn, darker one is visible). Only Z(νν̄)γ conversions are simulated; Z(νν̄)+jets (47× larger σ) is
 estimated, not simulated.
 Source: tables/R01_N_grid_300fb.csv, tables/R01_background.csv via data/contours.csv, data/background_thresholds.csv.""", ["contours.csv", "background_thresholds.csv"])
@@ -179,7 +179,7 @@ bser("S2_Run3_ATLAS", "Z0", "with end-cap", SZ["Z0"], 26, -0.6, "S2#upointRun 3#
 bser("S2_Run3_ATLAS", "A580", "UL95 if 0 passed", SZ["A580"], 23, 1.2, "S2#upointRun 3#upointATLAS, A580: 95% UL, 0 passed"); bser("S2_Run3_ATLAS", "Z1160", "UL95 if 0 passed", SZ["Z1160"], 23, -1.2, "S2#upointRun 3#upointATLAS, Z1160: 95% UL, 0 passed (every #mu)")
 bser("S1_Run3_Ideal_2k", "Z0", "all", MUTED, 25, 0.3, "S1#upointRun 3#upointIdeal (2k), #sigma_{z} = 0 (flat 1% conversion)")
 legend(0.15, 0.62, 0.72, 0.93, LE, size=0.03); c.RedrawAxis()
-save(c, "G08_background_vs_pileup", """**G08.** Expected converted-photon background in the signal region at 332 fb⁻¹ vs pile-up μ, 13.6 TeV (C01, Z(νν̄)γ+j, 9130 photons after MET > 200 GeV,
+save(c, "G08_background_vs_pileup", """**G08.** Expected converted-photon background in the signal region at 332 fb⁻¹ vs pile-up μ, 13.6 TeV (C01, Z(νν̄)γ+j photons after MET > 200 GeV: 9 130 for Z0, 90 980 for A580 (server, 2026-11-18),
 conversion probability from the ATLAS material M01). Violet: SCT σ_long = 0, split into planes on barrel layers only and planes with at least one end-cap element. Blue:
 the ATLAS intrinsic SCT resolution (A580, D4; μ = 0, 20, 50). Triangles: 95% upper limit where no photon passed (largest per-region limit); Z1160 has no passing photon at any μ.
 Grey: Stage 1 · Run 3 · Ideal (barrel, flat 1% conversion). Errors: MC statistics. Source: tables/S02_conversion_breakdown.csv, tables/R01_background.csv, Stage 1 · Run 3 · Ideal
@@ -211,7 +211,7 @@ band on k/n. Coloured: ATLAS Run 2 ID (Stage 2 · Run 3 · ATLAS); grey: Ideal (
 converted-photon background (ATLAS: C01 with end-caps and material conversion; Ideal: barrel only, flat 1% conversion, 06 S2 conventions; X08). Top: the ATLAS
 intrinsic SCT resolution 17 µm / 580 µm (headline, realistic); bottom: σ_long = 0 (best case, perfect SCT z). μ = 0 and 50. Exclusion
 uses the central MC background (b = 0 when no MC photon passes); small down-triangles: the systematic variant with b = the MC 95% upper limit when no photon passed
-(ATLAS UL 1.29 events, Ideal UL 0.25 events). Only Z(νν̄)γ conversions are simulated; Z(νν̄)+jets (47× larger σ) is estimated, not simulated.
+(A580 at μ = 0, 90 980 photons: ATLAS UL 0.13 events, Ideal UL 0.025 events; Z0 has passing photons at every μ). Only Z(νν̄)γ conversions are simulated; Z(νν̄)+jets (47× larger σ) is estimated, not simulated.
 Source: tables/X08_reach_with_background.csv via data/reach_summary.csv.""", ["reach_summary.csv"])
 
 # ---------- G10: conversion probability from the material

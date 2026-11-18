@@ -4,7 +4,7 @@
 void G09_reach_summary()
 {
 //=========Macro generated from canvas: G09/
-//=========  (Tue Nov 17 16:37:39 2026) by ROOT version 6.40.04
+//=========  (Wed Nov 18 12:25:51 2026) by ROOT version 6.40.04
    TCanvas *G09 = new TCanvas("G09", "", 0, 0, 1800, 1700);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
@@ -79,25 +79,16 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect406{ 1697 };
-   std::vector<Double_t> grae_fy_vect407{ 7.65 };
-   std::vector<Double_t> grae_fexl_vect408{ 23 };
-   std::vector<Double_t> grae_fexh_vect409{ 22 };
-   TGraphAsymmErrors *grae = new TGraphAsymmErrors(1, grae_fx_vect406.data(), grae_fy_vect407.data(), grae_fexl_vect408.data(), grae_fexh_vect409.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect408{ 1697 };
+   std::vector<Double_t> grae_fy_vect409{ 7.65 };
+   std::vector<Double_t> grae_fexl_vect410{ 23 };
+   std::vector<Double_t> grae_fexh_vect411{ 22 };
+   TGraphAsymmErrors *grae = new TGraphAsymmErrors(1, grae_fx_vect408.data(), grae_fy_vect409.data(), grae_fexl_vect410.data(), grae_fexh_vect411.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#2a78d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#2a78d6"));
    grae->SetMarkerStyle(20);
    grae->SetMarkerSize(1.3);
-   grae->Draw("p");
-   
-   std::vector<Double_t> grae_fx_vect410{ 1650 };
-   std::vector<Double_t> grae_fy_vect411{ 7.65 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect410.data(), grae_fy_vect411.data(), nullptr, nullptr, nullptr, nullptr);
-   grae->SetLineColor(TColor::GetColor("#2a78d6"));
-   grae->SetLineWidth(2);
-   grae->SetMarkerColor(TColor::GetColor("#2a78d6"));
-   grae->SetMarkerStyle(23);
    grae->Draw("p");
    
    std::vector<Double_t> grae_fx_vect412{ 1618 };
@@ -162,10 +153,10 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect428{ 1591 };
+   std::vector<Double_t> grae_fx_vect428{ 1613 };
    std::vector<Double_t> grae_fy_vect429{ 5.35 };
    std::vector<Double_t> grae_fexl_vect430{ 18 };
-   std::vector<Double_t> grae_fexh_vect431{ 19 };
+   std::vector<Double_t> grae_fexh_vect431{ 18 };
    grae = new TGraphAsymmErrors(1, grae_fx_vect428.data(), grae_fy_vect429.data(), grae_fexl_vect430.data(), grae_fexh_vect431.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#2a78d6"));
    grae->SetLineWidth(2);
@@ -193,10 +184,10 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect436{ 1488 };
+   std::vector<Double_t> grae_fx_vect436{ 1515 };
    std::vector<Double_t> grae_fy_vect437{ 4.35 };
    std::vector<Double_t> grae_fexl_vect438{ 26 };
-   std::vector<Double_t> grae_fexh_vect439{ 26 };
+   std::vector<Double_t> grae_fexh_vect439{ 25 };
    grae = new TGraphAsymmErrors(1, grae_fx_vect436.data(), grae_fy_vect437.data(), grae_fexl_vect438.data(), grae_fexh_vect439.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
@@ -447,20 +438,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect476{ 718 };
-   std::vector<Double_t> grae_fy_vect477{ 7.65 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect476.data(), grae_fy_vect477.data(), nullptr, nullptr, nullptr, nullptr);
-   grae->SetLineColor(TColor::GetColor("#2a78d6"));
-   grae->SetLineWidth(2);
-   grae->SetMarkerColor(TColor::GetColor("#2a78d6"));
-   grae->SetMarkerStyle(23);
-   grae->Draw("p");
-   
-   std::vector<Double_t> grae_fx_vect478{ 681 };
-   std::vector<Double_t> grae_fy_vect479{ 7.35 };
-   std::vector<Double_t> grae_fexl_vect480{ 15 };
-   std::vector<Double_t> grae_fexh_vect481{ 13 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect478.data(), grae_fy_vect479.data(), grae_fexl_vect480.data(), grae_fexh_vect481.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect476{ 681 };
+   std::vector<Double_t> grae_fy_vect477{ 7.35 };
+   std::vector<Double_t> grae_fexl_vect478{ 15 };
+   std::vector<Double_t> grae_fexh_vect479{ 13 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect476.data(), grae_fy_vect477.data(), grae_fexl_vect478.data(), grae_fexh_vect479.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#2a78d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#2a78d6"));
@@ -475,11 +457,11 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect482{ 631 };
-   std::vector<Double_t> grae_fy_vect483{ 6.65 };
-   std::vector<Double_t> grae_fexl_vect484{ 24 };
-   std::vector<Double_t> grae_fexh_vect485{ 23 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect482.data(), grae_fy_vect483.data(), grae_fexl_vect484.data(), grae_fexh_vect485.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect480{ 631 };
+   std::vector<Double_t> grae_fy_vect481{ 6.65 };
+   std::vector<Double_t> grae_fexl_vect482{ 24 };
+   std::vector<Double_t> grae_fexh_vect483{ 23 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect480.data(), grae_fy_vect481.data(), grae_fexl_vect482.data(), grae_fexh_vect483.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));
@@ -487,11 +469,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect486{ 560 };
-   std::vector<Double_t> grae_fy_vect487{ 6.35 };
-   std::vector<Double_t> grae_fexl_vect488{ 16 };
-   std::vector<Double_t> grae_fexh_vect489{ 17 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect486.data(), grae_fy_vect487.data(), grae_fexl_vect488.data(), grae_fexh_vect489.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect484{ 560 };
+   std::vector<Double_t> grae_fy_vect485{ 6.35 };
+   std::vector<Double_t> grae_fexl_vect486{ 16 };
+   std::vector<Double_t> grae_fexh_vect487{ 17 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect484.data(), grae_fy_vect485.data(), grae_fexl_vect486.data(), grae_fexh_vect487.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));
@@ -506,11 +488,11 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect490{ 768 };
-   std::vector<Double_t> grae_fy_vect491{ 5.65 };
-   std::vector<Double_t> grae_fexl_vect492{ 14 };
-   std::vector<Double_t> grae_fexh_vect493{ 13 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect490.data(), grae_fy_vect491.data(), grae_fexl_vect492.data(), grae_fexh_vect493.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect488{ 768 };
+   std::vector<Double_t> grae_fy_vect489{ 5.65 };
+   std::vector<Double_t> grae_fexl_vect490{ 14 };
+   std::vector<Double_t> grae_fexh_vect491{ 13 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect488.data(), grae_fy_vect489.data(), grae_fexl_vect490.data(), grae_fexh_vect491.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#2a78d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#2a78d6"));
@@ -518,11 +500,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect494{ 651 };
-   std::vector<Double_t> grae_fy_vect495{ 5.35 };
-   std::vector<Double_t> grae_fexl_vect496{ 15 };
-   std::vector<Double_t> grae_fexh_vect497{ 14 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect494.data(), grae_fy_vect495.data(), grae_fexl_vect496.data(), grae_fexh_vect497.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect492{ 675 };
+   std::vector<Double_t> grae_fy_vect493{ 5.35 };
+   std::vector<Double_t> grae_fexl_vect494{ 14 };
+   std::vector<Double_t> grae_fexh_vect495{ 14 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect492.data(), grae_fy_vect493.data(), grae_fexl_vect494.data(), grae_fexh_vect495.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#2a78d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#2a78d6"));
@@ -537,11 +519,11 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect498{ 631 };
-   std::vector<Double_t> grae_fy_vect499{ 4.65 };
-   std::vector<Double_t> grae_fexl_vect500{ 24 };
-   std::vector<Double_t> grae_fexh_vect501{ 23 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect498.data(), grae_fy_vect499.data(), grae_fexl_vect500.data(), grae_fexh_vect501.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect496{ 631 };
+   std::vector<Double_t> grae_fy_vect497{ 4.65 };
+   std::vector<Double_t> grae_fexl_vect498{ 24 };
+   std::vector<Double_t> grae_fexh_vect499{ 23 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect496.data(), grae_fy_vect497.data(), grae_fexl_vect498.data(), grae_fexh_vect499.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));
@@ -549,11 +531,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect502{ 540 };
-   std::vector<Double_t> grae_fy_vect503{ 4.35 };
-   std::vector<Double_t> grae_fexl_vect504{ 17 };
-   std::vector<Double_t> grae_fexh_vect505{ 16 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect502.data(), grae_fy_vect503.data(), grae_fexl_vect504.data(), grae_fexh_vect505.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect500{ 560 };
+   std::vector<Double_t> grae_fy_vect501{ 4.35 };
+   std::vector<Double_t> grae_fexl_vect502{ 16 };
+   std::vector<Double_t> grae_fexh_vect503{ 17 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect500.data(), grae_fy_vect501.data(), grae_fexl_vect502.data(), grae_fexh_vect503.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));
@@ -568,11 +550,11 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect506{ 994 };
-   std::vector<Double_t> grae_fy_vect507{ 3.65 };
-   std::vector<Double_t> grae_fexl_vect508{ 5 };
-   std::vector<Double_t> grae_fexh_vect509{ 5 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect506.data(), grae_fy_vect507.data(), grae_fexl_vect508.data(), grae_fexh_vect509.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect504{ 994 };
+   std::vector<Double_t> grae_fy_vect505{ 3.65 };
+   std::vector<Double_t> grae_fexl_vect506{ 5 };
+   std::vector<Double_t> grae_fexh_vect507{ 5 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect504.data(), grae_fy_vect505.data(), grae_fexl_vect506.data(), grae_fexh_vect507.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#6250d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#6250d6"));
@@ -580,11 +562,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect510{ 866 };
-   std::vector<Double_t> grae_fy_vect511{ 3.35 };
-   std::vector<Double_t> grae_fexl_vect512{ 5 };
-   std::vector<Double_t> grae_fexh_vect513{ 5 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect510.data(), grae_fy_vect511.data(), grae_fexl_vect512.data(), grae_fexh_vect513.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect508{ 866 };
+   std::vector<Double_t> grae_fy_vect509{ 3.35 };
+   std::vector<Double_t> grae_fexl_vect510{ 5 };
+   std::vector<Double_t> grae_fexh_vect511{ 5 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect508.data(), grae_fy_vect509.data(), grae_fexl_vect510.data(), grae_fexh_vect511.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#6250d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#6250d6"));
@@ -599,11 +581,11 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect514{ 826 };
-   std::vector<Double_t> grae_fy_vect515{ 2.65 };
-   std::vector<Double_t> grae_fexl_vect516{ 13 };
-   std::vector<Double_t> grae_fexh_vect517{ 12 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect514.data(), grae_fy_vect515.data(), grae_fexl_vect516.data(), grae_fexh_vect517.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect512{ 826 };
+   std::vector<Double_t> grae_fy_vect513{ 2.65 };
+   std::vector<Double_t> grae_fexl_vect514{ 13 };
+   std::vector<Double_t> grae_fexh_vect515{ 12 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect512.data(), grae_fy_vect513.data(), grae_fexl_vect514.data(), grae_fexh_vect515.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));
@@ -611,11 +593,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect518{ 730 };
-   std::vector<Double_t> grae_fy_vect519{ 2.35 };
-   std::vector<Double_t> grae_fexl_vect520{ 10 };
-   std::vector<Double_t> grae_fexh_vect521{ 9 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect518.data(), grae_fy_vect519.data(), grae_fexl_vect520.data(), grae_fexh_vect521.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect516{ 730 };
+   std::vector<Double_t> grae_fy_vect517{ 2.35 };
+   std::vector<Double_t> grae_fexl_vect518{ 10 };
+   std::vector<Double_t> grae_fexh_vect519{ 9 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect516.data(), grae_fy_vect517.data(), grae_fexl_vect518.data(), grae_fexh_vect519.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));
@@ -630,11 +612,11 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect522{ 690 };
-   std::vector<Double_t> grae_fy_vect523{ 1.65 };
-   std::vector<Double_t> grae_fexl_vect524{ 5 };
-   std::vector<Double_t> grae_fexh_vect525{ 4 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect522.data(), grae_fy_vect523.data(), grae_fexl_vect524.data(), grae_fexh_vect525.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect520{ 690 };
+   std::vector<Double_t> grae_fy_vect521{ 1.65 };
+   std::vector<Double_t> grae_fexl_vect522{ 5 };
+   std::vector<Double_t> grae_fexh_vect523{ 4 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect520.data(), grae_fy_vect521.data(), grae_fexl_vect522.data(), grae_fexh_vect523.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#6250d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#6250d6"));
@@ -642,11 +624,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect526{ 557 };
-   std::vector<Double_t> grae_fy_vect527{ 1.35 };
-   std::vector<Double_t> grae_fexl_vect528{ 4 };
-   std::vector<Double_t> grae_fexh_vect529{ 4 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect526.data(), grae_fy_vect527.data(), grae_fexl_vect528.data(), grae_fexh_vect529.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect524{ 557 };
+   std::vector<Double_t> grae_fy_vect525{ 1.35 };
+   std::vector<Double_t> grae_fexl_vect526{ 4 };
+   std::vector<Double_t> grae_fexh_vect527{ 4 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect524.data(), grae_fy_vect525.data(), grae_fexl_vect526.data(), grae_fexh_vect527.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#6250d6"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#6250d6"));
@@ -661,11 +643,11 @@ void G09_reach_summary()
    tex->SetLineWidth(2);
    tex->Draw();
    
-   std::vector<Double_t> grae_fx_vect530{ 654 };
-   std::vector<Double_t> grae_fy_vect531{ 0.65 };
-   std::vector<Double_t> grae_fexl_vect532{ 9 };
-   std::vector<Double_t> grae_fexh_vect533{ 8 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect530.data(), grae_fy_vect531.data(), grae_fexl_vect532.data(), grae_fexh_vect533.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect528{ 654 };
+   std::vector<Double_t> grae_fy_vect529{ 0.65 };
+   std::vector<Double_t> grae_fexl_vect530{ 9 };
+   std::vector<Double_t> grae_fexh_vect531{ 8 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect528.data(), grae_fy_vect529.data(), grae_fexl_vect530.data(), grae_fexh_vect531.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));
@@ -673,11 +655,11 @@ void G09_reach_summary()
    grae->SetMarkerSize(1.3);
    grae->Draw("p");
    
-   std::vector<Double_t> grae_fx_vect534{ 534 };
-   std::vector<Double_t> grae_fy_vect535{ 0.35 };
-   std::vector<Double_t> grae_fexl_vect536{ 8 };
-   std::vector<Double_t> grae_fexh_vect537{ 7 };
-   grae = new TGraphAsymmErrors(1, grae_fx_vect534.data(), grae_fy_vect535.data(), grae_fexl_vect536.data(), grae_fexh_vect537.data(), nullptr, nullptr);
+   std::vector<Double_t> grae_fx_vect532{ 534 };
+   std::vector<Double_t> grae_fy_vect533{ 0.35 };
+   std::vector<Double_t> grae_fexl_vect534{ 8 };
+   std::vector<Double_t> grae_fexh_vect535{ 7 };
+   grae = new TGraphAsymmErrors(1, grae_fx_vect532.data(), grae_fy_vect533.data(), grae_fexl_vect534.data(), grae_fexh_vect535.data(), nullptr, nullptr);
    grae->SetLineColor(TColor::GetColor("#898781"));
    grae->SetLineWidth(2);
    grae->SetMarkerColor(TColor::GetColor("#898781"));

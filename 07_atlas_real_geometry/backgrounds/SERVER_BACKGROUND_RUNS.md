@@ -122,6 +122,8 @@ The ATLAS runs take about 8 h in total if run in parallel. Expected output size 
 
 **After pulling, on the laptop.** R01 and X08 read the S01 tables by name. Their file names are switched to the `_100k` tables, then `reach/R00_postprocess.sh` is rerun.
 
+**Done 2026-11-18.** Pushed by the server (commit 9bef53e0). On the laptop: R01, X08, X11 and S02 switched to the `_100k` runs (S02 and X11 use `zgamma_xsec_large.txt` for them), R00 rerun (T09, T11 pass). A580 background at 332 fb⁻¹, μ = 0 / 20 / 50: ATLAS 0 / 0.069 / 0.198, Ideal 0 / 0.092 / 0.108 events (RESULTS headline and §7).
+
 ## (c) Pool test: a new-seed 20k pool, Z0 at μ = 50 (server)
 
 Z0 at μ = 50 has 687 passing photons, so a pool effect larger than the MC error (about 6%) would be visible. The same photons and seeds are used; only the pool changes.

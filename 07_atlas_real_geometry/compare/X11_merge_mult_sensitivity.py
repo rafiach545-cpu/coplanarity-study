@@ -8,8 +8,9 @@ Variants:
   (T = 15 = the paper's "all but one layer with 2 hits" = production; T = 14 one hit looser; T = 16 all 8 stations with 2 hits).
   The threshold is applied after the fact to the stored winner (C01 winner_layers; G01 station counts n1, n2): the winner plane does not depend
   on the multiplicity cut (select_reconstructed_plane), checked by T13 (a), (c).
-Background: C01 runs, N at 332 fb^-1 with the S01 normalisation (per region L sigma/photon * N_photons / photons in region * p_conv), MC error sqrt(sum w^2).
-  Production (a = 1): runs/C01_atlas_mu{mu} (Z0), C01_atlas_A580_mu{mu}, C01_stage2_A580_mu{mu}, C01_stage2_sens_a1_mu50 (Ideal Z0, server);
+Background: C01 runs, N at 332 fb^-1 with the S01 normalisation (100k runs: backgrounds/inputs_zgamma_large/zgamma_xsec_large.txt, as S01 --xsec) (per region L sigma/photon * N_photons / photons in region * p_conv), MC error sqrt(sum w^2).
+  Production (a = 1): runs/C01_atlas_mu{mu} (Z0, 9130 photons), C01_atlas_A580_100k_mu{mu}, C01_stage2_A580_100k_mu{mu} (A580, 90 980 photons, server, since
+  2026-11-18), C01_stage2_sens_Z0_a1_mu{mu} (Ideal Z0, server);
   merge variants: runs/C01_<geom>_sens_<sct>_a<a>_mu50, a = 0, 1, 2 (server, SERVER_BACKGROUND_RUNS.md (e), laptop pool copied): each variant is
   compared with the server a = 1 run (column ratio_to_reference), so machine and pool differences cancel. Missing runs are skipped.
 Signal: signal/runs/sens_merge/<geom>/G01_<tag>_mid.jsonl (S01_sens_chain.sh): k/n = final / fiducial per Lambda and summed over the mid band.
@@ -18,8 +19,10 @@ import os, glob, json, numpy as np, pandas as pd
 from collections import Counter
 HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.abspath(f"{HERE}/.."); T = f"{R}/tables"
 BASE = os.environ.get("COPLANARITY_BASE", os.path.abspath(f"{R}/.."))
-X = dict(l.split()[:2] for l in open(f"{BASE}/06_publication/S2_13p6TeV_run3_knapen_noPU_cop/inputs/zgamma_xsec_13p6TeV.txt") if len(l.split()) >= 2)
-SIG = float(X["sigma_generated_pb"]) / float(X.get("n_generated", 10000)); NPH = float(X["n_events_after_MET"]); L_PB = 332.0e3
+def xsec(f):                                                                   # (sigma per generated event, photons after MET), as S01 --xsec
+    X = dict(l.split()[:2] for l in open(f) if len(l.split()) >= 2); return float(X["sigma_generated_pb"]) / float(X.get("n_generated", 10000)), float(X["n_events_after_MET"])
+XS = {"9130": xsec(f"{BASE}/06_publication/S2_13p6TeV_run3_knapen_noPU_cop/inputs/zgamma_xsec_13p6TeV.txt"), "100k": xsec(f"{R}/backgrounds/inputs_zgamma_large/zgamma_xsec_large.txt")}
+L_PB = 332.0e3
 THR = (14, 15, 16)
 
 
@@ -34,6 +37,7 @@ def bkg(run, sct):
     d = pd.concat([pd.read_csv(f) for f in fs], ignore_index=True); d = d[(d.sct == sct) & (d.status == "ok")].copy()
     for c in ("plane", "ds_pass"): d[c] = d[c].astype(str).str.lower().eq("true")
     n12 = d.winner_layers.map(counts); d["n1"] = [a for a, b in n12]; d["n2"] = [b for a, b in n12]
+    SIG, NPH = XS["100k" if "100k" in run else "9130"]
     d["w"] = L_PB * SIG * NPH * d.p_conv / d.groupby("region").event.transform("nunique")
     out = []
     for t in THR:
@@ -44,8 +48,8 @@ def bkg(run, sct):
 
 
 rows = []
-SETS = [("S2_Run3_ATLAS", "Z0", "C01_atlas_mu{mu}", "C01_atlas_sens_Z0_a{a}_mu50"), ("S2_Run3_ATLAS", "A580", "C01_atlas_A580_mu{mu}", "C01_atlas_sens_A580_a{a}_mu50"),
-        ("S1_Run3_Ideal", "Z0", "C01_stage2_sens_Z0_a1_mu{mu}", "C01_stage2_sens_Z0_a{a}_mu50"), ("S1_Run3_Ideal", "A580", "C01_stage2_A580_mu{mu}", "C01_stage2_sens_A580_a{a}_mu50")]
+SETS = [("S2_Run3_ATLAS", "Z0", "C01_atlas_mu{mu}", "C01_atlas_sens_Z0_a{a}_mu50"), ("S2_Run3_ATLAS", "A580", "C01_atlas_A580_100k_mu{mu}", "C01_atlas_sens_A580_a{a}_mu50"),
+        ("S1_Run3_Ideal", "Z0", "C01_stage2_sens_Z0_a1_mu{mu}", "C01_stage2_sens_Z0_a{a}_mu50"), ("S1_Run3_Ideal", "A580", "C01_stage2_A580_100k_mu{mu}", "C01_stage2_sens_A580_a{a}_mu50")]
 for setup, sct, prod, var in SETS:
     for mu in (0, 20, 50):
         for r in bkg(prod.format(mu=mu), sct) or []: rows.append(dict(setup=setup, sct=sct, mu=mu, merge_adj=1, source="production", **r))

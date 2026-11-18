@@ -10,7 +10,8 @@ below on the Stage 2 inputs and must reproduce S2_N_grid_300fb.csv, S2_reach.csv
   signal - signal/inputs_large/counts.csv (sigma, n_matched, n_trigger, n_trigger_both_charged) and signal/runs/large_atlas/G01_<tag>_<band>.jsonl (server runs; env R01_RUNS)
            (fid = 07 station rule, <sct>_final = plane + multiplicity + Delta_s + Delta_w; fid_stage2 also stored). A band file is used only when it holds
            every propagated event (n); otherwise its Lambda values are "not run" (as S2_05: "bound" if L sigma eps_trig f_ch < 3, else "missing").
-  background - tables/S01_C01_atlas[_A580]_mu<mu>.csv (C01 + S01, 332 fb^-1, summed over the conversion regions); scaled linearly to L.
+  background - tables/S01_C01_atlas_mu<mu>.csv (Z0, Z1160; 9130 photons) and, since 2026-11-18, tables/S01_C01_atlas_A580_100k_mu<mu>.csv (A580; 90 980
+           Z01 photons, server) (C01 + S01, 332 fb^-1, summed over the conversion regions); scaled linearly to L.
            b_used (exclusion) = central N if any event passed, else the 95% upper limit with 0 events in every region: P(0) = exp(-sum b_i / w_i) >= 0.05
            with w_i the weight of one simulated photon in region i gives b <= 3 max_i w_i = the largest per-region S01 limit (S2_09: one region, the same formula).
            Also given: the reach with b_used = central N (variant 'central b'), because the limit is set by the background MC statistics (9130 photons).
@@ -138,7 +139,7 @@ if __name__ == "__main__":
     R = pd.DataFrame(rows); R.to_csv(f"{T}/R01_reach.csv", index=False); pd.set_option("display.width", 250); print(R[R.lumi_fb == 332].to_string(index=False))
     # background (C01 + S01, 332 fb^-1)
     B = []
-    for sct, pre in (("Z0", "C01_atlas_mu"), ("Z1160", "C01_atlas_mu"), ("A580", "C01_atlas_A580_mu")):
+    for sct, pre in (("Z0", "C01_atlas_mu"), ("Z1160", "C01_atlas_mu"), ("A580", "C01_atlas_A580_100k_mu")):
         for mu in (0, 20, 50, 60):
             f = f"{T}/S01_{pre}{mu}.csv"
             if not os.path.exists(f): continue

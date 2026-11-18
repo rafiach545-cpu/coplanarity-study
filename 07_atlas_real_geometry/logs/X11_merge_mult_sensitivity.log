@@ -8,24 +8,24 @@ S2_Run3_ATLAS   Z0  20          1 production     9130         16      22       1
 S2_Run3_ATLAS   Z0  50          1 production     9130         14    1562     171.9395 7.0922       19301              2.4856
 S2_Run3_ATLAS   Z0  50          1 production     9130         15     687      69.1756 4.3774       19301              1.0000
 S2_Run3_ATLAS   Z0  50          1 production     9130         16      97       7.5211 1.2743       19301              0.1087
-S2_Run3_ATLAS A580   0          1 production     9130         14      15       0.3906 0.1042         470                 NaN
-S2_Run3_ATLAS A580   0          1 production     9130         15       0       0.0000 0.0000         470                 NaN
-S2_Run3_ATLAS A580   0          1 production     9130         16       0       0.0000 0.0000         470                 NaN
-S2_Run3_ATLAS A580  20          1 production     9130         14      17       0.8320 0.3342         536             10.7635
-S2_Run3_ATLAS A580  20          1 production     9130         15       3       0.0773 0.0448         536              1.0000
-S2_Run3_ATLAS A580  20          1 production     9130         16       0       0.0000 0.0000         536              0.0000
-S2_Run3_ATLAS A580  50          1 production     9130         14      17       1.2205 0.4462         913              3.6293
-S2_Run3_ATLAS A580  50          1 production     9130         15       5       0.3363 0.2401         913              1.0000
-S2_Run3_ATLAS A580  50          1 production     9130         16       0       0.0000 0.0000         913              0.0000
-S1_Run3_Ideal A580   0          1 production     9130         14       5       0.4184 0.1871         122                 NaN
-S1_Run3_Ideal A580   0          1 production     9130         15       0       0.0000 0.0000         122                 NaN
-S1_Run3_Ideal A580   0          1 production     9130         16       0       0.0000 0.0000         122                 NaN
-S1_Run3_Ideal A580  20          1 production     9130         14       7       0.5858 0.2214         104              1.4000
-S1_Run3_Ideal A580  20          1 production     9130         15       5       0.4184 0.1871         104              1.0000
-S1_Run3_Ideal A580  20          1 production     9130         16       1       0.0837 0.0837         104              0.2000
-S1_Run3_Ideal A580  50          1 production     9130         14      13       1.0879 0.3017          91              3.2500
-S1_Run3_Ideal A580  50          1 production     9130         15       4       0.3347 0.1674          91              1.0000
-S1_Run3_Ideal A580  50          1 production     9130         16       0       0.0000 0.0000          91              0.0000
+S2_Run3_ATLAS A580   0          1 production    90980         14     122       0.3405 0.0319        4899                 NaN
+S2_Run3_ATLAS A580   0          1 production    90980         15       0       0.0000 0.0000        4899                 NaN
+S2_Run3_ATLAS A580   0          1 production    90980         16       0       0.0000 0.0000        4899                 NaN
+S2_Run3_ATLAS A580  20          1 production    90980         14     134       0.5001 0.0692        5474              7.2317
+S2_Run3_ATLAS A580  20          1 production    90980         15      12       0.0691 0.0326        5474              1.0000
+S2_Run3_ATLAS A580  20          1 production    90980         16       0       0.0000 0.0000        5474              0.0000
+S2_Run3_ATLAS A580  50          1 production    90980         14     151       0.8769 0.1281        8805              4.4294
+S2_Run3_ATLAS A580  50          1 production    90980         15      33       0.1980 0.0516        8805              1.0000
+S2_Run3_ATLAS A580  50          1 production    90980         16       3       0.0081 0.0047        8805              0.0408
+S1_Run3_Ideal A580   0          1 production    90980         14      55       0.4579 0.0617        1012                 NaN
+S1_Run3_Ideal A580   0          1 production    90980         15       0       0.0000 0.0000        1012                 NaN
+S1_Run3_Ideal A580   0          1 production    90980         16       0       0.0000 0.0000        1012                 NaN
+S1_Run3_Ideal A580  20          1 production    90980         14      65       0.5411 0.0671         870              5.9091
+S1_Run3_Ideal A580  20          1 production    90980         15      11       0.0916 0.0276         870              1.0000
+S1_Run3_Ideal A580  20          1 production    90980         16       0       0.0000 0.0000         870              0.0000
+S1_Run3_Ideal A580  50          1 production    90980         14      67       0.5578 0.0681         748              5.1538
+S1_Run3_Ideal A580  50          1 production    90980         15      13       0.1082 0.0300         748              1.0000
+S1_Run3_Ideal A580  50          1 production    90980         16       1       0.0083 0.0083         748              0.0769
         setup          sample   sct  merge_adj  threshold lambda_keV  n_events  n_fid    k  eps_reco  ratio_to_reference
 S2_Run3_ATLAS       EW_800gev    Z0          0         14        all       891   4079 2905    0.7122              1.1067
 S2_Run3_ATLAS       EW_800gev    Z0          0         15        all       891   4079 2824    0.6923              1.0758

@@ -1,0 +1,52 @@
+/home/rafia/coplanarity_study/07_atlas_real_geometry/backgrounds/S02_conversion_breakdown.py:27: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  T = S[(S.part == "all")].groupby(["run", "sct"]).apply(lambda g: pd.Series(dict(N_total=g.N_332fb.sum(), N_stat=np.sqrt((g.N_stat ** 2).sum()))))
+           run  region sct         part  final  final_abs_eta_lt_1   N_332fb   N_stat
+ C01_atlas_mu0       0  Z0          all     10                   5  0.343467 0.122187
+ C01_atlas_mu0       0  Z0  barrel-like      5                   5  0.090812 0.040894
+ C01_atlas_mu0       0  Z0 with end-cap      5                   0  0.252655 0.115140
+ C01_atlas_mu0       1  Z0          all      0                   0  0.000000 0.000000
+ C01_atlas_mu0       1  Z0  barrel-like      0                   0  0.000000 0.000000
+ C01_atlas_mu0       1  Z0 with end-cap      0                   0  0.000000 0.000000
+ C01_atlas_mu0       2  Z0          all      0                   0  0.000000 0.000000
+ C01_atlas_mu0       2  Z0  barrel-like      0                   0  0.000000 0.000000
+ C01_atlas_mu0       2  Z0 with end-cap      0                   0  0.000000 0.000000
+C01_atlas_mu20       0  Z0          all    332                  77 11.499930 0.683751
+C01_atlas_mu20       0  Z0  barrel-like    113                  77  2.350666 0.223939
+C01_atlas_mu20       0  Z0 with end-cap    219                   0  9.149264 0.646039
+C01_atlas_mu20       1  Z0          all     39                   5 13.277612 2.255966
+C01_atlas_mu20       1  Z0  barrel-like      7                   5  1.197421 0.457936
+C01_atlas_mu20       1  Z0 with end-cap     32                   0 12.080190 2.208999
+C01_atlas_mu20       2  Z0          all      3                   0  2.251952 1.312981
+C01_atlas_mu20       2  Z0  barrel-like      0                   0  0.000000 0.000000
+C01_atlas_mu20       2  Z0 with end-cap      3                   0  2.251952 1.312981
+C01_atlas_mu50       0  Z0          all    517                 123 17.617404 0.842693
+C01_atlas_mu50       0  Z0  barrel-like    181                 123  3.725325 0.280245
+C01_atlas_mu50       0  Z0 with end-cap    336                   0 13.892079 0.794729
+C01_atlas_mu50       1  Z0          all    162                  28 47.340406 3.968029
+C01_atlas_mu50       1  Z0  barrel-like     42                  28  7.287792 1.136259
+C01_atlas_mu50       1  Z0 with end-cap    120                   0 40.052614 3.801864
+C01_atlas_mu50       2  Z0          all      8                   2  4.217757 1.644947
+C01_atlas_mu50       2  Z0  barrel-like      4                   2  1.400277 0.702353
+C01_atlas_mu50       2  Z0 with end-cap      4                   0  2.817479 1.487464
+C01_atlas_mu60       0  Z0          all    531                 145 17.438780 0.820060
+C01_atlas_mu60       0  Z0  barrel-like    203                 145  4.146724 0.294887
+C01_atlas_mu60       0  Z0 with end-cap    328                   0 13.292055 0.765206
+C01_atlas_mu60       1  Z0          all    174                  44 50.040383 4.106392
+C01_atlas_mu60       1  Z0  barrel-like     61                  44 10.501696 1.358612
+C01_atlas_mu60       1  Z0 with end-cap    113                   0 39.538686 3.875129
+C01_atlas_mu60       2  Z0          all     16                   6  7.097814 1.928548
+C01_atlas_mu60       2  Z0  barrel-like      9                   6  2.784366 0.939927
+C01_atlas_mu60       2  Z0 with end-cap      7                   0  4.313448 1.683994
+                                  N_total    N_stat
+run                      sct                       
+C01_atlas_A580_100k_mu0  A580    0.000000  0.000000
+C01_atlas_A580_100k_mu20 A580    0.069149  0.032577
+C01_atlas_A580_100k_mu50 A580    0.197982  0.051605
+C01_atlas_mu0            Z0      0.343467  0.122187
+                         Z1160   0.000000  0.000000
+C01_atlas_mu20           Z0     27.029493  2.698299
+                         Z1160   0.000000  0.000000
+C01_atlas_mu50           Z0     69.175567  4.377355
+                         Z1160   0.000000  0.000000
+C01_atlas_mu60           Z0     74.576976  4.610233
+                         Z1160   0.000000  0.000000

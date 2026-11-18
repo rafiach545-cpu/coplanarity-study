@@ -4,7 +4,7 @@
   ATLAS: tables/R01_background.csv (C01 atlas: barrel + end-caps, material conversion probability M01; b_used = central value if any photon passed,
          else the largest per-region 95% upper limit, D5).
   Ideal: Z0, Z1160 from 06 S2_background_13p6TeV.csv (barrel only, flat 1% conversion at the beam pipe; C01 stage2 mode reproduces it event by event, T05);
-         A580 from the new C01 stage2 A580 runs (tables/S01_C01_stage2_A580_mu*.csv, same conventions; 06 S2 had no A580 setting).
+         A580 from the C01 stage2 A580 runs with 90 980 photons (tables/S01_C01_stage2_A580_100k_mu*.csv, 2026-11-18, same conventions; 06 S2 had no A580 setting).
 Two variants for exclusion when no MC photon passed: the central value b = 0 (main result, 2026-11-17) and b = the MC 95% UL (systematic variant). Statistics: the unchanged method of R01 / S2_09: exclusion s95(b_used) = 95% CL_s with n_obs = round(b_used); discovery s5(N_bkg) = max(5, Asimov Z = 5).
 Signal grids: tables/R01_N_grid_300fb.csv (ATLAS), tables/X02_N_grid_S1_Run3_Ideal_300fb.csv (Ideal 10k); reach: reach_rows of R01 (unchanged).
 The 2k Ideal sample (06 S2_reach_with_background.csv, Z0 and Z1160) is listed for reference.
@@ -21,7 +21,7 @@ s2 = pd.read_csv(f"{S2}/S2_background_13p6TeV.csv"); s2 = s2[s2.process == "conv
 for r in s2.itertuples():
     B.append(dict(setup="S1_Run3_Ideal", sct=r.sct, mu=int(r.mu), N_bkg=r.N_bkg_332fb, b_used=r.b_used_332fb, n_final=int(r.sr), source="06 S2_background_13p6TeV.csv"))
 for mu in (0, 20, 50):
-    f = f"{T}/S01_C01_stage2_A580_mu{mu}.csv"
+    f = f"{T}/S01_C01_stage2_A580_100k_mu{mu}.csv"                    # 2026-11-18: 100k (90 980 Z01 photons, server) replaces the 9130-photon run
     if not os.path.exists(f): continue
     s = pd.read_csv(f); s = s[s.sct == "A580"]; N = float(s.N_bkg_332fb.sum()); nf = int(s.final.sum())
     B.append(dict(setup="S1_Run3_Ideal", sct="A580", mu=mu, N_bkg=N, b_used=N if nf else float(s.N_UL95_332fb_if_zero.max()), n_final=nf, source=os.path.basename(f) + " (C01 stage2)"))

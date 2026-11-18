@@ -4,7 +4,7 @@
 void G03_fiducial_efficiency()
 {
 //=========Macro generated from canvas: G03_fiducial_efficiency/G03_fiducial_efficiency
-//=========  (Tue Nov 17 16:37:36 2026) by ROOT version 6.40.04
+//=========  (Wed Nov 18 12:25:47 2026) by ROOT version 6.40.04
    TCanvas *G03_fiducial_efficiency = new TCanvas("G03_fiducial_efficiency", "G03_fiducial_efficiency", 0, 0, 1600, 1450);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);

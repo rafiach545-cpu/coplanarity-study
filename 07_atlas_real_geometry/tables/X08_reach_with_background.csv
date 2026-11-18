@@ -67,26 +67,26 @@ S2_Run3_ATLAS,central b,colored,A580,0,exclusion,0.0,0.0,3.0,1697,1674,1719,5.0
 S2_Run3_ATLAS,central b,colored,A580,0,discovery,0.0,0.0,5.0,1618,1599,1636,4.0
 S2_Run3_ATLAS,central b,EW,A580,0,exclusion,0.0,0.0,3.0,768,754,781,5.0
 S2_Run3_ATLAS,central b,EW,A580,0,discovery,0.0,0.0,5.0,681,666,694,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,0,exclusion,0.0,1.285,4.01,1650,1631,1669,4.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,0,discovery,0.0,1.285,5.0,1618,1599,1636,4.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,0,exclusion,0.0,1.285,4.01,718,704,732,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,0,discovery,0.0,1.285,5.0,681,666,694,5.0
-S2_Run3_ATLAS,central b,colored,A580,20,exclusion,0.077,0.077,3.0,1697,1674,1719,5.0
-S2_Run3_ATLAS,central b,colored,A580,20,discovery,0.077,0.077,5.0,1618,1599,1636,4.0
-S2_Run3_ATLAS,central b,EW,A580,20,exclusion,0.077,0.077,3.0,768,754,781,5.0
-S2_Run3_ATLAS,central b,EW,A580,20,discovery,0.077,0.077,5.0,681,666,694,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,20,exclusion,0.077,0.077,3.0,1697,1674,1719,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,20,discovery,0.077,0.077,5.0,1618,1599,1636,4.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,20,exclusion,0.077,0.077,3.0,768,754,781,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,20,discovery,0.077,0.077,5.0,681,666,694,5.0
-S2_Run3_ATLAS,central b,colored,A580,50,exclusion,0.336,0.336,3.0,1697,1674,1719,5.0
-S2_Run3_ATLAS,central b,colored,A580,50,discovery,0.336,0.336,5.96,1591,1573,1610,4.0
-S2_Run3_ATLAS,central b,EW,A580,50,exclusion,0.336,0.336,3.0,768,754,781,5.0
-S2_Run3_ATLAS,central b,EW,A580,50,discovery,0.336,0.336,5.96,651,636,665,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,50,exclusion,0.336,0.336,3.0,1697,1674,1719,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,50,discovery,0.336,0.336,5.96,1591,1573,1610,4.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,50,exclusion,0.336,0.336,3.0,768,754,781,5.0
-S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,50,discovery,0.336,0.336,5.96,651,636,665,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,0,exclusion,0.0,0.13,3.0,1697,1674,1719,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,0,discovery,0.0,0.13,5.0,1618,1599,1636,4.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,0,exclusion,0.0,0.13,3.0,768,754,781,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,0,discovery,0.0,0.13,5.0,681,666,694,5.0
+S2_Run3_ATLAS,central b,colored,A580,20,exclusion,0.069,0.069,3.0,1697,1674,1719,5.0
+S2_Run3_ATLAS,central b,colored,A580,20,discovery,0.069,0.069,5.0,1618,1599,1636,4.0
+S2_Run3_ATLAS,central b,EW,A580,20,exclusion,0.069,0.069,3.0,768,754,781,5.0
+S2_Run3_ATLAS,central b,EW,A580,20,discovery,0.069,0.069,5.0,681,666,694,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,20,exclusion,0.069,0.069,3.0,1697,1674,1719,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,20,discovery,0.069,0.069,5.0,1618,1599,1636,4.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,20,exclusion,0.069,0.069,3.0,768,754,781,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,20,discovery,0.069,0.069,5.0,681,666,694,5.0
+S2_Run3_ATLAS,central b,colored,A580,50,exclusion,0.198,0.198,3.0,1697,1674,1719,5.0
+S2_Run3_ATLAS,central b,colored,A580,50,discovery,0.198,0.198,5.16,1613,1595,1631,4.0
+S2_Run3_ATLAS,central b,EW,A580,50,exclusion,0.198,0.198,3.0,768,754,781,5.0
+S2_Run3_ATLAS,central b,EW,A580,50,discovery,0.198,0.198,5.16,675,661,689,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,50,exclusion,0.198,0.198,3.0,1697,1674,1719,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),colored,A580,50,discovery,0.198,0.198,5.16,1613,1595,1631,4.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,50,exclusion,0.198,0.198,3.0,768,754,781,5.0
+S2_Run3_ATLAS,UL if 0 passed (systematic),EW,A580,50,discovery,0.198,0.198,5.16,675,661,689,5.0
 S1_Run3_Ideal,central b,colored,Z1160,0,exclusion,0.0,0.0,3.0,1497,1467,1535,5.0
 S1_Run3_Ideal,central b,colored,Z1160,0,discovery,0.0,0.0,5.0,1430,1401,1459,5.0
 S1_Run3_Ideal,central b,EW,Z1160,0,exclusion,0.0,0.0,3.0,565,541,594,3.0
@@ -155,26 +155,26 @@ S1_Run3_Ideal,central b,colored,A580,0,exclusion,0.0,0.0,3.0,1591,1564,1618,4.0
 S1_Run3_Ideal,central b,colored,A580,0,discovery,0.0,0.0,5.0,1515,1489,1540,4.0
 S1_Run3_Ideal,central b,EW,A580,0,exclusion,0.0,0.0,3.0,631,607,654,3.0
 S1_Run3_Ideal,central b,EW,A580,0,discovery,0.0,0.0,5.0,560,544,577,3.0
-S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,0,exclusion,0.0,0.251,3.0,1591,1564,1618,4.0
-S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,0,discovery,0.0,0.251,5.0,1515,1489,1540,4.0
-S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,0,exclusion,0.0,0.251,3.0,631,607,654,3.0
-S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,0,discovery,0.0,0.251,5.0,560,544,577,3.0
-S1_Run3_Ideal,central b,colored,A580,20,exclusion,0.418,0.418,3.0,1591,1564,1618,4.0
-S1_Run3_Ideal,central b,colored,A580,20,discovery,0.418,0.418,6.35,1478,1452,1504,4.0
-S1_Run3_Ideal,central b,EW,A580,20,exclusion,0.418,0.418,3.0,631,607,654,3.0
-S1_Run3_Ideal,central b,EW,A580,20,discovery,0.418,0.418,6.35,532,515,548,3.0
-S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,20,exclusion,0.418,0.418,3.0,1591,1564,1618,4.0
-S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,20,discovery,0.418,0.418,6.35,1478,1452,1504,4.0
-S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,20,exclusion,0.418,0.418,3.0,631,607,654,3.0
-S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,20,discovery,0.418,0.418,6.35,532,515,548,3.0
-S1_Run3_Ideal,central b,colored,A580,50,exclusion,0.335,0.335,3.0,1591,1564,1618,4.0
-S1_Run3_Ideal,central b,colored,A580,50,discovery,0.335,0.335,5.96,1488,1462,1514,4.0
-S1_Run3_Ideal,central b,EW,A580,50,exclusion,0.335,0.335,3.0,631,607,654,3.0
-S1_Run3_Ideal,central b,EW,A580,50,discovery,0.335,0.335,5.96,540,523,556,3.0
-S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,50,exclusion,0.335,0.335,3.0,1591,1564,1618,4.0
-S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,50,discovery,0.335,0.335,5.96,1488,1462,1514,4.0
-S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,50,exclusion,0.335,0.335,3.0,631,607,654,3.0
-S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,50,discovery,0.335,0.335,5.96,540,523,556,3.0
+S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,0,exclusion,0.0,0.025,3.0,1591,1564,1618,4.0
+S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,0,discovery,0.0,0.025,5.0,1515,1489,1540,4.0
+S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,0,exclusion,0.0,0.025,3.0,631,607,654,3.0
+S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,0,discovery,0.0,0.025,5.0,560,544,577,3.0
+S1_Run3_Ideal,central b,colored,A580,20,exclusion,0.092,0.092,3.0,1591,1564,1618,4.0
+S1_Run3_Ideal,central b,colored,A580,20,discovery,0.092,0.092,5.0,1515,1489,1540,4.0
+S1_Run3_Ideal,central b,EW,A580,20,exclusion,0.092,0.092,3.0,631,607,654,3.0
+S1_Run3_Ideal,central b,EW,A580,20,discovery,0.092,0.092,5.0,560,544,577,3.0
+S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,20,exclusion,0.092,0.092,3.0,1591,1564,1618,4.0
+S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,20,discovery,0.092,0.092,5.0,1515,1489,1540,4.0
+S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,20,exclusion,0.092,0.092,3.0,631,607,654,3.0
+S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,20,discovery,0.092,0.092,5.0,560,544,577,3.0
+S1_Run3_Ideal,central b,colored,A580,50,exclusion,0.108,0.108,3.0,1591,1564,1618,4.0
+S1_Run3_Ideal,central b,colored,A580,50,discovery,0.108,0.108,5.0,1515,1489,1540,4.0
+S1_Run3_Ideal,central b,EW,A580,50,exclusion,0.108,0.108,3.0,631,607,654,3.0
+S1_Run3_Ideal,central b,EW,A580,50,discovery,0.108,0.108,5.0,560,544,577,3.0
+S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,50,exclusion,0.108,0.108,3.0,1591,1564,1618,4.0
+S1_Run3_Ideal,UL if 0 passed (systematic),colored,A580,50,discovery,0.108,0.108,5.0,1515,1489,1540,4.0
+S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,50,exclusion,0.108,0.108,3.0,631,607,654,3.0
+S1_Run3_Ideal,UL if 0 passed (systematic),EW,A580,50,discovery,0.108,0.108,5.0,560,544,577,3.0
 S1_Run3_Ideal_2k,UL if 0 passed (systematic),EW,Z0,0,discovery,0.251,,5.5,732,716,749,4.0
 S1_Run3_Ideal_2k,UL if 0 passed (systematic),EW,Z0,20,discovery,9.205,,18.93,585,568,600,4.0
 S1_Run3_Ideal_2k,UL if 0 passed (systematic),EW,Z0,50,discovery,16.402,,24.09,553,536,569,4.0

@@ -4,7 +4,7 @@
 void G05_reach_zero_background_332fb()
 {
 //=========Macro generated from canvas: G05/
-//=========  (Tue Nov 17 16:37:37 2026) by ROOT version 6.40.04
+//=========  (Wed Nov 18 12:25:49 2026) by ROOT version 6.40.04
    TCanvas *G05 = new TCanvas("G05", "", 0, 0, 1800, 1200);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);

@@ -2,7 +2,7 @@
  "figure": "G08_background_vs_pileup",
  "script": "make_figures_07.py (ROOT 6.40.04)",
  "data": {
-  "background_vs_mu.csv": "8051315da76c76701ab165777b45ec8a3e2413fb9484e14adfbadf7ef2d1e4b1"
+  "background_vs_mu.csv": "ab90d8bab0e07aba688674476926aa07f526fd22329e7ed9f00fdb39cc327d27"
  },
  "data_prepared_by": "prepare_data_07.py",
  "upstream_sources": {
@@ -24,13 +24,13 @@
   "07_atlas_real_geometry/signal/inputs_large/colored_2400gev_events.csv": "eb4410eee479162078ce95050974cd1e2002e2745e4a18f584ebd9c1e2199133",
   "07_atlas_real_geometry/tables/R01_N_grid_300fb.csv": "5fb8046b72dec79be5a53846cb3ae31bd99a97497d779a0c46b89d9295a61625",
   "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_N_grid_300fb.csv": "4053db06730c49a6acd4d2d003e9abd8db4ba7a682112bbf2b1268afd25e35b9",
-  "07_atlas_real_geometry/tables/R01_background.csv": "5a3f4b11a814049bb6e6dab6272c1f48019da279d19c4393388386c7b034c82f",
+  "07_atlas_real_geometry/tables/R01_background.csv": "4499ddd45424d421fa83362fc0fec2ea3d859949cc5c0c51e2b8dbeee1ef9815",
   "07_atlas_real_geometry/tables/R01_reach.csv": "f2e08857a8ef5bd7fe3a6abbf99b61f49412f038a8fc40b430f1637eda78db53",
-  "07_atlas_real_geometry/tables/R01_reach_with_background.csv": "5142a184ad81c9205a1f35643dde9f30ad52ee23e2276f17f4bd67c49c88fece",
-  "07_atlas_real_geometry/tables/X08_reach_with_background.csv": "49778c233c096b1f8579adbadc7a33859d6c5f369fd9b87c090ec123ee1fdd8f",
+  "07_atlas_real_geometry/tables/R01_reach_with_background.csv": "16aea8bb27db3c73704a5b1b07f1b340ee63343a243cc6a04e840ce430b7baca",
+  "07_atlas_real_geometry/tables/X08_reach_with_background.csv": "b6cebb94a2522d9fb11f0ceb7a8c71f556afa49f68569e1ea0d803addc2d9dcf",
   "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_reach.csv": "471a73e46b4963610b985a7ca23056d3fde2f8127a29fef7c5abbbd7b1facd19",
   "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_reach_with_background.csv": "bb0073ce6c54b61d04700f6d51e9ba27b3149c96d50133195d20c3bfc75cd966",
-  "07_atlas_real_geometry/tables/S02_conversion_breakdown.csv": "b17d3096a2e1a4e0740b34b188c93e121ebd2eb170da68ef2d4fc6b87e554440",
+  "07_atlas_real_geometry/tables/S02_conversion_breakdown.csv": "d9dce9644246e06e3aff625f7739f435d891b09cb3d584f1e4e4d40722ab1c74",
   "06_publication/S2_13p6TeV_run3_knapen_noPU_cop/S2_background_13p6TeV.csv": "2371927ed2a5f8db7768316ff821cfde6dcf07c80d14086d9709f260f8992862",
   "07_atlas_real_geometry/tables/M01_conversion_per_photon.csv": "d58bc6a69bf79a6c202726331a91401481d3882980dbabd218daca1d7aecfaaa",
   "07_atlas_real_geometry/tables/M01_conversion_summary.csv": "d035e32ab2a7f8ab58d7406cbd7899c50574e0326d9b4eebf3a6d1e9cc5de8b3"

@@ -4,7 +4,7 @@
 void G01_cross_sections_trigger()
 {
 //=========Macro generated from canvas: G01/
-//=========  (Tue Nov 17 16:37:36 2026) by ROOT version 6.40.04
+//=========  (Wed Nov 18 12:25:47 2026) by ROOT version 6.40.04
    TCanvas *G01 = new TCanvas("G01", "", 0, 0, 1800, 650);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);
