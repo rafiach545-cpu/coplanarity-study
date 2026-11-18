@@ -58,7 +58,11 @@ A580 background (events at 332 fb⁻¹, central values ± MC error; passing MC p
 - **Every passing A580 photon has pile-up hits in its winning plane, and none passes at μ = 0** (§7, "What the background is made of"). Most were near-misses at μ = 0: they pass Δs and Δw but fail the hit-multiplicity cut, and one or two pile-up hits complete them.
 - Both backgrounds rise with μ. The ATLAS one rises more (×2.9 from μ = 20 to 50, Ideal ×1.2) because of the end-cap and silicon-layer conversions.
 - **These numbers cover Zγ conversions only.** Pile-up can complete a near-miss two-track object from any MET-triggered event, and it can also make planes on its own. A factorised estimate is planned (`backgrounds/PILEUP_FACTORISATION_PLAN.md`).
-- In every case the A580 background is below one event, and the exclusion needs 3.0 signal events.
+- With nominal merging the A580 background is below one event in every case, and the exclusion needs 3.0 signal events.
+- **“Background < 1” is marginal in the a = 0 worst case** (§7.1, merge scenarios). If pixel merging is weaker (a = 0), the ATLAS A580 background at μ = 50 becomes:
+  - about 0.3 events with the Z0 merge ratio (main estimate);
+  - about 0.9 events with the A580-own ratio (pessimistic: 12 vs 3 passing photons).
+  - At 0.9 events the exclusion needs 4.2 instead of 3.0 signal events.
 - The discovery needs max(5, Asimov Z = 5) signal events: 5.0–6.4.
 - **Systematic variant: b = MC 95% upper limit when no photon passed.**
   - With 90 980 photons: ATLAS UL = 0.13 events, Ideal UL = 0.025 events at μ = 0.
@@ -268,7 +272,15 @@ Background at 332 fb⁻¹, central values (`tables/X08_background_used.csv`):
   - different: the photon sample (06 S2 9 130 photons vs Z01 90 980 photons; the RMS of the conversion z is 11.1 vs 13.0 cm, so the photon η spectra differ somewhat) and the pile-up pool (laptop `52b465f5…` vs server default `94e81e1f…`). The pools are statistically equivalent: 20.03 vs 20.01 interactions and 160.4 vs 160.0 pile-up hits per interaction at μ = 20 (beam-pipe rows);
   - the near-miss rate agrees (1.34% vs 1.11% of photons). The difference is in the completion probability: 5/122 = 4.1% vs 10/1 012 = 0.99%;
   - with p = 0.99%, five or more completions out of 122 has probability 0.8% (Poisson for ≥ 5 passes with mean 1.10: 0.5%). The old ATLAS rows are also high but within 1–2σ (3/470 vs 0.86 expected, 5/470 vs 2.9 expected).
-  - **Conclusion:** no setting differed. The old value is an upward fluctuation of about 2.5σ of the 9 130-photon sample, in a quantity set by where a few pile-up hits fall. A pool effect cannot be excluded completely, because the per-photon completion depends on the local hit pattern, not on the pool average. The decisive test would rerun the 9 130 photons with the server pool (or the 100k photons with the laptop pool); it has not been run.
+  - **Pool test (server, 2026-11-18; `tables/S01_C01_stage2_A580_9130_serverpool_mu20.csv`).** The same 9 130 photons, seeds and conversion points were rerun with the server pool (`94e81e1f…`) at μ = 20.
+    - Passes: 2 (0.17 events) with the server pool, against 5 (0.42 events) with the laptop pool. Only 1 photon passes in both runs.
+    - The pile-up interaction counts are identical in both runs, and the mean hits per interaction agree (159.6 vs 160.4).
+    - The 100k rate predicts 1.1 passes. Two or more has probability 0.34, so the server-pool result is fully consistent with it.
+  - **Conclusion: the pool, not the photon sample.** Which near-miss gets completed is decided by the pile-up overlay. With the server pool, the same photons reproduce the 100k rate.
+    - The laptop-pool 5 is a fluctuation of the overlay realisation: from a mean of 5, two or fewer has probability 12%, and from the 100k mean of 1.1, five or more has probability 0.5%.
+    - The two pools are statistically equivalent; neither is wrong.
+    - A small residual remains: with both pools together, the 122 old near-misses complete 7 times out of 244, against 2.4 expected from the 100k rate (P = 1.2%). The two runs share the near-misses, so they are not independent. A photon-sample difference cannot be excluded at this level (conversion-z RMS 11.1 vs 13.0 cm).
+    - The 100k result (11 / 13 passes) is the one used.
 
 - **Why only 215 of about 690 photons pass in both pool runs.** Which near-miss gets completed depends on where the pile-up hits fall, so it changes with the pool. The photon is still needed, because it provides the coplanar pair.
 - **Consequence.** The background is (near-miss two-track objects per triggered event) × (completion probability by pile-up), plus planes made from pile-up alone.
@@ -324,7 +336,35 @@ Background at 332 fb⁻¹, central values (`tables/X08_background_used.csv`):
 | Ideal A580 | 0 | 0.46 ± 0.06 (55) | 0 | 0 |
 | Ideal A580 | 50 | 0.56 ± 0.07 (67) | 0.108 ± 0.030 (13) | 0.008 ± 0.008 (1) |
 
-- The background with merge adjacency 0 and 2 needs the server runs of `backgrounds/SERVER_BACKGROUND_RUNS.md` (e) and is not yet available.
+**Background with merge adjacency a** (server step (e), 2026-11-18; ATLAS, μ = 50, 9 130 photons, same machine and pool for all three; `tables/X13_background_ratios.csv`):
+
+| SCT | a = 0 | a = 1 | a = 2 |
+|---|---|---|---|
+| Z0 | 114.3 (1189 rows) | 71.8 (663) | 53.3 (584) |
+| A580 | 0.35 (12) | 0.080 (3) | 0.039 (1) |
+| ratio to a = 1, Z0 | 1.59 ± 0.08 | 1 | 0.74 ± 0.04 |
+| ratio to a = 1, A580 | 4.4 ± 2.8 | 1 | 0.49 ± 0.56 |
+
+- The server a = 1 run reproduces production within the pool systematic (Z0: 71.8 vs 69.2 ± 4.4).
+- Weaker merging (a = 0) leaves more separate hits, so more near-misses reach the multiplicity cut. Stronger merging (a = 2) does the opposite.
+
+**Merging as one correlated variation: reach per full scenario** (`compare/X13_merge_scenarios.py`, `tables/X13_merge_scenarios.csv`; A580, 332 fb⁻¹). In each scenario the signal and the background change together:
+- signal: the k ratio of the table above, interpolated in mass;
+- background: the 100k central value times a background ratio, either the Z0 ratio (main) or the A580-own ratio (pessimistic).
+
+The background ratios are measured at μ = 50 in ATLAS and are also applied to μ = 20 and to the Ideal geometry (assumption). At μ = 0 the background is 0 in every scenario.
+
+| ATLAS, μ = 50 | b [events] | s_excl / s_disc | colored excl. / disc. [GeV] | EW excl. / disc. [GeV] |
+|---|---|---|---|---|
+| nominal (a = 1) | 0.20 | 3.0 / 5.16 | 1697 / 1613 | 768 / 675 |
+| a = 0, main (×1.59) | 0.32 | 3.0 / 5.86 | 1724 (+27) / 1621 (+8) | 800 (+32) / 690 (+15) |
+| a = 0, pessimistic (×4.4) | 0.87 | 4.17 / 7.97 | 1670 (−27) / 1576 (−37) | 746 (−22) / 640 (−35) |
+| a = 2, main (×0.74) | 0.15 | 3.0 / 5.0 | 1666 (−31) / 1590 (−23) | 736 (−32) / 645 (−30) |
+| a = 2, pessimistic (×0.49) | 0.10 | 3.0 / 5.0 | 1666 (−31) / 1590 (−23) | 736 (−32) / 645 (−30) |
+
+- At μ = 0 the scenarios move only the signal: ATLAS +27 / −31 GeV (colored) and +32 / −32 GeV (EW). At μ = 20 the exclusion moves the same way. The pessimistic a = 0 background (0.30 events) changes only the discovery.
+- In the a = 0 pessimistic scenario the background (0.87) rounds to one observed event. The exclusion then needs 4.17 events, and the signal gain (+16–26%) does not compensate it.
+- Ideal (μ = 50, same ratios applied): b ≤ 0.48 events in every scenario, exclusion 1620 / 1560 GeV (colored) and 670 / 595 GeV (EW) for a = 0 / 2.
 
 **Signal** (all triggered events, Λ = 1–10 keV, both geometries; k relative to a = 1, T = 15; `signal/runs/sens_merge`, figure `FIGURES_SIGNAL_2026-11-18/S05`):
 
@@ -335,31 +375,48 @@ Background at 332 fb⁻¹, central values (`tables/X08_background_used.csv`):
 | colored 1800 GeV | A580, ATLAS / Ideal | 1.08 / 1.09 | 0.83 / 0.87 | 1.16 / 1.16 | 0.84 / 0.84 | 0.69 / 0.73 |
 | colored 1800 GeV | Z0, ATLAS / Ideal | 1.04 / 1.04 | 0.89 / 0.88 | 1.07 / 1.07 | 0.91 / 0.91 | 0.82 / 0.81 |
 
+**Mass dependence (A580, 2026-11-18).** The signal ratio was also measured at EW 600 GeV and colored 1500 GeV (`signal/S01b_sens_chain_mass.sh`, figure `FIGURES_SIGNAL_2026-11-18/S06`). The errors are paired, from the events that pass only in the variant or only in production (`ratio_err_paired` in `tables/X11_signal_sensitivity.csv`).
+
+| variant | geometry | EW 600 | EW 800 | colored 1500 | colored 1800 |
+|---|---|---|---|---|---|
+| a = 0 | ATLAS | 1.263 ± 0.021 | 1.210 ± 0.017 | 1.224 ± 0.027 | 1.157 ± 0.027 |
+| a = 0 | Ideal | 1.278 ± 0.032 | 1.213 ± 0.026 | 1.262 ± 0.042 | 1.161 ± 0.038 |
+| a = 2 | ATLAS | 0.804 ± 0.018 | 0.840 ± 0.015 | 0.825 ± 0.024 | 0.839 ± 0.027 |
+| a = 2 | Ideal | 0.802 ± 0.027 | 0.815 ± 0.024 | 0.805 ± 0.036 | 0.839 ± 0.038 |
+| T = 14 | ATLAS | 1.095 ± 0.013 | 1.096 ± 0.011 | 1.104 ± 0.018 | 1.081 ± 0.019 |
+| T = 16 | ATLAS | 0.787 ± 0.019 | 0.814 ± 0.016 | 0.808 ± 0.025 | 0.834 ± 0.027 |
+
+- For every variant the deviation from 1 is the same or smaller at the higher mass. For a = 0 the difference between the two masses is 0.05–0.10, which is 1.6–2.0σ in each channel and geometry.
+- There is no change of sign and no large trend. The two masses differ by only 200–300 GeV.
+- The reach shift (X12) now uses the ratio interpolated linearly in m_Q between the two masses, and the nearest measured value outside them. This changes the merge entry by at most 7 GeV compared with the flat 800 / 1800 GeV ratio.
+
 **Conclusions.**
 1. **T = 15 stays the baseline** (the paper's rule; all headline numbers). The background is not robust against a looser threshold:
    - T = 14 makes Z0 large even without pile-up (0.34 → 48.5 events at μ = 0);
    - for A580 it raises the background about 4.4 times (ATLAS, μ = 50), but it stays below one event (0.88).
-2. **T = 16 is kept only as a fallback.** It cuts the A580 background at μ = 50 to 0.008 events (ATLAS and Ideal) and Z0 at μ = 50 by 9 times. The signal loses 13–19% (A580) or 11–13% (Z0); for A580 this is −30 to −35 GeV of exclusion reach (ATLAS, `tables/X12_merge_reach_shift.csv`).
+2. **T = 16 is kept only as a fallback.** It cuts the A580 background at μ = 50 to 0.008 events (ATLAS and Ideal) and Z0 at μ = 50 by 9 times. The signal loses 13–21% (A580; more at lower mass) or 11–13% (Z0). For A580 this is −32 to −37 GeV of exclusion reach (ATLAS, `tables/X12_merge_reach_shift.csv`).
 3. The signal changes by at most about ±20% for a = 0 or 2 and by −19% to +10% for T. The changes are the same in both geometries (ATLAS / Ideal within the errors), so the end-cap gain does not depend on these choices.
 4. This is a 1-hit-sensitive selection. The merge distance and the threshold must be quoted with the result. The A580 conclusion "background below about one event" holds for T = 14–16; the Z0 conclusion holds only for T ≥ 15.
 
 ### Uncertainty budget (A580 headline, 332 fb⁻¹, 2026-11-18)
 
-Shifts of the exclusion reach m_max (GeV), ATLAS / Ideal. The merge entry is computed in `compare/X12_merge_reach_shift.py` (`tables/X12_merge_reach_shift.csv`): the signal grid is scaled by the measured k ratio of §7.1 (EW by EW 800 GeV, colored by colored 1800 GeV; assumed flat over the grid) and the reach is recomputed with R01 and the central background of X08.
+Shifts of the exclusion reach m_max (GeV), ATLAS / Ideal. The merge entry is computed in `compare/X12_merge_reach_shift.py` (`tables/X12_merge_reach_shift.csv`):
+- the signal grid is scaled by the measured k ratio of §7.1, interpolated linearly in m_Q between EW 600 and 800 GeV and between colored 1500 and 1800 GeV, and held constant outside;
+- the reach is recomputed with R01 and the central background of X08. The exclusion shift is the same at μ = 0, 20 and 50.
 
 | source | variation | colored | EW | where |
 |---|---|---|---|---|
-| pixel-merge distance (signal) | a = 0 / a = 2 (signal k ×1.16 / ×0.84 colored, ×1.21 / ×0.82–0.84 EW) | +25 −30 / +22 −26 | +32 −30 / +33 −34 | §7.1, X12 |
-| pixel-merge distance (background) | a = 0 / 2 | pending | pending | server step (e) |
+| pixel merging, signal and background together (μ = 0 / 20) | a = 0 / a = 2 | +27 −31 / +29 −31 | +32 −32 / +39 −36 | §7.1, X13 |
+| pixel merging, signal and background together (μ = 50, ATLAS) | a = 0 main, a = 0 pessimistic / a = 2 | +27, −27 / −31 | +32, −22 / −32 | §7.1, X13 |
 | signal MC statistics | Wilson 68% band on k/n | see `m_max_lo`, `m_max_hi` in X08 | | X08 |
 | background MC statistics (A580) | central b vs MC 95% UL at μ = 0 | 0 | 0 | headline |
 | pile-up pool | ~12% on b (measured for Z0, μ = 50) | 0 (b ≤ 0.2 events) | 0 | §7 |
 | laptop vs server numerics | — | ≤ 4 | ≤ 4 | §9 |
 | quirk multiple scattering (not in the integrator) | Highland, initial / turning-point momentum | −4 to −9 / −11 to −32 | | open point 5 |
-| multiplicity threshold | T = 16 fallback (not a systematic; a different selection) | −30 / −22 | −35 / −34 | X12 |
+| multiplicity threshold | T = 16 fallback (not a systematic; a different selection) | −32 / −32 | −37 / −38 | X12 |
 
-- The merge distance is the largest entry, about ±30 GeV (about ±2% of the colored and ±4% of the EW reach). It acts the same way in both geometries, so the ATLAS − Ideal gain (+106 colored, +137 EW GeV) is not affected.
-- The A580 background enters the reach only through the discovery threshold (5.0–5.16 events); none of the background-side entries moves the exclusion.
+- The merge distance is the largest entry: about ±30 GeV in ATLAS, which is about ±2% of the colored and ±4% of the EW reach. It is treated as one correlated variation of signal and background (X13). In the a = 0 pessimistic case at μ = 50 the background rises to about 0.9 events, and the net effect turns negative. It acts the same way in both geometries, so the ATLAS − Ideal gain (+106 colored, +137 EW GeV) is not affected.
+- With nominal merging the A580 background enters the reach only through the discovery threshold (5.0–5.16 events). The only background-side entry that moves the exclusion is the a = 0 pessimistic merge scenario (b ≈ 0.9, n_obs = 1).
 
 ## 8. Integration failures
 

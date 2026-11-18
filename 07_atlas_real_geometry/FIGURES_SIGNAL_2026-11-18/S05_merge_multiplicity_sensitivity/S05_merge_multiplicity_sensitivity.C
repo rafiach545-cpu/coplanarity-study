@@ -4,7 +4,7 @@
 void S05_merge_multiplicity_sensitivity()
 {
 //=========Macro generated from canvas: S05/S05
-//=========  (Wed Nov 18 00:12:12 2026) by ROOT version 6.40.04
+//=========  (Wed Nov 18 15:37:30 2026) by ROOT version 6.40.04
    TCanvas *S05 = new TCanvas("S05", "S05", 0, 0, 1700, 820);
    gStyle->SetOptFit(0);
    gStyle->SetOptStat(0);

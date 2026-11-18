@@ -2,7 +2,7 @@
  "figure": "S05_merge_multiplicity_sensitivity",
  "script": "make_signal_figures.py (ROOT 6.40.04)",
  "data": {
-  "sensitivity.csv": "a5f2791f7c0654f75fc2c47667ee625c8873c3dcdeadefe644c66dbdef9f68e0"
+  "sensitivity.csv": "dd9ced62004f891705c68c7ed08410e6619fe01c90032d0130ff53e9624fd864"
  },
  "data_prepared_by": "prepare_signal_data.py",
  "upstream_sources": {
@@ -11,6 +11,6 @@
   "signal/runs/large_atlas/G01_EW_800gev_mid.jsonl": "1b61f6c3b2fc1af97a5b118a6b65ddcc3d2cf76f06da782ad9f92dfc23e85539",
   "signal/runs/large_ideal/G01_colored_1800gev_mid.jsonl": "3dd746afad454f54f490f667a85eec1e6c57063f98d890684b4d2a35403f9c10",
   "signal/runs/large_ideal/G01_EW_800gev_mid.jsonl": "a9d85d2150f896ec6dda4080cf3bd4f772879840468776f2dfc61aa60efa8d60",
-  "tables/X11_signal_sensitivity.csv": "a5f2791f7c0654f75fc2c47667ee625c8873c3dcdeadefe644c66dbdef9f68e0"
+  "tables/X11_signal_sensitivity.csv": "dd9ced62004f891705c68c7ed08410e6619fe01c90032d0130ff53e9624fd864"
  }
 }

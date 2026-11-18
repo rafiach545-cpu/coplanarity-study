@@ -13,7 +13,8 @@ Background: C01 runs, N at 332 fb^-1 with the S01 normalisation (100k runs: back
   2026-11-18), C01_stage2_sens_Z0_a1_mu{mu} (Ideal Z0, server);
   merge variants: runs/C01_<geom>_sens_<sct>_a<a>_mu50, a = 0, 1, 2 (server, SERVER_BACKGROUND_RUNS.md (e), laptop pool copied): each variant is
   compared with the server a = 1 run (column ratio_to_reference), so machine and pool differences cancel. Missing runs are skipped.
-Signal: signal/runs/sens_merge/<geom>/G01_<tag>_mid.jsonl (S01_sens_chain.sh): k/n = final / fiducial per Lambda and summed over the mid band.
+Signal: signal/runs/sens_merge/<geom>/G01_<tag>_mid.jsonl (S01_sens_chain.sh, S01b_sens_chain_mass.sh): k/n = final / fiducial per Lambda and summed over the
+  mid band; k_gained / k_lost = events passing only in the variant / only in the reference, ratio_err_paired = sqrt(gained + lost) / k_ref (same events).
 Writes tables/X11_background_sensitivity.csv, tables/X11_signal_sensitivity.csv."""
 import os, glob, json, numpy as np, pandas as pd
 from collections import Counter
@@ -75,10 +76,14 @@ for g, setup in (("atlas", "S2_Run3_ATLAS"), ("stage2", "S1_Run3_Ideal")):
                 for t in THR:
                     for lam in sorted({r["lambda_keV"] for r in rr}) + ["all"]:
                         sel = [r for r in rr if lam == "all" or r["lambda_keV"] == lam]; fid = [r for r in sel if r["fid"]]
-                        k = sum(1 for r in fid if r.get(f"{sct}_a{a}_plane") and (r.get(f"{sct}_a{a}_ds", 1) or 1) < 0.01
-                                and r.get(f"{sct}_a{a}_n1") == 8 and r.get(f"{sct}_a{a}_n2", 0) >= t - 8)
+                        ok = lambda r, a_, t_: bool(r.get(f"{sct}_a{a_}_plane") and (r.get(f"{sct}_a{a_}_ds", 1) or 1) < 0.01
+                                                    and r.get(f"{sct}_a{a_}_n1") == 8 and r.get(f"{sct}_a{a_}_n2", 0) >= t_ - 8)
+                        v = [ok(r, a, t) for r in fid]; n0 = [ok(r, 1, 15) for r in fid]; k = sum(v)
+                        # paired counts vs the reference (a = 1, T = 15) on the same events: gained / lost; paired error on the ratio = sqrt(gain + lost) / k_ref
+                        gain = sum(1 for x, y in zip(v, n0) if x and not y); lost = sum(1 for x, y in zip(v, n0) if y and not x)
                         S.append(dict(setup=setup, sample=tag, sct=sct, merge_adj=a, threshold=t, lambda_keV=lam, n_events=len({r["event"] for r in rr}),
-                                      n_fid=len(fid), k=k, eps_reco=k / len(fid) if fid else np.nan))
+                                      n_fid=len(fid), k=k, eps_reco=k / len(fid) if fid else np.nan, k_gained=gain, k_lost=lost,
+                                      ratio_err_paired=np.sqrt(gain + lost) / sum(n0) if sum(n0) else np.nan))
 S = pd.DataFrame(S)
 if len(S):
     ref = S[(S.merge_adj == 1) & (S.threshold == 15)].set_index(["setup", "sample", "sct", "lambda_keV"]).k

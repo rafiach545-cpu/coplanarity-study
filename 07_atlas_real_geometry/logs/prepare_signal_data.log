@@ -1,0 +1,33 @@
+setup                                  S1_Run3_Ideal  S2_Run3_ATLAS
+channel sct   step_index step                                      
+EW      A580  3          fiducial              0.260          0.690
+              4          plane                 0.974          0.914
+              5          multiplicity          0.832          0.735
+              6          delta_s               0.340          0.332
+              9          eps_reco              0.276          0.223
+        Z0    3          fiducial              0.260          0.690
+              4          plane                 1.000          0.992
+              5          multiplicity          0.841          0.825
+              6          delta_s               0.995          0.972
+              9          eps_reco              0.836          0.795
+        Z1160 3          fiducial              0.260          0.690
+              4          plane                 0.797          0.691
+              5          multiplicity          0.643          0.595
+              6          delta_s               0.286          0.292
+              9          eps_reco              0.147          0.120
+colored A580  3          fiducial              0.229          0.411
+              4          plane                 0.694          0.721
+              5          multiplicity          0.600          0.581
+              6          delta_s               0.367          0.370
+              9          eps_reco              0.153          0.155
+        Z0    3          fiducial              0.229          0.411
+              4          plane                 0.764          0.798
+              5          multiplicity          0.564          0.631
+              6          delta_s               1.000          1.000
+              9          eps_reco              0.431          0.504
+        Z1160 3          fiducial              0.229          0.411
+              4          plane                 0.597          0.543
+              5          multiplicity          0.465          0.457
+              6          delta_s               0.100          0.156
+              9          eps_reco              0.028          0.039
+PREP_EXIT=0

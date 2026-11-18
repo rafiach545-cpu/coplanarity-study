@@ -127,4 +127,31 @@ T = 15 = the paper's rule, production; T = 14 one hit looser; T = 16 all station
 √s = 13.6 TeV, the same 10k samples. Filled: Stage 2 · Run 3 · ATLAS; open: Stage 1 · Run 3 · Ideal. Errors: Poisson on both counts, treated as independent (conservative,
 since the variants use the same events). The threshold is applied after the fact to the same winning plane (test T13). Source: data/sensitivity.csv (tables/X11_signal_sensitivity.csv).""",
          ["sensitivity.csv"])
+
+# ---------- S06: mass dependence of the A580 signal ratio (2026-11-18): two masses per channel, merge a = 0 / 2 and threshold T = 14 / 16
+    MS = {"colored": (1500, 1800), "EW": (600, 800)}
+    if all(any(r["sample"] == f"{ch}_{m}gev" for r in SN) for ch in MS for m in MS[ch]):
+        V6 = [("0", "15", "a = 0", C("#2a78d6"), 20), ("2", "15", "a = 2", C("#2a78d6"), 21), ("1", "14", "T = 14", C("#e0662e"), 22), ("1", "16", "T = 16", C("#e0662e"), 23)]
+        c, hd, top, bot = two("S06")
+        header(hd, "SCT 17 #mum / 580 #mum (A580): signal ratio to production (a = 1, T = 15) vs quirk mass, #Lambda = 1-10 keV")
+        leg = []
+        for k, ch in enumerate(("colored", "EW"), 1):
+            m1, m2 = MS[ch]; dm = m2 - m1
+            p = top.cd(k); p.SetBottomMargin(0.16); frame(p, m1 - 0.6 * dm, 0.55, m2 + 0.6 * dm, 1.45, "m_{Q} [GeV]", "k / k(a = 1, T = 15)")
+            one = ROOT.TLine(m1 - 0.6 * dm, 1, m2 + 0.6 * dm, 1); one.SetLineColor(GRID); one.Draw(); KEEP.append(one)
+            text(0.17, 0.86, "colored (3,1)_{2/3}" if ch == "colored" else "EW (1,1)_{1}", 0.045)
+            for i, (a, t, lab, col, mk_) in enumerate(V6):
+                for g_, (setup, mo) in enumerate((("S2_Run3_ATLAS", 0), ("S1_Run3_Ideal", 4))):
+                    rr = {int(r["sample"].split("_")[1][:-3]): r for r in SN if r["sct"] == "A580" and r["setup"] == setup and r["merge_adj"] == a and r["threshold"] == t
+                          and r["sample"].startswith(ch + "_")}
+                    ms = [m for m in (m1, m2) if m in rr]
+                    if not ms: continue
+                    xs = [m + (i - 1.5) * 0.05 * dm + (g_ - 0.5) * 0.02 * dm for m in ms]; ys = [fl(rr[m]["ratio_to_reference"]) for m in ms]; e = [fl(rr[m]["ratio_err_paired"]) for m in ms]
+                    g = gerr(xs, ys, e, e, col, {20: 24, 21: 25, 22: 26, 23: 32}[mk_] if mo else mk_, size=1.4); g.SetLineStyle(1 if g_ == 0 else 2); g.Draw("PL same")
+                    if k == 1: leg.append((g, f"{lab}, {'ATLAS' if g_ == 0 else 'Ideal'}", "pl"))
+        bot.cd(); legend(0.03, 0.05, 0.97, 0.95, leg, ncol=4, size=0.2)
+        save(c, "S06_merge_ratio_vs_mass", """**S06.** Mass dependence of the A580 signal ratio to production (a = 1, T = 15) for the merge variants a = 0 and a = 2 (blue) and the threshold
+variants T = 14 and T = 16 (orange), at two masses per channel near the A580 reach (colored 1500 and 1800 GeV, EW 600 and 800 GeV), summed over Λ = 1–10 keV (mid band),
+√s = 13.6 TeV, the same 10k samples. Filled, solid: Stage 2 · Run 3 · ATLAS; open, dashed: Stage 1 · Run 3 · Ideal. Errors: paired, from the events that pass only in the variant
+or only in production (√(gained + lost) / k_production). Source: data/sensitivity.csv (tables/X11_signal_sensitivity.csv).""", ["sensitivity.csv"])
 print("SIGNAL_FIGS_EXIT=0")
