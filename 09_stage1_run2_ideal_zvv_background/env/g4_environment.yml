@@ -1,0 +1,15 @@
+# Geant4 environment for quirk transport (QuirkPheno quirksim). Same file on laptop (WSL) and server: conda env create -f environment.yml
+name: g4
+channels: [conda-forge]
+dependencies:
+  - python=3.13
+  - geant4=11.4.1
+  - hepmc3
+  - pythia8=8.312        # the particle table used for charges (laptop: hep and g4 envs both 8.312)
+  - cmake
+  - make
+  - cxx-compiler
+  - numpy
+  - pandas
+  - uproot
+  - numba

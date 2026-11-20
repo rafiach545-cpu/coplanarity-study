@@ -1,0 +1,17 @@
+# 09 (2026-11-20): environment that runs MG5_aMC 3.7.3 (B01). MG5 installs its own Pythia 8.317 + HepMC 2.06.09 + MG5aMC_PY8_interface
+# ("install pythia8", as on the laptop). Laptop: MG5 ran with Python 3.11.16 (conda env hep). conda env create -f mg5_environment.yml
+name: mg5
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - six
+  - c-compiler
+  - cxx-compiler
+  - fortran-compiler
+  - make
+  - rsync
+  - curl
+  - wget
+  - zlib

@@ -1,0 +1,15 @@
+# 09 / Geant4 (2026-11-19): ideal 8-layer barrel of Stage 1 · Run 2 · Ideal, NO material.
+# Radii = 04_detector_sim/atlas_geometry.LAYERS (arXiv:2007.07624 Table 1, as used by arXiv:1708.02243 Sec. III A).
+# Every layer is a 1 um G4_Galactic cylinder that only records the crossing point (sens). Long in z: the |eta_hit| < 1.8 cut is applied
+# afterwards, as in the old code. Uniform Bz = 2 T inside r < 100 cm, |z| < 400 cm. Lengths in cm, field in tesla (QuirkPheno card format).
+world 100 400 G4_Galactic
+checkOverlaps 1
+tube L1 G4_Galactic  3.325 +um:1 -300 300 det=PIX layer=1 sens
+tube L2 G4_Galactic  5.05  +um:1 -300 300 det=PIX layer=2 sens
+tube L3 G4_Galactic  8.85  +um:1 -300 300 det=PIX layer=3 sens
+tube L4 G4_Galactic 12.25  +um:1 -300 300 det=PIX layer=4 sens
+tube L5 G4_Galactic 29.9   +um:1 -300 300 det=SCT layer=5 sens
+tube L6 G4_Galactic 37.1   +um:1 -300 300 det=SCT layer=6 sens
+tube L7 G4_Galactic 44.3   +um:1 -300 300 det=SCT layer=7 sens
+tube L8 G4_Galactic 51.4   +um:1 -300 300 det=SCT layer=8 sens
+field 2.0 0 100 0 400

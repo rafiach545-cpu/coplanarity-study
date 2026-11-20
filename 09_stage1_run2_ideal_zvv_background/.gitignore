@@ -1,0 +1,9 @@
+# 09: results and run products stay local / on the server (large, regenerable); code, cards, env files and docs are tracked.
+data/*
+!data/B01_chunks.csv
+logs/
+g4/out_G01/
+g4/scan_s*.card
+*.partial
+*.lock
+__pycache__/
