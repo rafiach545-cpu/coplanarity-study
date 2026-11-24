@@ -306,7 +306,7 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
                 "dt_was_coarsened": dt_was_coarsened,
             }
             n_steps_final = t_max / dt
-            if effective_steps_per_period < MIN_STEPS_PER_PERIOD or n_steps_final > ABSOLUTE_MAX_STEPS:
+            if _os.environ.get("QUIRK_INTEGRATOR") != "dop853" and (effective_steps_per_period < MIN_STEPS_PER_PERIOD or n_steps_final > ABSOLUTE_MAX_STEPS):   # 2026-11-22: no step ceiling for DOP853
                 raise RuntimeError(
                     "simulate_quirk_hits: cannot reach MIN_STEPS_PER_PERIOD="
                     f"{MIN_STEPS_PER_PERIOD} within ABSOLUTE_MAX_STEPS="
@@ -347,7 +347,14 @@ def simulate_quirk_hits(p1_gev, p2_gev, mass_gev, Lambda_gev, B_tesla,
             "dt_was_coarsened": False,
         }
 
-    traj = integrate_trajectory(
+    # 2026-11-22 (09/G09): env QUIRK_INTEGRATOR=dop853 selects the error-controlled DOP853 (03_trajectory_sim/quirk_trajectory_dop853.py)
+    # instead of whatever integrate_trajectory is set to (RK4 at the fixed dt above); unset = the previous behaviour, unchanged.
+    _integ = integrate_trajectory
+    if _os.environ.get("QUIRK_INTEGRATOR") == "dop853":
+        import quirk_trajectory_dop853 as _Q
+        if _Q.RADII_CM is None: _Q.RADII_CM = [L["r_cm"] for L in LAYERS]
+        _integ = _Q.integrate_trajectory_dop853
+    traj = _integ(
         x1_0, p1, x2_0, p2, mass=mass_gev, charge1=charge1, charge2=charge2,
         Lambda_GeV=Lambda_gev, B_tesla=B_tesla,
         t_max_gev_inv=t_max, dt_gev_inv=dt,

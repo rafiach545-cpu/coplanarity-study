@@ -23,6 +23,15 @@ SAMPLES = {
                  proc=("import model sm\ndefine lp = e+ mu+ ta+\ndefine lm = e- mu- ta-\ndefine vl = ve vm vt\ndefine vl~ = ve~ vm~ vt~\n"
                        "generate p p > lp vl j\nadd process p p > lm vl~ j\noutput {out}\n"),
                  settings={"ebeam1": "6500.0", "ebeam2": "6500.0", "misset": "200.0", "ptj": "20.0", "ptl": "0.0", "etal": "-1.0"}),
+    # ttbar (2026-11-22): both tops decayed in MG5 (decay chains keep spin correlations), every W decay mode, so that the parton-level
+    # 'misset' > 200 GeV filter acts on the neutrinos of leptonic W decays (an undecayed ttbar has no neutrino at LHE level and would all be cut).
+    # Fully hadronic events have no LHE neutrino and are removed by the filter (their MET from b/c semileptonic decays is neglected).
+    # No cut on the decay products: ptj, etaj, drjj, ptl, etal, drll, drjl switched off (B01 asserts that each key exists in the run card).
+    "ttbar": dict(runs=os.environ.get("TTBAR_RUNS", f"{HEP_TOOLS}/09_ttbar_runs"), seed0=393000, prefix="ttbar_", chunks="B01_ttbar_chunks.csv",
+                  proc=("import model sm\n"
+                        "generate p p > t t~, (t > b w+, w+ > all all), (t~ > b~ w-, w- > all all)\noutput {out}\n"),
+                  settings={"ebeam1": "6500.0", "ebeam2": "6500.0", "misset": "200.0", "ptj": "0.0", "etaj": "-1.0", "drjj": "0.0",
+                            "ptl": "0.0", "etal": "-1.0", "drll": "0.0", "drjl": "0.0"}),
 }
 
 

@@ -32,7 +32,7 @@ audit reports). Mechanism, as decided:
 """
 import numpy as np
 import sys
-sys.path.insert(0, "/home/rafia/coplanarity_study/02_backgrounds/pileup")
+sys.path.insert(0, __import__("os").environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study") + "/02_backgrounds/pileup")   # 2026-11-23: from COPLANARITY_BASE
 from tracking_efficiency import track_efficiency, track_efficiency_variant, BASELINE_SELECTION
 
 

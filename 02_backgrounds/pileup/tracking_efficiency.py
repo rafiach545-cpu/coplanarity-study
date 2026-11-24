@@ -37,7 +37,7 @@ value only.
 import csv
 import bisect
 
-DIGITIZED_CSV = "/home/rafia/coplanarity_study/docs/reference/atl_phys_pub_2015_051/fig1b_digitized.csv"
+DIGITIZED_CSV = __import__("os").environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study") + "/docs/reference/atl_phys_pub_2015_051/fig1b_digitized.csv"   # 2026-11-23: from COPLANARITY_BASE
 BASELINE_SELECTION = "Loose"
 SYSTEMATIC_SELECTION = "TightPrimary"
 
@@ -82,7 +82,7 @@ def track_efficiency(pt_gev, selection=BASELINE_SELECTION):
     return y0 + frac * (y1 - y0)
 
 
-BANDS_CSV = "/home/rafia/coplanarity_study/docs/reference/atl_phys_pub_2015_051/fig1b_digitized_with_bands_v2.csv"
+BANDS_CSV = __import__("os").environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study") + "/docs/reference/atl_phys_pub_2015_051/fig1b_digitized_with_bands_v2.csv"   # 2026-11-23: from COPLANARITY_BASE
 
 
 def _load_band_curve(selection, column):

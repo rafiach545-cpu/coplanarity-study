@@ -79,8 +79,10 @@ VERIFIED PRESCRIPTIONS USED HERE (paper Sec III D + ref [34] Sec II/App. A):
 PILEUP_HIT_TIMING_CUT_NS = 25.0  # ref [34] Appendix A, propagation-termination condition (iii)
 import sys
 import numpy as np
-sys.path.insert(0, "/home/rafia/coplanarity_study/04_detector_sim")
-sys.path.insert(0, "/home/rafia/coplanarity_study/02_backgrounds/pileup")
+import os as _os   # 2026-11-23: paths from COPLANARITY_BASE (default: the laptop repository, unchanged), so the code also runs elsewhere
+_BASE = _os.environ.get("COPLANARITY_BASE", "/home/rafia/coplanarity_study")
+sys.path.insert(0, f"{_BASE}/04_detector_sim")
+sys.path.insert(0, f"{_BASE}/02_backgrounds/pileup")
 from atlas_geometry import LAYERS, FIDUCIAL_ETA_MAX, BEAMSPOT_SIGMA_Z_CM, eta_from_theta
 from trajectory_to_hits import quantize_pixel, merge_neighboring_pixel_hits
 from helix_propagation import find_helix_layer_crossings

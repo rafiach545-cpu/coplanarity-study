@@ -115,3 +115,40 @@ The setup:
   - The first pT-only run is kept in `data/B08_v1_ptcuts/`.
 - **B09**: the same variants on the background (same hits and tracks as B07).
 - Paths: everything goes through `paths09.py`. Server instructions are in `SERVER.md`.
+
+### B08 + B09 results (2026-11-20)
+
+**Background (B09).** The input is 100k Z(νν̄)+jets events with MET > 200 GeV; the weight is 13.95 per MC event at 139 fb⁻¹. B09's c100 and cinf columns are identical to B07, event by event.
+
+| Variant | SR pass (MC) | B at 139 fb⁻¹ | Multiplicity-OK planes | Smallest Δs of those |
+|---|---|---|---|---|
+| c100 | 24 | ≈ 335 | 108 | 43 µm |
+| cinf | 0 | < 42 (95 % CL) | 8 | 153 µm |
+| iso | 0 | < 42 (95 % CL) | 22 | 136 µm |
+| **iso20** | **0** | **< 42 (95 % CL)** | 17 | 153 µm |
+
+**Signal (B08).** EW quirks, 13.6 TeV 10k-generated samples; each entry is SR pass / Stage 1 fiducial events. The 25 keV part runs on the server (SERVER.md).
+
+| m<sub>Q</sub> (GeV) | Λ (keV) | Fiducial | qrk | cinf | c100 | **iso20** | iso20 / qrk |
+|---|---|---|---|---|---|---|---|
+| 100 | 1 | 120 | 0.025 | 0.008 | 0.017 | 0.025 | 1.0 |
+| 100 | 4 | 122 | 0.066 | 0.000 | 0.008 | 0.033 | 0.50 |
+| 100 | 10 | 123 | 0.041 | 0.000 | 0.008 | 0.024 | 0.60 |
+| 400 | 1 | 286 | 0.038 | 0.014 | 0.017 | 0.024 | 0.64 |
+| 400 | 4 | 303 | 0.142 | 0.040 | 0.066 | 0.112 | 0.79 |
+| 400 | 10 | 298 | 0.067 | 0.013 | 0.023 | 0.044 | 0.65 |
+| 800 | 1 | 352 | 0.023 | 0.017 | 0.020 | 0.023 | 1.0 |
+| 800 | 4 | 377 | 0.183 | 0.045 | 0.093 | 0.141 | 0.77 |
+| 800 | 10 | 382 | 0.115 | 0.034 | 0.071 | 0.081 | 0.70 |
+| 1200 | 1 | 377 | 0.021 | 0.011 | 0.016 | 0.013 | 0.63 |
+| 1200 | 4 | 400 | 0.135 | 0.035 | 0.068 | 0.110 | 0.81 |
+| 1200 | 10 | 391 | 0.092 | 0.010 | 0.038 | 0.069 | 0.75 |
+
+At Λ = 0.1 keV no input passes (0 everywhere). In all passing signal events the SR plane is mostly made of quirk hits.
+
+**Choice: iso20.**
+- It gives the same background bound as cinf: 0 MC events, and the closest multiplicity-OK plane is at the same Δs of 153 µm.
+- It keeps 50–80 % of the uncleaned signal at Λ ≥ 4 keV, against 0–30 % for cinf.
+- iso has the same bound, but it leaves 283 hits per event and has a plane at 136 µm.
+- The iso parameters (ΔR < 0.4, ≥ 2 neighbours, p<sub>T</sub> < 20 GeV) were fixed before looking at the results. They are not tuned.
+- The background bound is limited by MC statistics (< 42 events). The large server run is needed to go below it.

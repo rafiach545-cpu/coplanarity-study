@@ -7,7 +7,10 @@ Per triggered event (pT(QQbar) > 200 GeV, the Stage 1 trigger proxy) and per Lam
   quirk hits from simulate_quirk_hits (Eq. 3, numba RK4), underlying-event hits as B03, one pixel merging, hits relative to the PV;
   inputs 'qrk' (quirk hits only, Stage 1), 'all', and the cleaned inputs c100 / cinf / iso / iso20 (2026-11-20: c20, c50 dropped after B07).
 RNG per (mass, chunk, event): z0 and the underlying-event hits are the same for every Lambda (own stream); quirk smearing has its own stream per Lambda.
-Output data/B08_EW_<m>gev.csv. Usage (env g4): B08_signal_cleaning_scan.py <mass> [--lambdas 0.1,1,4,10,25] [--workers 3] [--nmax N]"""
+Output data/B08_EW_<m>gev.csv. Usage (env g4): B08_signal_cleaning_scan.py <mass> [--lambdas 0.1,1,4,10,25] [--workers 3] [--nmax N]
+2026-11-22: --hepmc-glob (with {m} for the mass; default the 07 13.6 TeV pattern) and --tag (output data/B08_<tag>EW_<m>gev.csv), e.g. the
+13 TeV Stage 1 samples: --hepmc-glob '$HEP_TOOLS/figure6_full_v1_runs/EW_{m}gev/Events/run_fig6/tag_1_pythia8_events.hepmc.gz' --tag 13TeV_
+(chunk = 0 when the path has no _c0<k>). The integrator follows QUIRK_INTEGRATOR (dop853: error-controlled, see trajectory_to_hits)."""
 import os, sys, time, argparse, glob, numpy as np, pandas as pd
 from multiprocessing import Pool
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
@@ -56,10 +59,12 @@ def analyse(job):
     return rows
 
 
-def jobs(mass, lams, nmax):
+def jobs(mass, lams, nmax, pattern=None):
     n = 0
-    for f in sorted(glob.glob(f"{RUNS}/EW_{int(mass)}gev_c0[0-4]/Events/*/tag_1_pythia8_events.hepmc.gz")):
-        chunk = int(f.split("_c0")[1][0])
+    pat = (pattern or f"{RUNS}/EW_{{m}}gev_c0[0-4]/Events/*/tag_1_pythia8_events.hepmc.gz").format(m=int(mass))
+    files = sorted(glob.glob(pat)); assert files, f"no HepMC for {pat}"
+    for f in files:
+        chunk = int(f.split("_c0")[1][0]) if "_c0" in f else 0
         for ev in S.H.iter_events(f):
             if len(ev["quirks"]) != 2: continue
             (_, *a), (_, *b) = ev["quirks"]
@@ -70,11 +75,12 @@ def jobs(mass, lams, nmax):
 
 if __name__ == "__main__":
     a = argparse.ArgumentParser(); a.add_argument("mass", type=float); a.add_argument("--lambdas", default="0.1,1,4,10,25")
-    a.add_argument("--workers", type=int, default=3); a.add_argument("--nmax", type=int, default=None); A = a.parse_args()
+    a.add_argument("--workers", type=int, default=3); a.add_argument("--nmax", type=int, default=None)
+    a.add_argument("--hepmc-glob", default=None); a.add_argument("--tag", default=""); A = a.parse_args()
     lams = [float(x) for x in A.lambdas.split(",")]; t0 = time.time(); R = []
-    out = f"{HERE}/data/B08_EW_{int(A.mass)}gev{'' if A.nmax is None else '_test'}.csv"
+    out = f"{HERE}/data/B08_{A.tag}EW_{int(A.mass)}gev{'' if A.nmax is None else '_test'}.csv"
     with Pool(A.workers) as P:
-        for i, rows in enumerate(P.imap_unordered(analyse, jobs(A.mass, lams, A.nmax), chunksize=1)):
+        for i, rows in enumerate(P.imap_unordered(analyse, jobs(A.mass, lams, A.nmax, A.hepmc_glob), chunksize=1)):
             R += rows
             if (i + 1) % 100 == 0:
                 print(f"B08 m={A.mass:g}: {i + 1} triggered events, {time.time() - t0:.0f} s", flush=True)

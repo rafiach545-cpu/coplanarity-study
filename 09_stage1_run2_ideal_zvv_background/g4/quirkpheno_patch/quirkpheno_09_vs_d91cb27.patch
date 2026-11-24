@@ -1,0 +1,1242 @@
+diff --git a/quirkcore/CMakeLists.txt b/quirkcore/CMakeLists.txt
+index 6ae6f12..ea08d07 100644
+--- a/quirkcore/CMakeLists.txt
++++ b/quirkcore/CMakeLists.txt
+@@ -1,6 +1,8 @@
+ # Quirk Geant4 extension: ported from Athena Simulation/G4Extensions/Quirks
+ file(GLOB QUIRKCORE_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc)
+ add_library(quirkcore SHARED ${QUIRKCORE_SRC})
++# 09 patch (2026-11-24): the Eq. 3 DOP853 must keep the floating-point order of the numba reference (G14: bitwise identical); no FMA contraction
++set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/QuirkEq3Dop853.cc PROPERTIES COMPILE_OPTIONS "-ffp-contract=off")
+ target_include_directories(quirkcore PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+ target_compile_options(quirkcore PUBLIC ${G4_CFLAGS} -Wno-deprecated-declarations)
+ target_link_libraries(quirkcore PUBLIC ${G4_LIBS})
+diff --git a/quirkcore/include/quirkcore/QuirkHyperbolaStep.h b/quirkcore/include/quirkcore/QuirkHyperbolaStep.h
+index 78c6aef..31186f8 100644
+--- a/quirkcore/include/quirkcore/QuirkHyperbolaStep.h
++++ b/quirkcore/include/quirkcore/QuirkHyperbolaStep.h
+@@ -20,6 +20,11 @@ class QuirkHyperbolaStep {
+ public:
+   QuirkHyperbolaStep(const QuirkHyperbolaStepper* stepper, const QuirkInfracolorForce& string, const G4Track& track);
+ 
++  // 09 patch (2026-11-22): place the field part of each straight segment along the mean of the start and end
++  // momenta (second order); off by default = original QuirkPheno/Athena behaviour (drift along the start momentum, then kick)
++  static void SetSecondOrderField(G4bool on) { s_secondOrderField = on; }
++  static G4bool SecondOrderField() { return s_secondOrderField; }
++
+   void PrepareNextStep();
+   void Step(G4double length);
+   void Dump(G4double y[]) const;
+@@ -47,6 +52,7 @@ private:
+   QuirkStringVector m_stringOut;
+   G4double m_maxLength;
+   G4double m_length;
++  static G4bool s_secondOrderField;
+ };
+ 
+ #endif
+diff --git a/quirkcore/src/QuirkHyperbolaStep.cc b/quirkcore/src/QuirkHyperbolaStep.cc
+index a67c745..97ad76b 100644
+--- a/quirkcore/src/QuirkHyperbolaStep.cc
++++ b/quirkcore/src/QuirkHyperbolaStep.cc
+@@ -6,6 +6,10 @@
+ #include "G4Track.hh"
+ #include "G4DynamicParticle.hh"
+ #include <CLHEP/Units/PhysicalConstants.h>
++#include <cstdlib>
++#include <cstdio>
++G4bool QuirkHyperbolaStep::s_secondOrderField = false;
++static const bool kQDebug = std::getenv("QDEBUG") != nullptr;
+ 
+ QuirkHyperbolaStep::QuirkHyperbolaStep(const QuirkHyperbolaStepper* stepper,
+                                        const QuirkInfracolorForce& string,
+@@ -88,6 +92,7 @@ void QuirkHyperbolaStep::Step(G4double length) {
+     m_fracLeft = 1.0;
+   }
+ 
++  G4LorentzVector pBefore = m_momentum;
+   // position, time, momentum
+   G4LorentzVector dPosition = m_stringIn.lv() + m_stringOut.lv();
+   m_position += dPosition.vect();
+@@ -105,11 +110,15 @@ void QuirkHyperbolaStep::Step(G4double length) {
+     G4ThreeVector E(field[3], field[4], field[5]);
+     G4double charge = m_stepper->GetCharge();
+     G4ThreeVector dMomField = E * dTime + dPosition.vect().cross(B);
+-    m_momentum += charge * G4LorentzVector(CLHEP::c_light * dMomField, E * dPosition.vect());
++    const G4LorentzVector kick = charge * G4LorentzVector(CLHEP::c_light * dMomField, E * dPosition.vect());
++    if (s_secondOrderField && pBefore.vect().mag() > 0)
++      m_position += 0.5 * dPosition.vect().mag() * kick.vect() / pBefore.vect().mag();
++    m_momentum += kick;
+   }
+ 
+   // renormalize the 4-momentum to the mass shell
+   m_momentum *= mass / m_momentum.m();
++  if (kQDebug) std::printf("QDBG len %.6f frac %.6g x %.6f %.6f %.6f dx %.6f %.6f %.6f p0 %.9f %.9f %.9f p1 %.9f %.9f %.9f sIn %.6g %.6g %.6g %.6g\n", m_length, fracTaken, m_position.x(), m_position.y(), m_position.z(), dPosition.x(), dPosition.y(), dPosition.z(), pBefore.x(), pBefore.y(), pBefore.z(), m_momentum.x(), m_momentum.y(), m_momentum.z(), m_stringIn.x(), m_stringIn.y(), m_stringIn.z(), m_stringIn.mag());
+ }
+ 
+ void QuirkHyperbolaStep::Dump(G4double y[]) const {
+diff --git a/quirkcore/src/QuirkMessenger.cc b/quirkcore/src/QuirkMessenger.cc
+index 3ebc6c6..0faf65f 100644
+--- a/quirkcore/src/QuirkMessenger.cc
++++ b/quirkcore/src/QuirkMessenger.cc
+@@ -1,4 +1,7 @@
+ #include "quirkcore/QuirkMessenger.h"
++#include "quirkcore/QuirkHyperbolaStep.h"
++#include "quirkcore/QuirkEq3Pair.h"
++#include "G4UIcmdWithAString.hh"
+ 
+ #include "G4UIdirectory.hh"
+ #include "G4UIcmdWithADouble.hh"
+@@ -38,6 +41,26 @@ QuirkMessenger::QuirkMessenger(QuirkConfig& cfg) : m_cfg(cfg) {
+   add(dimCmd(this, "/quirk/maxZ", "Envelope half length, quirks killed outside (<= 0: never).", "cm", "Length"));
+   add(dimCmd(this, "/quirk/stopThreshold", "Partner kinetic energy below which the pair counts as stopped.", "MeV", "Energy"));
+   add(dimCmd(this, "/quirk/crossingLength", "Restart the string below this length (0: never, experimental).", "mm", "Length"));
++  {
++    auto c = withStates(new G4UIcmdWithABool("/quirk/secondOrderField", this));
++    c->SetGuidance("09 patch: second-order placement of the field part of each step (default false).");
++    add(c);
++  }
++  {
++    auto c = withStates(new G4UIcmdWithAString("/quirk/model", this));
++    c->SetGuidance("09 patch: quirk equation of motion. athena (default): Athena string vectors; eq3: Eq. 3 of arXiv:1708.02243 "
++                   "(Nambu-Goto end points), error-controlled DOP853 for the pair (QuirkEq3Pair).");
++    c->SetCandidates("athena eq3");
++    add(c);
++  }
++  {
++    auto c = withStates(new G4UIcmdWithADouble("/quirk/eq3Rtol", this));
++    c->SetGuidance("09 patch: DOP853 relative tolerance of the eq3 model (default 1e-10; atol 1 nm and 1e-10 GeV scale with it).");
++    c->SetRange("eq3Rtol>0 && eq3Rtol<1e-3");
++    c->SetParameterName("eq3Rtol", false);
++    add(c);
++  }
++  add(dimCmd(this, "/quirk/eq3Slice", "09 patch: eq3 model, time slice after which the two quirks are synchronised (default 0.1 ns).", "ns", "Time"));
+   {
+     auto c = withStates(new G4UIcmdWithADouble("/quirk/charge", this));
+     c->SetGuidance("Electric charge of the positive PDG code, in units of e.");
+@@ -114,6 +137,14 @@ void QuirkMessenger::SetNewValue(G4UIcommand* cmd, G4String value) {
+     m_cfg.moveTinySteps = G4UIcommand::ConvertToBool(value);
+   else if (n == "pairProduction")
+     m_cfg.pairProduction = G4UIcommand::ConvertToBool(value);
++  else if (n == "secondOrderField")
++    QuirkHyperbolaStep::SetSecondOrderField(G4UIcommand::ConvertToBool(value));
++  else if (n == "model")
++    QuirkEq3Pair::SetEnabled(value == "eq3");
++  else if (n == "eq3Rtol")
++    QuirkEq3Pair::SetRtol(G4UIcommand::ConvertToDouble(value));
++  else if (n == "eq3Slice")
++    QuirkEq3Pair::SetSlice(d());
+ }
+ 
+ G4String QuirkMessenger::GetCurrentValue(G4UIcommand* cmd) {
+@@ -151,5 +182,11 @@ G4String QuirkMessenger::GetCurrentValue(G4UIcommand* cmd) {
+     return G4UIcommand::ConvertToString(m_cfg.moveTinySteps);
+   if (n == "pairProduction")
+     return G4UIcommand::ConvertToString(m_cfg.pairProduction);
++  if (n == "model")
++    return QuirkEq3Pair::Enabled() ? "eq3" : "athena";
++  if (n == "eq3Rtol")
++    return G4UIcommand::ConvertToString(QuirkEq3Pair::Rtol());
++  if (n == "eq3Slice")
++    return u(QuirkEq3Pair::Slice(), "ns");
+   return "";
+ }
+diff --git a/quirkcore/src/QuirkPhysics.cc b/quirkcore/src/QuirkPhysics.cc
+index 9a37819..d9654f6 100644
+--- a/quirkcore/src/QuirkPhysics.cc
++++ b/quirkcore/src/QuirkPhysics.cc
+@@ -1,6 +1,7 @@
+ #include "quirkcore/QuirkPhysics.h"
+ #include "quirkcore/Quirk.h"
+ #include "quirkcore/QuirkStringStore.h"
++#include "quirkcore/QuirkEq3Pair.h"
+ #include "quirkcore/QuirkTransportation.h"
+ #include "quirkcore/QuirkWatcher.h"
+ 
+@@ -45,6 +46,11 @@ QuirkPhysics::QuirkPhysics(const QuirkConfig& p)
+       // must stay well below the first string, else the restart repeats at production
+       m_crossingLength(std::min(p.crossingLength, 0.1 * m_firstStringLength)),
+       m_stopThreshold(p.stopThreshold) {
++  QuirkEq3Pair::SetLambda(p.lambda);   // 09 patch: the eq3 model uses Lambda directly (Eq. 3: string tension Lambda^2)
++  if (QuirkEq3Pair::Enabled())
++    G4cout << "QuirkPhysics: model eq3 (Eq. 3, pair DOP853, rtol " << QuirkEq3Pair::Rtol() << ", slice " << QuirkEq3Pair::Slice() / CLHEP::ns << " ns)" << G4endl;
++  else
++    G4cout << "QuirkPhysics: model athena (string vectors)" << G4endl;
+   if (m_mass <= 0. || m_stringForce <= 0. || m_maxBoost <= 0. || m_maxBoost >= 1.) {
+     G4ExceptionDescription ed;
+     ed << "QuirkPhysics: invalid parameters QuirkMass= " << m_mass / CLHEP::GeV
+diff --git a/quirkcore/src/QuirkTransportation.cc b/quirkcore/src/QuirkTransportation.cc
+index 52685a4..95a1d53 100644
+--- a/quirkcore/src/QuirkTransportation.cc
++++ b/quirkcore/src/QuirkTransportation.cc
+@@ -1,7 +1,9 @@
+ #include "quirkcore/QuirkTransportation.h"
+ #include "quirkcore/QuirkTrackStatus.h"
+ #include "quirkcore/QuirkHyperbolaStepper.h"
++#include "quirkcore/QuirkEq3Stepper.h"
+ #include "quirkcore/QuirkStringStore.h"
++#include <memory>
+ #include "quirkcore/Quirk.h"
+ 
+ #include "G4ios.hh"
+@@ -73,21 +75,39 @@ G4double QuirkTransportation::AlongStepGetPhysicalInteractionLength(const G4Trac
+   }
+   fieldMgr->ConfigureForTrack(&track);
+ 
+-  // a head-on pair approaches its crossing point in ever shorter steps: restart the string there
+   QuirkInfracolorForce& string = QuirkStringStore::instance().stringFor(pParticle->GetPDGcode());
+-  if (fCrossingLength > 0. && string.HasNextStringVector() && string.IsSourceAlive() && string.IsSourceInitialized() &&
+-      string.GetStringVectors().front().t() < fCrossingLength && string.GetStringVectors().size() == 1) {
+-    G4LorentzVector u = pParticle->Get4Momentum();
+-    string.Restart(u / u.m());
++  // 09 patch (2026-11-24): /quirk/model eq3 replays the Eq. 3 pair solution (QuirkEq3Pair) instead of the Athena string vectors
++  const G4bool eq3 = QuirkEq3Pair::Enabled();
++  const int eq3Idx = QuirkEq3Pair::Index(pParticle->GetPDGcode());
++  QuirkEq3Pair& eq3Pair = QuirkEq3Pair::instance();
++  std::unique_ptr<QuirkHyperbolaStepper> hyperbolaStepper;
++  std::unique_ptr<QuirkEq3Stepper> eq3Stepper;
++  G4MagIntegratorStepper* stepper = nullptr;
++  G4double maxLength = 0.0;
++  if (eq3) {
++    eq3Pair.Ensure(eq3Idx, track);
++    eq3Stepper = std::make_unique<QuirkEq3Stepper>(eq3Pair, eq3Idx);
++    stepper = eq3Stepper.get();
++    maxLength = eq3Stepper->GetMaxLength();
++  } else {
++    // a head-on pair approaches its crossing point in ever shorter steps: restart the string there
++    if (fCrossingLength > 0. && string.HasNextStringVector() && string.IsSourceAlive() && string.IsSourceInitialized() &&
++        string.GetStringVectors().front().t() < fCrossingLength && string.GetStringVectors().size() == 1) {
++      G4LorentzVector u = pParticle->Get4Momentum();
++      string.Restart(u / u.m());
++    }
++    // stepper replaying the quirk trajectory
++    hyperbolaStepper = std::make_unique<QuirkHyperbolaStepper>(
++        string, track, fieldMgr->DoesFieldExist() ? fieldMgr->GetDetectorField() : nullptr);
++    stepper = hyperbolaStepper.get();
++    maxLength = hyperbolaStepper->GetMaxLength();
+   }
+ 
+-  // stepper replaying the quirk trajectory
+-  QuirkHyperbolaStepper quirkStepper(
+-      string, track, fieldMgr->DoesFieldExist() ? fieldMgr->GetDetectorField() : nullptr);
+-
+   // swap in the quirk chord finder for this step only
+   G4ChordFinder* oldChordFinder = fieldMgr->GetChordFinder();
+-  G4ChordFinder quirkChordFinder(new G4MagInt_Driver(0.0, &quirkStepper, quirkStepper.GetNumberOfVariables()));
++  G4ChordFinder quirkChordFinder(new G4MagInt_Driver(0.0, stepper, stepper->GetNumberOfVariables()));
++  if (nullptr != oldChordFinder)
++    quirkChordFinder.SetDeltaChord(oldChordFinder->GetDeltaChord());  // 09 patch: same delta chord as the global one
+   fieldMgr->SetChordFinder(&quirkChordFinder);
+ 
+   const G4ThreeVector& spin = track.GetPolarization();
+@@ -101,15 +121,30 @@ G4double QuirkTransportation::AlongStepGetPhysicalInteractionLength(const G4Trac
+                            0.0,  // step length in place of proper time
+                            &spin);
+ 
+-  currentMinimumStep = std::min(currentMinimumStep, quirkStepper.GetMaxLength());
++  currentMinimumStep = std::min(currentMinimumStep, maxLength);
+   if (currentMinimumStep > 0) {
+     // field propagator handles the boundary crossings
+     G4double lengthAlongCurve =
+         fFieldPropagator->ComputeStep(aFieldTrack, currentMinimumStep, currentSafety, track.GetVolume());
+     fGeometryLimitedStep = lengthAlongCurve < currentMinimumStep;
+ 
+-    // update stepper and strings with the length actually taken
+-    quirkStepper.Update(aFieldTrack, aFieldTrack.GetCurveLength() == 0 && !fGeometryLimitedStep, fMoveTinySteps);
++    if (eq3) {
++      if (aFieldTrack.GetCurveLength() == 0 && !fGeometryLimitedStep) {
++        // propagator refused a step below its tolerance: take it along the trajectory (as moveOnForcedStep)
++        G4double y[9];
++        eq3Stepper->StateAtLength(currentMinimumStep, y);
++        const G4ThreeVector p(y[3], y[4], y[5]);
++        aFieldTrack.UpdateFourMomentum(y[6], p.unit());
++        aFieldTrack.SetPosition(G4ThreeVector(y[0], y[1], y[2]));
++        aFieldTrack.SetLabTimeOfFlight(y[7]);
++        aFieldTrack.SetCurveLength(y[8]);
++        aFieldTrack.SetProperTimeOfFlight(y[8]);
++      }
++      eq3Pair.Advance(eq3Idx, aFieldTrack.GetCurveLength());
++    } else {
++      // update stepper and strings with the length actually taken
++      hyperbolaStepper->Update(aFieldTrack, aFieldTrack.GetCurveLength() == 0 && !fGeometryLimitedStep, fMoveTinySteps);
++    }
+   } else {
+     fGeometryLimitedStep = false;
+   }
+@@ -275,12 +310,15 @@ void QuirkTransportation::StartTracking(G4Track* aTrack) {
+ 
+   // first string vector at the first step of the pair
+   QuirkStringStore::instance().stringFor(aTrack->GetDefinition()->GetPDGEncoding()).StartTracking(aTrack);
++  // 09 patch: eq3 model, registration of the initial state at step 0
++  if (QuirkEq3Pair::Enabled()) QuirkEq3Pair::instance().StartTracking(*aTrack);
+ }
+ 
+ void QuirkTransportation::EndTracking() {
+   // killed by anything (envelope, time cut, user actions): the partner must not wait for it
+   if (nullptr != fCurrentTrack && !QuirkTrackStatus::isSuspended(fCurrentTrack)) {
+     QuirkStringStore::instance().stringFor(fCurrentTrack->GetDefinition()->GetPDGEncoding()).TrackKilled();
++    if (QuirkEq3Pair::Enabled()) QuirkEq3Pair::instance().Killed(QuirkEq3Pair::Index(fCurrentTrack->GetDefinition()->GetPDGEncoding()));
+   }
+   fCurrentTrack = nullptr;
+   G4VProcess::EndTracking();
+diff --git a/quirkcore/src/QuirkWatcher.cc b/quirkcore/src/QuirkWatcher.cc
+index 4569233..0b2d058 100644
+--- a/quirkcore/src/QuirkWatcher.cc
++++ b/quirkcore/src/QuirkWatcher.cc
+@@ -1,6 +1,7 @@
+ #include "quirkcore/QuirkWatcher.h"
+ #include "quirkcore/QuirkTrackStatus.h"
+ #include "quirkcore/QuirkStringStore.h"
++#include "quirkcore/QuirkEq3Pair.h"
+ #include "quirkcore/Quirk.h"
+ 
+ #include "G4Track.hh"
+@@ -71,9 +72,11 @@ G4VParticleChange* QuirkWatcher::PostStepDoIt(const G4Track& track, const G4Step
+     stat = fStopAndKill;
+   }
+   if (stat == fAlive || QuirkTrackStatus::isSuspended(stat)) {
+-    // no string left to absorb: pass control to the partner
+-    if (!string.HasNextStringVector()) {
+-      if (!string.IsSourceAlive()) {
++    // no string left to absorb (eq3 model, 09 patch: no trajectory beyond the slice end): pass control to the partner
++    const G4bool eq3 = QuirkEq3Pair::Enabled();
++    const int idx = QuirkEq3Pair::Index(track.GetParticleDefinition()->GetPDGEncoding());
++    if (eq3 ? !QuirkEq3Pair::instance().Ensure(idx, track) : !string.HasNextStringVector()) {
++      if (eq3 ? !QuirkEq3Pair::instance().Alive(1 - idx) : !string.IsSourceAlive()) {
+         stat = fStopAndKill;
+       } else {
+         // stacks via QuirkPhysics defaults: fSuspendAndWait -> waiting, fSuspend -> waiting_1
+diff --git a/quirksim/include/QSimConfig.hh b/quirksim/include/QSimConfig.hh
+index 6518237..139f315 100644
+--- a/quirksim/include/QSimConfig.hh
++++ b/quirksim/include/QSimConfig.hh
+@@ -35,6 +35,11 @@ struct QSimConfig {
+   G4double maxTime{500. * CLHEP::ns};  // maximum track time, all tracks (<= 0: none)
+   G4bool killSecondaries{false};       // quirks only, no showers
+ 
++  // field accuracy (09 patch; <= 0: Geant4 default)
++  G4double deltaIntersection{0.};
++  G4double deltaOneStep{0.};
++  G4double deltaChord{0.};
++
+   // output
+   std::string output{"quirksim.root"};
+   G4int stepPrescale{0};  // write every N-th quirk step (0: none)
+diff --git a/quirksim/src/Geometry.cc b/quirksim/src/Geometry.cc
+index f243d54..d586cca 100644
+--- a/quirksim/src/Geometry.cc
++++ b/quirksim/src/Geometry.cc
+@@ -1,3 +1,7 @@
++#include "QSimConfig.hh"
++#include <typeinfo>
++#include "G4VIntegrationDriver.hh"
++#include "G4PropagatorInField.hh"
+ #include "Geometry.hh"
+ 
+ #include "G4NistManager.hh"
+@@ -224,4 +228,16 @@ void DetectorConstruction::ConstructSDandField() {
+   auto fieldMgr = G4TransportationManager::GetTransportationManager()->GetFieldManager();
+   fieldMgr->SetDetectorField(field);
+   fieldMgr->CreateChordFinder(field);
++  // 09 patch: optional field accuracy parameters, and a printout of all of them
++  const QSimConfig& c = qsimConfig();
++  if (c.deltaOneStep > 0) fieldMgr->SetDeltaOneStep(c.deltaOneStep);
++  if (c.deltaIntersection > 0) fieldMgr->SetDeltaIntersection(c.deltaIntersection);
++  if (c.deltaChord > 0) fieldMgr->GetChordFinder()->SetDeltaChord(c.deltaChord);
++  auto prop = G4TransportationManager::GetTransportationManager()->GetPropagatorInField();
++  auto drv = fieldMgr->GetChordFinder()->GetIntegrationDriver();
++  G4cout << "FIELDPARAMS DeltaOneStep_mm " << fieldMgr->GetDeltaOneStep() / CLHEP::mm << " DeltaIntersection_mm "
++         << fieldMgr->GetDeltaIntersection() / CLHEP::mm << " DeltaChord_mm " << fieldMgr->GetChordFinder()->GetDeltaChord() / CLHEP::mm
++         << " EpsMin " << fieldMgr->GetMinimumEpsilonStep() << " EpsMax " << fieldMgr->GetMaximumEpsilonStep()
++         << " LargestAcceptableStep_mm " << prop->GetLargestAcceptableStep() / CLHEP::mm
++         << " driver " << typeid(*drv).name() << G4endl;
+ }
+diff --git a/quirksim/src/QSimMessenger.cc b/quirksim/src/QSimMessenger.cc
+index 516c992..13628c3 100644
+--- a/quirksim/src/QSimMessenger.cc
++++ b/quirksim/src/QSimMessenger.cc
+@@ -28,7 +28,7 @@ namespace {
+ }  // namespace
+ 
+ QSimMessenger::QSimMessenger() {
+-  for (const char* d : {"/qsim/", "/qsim/gen/", "/qsim/gun/", "/qsim/pythia/", "/qsim/out/"}) {
++  for (const char* d : {"/qsim/", "/qsim/gen/", "/qsim/gun/", "/qsim/pythia/", "/qsim/out/", "/qsim/field/"}) {
+     m_dirs.emplace_back(new G4UIdirectory(d));
+   }
+   auto str = [this](const char* p, const char* g, bool pre = false) {
+@@ -55,6 +55,9 @@ QSimMessenger::QSimMessenger() {
+   dim("/qsim/prodCut", "Default production cut.", "mm", true);
+   dim("/qsim/maxTime", "Kill all tracks after this global time (<= 0: never).", "ns");
+   flag("/qsim/killSecondaries", "Kill all secondaries (quirks only).");
++  dim("/qsim/field/deltaIntersection", "09 patch: G4FieldManager delta intersection (<= 0: default).", "mm", true);
++  dim("/qsim/field/deltaOneStep", "09 patch: G4FieldManager delta one step (<= 0: default).", "mm", true);
++  dim("/qsim/field/deltaChord", "09 patch: chord finder delta chord (<= 0: default).", "mm", true);
+ 
+   str("/qsim/gen/mode", "gun | hepmc | pythia");
+   str("/qsim/gen/hepmcFile", "HepMC3 ascii input file.");
+@@ -97,6 +100,12 @@ void QSimMessenger::SetNewValue(G4UIcommand* cmd, G4String v) {
+     c.maxTime = d();
+   else if (p == "/qsim/killSecondaries")
+     c.killSecondaries = b();
++  else if (p == "/qsim/field/deltaIntersection")
++    c.deltaIntersection = d();
++  else if (p == "/qsim/field/deltaOneStep")
++    c.deltaOneStep = d();
++  else if (p == "/qsim/field/deltaChord")
++    c.deltaChord = d();
+   else if (p == "/qsim/gen/mode")
+     c.genMode = v;
+   else if (p == "/qsim/gen/hepmcFile")
+diff --git a/quirkcore/include/quirkcore/QuirkEq3Dop853.h b/quirkcore/include/quirkcore/QuirkEq3Dop853.h
+new file mode 100644
+index 0000000..b5e2286
+--- /dev/null
++++ b/quirkcore/include/quirkcore/QuirkEq3Dop853.h
+@@ -0,0 +1,58 @@
++#ifndef QUIRKCORE_QuirkEq3Dop853_H
++#define QUIRKCORE_QuirkEq3Dop853_H
++// Eq. 3 of arXiv:1708.02243 for a quirk pair, integrated with an error-controlled DOP853 (09 patch, 2026-11-24).
++// C++ port, line by line, of coplanarity_study/03_trajectory_sim/quirk_trajectory_dop853.py (_integrate, _dense, _rr) and of the
++// right-hand side quirk_trajectory_numba._rhs / _string_force; scipy's DOP853 controller (SAFETY 0.9, factor in [0.2, 10],
++// select_initial_step, 7th-order dense output). Pure C++ (no Geant4 types), natural units (GeV, GeV^-1), so it can be tested
++// standalone against the numba module (G14: bitwise identical) and used by the Geant4 stepper (QuirkEq3Pair).
++// State y[12] = x1(3), p1(3), x2(3), p2(3). No random numbers anywhere.
++#include <vector>
++#include <cstdint>
++
++namespace quirkeq3 {
++
++struct Params {
++  double mass{0};      // GeV
++  double q1{0}, q2{0}; // charge * e_charge_natural
++  double L2{0};        // Lambda^2 (GeV^2)
++  double Bz{0};        // B_tesla * TESLA_TO_GEV2 (GeV^2)
++};
++
++// dy/dt for Eq. 3 with a uniform Bz (same arithmetic as quirk_trajectory_numba._rhs)
++void Rhs(const double y[12], const Params& p, double out[12]);
++
++// One accepted DOP853 step and its dense output: y(t_old + x h) = Dense(F, y_old, x), x in [0, 1].
++void Dense(const double F[7][12], const double y_old[12], double x, double out[12]);
++
++// The integrator one accepted step at a time; the step sequence is that of quirk_trajectory_dop853._integrate.
++class Solver {
++public:
++  Solver(const double y0[12], double t_end, const Params& p, double rtol, const double atol[12]);
++  // one accepted step (with its rejected trials): 0 ok, -1 step too small; after it t_old, h, y_old, F, y describe the step
++  int Step();
++  bool Done() const { return !(t < t_end); }
++  double t{0};          // after Step(): end of the step
++  double t_old{0}, h{0};
++  double y[12]{}, y_old[12]{}, F[7][12]{};
++  long nacc{0}, nrej{0}, nfev{0};
++private:
++  Params m_p;
++  double m_rtol, m_atol[12], t_end;
++  double f[12]{}, h_abs{0};
++};
++
++struct Result {
++  std::vector<double> T;              // GeV^-1
++  std::vector<double> Y;              // 12 per point, row major
++  int status{0};                      // 0 ok, -1 step too small, -2 more than max_out points
++  long nacc{0}, nrej{0}, nfev{0};
++};
++
++// Same as quirk_trajectory_dop853._integrate: from t = 0 to t_end, written points = step ends, plus, where a radius (R2n: squared radii)
++// or a disk plane (Zn) is crossed inside a coarse sub-interval, nfine dense points (ncoarse coarse points per step); without radii and
++// planes every coarse point is written.
++Result Integrate(const double y0[12], double t_end, const Params& p, double rtol, const double atol[12],
++                 const std::vector<double>& R2n, const std::vector<double>& Zn, int ncoarse, int nfine, long max_out);
++
++}  // namespace quirkeq3
++#endif
+diff --git a/quirkcore/include/quirkcore/QuirkEq3Dop853Coeffs.h b/quirkcore/include/quirkcore/QuirkEq3Dop853Coeffs.h
+new file mode 100644
+index 0000000..30f8508
+--- /dev/null
++++ b/quirkcore/include/quirkcore/QuirkEq3Dop853Coeffs.h
+@@ -0,0 +1,36 @@
++// Generated 2026-11-24 from 03_trajectory_sim/quirk_dop853_coefficients.npz (scipy 1.18.0 dop853_coefficients),
++// exact doubles as C++17 hex-float literals. Do not edit; regenerate from the npz.
++#ifndef QUIRKCORE_QuirkEq3Dop853Coeffs_H
++#define QUIRKCORE_QuirkEq3Dop853Coeffs_H
++namespace quirkeq3 {
++constexpr int N_STAGES = 12;
++constexpr int N_STAGES_EXTENDED = 16;
++constexpr int INTERPOLATOR_POWER = 7;
++constexpr double A[16][16] = {
++  {0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.aee6838dae63ap-5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.432ce2aa42cacp-6, 0x1.e4c353ff64302p-5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.e4c353ff64302p-6, 0x0.0p+0, 0x1.6b927eff8b241p-4, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.ee50d7ecde9fap-3, 0x0.0p+0, -0x1.c4e3ab5ad1507p-1, 0x1.d983d7ac79ef5p-1, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.2f684bda12f68p-5, 0x0.0p+0, 0x0.0p+0, 0x1.5ddb63bdb6d36p-3, 0x1.00f533f66f19ap-3, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.3000000000000p-5, 0x0.0p+0, 0x0.0p+0, 0x1.5cad30f3347edp-3, 0x1.ed4b3c332e04dp-5, -0x1.2000000000000p-6, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.2fdb8fee78792p-5, 0x0.0p+0, 0x0.0p+0, 0x1.5cf23f6595d72p-3, 0x1.b758640dea698p-4, -0x1.f5fcc20fcd32fp-7, 0x1.0f1d92efb0b71p-7, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.3f8b78b985813p-1, 0x0.0p+0, 0x0.0p+0, -0x1.ae31bacc6bc8ap+1, -0x1.bc873f08e11f9p-1, 0x1.b9793d88d1855p+4, 0x1.42770f892ad69p+4, -0x1.5beb4865c42f9p+5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.e9205e321b655p-2, 0x0.0p+0, 0x0.0p+0, -0x1.3e7a8a34bd27fp+1, -0x1.2e3a9968c93c8p-1, 0x1.53ae4a6d655eep+4, 0x1.e8ef7b5f258b8p+3, -0x1.0a4e418d711b9p+5, -0x1.4d1b3d9b4a876p-6, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {-0x1.dfd121f1d399bp-1, 0x0.0p+0, 0x0.0p+0, 0x1.4bed869fb0b9dp+2, 0x1.1768702792ea9p+0, -0x1.04cb0e2110c1cp+3, -0x1.2852305e975a8p+4, 0x1.6bd4f06cb863ap+4, 0x1.3f2e777cf109dp+1, -0x1.85fc60d2b572cp+1, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.22fbd3b09fcdcp+1, 0x0.0p+0, 0x0.0p+0, -0x1.511a963cafe55p+3, -0x1.001c935ac72acp+1, -0x1.1f57c8eff3006p+4, 0x1.bf2ea18b58a01p+4, -0x1.6df3a7d1cec13p+1, -0x1.1bee71a9f33a9p+3, 0x1.8b89c42c81861p+3, 0x1.496ac6253e202p-1, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.bcc6368d1177cp-5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.1cd1ed2ad5ae2p+2, 0x1.e43a845d5ab9fp+0, -0x1.7346ecf96af43p+2, 0x1.3ea1df2f0eb98p-2, -0x1.37a028f43b002p-3, 0x1.9c657697fe72dp-3, 0x1.6e44f50ab6bc2p-5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.cc1fca2ceb148p-5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.03958f21a35b8p-2, -0x1.f84c2c277c23ep-3, -0x1.fcb02555c9defp-4, 0x1.39f10ce2d1913p-3, 0x1.0cbb69b38652cp-7, 0x1.eff840f396ba9p-8, -0x1.0fe8ab4fa4830p-7, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0},
++  {0x1.04ca1897bdb63p-5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.cfae9e5f59f45p-6, 0x1.b69db017c8cf9p-5, -0x1.c1ef72fc69469p-5, 0x0.0p+0, 0x0.0p+0, -0x1.c6710eef6e153p-14, 0x1.9127a52d32320p-12, -0x1.6500e13e7149bp-12, 0x1.21686b20cd989p-3, 0x0.0p+0, 0x0.0p+0},
++  {-0x1.b7309792b6015p-2, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, -0x1.2ca5d44afdc9ap+2, 0x1.ebbd2c419eda3p+2, 0x1.046a54457171cp+2, 0x1.6d49e44edba44p-2, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, -0x1.6ebeec24871d4p-10, 0x1.79482a23f1996p+1, -0x1.24d4a6dca2222p+3, 0x0.0p+0}};
++constexpr double B[12] = {0x1.bcc6368d1177cp-5, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.1cd1ed2ad5ae2p+2, 0x1.e43a845d5ab9fp+0, -0x1.7346ecf96af43p+2, 0x1.3ea1df2f0eb98p-2, -0x1.37a028f43b002p-3, 0x1.9c657697fe72dp-3, 0x1.6e44f50ab6bc2p-5};
++constexpr double C[16] = {0x0.0p+0, 0x1.aee6838dae63ap-5, 0x1.432ce2aa42cacp-4, 0x1.e4c353ff64302p-4, 0x1.2068c499c08d9p-2, 0x1.5555555555555p-2, 0x1.0000000000000p-2, 0x1.3b13b13b13b14p-2, 0x1.4d74d74d74d75p-1, 0x1.3333333333333p-1, 0x1.b6db6db6db6dbp-1, 0x1.0000000000000p+0, 0x1.0000000000000p+0, 0x1.999999999999ap-4, 0x1.999999999999ap-3, 0x1.8e38e38e38e39p-1};
++constexpr double E3[13] = {-0x1.84b641fbfa1f1p-3, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.1cd1ed2ad5ae2p+2, 0x1.e43a845d5ab9fp+0, -0x1.7346ecf96af43p+2, -0x1.b0d3a26abb716p-2, -0x1.37a028f43b002p-3, 0x1.9c657697fe72dp-3, 0x1.732080ac040edp-6, 0x0.0p+0};
++constexpr double E5[13] = {0x1.adeaea1607e1ap-7, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, -0x1.39a3da55ab5c3p+0, -0x1.fba83bede8a72p-2, 0x1.aa149f7eda509p+0, -0x1.66bc9b10e7e71p-2, 0x1.56330d0783989p-2, 0x1.4f8eb54a31435p-4, -0x1.6e44f50ab6bc2p-6, 0x0.0p+0};
++constexpr double D[4][16] = {
++  {-0x1.0db9dcc37c81bp+3, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.2228765f0a2ebp-1, -0x1.88d35a1175376p+1, 0x1.313cca2e462ecp+1, 0x1.0efafd3c0d1bdp+1, -0x1.be2709a4ac0d3p-1, 0x1.1ec6a759da28bp+1, 0x1.435e4b2f53319p-1, -0x1.6c81218b7f07cp-4, 0x1.22604753358b4p+4, -0x1.263a6db60dfa1p+3, -0x1.1be8052a2581dp+2},
++  {0x1.4dae269ad44fcp+3, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x1.e49125d57ed67p+7, 0x1.4a66a19b8434bp+7, -0x1.768bf81e14e35p+8, -0x1.61d194558cffbp+4, 0x1.eef08f933a023p+2, -0x1.eac90d122c30dp+4, -0x1.2aa0d032a0acdp+3, 0x1.f64fc65250f7cp+3, -0x1.f23afedecfd53p+4, -0x1.2b4b2806665cap+3, 0x1.1e88e43070a10p+5},
++  {0x1.3fc2c7303381fp+4, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, -0x1.83098d10f2521p+8, -0x1.7a5b34edf4d39p+7, 0x1.07e771c2c6a0cp+9, -0x1.725d68dc06f96p+3, 0x1.b8661dd0f8bd7p+2, -0x1.0027a7d67fc68p+0, 0x1.8e308023d3331p-1, -0x1.639c3efff56d2p+1, -0x1.e192d4f30c77fp+5, 0x1.51481861928c0p+6, 0x1.7fc0d95740812p+3},
++  {-0x1.9b1a59f97e9a3p+4, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, 0x0.0p+0, -0x1.346126bd860c7p+7, -0x1.cf0f0ac990990p+7, 0x1.65a39d3b3c602p+8, 0x1.759f0d4d83c70p+6, -0x1.2baaa552107abp+5, 0x1.a0660a855838ep+6, 0x1.dd71d78528cf6p+4, -0x1.5c4484e37f77ep+5, 0x1.814c57df82010p+6, -0x1.396b082b5cd1ep+5, -0x1.2b7423e1cb30dp+7}};
++}  // namespace quirkeq3
++#endif
+diff --git a/quirkcore/include/quirkcore/QuirkEq3Pair.h b/quirkcore/include/quirkcore/QuirkEq3Pair.h
+new file mode 100644
+index 0000000..e69dd36
+--- /dev/null
++++ b/quirkcore/include/quirkcore/QuirkEq3Pair.h
+@@ -0,0 +1,90 @@
++#ifndef QUIRKCORE_QuirkEq3Pair_H
++#define QUIRKCORE_QuirkEq3Pair_H
++// 09 patch (2026-11-24): /quirk/model eq3. Eq. 3 of arXiv:1708.02243 (Nambu-Goto end-point equation of Kang-Luty and Knapen et al.)
++// for the quirk pair, integrated jointly by quirkeq3::Solver (the production DOP853, bitwise equal to the numba module, G14), and
++// replayed by the two Geant4 tracks through QuirkEq3Stepper. Design: coplanarity_study/09_.../g4/G4_EQ3_DESIGN.md.
++//  - Both tracks register at their first step (initial position, momentum, charge, mass, time).
++//  - The pair is integrated in whole DOP853 steps over time slices [t_H, t_H + slice]; each track replays its quirk's dense output as a
++//    function of its path length s, up to the slice end (the horizon). A track at the horizon whose partner is not there yet is
++//    suspended (QuirkWatcher), as the Athena model does when its string runs out; when both are there, the next slice is integrated.
++//  - Without material the integrator state is carried over unchanged from slice to slice, so the trajectory is exactly the continuous
++//    DOP853 solution. At a slice start the actual Geant4 states are compared with it; if they differ (energy loss, multiple
++//    scattering) the integrator restarts from the two actual states. Kicks inside a slice reach the partner only at the next slice
++//    (error of order slice x kick; to be checked with slice, slice/2, slice/4 in Stage 2).
++//  - Uniform Bz from the detector field at the production point (the Stage 1 ideal geometry has a uniform 2 T field).
++//  - No random numbers.
++// Units: Geant4 internal units outside, natural units (GeV, GeV^-1) inside, with the conversion constants of the Python code.
++#include "quirkcore/QuirkEq3Dop853.h"
++#include "G4ThreeVector.hh"
++#include "globals.hh"
++#include <algorithm>
++#include <deque>
++#include <memory>
++
++class G4Track;
++
++class QuirkEq3Pair {
++public:
++  static QuirkEq3Pair& instance();
++  // settings (QuirkMessenger, QuirkPhysics); process wide, set in PreInit
++  static void SetEnabled(G4bool on) { s_enabled = on; }
++  static G4bool Enabled() { return s_enabled; }
++  static void SetRtol(G4double rtol) { s_rtol = rtol; }
++  static G4double Rtol() { return s_rtol; }
++  static void SetSlice(G4double slice) { s_slice = slice; }      // Geant4 time units
++  static G4double Slice() { return s_slice; }
++  static void SetLambda(G4double lambda) { s_lambda = lambda; }  // Geant4 energy units
++  static int Index(G4int pdg) { return pdg > 0 ? 0 : 1; }        // as QuirkStringStore
++
++  void StartTracking(const G4Track& track);                      // registration at step 0 (a new event clears the pair)
++  // true if track idx has trajectory beyond its current path length; integrates the next slice when both quirks are at the horizon
++  G4bool Ensure(int idx, const G4Track& track);
++  G4double MaxLength(int idx) const;                             // path length from the current position to the horizon (mm)
++  G4double PathNow(int idx) const { return m_sCur[idx]; }
++  // state at absolute path length s (Geant4 units) in the QuirkHyperbolaStepper layout: x, y, z, px, py, pz, Ekin, t_lab (y[8] untouched)
++  void StateAt(int idx, G4double s, G4double y[9]) const;
++  void Advance(int idx, G4double ds) { m_sCur[idx] += ds; }
++  void Killed(int idx) { m_alive[idx] = false; PrintCounters("track end"); }
++  G4bool Alive(int idx) const { return m_alive[idx]; }
++  G4bool Registered(int idx) const { return m_reg[idx]; }
++  long Restarts() const { return m_restarts; }
++  // debug counters (QUIRK_EQ3_DEBUG; no effect on the result)
++  void NoteStepperBeyond(G4double excess) const { ++m_nStepBeyond; m_maxStepBeyond = std::max(m_maxStepBeyond, excess); }
++  void PrintCounters(const char* where) const;
++  QuirkEq3Pair(const QuirkEq3Pair&) = delete;
++  QuirkEq3Pair& operator=(const QuirkEq3Pair&) = delete;
++
++private:
++  QuirkEq3Pair() = default;
++  struct StepRec {
++    double t_old, h;                 // natural units, absolute time (t_old includes the restart offset)
++    double y_old[12], F[7][12];
++    double s0[2], s1[2];             // path length (mm) of each slot at the step start and end
++  };
++  void Clear();
++  void IntegrateSlice();
++  void NewSolver(const double t0_nat);
++  double PathInStep(const StepRec& r, int slot, double x) const;   // mm from the step start to fraction x
++  G4bool AtHorizon(int idx) const;
++
++  static G4bool s_enabled;
++  static G4double s_rtol, s_slice, s_lambda;
++  G4int m_event{-1};
++  G4bool m_reg[2]{false, false}, m_alive[2]{true, true};
++  int m_slot[2]{0, 1};               // y slot of each pdg index: slot 0 = the positive charge (the Python codes' particle 1)
++  G4double m_mass{0};                // Geant4 units
++  G4double m_t0{0};                  // Geant4 time of t_nat = 0
++  G4ThreeVector m_x[2], m_p[2];      // registered / actual states (Geant4 units)
++  G4double m_q[2]{0, 0};             // charge in units of e
++  quirkeq3::Params m_par;
++  double m_atol[12]{};
++  std::unique_ptr<quirkeq3::Solver> m_solver;
++  double m_tOffset{0};               // natural time of the solver's t = 0
++  std::deque<StepRec> m_steps;
++  G4double m_sCur[2]{0, 0}, m_sH[2]{0, 0};
++  long m_restarts{0};
++  mutable long m_nStateAt{0}, m_nClamp{0}, m_nStepBeyond{0};
++  mutable G4double m_maxClamp{0}, m_maxStepBeyond{0};
++};
++
++#endif
+diff --git a/quirkcore/include/quirkcore/QuirkEq3Stepper.h b/quirkcore/include/quirkcore/QuirkEq3Stepper.h
+new file mode 100644
+index 0000000..50c5d2d
+--- /dev/null
++++ b/quirkcore/include/quirkcore/QuirkEq3Stepper.h
+@@ -0,0 +1,39 @@
++#ifndef QUIRKCORE_QuirkEq3Stepper_H
++#define QUIRKCORE_QuirkEq3Stepper_H
++// 09 patch (2026-11-24): fake G4MagIntegratorStepper for /quirk/model eq3, the counterpart of QuirkHyperbolaStepper.
++// It replays the quirk's Eq. 3 trajectory from QuirkEq3Pair as a function of the path length, so G4PropagatorInField finds the
++// boundary crossings on the exact (dense-output) trajectory. State layout as QuirkHyperbolaStepper: x, y, z, px, py, pz, Ekin,
++// t_lab, and in y[8] the path length since the start of the Geant4 step.
++#include "quirkcore/QuirkEq3Pair.h"
++#include "quirkcore/QuirkDummyEquation.h"
++#include "G4MagIntegratorStepper.hh"
++
++class QuirkEq3Stepper : public G4MagIntegratorStepper {
++public:
++  QuirkEq3Stepper(QuirkEq3Pair& pair, int idx)
++      : G4MagIntegratorStepper(new QuirkDummyEquation(), 9), m_pair(pair), m_idx(idx), m_s0(pair.PathNow(idx)), m_maxLen(pair.MaxLength(idx)) {}
++  ~QuirkEq3Stepper() override { delete GetEquationOfMotion(); }
++  void Stepper(const G4double y[], const G4double[], G4double h, G4double yout[], G4double yerr[]) override {
++    const G4double len = y[8] + h;
++    if (len > m_maxLen) m_pair.NoteStepperBeyond(len - m_maxLen);    // debug counter only
++    m_pair.StateAt(m_idx, m_s0 + len, yout);
++    yout[8] = len;
++    for (int i = 0; i < 9; ++i) yerr[i] = 0;
++  }
++  G4double DistChord() const override { return 0; }
++  G4int IntegratorOrder() const override { return 1; }
++  G4double GetMaxLength() const { return m_pair.MaxLength(m_idx); }
++  // the state at the start of the step plus len along the trajectory, into the field track
++  void StateAtLength(G4double len, G4double y9[9]) const {
++    m_pair.StateAt(m_idx, m_s0 + len, y9);
++    y9[8] = len;
++  }
++
++private:
++  QuirkEq3Pair& m_pair;
++  const int m_idx;
++  const G4double m_s0;
++  const G4double m_maxLen;
++};
++
++#endif
+diff --git a/quirkcore/src/QuirkEq3Dop853.cc b/quirkcore/src/QuirkEq3Dop853.cc
+new file mode 100644
+index 0000000..988836b
+--- /dev/null
++++ b/quirkcore/src/QuirkEq3Dop853.cc
+@@ -0,0 +1,264 @@
++// Eq. 3 DOP853 (09 patch, 2026-11-24): line-by-line port of 03_trajectory_sim/quirk_trajectory_dop853.py; see the header.
++#include "quirkcore/QuirkEq3Dop853.h"
++#include "quirkcore/QuirkEq3Dop853Coeffs.h"
++#include <cmath>
++#include <limits>
++#include <algorithm>
++
++namespace quirkeq3 {
++
++namespace {
++constexpr int n = 12, NST = N_STAGES, NEXT = N_STAGES_EXTENDED, NPOW = INTERPOLATOR_POWER;
++static_assert(NPOW == 7, "Solver::F is sized for INTERPOLATOR_POWER 7");
++
++// quirk_trajectory_numba._string_force
++inline void StringForce(double vx, double vy, double vz, double nx, double ny, double nz, double L2, double& fx, double& fy, double& fz) {
++  const double vpar = vx * nx + vy * ny + vz * nz;
++  const double vparx = vpar * nx, vpary = vpar * ny, vparz = vpar * nz;
++  const double vperpx = vx - vparx, vperpy = vy - vpary, vperpz = vz - vparz;
++  const double vperp2 = vperpx * vperpx + vperpy * vperpy + vperpz * vperpz;
++  const double st = std::sqrt(std::max(1.0 - vperp2, 1e-12));
++  const double t1x = st * nx, t1y = st * ny, t1z = st * nz;
++  const double coef = vpar / st;
++  const double t2x = coef * vperpx, t2y = coef * vperpy, t2z = coef * vperpz;
++  fx = -L2 * (t1x + t2x);
++  fy = -L2 * (t1y + t2y);
++  fz = -L2 * (t1z + t2z);
++}
++
++// quirk_trajectory_dop853._rr
++inline void Signs(const double y[12], const std::vector<double>& R2n, const std::vector<double>& Zn, std::vector<int8_t>& s) {
++  const double r1 = y[0] * y[0] + y[1] * y[1], r2 = y[6] * y[6] + y[7] * y[7];
++  const size_t nr = R2n.size(), nz = Zn.size();
++  s.assign(2 * (nr + nz), 0);
++  for (size_t k = 0; k < nr; ++k) {
++    s[k] = r1 > R2n[k] ? 1 : (r1 < R2n[k] ? -1 : 0);
++    s[nr + k] = r2 > R2n[k] ? 1 : (r2 < R2n[k] ? -1 : 0);
++  }
++  for (size_t k = 0; k < nz; ++k) {
++    s[2 * nr + k] = y[2] > Zn[k] ? 1 : (y[2] < Zn[k] ? -1 : 0);
++    s[2 * nr + nz + k] = y[8] > Zn[k] ? 1 : (y[8] < Zn[k] ? -1 : 0);
++  }
++}
++
++inline void Push(Result& R, double t, const double y[12]) {
++  R.T.push_back(t);
++  R.Y.insert(R.Y.end(), y, y + 12);
++}
++}  // namespace
++
++void Rhs(const double s[12], const Params& p, double out[12]) {
++  const double x1x = s[0], x1y = s[1], x1z = s[2], p1x = s[3], p1y = s[4], p1z = s[5];
++  const double x2x = s[6], x2y = s[7], x2z = s[8], p2x = s[9], p2y = s[10], p2z = s[11];
++  const double m2 = p.mass * p.mass;
++  const double E1 = std::sqrt(p1x * p1x + p1y * p1y + p1z * p1z + m2);
++  const double E2 = std::sqrt(p2x * p2x + p2y * p2y + p2z * p2z + m2);
++  const double v1x = p1x / E1, v1y = p1y / E1, v1z = p1z / E1;
++  const double v2x = p2x / E2, v2y = p2y / E2, v2z = p2z / E2;
++  const double sepx = x1x - x2x, sepy = x1y - x2y, sepz = x1z - x2z;
++  const double dist = std::sqrt(sepx * sepx + sepy * sepy + sepz * sepz);
++  double n1x, n1y, n1z;
++  if (dist < 1e-9) {
++    const double vrx = v1x - v2x, vry = v1y - v2y, vrz = v1z - v2z;
++    const double vrn = std::sqrt(vrx * vrx + vry * vry + vrz * vrz);
++    if (vrn > 1e-12) {
++      n1x = vrx / vrn; n1y = vry / vrn; n1z = vrz / vrn;
++    } else {
++      n1x = 1.0; n1y = 0.0; n1z = 0.0;
++    }
++  } else {
++    n1x = sepx / dist; n1y = sepy / dist; n1z = sepz / dist;
++  }
++  const double n2x = -n1x, n2y = -n1y, n2z = -n1z;
++  double F1x, F1y, F1z, F2x, F2y, F2z;
++  StringForce(v1x, v1y, v1z, n1x, n1y, n1z, p.L2, F1x, F1y, F1z);
++  F1x += p.q1 * p.Bz * v1y;
++  F1y += -p.q1 * p.Bz * v1x;
++  StringForce(v2x, v2y, v2z, n2x, n2y, n2z, p.L2, F2x, F2y, F2z);
++  F2x += p.q2 * p.Bz * v2y;
++  F2y += -p.q2 * p.Bz * v2x;
++  out[0] = v1x; out[1] = v1y; out[2] = v1z; out[3] = F1x; out[4] = F1y; out[5] = F1z;
++  out[6] = v2x; out[7] = v2y; out[8] = v2z; out[9] = F2x; out[10] = F2y; out[11] = F2z;
++}
++
++// quirk_trajectory_dop853._dense
++void Dense(const double F[7][12], const double y_old[12], double x, double out[12]) {
++  for (int j = 0; j < n; ++j) out[j] = 0.0;
++  for (int i = 0; i < NPOW; ++i) {
++    const double* f = F[NPOW - 1 - i];
++    for (int j = 0; j < n; ++j) out[j] += f[j];
++    if (i % 2 == 0) {
++      for (int j = 0; j < n; ++j) out[j] *= x;
++    } else {
++      for (int j = 0; j < n; ++j) out[j] *= (1.0 - x);
++    }
++  }
++  for (int j = 0; j < n; ++j) out[j] += y_old[j];
++}
++
++Solver::Solver(const double y0[12], double t_end_, const Params& p, double rtol, const double atol[12]) : m_p(p), m_rtol(rtol), t_end(t_end_) {
++  double tmp[n], fnew[n], sc[n];
++  for (int j = 0; j < n; ++j) { y[j] = y0[j]; m_atol[j] = atol[j]; }
++  t = 0.0;
++  Rhs(y, m_p, f);
++  // initial step (scipy select_initial_step, order = error_estimator_order = 7)
++  for (int j = 0; j < n; ++j) sc[j] = m_atol[j] + std::abs(y[j]) * m_rtol;
++  double d0 = 0.0, d1 = 0.0;
++  for (int j = 0; j < n; ++j) {
++    d0 += (y[j] / sc[j]) * (y[j] / sc[j]);
++    d1 += (f[j] / sc[j]) * (f[j] / sc[j]);
++  }
++  d0 = std::sqrt(d0 / n);
++  d1 = std::sqrt(d1 / n);
++  double h0 = (d0 < 1e-5 || d1 < 1e-5) ? 1e-6 : 0.01 * d0 / d1;
++  h0 = std::min(h0, t_end);
++  for (int j = 0; j < n; ++j) tmp[j] = y[j] + h0 * f[j];
++  Rhs(tmp, m_p, fnew);
++  double d2 = 0.0;
++  for (int j = 0; j < n; ++j) d2 += ((fnew[j] - f[j]) / sc[j]) * ((fnew[j] - f[j]) / sc[j]);
++  d2 = std::sqrt(d2 / n) / h0;
++  const double h1 = (d1 <= 1e-15 && d2 <= 1e-15) ? std::max(1e-6, h0 * 1e-3) : std::pow(0.01 / std::max(d1, d2), 1.0 / 8.0);
++  h_abs = std::min({100 * h0, h1, t_end});
++  nfev = 2;
++  for (int j = 0; j < n; ++j) y_old[j] = y[j];
++}
++
++int Solver::Step() {
++  double K[NEXT][n] = {};
++  double tmp[n], ynew[n], fnew[n];
++  const double min_step = 10 * std::abs(std::nextafter(t, std::numeric_limits<double>::infinity()) - t);
++  if (h_abs < min_step) h_abs = min_step;
++  bool rejected = false;
++  double t_new = 0;
++  while (true) {
++    if (h_abs < min_step) return -1;
++    t_new = t + h_abs;
++    if (t_new > t_end) t_new = t_end;
++    h = t_new - t;
++    h_abs = std::abs(h);
++    // rk_step
++    for (int j = 0; j < n; ++j) K[0][j] = f[j];
++    for (int s = 1; s < NST; ++s) {
++      for (int j = 0; j < n; ++j) {
++        double acc = 0.0;
++        for (int i = 0; i < s; ++i) acc += K[i][j] * A[s][i];
++        tmp[j] = y[j] + acc * h;
++      }
++      Rhs(tmp, m_p, K[s]);
++      ++nfev;
++    }
++    for (int j = 0; j < n; ++j) {
++      double acc = 0.0;
++      for (int i = 0; i < NST; ++i) acc += K[i][j] * B[i];
++      ynew[j] = y[j] + h * acc;
++    }
++    Rhs(ynew, m_p, fnew);
++    ++nfev;
++    for (int j = 0; j < n; ++j) K[NST][j] = fnew[j];
++    // error norm (scipy DOP853._estimate_error_norm)
++    double e5 = 0.0, e3 = 0.0;
++    for (int j = 0; j < n; ++j) {
++      const double scj = m_atol[j] + std::max(std::abs(y[j]), std::abs(ynew[j])) * m_rtol;
++      double a5 = 0.0, a3 = 0.0;
++      for (int i = 0; i < NST + 1; ++i) {
++        a5 += K[i][j] * E5[i];
++        a3 += K[i][j] * E3[i];
++      }
++      e5 += (a5 / scj) * (a5 / scj);
++      e3 += (a3 / scj) * (a3 / scj);
++    }
++    const double err = (e5 == 0.0 && e3 == 0.0) ? 0.0 : std::abs(h) * e5 / std::sqrt((e5 + 0.01 * e3) * n);
++    if (err < 1) {
++      double factor = (err == 0) ? 10.0 : std::min(10.0, 0.9 * std::pow(err, -1.0 / 8.0));
++      if (rejected) factor = std::min(1.0, factor);
++      h_abs *= factor;
++      break;
++    }
++    h_abs *= std::max(0.2, 0.9 * std::pow(err, -1.0 / 8.0));
++    rejected = true;
++    ++nrej;
++  }
++  ++nacc;
++  // dense output (scipy DOP853._dense_output_impl)
++  for (int s = NST + 1; s < NEXT; ++s) {
++    for (int j = 0; j < n; ++j) {
++      double acc = 0.0;
++      for (int i = 0; i < s; ++i) acc += K[i][j] * A[s][i];
++      tmp[j] = y[j] + acc * h;
++    }
++    Rhs(tmp, m_p, K[s]);
++    ++nfev;
++  }
++  for (int j = 0; j < n; ++j) {
++    const double dy = ynew[j] - y[j];
++    F[0][j] = dy;
++    F[1][j] = h * K[0][j] - dy;
++    F[2][j] = 2 * dy - h * (fnew[j] + K[0][j]);
++    for (int r = 0; r < NPOW - 3; ++r) {
++      double acc = 0.0;
++      for (int i = 0; i < NEXT; ++i) acc += D[r][i] * K[i][j];
++      F[3 + r][j] = h * acc;
++    }
++  }
++  t_old = t;
++  for (int j = 0; j < n; ++j) { y_old[j] = y[j]; y[j] = ynew[j]; f[j] = fnew[j]; }
++  t = t_new;
++  return 0;
++}
++
++Result Integrate(const double y0[12], double t_end, const Params& p, double rtol, const double atol[12],
++                 const std::vector<double>& R2n, const std::vector<double>& Zn, int ncoarse, int nfine, long max_out) {
++  Result R;
++  Solver S(y0, t_end, p, rtol, atol);
++  double yd[n], yd2[n];
++  Push(R, S.t, S.y);
++  const bool refine = !R2n.empty() || !Zn.empty();
++  std::vector<int8_t> sprev, scur;
++  auto fin = [&](int st) { R.status = st; R.nacc = S.nacc; R.nrej = S.nrej; R.nfev = S.nfev; return R; };
++  while (!S.Done()) {
++    if (S.Step() < 0) return fin(-1);
++    const double t = S.t_old, h = S.h, t_new = S.t;
++    // output: coarse points, refined where a radius or plane is crossed
++    if (refine) {
++      Signs(S.y_old, R2n, Zn, sprev);
++      double xprev = 0.0;
++      for (int c = 1; c <= ncoarse; ++c) {
++        const double xc = static_cast<double>(c) / ncoarse;
++        if (c == ncoarse) {
++          for (int j = 0; j < n; ++j) yd[j] = S.y[j];
++        } else {
++          Dense(S.F, S.y_old, xc, yd);
++        }
++        Signs(yd, R2n, Zn, scur);
++        if (scur != sprev) {
++          for (int q = 0; q <= nfine; ++q) {
++            const double xq = xprev + (xc - xprev) * q / nfine;
++            if (q == 0 && xprev == 0.0) continue;
++            Dense(S.F, S.y_old, xq, yd2);
++            const double tq = t + xq * h;
++            if (static_cast<long>(R.T.size()) >= max_out) return fin(-2);
++            if (R.T.back() == tq) continue;
++            Push(R, tq, yd2);
++          }
++        }
++        sprev = scur;
++        xprev = xc;
++      }
++    } else {
++      for (int c = 1; c < ncoarse; ++c) {
++        Dense(S.F, S.y_old, static_cast<double>(c) / ncoarse, yd);
++        if (static_cast<long>(R.T.size()) >= max_out) return fin(-2);
++        Push(R, t + static_cast<double>(c) / ncoarse * h, yd);
++      }
++    }
++    if (static_cast<long>(R.T.size()) >= max_out) return fin(-2);
++    if (R.T.back() != t_new) {
++      Push(R, t_new, S.y);
++    } else {
++      for (int j = 0; j < n; ++j) R.Y[R.Y.size() - 12 + j] = S.y[j];
++    }
++  }
++  return fin(0);
++}
++
++}  // namespace quirkeq3
+diff --git a/quirkcore/src/QuirkEq3Pair.cc b/quirkcore/src/QuirkEq3Pair.cc
+new file mode 100644
+index 0000000..9a32758
+--- /dev/null
++++ b/quirkcore/src/QuirkEq3Pair.cc
+@@ -0,0 +1,218 @@
++// 09 patch (2026-11-24): Eq. 3 pair integration for /quirk/model eq3; see the header.
++#include "quirkcore/QuirkEq3Pair.h"
++#include "G4Track.hh"
++#include "G4DynamicParticle.hh"
++#include "G4EventManager.hh"
++#include "G4Event.hh"
++#include "G4TransportationManager.hh"
++#include "G4FieldManager.hh"
++#include "G4Field.hh"
++#include "G4Exception.hh"
++#include <CLHEP/Units/SystemOfUnits.h>
++#include "G4ios.hh"
++#include <cmath>
++#include <cstdlib>
++#include <algorithm>
++
++G4bool QuirkEq3Pair::s_enabled = false;
++G4double QuirkEq3Pair::s_rtol = 1e-10;
++G4double QuirkEq3Pair::s_slice = 0.1 * CLHEP::ns;
++G4double QuirkEq3Pair::s_lambda = 0.;
++
++namespace {
++// the constants of the Python code (03_trajectory_sim: CM, NS, TESLA_TO_GEV2, e_charge_natural)
++constexpr double CM = 1.973269804e-14;          // cm per GeV^-1
++constexpr double NS = 6.582119569e-16;          // ns per GeV^-1 (hbar = 6.582e-25 GeV s)
++constexpr double TESLA_TO_GEV2 = 1.9535e-16;
++constexpr double E_NAT = 0.30282212;
++constexpr double MM_PER_NAT = CM * 10.0;        // mm per GeV^-1
++constexpr double NS_PER_NAT = NS;               // ns per GeV^-1
++// 8-point Gauss-Legendre on [0, 1]
++constexpr double GLX[8] = {0.019855071751231856, 0.10166676129318664, 0.2372337950418355, 0.4082826787521751,
++                           0.5917173212478249, 0.7627662049581645, 0.8983332387068134, 0.9801449282487681};
++constexpr double GLW[8] = {0.05061426814518813, 0.11119051722668724, 0.15685332293894364, 0.18134189168918100,
++                           0.18134189168918100, 0.15685332293894364, 0.11119051722668724, 0.05061426814518813};
++inline double Speed(const double y[12], int slot, double m) {
++  const double* p = y + 6 * slot + 3;
++  const double p2 = p[0] * p[0] + p[1] * p[1] + p[2] * p[2];
++  return std::sqrt(p2) / std::sqrt(p2 + m * m);
++}
++}  // namespace
++
++QuirkEq3Pair& QuirkEq3Pair::instance() {
++  static thread_local QuirkEq3Pair pair;
++  return pair;
++}
++
++void QuirkEq3Pair::Clear() {
++  m_reg[0] = m_reg[1] = false;
++  m_alive[0] = m_alive[1] = true;
++  m_solver.reset();
++  m_steps.clear();
++  m_sCur[0] = m_sCur[1] = m_sH[0] = m_sH[1] = 0;
++  m_tOffset = 0;
++  m_restarts = 0;
++}
++
++void QuirkEq3Pair::StartTracking(const G4Track& track) {
++  if (track.GetCurrentStepNumber() != 0) return;                      // resumption of a suspended quirk
++  const G4Event* ev = G4EventManager::GetEventManager()->GetConstCurrentEvent();
++  const G4int evt = ev ? ev->GetEventID() : -1;
++  const int idx = Index(track.GetDefinition()->GetPDGEncoding());
++  if (evt != m_event || m_reg[idx]) { Clear(); m_event = evt; }        // new event (or a second pair in the same event)
++  m_reg[idx] = true;
++  m_x[idx] = track.GetPosition();
++  m_p[idx] = track.GetMomentum();
++  m_q[idx] = track.GetDynamicParticle()->GetCharge() / CLHEP::eplus;
++  m_mass = track.GetDynamicParticle()->GetMass();
++  if (!(m_reg[0] && m_reg[1])) { m_t0 = track.GetGlobalTime(); return; }
++  if (std::abs(track.GetGlobalTime() - m_t0) > 1e-9 * CLHEP::ns || (m_x[0] - m_x[1]).mag() > 1e-9 * CLHEP::mm) {
++    G4Exception("QuirkEq3Pair::StartTracking", "QuirkEq3Vertex", FatalException, "eq3: the two quirks must start at one point and one time");
++  }
++  m_slot[0] = (m_q[0] > 0 || (m_q[0] == m_q[1])) ? 0 : 1;              // slot 0 = the positive charge
++  m_slot[1] = 1 - m_slot[0];
++}
++
++void QuirkEq3Pair::NewSolver(const double t0_nat) {
++  double y0[12];
++  for (int idx = 0; idx < 2; ++idx) {
++    const int k = 6 * m_slot[idx];
++    y0[k + 0] = m_x[idx].x() / CLHEP::mm / MM_PER_NAT;
++    y0[k + 1] = m_x[idx].y() / CLHEP::mm / MM_PER_NAT;
++    y0[k + 2] = m_x[idx].z() / CLHEP::mm / MM_PER_NAT;
++    y0[k + 3] = m_p[idx].x() / CLHEP::GeV;
++    y0[k + 4] = m_p[idx].y() / CLHEP::GeV;
++    y0[k + 5] = m_p[idx].z() / CLHEP::GeV;
++  }
++  m_tOffset = t0_nat;
++  m_solver = std::make_unique<quirkeq3::Solver>(y0, 1e300, m_par, s_rtol, m_atol);
++}
++
++void QuirkEq3Pair::IntegrateSlice() {
++  if (!m_solver) {
++    m_par.mass = m_mass / CLHEP::GeV;
++    const int a = m_slot[0] == 0 ? 0 : 1;                               // pdg index in slot 0
++    m_par.q1 = m_q[a] * E_NAT;
++    m_par.q2 = m_q[1 - a] * E_NAT;
++    m_par.L2 = (s_lambda / CLHEP::GeV) * (s_lambda / CLHEP::GeV);
++    G4double B[6] = {0, 0, 0, 0, 0, 0};
++    const G4FieldManager* fm = G4TransportationManager::GetTransportationManager()->GetFieldManager();
++    if (fm && fm->GetDetectorField()) {
++      const G4double pt[4] = {m_x[0].x(), m_x[0].y(), m_x[0].z(), m_t0};
++      fm->GetDetectorField()->GetFieldValue(pt, B);
++    }
++    m_par.Bz = (B[2] / CLHEP::tesla) * TESLA_TO_GEV2;
++    for (int k = 0; k < 2; ++k) {
++      for (int j = 0; j < 3; ++j) m_atol[6 * k + j] = 1e-7 / CM * (s_rtol / 1e-10);      // 1 nm (quirk_trajectory_dop853.ATOL_X)
++      for (int j = 3; j < 6; ++j) m_atol[6 * k + j] = 1e-10 * (s_rtol / 1e-10);          // 1e-10 GeV (ATOL_P)
++    }
++    NewSolver(0.0);
++  } else {
++    // slice start: the actual Geant4 states against the integrator state (vacuum: equal)
++    G4bool same = true;
++    double dxs[2], dps[2];
++    for (int idx = 0; idx < 2; ++idx) {
++      const double* y = m_solver->y + 6 * m_slot[idx];
++      const G4ThreeVector x(y[0] * MM_PER_NAT * CLHEP::mm, y[1] * MM_PER_NAT * CLHEP::mm, y[2] * MM_PER_NAT * CLHEP::mm);
++      const G4ThreeVector p(y[3] * CLHEP::GeV, y[4] * CLHEP::GeV, y[5] * CLHEP::GeV);
++      dxs[idx] = (x - m_x[idx]).mag(); dps[idx] = (p - m_p[idx]).mag() / p.mag();
++      if (dxs[idx] > 1e-6 * CLHEP::mm || dps[idx] > 1e-9) same = false;
++    }
++    if (std::getenv("QUIRK_EQ3_DEBUG"))
++      G4cout << "QuirkEq3Pair: slice at t=" << (m_tOffset + m_solver->t) * NS_PER_NAT << " ns, s_cur " << m_sCur[0] << " " << m_sCur[1] << " s_H " << m_sH[0] << " "
++             << m_sH[1] << " mm, |dx| " << dxs[0] << " " << dxs[1] << " mm, |dp|/p " << dps[0] << " " << dps[1] << (same ? "" : "  -> RESTART") << G4endl;
++    if (!same) {
++      NewSolver(m_tOffset + m_solver->t);
++      ++m_restarts;
++    }
++  }
++  const double t_end = m_tOffset + m_solver->t + s_slice / CLHEP::ns / NS_PER_NAT;
++  while (m_tOffset + m_solver->t < t_end) {
++    if (m_solver->Step() < 0) {
++      G4Exception("QuirkEq3Pair::IntegrateSlice", "QuirkEq3Step", EventMustBeAborted, "eq3: DOP853 step size too small");
++      m_alive[0] = m_alive[1] = false;
++      return;
++    }
++    StepRec r;
++    r.t_old = m_tOffset + m_solver->t_old;
++    r.h = m_solver->h;
++    std::copy(m_solver->y_old, m_solver->y_old + 12, r.y_old);
++    for (int i = 0; i < 7; ++i) std::copy(m_solver->F[i], m_solver->F[i] + 12, r.F[i]);
++    for (int k = 0; k < 2; ++k) {
++      r.s0[k] = m_steps.empty() ? 0.0 : m_steps.back().s1[k];
++      r.s1[k] = r.s0[k] + PathInStep(r, k, 1.0);
++    }
++    m_steps.push_back(r);
++  }
++  for (int idx = 0; idx < 2; ++idx) m_sH[idx] = m_steps.back().s1[m_slot[idx]];
++  // drop the steps both tracks have passed
++  while (m_steps.size() > 1 && m_steps.front().s1[m_slot[0]] < m_sCur[0] && m_steps.front().s1[m_slot[1]] < m_sCur[1]) m_steps.pop_front();
++}
++
++double QuirkEq3Pair::PathInStep(const StepRec& r, int slot, double x) const {
++  if (x <= 0) return 0.0;
++  const double m = m_par.mass;
++  double y[12], sum = 0;
++  for (int i = 0; i < 8; ++i) {
++    quirkeq3::Dense(r.F, r.y_old, GLX[i] * x, y);
++    sum += GLW[i] * Speed(y, slot, m);
++  }
++  return sum * x * r.h * MM_PER_NAT;
++}
++
++void QuirkEq3Pair::PrintCounters(const char* where) const {
++  if (!std::getenv("QUIRK_EQ3_DEBUG")) return;
++  G4cout << "QuirkEq3Pair counters (" << where << "): StateAt calls " << m_nStateAt << ", beyond the horizon (clamped) " << m_nClamp << " (max "
++         << m_maxClamp / CLHEP::mm << " mm); Stepper calls past the step's MaxLength " << m_nStepBeyond << " (max " << m_maxStepBeyond / CLHEP::mm
++         << " mm); restarts " << m_restarts << G4endl;
++}
++
++G4bool QuirkEq3Pair::AtHorizon(int idx) const { return m_sH[idx] - m_sCur[idx] <= 1e-9 * CLHEP::mm; }
++
++G4bool QuirkEq3Pair::Ensure(int idx, const G4Track& track) {
++  m_x[idx] = track.GetPosition();                                       // actual state, for the slice-start comparison
++  m_p[idx] = track.GetMomentum();
++  if (!(m_reg[0] && m_reg[1])) return false;
++  if (!AtHorizon(idx)) return true;
++  const int o = 1 - idx;
++  if (!m_alive[o] || !AtHorizon(o)) return false;
++  IntegrateSlice();
++  return m_alive[idx] && !AtHorizon(idx);
++}
++
++G4double QuirkEq3Pair::MaxLength(int idx) const {
++  if (!(m_reg[0] && m_reg[1])) return 0.0;
++  return std::max(0.0, m_sH[idx] - m_sCur[idx]);
++}
++
++void QuirkEq3Pair::StateAt(int idx, G4double s, G4double y9[9]) const {
++  const int slot = m_slot[idx];
++  ++m_nStateAt;
++  if (s > m_sH[idx]) { ++m_nClamp; m_maxClamp = std::max(m_maxClamp, s - m_sH[idx]); }
++  s = std::min(std::max(s, 0.0), m_sH[idx]);
++  // the step that contains s
++  auto it = std::lower_bound(m_steps.begin(), m_steps.end(), s, [slot](const StepRec& r, double v) { return r.s1[slot] < v; });
++  if (it == m_steps.end()) it = std::prev(m_steps.end());
++  const StepRec& r = *it;
++  const double target = s - r.s0[slot], len = r.s1[slot] - r.s0[slot];
++  double x = len > 0 ? std::min(std::max(target / len, 0.0), 1.0) : 1.0;
++  double y[12];
++  for (int k = 0; k < 40 && len > 0; ++k) {                           // Newton on the path length
++    quirkeq3::Dense(r.F, r.y_old, x, y);
++    const double v = Speed(y, slot, m_par.mass) * r.h * MM_PER_NAT;
++    const double dx = (PathInStep(r, slot, x) - target) / v;
++    x = std::min(std::max(x - dx, 0.0), 1.0);
++    if (std::abs(dx) < 1e-15) break;
++  }
++  quirkeq3::Dense(r.F, r.y_old, x, y);
++  const double* q = y + 6 * slot;
++  y9[0] = q[0] * MM_PER_NAT * CLHEP::mm;
++  y9[1] = q[1] * MM_PER_NAT * CLHEP::mm;
++  y9[2] = q[2] * MM_PER_NAT * CLHEP::mm;
++  y9[3] = q[3] * CLHEP::GeV;
++  y9[4] = q[4] * CLHEP::GeV;
++  y9[5] = q[5] * CLHEP::GeV;
++  const double p2 = y9[3] * y9[3] + y9[4] * y9[4] + y9[5] * y9[5];
++  y9[6] = p2 / (std::sqrt(p2 + m_mass * m_mass) + m_mass);           // Ekin without cancellation
++  y9[7] = m_t0 + (r.t_old + x * r.h) * NS_PER_NAT * CLHEP::ns;
++}
+diff --git a/quirkcore/test/eq3_dop853_cli.cc b/quirkcore/test/eq3_dop853_cli.cc
+new file mode 100644
+index 0000000..a85de0d
+--- /dev/null
++++ b/quirkcore/test/eq3_dop853_cli.cc
+@@ -0,0 +1,42 @@
++// Standalone driver for quirkeq3::Integrate (09 patch, 2026-11-24), used by coplanarity_study/09_.../g4/G14_cpp_dop853_vs_numba.py.
++// Input  (binary doubles): y0[12], t_end, mass, q1, q2, L2, Bz, rtol, atol[12], nR, R2n[nR], nZ, Zn[nZ], ncoarse, nfine, max_out
++// Output (binary doubles): status, nacc, nrej, nfev, npts, T[npts], Y[npts * 12]
++// Build: g++ -O2 -std=c++17 -I../include eq3_dop853_cli.cc ../src/QuirkEq3Dop853.cc -o eq3_dop853_cli
++#include "quirkcore/QuirkEq3Dop853.h"
++#include <cstdio>
++#include <vector>
++
++int main(int argc, char** argv) {
++  if (argc != 3) { std::fprintf(stderr, "usage: eq3_dop853_cli <in.bin> <out.bin>\n"); return 2; }
++  std::FILE* fi = std::fopen(argv[1], "rb");
++  if (!fi) return 3;
++  std::vector<double> v;
++  double x;
++  while (std::fread(&x, sizeof(double), 1, fi) == 1) v.push_back(x);
++  std::fclose(fi);
++  size_t k = 0;
++  auto get = [&]() { return v.at(k++); };
++  double y0[12], atol[12];
++  for (double& a : y0) a = get();
++  const double t_end = get();
++  quirkeq3::Params p;
++  p.mass = get(); p.q1 = get(); p.q2 = get(); p.L2 = get(); p.Bz = get();
++  const double rtol = get();
++  for (double& a : atol) a = get();
++  std::vector<double> R2n(static_cast<size_t>(get()));
++  for (double& a : R2n) a = get();
++  std::vector<double> Zn(static_cast<size_t>(get()));
++  for (double& a : Zn) a = get();
++  const int ncoarse = static_cast<int>(get()), nfine = static_cast<int>(get());
++  const long max_out = static_cast<long>(get());
++  const quirkeq3::Result R = quirkeq3::Integrate(y0, t_end, p, rtol, atol, R2n, Zn, ncoarse, nfine, max_out);
++  std::FILE* fo = std::fopen(argv[2], "wb");
++  if (!fo) return 4;
++  const double hdr[5] = {static_cast<double>(R.status), static_cast<double>(R.nacc), static_cast<double>(R.nrej), static_cast<double>(R.nfev),
++                         static_cast<double>(R.T.size())};
++  std::fwrite(hdr, sizeof(double), 5, fo);
++  std::fwrite(R.T.data(), sizeof(double), R.T.size(), fo);
++  std::fwrite(R.Y.data(), sizeof(double), R.Y.size(), fo);
++  std::fclose(fo);
++  return 0;
++}
+diff --git a/quirkcore/test/eq3_pathlen_test.cc b/quirkcore/test/eq3_pathlen_test.cc
+new file mode 100644
+index 0000000..5e7cd93
+--- /dev/null
++++ b/quirkcore/test/eq3_pathlen_test.cc
+@@ -0,0 +1,58 @@
++// 09 debug test (2026-11-24): the 8-point Gauss-Legendre path length per DOP853 step (as QuirkEq3Pair::PathInStep) against a composite
++// Simpson integral with 4000 sub-intervals of |v| from the same dense output, for every accepted step of one pair.
++// Input: px1 py1 pz1 px2 py2 pz2 (GeV; quirk 1 charge +1, quirk 2 charge -1), mass (GeV), Lambda (GeV), t_stop (ns), B (T).
++// Build: g++ -O2 -std=c++17 -ffp-contract=off -I../include eq3_pathlen_test.cc ../src/QuirkEq3Dop853.cc -o eq3_pathlen_test
++#include "quirkcore/QuirkEq3Dop853.h"
++#include <cmath>
++#include <cstdio>
++#include <cstdlib>
++
++static const double GLX[8] = {0.019855071751231856, 0.10166676129318664, 0.2372337950418355, 0.4082826787521751,
++                              0.5917173212478249, 0.7627662049581645, 0.8983332387068134, 0.9801449282487681};
++static const double GLW[8] = {0.05061426814518813, 0.11119051722668724, 0.15685332293894364, 0.18134189168918100,
++                              0.18134189168918100, 0.15685332293894364, 0.11119051722668724, 0.05061426814518813};
++static double speed(const double y[12], int slot, double m) {
++  const double* p = y + 6 * slot + 3;
++  const double p2 = p[0] * p[0] + p[1] * p[1] + p[2] * p[2];
++  return std::sqrt(p2) / std::sqrt(p2 + m * m);
++}
++
++int main(int argc, char** argv) {
++  if (argc != 11) { std::fprintf(stderr, "usage: px1 py1 pz1 px2 py2 pz2 mass Lambda t_stop_ns B_T\n"); return 2; }
++  double a[10];
++  for (int i = 0; i < 10; ++i) a[i] = std::atof(argv[i + 1]);
++  const double CM = 1.973269804e-14, NS = 6.582119569e-16;
++  double y0[12] = {0, 0, 0, a[0], a[1], a[2], 0, 0, 0, a[3], a[4], a[5]};
++  quirkeq3::Params p;
++  p.mass = a[6]; p.q1 = 0.30282212; p.q2 = -0.30282212; p.L2 = a[7] * a[7]; p.Bz = a[9] * 1.9535e-16;
++  double atol[12];
++  for (int k = 0; k < 2; ++k) { for (int j = 0; j < 3; ++j) atol[6 * k + j] = 1e-7 / CM; for (int j = 3; j < 6; ++j) atol[6 * k + j] = 1e-10; }
++  quirkeq3::Solver S(y0, a[8] / NS, p, 1e-10, atol);
++  double worst = 0, worst_t = 0, worst_h = 0, sum_gl[2] = {0, 0}, sum_fine[2] = {0, 0};
++  long nsteps = 0;
++  while (!S.Done()) {
++    if (S.Step() < 0) { std::printf("step too small\n"); return 1; }
++    ++nsteps;
++    double y[12];
++    for (int k = 0; k < 2; ++k) {
++      double gl = 0;
++      for (int i = 0; i < 8; ++i) { quirkeq3::Dense(S.F, S.y_old, GLX[i], y); gl += GLW[i] * speed(y, k, p.mass); }
++      const int N = 4000;
++      double fine = 0;
++      for (int i = 0; i <= N; ++i) {
++        quirkeq3::Dense(S.F, S.y_old, static_cast<double>(i) / N, y);
++        fine += (i == 0 || i == N ? 1 : (i % 2 ? 4 : 2)) * speed(y, k, p.mass);
++      }
++      fine /= 3.0 * N;
++      sum_gl[k] += gl * S.h; sum_fine[k] += fine * S.h;
++      const double rel = std::abs(gl - fine) / fine;
++      if (rel > worst) { worst = rel; worst_t = S.t_old * NS; worst_h = S.h * NS; }
++    }
++  }
++  std::printf("steps %ld; worst per-step relative error of the 8-point Gauss-Legendre path length %.3e (step at t = %.6f ns, h = %.3e ns)\n",
++              nsteps, worst, worst_t, worst_h);
++  for (int k = 0; k < 2; ++k)
++    std::printf("quirk %d: total path GL %.9f mm, fine %.9f mm, difference %.3e um\n", k + 1, sum_gl[k] * CM * 10, sum_fine[k] * CM * 10,
++                (sum_gl[k] - sum_fine[k]) * CM * 10 * 1e3);
++  return 0;
++}
